@@ -1,0 +1,17 @@
+{
+  "_comment": "S7 operating point for the FPS-AUGMENTED 250-class model. theta_conf=-1.6 chosen by eval.confirm on a LOW-FPS val (features_lowfps_k8 ~ the phone's ~4fps) under temperature=1.0 (kept consistent). This model is trained to be robust to the phone's low frame rate. S5 signing thresholds mirror pipeline/config/detect.yaml.",
+  "theta_conf": -1.6,
+  "theta_margin": 0.30,
+  "k_stability": 3,
+  "temperature": 1.0,
+  "signing": {
+    "theta_on": 0.120,
+    "theta_off": 0.072,
+    "k_on": 3,
+    "k_off": 4,
+    "raise_margin": 0.10,
+    "smoothing_window": 5,
+    "hand_aux_weight": 0.5,
+    "require_hands": true
+  }
+}

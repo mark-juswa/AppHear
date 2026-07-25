@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="4dp"
+    android:layout_marginEnd="4dp"
+    android:layout_marginBottom="6dp"
+    android:background="@drawable/bg_card"
+    android:orientation="horizontal"
+    android:padding="12dp"
+    android:gravity="center_vertical">
+
+    <!-- Status badge -->
+    <TextView
+        android:id="@+id/tvItemStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_badge_green"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp"
+        android:text="OK"
+        android:textColor="@color/color_accepted"
+        android:textSize="10sp"
+        android:textStyle="bold"
+        android:minWidth="40dp"
+        android:gravity="center" />
+
+    <!-- Sample info -->
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_marginStart="10dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvItemFilename"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="S001_001_HELLO_0001_ACCEPTED.json"
+            android:textColor="@color/text_primary"
+            android:textSize="12sp"
+            android:singleLine="true"
+            android:ellipsize="middle" />
+
+        <TextView
+            android:id="@+id/tvItemDetail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:text=""
+            android:textColor="@color/text_secondary"
+            android:textSize="11sp" />
+    </LinearLayout>
+
+    <!-- Promote button (only for rejected items) -->
+    <Button
+        android:id="@+id/btnPromoteToAccepted"
+        android:layout_width="wrap_content"
+        android:layout_height="32dp"
+        android:layout_marginStart="8dp"
+        android:background="@drawable/bg_button_secondary"
+        android:text="Accept"
+        android:textColor="@color/color_accepted"
+        android:textSize="11sp"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
+        android:visibility="gone" />
+
+    <Button
+        android:id="@+id/btnDeleteSample"
+        android:layout_width="wrap_content"
+        android:layout_height="32dp"
+        android:layout_marginStart="6dp"
+        android:background="@drawable/bg_badge_red"
+        android:text="@string/btn_delete_sample"
+        android:textColor="@color/color_rejected"
+        android:textSize="11sp"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
+        android:visibility="gone" />
+
+</LinearLayout>

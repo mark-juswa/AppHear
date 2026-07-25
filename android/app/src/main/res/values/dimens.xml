@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Spacing scale -->
+    <dimen name="space_4">4dp</dimen>
+    <dimen name="space_8">8dp</dimen>
+    <dimen name="space_12">12dp</dimen>
+    <dimen name="space_16">16dp</dimen>
+    <dimen name="space_20">20dp</dimen>
+    <dimen name="space_24">24dp</dimen>
+    <dimen name="space_32">32dp</dimen>
+    <dimen name="space_40">40dp</dimen>
+    <dimen name="space_48">48dp</dimen>
+
+    <!-- Shape scale -->
+    <dimen name="radius_small">8dp</dimen>
+    <dimen name="radius_medium">12dp</dimen>
+    <dimen name="radius_large">20dp</dimen>
+    <dimen name="radius_panel">28dp</dimen>
+    <dimen name="radius_pill">999dp</dimen>
+    <dimen name="radius_circle">999dp</dimen>
+
+    <!-- Reusable sizing -->
+    <dimen name="touch_target_min">48dp</dimen>
+    <dimen name="icon_size_small">18dp</dimen>
+    <dimen name="icon_size_default">24dp</dimen>
+    <dimen name="icon_size_large">32dp</dimen>
+    <dimen name="avatar_size_default">72dp</dimen>
+    <dimen name="content_max_width">600dp</dimen>
+    <dimen name="bottom_sheet_handle_width">44dp</dimen>
+    <dimen name="bottom_sheet_handle_height">4dp</dimen>
+</resources>

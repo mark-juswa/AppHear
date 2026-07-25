@@ -1,0 +1,12 @@
+# Confirmation policy for the 236-class ASL Citizen + local supplementary TCN candidate.
+# Tuned on features_lowfps_conv_k8 to match the low processed-FPS Android deployment condition.
+
+temperature: 0.6262
+k_stability: 3
+theta_margin: 0.30
+target_false_commit: 0.05
+
+theta_conf_grid: [-4.0, -3.5, -3.0, -2.5, -2.2, -2.0, -1.8, -1.6, -1.4, -1.2, -1.0]
+
+features_dir: "F:/ASL DATASET/ASL CITIZEN/derived/apphear3/features_lowfps_conv_k8"
+model_dir: "F:/ASL DATASET/ASL CITIZEN/derived/apphear3/runs/tcn_streaming_conversational_plus_local_pc_236_rtx3050_v30"

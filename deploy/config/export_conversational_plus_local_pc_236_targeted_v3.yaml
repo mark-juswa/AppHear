@@ -1,0 +1,15 @@
+# TFLite INT8 export for the targeted v3 236-class Android A/B candidate.
+# This is intentionally separate from the current Android baseline export config.
+
+n_calib: 300
+parity_batch: 3000
+schema_version: "3.0"
+calibration_temperature: 0.6262
+
+max_clip_top1_delta: 0.01
+max_mean_abs_prob_diff: 0.005
+commit_margin_floor: 0.05
+
+features_dir: "F:/ASL DATASET/ASL CITIZEN/derived/apphear3/features_streaming_conversational_plus_pc_236_fps"
+model_dir: "F:/ASL DATASET/ASL CITIZEN/derived/apphear3/runs/tcn_streaming_conversational_plus_local_pc_236_targeted_v3"
+confirm_config: "model/config/confirm_conversational_plus_local_pc_236_fps.yaml"

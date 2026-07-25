@@ -1,0 +1,48 @@
+{
+  "version": 1,
+  "source": "AppHear2 filtered smoke slice",
+  "clips": [
+    {
+      "id": "idle",
+      "displayText": "Idle",
+      "asset": "asl_animations/asl_idle.glb",
+      "type": "pose",
+      "aliases": ["idle", "rest", "stand"]
+    },
+    {
+      "id": "hello",
+      "displayText": "Hello",
+      "asset": "asl_animations/hello.glb",
+      "type": "phrase",
+      "aliases": ["hello", "hi", "hey"]
+    },
+    {
+      "id": "thank_you",
+      "displayText": "Thank you",
+      "asset": "asl_animations/thank-you.glb",
+      "type": "phrase",
+      "aliases": ["thank you", "thanks", "thank"]
+    },
+    {
+      "id": "good",
+      "displayText": "Good",
+      "asset": "asl_animations/GOOD.glb",
+      "type": "word",
+      "aliases": ["good"]
+    },
+    {
+      "id": "a",
+      "displayText": "A",
+      "asset": "asl_animations/anim_a.glb",
+      "type": "letter",
+      "aliases": ["a"]
+    },
+    {
+      "id": "b",
+      "displayText": "B",
+      "asset": "asl_animations/anim_b.glb",
+      "type": "letter",
+      "aliases": ["b"]
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+# Feature 05 — Feature extraction (F) + contract v3.0 configuration.
+# F composes N1-N3 (normalize.yaml) -> N4 (quality.yaml resample_T) into the versioned 258
+# vector. It reuses those configs so T and the normalization params have a single source of
+# truth; this file only owns the contract version, output location, and the accept policy.
+
+schema_version: "3.0"
+accepted_only: true   # only Q-accepted clips enter the persisted training arrays
+
+# Sibling configs consumed (normalization params + N4 T + Q thresholds + input/spans roots).
+normalize_config: "pipeline/config/normalize.yaml"
+quality_config: "pipeline/config/quality.yaml"
+
+output_root: "F:/ASL DATASET/ASL CITIZEN/derived/apphear3/features"
+
+# Phase 1 (streaming) — real-timed regime, N4 OFF. Separate dir; reuses the isolated vocab.json.
+streaming:
+  t_max: 96   # padded sequence length; covers span p99 (~3.0s), truncates ~0.7% tail
+  output_root: "F:/ASL DATASET/ASL CITIZEN/derived/apphear3/features_streaming"

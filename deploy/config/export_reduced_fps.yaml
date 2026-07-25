@@ -1,0 +1,17 @@
+# TFLite INT8 export of the FPS-AUGMENTED 250-class model. Calibration draws from the fps-expanded
+# train set (so INT8 quant sees the low-fps distribution the phone produces). Same gate as the other
+# exports (accuracy + fidelity preserved).
+
+n_calib: 300
+parity_batch: 3000  # larger, stable estimate — the fps-diverse val has more near-ties than native,
+                    # so a small batch inflates the (benign) top-1 churn; average it out
+schema_version: "3.0"
+calibration_temperature: 1.0
+
+max_clip_top1_delta: 0.01
+max_mean_abs_prob_diff: 0.005
+commit_margin_floor: 0.05
+
+features_dir: "F:/ASL DATASET/ASL CITIZEN/derived/apphear3/features_streaming_reduced_fps"
+model_dir: "F:/ASL DATASET/ASL CITIZEN/derived/apphear3/runs/tcn_streaming_reduced_fps_v30"
+confirm_config: "model/config/confirm_reduced_fps.yaml"

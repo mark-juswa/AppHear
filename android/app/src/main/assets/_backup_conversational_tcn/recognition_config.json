@@ -1,0 +1,17 @@
+{
+  "_comment": "S7 operating point for the FPS-AUGMENTED CONVERSATIONAL (236-word) model. theta_conf=-1.2 chosen by eval.confirm on features_lowfps_conv_k8 (~phone ~4fps) under temperature=0.647 (the model's fitted calibration T; confirm+export+app all match). precision-when-committed 0.73. Revert to the 250-word model = restore assets/_backup_250fps. S5 signing thresholds mirror pipeline/config/detect.yaml.",
+  "theta_conf": -1.2,
+  "theta_margin": 0.30,
+  "k_stability": 3,
+  "temperature": 0.647,
+  "signing": {
+    "theta_on": 0.120,
+    "theta_off": 0.072,
+    "k_on": 3,
+    "k_off": 4,
+    "raise_margin": 0.10,
+    "smoothing_window": 5,
+    "hand_aux_weight": 0.5,
+    "require_hands": true
+  }
+}

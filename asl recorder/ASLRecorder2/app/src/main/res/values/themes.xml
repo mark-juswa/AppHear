@@ -1,0 +1,125 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- ── App theme ──────────────────────────────────────────────────────────── -->
+    <!--
+        Override the FULL Material3 color system so none of the default purple
+        tones leak through onto buttons, text fields, spinners, or ripples.
+        Every color role is mapped to the app's neutral dark palette.
+    -->
+    <style name="Base.Theme.ASLRecorder" parent="Theme.Material3.Light.NoActionBar">
+
+        <!-- Primary — near-black used for filled buttons, active outlines, focus rings -->
+        <item name="colorPrimary">@color/color_primary</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorPrimaryContainer">@color/color_secondary</item>
+        <item name="colorOnPrimaryContainer">@color/color_primary</item>
+
+        <!-- Secondary — medium gray, used for chips, secondary controls -->
+        <item name="colorSecondary">@color/text_secondary</item>
+        <item name="colorOnSecondary">@color/white</item>
+        <item name="colorSecondaryContainer">@color/bg_app</item>
+        <item name="colorOnSecondaryContainer">@color/text_primary</item>
+
+        <!-- Tertiary — dark gray, replaces any remaining accent tones -->
+        <item name="colorTertiary">@color/color_primary</item>
+        <item name="colorOnTertiary">@color/white</item>
+        <item name="colorTertiaryContainer">@color/bg_app</item>
+        <item name="colorOnTertiaryContainer">@color/text_primary</item>
+
+        <!-- Error — app red -->
+        <item name="colorError">@color/color_rejected</item>
+        <item name="colorOnError">@color/white</item>
+        <item name="colorErrorContainer">@color/color_rejected_bg</item>
+        <item name="colorOnErrorContainer">@color/color_rejected</item>
+
+        <!-- Background / Surface -->
+        <item name="colorOnBackground">@color/text_primary</item>
+        <item name="colorSurface">@color/bg_surface</item>
+        <item name="colorOnSurface">@color/text_primary</item>
+        <item name="colorSurfaceVariant">@color/bg_app</item>
+        <item name="colorOnSurfaceVariant">@color/text_secondary</item>
+
+        <!-- Outline — used by TextInputLayout borders, Dividers -->
+        <item name="colorOutline">@color/card_stroke</item>
+        <item name="colorOutlineVariant">@color/divider</item>
+
+        <!-- Inverse — used by Snackbars, tooltips -->
+        <item name="colorSurfaceInverse">@color/color_primary</item>
+        <item name="colorOnSurfaceInverse">@color/white</item>
+        <item name="colorPrimaryInverse">@color/white</item>
+
+        <!-- Legacy android: attributes that some widgets still read -->
+        <item name="android:colorBackground">@color/bg_app</item>
+        <item name="android:windowBackground">@color/bg_app</item>
+        <item name="android:colorAccent">@color/color_primary</item>
+        <item name="android:textColorHighlight">#33000000</item>
+        <item name="android:statusBarColor">@color/bg_surface</item>
+        <item name="android:navigationBarColor">@color/bg_surface</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:windowLightNavigationBar" tools:targetApi="o_mr1">true</item>
+        <item name="android:forceDarkAllowed" tools:targetApi="q">false</item>
+        <item name="colorAccent">@color/color_primary</item>
+        <item name="colorControlActivated">@color/color_primary</item>
+        <item name="colorControlNormal">@color/text_secondary</item>
+        <item name="colorControlHighlight">#1A0F766E</item>
+
+    </style>
+
+    <style name="Theme.ASLRecorder" parent="Base.Theme.ASLRecorder" />
+
+    <!-- ── TextAppearance chain ───────────────────────────────────────────────── -->
+    <style name="TextAppearance.Recorder" parent="TextAppearance.AppCompat" />
+
+    <style name="TextAppearance.Recorder.Countdown" parent="TextAppearance.Recorder">
+        <item name="android:textSize">88sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/countdown_normal</item>
+        <item name="android:fontFamily">sans-serif-black</item>
+    </style>
+
+    <style name="TextAppearance.Recorder.SignLabel" parent="TextAppearance.Recorder">
+        <item name="android:textSize">28sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:letterSpacing">0.08</item>
+    </style>
+
+    <style name="TextAppearance.Recorder.ProgressFraction" parent="TextAppearance.Recorder">
+        <item name="android:textSize">22sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/text_primary</item>
+    </style>
+
+    <style name="TextAppearance.Recorder.SectionHeader" parent="TextAppearance.Recorder">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:letterSpacing">0.1</item>
+        <item name="android:textColor">@color/text_secondary</item>
+    </style>
+
+    <!-- ── Widget chain ───────────────────────────────────────────────────────── -->
+    <style name="Widget.Recorder" parent="android:Widget" />
+    <style name="Widget.Recorder.Button" parent="Widget.Recorder" />
+
+    <style name="Widget.Recorder.Button.Primary" parent="Widget.Recorder.Button">
+        <item name="android:background">@drawable/bg_button_primary</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:paddingTop">14dp</item>
+        <item name="android:paddingBottom">14dp</item>
+        <item name="android:paddingStart">24dp</item>
+        <item name="android:paddingEnd">24dp</item>
+    </style>
+
+    <style name="Widget.Recorder.Button.Secondary" parent="Widget.Recorder.Button">
+        <item name="android:background">@drawable/bg_button_secondary</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:paddingTop">12dp</item>
+        <item name="android:paddingBottom">12dp</item>
+        <item name="android:paddingStart">20dp</item>
+        <item name="android:paddingEnd">20dp</item>
+    </style>
+
+</resources>

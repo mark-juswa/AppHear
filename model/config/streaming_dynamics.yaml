@@ -1,0 +1,9 @@
+# Feature 13 — streaming eval (within-sign emission dynamics). Diagnostic only (per
+# eval-protocol: per-emission numbers are diagnostic, never headline). No schema/parity impact.
+
+temperature: 0.715   # calibrate per-frame posteriors for the confidence-trajectory metric
+n_deciles: 10        # normalized sign-time buckets for the confidence ramp
+batch_size: 64       # memory-safe: reduce each batch to compact per-clip summaries
+
+features_dir: "F:/ASL DATASET/ASL CITIZEN/derived/apphear3/features_streaming"
+model_dir: "F:/ASL DATASET/ASL CITIZEN/derived/apphear3/runs/tcn_streaming_v30"

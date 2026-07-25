@@ -1,0 +1,51 @@
+﻿{
+    "theta_conf":  -1.2,
+    "pose_cadence_experiment":  {
+                                    "hold_last_pose":  true,
+                                    "pose_every_n":  2,
+                                    "enabled":  true
+                                },
+    "low_fps_confirmation":  {
+                                 "k_stability":  3,
+                                 "min_commit_frame":  4,
+                                 "theta_margin":  0.9,
+                                 "theta_conf":  -1.2,
+                                 "enabled":  true
+                             },
+    "low_fps_s5":  {
+                       "k_on":  2,
+                       "k_off":  6,
+                       "smoothing_window":  3,
+                       "enabled":  true
+                   },
+    "theta_margin":  0.3,
+    "low_fps":  {
+                    "enter_below_fps":  10,
+                    "consecutive_frames":  20,
+                    "exit_above_fps":  12
+                },
+    "k_stability":  3,
+    "pre_onset":  {
+                      "frames":  3,
+                      "enabled":  true
+                  },
+    "signing":  {
+                    "k_on":  3,
+                    "raise_margin":  0.1,
+                    "k_off":  4,
+                    "smoothing_window":  5,
+                    "require_hands":  true,
+                    "hand_aux_weight":  0.5,
+                    "theta_off":  0.072,
+                    "theta_on":  0.12
+                },
+    "_comment":  "S7 strict low-FPS A/B + analyzer resolution A/B 2026-07-22. Reverted pose cadence to pose_every_n=2 after pose_every_n=3 gave only modest FPS gain and degraded WANT/KNOW while SELL remained confused with PUT. Current test profile: GPU, camera_analysis=480x360, pose_every_n=2, hold_last_pose=true.",
+    "temperature":  0.6262,
+    "mediapipe_delegate":  {
+                               "mode":  "gpu"
+                           },
+    "camera_analysis":  {
+                            "target_width":  480,
+                            "target_height":  360
+                        }
+}

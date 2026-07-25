@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/app_shell_nav"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.apphear.ui.home.HomeFragment"
+        android:label="@string/nav_home" />
+
+    <fragment
+        android:id="@+id/textToAslFragment"
+        android:name="com.example.apphear.ui.texttoasl.TextToAslFragment"
+        android:label="@string/nav_text_to_asl">
+        <argument
+            android:name="incoming_text"
+            app:argType="string"
+            app:nullable="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.apphear.ui.profile.ProfileFragment"
+        android:label="@string/nav_profile" />
+
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.example.apphear.ui.settings.SettingsFragment"
+        android:label="@string/nav_settings" />
+</navigation>

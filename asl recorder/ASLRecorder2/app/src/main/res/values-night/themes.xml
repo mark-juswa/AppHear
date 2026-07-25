@@ -1,0 +1,50 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="Base.Theme.ASLRecorder" parent="Theme.Material3.Light.NoActionBar">
+        <item name="colorPrimary">@color/color_primary</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorPrimaryContainer">@color/color_secondary</item>
+        <item name="colorOnPrimaryContainer">@color/color_primary</item>
+
+        <item name="colorSecondary">@color/text_secondary</item>
+        <item name="colorOnSecondary">@color/white</item>
+        <item name="colorSecondaryContainer">@color/bg_app</item>
+        <item name="colorOnSecondaryContainer">@color/text_primary</item>
+
+        <item name="colorTertiary">@color/color_primary</item>
+        <item name="colorOnTertiary">@color/white</item>
+        <item name="colorTertiaryContainer">@color/bg_app</item>
+        <item name="colorOnTertiaryContainer">@color/text_primary</item>
+
+        <item name="colorError">@color/color_rejected</item>
+        <item name="colorOnError">@color/white</item>
+        <item name="colorErrorContainer">@color/color_rejected_bg</item>
+        <item name="colorOnErrorContainer">@color/color_rejected</item>
+
+        <item name="colorOnBackground">@color/text_primary</item>
+        <item name="colorSurface">@color/bg_surface</item>
+        <item name="colorOnSurface">@color/text_primary</item>
+        <item name="colorSurfaceVariant">@color/bg_app</item>
+        <item name="colorOnSurfaceVariant">@color/text_secondary</item>
+
+        <item name="colorOutline">@color/card_stroke</item>
+        <item name="colorOutlineVariant">@color/divider</item>
+        <item name="colorSurfaceInverse">@color/color_primary</item>
+        <item name="colorOnSurfaceInverse">@color/white</item>
+        <item name="colorPrimaryInverse">@color/white</item>
+
+        <item name="android:colorBackground">@color/bg_app</item>
+        <item name="android:windowBackground">@color/bg_app</item>
+        <item name="android:colorAccent">@color/color_primary</item>
+        <item name="android:textColorHighlight">#33000000</item>
+        <item name="android:statusBarColor">@color/bg_surface</item>
+        <item name="android:navigationBarColor">@color/bg_surface</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:windowLightNavigationBar" tools:targetApi="o_mr1">true</item>
+        <item name="android:forceDarkAllowed" tools:targetApi="q">false</item>
+        <item name="colorAccent">@color/color_primary</item>
+        <item name="colorControlActivated">@color/color_primary</item>
+        <item name="colorControlNormal">@color/text_secondary</item>
+        <item name="colorControlHighlight">#1A0F766E</item>
+    </style>
+</resources>

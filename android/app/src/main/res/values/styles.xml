@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Widget.AppHear.Button.Primary" parent="Widget.Material3.Button">
+        <item name="backgroundTint">@color/color_brand_primary</item>
+        <item name="android:textColor">@color/color_text_on_brand</item>
+        <item name="cornerRadius">@dimen/radius_pill</item>
+        <item name="minHeight">@dimen/touch_target_min</item>
+        <item name="android:textAppearance">@style/TextAppearance.AppHear.Label</item>
+    </style>
+
+    <style name="Widget.AppHear.Button.Dark" parent="Widget.Material3.Button">
+        <item name="backgroundTint">@color/color_action_dark</item>
+        <item name="android:textColor">@color/color_text_on_dark</item>
+        <item name="cornerRadius">@dimen/radius_pill</item>
+        <item name="minHeight">@dimen/touch_target_min</item>
+        <item name="android:textAppearance">@style/TextAppearance.AppHear.Label</item>
+    </style>
+
+    <style name="Widget.AppHear.Button.Destructive" parent="Widget.Material3.Button">
+        <item name="backgroundTint">@color/color_action_destructive</item>
+        <item name="android:textColor">@color/color_text_on_dark</item>
+        <item name="cornerRadius">@dimen/radius_pill</item>
+        <item name="minHeight">@dimen/touch_target_min</item>
+        <item name="android:textAppearance">@style/TextAppearance.AppHear.Label</item>
+    </style>
+
+    <style name="Widget.AppHear.Card" parent="Widget.Material3.CardView.Filled">
+        <item name="cardBackgroundColor">@color/color_surface_card</item>
+        <item name="cardCornerRadius">@dimen/radius_large</item>
+        <item name="strokeColor">@color/color_divider_subtle</item>
+        <item name="strokeWidth">1dp</item>
+    </style>
+
+    <style name="Widget.AppHear.StatusChip" parent="android:style/Widget.TextView">
+        <item name="android:minHeight">@dimen/touch_target_min</item>
+        <item name="android:paddingStart">@dimen/space_16</item>
+        <item name="android:paddingEnd">@dimen/space_16</item>
+        <item name="android:textAppearance">@style/TextAppearance.AppHear.Label</item>
+    </style>
+</resources>
+

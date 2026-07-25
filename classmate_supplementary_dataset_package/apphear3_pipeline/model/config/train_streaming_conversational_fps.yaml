@@ -1,0 +1,33 @@
+# FPS-AUGMENTED conversational trainer — makes the 236-word everyday model robust to the phone's
+# low frame rate (~7-8fps vs ~30fps training). Trains on the fps-EXPANDED conversational features
+# (original + random-stride subsampled copies). Warm-starts from the conversational BASELINE
+# (its encoder+head are already trained on this vocab). frame_mask_frac 0.0 — the fps aug is baked
+# into the dataset, not added at train time. Own run dir; baseline + deployed 250 model untouched.
+
+model:
+  blocks: 4
+  channels: 64
+  dilations: [1, 2, 4, 8]
+  kernel: 3
+  dropout: 0.3
+
+train:
+  seed: 0
+  batch_size: 64
+  epochs: 40
+  learning_rate: 0.0005
+  early_stop_patience: 8
+  weight_decay: 0.0001
+
+augment:
+  enabled: true
+  rotation_deg: 10.0
+  scale: 0.10
+  noise_std: 0.01
+  frame_mask_frac: 0.0
+
+warm_start_from: "F:/ASL DATASET/ASL CITIZEN/derived/apphear3/runs/tcn_streaming_conversational_v30/best.keras"
+
+features_dir: "F:/ASL DATASET/ASL CITIZEN/derived/apphear3/features_streaming_conversational_fps"
+vocab_dir: "F:/ASL DATASET/ASL CITIZEN/derived/apphear3/features_conversational"
+output_dir: "F:/ASL DATASET/ASL CITIZEN/derived/apphear3/runs/tcn_streaming_conversational_fps_v30"

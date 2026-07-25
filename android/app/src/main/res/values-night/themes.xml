@@ -1,0 +1,20 @@
+﻿<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="Base.Theme.AppHear" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/color_brand_primary</item>
+        <item name="colorOnPrimary">@color/color_text_on_brand</item>
+        <item name="colorPrimaryContainer">@color/color_brand_primary_dark</item>
+        <item name="colorOnPrimaryContainer">@color/color_text_on_dark</item>
+        <item name="colorSecondary">@color/color_brand_surface</item>
+        <item name="colorOnSecondary">@color/color_text_primary</item>
+        <item name="colorSurface">@color/color_text_primary</item>
+        <item name="colorOnSurface">@color/color_text_on_dark</item>
+        <item name="colorError">@color/color_status_error</item>
+        <item name="colorOnError">@color/color_text_on_dark</item>
+        <item name="android:windowBackground">@color/color_text_primary</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@color/color_text_primary</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:windowLightNavigationBar">false</item>
+    </style>
+</resources>

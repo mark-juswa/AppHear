@@ -1,0 +1,35 @@
+# Conversational-vocabulary streaming trainer — same encoder/reg as the reduced run, but trained on
+# a CURATED everyday-word vocabulary (model/config/vocab_conversational.txt → reduce_vocab --wordlist)
+# instead of the data-richest glosses. Warm-starts the encoder from the FULL streaming model (the
+# 236-class head is fresh). num_classes comes from vocab_dir (features_conversational). BASELINE run
+# (plain features); fps-augment as a second pass if the cross-signer eval is promising. Writes to its
+# OWN run dir — the deployed fps-aug 250-model and all past runs are untouched (safety net).
+
+model:
+  blocks: 4
+  channels: 64
+  dilations: [1, 2, 4, 8]
+  kernel: 3
+  dropout: 0.3
+
+train:
+  seed: 0
+  batch_size: 64
+  epochs: 40
+  learning_rate: 0.0005
+  early_stop_patience: 8
+  weight_decay: 0.0001
+
+augment:
+  enabled: true
+  rotation_deg: 10.0
+  scale: 0.10
+  noise_std: 0.01
+  frame_mask_frac: 0.0
+
+# Encoder warm-start from the full streaming run (its TCN encoder is already streaming-trained).
+warm_start_from: "F:/ASL DATASET/ASL CITIZEN/derived/apphear3/runs/tcn_streaming_v30/best.keras"
+
+features_dir: "F:/ASL DATASET/ASL CITIZEN/derived/apphear3/features_streaming_conversational"
+vocab_dir: "F:/ASL DATASET/ASL CITIZEN/derived/apphear3/features_conversational"
+output_dir: "F:/ASL DATASET/ASL CITIZEN/derived/apphear3/runs/tcn_streaming_conversational_v30"

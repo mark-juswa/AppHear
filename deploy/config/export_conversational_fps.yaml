@@ -1,0 +1,17 @@
+# TFLite INT8 export of the FPS-AUGMENTED conversational (236-word) model. Calibration draws from
+# the fps-expanded conversational train set (so INT8 quant sees the low-fps distribution the phone
+# produces). Larger parity_batch to average out benign near-tie churn on the fps-diverse val (same
+# lesson as the reduced_fps export). calibration_temperature MUST match confirm + app.
+
+n_calib: 300
+parity_batch: 3000
+schema_version: "3.0"
+calibration_temperature: 0.647
+
+max_clip_top1_delta: 0.01
+max_mean_abs_prob_diff: 0.005
+commit_margin_floor: 0.05
+
+features_dir: "F:/ASL DATASET/ASL CITIZEN/derived/apphear3/features_streaming_conversational_fps"
+model_dir: "F:/ASL DATASET/ASL CITIZEN/derived/apphear3/runs/tcn_streaming_conversational_fps_v30"
+confirm_config: "model/config/confirm_conversational_fps.yaml"

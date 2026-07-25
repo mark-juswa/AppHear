@@ -1,0 +1,45 @@
+﻿# Targeted low-FPS confusion experiment v3 for the 236-class local-supplementary candidate.
+# Separate run; does not overwrite Android assets, baseline, targeted_v1, or targeted_v2.
+# v2 was safer than v1 for WE/FAMILY but still regressed WAIT, MANY, SHOP1 and lost HELLO/WANT2 gains.
+# v3 removes weights from WAIT/MANY/SHOP1 and restores moderate pressure on HELLO/WANT2/SELL/KNOW.
+
+model:
+  blocks: 4
+  channels: 64
+  dilations: [1, 2, 4, 8]
+  kernel: 3
+  dropout: 0.3
+
+train:
+  seed: 17
+  batch_size: 64
+  epochs: 40
+  learning_rate: 0.00020
+  early_stop_patience: 8
+  weight_decay: 0.0001
+
+augment:
+  enabled: true
+  rotation_deg: 10.0
+  scale: 0.10
+  noise_std: 0.01
+  frame_mask_frac: 0.0
+
+# Config-gated experiment. Validation remains unweighted for comparable eval.
+# Do not weight WAIT/MANY/SHOP1 here: v1/v2 weighting coincided with regressions there.
+class_weighting:
+  enabled: true
+  weights:
+    KNOW: 2.5
+    HELLO: 2.4
+    SELL: 2.3
+    WANT2: 1.9
+    PUT: 1.6
+    FAMILY: 1.3
+    WE: 1.3
+
+warm_start_from: "F:/ASL DATASET/ASL CITIZEN/derived/apphear3/runs/tcn_streaming_conversational_plus_local_pc_236_rtx3050_v30/best.keras"
+
+features_dir: "F:/ASL DATASET/ASL CITIZEN/derived/apphear3/features_streaming_conversational_plus_pc_236_fps"
+vocab_dir: "F:/ASL DATASET/ASL CITIZEN/derived/apphear3/runs/tcn_streaming_conversational_plus_local_pc_236_rtx3050_v30/android_candidate_assets"
+output_dir: "F:/ASL DATASET/ASL CITIZEN/derived/apphear3/runs/tcn_streaming_conversational_plus_local_pc_236_targeted_v3"

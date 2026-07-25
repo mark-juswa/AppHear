@@ -1,0 +1,78 @@
+﻿# Python environments, caches, and generated analysis
+.venv/
+**/.venv/
+__pycache__/
+**/__pycache__/
+*.py[cod]
+.mypy_cache/
+.ruff_cache/
+.pytest_cache/
+.coverage
+htmlcov/
+*.egg-info/
+
+# Secrets and machine-local configuration
+.env
+.env.*
+!.env.example
+**/local.properties
+android/gradle.properties
+*.jks
+*.keystore
+*.p12
+*.pfx
+*.pem
+*.key
+
+# Android Studio / Gradle / native build output
+**/.gradle/
+**/build/
+**/.idea/
+*.iml
+**/.externalNativeBuild/
+**/.cxx/
+**/captures/
+*.apk
+*.aab
+
+# React Native / Node / iOS generated content
+**/node_modules/
+apphear-react/.expo/
+apphear-react/.tmp/
+apphear-react/.vscode/
+apphear-react/ios/Pods/
+apphear-react/ios/build/
+apphear-react/ios/**/xcuserdata/
+apphear-react/ios/**/*.xcuserstate
+*.jsbundle
+
+# Logs, editor files, and temporary output
+*.log
+*.tmp
+*.bak
+*.swp
+.DS_Store
+Thumbs.db
+.tmp/
+
+# Raw/derived datasets and machine-local preparation work
+derived/
+classmate_supplementary_dataset_package/work/
+classmate_supplementary_dataset_package/logs/
+
+# Generated model/evaluation scratch output
+artifacts/tmp_*/
+artifacts/*.tflite
+
+# Downloadable root-level MediaPipe cache. Runtime copies under Android/RN assets are retained.
+assets/mediapipe/*.task
+
+# Decompiled/generated resource dump outside the Android source tree
+/res/
+
+# Raw device benchmark exports may contain device-specific metadata; summaries live in context.
+apphear-react/benchmark/device-results/**/*.json
+
+# Generated supplementary-dataset audit manifests and scratch configs
+classmate_supplementary_dataset_package/reports/audit_236/
+artifacts/tmp_*

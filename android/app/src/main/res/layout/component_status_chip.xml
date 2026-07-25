@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/apphear_status_chip_bg"
+    android:gravity="center_vertical"
+    android:minHeight="@dimen/touch_target_min"
+    android:orientation="horizontal"
+    android:paddingStart="@dimen/space_16"
+    android:paddingEnd="@dimen/space_16">
+
+    <View
+        android:id="@+id/status_chip_dot"
+        android:layout_width="@dimen/space_8"
+        android:layout_height="@dimen/space_8"
+        android:background="@drawable/apphear_status_dot_ready" />
+
+    <TextView
+        android:id="@+id/status_chip_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/space_8"
+        android:text="@string/component_status_ready"
+        android:textAppearance="@style/TextAppearance.AppHear.Label" />
+</LinearLayout>

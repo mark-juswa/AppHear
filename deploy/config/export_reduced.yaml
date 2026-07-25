@@ -1,0 +1,16 @@
+# TFLite INT8 export of the REDUCED-vocabulary streaming model. Same gate/quant as the full export;
+# only the paths + calibration_temperature differ. UPDATE `calibration_temperature` to the reduced
+# model's value (from `eval.streaming --config .../train_streaming_reduced.yaml`).
+
+n_calib: 300
+parity_batch: 512
+schema_version: "3.0"
+calibration_temperature: 1.0  # UPDATE from the reduced streaming eval
+
+max_clip_top1_delta: 0.01
+max_mean_abs_prob_diff: 0.005
+commit_margin_floor: 0.05
+
+features_dir: "F:/ASL DATASET/ASL CITIZEN/derived/apphear3/features_streaming_reduced"
+model_dir: "F:/ASL DATASET/ASL CITIZEN/derived/apphear3/runs/tcn_streaming_reduced_v30"
+confirm_config: "model/config/confirm_reduced.yaml"

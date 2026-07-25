@@ -1,0 +1,22 @@
+# Feature 04 — Duration normalization (N4) + Quality gate (Q) configuration.
+# N4 is isolated-path / training-only (OFF in streaming/CTC). Q is offline-only (runtime
+# gating is S5). Neither is an Android S4 parity surface. Config-hashed (params_hash).
+
+# --- N4 duration normalization ---
+n4_resample: true
+resample_T: 64          # fixed tensor length (training-time only; not runtime fps)
+resample_method: "linear"
+
+# --- Q quality gate (advisory: flags accept/reject, never deletes) ---
+q_enabled: true
+# Lenient starting thresholds — tuned on the rejection-distribution report so no gloss/signer
+# is disproportionately dropped (protect signer coverage; context/eval-protocol.md).
+min_coverage: 0.15       # min in-span fraction of frames with >=1 hand detected
+min_confidence: 0.50     # min mean pose visibility over the span
+min_fps: 15.0            # resolution floor (runtime-constraints.md anchor #4)
+min_span_frames: 6       # ~0.2s at 30fps (matches detect.yaml)
+
+# Inputs (stage-E landmarks + D2 spans).
+input_root: "F:/ASL DATASET/ASL CITIZEN/derived/apphear3/landmarks"
+spans_root: "F:/ASL DATASET/ASL CITIZEN/derived/apphear3/spans"
+output_root: "F:/ASL DATASET/ASL CITIZEN/derived/apphear3/quality"

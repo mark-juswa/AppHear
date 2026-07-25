@@ -1,0 +1,39 @@
+# Feature 02 — Signing detection (D1) + dead-time trim (D2) configuration.
+# All thresholds here, never inline (context/code-standards.md). Hashed into every span
+# sidecar (params_hash) so a threshold change forces config-driven re-detection.
+#
+# Motion is measured in SHOULDER-WIDTH units per frame (signer/distance invariant), so these
+# thresholds are dimensionless. Starting values are INITIAL GUESSES — the runner prints motion
+# percentiles + validation stats so they can be tuned on data (the "config + validate" loop).
+
+detect_version: "d1"
+enabled: true   # flag; when false the span is the whole clip (v2 behaviour)
+
+# Landmark data produced by stage E (see extract.yaml output.root).
+input_root: "F:/ASL DATASET/ASL CITIZEN/derived/apphear3/landmarks"
+output_root: "F:/ASL DATASET/ASL CITIZEN/derived/apphear3/spans"
+
+smoothing_window: 5   # frames; moving-average on motion energy (tuned: suppresses IMAGE-mode pose jitter)
+
+motion:
+  # Pose landmarks whose movement defines the primary (always-present) signal.
+  pose_landmarks: ["left_wrist", "right_wrist", "left_elbow", "right_elbow"]
+  hand_aux_weight: 0.5   # additive bonus from hand-wrist motion WHEN hands are present (never required)
+
+gate:
+  # "Hands raised" signing-space gate: a wrist counts as raised when it is above the hip line
+  # by this many shoulder-widths (image y increases downward, so raised = smaller y).
+  raise_margin: 0.10
+
+# Tuned on 90 val clips (label-free sweep): theta_on=0.12 -> 97% coverage, median span ~1.07s
+# (vs 2.9s untuned). Resting/jitter motion floor is ~0.08 shoulder-widths/frame, so theta_on
+# sits above it and theta_off below. Re-tune if the extraction config (E) changes.
+hysteresis:
+  theta_on: 0.120    # enter signing above this motion (shoulder-widths/frame)
+  theta_off: 0.072   # leave signing below this (must be < theta_on)
+  k_on: 3            # consecutive frames above theta_on (+ gate) to enter
+  k_off: 4           # consecutive frames below theta_off to leave
+
+span:
+  backoff: 2          # extend onset earlier / release later by this many frames (catch movement start)
+  min_span_frames: 6  # ~0.2s at 30fps — floor for the shortest signs (e.g. FOUR); shorter = invalid

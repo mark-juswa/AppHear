@@ -1,0 +1,72 @@
+{
+  "content_hash": "b992940a3df2078d",
+  "counts": {
+    "test": {
+      "clips": 32941,
+      "signers": 11
+    },
+    "train": {
+      "clips": 40154,
+      "signers": 35
+    },
+    "val": {
+      "clips": 10304,
+      "signers": 6
+    }
+  },
+  "participant_split": {
+    "P1": "train",
+    "P10": "train",
+    "P11": "train",
+    "P12": "val",
+    "P13": "val",
+    "P14": "train",
+    "P15": "test",
+    "P16": "train",
+    "P17": "test",
+    "P18": "test",
+    "P19": "train",
+    "P2": "train",
+    "P20": "train",
+    "P21": "val",
+    "P22": "test",
+    "P23": "train",
+    "P24": "train",
+    "P25": "train",
+    "P26": "val",
+    "P27": "train",
+    "P28": "train",
+    "P29": "train",
+    "P3": "train",
+    "P30": "train",
+    "P31": "train",
+    "P32": "train",
+    "P33": "train",
+    "P34": "train",
+    "P35": "test",
+    "P36": "train",
+    "P37": "train",
+    "P38": "train",
+    "P39": "val",
+    "P4": "train",
+    "P40": "train",
+    "P41": "train",
+    "P42": "test",
+    "P43": "train",
+    "P44": "train",
+    "P45": "train",
+    "P46": "train",
+    "P47": "test",
+    "P48": "test",
+    "P49": "test",
+    "P5": "val",
+    "P50": "train",
+    "P51": "train",
+    "P52": "train",
+    "P6": "test",
+    "P7": "train",
+    "P8": "train",
+    "P9": "test"
+  },
+  "source": "asl_citizen_official"
+}

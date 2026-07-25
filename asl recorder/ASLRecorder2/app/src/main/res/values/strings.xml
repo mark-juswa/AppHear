@@ -1,0 +1,128 @@
+<resources>
+    <string name="app_name">AppHear Recorder</string>
+
+    <!-- Home -->
+    <string name="home_greeting">AppHear Dataset Recorder</string>
+    <string name="home_subtitle">Phase 2 Data Collection Tool</string>
+    <string name="btn_start_new">+ Start New Session</string>
+    <string name="btn_continue">Continue Last Session</string>
+    <string name="btn_browse">Browse Dataset</string>
+    <string name="btn_export">Export ZIP</string>
+    <string name="label_total_accepted">Accepted samples</string>
+    <string name="label_signs_recorded">Signs recorded</string>
+    <string name="label_last_session">Last session</string>
+    <string name="no_sessions_yet">No sessions yet.\nTap Start New Session to begin.</string>
+
+    <!-- Signer Profile -->
+    <string name="title_signer_profile">Signer Profile</string>
+    <string name="hint_signer_id">Signer ID (e.g. S01)</string>
+    <string name="hint_notes">Notes (optional)</string>
+    <string name="label_age_group">Age Group</string>
+    <string name="label_gender">Gender</string>
+    <string name="label_dominant_hand">Dominant Hand</string>
+    <string name="label_experience">Sign Experience</string>
+    <string name="label_hand_size">Hand Size</string>
+    <string name="label_split">Split Assignment</string>
+    <string name="btn_save_profile">Save Profile</string>
+    <string name="btn_select_signer">Select Existing Signer</string>
+    <string name="btn_new_signer">+ New Signer</string>
+    <string name="existing_signers">Existing Signers</string>
+    <string name="test_signer_warning">Warning: A test signer already exists. Only 1 test signer is allowed per dataset.</string>
+
+    <!-- Session Setup -->
+    <string name="title_session_setup">Session Setup</string>
+    <string name="label_sign_language">Sign Language Standard</string>
+    <string name="label_sign_label">Sign Label</string>
+    <string name="label_target_reps">Target Accepted Samples</string>
+    <string name="label_speed">Speed Variation</string>
+    <string name="label_posture">Posture</string>
+    <string name="label_distance">Distance from Camera</string>
+    <string name="label_lighting">Lighting Condition</string>
+    <string name="label_background_type">Background Type</string>
+    <string name="label_shirt_color">Shirt Color</string>
+    <string name="label_session_number">Session Number</string>
+    <string name="label_signer">Signer</string>
+    <string name="label_bg_scenario">Background Scenario</string>
+    <string name="btn_start_recording">Start Recording</string>
+    <string name="hint_shirt_color">e.g. dark blue, white</string>
+    <string name="hint_target_reps">60</string>
+
+    <!-- Recording -->
+    <string name="badge_hands_ok">HANDS OK</string>
+    <string name="badge_hands_low">HANDS LOW</string>
+    <string name="badge_no_hands">NO HANDS</string>
+    <string name="badge_pose_ok">POSE OK</string>
+    <string name="badge_pose_low">POSE LOW</string>
+    <string name="badge_no_pose">NO POSE</string>
+    <string name="badge_face_ok">FACE OK</string>
+    <string name="badge_face_absent">FACE —</string>
+    <string name="btn_pause">PAUSE</string>
+    <string name="btn_resume">RESUME</string>
+    <string name="btn_stop_session">STOP</string>
+    <string name="btn_start_session">START</string>
+    <string name="btn_redo_rejected">Redo Rejected</string>
+    <string name="label_accepted_fraction">%1$d / %2$d accepted</string>
+    <string name="label_rejected">Rejected</string>
+    <string name="label_remaining">Remaining: %1$d</string>
+    <string name="countdown_get_ready">Get ready…</string>
+    <string name="countdown_sign">SIGN!</string>
+    <string name="guidance_center">Center your body in frame</string>
+    <string name="guidance_move_back">Move back — aim 60-80 cm</string>
+    <string name="guidance_hands_in">Keep hands in frame</string>
+    <string name="guidance_move_down">Move camera down or step back</string>
+    <string name="guidance_both_hands">Both hands must be visible</string>
+    <string name="warning_hold_hands">Keep hands in frame — HOLD position</string>
+    <string name="mode_background_recording">BACKGROUND / REST RECORDING</string>
+    <string name="label_background_count">Background samples recorded: %1$d  (target: %2$d)</string>
+    <string name="label_background_count_default">Background samples recorded: 0  (target: 100)</string>
+    <string name="countdown_hold_instruction">Sign once — then HOLD your hands in position</string>
+    <string name="hand_coverage_label_default">Hand coverage  0 / 30 frames</string>
+    <string name="status_recording">Capturing…</string>
+    <string name="status_analyzing">Checking quality…</string>
+    <string name="status_rest">Lower hands… next in 1s</string>
+    <string name="status_accepted">&#10003; Accepted</string>
+    <string name="status_complete">Session Complete!</string>
+
+    <!-- Review -->
+    <string name="title_review">Session Review</string>
+    <string name="btn_finish_session">Save &amp; Finish</string>
+    <string name="btn_record_next_sign">Record Next Sign</string>
+    <string name="btn_override_accept">Accept</string>
+    <string name="btn_delete_sample">Delete</string>
+    <string name="label_saved_to">Saved to: %1$s</string>
+    <string name="no_rejected_samples">No rejected samples.</string>
+    <string name="label_quality_score">Quality: %1$.2f</string>
+
+    <!-- Errors -->
+    <string name="error_camera_permission">Camera permission is required to record sign data.</string>
+    <string name="error_models_missing">MediaPipe model files missing from assets.\nAdd hand_landmarker.task, pose_landmarker_lite.task, face_landmarker.task to app/src/main/assets/</string>
+    <string name="error_session_config">Session configuration is missing.</string>
+    <string name="error_save_failed">Failed to save sample. Check storage.</string>
+    <string name="error_signer_id_required">Signer ID is required</string>
+    <string name="error_signer_id_short">Signer ID must be at least 2 characters</string>
+    <string name="error_select_label">Please select a sign label</string>
+    <string name="error_invalid_reps">Enter a number between 1 and 500</string>
+
+    <!-- Guidance -->
+    <string name="guidance_no_tracking">No tracking — step into frame</string>
+    <string name="guidance_no_hands">Hands not visible</string>
+    <string name="guidance_no_pose">Body not visible</string>
+
+    <!-- Results -->
+    <string name="result_accepted">✓ ACCEPTED</string>
+    <string name="result_rejected">✗ REJECTED</string>
+
+    <!-- Review labels -->
+    <string name="label_accepted">Accepted</string>
+
+    <string name="label_total_attempts">Total attempts</string>
+    <string name="filter_all">All</string>
+    <string name="filter_accepted">Accepted</string>
+    <string name="filter_rejected">Rejected</string>
+    <string name="btn_redo_all_rejected">Redo Rejected Samples</string>
+
+    <!-- Dialog -->
+    <string name="dialog_stop_title">Stop Session?</string>
+    <string name="dialog_stop_message">The session will end and results will be saved.</string>
+    <string name="dialog_stop_confirm">Stop</string>
+</resources>

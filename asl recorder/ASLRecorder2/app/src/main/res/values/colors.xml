@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <!-- App palette -->
+    <color name="bg_app">#F7F8FA</color>
+    <color name="bg_surface">#FFFFFF</color>
+    <color name="bg_card">#FFFFFF</color>
+    <color name="color_primary">#0F766E</color>
+    <color name="color_on_primary">#FFFFFF</color>
+    <color name="color_secondary">#E6F4F1</color>
+    <color name="text_primary">#111827</color>
+    <color name="text_secondary">#6B7280</color>
+    <color name="text_hint">#9CA3AF</color>
+    <color name="card_stroke">#E5E7EB</color>
+    <color name="divider">#F3F4F6</color>
+
+    <!-- Status colors -->
+    <color name="color_accepted">#22C55E</color>
+    <color name="color_accepted_bg">#DCFCE7</color>
+    <color name="color_rejected">#EF4444</color>
+    <color name="color_rejected_bg">#FEE2E2</color>
+    <color name="color_warning">#F59E0B</color>
+    <color name="color_warning_bg">#FEF3C7</color>
+    <color name="color_badge_gray">#6B7280</color>
+    <color name="color_badge_gray_bg">#F3F4F6</color>
+
+    <!-- Progress -->
+    <color name="progress_fill">#0F766E</color>
+    <color name="progress_track">#E5E7EB</color>
+
+    <!-- Countdown -->
+    <color name="countdown_normal">#111827</color>
+    <color name="countdown_sign">#22C55E</color>
+
+    <!-- Recording border -->
+    <color name="recording_border">#EF4444</color>
+    <color name="recording_border_accepted">#22C55E</color>
+</resources>

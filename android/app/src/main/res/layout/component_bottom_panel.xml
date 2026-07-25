@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/apphear_bottom_panel_bg"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:paddingStart="@dimen/space_24"
+    android:paddingTop="@dimen/space_12"
+    android:paddingEnd="@dimen/space_24"
+    android:paddingBottom="@dimen/space_24">
+
+    <View
+        android:id="@+id/bottom_panel_handle"
+        android:layout_width="@dimen/bottom_sheet_handle_width"
+        android:layout_height="@dimen/bottom_sheet_handle_height"
+        android:background="@drawable/apphear_drag_handle_bg" />
+
+    <FrameLayout
+        android:id="@+id/bottom_panel_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_16" />
+</LinearLayout>

@@ -1,0 +1,22 @@
+node_modules/
+.expo/
+.vscode/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+benchmark/device-results/*.json
+!benchmark/device-results/.gitkeep
+# React Native native builds
+.DS_Store
+.watchmanconfig
+.tmp/
+android/.gradle/
+android/local.properties
+android/app/build/
+ios/build/
+ios/Pods/
+ios/**/*.xcuserstate
+ios/**/xcuserdata/
+*.jsbundle
+/vendor/bundle/

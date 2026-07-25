@@ -1,0 +1,32 @@
+{
+  "schema_version": "3.0",
+  "feature_dim": 258,
+  "time_window": 96,
+  "input_shape": [
+    96,
+    258
+  ],
+  "num_classes": 236,
+  "quantization": "int8_weights_activations__float32_io",
+  "landmarker_mode": "IMAGE",
+  "calibration_temperature": 0.6262,
+  "operating_point": {
+    "theta_conf": null,
+    "theta_margin": 0.3,
+    "k_stability": 3
+  },
+  "keras_sha256": "5f1bb3983966a9f8",
+  "tflite_sha256": "42575710a4adb0a1",
+  "parity": {
+    "committable_agreement": 0.9657308009909166,
+    "committable_frac": 0.8073333333333333,
+    "clip_top1_delta": 0.0010000000000000009,
+    "clip_top1_keras": 0.629,
+    "clip_top1_tflite": 0.63,
+    "mean_abs_prob_diff": 0.0011805824469774961,
+    "correct_clip_retention_all": 0.9597244303126656,
+    "clip_argmax_agreement_all": 0.8893333333333333,
+    "per_frame_argmax_agreement": 0.7759435503190539,
+    "max_abs_prob_diff": 0.7947483062744141
+  }
+}

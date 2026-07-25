@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_surface_warm"
+    tools:context=".LoadingActivity">
+
+    <LinearLayout
+        android:id="@+id/loadingContent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.52">
+
+        <LinearLayout
+            android:id="@+id/logoGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:alpha="0"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <FrameLayout
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:background="@drawable/circle_btn_white">
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/applogo" />
+            </FrameLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:fontFamily="@font/inter_black"
+                android:includeFontPadding="false"
+                android:text="@string/app_name"
+                android:textColor="#403E3A"
+                android:textSize="46sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/sloganContainer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:gravity="center"
+            android:orientation="horizontal" />
+
+        <LinearLayout
+            android:id="@+id/iconsRow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="36dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <FrameLayout
+                android:id="@+id/iconDetect"
+                android:layout_width="54dp"
+                android:layout_height="54dp"
+                android:layout_marginHorizontal="8dp"
+                android:alpha="0"
+                android:background="@drawable/circle_btn_white"
+                android:scaleX="0.55"
+                android:scaleY="0.55">
+
+                <ImageView
+                    android:layout_width="27dp"
+                    android:layout_height="27dp"
+                    android:layout_gravity="center"
+                    android:contentDescription="@string/loading_detect_content_description"
+                    android:src="@drawable/week" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/iconAsl"
+                android:layout_width="54dp"
+                android:layout_height="54dp"
+                android:layout_marginHorizontal="8dp"
+                android:alpha="0"
+                android:background="@drawable/circle_btn_white"
+                android:scaleX="0.55"
+                android:scaleY="0.55">
+
+                <ImageView
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:layout_gravity="center"
+                    android:contentDescription="@string/loading_asl_content_description"
+                    android:src="@drawable/hand"
+                    app:tint="#080810" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/iconSpeech"
+                android:layout_width="54dp"
+                android:layout_height="54dp"
+                android:layout_marginHorizontal="8dp"
+                android:alpha="0"
+                android:background="@drawable/circle_btn_white"
+                android:scaleX="0.55"
+                android:scaleY="0.55">
+
+                <ImageView
+                    android:layout_width="27dp"
+                    android:layout_height="27dp"
+                    android:layout_gravity="center"
+                    android:contentDescription="@string/loading_speech_content_description"
+                    android:src="@drawable/talking" />
+            </FrameLayout>
+        </LinearLayout>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

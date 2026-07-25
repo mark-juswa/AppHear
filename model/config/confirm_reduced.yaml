@@ -1,0 +1,14 @@
+# Confirmation policy (S7) for the REDUCED-vocabulary streaming model. Same gates as the full run;
+# only the paths + calibration differ. UPDATE `temperature` after retraining: run
+#   python -m eval.streaming --config model/config/train_streaming_reduced.yaml
+# and copy the reported calibration temperature here (it is model-specific).
+
+temperature: 1.0          # UPDATE from the reduced streaming eval (calibration T)
+k_stability: 3
+theta_margin: 0.30
+target_false_commit: 0.05
+
+theta_conf_grid: [-4.0, -3.5, -3.0, -2.5, -2.2, -2.0, -1.8, -1.6, -1.4, -1.2, -1.0]
+
+features_dir: "F:/ASL DATASET/ASL CITIZEN/derived/apphear3/features_streaming_reduced"
+model_dir: "F:/ASL DATASET/ASL CITIZEN/derived/apphear3/runs/tcn_streaming_reduced_v30"

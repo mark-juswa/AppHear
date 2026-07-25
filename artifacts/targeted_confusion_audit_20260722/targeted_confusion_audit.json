@@ -1,0 +1,4352 @@
+{
+  "generated_at": "2026-07-22",
+  "model": "F:\\ASL DATASET\\ASL CITIZEN\\derived\\apphear3\\runs\\tcn_streaming_conversational_plus_local_pc_236_rtx3050_v30\\best.keras",
+  "features": "F:\\ASL DATASET\\ASL CITIZEN\\derived\\apphear3\\features_streaming_conversational_plus_pc_236",
+  "fps_features": "F:\\ASL DATASET\\ASL CITIZEN\\derived\\apphear3\\features_streaming_conversational_plus_pc_236_fps",
+  "vocab": "F:\\ASL DATASET\\ASL CITIZEN\\derived\\apphear3\\runs\\tcn_streaming_conversational_plus_local_pc_236_rtx3050_v30\\android_candidate_assets\\vocab.json",
+  "groups": {
+    "important_family_more_introduce": [
+      "IMPORTANT",
+      "FAMILY",
+      "MORE",
+      "INTRODUCE"
+    ],
+    "sell_put_decide_shop_teach": [
+      "SELL",
+      "PUT",
+      "DECIDE1",
+      "SHOP1",
+      "TEACH2"
+    ],
+    "want_many_wait_meet": [
+      "WANT2",
+      "MANY",
+      "WAIT",
+      "MEET"
+    ],
+    "know_hello_sell_dontknow": [
+      "KNOW",
+      "HELLO",
+      "SELL",
+      "DONTKNOW"
+    ],
+    "we_live_strong_sell": [
+      "WE",
+      "LIVE2",
+      "STRONG",
+      "SELL"
+    ]
+  },
+  "counts": {
+    "normal": {
+      "train": {
+        "IMPORTANT": {
+          "n": 14,
+          "median_len": 31.5
+        },
+        "FAMILY": {
+          "n": 15,
+          "median_len": 33.0
+        },
+        "MORE": {
+          "n": 13,
+          "median_len": 16.0
+        },
+        "INTRODUCE": {
+          "n": 16,
+          "median_len": 30.5
+        },
+        "SELL": {
+          "n": 23,
+          "median_len": 14.0
+        },
+        "PUT": {
+          "n": 28,
+          "median_len": 29.0
+        },
+        "DECIDE1": {
+          "n": 20,
+          "median_len": 31.5
+        },
+        "SHOP1": {
+          "n": 13,
+          "median_len": 22.0
+        },
+        "TEACH2": {
+          "n": 16,
+          "median_len": 17.5
+        },
+        "WANT2": {
+          "n": 84,
+          "median_len": 18.5
+        },
+        "MANY": {
+          "n": 13,
+          "median_len": 25.0
+        },
+        "WAIT": {
+          "n": 12,
+          "median_len": 15.5
+        },
+        "MEET": {
+          "n": 48,
+          "median_len": 12.5
+        },
+        "KNOW": {
+          "n": 21,
+          "median_len": 12.0
+        },
+        "HELLO": {
+          "n": 24,
+          "median_len": 19.5
+        },
+        "DONTKNOW": {
+          "n": 16,
+          "median_len": 24.0
+        },
+        "WE": {
+          "n": 15,
+          "median_len": 34.0
+        },
+        "LIVE2": {
+          "n": 13,
+          "median_len": 16.0
+        },
+        "STRONG": {
+          "n": 15,
+          "median_len": 20.0
+        }
+      },
+      "val": {
+        "IMPORTANT": {
+          "n": 3,
+          "median_len": 28.0
+        },
+        "FAMILY": {
+          "n": 3,
+          "median_len": 31.0
+        },
+        "MORE": {
+          "n": 4,
+          "median_len": 32.5
+        },
+        "INTRODUCE": {
+          "n": 3,
+          "median_len": 35.0
+        },
+        "SELL": {
+          "n": 2,
+          "median_len": 21.0
+        },
+        "PUT": {
+          "n": 4,
+          "median_len": 32.5
+        },
+        "DECIDE1": {
+          "n": 2,
+          "median_len": 49.0
+        },
+        "SHOP1": {
+          "n": 6,
+          "median_len": 30.5
+        },
+        "TEACH2": {
+          "n": 3,
+          "median_len": 21.0
+        },
+        "WANT2": {
+          "n": 3,
+          "median_len": 21.0
+        },
+        "MANY": {
+          "n": 5,
+          "median_len": 51.0
+        },
+        "WAIT": {
+          "n": 4,
+          "median_len": 48.5
+        },
+        "MEET": {
+          "n": 3,
+          "median_len": 24.0
+        },
+        "KNOW": {
+          "n": 4,
+          "median_len": 22.5
+        },
+        "HELLO": {
+          "n": 3,
+          "median_len": 36.0
+        },
+        "DONTKNOW": {
+          "n": 3,
+          "median_len": 25.0
+        },
+        "WE": {
+          "n": 3,
+          "median_len": 40.0
+        },
+        "LIVE2": {
+          "n": 4,
+          "median_len": 23.0
+        },
+        "STRONG": {
+          "n": 2,
+          "median_len": 21.5
+        }
+      },
+      "test": {
+        "IMPORTANT": {
+          "n": 15,
+          "median_len": 43.0
+        },
+        "FAMILY": {
+          "n": 12,
+          "median_len": 29.5
+        },
+        "MORE": {
+          "n": 11,
+          "median_len": 16.0
+        },
+        "INTRODUCE": {
+          "n": 12,
+          "median_len": 32.5
+        },
+        "SELL": {
+          "n": 11,
+          "median_len": 17.0
+        },
+        "PUT": {
+          "n": 11,
+          "median_len": 32.0
+        },
+        "DECIDE1": {
+          "n": 14,
+          "median_len": 40.0
+        },
+        "SHOP1": {
+          "n": 10,
+          "median_len": 25.5
+        },
+        "TEACH2": {
+          "n": 11,
+          "median_len": 15.0
+        },
+        "WANT2": {
+          "n": 11,
+          "median_len": 17.0
+        },
+        "MANY": {
+          "n": 11,
+          "median_len": 45.0
+        },
+        "WAIT": {
+          "n": 11,
+          "median_len": 26.0
+        },
+        "MEET": {
+          "n": 9,
+          "median_len": 23.0
+        },
+        "KNOW": {
+          "n": 13,
+          "median_len": 16.0
+        },
+        "HELLO": {
+          "n": 10,
+          "median_len": 15.5
+        },
+        "DONTKNOW": {
+          "n": 10,
+          "median_len": 22.5
+        },
+        "WE": {
+          "n": 12,
+          "median_len": 26.5
+        },
+        "LIVE2": {
+          "n": 12,
+          "median_len": 25.0
+        },
+        "STRONG": {
+          "n": 11,
+          "median_len": 21.0
+        }
+      }
+    },
+    "fps": {
+      "train": {
+        "IMPORTANT": {
+          "n": 56,
+          "median_len": 11.0
+        },
+        "FAMILY": {
+          "n": 60,
+          "median_len": 7.0
+        },
+        "MORE": {
+          "n": 52,
+          "median_len": 7.0
+        },
+        "INTRODUCE": {
+          "n": 64,
+          "median_len": 8.5
+        },
+        "SELL": {
+          "n": 92,
+          "median_len": 7.0
+        },
+        "PUT": {
+          "n": 112,
+          "median_len": 9.0
+        },
+        "DECIDE1": {
+          "n": 80,
+          "median_len": 8.5
+        },
+        "SHOP1": {
+          "n": 52,
+          "median_len": 8.0
+        },
+        "TEACH2": {
+          "n": 64,
+          "median_len": 7.5
+        },
+        "WANT2": {
+          "n": 336,
+          "median_len": 7.0
+        },
+        "MANY": {
+          "n": 52,
+          "median_len": 7.5
+        },
+        "WAIT": {
+          "n": 48,
+          "median_len": 6.5
+        },
+        "MEET": {
+          "n": 192,
+          "median_len": 6.0
+        },
+        "KNOW": {
+          "n": 84,
+          "median_len": 6.0
+        },
+        "HELLO": {
+          "n": 96,
+          "median_len": 7.0
+        },
+        "DONTKNOW": {
+          "n": 64,
+          "median_len": 7.5
+        },
+        "WE": {
+          "n": 60,
+          "median_len": 10.0
+        },
+        "LIVE2": {
+          "n": 52,
+          "median_len": 7.5
+        },
+        "STRONG": {
+          "n": 60,
+          "median_len": 8.0
+        }
+      },
+      "val": {
+        "IMPORTANT": {
+          "n": 12,
+          "median_len": 6.0
+        },
+        "FAMILY": {
+          "n": 12,
+          "median_len": 9.5
+        },
+        "MORE": {
+          "n": 16,
+          "median_len": 8.5
+        },
+        "INTRODUCE": {
+          "n": 12,
+          "median_len": 7.5
+        },
+        "SELL": {
+          "n": 8,
+          "median_len": 6.5
+        },
+        "PUT": {
+          "n": 16,
+          "median_len": 7.5
+        },
+        "DECIDE1": {
+          "n": 8,
+          "median_len": 9.0
+        },
+        "SHOP1": {
+          "n": 24,
+          "median_len": 8.0
+        },
+        "TEACH2": {
+          "n": 12,
+          "median_len": 6.0
+        },
+        "WANT2": {
+          "n": 12,
+          "median_len": 6.5
+        },
+        "MANY": {
+          "n": 20,
+          "median_len": 13.5
+        },
+        "WAIT": {
+          "n": 16,
+          "median_len": 9.0
+        },
+        "MEET": {
+          "n": 12,
+          "median_len": 6.5
+        },
+        "KNOW": {
+          "n": 16,
+          "median_len": 9.5
+        },
+        "HELLO": {
+          "n": 12,
+          "median_len": 7.0
+        },
+        "DONTKNOW": {
+          "n": 12,
+          "median_len": 9.0
+        },
+        "WE": {
+          "n": 12,
+          "median_len": 13.5
+        },
+        "LIVE2": {
+          "n": 16,
+          "median_len": 9.0
+        },
+        "STRONG": {
+          "n": 8,
+          "median_len": 9.0
+        }
+      }
+    }
+  },
+  "reports": {
+    "test": {
+      "mean": {
+        "view": "mean",
+        "overall": {
+          "n": 2620,
+          "top1": 0.617175572519084,
+          "top3": 0.816793893129771,
+          "top5": 0.8683206106870229
+        },
+        "classes": {
+          "IMPORTANT": {
+            "n": 15,
+            "top1": 0.6666666666666666,
+            "top3": 1.0,
+            "top5": 1.0,
+            "median_len": 43.0,
+            "mean_true_rank": 1.4,
+            "pred_counts": {
+              "IMPORTANT": 10,
+              "FAMILY": 3,
+              "TEACH2": 1,
+              "CLOSE": 1
+            }
+          },
+          "FAMILY": {
+            "n": 12,
+            "top1": 0.75,
+            "top3": 0.9166666666666666,
+            "top5": 1.0,
+            "median_len": 29.5,
+            "mean_true_rank": 1.5833333333333333,
+            "pred_counts": {
+              "FAMILY": 9,
+              "MANY": 2,
+              "BREAKFAST1": 1
+            }
+          },
+          "MORE": {
+            "n": 11,
+            "top1": 1.0,
+            "top3": 1.0,
+            "top5": 1.0,
+            "median_len": 16.0,
+            "mean_true_rank": 1.0,
+            "pred_counts": {
+              "MORE": 11
+            }
+          },
+          "INTRODUCE": {
+            "n": 12,
+            "top1": 0.6666666666666666,
+            "top3": 0.75,
+            "top5": 0.8333333333333334,
+            "median_len": 32.5,
+            "mean_true_rank": 2.5,
+            "pred_counts": {
+              "INTRODUCE": 8,
+              "WHOLE": 1,
+              "NEW": 1,
+              "WITH": 1,
+              "CLOTHES": 1
+            }
+          },
+          "SELL": {
+            "n": 11,
+            "top1": 0.36363636363636365,
+            "top3": 0.7272727272727273,
+            "top5": 0.8181818181818182,
+            "median_len": 17.0,
+            "mean_true_rank": 2.6363636363636362,
+            "pred_counts": {
+              "SELL": 4,
+              "STRONG": 4,
+              "SHOP1": 3
+            }
+          },
+          "PUT": {
+            "n": 11,
+            "top1": 0.6363636363636364,
+            "top3": 0.9090909090909091,
+            "top5": 0.9090909090909091,
+            "median_len": 32.0,
+            "mean_true_rank": 2.090909090909091,
+            "pred_counts": {
+              "PUT": 7,
+              "MOVE": 2,
+              "HOW1": 1,
+              "SLOW": 1
+            }
+          },
+          "DECIDE1": {
+            "n": 14,
+            "top1": 0.8571428571428571,
+            "top3": 0.9285714285714286,
+            "top5": 1.0,
+            "median_len": 40.0,
+            "mean_true_rank": 1.3571428571428572,
+            "pred_counts": {
+              "DECIDE1": 12,
+              "CANNOT": 1,
+              "STREET": 1
+            }
+          },
+          "SHOP1": {
+            "n": 10,
+            "top1": 0.6,
+            "top3": 1.0,
+            "top5": 1.0,
+            "median_len": 25.5,
+            "mean_true_rank": 1.6,
+            "pred_counts": {
+              "SHOP1": 6,
+              "SELL": 2,
+              "INTRODUCE": 1,
+              "TEACH2": 1
+            }
+          },
+          "TEACH2": {
+            "n": 11,
+            "top1": 0.9090909090909091,
+            "top3": 1.0,
+            "top5": 1.0,
+            "median_len": 15.0,
+            "mean_true_rank": 1.0909090909090908,
+            "pred_counts": {
+              "TEACH2": 10,
+              "TEACHER": 1
+            }
+          },
+          "WANT2": {
+            "n": 11,
+            "top1": 0.45454545454545453,
+            "top3": 0.7272727272727273,
+            "top5": 0.7272727272727273,
+            "median_len": 17.0,
+            "mean_true_rank": 3.4545454545454546,
+            "pred_counts": {
+              "WANT2": 5,
+              "HERE": 2,
+              "WHAT1": 1,
+              "WAIT": 1,
+              "MANY": 1,
+              "TOOMUCH": 1
+            }
+          },
+          "MANY": {
+            "n": 11,
+            "top1": 0.8181818181818182,
+            "top3": 0.9090909090909091,
+            "top5": 1.0,
+            "median_len": 45.0,
+            "mean_true_rank": 1.3636363636363635,
+            "pred_counts": {
+              "MANY": 9,
+              "DRIVE": 1,
+              "WAIT": 1
+            }
+          },
+          "WAIT": {
+            "n": 11,
+            "top1": 0.7272727272727273,
+            "top3": 0.9090909090909091,
+            "top5": 0.9090909090909091,
+            "median_len": 26.0,
+            "mean_true_rank": 2.5454545454545454,
+            "pred_counts": {
+              "WAIT": 8,
+              "SAD": 2,
+              "WHAT1": 1
+            }
+          },
+          "MEET": {
+            "n": 9,
+            "top1": 0.7777777777777778,
+            "top3": 0.8888888888888888,
+            "top5": 1.0,
+            "median_len": 23.0,
+            "mean_true_rank": 1.5555555555555556,
+            "pred_counts": {
+              "MEET": 7,
+              "GIFT": 1,
+              "DOWNLOAD": 1
+            }
+          },
+          "KNOW": {
+            "n": 13,
+            "top1": 0.15384615384615385,
+            "top3": 0.6923076923076923,
+            "top5": 0.7692307692307693,
+            "median_len": 16.0,
+            "mean_true_rank": 4.538461538461538,
+            "pred_counts": {
+              "LUNCH1": 3,
+              "WHY": 3,
+              "SEEM": 3,
+              "KNOW": 2,
+              "MAN": 1,
+              "BECAUSE": 1
+            }
+          },
+          "HELLO": {
+            "n": 10,
+            "top1": 0.4,
+            "top3": 0.7,
+            "top5": 0.9,
+            "median_len": 15.5,
+            "mean_true_rank": 2.7,
+            "pred_counts": {
+              "HELLO": 4,
+              "SEEM": 2,
+              "FATHER": 2,
+              "BYE": 1,
+              "MAN": 1
+            }
+          },
+          "DONTKNOW": {
+            "n": 10,
+            "top1": 0.9,
+            "top3": 0.9,
+            "top5": 0.9,
+            "median_len": 22.5,
+            "mean_true_rank": 1.6,
+            "pred_counts": {
+              "DONTKNOW": 9,
+              "DECIDE1": 1
+            }
+          },
+          "WE": {
+            "n": 12,
+            "top1": 0.9166666666666666,
+            "top3": 1.0,
+            "top5": 1.0,
+            "median_len": 26.5,
+            "mean_true_rank": 1.1666666666666667,
+            "pred_counts": {
+              "WE": 11,
+              "GIVE": 1
+            }
+          },
+          "LIVE2": {
+            "n": 12,
+            "top1": 0.8333333333333334,
+            "top3": 0.9166666666666666,
+            "top5": 1.0,
+            "median_len": 25.0,
+            "mean_true_rank": 1.5,
+            "pred_counts": {
+              "LIVE2": 10,
+              "WHICH": 2
+            }
+          },
+          "STRONG": {
+            "n": 11,
+            "top1": 0.7272727272727273,
+            "top3": 1.0,
+            "top5": 1.0,
+            "median_len": 21.0,
+            "mean_true_rank": 1.2727272727272727,
+            "pred_counts": {
+              "STRONG": 8,
+              "DRIVE": 1,
+              "COLD": 1,
+              "CAR": 1
+            }
+          }
+        },
+        "groups": {
+          "important_family_more_introduce": {
+            "words": [
+              "IMPORTANT",
+              "FAMILY",
+              "MORE",
+              "INTRODUCE"
+            ],
+            "n": 50,
+            "top1": 0.76,
+            "matrix_rows_true_cols_pred": [
+              [
+                10,
+                3,
+                0,
+                0
+              ],
+              [
+                0,
+                9,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                11,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                8
+              ]
+            ]
+          },
+          "sell_put_decide_shop_teach": {
+            "words": [
+              "SELL",
+              "PUT",
+              "DECIDE1",
+              "SHOP1",
+              "TEACH2"
+            ],
+            "n": 57,
+            "top1": 0.6842105263157895,
+            "matrix_rows_true_cols_pred": [
+              [
+                4,
+                0,
+                0,
+                3,
+                0
+              ],
+              [
+                0,
+                7,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                12,
+                0,
+                0
+              ],
+              [
+                2,
+                0,
+                0,
+                6,
+                1
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                10
+              ]
+            ]
+          },
+          "want_many_wait_meet": {
+            "words": [
+              "WANT2",
+              "MANY",
+              "WAIT",
+              "MEET"
+            ],
+            "n": 42,
+            "top1": 0.6904761904761905,
+            "matrix_rows_true_cols_pred": [
+              [
+                5,
+                1,
+                1,
+                0
+              ],
+              [
+                0,
+                9,
+                1,
+                0
+              ],
+              [
+                0,
+                0,
+                8,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                7
+              ]
+            ]
+          },
+          "know_hello_sell_dontknow": {
+            "words": [
+              "KNOW",
+              "HELLO",
+              "SELL",
+              "DONTKNOW"
+            ],
+            "n": 44,
+            "top1": 0.4318181818181818,
+            "matrix_rows_true_cols_pred": [
+              [
+                2,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                4,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                4,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                9
+              ]
+            ]
+          },
+          "we_live_strong_sell": {
+            "words": [
+              "WE",
+              "LIVE2",
+              "STRONG",
+              "SELL"
+            ],
+            "n": 46,
+            "top1": 0.717391304347826,
+            "matrix_rows_true_cols_pred": [
+              [
+                11,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                10,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                8,
+                0
+              ],
+              [
+                0,
+                0,
+                4,
+                4
+              ]
+            ]
+          }
+        }
+      },
+      "last": {
+        "view": "last",
+        "overall": {
+          "n": 2620,
+          "top1": 0.5706106870229007,
+          "top3": 0.7904580152671755,
+          "top5": 0.8526717557251908
+        },
+        "classes": {
+          "IMPORTANT": {
+            "n": 15,
+            "top1": 0.6666666666666666,
+            "top3": 0.8666666666666667,
+            "top5": 0.8666666666666667,
+            "median_len": 43.0,
+            "mean_true_rank": 5.8,
+            "pred_counts": {
+              "IMPORTANT": 10,
+              "FAMILY": 3,
+              "SEEM": 1,
+              "TEACH2": 1
+            }
+          },
+          "FAMILY": {
+            "n": 12,
+            "top1": 0.75,
+            "top3": 0.9166666666666666,
+            "top5": 0.9166666666666666,
+            "median_len": 29.5,
+            "mean_true_rank": 1.6666666666666667,
+            "pred_counts": {
+              "FAMILY": 9,
+              "MANY": 1,
+              "BREAKFAST1": 1,
+              "IMPORTANT": 1
+            }
+          },
+          "MORE": {
+            "n": 11,
+            "top1": 1.0,
+            "top3": 1.0,
+            "top5": 1.0,
+            "median_len": 16.0,
+            "mean_true_rank": 1.0,
+            "pred_counts": {
+              "MORE": 11
+            }
+          },
+          "INTRODUCE": {
+            "n": 12,
+            "top1": 0.6666666666666666,
+            "top3": 0.8333333333333334,
+            "top5": 0.9166666666666666,
+            "median_len": 32.5,
+            "mean_true_rank": 2.6666666666666665,
+            "pred_counts": {
+              "INTRODUCE": 8,
+              "WHOLE": 1,
+              "HAVE": 1,
+              "HOW1": 1,
+              "CLOTHES": 1
+            }
+          },
+          "SELL": {
+            "n": 11,
+            "top1": 0.2727272727272727,
+            "top3": 0.7272727272727273,
+            "top5": 0.9090909090909091,
+            "median_len": 17.0,
+            "mean_true_rank": 2.727272727272727,
+            "pred_counts": {
+              "SHOP1": 4,
+              "SELL": 3,
+              "STRONG": 3,
+              "TEACHER": 1
+            }
+          },
+          "PUT": {
+            "n": 11,
+            "top1": 0.45454545454545453,
+            "top3": 0.7272727272727273,
+            "top5": 0.8181818181818182,
+            "median_len": 32.0,
+            "mean_true_rank": 5.636363636363637,
+            "pred_counts": {
+              "PUT": 5,
+              "MOVE": 2,
+              "HOW1": 1,
+              "TEACH2": 1,
+              "SLOW": 1,
+              "JUMP": 1
+            }
+          },
+          "DECIDE1": {
+            "n": 14,
+            "top1": 0.7857142857142857,
+            "top3": 0.9285714285714286,
+            "top5": 0.9285714285714286,
+            "median_len": 40.0,
+            "mean_true_rank": 1.5714285714285714,
+            "pred_counts": {
+              "DECIDE1": 11,
+              "ENTER": 1,
+              "MEET": 1,
+              "STREET": 1
+            }
+          },
+          "SHOP1": {
+            "n": 10,
+            "top1": 0.6,
+            "top3": 0.7,
+            "top5": 0.9,
+            "median_len": 25.5,
+            "mean_true_rank": 2.5,
+            "pred_counts": {
+              "SHOP1": 6,
+              "SELL": 2,
+              "INTRODUCE": 1,
+              "TEACH2": 1
+            }
+          },
+          "TEACH2": {
+            "n": 11,
+            "top1": 0.9090909090909091,
+            "top3": 1.0,
+            "top5": 1.0,
+            "median_len": 15.0,
+            "mean_true_rank": 1.0909090909090908,
+            "pred_counts": {
+              "TEACH2": 10,
+              "TEACHER": 1
+            }
+          },
+          "WANT2": {
+            "n": 11,
+            "top1": 0.36363636363636365,
+            "top3": 0.6363636363636364,
+            "top5": 0.7272727272727273,
+            "median_len": 17.0,
+            "mean_true_rank": 4.818181818181818,
+            "pred_counts": {
+              "WANT2": 4,
+              "STREET": 2,
+              "NOW": 1,
+              "WAIT": 1,
+              "HERE": 1,
+              "MANY": 1,
+              "TOOMUCH": 1
+            }
+          },
+          "MANY": {
+            "n": 11,
+            "top1": 0.7272727272727273,
+            "top3": 0.9090909090909091,
+            "top5": 1.0,
+            "median_len": 45.0,
+            "mean_true_rank": 1.6363636363636365,
+            "pred_counts": {
+              "MANY": 8,
+              "CAR": 1,
+              "WAIT": 1,
+              "WANT2": 1
+            }
+          },
+          "WAIT": {
+            "n": 11,
+            "top1": 0.6363636363636364,
+            "top3": 0.8181818181818182,
+            "top5": 0.9090909090909091,
+            "median_len": 26.0,
+            "mean_true_rank": 2.6363636363636362,
+            "pred_counts": {
+              "WAIT": 7,
+              "SAD": 1,
+              "RIGHT3": 1,
+              "EASY": 1,
+              "NEW": 1
+            }
+          },
+          "MEET": {
+            "n": 9,
+            "top1": 0.8888888888888888,
+            "top3": 1.0,
+            "top5": 1.0,
+            "median_len": 23.0,
+            "mean_true_rank": 1.2222222222222223,
+            "pred_counts": {
+              "MEET": 8,
+              "GIFT": 1
+            }
+          },
+          "KNOW": {
+            "n": 13,
+            "top1": 0.15384615384615385,
+            "top3": 0.6923076923076923,
+            "top5": 0.9230769230769231,
+            "median_len": 16.0,
+            "mean_true_rank": 4.384615384615385,
+            "pred_counts": {
+              "LUNCH1": 4,
+              "WHY": 3,
+              "KNOW": 2,
+              "BECAUSE": 2,
+              "SEEM": 2
+            }
+          },
+          "HELLO": {
+            "n": 10,
+            "top1": 0.3,
+            "top3": 0.5,
+            "top5": 0.8,
+            "median_len": 15.5,
+            "mean_true_rank": 4.2,
+            "pred_counts": {
+              "HELLO": 3,
+              "SEEM": 2,
+              "FATHER": 2,
+              "BYE": 1,
+              "MAN": 1,
+              "HOSPITAL1": 1
+            }
+          },
+          "DONTKNOW": {
+            "n": 10,
+            "top1": 0.9,
+            "top3": 0.9,
+            "top5": 1.0,
+            "median_len": 22.5,
+            "mean_true_rank": 1.4,
+            "pred_counts": {
+              "DONTKNOW": 9,
+              "DECIDE1": 1
+            }
+          },
+          "WE": {
+            "n": 12,
+            "top1": 1.0,
+            "top3": 1.0,
+            "top5": 1.0,
+            "median_len": 26.5,
+            "mean_true_rank": 1.0,
+            "pred_counts": {
+              "WE": 12
+            }
+          },
+          "LIVE2": {
+            "n": 12,
+            "top1": 0.75,
+            "top3": 0.8333333333333334,
+            "top5": 0.9166666666666666,
+            "median_len": 25.0,
+            "mean_true_rank": 1.8333333333333333,
+            "pred_counts": {
+              "LIVE2": 9,
+              "WHICH": 1,
+              "WHILE": 1,
+              "TRY": 1
+            }
+          },
+          "STRONG": {
+            "n": 11,
+            "top1": 0.8181818181818182,
+            "top3": 1.0,
+            "top5": 1.0,
+            "median_len": 21.0,
+            "mean_true_rank": 1.1818181818181819,
+            "pred_counts": {
+              "STRONG": 9,
+              "DRIVE": 1,
+              "CAR": 1
+            }
+          }
+        },
+        "groups": {
+          "important_family_more_introduce": {
+            "words": [
+              "IMPORTANT",
+              "FAMILY",
+              "MORE",
+              "INTRODUCE"
+            ],
+            "n": 50,
+            "top1": 0.76,
+            "matrix_rows_true_cols_pred": [
+              [
+                10,
+                3,
+                0,
+                0
+              ],
+              [
+                1,
+                9,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                11,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                8
+              ]
+            ]
+          },
+          "sell_put_decide_shop_teach": {
+            "words": [
+              "SELL",
+              "PUT",
+              "DECIDE1",
+              "SHOP1",
+              "TEACH2"
+            ],
+            "n": 57,
+            "top1": 0.6140350877192983,
+            "matrix_rows_true_cols_pred": [
+              [
+                3,
+                0,
+                0,
+                4,
+                0
+              ],
+              [
+                0,
+                5,
+                0,
+                0,
+                1
+              ],
+              [
+                0,
+                0,
+                11,
+                0,
+                0
+              ],
+              [
+                2,
+                0,
+                0,
+                6,
+                1
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                10
+              ]
+            ]
+          },
+          "want_many_wait_meet": {
+            "words": [
+              "WANT2",
+              "MANY",
+              "WAIT",
+              "MEET"
+            ],
+            "n": 42,
+            "top1": 0.6428571428571429,
+            "matrix_rows_true_cols_pred": [
+              [
+                4,
+                1,
+                1,
+                0
+              ],
+              [
+                1,
+                8,
+                1,
+                0
+              ],
+              [
+                0,
+                0,
+                7,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                8
+              ]
+            ]
+          },
+          "know_hello_sell_dontknow": {
+            "words": [
+              "KNOW",
+              "HELLO",
+              "SELL",
+              "DONTKNOW"
+            ],
+            "n": 44,
+            "top1": 0.38636363636363635,
+            "matrix_rows_true_cols_pred": [
+              [
+                2,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                3,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                3,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                9
+              ]
+            ]
+          },
+          "we_live_strong_sell": {
+            "words": [
+              "WE",
+              "LIVE2",
+              "STRONG",
+              "SELL"
+            ],
+            "n": 46,
+            "top1": 0.717391304347826,
+            "matrix_rows_true_cols_pred": [
+              [
+                12,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                9,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                9,
+                0
+              ],
+              [
+                0,
+                0,
+                3,
+                3
+              ]
+            ]
+          }
+        }
+      },
+      "early4": {
+        "view": "early4",
+        "overall": {
+          "n": 2620,
+          "top1": 0.08129770992366413,
+          "top3": 0.1297709923664122,
+          "top5": 0.15877862595419848
+        },
+        "classes": {
+          "IMPORTANT": {
+            "n": 15,
+            "top1": 0.06666666666666667,
+            "top3": 0.2,
+            "top5": 0.26666666666666666,
+            "median_len": 43.0,
+            "mean_true_rank": 61.333333333333336,
+            "pred_counts": {
+              "EAT1": 1,
+              "COUNTRY": 1,
+              "WHILE": 1,
+              "CLOTHES": 1,
+              "DECIDE1": 1,
+              "USE": 1,
+              "IMPORTANT": 1,
+              "TODAY": 1
+            }
+          },
+          "FAMILY": {
+            "n": 12,
+            "top1": 0.0,
+            "top3": 0.0,
+            "top5": 0.16666666666666666,
+            "median_len": 29.5,
+            "mean_true_rank": 57.583333333333336,
+            "pred_counts": {
+              "TEACHER": 2,
+              "WHILE": 2,
+              "MOUTH": 1,
+              "MEET": 1,
+              "SPECIAL1": 1,
+              "HOW1": 1,
+              "HOUSE": 1,
+              "BREAKFAST1": 1
+            }
+          },
+          "MORE": {
+            "n": 11,
+            "top1": 0.0,
+            "top3": 0.0,
+            "top5": 0.09090909090909091,
+            "median_len": 16.0,
+            "mean_true_rank": 77.45454545454545,
+            "pred_counts": {
+              "HAVE": 1,
+              "FAST": 1,
+              "EAT1": 1,
+              "LUNCH1": 1,
+              "SPECIAL1": 1,
+              "WHAT1": 1,
+              "THEN": 1,
+              "SURE": 1
+            }
+          },
+          "INTRODUCE": {
+            "n": 12,
+            "top1": 0.0,
+            "top3": 0.08333333333333333,
+            "top5": 0.08333333333333333,
+            "median_len": 32.5,
+            "mean_true_rank": 75.5,
+            "pred_counts": {
+              "EAT1": 2,
+              "STREET": 1,
+              "HAVE": 1,
+              "TABLE": 1,
+              "TIME": 1,
+              "CANNOT": 1,
+              "WHILE": 1,
+              "HERE": 1
+            }
+          },
+          "SELL": {
+            "n": 11,
+            "top1": 0.18181818181818182,
+            "top3": 0.18181818181818182,
+            "top5": 0.2727272727272727,
+            "median_len": 17.0,
+            "mean_true_rank": 87.45454545454545,
+            "pred_counts": {
+              "MEET": 2,
+              "SELL": 2,
+              "SLOW": 1,
+              "IMPORTANT": 1,
+              "STRONG": 1,
+              "WHILE": 1,
+              "EAT1": 1,
+              "TOMORROW": 1
+            }
+          },
+          "PUT": {
+            "n": 11,
+            "top1": 0.09090909090909091,
+            "top3": 0.09090909090909091,
+            "top5": 0.09090909090909091,
+            "median_len": 32.0,
+            "mean_true_rank": 119.0,
+            "pred_counts": {
+              "YOU": 1,
+              "HOW1": 1,
+              "SAME2": 1,
+              "IN": 1,
+              "ALWAYS": 1,
+              "WHILE": 1,
+              "SLOW": 1,
+              "PUT": 1
+            }
+          },
+          "DECIDE1": {
+            "n": 14,
+            "top1": 0.21428571428571427,
+            "top3": 0.2857142857142857,
+            "top5": 0.35714285714285715,
+            "median_len": 40.0,
+            "mean_true_rank": 63.92857142857143,
+            "pred_counts": {
+              "DECIDE1": 3,
+              "LUNCH1": 1,
+              "FAST": 1,
+              "WHILE": 1,
+              "HELLO": 1,
+              "HOW1": 1,
+              "ONE": 1,
+              "CANNOT": 1
+            }
+          },
+          "SHOP1": {
+            "n": 10,
+            "top1": 0.3,
+            "top3": 0.3,
+            "top5": 0.4,
+            "median_len": 25.5,
+            "mean_true_rank": 78.5,
+            "pred_counts": {
+              "SHOP1": 3,
+              "HOSPITAL1": 1,
+              "YEAR": 1,
+              "WHAT1": 1,
+              "MORE": 1,
+              "CHAIR": 1,
+              "HOW1": 1,
+              "TOUCH": 1
+            }
+          },
+          "TEACH2": {
+            "n": 11,
+            "top1": 0.36363636363636365,
+            "top3": 0.36363636363636365,
+            "top5": 0.36363636363636365,
+            "median_len": 15.0,
+            "mean_true_rank": 39.36363636363637,
+            "pred_counts": {
+              "TEACH2": 4,
+              "GIFT": 1,
+              "BYE": 1,
+              "WHILE": 1,
+              "KNOW": 1,
+              "COUNTRY": 1,
+              "TODAY": 1,
+              "THEN": 1
+            }
+          },
+          "WANT2": {
+            "n": 11,
+            "top1": 0.09090909090909091,
+            "top3": 0.09090909090909091,
+            "top5": 0.18181818181818182,
+            "median_len": 17.0,
+            "mean_true_rank": 83.18181818181819,
+            "pred_counts": {
+              "HAVE": 2,
+              "CANNOT": 1,
+              "GIVE": 1,
+              "WANT2": 1,
+              "WHILE": 1,
+              "SLOW": 1,
+              "BUY": 1,
+              "TODAY": 1
+            }
+          },
+          "MANY": {
+            "n": 11,
+            "top1": 0.09090909090909091,
+            "top3": 0.09090909090909091,
+            "top5": 0.09090909090909091,
+            "median_len": 45.0,
+            "mean_true_rank": 49.81818181818182,
+            "pred_counts": {
+              "EAT1": 1,
+              "WHILE": 1,
+              "HOSPITAL1": 1,
+              "MOUTH": 1,
+              "HOUR": 1,
+              "LETTER2": 1,
+              "HOW1": 1,
+              "TOUCH": 1
+            }
+          },
+          "WAIT": {
+            "n": 11,
+            "top1": 0.2727272727272727,
+            "top3": 0.2727272727272727,
+            "top5": 0.2727272727272727,
+            "median_len": 26.0,
+            "mean_true_rank": 91.54545454545455,
+            "pred_counts": {
+              "WAIT": 3,
+              "YOU": 1,
+              "ABOUT2": 1,
+              "CLOTHES": 1,
+              "EAT1": 1,
+              "SLOW": 1,
+              "SISTER": 1,
+              "HAPPY": 1
+            }
+          },
+          "MEET": {
+            "n": 9,
+            "top1": 0.0,
+            "top3": 0.0,
+            "top5": 0.0,
+            "median_len": 23.0,
+            "mean_true_rank": 83.33333333333333,
+            "pred_counts": {
+              "SORRY": 1,
+              "HOSPITAL1": 1,
+              "NOW": 1,
+              "WHAT1": 1,
+              "NEED": 1,
+              "CANNOT": 1,
+              "HOW1": 1,
+              "MOUTH": 1
+            }
+          },
+          "KNOW": {
+            "n": 13,
+            "top1": 0.0,
+            "top3": 0.0,
+            "top5": 0.0,
+            "median_len": 16.0,
+            "mean_true_rank": 108.38461538461539,
+            "pred_counts": {
+              "EAT1": 3,
+              "HOW1": 2,
+              "GIVE": 1,
+              "HOME": 1,
+              "IN": 1,
+              "WHILE": 1,
+              "THINK": 1,
+              "ALWAYS": 1
+            }
+          },
+          "HELLO": {
+            "n": 10,
+            "top1": 0.1,
+            "top3": 0.2,
+            "top5": 0.2,
+            "median_len": 15.5,
+            "mean_true_rank": 69.2,
+            "pred_counts": {
+              "SURE": 1,
+              "BYE": 1,
+              "TOMORROW": 1,
+              "MAN": 1,
+              "YOUR": 1,
+              "THINK": 1,
+              "TIME": 1,
+              "SIT": 1
+            }
+          },
+          "DONTKNOW": {
+            "n": 10,
+            "top1": 0.1,
+            "top3": 0.1,
+            "top5": 0.2,
+            "median_len": 22.5,
+            "mean_true_rank": 47.8,
+            "pred_counts": {
+              "TEACHER": 1,
+              "HOW1": 1,
+              "WHAT1": 1,
+              "FAST": 1,
+              "CLOTHES": 1,
+              "YEAR": 1,
+              "SURE": 1,
+              "DONTKNOW": 1
+            }
+          },
+          "WE": {
+            "n": 12,
+            "top1": 0.08333333333333333,
+            "top3": 0.16666666666666666,
+            "top5": 0.16666666666666666,
+            "median_len": 26.5,
+            "mean_true_rank": 113.5,
+            "pred_counts": {
+              "PAY": 2,
+              "CANNOT": 1,
+              "ALWAYS": 1,
+              "LUNCH1": 1,
+              "WE": 1,
+              "YES": 1,
+              "HOW1": 1,
+              "TIME": 1
+            }
+          },
+          "LIVE2": {
+            "n": 12,
+            "top1": 0.0,
+            "top3": 0.08333333333333333,
+            "top5": 0.08333333333333333,
+            "median_len": 25.0,
+            "mean_true_rank": 104.5,
+            "pred_counts": {
+              "MEET": 2,
+              "WHILE": 2,
+              "MONTH": 1,
+              "CAKE": 1,
+              "EAT1": 1,
+              "MORE": 1,
+              "MOUTH": 1,
+              "NICE": 1
+            }
+          },
+          "STRONG": {
+            "n": 11,
+            "top1": 0.09090909090909091,
+            "top3": 0.09090909090909091,
+            "top5": 0.09090909090909091,
+            "median_len": 21.0,
+            "mean_true_rank": 92.72727272727273,
+            "pred_counts": {
+              "CANNOT": 2,
+              "STRONG": 1,
+              "WHILE": 1,
+              "GIVE": 1,
+              "YOU": 1,
+              "SURE": 1,
+              "TOMORROW": 1,
+              "HOW1": 1
+            }
+          }
+        },
+        "groups": {
+          "important_family_more_introduce": {
+            "words": [
+              "IMPORTANT",
+              "FAMILY",
+              "MORE",
+              "INTRODUCE"
+            ],
+            "n": 50,
+            "top1": 0.02,
+            "matrix_rows_true_cols_pred": [
+              [
+                1,
+                1,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0
+              ]
+            ]
+          },
+          "sell_put_decide_shop_teach": {
+            "words": [
+              "SELL",
+              "PUT",
+              "DECIDE1",
+              "SHOP1",
+              "TEACH2"
+            ],
+            "n": 57,
+            "top1": 0.22807017543859648,
+            "matrix_rows_true_cols_pred": [
+              [
+                2,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                1,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                3,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                3,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                4
+              ]
+            ]
+          },
+          "want_many_wait_meet": {
+            "words": [
+              "WANT2",
+              "MANY",
+              "WAIT",
+              "MEET"
+            ],
+            "n": 42,
+            "top1": 0.11904761904761904,
+            "matrix_rows_true_cols_pred": [
+              [
+                1,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                1,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                3,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0
+              ]
+            ]
+          },
+          "know_hello_sell_dontknow": {
+            "words": [
+              "KNOW",
+              "HELLO",
+              "SELL",
+              "DONTKNOW"
+            ],
+            "n": 44,
+            "top1": 0.09090909090909091,
+            "matrix_rows_true_cols_pred": [
+              [
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                1,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                2,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                1
+              ]
+            ]
+          },
+          "we_live_strong_sell": {
+            "words": [
+              "WE",
+              "LIVE2",
+              "STRONG",
+              "SELL"
+            ],
+            "n": 46,
+            "top1": 0.08695652173913043,
+            "matrix_rows_true_cols_pred": [
+              [
+                1,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                1,
+                1
+              ],
+              [
+                0,
+                0,
+                1,
+                2
+              ]
+            ]
+          }
+        }
+      },
+      "early6": {
+        "view": "early6",
+        "overall": {
+          "n": 2620,
+          "top1": 0.13740458015267176,
+          "top3": 0.2366412213740458,
+          "top5": 0.28473282442748094
+        },
+        "classes": {
+          "IMPORTANT": {
+            "n": 15,
+            "top1": 0.13333333333333333,
+            "top3": 0.3333333333333333,
+            "top5": 0.4,
+            "median_len": 43.0,
+            "mean_true_rank": 35.86666666666667,
+            "pred_counts": {
+              "COUNT": 2,
+              "IMPORTANT": 2,
+              "WITH": 1,
+              "SAME2": 1,
+              "THEN": 1,
+              "FREE": 1,
+              "SLOW": 1,
+              "MORE": 1
+            }
+          },
+          "FAMILY": {
+            "n": 12,
+            "top1": 0.16666666666666666,
+            "top3": 0.16666666666666666,
+            "top5": 0.25,
+            "median_len": 29.5,
+            "mean_true_rank": 37.166666666666664,
+            "pred_counts": {
+              "FAMILY": 2,
+              "TEACHER": 2,
+              "MANY": 1,
+              "ALWAYS": 1,
+              "WANT2": 1,
+              "WAIT": 1,
+              "BED2": 1,
+              "IMPORTANT": 1
+            }
+          },
+          "MORE": {
+            "n": 11,
+            "top1": 0.09090909090909091,
+            "top3": 0.18181818181818182,
+            "top5": 0.2727272727272727,
+            "median_len": 16.0,
+            "mean_true_rank": 35.63636363636363,
+            "pred_counts": {
+              "PARTY1": 1,
+              "ON": 1,
+              "SMALL": 1,
+              "HARD": 1,
+              "SPECIAL1": 1,
+              "MORE": 1,
+              "CONGRATULATIONS": 1,
+              "HERE": 1
+            }
+          },
+          "INTRODUCE": {
+            "n": 12,
+            "top1": 0.08333333333333333,
+            "top3": 0.16666666666666666,
+            "top5": 0.25,
+            "median_len": 32.5,
+            "mean_true_rank": 32.833333333333336,
+            "pred_counts": {
+              "COLD": 1,
+              "CANNOT": 1,
+              "CLOTHES": 1,
+              "SMALL": 1,
+              "RUN2": 1,
+              "CHILD": 1,
+              "USE": 1,
+              "SELL": 1
+            }
+          },
+          "SELL": {
+            "n": 11,
+            "top1": 0.2727272727272727,
+            "top3": 0.45454545454545453,
+            "top5": 0.6363636363636364,
+            "median_len": 17.0,
+            "mean_true_rank": 25.636363636363637,
+            "pred_counts": {
+              "SELL": 3,
+              "CAR": 2,
+              "PLAY": 1,
+              "AGAIN": 1,
+              "EAT1": 1,
+              "SHOP1": 1,
+              "WHERE": 1,
+              "SURE": 1
+            }
+          },
+          "PUT": {
+            "n": 11,
+            "top1": 0.09090909090909091,
+            "top3": 0.09090909090909091,
+            "top5": 0.09090909090909091,
+            "median_len": 32.0,
+            "mean_true_rank": 48.09090909090909,
+            "pred_counts": {
+              "SLOW": 2,
+              "MORE": 2,
+              "USE": 1,
+              "DAY": 1,
+              "ON": 1,
+              "ABOUT2": 1,
+              "PUT": 1,
+              "OPEN": 1
+            }
+          },
+          "DECIDE1": {
+            "n": 14,
+            "top1": 0.21428571428571427,
+            "top3": 0.2857142857142857,
+            "top5": 0.2857142857142857,
+            "median_len": 40.0,
+            "mean_true_rank": 28.142857142857142,
+            "pred_counts": {
+              "DECIDE1": 3,
+              "LUNCH1": 1,
+              "FAST": 1,
+              "RUN2": 1,
+              "MAN": 1,
+              "TEACH2": 1,
+              "HAVE": 1,
+              "SEE": 1
+            }
+          },
+          "SHOP1": {
+            "n": 10,
+            "top1": 0.3,
+            "top3": 0.4,
+            "top5": 0.4,
+            "median_len": 25.5,
+            "mean_true_rank": 53.2,
+            "pred_counts": {
+              "SHOP1": 3,
+              "HOSPITAL1": 1,
+              "YEAR": 1,
+              "WHILE": 1,
+              "TEACH2": 1,
+              "PICK": 1,
+              "SAD": 1,
+              "HAVE": 1
+            }
+          },
+          "TEACH2": {
+            "n": 11,
+            "top1": 0.45454545454545453,
+            "top3": 0.45454545454545453,
+            "top5": 0.45454545454545453,
+            "median_len": 15.0,
+            "mean_true_rank": 18.727272727272727,
+            "pred_counts": {
+              "TEACH2": 5,
+              "BUY": 1,
+              "SELL": 1,
+              "BYE": 1,
+              "YEAR": 1,
+              "TEACHER": 1,
+              "CLOTHES": 1
+            }
+          },
+          "WANT2": {
+            "n": 11,
+            "top1": 0.09090909090909091,
+            "top3": 0.2727272727272727,
+            "top5": 0.2727272727272727,
+            "median_len": 17.0,
+            "mean_true_rank": 66.36363636363636,
+            "pred_counts": {
+              "HAVE": 2,
+              "CAR": 2,
+              "HOUR": 1,
+              "NOW": 1,
+              "WANT2": 1,
+              "WHAT1": 1,
+              "SAME2": 1,
+              "ENTER": 1
+            }
+          },
+          "MANY": {
+            "n": 11,
+            "top1": 0.18181818181818182,
+            "top3": 0.2727272727272727,
+            "top5": 0.2727272727272727,
+            "median_len": 45.0,
+            "mean_true_rank": 44.27272727272727,
+            "pred_counts": {
+              "MANY": 2,
+              "LOVE": 1,
+              "HAVE": 1,
+              "HOSPITAL1": 1,
+              "HERE": 1,
+              "SHOP1": 1,
+              "ONE": 1,
+              "CAKE": 1
+            }
+          },
+          "WAIT": {
+            "n": 11,
+            "top1": 0.2727272727272727,
+            "top3": 0.36363636363636365,
+            "top5": 0.36363636363636365,
+            "median_len": 26.0,
+            "mean_true_rank": 83.27272727272727,
+            "pred_counts": {
+              "WAIT": 3,
+              "SORRY": 1,
+              "EAT1": 1,
+              "OFFICE": 1,
+              "MORE": 1,
+              "SISTER": 1,
+              "GOOD": 1,
+              "YEAR": 1
+            }
+          },
+          "MEET": {
+            "n": 9,
+            "top1": 0.2222222222222222,
+            "top3": 0.4444444444444444,
+            "top5": 0.5555555555555556,
+            "median_len": 23.0,
+            "mean_true_rank": 43.55555555555556,
+            "pred_counts": {
+              "MEET": 2,
+              "WHILE": 1,
+              "YEAR": 1,
+              "TO": 1,
+              "CLOSE": 1,
+              "VERY": 1,
+              "ASK": 1,
+              "EAT1": 1
+            }
+          },
+          "KNOW": {
+            "n": 13,
+            "top1": 0.0,
+            "top3": 0.15384615384615385,
+            "top5": 0.15384615384615385,
+            "median_len": 16.0,
+            "mean_true_rank": 56.15384615384615,
+            "pred_counts": {
+              "SEEM": 2,
+              "IF": 1,
+              "TOMORROW": 1,
+              "HOME": 1,
+              "ANY": 1,
+              "LUNCH1": 1,
+              "BECAUSE": 1,
+              "BED2": 1
+            }
+          },
+          "HELLO": {
+            "n": 10,
+            "top1": 0.1,
+            "top3": 0.3,
+            "top5": 0.5,
+            "median_len": 15.5,
+            "mean_true_rank": 51.9,
+            "pred_counts": {
+              "SEEM": 3,
+              "BYE": 1,
+              "YEAR": 1,
+              "FATHER": 1,
+              "BREAKFAST1": 1,
+              "HOSPITAL1": 1,
+              "NEED": 1,
+              "HELLO": 1
+            }
+          },
+          "DONTKNOW": {
+            "n": 10,
+            "top1": 0.1,
+            "top3": 0.3,
+            "top5": 0.3,
+            "median_len": 22.5,
+            "mean_true_rank": 47.4,
+            "pred_counts": {
+              "TEACHER": 2,
+              "CLOSE": 2,
+              "LUNCH1": 1,
+              "HAVE": 1,
+              "BREAKFAST1": 1,
+              "SURE": 1,
+              "ENOUGH": 1,
+              "DONTKNOW": 1
+            }
+          },
+          "WE": {
+            "n": 12,
+            "top1": 0.08333333333333333,
+            "top3": 0.3333333333333333,
+            "top5": 0.4166666666666667,
+            "median_len": 26.5,
+            "mean_true_rank": 70.83333333333333,
+            "pred_counts": {
+              "ALWAYS": 2,
+              "CANNOT": 1,
+              "HEAR1": 1,
+              "HARD": 1,
+              "WALK2": 1,
+              "SURE": 1,
+              "ENTER": 1,
+              "PAY": 1
+            }
+          },
+          "LIVE2": {
+            "n": 12,
+            "top1": 0.3333333333333333,
+            "top3": 0.3333333333333333,
+            "top5": 0.3333333333333333,
+            "median_len": 25.0,
+            "mean_true_rank": 67.66666666666667,
+            "pred_counts": {
+              "LIVE2": 4,
+              "TOOMUCH": 1,
+              "BABY1": 1,
+              "EAT1": 1,
+              "MEAT1": 1,
+              "BIG": 1,
+              "SORRY": 1,
+              "WHAT1": 1
+            }
+          },
+          "STRONG": {
+            "n": 11,
+            "top1": 0.09090909090909091,
+            "top3": 0.09090909090909091,
+            "top5": 0.09090909090909091,
+            "median_len": 21.0,
+            "mean_true_rank": 69.63636363636364,
+            "pred_counts": {
+              "HERE": 1,
+              "RUN2": 1,
+              "STRONG": 1,
+              "SHOP1": 1,
+              "GIVE": 1,
+              "YOU": 1,
+              "SURE": 1,
+              "WHAT1": 1
+            }
+          }
+        },
+        "groups": {
+          "important_family_more_introduce": {
+            "words": [
+              "IMPORTANT",
+              "FAMILY",
+              "MORE",
+              "INTRODUCE"
+            ],
+            "n": 50,
+            "top1": 0.12,
+            "matrix_rows_true_cols_pred": [
+              [
+                2,
+                1,
+                1,
+                0
+              ],
+              [
+                1,
+                2,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                1,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                1
+              ]
+            ]
+          },
+          "sell_put_decide_shop_teach": {
+            "words": [
+              "SELL",
+              "PUT",
+              "DECIDE1",
+              "SHOP1",
+              "TEACH2"
+            ],
+            "n": 57,
+            "top1": 0.2631578947368421,
+            "matrix_rows_true_cols_pred": [
+              [
+                3,
+                0,
+                0,
+                1,
+                0
+              ],
+              [
+                0,
+                1,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                3,
+                0,
+                1
+              ],
+              [
+                0,
+                0,
+                0,
+                3,
+                1
+              ],
+              [
+                1,
+                0,
+                0,
+                0,
+                5
+              ]
+            ]
+          },
+          "want_many_wait_meet": {
+            "words": [
+              "WANT2",
+              "MANY",
+              "WAIT",
+              "MEET"
+            ],
+            "n": 42,
+            "top1": 0.19047619047619047,
+            "matrix_rows_true_cols_pred": [
+              [
+                1,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                2,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                3,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                2
+              ]
+            ]
+          },
+          "know_hello_sell_dontknow": {
+            "words": [
+              "KNOW",
+              "HELLO",
+              "SELL",
+              "DONTKNOW"
+            ],
+            "n": 44,
+            "top1": 0.11363636363636363,
+            "matrix_rows_true_cols_pred": [
+              [
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                1,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                3,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                1
+              ]
+            ]
+          },
+          "we_live_strong_sell": {
+            "words": [
+              "WE",
+              "LIVE2",
+              "STRONG",
+              "SELL"
+            ],
+            "n": 46,
+            "top1": 0.1956521739130435,
+            "matrix_rows_true_cols_pred": [
+              [
+                1,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                4,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                1,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                3
+              ]
+            ]
+          }
+        }
+      }
+    },
+    "fps_val": {
+      "mean": {
+        "view": "mean",
+        "overall": {
+          "n": 3264,
+          "top1": 0.6397058823529411,
+          "top3": 0.8284313725490197,
+          "top5": 0.8799019607843137
+        },
+        "classes": {
+          "IMPORTANT": {
+            "n": 12,
+            "top1": 0.75,
+            "top3": 1.0,
+            "top5": 1.0,
+            "median_len": 6.0,
+            "mean_true_rank": 1.25,
+            "pred_counts": {
+              "IMPORTANT": 9,
+              "FAMILY": 3
+            }
+          },
+          "FAMILY": {
+            "n": 12,
+            "top1": 1.0,
+            "top3": 1.0,
+            "top5": 1.0,
+            "median_len": 9.5,
+            "mean_true_rank": 1.0,
+            "pred_counts": {
+              "FAMILY": 12
+            }
+          },
+          "MORE": {
+            "n": 16,
+            "top1": 1.0,
+            "top3": 1.0,
+            "top5": 1.0,
+            "median_len": 8.5,
+            "mean_true_rank": 1.0,
+            "pred_counts": {
+              "MORE": 16
+            }
+          },
+          "INTRODUCE": {
+            "n": 12,
+            "top1": 0.9166666666666666,
+            "top3": 0.9166666666666666,
+            "top5": 0.9166666666666666,
+            "median_len": 7.5,
+            "mean_true_rank": 1.5833333333333333,
+            "pred_counts": {
+              "INTRODUCE": 11,
+              "ROAD": 1
+            }
+          },
+          "SELL": {
+            "n": 8,
+            "top1": 0.5,
+            "top3": 0.75,
+            "top5": 1.0,
+            "median_len": 6.5,
+            "mean_true_rank": 2.25,
+            "pred_counts": {
+              "SELL": 4,
+              "TEACH2": 4
+            }
+          },
+          "PUT": {
+            "n": 16,
+            "top1": 0.75,
+            "top3": 1.0,
+            "top5": 1.0,
+            "median_len": 7.5,
+            "mean_true_rank": 1.3125,
+            "pred_counts": {
+              "PUT": 12,
+              "LEAVE": 3,
+              "PLAY": 1
+            }
+          },
+          "DECIDE1": {
+            "n": 8,
+            "top1": 1.0,
+            "top3": 1.0,
+            "top5": 1.0,
+            "median_len": 9.0,
+            "mean_true_rank": 1.0,
+            "pred_counts": {
+              "DECIDE1": 8
+            }
+          },
+          "SHOP1": {
+            "n": 24,
+            "top1": 0.7083333333333334,
+            "top3": 1.0,
+            "top5": 1.0,
+            "median_len": 8.0,
+            "mean_true_rank": 1.4166666666666667,
+            "pred_counts": {
+              "SHOP1": 17,
+              "TEACH2": 4,
+              "OFFICE": 2,
+              "MORE": 1
+            }
+          },
+          "TEACH2": {
+            "n": 12,
+            "top1": 0.8333333333333334,
+            "top3": 1.0,
+            "top5": 1.0,
+            "median_len": 6.0,
+            "mean_true_rank": 1.1666666666666667,
+            "pred_counts": {
+              "TEACH2": 10,
+              "TEACHER": 2
+            }
+          },
+          "WANT2": {
+            "n": 12,
+            "top1": 0.5833333333333334,
+            "top3": 1.0,
+            "top5": 1.0,
+            "median_len": 6.5,
+            "mean_true_rank": 1.5,
+            "pred_counts": {
+              "WANT2": 7,
+              "WHAT1": 2,
+              "MANY": 2,
+              "HERE": 1
+            }
+          },
+          "MANY": {
+            "n": 20,
+            "top1": 1.0,
+            "top3": 1.0,
+            "top5": 1.0,
+            "median_len": 13.5,
+            "mean_true_rank": 1.0,
+            "pred_counts": {
+              "MANY": 20
+            }
+          },
+          "WAIT": {
+            "n": 16,
+            "top1": 0.25,
+            "top3": 0.75,
+            "top5": 0.75,
+            "median_len": 9.0,
+            "mean_true_rank": 16.0625,
+            "pred_counts": {
+              "MANY": 7,
+              "WAIT": 4,
+              "WANT2": 4,
+              "SAD": 1
+            }
+          },
+          "MEET": {
+            "n": 12,
+            "top1": 0.6666666666666666,
+            "top3": 0.6666666666666666,
+            "top5": 0.6666666666666666,
+            "median_len": 6.5,
+            "mean_true_rank": 6.0,
+            "pred_counts": {
+              "MEET": 8,
+              "RUN2": 4
+            }
+          },
+          "KNOW": {
+            "n": 16,
+            "top1": 0.0,
+            "top3": 0.375,
+            "top5": 0.5,
+            "median_len": 9.5,
+            "mean_true_rank": 6.6875,
+            "pred_counts": {
+              "WHY": 12,
+              "HOME": 2,
+              "NEVER": 2
+            }
+          },
+          "HELLO": {
+            "n": 12,
+            "top1": 0.16666666666666666,
+            "top3": 0.25,
+            "top5": 0.5833333333333334,
+            "median_len": 7.0,
+            "mean_true_rank": 5.833333333333333,
+            "pred_counts": {
+              "FATHER": 5,
+              "NEVER": 4,
+              "HELLO": 2,
+              "SEEM": 1
+            }
+          },
+          "DONTKNOW": {
+            "n": 12,
+            "top1": 0.5833333333333334,
+            "top3": 1.0,
+            "top5": 1.0,
+            "median_len": 9.0,
+            "mean_true_rank": 1.5833333333333333,
+            "pred_counts": {
+              "DONTKNOW": 7,
+              "TEACHER": 4,
+              "DECIDE1": 1
+            }
+          },
+          "WE": {
+            "n": 12,
+            "top1": 0.9166666666666666,
+            "top3": 1.0,
+            "top5": 1.0,
+            "median_len": 13.5,
+            "mean_true_rank": 1.0833333333333333,
+            "pred_counts": {
+              "WE": 11,
+              "SORRY": 1
+            }
+          },
+          "LIVE2": {
+            "n": 16,
+            "top1": 1.0,
+            "top3": 1.0,
+            "top5": 1.0,
+            "median_len": 9.0,
+            "mean_true_rank": 1.0,
+            "pred_counts": {
+              "LIVE2": 16
+            }
+          },
+          "STRONG": {
+            "n": 8,
+            "top1": 0.75,
+            "top3": 1.0,
+            "top5": 1.0,
+            "median_len": 9.0,
+            "mean_true_rank": 1.375,
+            "pred_counts": {
+              "STRONG": 6,
+              "MEAN2": 1,
+              "PLAY": 1
+            }
+          }
+        },
+        "groups": {
+          "important_family_more_introduce": {
+            "words": [
+              "IMPORTANT",
+              "FAMILY",
+              "MORE",
+              "INTRODUCE"
+            ],
+            "n": 52,
+            "top1": 0.9230769230769231,
+            "matrix_rows_true_cols_pred": [
+              [
+                9,
+                3,
+                0,
+                0
+              ],
+              [
+                0,
+                12,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                16,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                11
+              ]
+            ]
+          },
+          "sell_put_decide_shop_teach": {
+            "words": [
+              "SELL",
+              "PUT",
+              "DECIDE1",
+              "SHOP1",
+              "TEACH2"
+            ],
+            "n": 68,
+            "top1": 0.75,
+            "matrix_rows_true_cols_pred": [
+              [
+                4,
+                0,
+                0,
+                0,
+                4
+              ],
+              [
+                0,
+                12,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                8,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                17,
+                4
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                10
+              ]
+            ]
+          },
+          "want_many_wait_meet": {
+            "words": [
+              "WANT2",
+              "MANY",
+              "WAIT",
+              "MEET"
+            ],
+            "n": 60,
+            "top1": 0.65,
+            "matrix_rows_true_cols_pred": [
+              [
+                7,
+                2,
+                0,
+                0
+              ],
+              [
+                0,
+                20,
+                0,
+                0
+              ],
+              [
+                4,
+                7,
+                4,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                8
+              ]
+            ]
+          },
+          "know_hello_sell_dontknow": {
+            "words": [
+              "KNOW",
+              "HELLO",
+              "SELL",
+              "DONTKNOW"
+            ],
+            "n": 48,
+            "top1": 0.2708333333333333,
+            "matrix_rows_true_cols_pred": [
+              [
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                2,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                4,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                7
+              ]
+            ]
+          },
+          "we_live_strong_sell": {
+            "words": [
+              "WE",
+              "LIVE2",
+              "STRONG",
+              "SELL"
+            ],
+            "n": 44,
+            "top1": 0.8409090909090909,
+            "matrix_rows_true_cols_pred": [
+              [
+                11,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                16,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                6,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                4
+              ]
+            ]
+          }
+        }
+      },
+      "last": {
+        "view": "last",
+        "overall": {
+          "n": 3264,
+          "top1": 0.5879289215686274,
+          "top3": 0.7895220588235294,
+          "top5": 0.8587622549019608
+        },
+        "classes": {
+          "IMPORTANT": {
+            "n": 12,
+            "top1": 0.6666666666666666,
+            "top3": 1.0,
+            "top5": 1.0,
+            "median_len": 6.0,
+            "mean_true_rank": 1.3333333333333333,
+            "pred_counts": {
+              "IMPORTANT": 8,
+              "FAMILY": 4
+            }
+          },
+          "FAMILY": {
+            "n": 12,
+            "top1": 1.0,
+            "top3": 1.0,
+            "top5": 1.0,
+            "median_len": 9.5,
+            "mean_true_rank": 1.0,
+            "pred_counts": {
+              "FAMILY": 12
+            }
+          },
+          "MORE": {
+            "n": 16,
+            "top1": 1.0,
+            "top3": 1.0,
+            "top5": 1.0,
+            "median_len": 8.5,
+            "mean_true_rank": 1.0,
+            "pred_counts": {
+              "MORE": 16
+            }
+          },
+          "INTRODUCE": {
+            "n": 12,
+            "top1": 0.75,
+            "top3": 0.75,
+            "top5": 0.9166666666666666,
+            "median_len": 7.5,
+            "mean_true_rank": 2.6666666666666665,
+            "pred_counts": {
+              "INTRODUCE": 9,
+              "CLOTHES": 2,
+              "ROAD": 1
+            }
+          },
+          "SELL": {
+            "n": 8,
+            "top1": 0.5,
+            "top3": 0.75,
+            "top5": 0.875,
+            "median_len": 6.5,
+            "mean_true_rank": 2.5,
+            "pred_counts": {
+              "SELL": 4,
+              "TEACH2": 4
+            }
+          },
+          "PUT": {
+            "n": 16,
+            "top1": 0.625,
+            "top3": 1.0,
+            "top5": 1.0,
+            "median_len": 7.5,
+            "mean_true_rank": 1.4375,
+            "pred_counts": {
+              "PUT": 10,
+              "LEAVE": 4,
+              "MOVE": 1,
+              "PLAY": 1
+            }
+          },
+          "DECIDE1": {
+            "n": 8,
+            "top1": 1.0,
+            "top3": 1.0,
+            "top5": 1.0,
+            "median_len": 9.0,
+            "mean_true_rank": 1.0,
+            "pred_counts": {
+              "DECIDE1": 8
+            }
+          },
+          "SHOP1": {
+            "n": 24,
+            "top1": 0.7916666666666666,
+            "top3": 0.9166666666666666,
+            "top5": 1.0,
+            "median_len": 8.0,
+            "mean_true_rank": 1.5416666666666667,
+            "pred_counts": {
+              "SHOP1": 19,
+              "TEACH2": 4,
+              "OFFICE": 1
+            }
+          },
+          "TEACH2": {
+            "n": 12,
+            "top1": 1.0,
+            "top3": 1.0,
+            "top5": 1.0,
+            "median_len": 6.0,
+            "mean_true_rank": 1.0,
+            "pred_counts": {
+              "TEACH2": 12
+            }
+          },
+          "WANT2": {
+            "n": 12,
+            "top1": 0.6666666666666666,
+            "top3": 1.0,
+            "top5": 1.0,
+            "median_len": 6.5,
+            "mean_true_rank": 1.3333333333333333,
+            "pred_counts": {
+              "WANT2": 8,
+              "MANY": 2,
+              "HERE": 2
+            }
+          },
+          "MANY": {
+            "n": 20,
+            "top1": 1.0,
+            "top3": 1.0,
+            "top5": 1.0,
+            "median_len": 13.5,
+            "mean_true_rank": 1.0,
+            "pred_counts": {
+              "MANY": 20
+            }
+          },
+          "WAIT": {
+            "n": 16,
+            "top1": 0.3125,
+            "top3": 0.75,
+            "top5": 0.9375,
+            "median_len": 9.0,
+            "mean_true_rank": 4.5625,
+            "pred_counts": {
+              "MANY": 5,
+              "WANT2": 5,
+              "WAIT": 5,
+              "BREAKFAST1": 1
+            }
+          },
+          "MEET": {
+            "n": 12,
+            "top1": 0.6666666666666666,
+            "top3": 0.6666666666666666,
+            "top5": 0.75,
+            "median_len": 6.5,
+            "mean_true_rank": 3.4166666666666665,
+            "pred_counts": {
+              "MEET": 8,
+              "TO": 3,
+              "RUN2": 1
+            }
+          },
+          "KNOW": {
+            "n": 16,
+            "top1": 0.0625,
+            "top3": 0.3125,
+            "top5": 0.4375,
+            "median_len": 9.5,
+            "mean_true_rank": 7.5625,
+            "pred_counts": {
+              "WHY": 8,
+              "LUNCH1": 4,
+              "NEVER": 2,
+              "HOME": 1,
+              "KNOW": 1
+            }
+          },
+          "HELLO": {
+            "n": 12,
+            "top1": 0.16666666666666666,
+            "top3": 0.3333333333333333,
+            "top5": 0.5833333333333334,
+            "median_len": 7.0,
+            "mean_true_rank": 8.333333333333334,
+            "pred_counts": {
+              "NEVER": 5,
+              "AND": 3,
+              "HELLO": 2,
+              "LUNCH1": 1,
+              "FIND": 1
+            }
+          },
+          "DONTKNOW": {
+            "n": 12,
+            "top1": 0.5833333333333334,
+            "top3": 0.9166666666666666,
+            "top5": 1.0,
+            "median_len": 9.0,
+            "mean_true_rank": 1.8333333333333333,
+            "pred_counts": {
+              "DONTKNOW": 7,
+              "DECIDE1": 3,
+              "TEACHER": 2
+            }
+          },
+          "WE": {
+            "n": 12,
+            "top1": 0.6666666666666666,
+            "top3": 0.75,
+            "top5": 0.8333333333333334,
+            "median_len": 13.5,
+            "mean_true_rank": 3.1666666666666665,
+            "pred_counts": {
+              "WE": 8,
+              "SORRY": 2,
+              "PAY": 2
+            }
+          },
+          "LIVE2": {
+            "n": 16,
+            "top1": 1.0,
+            "top3": 1.0,
+            "top5": 1.0,
+            "median_len": 9.0,
+            "mean_true_rank": 1.0,
+            "pred_counts": {
+              "LIVE2": 16
+            }
+          },
+          "STRONG": {
+            "n": 8,
+            "top1": 0.5,
+            "top3": 0.875,
+            "top5": 1.0,
+            "median_len": 9.0,
+            "mean_true_rank": 1.875,
+            "pred_counts": {
+              "STRONG": 4,
+              "PLAY": 3,
+              "WHILE": 1
+            }
+          }
+        },
+        "groups": {
+          "important_family_more_introduce": {
+            "words": [
+              "IMPORTANT",
+              "FAMILY",
+              "MORE",
+              "INTRODUCE"
+            ],
+            "n": 52,
+            "top1": 0.8653846153846154,
+            "matrix_rows_true_cols_pred": [
+              [
+                8,
+                4,
+                0,
+                0
+              ],
+              [
+                0,
+                12,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                16,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                9
+              ]
+            ]
+          },
+          "sell_put_decide_shop_teach": {
+            "words": [
+              "SELL",
+              "PUT",
+              "DECIDE1",
+              "SHOP1",
+              "TEACH2"
+            ],
+            "n": 68,
+            "top1": 0.7794117647058824,
+            "matrix_rows_true_cols_pred": [
+              [
+                4,
+                0,
+                0,
+                0,
+                4
+              ],
+              [
+                0,
+                10,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                8,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                19,
+                4
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                12
+              ]
+            ]
+          },
+          "want_many_wait_meet": {
+            "words": [
+              "WANT2",
+              "MANY",
+              "WAIT",
+              "MEET"
+            ],
+            "n": 60,
+            "top1": 0.6833333333333333,
+            "matrix_rows_true_cols_pred": [
+              [
+                8,
+                2,
+                0,
+                0
+              ],
+              [
+                0,
+                20,
+                0,
+                0
+              ],
+              [
+                5,
+                5,
+                5,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                8
+              ]
+            ]
+          },
+          "know_hello_sell_dontknow": {
+            "words": [
+              "KNOW",
+              "HELLO",
+              "SELL",
+              "DONTKNOW"
+            ],
+            "n": 48,
+            "top1": 0.2916666666666667,
+            "matrix_rows_true_cols_pred": [
+              [
+                1,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                2,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                4,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                7
+              ]
+            ]
+          },
+          "we_live_strong_sell": {
+            "words": [
+              "WE",
+              "LIVE2",
+              "STRONG",
+              "SELL"
+            ],
+            "n": 44,
+            "top1": 0.7272727272727273,
+            "matrix_rows_true_cols_pred": [
+              [
+                8,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                16,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                4,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                4
+              ]
+            ]
+          }
+        }
+      },
+      "early4": {
+        "view": "early4",
+        "overall": {
+          "n": 3264,
+          "top1": 0.32567401960784315,
+          "top3": 0.4987745098039216,
+          "top5": 0.5575980392156863
+        },
+        "classes": {
+          "IMPORTANT": {
+            "n": 12,
+            "top1": 0.5833333333333334,
+            "top3": 0.9166666666666666,
+            "top5": 0.9166666666666666,
+            "median_len": 6.0,
+            "mean_true_rank": 9.333333333333334,
+            "pred_counts": {
+              "IMPORTANT": 7,
+              "COMPUTER": 3,
+              "GIVE": 1,
+              "FAMILY": 1
+            }
+          },
+          "FAMILY": {
+            "n": 12,
+            "top1": 0.6666666666666666,
+            "top3": 0.75,
+            "top5": 0.75,
+            "median_len": 9.5,
+            "mean_true_rank": 18.833333333333332,
+            "pred_counts": {
+              "FAMILY": 8,
+              "HOW1": 1,
+              "MORE": 1,
+              "HOME": 1,
+              "COUNTRY": 1
+            }
+          },
+          "MORE": {
+            "n": 16,
+            "top1": 0.625,
+            "top3": 0.6875,
+            "top5": 0.6875,
+            "median_len": 8.5,
+            "mean_true_rank": 23.6875,
+            "pred_counts": {
+              "MORE": 10,
+              "EAT1": 1,
+              "HOUSE": 1,
+              "HOSPITAL1": 1,
+              "THINK": 1,
+              "TAKE": 1,
+              "CAR": 1
+            }
+          },
+          "INTRODUCE": {
+            "n": 12,
+            "top1": 0.6666666666666666,
+            "top3": 0.75,
+            "top5": 0.8333333333333334,
+            "median_len": 7.5,
+            "mean_true_rank": 16.25,
+            "pred_counts": {
+              "INTRODUCE": 8,
+              "CLOTHES": 1,
+              "SLOW": 1,
+              "HAPPY": 1,
+              "OFFICE": 1
+            }
+          },
+          "SELL": {
+            "n": 8,
+            "top1": 0.5,
+            "top3": 0.75,
+            "top5": 1.0,
+            "median_len": 6.5,
+            "mean_true_rank": 2.5,
+            "pred_counts": {
+              "SELL": 4,
+              "TEACH2": 4
+            }
+          },
+          "PUT": {
+            "n": 16,
+            "top1": 0.1875,
+            "top3": 0.5,
+            "top5": 0.6875,
+            "median_len": 7.5,
+            "mean_true_rank": 39.75,
+            "pred_counts": {
+              "LEAVE": 3,
+              "PUT": 3,
+              "TEACH2": 3,
+              "MORE": 2,
+              "EAT1": 1,
+              "YEAR": 1,
+              "GIVE": 1,
+              "NIGHT1": 1
+            }
+          },
+          "DECIDE1": {
+            "n": 8,
+            "top1": 0.375,
+            "top3": 0.625,
+            "top5": 0.625,
+            "median_len": 9.0,
+            "mean_true_rank": 29.5,
+            "pred_counts": {
+              "DECIDE1": 3,
+              "TEACHER": 2,
+              "PAY": 1,
+              "STILL": 1,
+              "EAT1": 1
+            }
+          },
+          "SHOP1": {
+            "n": 24,
+            "top1": 0.3333333333333333,
+            "top3": 0.5,
+            "top5": 0.5833333333333334,
+            "median_len": 8.0,
+            "mean_true_rank": 32.875,
+            "pred_counts": {
+              "SHOP1": 8,
+              "TEACH2": 4,
+              "OFFICE": 2,
+              "SELL": 2,
+              "EAT1": 1,
+              "WHILE": 1,
+              "HOME": 1,
+              "GIVE": 1
+            }
+          },
+          "TEACH2": {
+            "n": 12,
+            "top1": 0.5,
+            "top3": 0.9166666666666666,
+            "top5": 0.9166666666666666,
+            "median_len": 6.0,
+            "mean_true_rank": 18.916666666666668,
+            "pred_counts": {
+              "TEACH2": 6,
+              "TEACHER": 3,
+              "DECIDE1": 2,
+              "TOMORROW": 1
+            }
+          },
+          "WANT2": {
+            "n": 12,
+            "top1": 0.25,
+            "top3": 0.5833333333333334,
+            "top5": 0.5833333333333334,
+            "median_len": 6.5,
+            "mean_true_rank": 33.5,
+            "pred_counts": {
+              "WANT2": 3,
+              "WHAT1": 3,
+              "MANY": 2,
+              "EAT1": 1,
+              "HOW1": 1,
+              "ALWAYS": 1,
+              "OPEN": 1
+            }
+          },
+          "MANY": {
+            "n": 20,
+            "top1": 0.7,
+            "top3": 0.75,
+            "top5": 0.75,
+            "median_len": 13.5,
+            "mean_true_rank": 17.0,
+            "pred_counts": {
+              "MANY": 14,
+              "PAY": 1,
+              "HOSPITAL1": 1,
+              "WHILE": 1,
+              "PICK": 1,
+              "CAR": 1,
+              "GIVE": 1
+            }
+          },
+          "WAIT": {
+            "n": 16,
+            "top1": 0.375,
+            "top3": 0.4375,
+            "top5": 0.4375,
+            "median_len": 9.0,
+            "mean_true_rank": 69.75,
+            "pred_counts": {
+              "WAIT": 6,
+              "CAR": 2,
+              "SLOW": 1,
+              "CHILD": 1,
+              "HARD": 1,
+              "HOW1": 1,
+              "MORE": 1,
+              "HATE": 1
+            }
+          },
+          "MEET": {
+            "n": 12,
+            "top1": 0.4166666666666667,
+            "top3": 0.4166666666666667,
+            "top5": 0.4166666666666667,
+            "median_len": 6.5,
+            "mean_true_rank": 51.166666666666664,
+            "pred_counts": {
+              "MEET": 5,
+              "RUN2": 3,
+              "SPECIAL1": 1,
+              "WHILE": 1,
+              "STRONG": 1,
+              "EAT1": 1
+            }
+          },
+          "KNOW": {
+            "n": 16,
+            "top1": 0.0,
+            "top3": 0.25,
+            "top5": 0.3125,
+            "median_len": 9.5,
+            "mean_true_rank": 32.5625,
+            "pred_counts": {
+              "NEVER": 3,
+              "WHY": 3,
+              "EAT1": 3,
+              "HOME": 2,
+              "BREAKFAST1": 2,
+              "STILL": 1,
+              "SEEM": 1,
+              "GOOD": 1
+            }
+          },
+          "HELLO": {
+            "n": 12,
+            "top1": 0.0,
+            "top3": 0.08333333333333333,
+            "top5": 0.3333333333333333,
+            "median_len": 7.0,
+            "mean_true_rank": 73.08333333333333,
+            "pred_counts": {
+              "EAT1": 3,
+              "HOME": 3,
+              "BYE": 2,
+              "FATHER": 2,
+              "SEEM": 1,
+              "NEVER": 1
+            }
+          },
+          "DONTKNOW": {
+            "n": 12,
+            "top1": 0.3333333333333333,
+            "top3": 0.6666666666666666,
+            "top5": 0.75,
+            "median_len": 9.0,
+            "mean_true_rank": 20.5,
+            "pred_counts": {
+              "DONTKNOW": 4,
+              "TEACHER": 3,
+              "EAT1": 1,
+              "SEEM": 1,
+              "HOW1": 1,
+              "DECIDE1": 1,
+              "PERSON": 1
+            }
+          },
+          "WE": {
+            "n": 12,
+            "top1": 0.4166666666666667,
+            "top3": 0.4166666666666667,
+            "top5": 0.4166666666666667,
+            "median_len": 13.5,
+            "mean_true_rank": 76.58333333333333,
+            "pred_counts": {
+              "WE": 5,
+              "HOW1": 2,
+              "YOU": 1,
+              "EACH": 1,
+              "US": 1,
+              "BUY": 1,
+              "MEET": 1
+            }
+          },
+          "LIVE2": {
+            "n": 16,
+            "top1": 0.75,
+            "top3": 0.75,
+            "top5": 0.75,
+            "median_len": 9.0,
+            "mean_true_rank": 10.75,
+            "pred_counts": {
+              "LIVE2": 12,
+              "START": 2,
+              "SURE": 1,
+              "SIT": 1
+            }
+          },
+          "STRONG": {
+            "n": 8,
+            "top1": 0.25,
+            "top3": 0.375,
+            "top5": 0.625,
+            "median_len": 9.0,
+            "mean_true_rank": 49.875,
+            "pred_counts": {
+              "MEAN2": 2,
+              "STRONG": 2,
+              "YEAR": 1,
+              "PLAY": 1,
+              "WHILE": 1,
+              "DRIVE": 1
+            }
+          }
+        },
+        "groups": {
+          "important_family_more_introduce": {
+            "words": [
+              "IMPORTANT",
+              "FAMILY",
+              "MORE",
+              "INTRODUCE"
+            ],
+            "n": 52,
+            "top1": 0.6346153846153846,
+            "matrix_rows_true_cols_pred": [
+              [
+                7,
+                1,
+                0,
+                0
+              ],
+              [
+                0,
+                8,
+                1,
+                0
+              ],
+              [
+                0,
+                0,
+                10,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                8
+              ]
+            ]
+          },
+          "sell_put_decide_shop_teach": {
+            "words": [
+              "SELL",
+              "PUT",
+              "DECIDE1",
+              "SHOP1",
+              "TEACH2"
+            ],
+            "n": 68,
+            "top1": 0.35294117647058826,
+            "matrix_rows_true_cols_pred": [
+              [
+                4,
+                0,
+                0,
+                0,
+                4
+              ],
+              [
+                0,
+                3,
+                0,
+                0,
+                3
+              ],
+              [
+                0,
+                0,
+                3,
+                0,
+                0
+              ],
+              [
+                2,
+                0,
+                0,
+                8,
+                4
+              ],
+              [
+                0,
+                0,
+                2,
+                0,
+                6
+              ]
+            ]
+          },
+          "want_many_wait_meet": {
+            "words": [
+              "WANT2",
+              "MANY",
+              "WAIT",
+              "MEET"
+            ],
+            "n": 60,
+            "top1": 0.4666666666666667,
+            "matrix_rows_true_cols_pred": [
+              [
+                3,
+                2,
+                0,
+                0
+              ],
+              [
+                0,
+                14,
+                0,
+                0
+              ],
+              [
+                1,
+                0,
+                6,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                5
+              ]
+            ]
+          },
+          "know_hello_sell_dontknow": {
+            "words": [
+              "KNOW",
+              "HELLO",
+              "SELL",
+              "DONTKNOW"
+            ],
+            "n": 48,
+            "top1": 0.16666666666666666,
+            "matrix_rows_true_cols_pred": [
+              [
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                4,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                4
+              ]
+            ]
+          },
+          "we_live_strong_sell": {
+            "words": [
+              "WE",
+              "LIVE2",
+              "STRONG",
+              "SELL"
+            ],
+            "n": 44,
+            "top1": 0.5227272727272727,
+            "matrix_rows_true_cols_pred": [
+              [
+                5,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                12,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                2,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                4
+              ]
+            ]
+          }
+        }
+      },
+      "early6": {
+        "view": "early6",
+        "overall": {
+          "n": 3264,
+          "top1": 0.42953431372549017,
+          "top3": 0.6158088235294118,
+          "top5": 0.6813725490196079
+        },
+        "classes": {
+          "IMPORTANT": {
+            "n": 12,
+            "top1": 0.5833333333333334,
+            "top3": 0.9166666666666666,
+            "top5": 0.9166666666666666,
+            "median_len": 6.0,
+            "mean_true_rank": 4.416666666666667,
+            "pred_counts": {
+              "IMPORTANT": 7,
+              "FAMILY": 4,
+              "SORRY": 1
+            }
+          },
+          "FAMILY": {
+            "n": 12,
+            "top1": 0.9166666666666666,
+            "top3": 0.9166666666666666,
+            "top5": 0.9166666666666666,
+            "median_len": 9.5,
+            "mean_true_rank": 1.8333333333333333,
+            "pred_counts": {
+              "FAMILY": 11,
+              "DOOR": 1
+            }
+          },
+          "MORE": {
+            "n": 16,
+            "top1": 0.8125,
+            "top3": 0.8125,
+            "top5": 0.8125,
+            "median_len": 8.5,
+            "mean_true_rank": 21.375,
+            "pred_counts": {
+              "MORE": 13,
+              "HOW1": 1,
+              "OFFICE": 1,
+              "TICKET": 1
+            }
+          },
+          "INTRODUCE": {
+            "n": 12,
+            "top1": 0.5833333333333334,
+            "top3": 0.5833333333333334,
+            "top5": 0.75,
+            "median_len": 7.5,
+            "mean_true_rank": 6.666666666666667,
+            "pred_counts": {
+              "INTRODUCE": 7,
+              "CLOTHES": 2,
+              "SAME2": 1,
+              "IN": 1,
+              "ROAD": 1
+            }
+          },
+          "SELL": {
+            "n": 8,
+            "top1": 0.375,
+            "top3": 0.875,
+            "top5": 1.0,
+            "median_len": 6.5,
+            "mean_true_rank": 2.375,
+            "pred_counts": {
+              "TEACH2": 4,
+              "SELL": 3,
+              "PUT": 1
+            }
+          },
+          "PUT": {
+            "n": 16,
+            "top1": 0.3125,
+            "top3": 0.8125,
+            "top5": 0.8125,
+            "median_len": 7.5,
+            "mean_true_rank": 32.5,
+            "pred_counts": {
+              "PUT": 5,
+              "LEAVE": 3,
+              "MOVE": 2,
+              "TEACH2": 2,
+              "HOW1": 1,
+              "YEAR": 1,
+              "PLAY": 1,
+              "MORNING": 1
+            }
+          },
+          "DECIDE1": {
+            "n": 8,
+            "top1": 0.5,
+            "top3": 0.75,
+            "top5": 0.75,
+            "median_len": 9.0,
+            "mean_true_rank": 22.625,
+            "pred_counts": {
+              "DECIDE1": 4,
+              "MUCH": 2,
+              "SAME2": 1,
+              "BECAUSE": 1
+            }
+          },
+          "SHOP1": {
+            "n": 24,
+            "top1": 0.25,
+            "top3": 0.6666666666666666,
+            "top5": 0.7916666666666666,
+            "median_len": 8.0,
+            "mean_true_rank": 24.166666666666668,
+            "pred_counts": {
+              "OFFICE": 6,
+              "SHOP1": 6,
+              "TEACH2": 5,
+              "SELL": 4,
+              "HOW1": 1,
+              "NICE": 1,
+              "GIVE": 1
+            }
+          },
+          "TEACH2": {
+            "n": 12,
+            "top1": 0.8333333333333334,
+            "top3": 0.9166666666666666,
+            "top5": 0.9166666666666666,
+            "median_len": 6.0,
+            "mean_true_rank": 12.583333333333334,
+            "pred_counts": {
+              "TEACH2": 10,
+              "TEACHER": 1,
+              "NOW": 1
+            }
+          },
+          "WANT2": {
+            "n": 12,
+            "top1": 0.25,
+            "top3": 0.8333333333333334,
+            "top5": 0.8333333333333334,
+            "median_len": 6.5,
+            "mean_true_rank": 10.25,
+            "pred_counts": {
+              "WANT2": 3,
+              "WHAT1": 2,
+              "MANY": 2,
+              "HERE": 2,
+              "WHILE": 1,
+              "CLOTHES": 1,
+              "THINK": 1
+            }
+          },
+          "MANY": {
+            "n": 20,
+            "top1": 0.7,
+            "top3": 0.75,
+            "top5": 0.75,
+            "median_len": 13.5,
+            "mean_true_rank": 18.45,
+            "pred_counts": {
+              "MANY": 14,
+              "TODAY": 1,
+              "YOU": 1,
+              "COUNTRY": 1,
+              "WASH2": 1,
+              "DRIVE": 1,
+              "HERE": 1
+            }
+          },
+          "WAIT": {
+            "n": 16,
+            "top1": 0.1875,
+            "top3": 0.5625,
+            "top5": 0.625,
+            "median_len": 9.0,
+            "mean_true_rank": 44.125,
+            "pred_counts": {
+              "MANY": 4,
+              "WAIT": 3,
+              "SAD": 2,
+              "CHILD": 1,
+              "TRY": 1,
+              "COUNTRY": 1,
+              "WHOLE": 1,
+              "SORRY": 1
+            }
+          },
+          "MEET": {
+            "n": 12,
+            "top1": 0.4166666666666667,
+            "top3": 0.5,
+            "top5": 0.5,
+            "median_len": 6.5,
+            "mean_true_rank": 39.0,
+            "pred_counts": {
+              "MEET": 5,
+              "RUN2": 3,
+              "SELL": 1,
+              "HAVE": 1,
+              "STRONG": 1,
+              "HOW1": 1
+            }
+          },
+          "KNOW": {
+            "n": 16,
+            "top1": 0.0625,
+            "top3": 0.3125,
+            "top5": 0.3125,
+            "median_len": 9.5,
+            "mean_true_rank": 22.0625,
+            "pred_counts": {
+              "WHY": 7,
+              "NEVER": 2,
+              "HOME": 2,
+              "MOTHER": 2,
+              "WHILE": 1,
+              "KNOW": 1,
+              "EAT1": 1
+            }
+          },
+          "HELLO": {
+            "n": 12,
+            "top1": 0.0,
+            "top3": 0.08333333333333333,
+            "top5": 0.16666666666666666,
+            "median_len": 7.0,
+            "mean_true_rank": 37.833333333333336,
+            "pred_counts": {
+              "HOME": 3,
+              "MAN": 2,
+              "EAT1": 2,
+              "BREAKFAST1": 1,
+              "NEVER": 1,
+              "LUNCH1": 1,
+              "SEEM": 1,
+              "FIND": 1
+            }
+          },
+          "DONTKNOW": {
+            "n": 12,
+            "top1": 0.4166666666666667,
+            "top3": 0.8333333333333334,
+            "top5": 0.8333333333333334,
+            "median_len": 9.0,
+            "mean_true_rank": 16.333333333333332,
+            "pred_counts": {
+              "DONTKNOW": 5,
+              "TEACHER": 4,
+              "MOTHER": 1,
+              "TOOMUCH": 1,
+              "DECIDE1": 1
+            }
+          },
+          "WE": {
+            "n": 12,
+            "top1": 0.25,
+            "top3": 0.4166666666666667,
+            "top5": 0.6666666666666666,
+            "median_len": 13.5,
+            "mean_true_rank": 25.0,
+            "pred_counts": {
+              "WE": 3,
+              "SORRY": 2,
+              "CANNOT": 2,
+              "PAY": 2,
+              "HOSPITAL1": 1,
+              "HOW1": 1,
+              "IF": 1
+            }
+          },
+          "LIVE2": {
+            "n": 16,
+            "top1": 0.875,
+            "top3": 0.875,
+            "top5": 0.9375,
+            "median_len": 9.0,
+            "mean_true_rank": 7.4375,
+            "pred_counts": {
+              "LIVE2": 14,
+              "TURN": 1,
+              "START": 1
+            }
+          },
+          "STRONG": {
+            "n": 8,
+            "top1": 0.5,
+            "top3": 0.75,
+            "top5": 0.875,
+            "median_len": 9.0,
+            "mean_true_rank": 17.125,
+            "pred_counts": {
+              "STRONG": 4,
+              "DRIVE": 2,
+              "MEAN2": 1,
+              "WHILE": 1
+            }
+          }
+        },
+        "groups": {
+          "important_family_more_introduce": {
+            "words": [
+              "IMPORTANT",
+              "FAMILY",
+              "MORE",
+              "INTRODUCE"
+            ],
+            "n": 52,
+            "top1": 0.7307692307692307,
+            "matrix_rows_true_cols_pred": [
+              [
+                7,
+                4,
+                0,
+                0
+              ],
+              [
+                0,
+                11,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                13,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                7
+              ]
+            ]
+          },
+          "sell_put_decide_shop_teach": {
+            "words": [
+              "SELL",
+              "PUT",
+              "DECIDE1",
+              "SHOP1",
+              "TEACH2"
+            ],
+            "n": 68,
+            "top1": 0.4117647058823529,
+            "matrix_rows_true_cols_pred": [
+              [
+                3,
+                1,
+                0,
+                0,
+                4
+              ],
+              [
+                0,
+                5,
+                0,
+                0,
+                2
+              ],
+              [
+                0,
+                0,
+                4,
+                0,
+                0
+              ],
+              [
+                4,
+                0,
+                0,
+                6,
+                5
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                10
+              ]
+            ]
+          },
+          "want_many_wait_meet": {
+            "words": [
+              "WANT2",
+              "MANY",
+              "WAIT",
+              "MEET"
+            ],
+            "n": 60,
+            "top1": 0.4166666666666667,
+            "matrix_rows_true_cols_pred": [
+              [
+                3,
+                2,
+                0,
+                0
+              ],
+              [
+                0,
+                14,
+                0,
+                0
+              ],
+              [
+                0,
+                4,
+                3,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                5
+              ]
+            ]
+          },
+          "know_hello_sell_dontknow": {
+            "words": [
+              "KNOW",
+              "HELLO",
+              "SELL",
+              "DONTKNOW"
+            ],
+            "n": 48,
+            "top1": 0.1875,
+            "matrix_rows_true_cols_pred": [
+              [
+                1,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                3,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                5
+              ]
+            ]
+          },
+          "we_live_strong_sell": {
+            "words": [
+              "WE",
+              "LIVE2",
+              "STRONG",
+              "SELL"
+            ],
+            "n": 44,
+            "top1": 0.5454545454545454,
+            "matrix_rows_true_cols_pred": [
+              [
+                3,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                14,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                4,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                3
+              ]
+            ]
+          }
+        }
+      }
+    }
+  }
+}

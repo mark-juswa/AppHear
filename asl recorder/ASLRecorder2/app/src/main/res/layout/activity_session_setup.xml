@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_app"
+    android:orientation="vertical">
+
+    <!-- Top bar -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@color/bg_surface"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="8dp"
+        android:paddingEnd="16dp">
+
+        <ImageButton
+            android:id="@+id/btnBack"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Back"
+            android:src="@android:drawable/ic_media_previous" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:paddingStart="8dp"
+            android:text="@string/title_session_setup"
+            android:textColor="@color/text_primary"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <!-- Signer info card -->
+            <LinearLayout
+                android:id="@+id/cardSignerInfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_card"
+                android:orientation="horizontal"
+                android:padding="16dp"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/label_signer"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:id="@+id/tvSignerInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Not selected"
+                    android:textColor="@color/text_primary"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/btnChangeSigner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="36dp"
+                    android:layout_marginStart="8dp"
+                    android:background="@drawable/bg_button_secondary"
+                    android:text="Change"
+                    android:textColor="@color/text_primary"
+                    android:textSize="12sp"
+                    android:paddingStart="12dp"
+                    android:paddingEnd="12dp" />
+            </LinearLayout>
+
+            <!-- Sign Language Standard -->
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:layout_marginTop="16dp" android:text="@string/label_sign_language"
+                android:textColor="@color/text_secondary" android:textSize="13sp" />
+            <Spinner android:id="@+id/spinnerSignLanguage"
+                android:layout_width="match_parent" android:layout_height="48dp"
+                android:layout_marginTop="4dp" android:background="@drawable/bg_button_secondary"
+                android:paddingStart="12dp" android:paddingEnd="12dp" />
+
+            <!-- Sign Label -->
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:layout_marginTop="12dp" android:text="@string/label_sign_label"
+                android:textColor="@color/text_secondary" android:textSize="13sp" />
+            <Spinner android:id="@+id/spinnerSignLabel"
+                android:layout_width="match_parent" android:layout_height="48dp"
+                android:layout_marginTop="4dp" android:background="@drawable/bg_button_secondary"
+                android:paddingStart="12dp" android:paddingEnd="12dp" />
+
+            <Button
+                android:id="@+id/btnAddCustomSign"
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                android:layout_marginTop="4dp"
+                android:background="@drawable/bg_button_secondary"
+                android:text="+ Add Custom Sign"
+                android:textColor="@color/text_primary"
+                android:textSize="12sp"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp" />
+
+            <!-- Background scenario (shown only when Background is selected) -->
+            <LinearLayout android:id="@+id/layoutBgScenario"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="vertical" android:visibility="gone">
+
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp" android:text="@string/label_bg_scenario"
+                    android:textColor="@color/text_secondary" android:textSize="13sp" />
+                <Spinner android:id="@+id/spinnerBgScenario"
+                    android:layout_width="match_parent" android:layout_height="48dp"
+                    android:layout_marginTop="4dp" android:background="@drawable/bg_button_secondary"
+                    android:paddingStart="12dp" android:paddingEnd="12dp" />
+            </LinearLayout>
+
+            <!-- Target repetitions -->
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:layout_marginTop="12dp" android:text="@string/label_target_reps"
+                android:textColor="@color/text_secondary" android:textSize="13sp" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginTop="4dp" android:hint="@string/hint_target_reps"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etTargetReps"
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:inputType="number" android:text="60" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Speed -->
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:layout_marginTop="12dp" android:text="@string/label_speed"
+                android:textColor="@color/text_secondary" android:textSize="13sp" />
+            <Spinner android:id="@+id/spinnerSpeed"
+                android:layout_width="match_parent" android:layout_height="48dp"
+                android:layout_marginTop="4dp" android:background="@drawable/bg_button_secondary"
+                android:paddingStart="12dp" android:paddingEnd="12dp" />
+
+            <!-- Posture -->
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:layout_marginTop="12dp" android:text="@string/label_posture"
+                android:textColor="@color/text_secondary" android:textSize="13sp" />
+            <Spinner android:id="@+id/spinnerPosture"
+                android:layout_width="match_parent" android:layout_height="48dp"
+                android:layout_marginTop="4dp" android:background="@drawable/bg_button_secondary"
+                android:paddingStart="12dp" android:paddingEnd="12dp" />
+
+            <!-- Lighting -->
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:layout_marginTop="12dp" android:text="@string/label_lighting"
+                android:textColor="@color/text_secondary" android:textSize="13sp" />
+            <Spinner android:id="@+id/spinnerLighting"
+                android:layout_width="match_parent" android:layout_height="48dp"
+                android:layout_marginTop="4dp" android:background="@drawable/bg_button_secondary"
+                android:paddingStart="12dp" android:paddingEnd="12dp" />
+
+            <!-- Background type -->
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:layout_marginTop="12dp" android:text="@string/label_background_type"
+                android:textColor="@color/text_secondary" android:textSize="13sp" />
+            <Spinner android:id="@+id/spinnerBgType"
+                android:layout_width="match_parent" android:layout_height="48dp"
+                android:layout_marginTop="4dp" android:background="@drawable/bg_button_secondary"
+                android:paddingStart="12dp" android:paddingEnd="12dp" />
+
+            <!-- Shirt color -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginTop="12dp" android:hint="@string/label_shirt_color"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etShirtColor"
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:hint="@string/hint_shirt_color" android:inputType="text" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Session info -->
+            <TextView
+                android:id="@+id/tvSessionInfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/bg_card"
+                android:padding="12dp"
+                android:text="Session 001"
+                android:textColor="@color/text_secondary"
+                android:textSize="12sp" />
+
+            <Button
+                android:id="@+id/btnStartRecording"
+                style="@style/Widget.Recorder.Button.Primary"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginBottom="24dp"
+                android:text="@string/btn_start_recording" />
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

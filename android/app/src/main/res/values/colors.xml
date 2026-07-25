@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <!-- AppHear3 semantic UI tokens, adapted from the AppHear2 visual reference. -->
+    <color name="color_brand_primary">#2AA897</color>
+    <color name="color_brand_primary_dark">#1F7E73</color>
+    <color name="color_brand_surface">#D6EDE8</color>
+    <color name="color_surface_app">#F6F5EC</color>
+    <color name="color_surface_warm">#FAEFD9</color>
+    <color name="color_surface_tinted">#F4F8F7</color>
+    <color name="color_surface_card">#FFFFFFFF</color>
+    <color name="color_surface_camera_scrim">#B3000000</color>
+
+    <color name="color_text_primary">#0D1B1E</color>
+    <color name="color_text_secondary">#5F7F7A</color>
+    <color name="color_text_on_brand">#FFFFFFFF</color>
+    <color name="color_text_on_dark">#FFFFFFFF</color>
+
+    <color name="color_action_dark">#2C1810</color>
+    <color name="color_action_destructive">#FF4455</color>
+    <color name="color_divider_subtle">#E5E8E5</color>
+    <color name="color_control_inactive">#E9EFEF</color>
+
+    <color name="color_status_ready">#34C759</color>
+    <color name="color_status_warning">#FFCC00</color>
+    <color name="color_status_error">#FF3B30</color>
+    <color name="color_status_info">#5CE1FF</color>
+</resources>

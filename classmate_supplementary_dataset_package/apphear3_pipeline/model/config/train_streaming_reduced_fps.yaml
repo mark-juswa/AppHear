@@ -1,0 +1,33 @@
+# Frame-rate-augmented 250-class streaming trainer. Same encoder/reg as the reduced run, but trained
+# on the fps-EXPANDED features (pipeline/features/fps_augment.py --mode expand) so the model is robust
+# to the phone's low fps (~2.5-5) vs the ~30fps training clips. Warm-starts from the reduced model
+# (same 250 classes -> whole model, incl. head). Writes to a NEW run dir; existing runs untouched.
+
+model:
+  blocks: 4
+  channels: 64
+  dilations: [1, 2, 4, 8]
+  kernel: 3
+  dropout: 0.3
+
+train:
+  seed: 0
+  batch_size: 64
+  epochs: 40
+  learning_rate: 0.0005
+  early_stop_patience: 8
+  weight_decay: 0.0001
+
+# Geometric aug on-the-fly (temporal fps aug is baked into the expanded dataset, so frame_mask off).
+augment:
+  enabled: true
+  rotation_deg: 10.0
+  scale: 0.10
+  noise_std: 0.01
+  frame_mask_frac: 0.0
+
+warm_start_from: "F:/ASL DATASET/ASL CITIZEN/derived/apphear3/runs/tcn_streaming_reduced_v30/best.keras"
+
+features_dir: "F:/ASL DATASET/ASL CITIZEN/derived/apphear3/features_streaming_reduced_fps"
+vocab_dir: "F:/ASL DATASET/ASL CITIZEN/derived/apphear3/features_reduced"
+output_dir: "F:/ASL DATASET/ASL CITIZEN/derived/apphear3/runs/tcn_streaming_reduced_fps_v30"

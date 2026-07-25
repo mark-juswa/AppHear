@@ -1,0 +1,44 @@
+﻿{
+    "theta_conf":  -1.2,
+    "pose_cadence_experiment":  {
+                                    "hold_last_pose":  true,
+                                    "pose_every_n":  2,
+                                    "enabled":  true
+                                },
+    "low_fps_confirmation":  {
+                                 "k_stability":  3,
+                                 "min_commit_frame":  4,
+                                 "theta_margin":  0.9,
+                                 "theta_conf":  -1.2,
+                                 "enabled":  true
+                             },
+    "low_fps_s5":  {
+                       "k_on":  2,
+                       "k_off":  6,
+                       "smoothing_window":  3,
+                       "enabled":  true
+                   },
+    "theta_margin":  0.3,
+    "low_fps":  {
+                    "enter_below_fps":  10,
+                    "consecutive_frames":  20,
+                    "exit_above_fps":  12
+                },
+    "k_stability":  3,
+    "pre_onset":  {
+                      "frames":  3,
+                      "enabled":  true
+                  },
+    "signing":  {
+                    "k_on":  3,
+                    "raise_margin":  0.1,
+                    "k_off":  4,
+                    "smoothing_window":  5,
+                    "require_hands":  true,
+                    "hand_aux_weight":  0.5,
+                    "theta_off":  0.072,
+                    "theta_on":  0.12
+                },
+    "_comment":  "S7 operating point for the 236-class ASL Citizen + local supplementary model candidate. STRICT low-FPS A/B 2026-07-22: min_commit_frame=4, k_stability=3, theta_margin=0.9 to reduce early wrong commits at 3-4 processed FPS. Candidate only; revert via asset backup if delay/drop rate is too high.",
+    "temperature":  0.6262
+}

@@ -1,0 +1,45 @@
+{
+  "_comment": "S7 operating point for the FPS-AUGMENTED CONVERSATIONAL (236-word) model. theta_conf=-1.2 chosen by eval.confirm on features_lowfps_conv_k8 (~phone ~4fps) under temperature=0.647 (the model's fitted calibration T; confirm+export+app all match). precision-when-committed 0.73. Revert to the 250-word model = restore assets/_backup_250fps. S5 signing thresholds mirror pipeline/config/detect.yaml.",
+  "theta_conf": -1.2,
+  "theta_margin": 0.30,
+  "k_stability": 3,
+  "temperature": 0.647,
+  "signing": {
+    "theta_on": 0.120,
+    "theta_off": 0.072,
+    "k_on": 3,
+    "k_off": 4,
+    "raise_margin": 0.10,
+    "smoothing_window": 5,
+    "hand_aux_weight": 0.5,
+    "require_hands": true
+  },
+  "low_fps": {
+    "enter_below_fps": 10.0,
+    "exit_above_fps": 12.0,
+    "consecutive_frames": 20
+  },
+  "pre_onset": {
+    "enabled": true,
+    "frames": 3
+  },
+  "low_fps_s5": {
+    "enabled": true,
+    "k_on": 2,
+    "k_off": 6,
+    "smoothing_window": 3
+  },
+  "low_fps_confirmation": {
+    "enabled": true,
+    "theta_conf": -1.2,
+    "theta_margin": 0.75,
+    "k_stability": 2,
+    "min_commit_frame": 2
+  },
+  "pose_cadence_experiment": {
+    "enabled": true,
+    "pose_every_n": 2,
+    "hold_last_pose": true
+  }
+}
+

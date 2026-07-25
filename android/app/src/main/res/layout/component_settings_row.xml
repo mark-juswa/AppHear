@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:minHeight="@dimen/touch_target_min"
+    android:orientation="horizontal"
+    android:paddingTop="@dimen/space_12"
+    android:paddingBottom="@dimen/space_12">
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/settings_row_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/component_settings_row_title"
+            android:textAppearance="@style/TextAppearance.AppHear.Label" />
+
+        <TextView
+            android:id="@+id/settings_row_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_4"
+            android:text="@string/component_settings_row_description"
+            android:textAppearance="@style/TextAppearance.AppHear.Body.Secondary" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/settings_row_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/space_16"
+        android:text="@string/component_settings_row_value"
+        android:textAppearance="@style/TextAppearance.AppHear.Label" />
+</LinearLayout>

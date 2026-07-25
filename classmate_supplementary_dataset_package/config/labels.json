@@ -1,0 +1,2283 @@
+{
+  "sign_language": "ASL",
+  "schema": "aslrecorder-stageE-v1",
+  "source": "aslrecorder2",
+  "note": "250 everyday words. gloss = canonical ASL Citizen gloss used for pipeline ingest (recorded clips merge into that class). status ok = mappable; no_lexical_sign = pointing/particle (record indexing or skip); not_in_asl_citizen = would form a NEW class.",
+  "label_count": 260,
+  "labels": [
+    {
+      "word": "I",
+      "category": "Pronouns",
+      "gloss": null,
+      "status": "not_in_asl_citizen",
+      "note": "no matching gloss in ASL Citizen 2731 \u2014 new class if recorded"
+    },
+    {
+      "word": "you",
+      "category": "Pronouns",
+      "gloss": "YOU",
+      "match": "direct",
+      "citizen_clips": 13,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "he",
+      "category": "Pronouns",
+      "gloss": null,
+      "status": "no_lexical_sign",
+      "note": "ASL uses pointing/space or no distinct lexical sign"
+    },
+    {
+      "word": "she",
+      "category": "Pronouns",
+      "gloss": null,
+      "status": "no_lexical_sign",
+      "note": "ASL uses pointing/space or no distinct lexical sign"
+    },
+    {
+      "word": "it",
+      "category": "Pronouns",
+      "gloss": null,
+      "status": "no_lexical_sign",
+      "note": "ASL uses pointing/space or no distinct lexical sign"
+    },
+    {
+      "word": "we",
+      "category": "Pronouns",
+      "gloss": "WE",
+      "match": "direct",
+      "citizen_clips": 13,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "they",
+      "category": "Pronouns",
+      "gloss": "THEY1",
+      "match": "variant",
+      "citizen_clips": 13,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "me",
+      "category": "Pronouns",
+      "gloss": "ME",
+      "match": "direct",
+      "citizen_clips": 8,
+      "in_deployed_236": false,
+      "status": "ok"
+    },
+    {
+      "word": "him",
+      "category": "Pronouns",
+      "gloss": null,
+      "status": "no_lexical_sign",
+      "note": "ASL uses pointing/space or no distinct lexical sign"
+    },
+    {
+      "word": "her",
+      "category": "Pronouns",
+      "gloss": null,
+      "status": "no_lexical_sign",
+      "note": "ASL uses pointing/space or no distinct lexical sign"
+    },
+    {
+      "word": "us",
+      "category": "Pronouns",
+      "gloss": "US",
+      "match": "direct",
+      "citizen_clips": 15,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "them",
+      "category": "Pronouns",
+      "gloss": null,
+      "status": "no_lexical_sign",
+      "note": "ASL uses pointing/space or no distinct lexical sign"
+    },
+    {
+      "word": "my",
+      "category": "Pronouns",
+      "gloss": "MY",
+      "match": "direct",
+      "citizen_clips": 9,
+      "in_deployed_236": false,
+      "status": "ok"
+    },
+    {
+      "word": "your",
+      "category": "Pronouns",
+      "gloss": "YOUR",
+      "match": "direct",
+      "citizen_clips": 13,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "our",
+      "category": "Pronouns",
+      "gloss": "OUR",
+      "match": "direct",
+      "citizen_clips": 14,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "hello",
+      "category": "Greetings",
+      "gloss": "HELLO",
+      "match": "direct",
+      "citizen_clips": 11,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "hi",
+      "category": "Greetings",
+      "gloss": "HELLO",
+      "match": "synonym",
+      "citizen_clips": 11,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "bye",
+      "category": "Greetings",
+      "gloss": "BYE",
+      "match": "direct",
+      "citizen_clips": 15,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "goodbye",
+      "category": "Greetings",
+      "gloss": "BYE",
+      "match": "synonym",
+      "citizen_clips": 15,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "please",
+      "category": "Greetings",
+      "gloss": "PLEASE",
+      "match": "direct",
+      "citizen_clips": 11,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "thanks",
+      "category": "Greetings",
+      "gloss": "THANKYOU",
+      "match": "synonym",
+      "citizen_clips": 12,
+      "in_deployed_236": false,
+      "status": "ok"
+    },
+    {
+      "word": "sorry",
+      "category": "Greetings",
+      "gloss": "SORRY",
+      "match": "direct",
+      "citizen_clips": 14,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "yes",
+      "category": "Greetings",
+      "gloss": "YES",
+      "match": "direct",
+      "citizen_clips": 13,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "no",
+      "category": "Greetings",
+      "gloss": "NO",
+      "match": "direct",
+      "citizen_clips": 12,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "okay",
+      "category": "Greetings",
+      "gloss": null,
+      "status": "not_in_asl_citizen",
+      "note": "no matching gloss in ASL Citizen 2731 \u2014 new class if recorded"
+    },
+    {
+      "word": "welcome",
+      "category": "Greetings",
+      "gloss": "WELCOME2",
+      "match": "variant",
+      "citizen_clips": 13,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "congratulations",
+      "category": "Greetings",
+      "gloss": "CONGRATULATIONS",
+      "match": "direct",
+      "citizen_clips": 12,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "excuse me",
+      "category": "Greetings",
+      "gloss": null,
+      "status": "not_in_asl_citizen",
+      "note": "no matching gloss in ASL Citizen 2731 \u2014 new class if recorded"
+    },
+    {
+      "word": "good",
+      "category": "Greetings",
+      "gloss": "GOOD",
+      "match": "direct",
+      "citizen_clips": 13,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "morning",
+      "category": "Greetings",
+      "gloss": "MORNING",
+      "match": "direct",
+      "citizen_clips": 14,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "be",
+      "category": "Verbs-Actions",
+      "gloss": null,
+      "status": "no_lexical_sign",
+      "note": "ASL uses pointing/space or no distinct lexical sign"
+    },
+    {
+      "word": "have",
+      "category": "Verbs-Actions",
+      "gloss": "HAVE",
+      "match": "direct",
+      "citizen_clips": 14,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "do",
+      "category": "Verbs-Actions",
+      "gloss": null,
+      "status": "no_lexical_sign",
+      "note": "ASL uses pointing/space or no distinct lexical sign"
+    },
+    {
+      "word": "go",
+      "category": "Verbs-Actions",
+      "gloss": "GO",
+      "match": "direct",
+      "citizen_clips": 14,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "get",
+      "category": "Verbs-Actions",
+      "gloss": "GET",
+      "match": "direct",
+      "citizen_clips": 12,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "make",
+      "category": "Verbs-Actions",
+      "gloss": "MAKE",
+      "match": "direct",
+      "citizen_clips": 12,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "know",
+      "category": "Verbs-Actions",
+      "gloss": "KNOW",
+      "match": "direct",
+      "citizen_clips": 10,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "think",
+      "category": "Verbs-Actions",
+      "gloss": "THINK",
+      "match": "direct",
+      "citizen_clips": 15,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "take",
+      "category": "Verbs-Actions",
+      "gloss": "TAKE",
+      "match": "direct",
+      "citizen_clips": 15,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "see",
+      "category": "Verbs-Actions",
+      "gloss": "SEE",
+      "match": "direct",
+      "citizen_clips": 12,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "come",
+      "category": "Verbs-Actions",
+      "gloss": "COME",
+      "match": "direct",
+      "citizen_clips": 11,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "want",
+      "category": "Verbs-Actions",
+      "gloss": "WANT2",
+      "match": "variant",
+      "citizen_clips": 15,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "look",
+      "category": "Verbs-Actions",
+      "gloss": null,
+      "status": "not_in_asl_citizen",
+      "note": "no matching gloss in ASL Citizen 2731 \u2014 new class if recorded"
+    },
+    {
+      "word": "use",
+      "category": "Verbs-Actions",
+      "gloss": "USE",
+      "match": "direct",
+      "citizen_clips": 15,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "find",
+      "category": "Verbs-Actions",
+      "gloss": "FIND",
+      "match": "direct",
+      "citizen_clips": 13,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "give",
+      "category": "Verbs-Actions",
+      "gloss": "GIVE",
+      "match": "direct",
+      "citizen_clips": 14,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "tell",
+      "category": "Verbs-Actions",
+      "gloss": "TELL",
+      "match": "direct",
+      "citizen_clips": 13,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "work",
+      "category": "Verbs-Actions",
+      "gloss": "WORK",
+      "match": "direct",
+      "citizen_clips": 13,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "call",
+      "category": "Verbs-Actions",
+      "gloss": "CALL1",
+      "match": "variant",
+      "citizen_clips": 14,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "try",
+      "category": "Verbs-Actions",
+      "gloss": "TRY",
+      "match": "direct",
+      "citizen_clips": 13,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "ask",
+      "category": "Verbs-Actions",
+      "gloss": "ASK",
+      "match": "direct",
+      "citizen_clips": 9,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "need",
+      "category": "Verbs-Actions",
+      "gloss": "NEED",
+      "match": "direct",
+      "citizen_clips": 14,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "feel",
+      "category": "Verbs-Actions",
+      "gloss": "FEEL",
+      "match": "direct",
+      "citizen_clips": 15,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "become",
+      "category": "Verbs-Actions",
+      "gloss": "BECOME",
+      "match": "direct",
+      "citizen_clips": 13,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "leave",
+      "category": "Verbs-Actions",
+      "gloss": "LEAVE",
+      "match": "direct",
+      "citizen_clips": 15,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "put",
+      "category": "Verbs-Actions",
+      "gloss": "PUT",
+      "match": "direct",
+      "citizen_clips": 13,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "mean",
+      "category": "Verbs-Actions",
+      "gloss": "MEAN2",
+      "match": "variant",
+      "citizen_clips": 15,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "keep",
+      "category": "Verbs-Actions",
+      "gloss": "KEEP",
+      "match": "direct",
+      "citizen_clips": 14,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "let",
+      "category": "Verbs-Actions",
+      "gloss": null,
+      "status": "not_in_asl_citizen",
+      "note": "no matching gloss in ASL Citizen 2731 \u2014 new class if recorded"
+    },
+    {
+      "word": "begin",
+      "category": "Verbs-Actions",
+      "gloss": "START",
+      "match": "synonym",
+      "citizen_clips": 13,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "seem",
+      "category": "Verbs-Actions",
+      "gloss": "SEEM",
+      "match": "direct",
+      "citizen_clips": 13,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "help",
+      "category": "Verbs-Actions",
+      "gloss": "HELP",
+      "match": "direct",
+      "citizen_clips": 13,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "talk",
+      "category": "Verbs-Actions",
+      "gloss": "TALK1",
+      "match": "variant",
+      "citizen_clips": 12,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "turn",
+      "category": "Verbs-Actions",
+      "gloss": "TURN",
+      "match": "direct",
+      "citizen_clips": 12,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "start",
+      "category": "Verbs-Actions",
+      "gloss": "START",
+      "match": "direct",
+      "citizen_clips": 13,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "show",
+      "category": "Verbs-Actions",
+      "gloss": "SHOW",
+      "match": "direct",
+      "citizen_clips": 13,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "hear",
+      "category": "Verbs-Actions",
+      "gloss": "HEAR1",
+      "match": "variant",
+      "citizen_clips": 13,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "play",
+      "category": "Verbs-Actions",
+      "gloss": "PLAY",
+      "match": "direct",
+      "citizen_clips": 14,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "run",
+      "category": "Verbs-Actions",
+      "gloss": "RUN2",
+      "match": "variant",
+      "citizen_clips": 16,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "move",
+      "category": "Verbs-Actions",
+      "gloss": "MOVE",
+      "match": "direct",
+      "citizen_clips": 13,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "eat",
+      "category": "Verbs-Daily",
+      "gloss": "EAT1",
+      "match": "variant",
+      "citizen_clips": 15,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "drink",
+      "category": "Verbs-Daily",
+      "gloss": "DRINK2",
+      "match": "variant",
+      "citizen_clips": 13,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "sleep",
+      "category": "Verbs-Daily",
+      "gloss": "SLEEP",
+      "match": "direct",
+      "citizen_clips": 12,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "wake",
+      "category": "Verbs-Daily",
+      "gloss": null,
+      "status": "not_in_asl_citizen",
+      "note": "no matching gloss in ASL Citizen 2731 \u2014 new class if recorded"
+    },
+    {
+      "word": "sit",
+      "category": "Verbs-Daily",
+      "gloss": "SIT",
+      "match": "direct",
+      "citizen_clips": 12,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "stand",
+      "category": "Verbs-Daily",
+      "gloss": "STAND2",
+      "match": "variant",
+      "citizen_clips": 14,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "walk",
+      "category": "Verbs-Daily",
+      "gloss": "WALK2",
+      "match": "variant",
+      "citizen_clips": 13,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "drive",
+      "category": "Verbs-Daily",
+      "gloss": "DRIVE",
+      "match": "direct",
+      "citizen_clips": 13,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "buy",
+      "category": "Verbs-Daily",
+      "gloss": "BUY",
+      "match": "direct",
+      "citizen_clips": 16,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "sell",
+      "category": "Verbs-Daily",
+      "gloss": "SELL",
+      "match": "direct",
+      "citizen_clips": 13,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "pay",
+      "category": "Verbs-Daily",
+      "gloss": "PAY",
+      "match": "direct",
+      "citizen_clips": 14,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "cook",
+      "category": "Verbs-Daily",
+      "gloss": "COOK",
+      "match": "direct",
+      "citizen_clips": 13,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "clean",
+      "category": "Verbs-Daily",
+      "gloss": "CLEAN",
+      "match": "direct",
+      "citizen_clips": 15,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "wash",
+      "category": "Verbs-Daily",
+      "gloss": "WASH2",
+      "match": "variant",
+      "citizen_clips": 16,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "read",
+      "category": "Verbs-Daily",
+      "gloss": "READ",
+      "match": "direct",
+      "citizen_clips": 14,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "write",
+      "category": "Verbs-Daily",
+      "gloss": "WRITE",
+      "match": "direct",
+      "citizen_clips": 16,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "listen",
+      "category": "Verbs-Daily",
+      "gloss": "LISTEN",
+      "match": "direct",
+      "citizen_clips": 9,
+      "in_deployed_236": false,
+      "status": "ok"
+    },
+    {
+      "word": "speak",
+      "category": "Verbs-Daily",
+      "gloss": "TALK1",
+      "match": "synonym",
+      "citizen_clips": 12,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "watch",
+      "category": "Verbs-Daily",
+      "gloss": "WATCH",
+      "match": "direct",
+      "citizen_clips": 14,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "wait",
+      "category": "Verbs-Daily",
+      "gloss": "WAIT",
+      "match": "direct",
+      "citizen_clips": 12,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "open",
+      "category": "Verbs-Daily",
+      "gloss": "OPEN",
+      "match": "direct",
+      "citizen_clips": 14,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "close",
+      "category": "Verbs-Daily",
+      "gloss": "CLOSE",
+      "match": "direct",
+      "citizen_clips": 17,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "send",
+      "category": "Verbs-Daily",
+      "gloss": "SEND",
+      "match": "direct",
+      "citizen_clips": 14,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "receive",
+      "category": "Verbs-Daily",
+      "gloss": null,
+      "status": "not_in_asl_citizen",
+      "note": "no matching gloss in ASL Citizen 2731 \u2014 new class if recorded"
+    },
+    {
+      "word": "meet",
+      "category": "Verbs-Daily",
+      "gloss": "MEET",
+      "match": "direct",
+      "citizen_clips": 12,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "visit",
+      "category": "Verbs-Daily",
+      "gloss": "VISIT",
+      "match": "direct",
+      "citizen_clips": 14,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "stay",
+      "category": "Verbs-Daily",
+      "gloss": "STAY",
+      "match": "direct",
+      "citizen_clips": 12,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "live",
+      "category": "Verbs-Daily",
+      "gloss": "LIVE2",
+      "match": "variant",
+      "citizen_clips": 13,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "love",
+      "category": "Verbs-Daily",
+      "gloss": "LOVE",
+      "match": "direct",
+      "citizen_clips": 12,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "like",
+      "category": "Verbs-Daily",
+      "gloss": "LIKE",
+      "match": "direct",
+      "citizen_clips": 14,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "person",
+      "category": "Nouns-People",
+      "gloss": "PERSON",
+      "match": "direct",
+      "citizen_clips": 13,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "man",
+      "category": "Nouns-People",
+      "gloss": "MAN",
+      "match": "direct",
+      "citizen_clips": 14,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "woman",
+      "category": "Nouns-People",
+      "gloss": "WOMAN1",
+      "match": "variant",
+      "citizen_clips": 11,
+      "in_deployed_236": false,
+      "status": "ok"
+    },
+    {
+      "word": "child",
+      "category": "Nouns-People",
+      "gloss": "CHILD",
+      "match": "direct",
+      "citizen_clips": 13,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "friend",
+      "category": "Nouns-People",
+      "gloss": "FRIEND",
+      "match": "direct",
+      "citizen_clips": 13,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "family",
+      "category": "Nouns-People",
+      "gloss": "FAMILY",
+      "match": "direct",
+      "citizen_clips": 15,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "mother",
+      "category": "Nouns-People",
+      "gloss": "MOTHER",
+      "match": "direct",
+      "citizen_clips": 11,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "father",
+      "category": "Nouns-People",
+      "gloss": "FATHER",
+      "match": "direct",
+      "citizen_clips": 11,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "brother",
+      "category": "Nouns-People",
+      "gloss": "BROTHER",
+      "match": "direct",
+      "citizen_clips": 15,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "sister",
+      "category": "Nouns-People",
+      "gloss": "SISTER",
+      "match": "direct",
+      "citizen_clips": 13,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "husband",
+      "category": "Nouns-People",
+      "gloss": "HUSBAND",
+      "match": "direct",
+      "citizen_clips": 14,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "wife",
+      "category": "Nouns-People",
+      "gloss": "WIFE",
+      "match": "direct",
+      "citizen_clips": 14,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "teacher",
+      "category": "Nouns-People",
+      "gloss": "TEACHER",
+      "match": "direct",
+      "citizen_clips": 13,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "student",
+      "category": "Nouns-People",
+      "gloss": "STUDENT",
+      "match": "direct",
+      "citizen_clips": 14,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "boss",
+      "category": "Nouns-People",
+      "gloss": "BOSS",
+      "match": "direct",
+      "citizen_clips": 11,
+      "in_deployed_236": false,
+      "status": "ok"
+    },
+    {
+      "word": "neighbor",
+      "category": "Nouns-People",
+      "gloss": null,
+      "status": "not_in_asl_citizen",
+      "note": "no matching gloss in ASL Citizen 2731 \u2014 new class if recorded"
+    },
+    {
+      "word": "baby",
+      "category": "Nouns-People",
+      "gloss": "BABY1",
+      "match": "variant",
+      "citizen_clips": 14,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "kid",
+      "category": "Nouns-People",
+      "gloss": "KID",
+      "match": "direct",
+      "citizen_clips": 13,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "guy",
+      "category": "Nouns-People",
+      "gloss": "MAN",
+      "match": "synonym",
+      "citizen_clips": 14,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "people",
+      "category": "Nouns-People",
+      "gloss": "PEOPLE",
+      "match": "direct",
+      "citizen_clips": 15,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "home",
+      "category": "Nouns-Places",
+      "gloss": "HOME",
+      "match": "direct",
+      "citizen_clips": 10,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "house",
+      "category": "Nouns-Places",
+      "gloss": "HOUSE",
+      "match": "direct",
+      "citizen_clips": 16,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "school",
+      "category": "Nouns-Places",
+      "gloss": "SCHOOL",
+      "match": "direct",
+      "citizen_clips": 15,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "work",
+      "category": "Nouns-Places",
+      "gloss": "WORK",
+      "match": "direct",
+      "citizen_clips": 13,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "office",
+      "category": "Nouns-Places",
+      "gloss": "OFFICE",
+      "match": "direct",
+      "citizen_clips": 13,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "city",
+      "category": "Nouns-Places",
+      "gloss": "CITY2",
+      "match": "variant",
+      "citizen_clips": 15,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "country",
+      "category": "Nouns-Places",
+      "gloss": "COUNTRY",
+      "match": "direct",
+      "citizen_clips": 16,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "road",
+      "category": "Nouns-Places",
+      "gloss": "ROAD",
+      "match": "direct",
+      "citizen_clips": 14,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "street",
+      "category": "Nouns-Places",
+      "gloss": "STREET",
+      "match": "direct",
+      "citizen_clips": 13,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "store",
+      "category": "Nouns-Places",
+      "gloss": "SHOP1",
+      "match": "synonym",
+      "citizen_clips": 13,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "shop",
+      "category": "Nouns-Places",
+      "gloss": "SHOP1",
+      "match": "variant",
+      "citizen_clips": 13,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "restaurant",
+      "category": "Nouns-Places",
+      "gloss": "RESTAURANT",
+      "match": "direct",
+      "citizen_clips": 12,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "hospital",
+      "category": "Nouns-Places",
+      "gloss": "HOSPITAL1",
+      "match": "variant",
+      "citizen_clips": 18,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "room",
+      "category": "Nouns-Places",
+      "gloss": "ROOM",
+      "match": "direct",
+      "citizen_clips": 15,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "world",
+      "category": "Nouns-Places",
+      "gloss": "WORLD",
+      "match": "direct",
+      "citizen_clips": 14,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "time",
+      "category": "Nouns-Time",
+      "gloss": "TIME",
+      "match": "direct",
+      "citizen_clips": 12,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "day",
+      "category": "Nouns-Time",
+      "gloss": "DAY",
+      "match": "direct",
+      "citizen_clips": 15,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "night",
+      "category": "Nouns-Time",
+      "gloss": "NIGHT1",
+      "match": "variant",
+      "citizen_clips": 17,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "morning",
+      "category": "Nouns-Time",
+      "gloss": "MORNING",
+      "match": "direct",
+      "citizen_clips": 14,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "afternoon",
+      "category": "Nouns-Time",
+      "gloss": "AFTERNOON",
+      "match": "direct",
+      "citizen_clips": 14,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "evening",
+      "category": "Nouns-Time",
+      "gloss": null,
+      "status": "not_in_asl_citizen",
+      "note": "no matching gloss in ASL Citizen 2731 \u2014 new class if recorded"
+    },
+    {
+      "word": "week",
+      "category": "Nouns-Time",
+      "gloss": "WEEK",
+      "match": "direct",
+      "citizen_clips": 11,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "month",
+      "category": "Nouns-Time",
+      "gloss": "MONTH",
+      "match": "direct",
+      "citizen_clips": 14,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "year",
+      "category": "Nouns-Time",
+      "gloss": "YEAR",
+      "match": "direct",
+      "citizen_clips": 15,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "hour",
+      "category": "Nouns-Time",
+      "gloss": "HOUR",
+      "match": "direct",
+      "citizen_clips": 13,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "minute",
+      "category": "Nouns-Time",
+      "gloss": "MINUTE",
+      "match": "direct",
+      "citizen_clips": 11,
+      "in_deployed_236": false,
+      "status": "ok"
+    },
+    {
+      "word": "today",
+      "category": "Nouns-Time",
+      "gloss": "TODAY",
+      "match": "direct",
+      "citizen_clips": 15,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "tomorrow",
+      "category": "Nouns-Time",
+      "gloss": "TOMORROW",
+      "match": "direct",
+      "citizen_clips": 14,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "yesterday",
+      "category": "Nouns-Time",
+      "gloss": "YESTERDAY",
+      "match": "direct",
+      "citizen_clips": 14,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "moment",
+      "category": "Nouns-Time",
+      "gloss": null,
+      "status": "not_in_asl_citizen",
+      "note": "no matching gloss in ASL Citizen 2731 \u2014 new class if recorded"
+    },
+    {
+      "word": "thing",
+      "category": "Nouns-Objects",
+      "gloss": null,
+      "status": "not_in_asl_citizen",
+      "note": "no matching gloss in ASL Citizen 2731 \u2014 new class if recorded"
+    },
+    {
+      "word": "way",
+      "category": "Nouns-Objects",
+      "gloss": "WAY",
+      "match": "direct",
+      "citizen_clips": 13,
+      "in_deployed_236": false,
+      "status": "ok"
+    },
+    {
+      "word": "water",
+      "category": "Nouns-Objects",
+      "gloss": "WATER",
+      "match": "direct",
+      "citizen_clips": 13,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "food",
+      "category": "Nouns-Objects",
+      "gloss": null,
+      "status": "not_in_asl_citizen",
+      "note": "no matching gloss in ASL Citizen 2731 \u2014 new class if recorded"
+    },
+    {
+      "word": "money",
+      "category": "Nouns-Objects",
+      "gloss": "MONEY1",
+      "match": "variant",
+      "citizen_clips": 14,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "book",
+      "category": "Nouns-Objects",
+      "gloss": "BOOK",
+      "match": "direct",
+      "citizen_clips": 15,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "phone",
+      "category": "Nouns-Objects",
+      "gloss": "PHONE",
+      "match": "direct",
+      "citizen_clips": 9,
+      "in_deployed_236": false,
+      "status": "ok"
+    },
+    {
+      "word": "car",
+      "category": "Nouns-Objects",
+      "gloss": "CAR",
+      "match": "direct",
+      "citizen_clips": 15,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "door",
+      "category": "Nouns-Objects",
+      "gloss": "DOOR",
+      "match": "direct",
+      "citizen_clips": 14,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "table",
+      "category": "Nouns-Objects",
+      "gloss": "TABLE",
+      "match": "direct",
+      "citizen_clips": 15,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "chair",
+      "category": "Nouns-Objects",
+      "gloss": "CHAIR",
+      "match": "direct",
+      "citizen_clips": 13,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "bag",
+      "category": "Nouns-Objects",
+      "gloss": "BAG2",
+      "match": "variant",
+      "citizen_clips": 15,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "computer",
+      "category": "Nouns-Objects",
+      "gloss": "COMPUTER",
+      "match": "direct",
+      "citizen_clips": 15,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "letter",
+      "category": "Nouns-Objects",
+      "gloss": "LETTER2",
+      "match": "variant",
+      "citizen_clips": 14,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "paper",
+      "category": "Nouns-Objects",
+      "gloss": "PAPER",
+      "match": "direct",
+      "citizen_clips": 13,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "key",
+      "category": "Nouns-Objects",
+      "gloss": "KEY",
+      "match": "direct",
+      "citizen_clips": 13,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "clothes",
+      "category": "Nouns-Objects",
+      "gloss": "CLOTHES",
+      "match": "direct",
+      "citizen_clips": 13,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "shoe",
+      "category": "Nouns-Objects",
+      "gloss": null,
+      "status": "not_in_asl_citizen",
+      "note": "no matching gloss in ASL Citizen 2731 \u2014 new class if recorded"
+    },
+    {
+      "word": "bed",
+      "category": "Nouns-Objects",
+      "gloss": "BED2",
+      "match": "variant",
+      "citizen_clips": 15,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "window",
+      "category": "Nouns-Objects",
+      "gloss": "WINDOW",
+      "match": "direct",
+      "citizen_clips": 15,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "what",
+      "category": "Question",
+      "gloss": "WHAT1",
+      "match": "variant",
+      "citizen_clips": 15,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "when",
+      "category": "Question",
+      "gloss": "WHEN",
+      "match": "direct",
+      "citizen_clips": 12,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "where",
+      "category": "Question",
+      "gloss": "WHERE",
+      "match": "direct",
+      "citizen_clips": 8,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "who",
+      "category": "Question",
+      "gloss": "WHO",
+      "match": "direct",
+      "citizen_clips": 10,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "why",
+      "category": "Question",
+      "gloss": "WHY",
+      "match": "direct",
+      "citizen_clips": 12,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "how",
+      "category": "Question",
+      "gloss": "HOW1",
+      "match": "variant",
+      "citizen_clips": 16,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "which",
+      "category": "Question",
+      "gloss": "WHICH",
+      "match": "direct",
+      "citizen_clips": 13,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "whose",
+      "category": "Question",
+      "gloss": null,
+      "status": "not_in_asl_citizen",
+      "note": "no matching gloss in ASL Citizen 2731 \u2014 new class if recorded"
+    },
+    {
+      "word": "good",
+      "category": "Adjectives",
+      "gloss": "GOOD",
+      "match": "direct",
+      "citizen_clips": 13,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "bad",
+      "category": "Adjectives",
+      "gloss": "BAD",
+      "match": "direct",
+      "citizen_clips": 10,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "big",
+      "category": "Adjectives",
+      "gloss": "BIG",
+      "match": "direct",
+      "citizen_clips": 14,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "small",
+      "category": "Adjectives",
+      "gloss": "SMALL",
+      "match": "direct",
+      "citizen_clips": 16,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "new",
+      "category": "Adjectives",
+      "gloss": "NEW",
+      "match": "direct",
+      "citizen_clips": 14,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "old",
+      "category": "Adjectives",
+      "gloss": "OLD",
+      "match": "direct",
+      "citizen_clips": 12,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "young",
+      "category": "Adjectives",
+      "gloss": "YOUNG",
+      "match": "direct",
+      "citizen_clips": 15,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "happy",
+      "category": "Adjectives",
+      "gloss": "HAPPY",
+      "match": "direct",
+      "citizen_clips": 14,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "sad",
+      "category": "Adjectives",
+      "gloss": "SAD",
+      "match": "direct",
+      "citizen_clips": 14,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "easy",
+      "category": "Adjectives",
+      "gloss": "EASY",
+      "match": "direct",
+      "citizen_clips": 16,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "hard",
+      "category": "Adjectives",
+      "gloss": "HARD",
+      "match": "direct",
+      "citizen_clips": 14,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "hot",
+      "category": "Adjectives",
+      "gloss": "HOT",
+      "match": "direct",
+      "citizen_clips": 15,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "cold",
+      "category": "Adjectives",
+      "gloss": "COLD",
+      "match": "direct",
+      "citizen_clips": 14,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "fast",
+      "category": "Adjectives",
+      "gloss": "FAST",
+      "match": "direct",
+      "citizen_clips": 12,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "slow",
+      "category": "Adjectives",
+      "gloss": "SLOW",
+      "match": "direct",
+      "citizen_clips": 15,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "nice",
+      "category": "Adjectives",
+      "gloss": "NICE",
+      "match": "direct",
+      "citizen_clips": 15,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "beautiful",
+      "category": "Adjectives",
+      "gloss": null,
+      "status": "not_in_asl_citizen",
+      "note": "no matching gloss in ASL Citizen 2731 \u2014 new class if recorded"
+    },
+    {
+      "word": "important",
+      "category": "Adjectives",
+      "gloss": "IMPORTANT",
+      "match": "direct",
+      "citizen_clips": 14,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "different",
+      "category": "Adjectives",
+      "gloss": "DIFFERENT",
+      "match": "direct",
+      "citizen_clips": 15,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "same",
+      "category": "Adjectives",
+      "gloss": "SAME2",
+      "match": "variant",
+      "citizen_clips": 13,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "right",
+      "category": "Adjectives",
+      "gloss": "RIGHT3",
+      "match": "variant",
+      "citizen_clips": 17,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "wrong",
+      "category": "Adjectives",
+      "gloss": "WRONG",
+      "match": "direct",
+      "citizen_clips": 9,
+      "in_deployed_236": false,
+      "status": "ok"
+    },
+    {
+      "word": "true",
+      "category": "Adjectives",
+      "gloss": "TRUE",
+      "match": "direct",
+      "citizen_clips": 10,
+      "in_deployed_236": false,
+      "status": "ok"
+    },
+    {
+      "word": "sure",
+      "category": "Adjectives",
+      "gloss": "SURE",
+      "match": "direct",
+      "citizen_clips": 13,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "ready",
+      "category": "Adjectives",
+      "gloss": "READY",
+      "match": "direct",
+      "citizen_clips": 13,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "free",
+      "category": "Adjectives",
+      "gloss": "FREE",
+      "match": "direct",
+      "citizen_clips": 14,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "busy",
+      "category": "Adjectives",
+      "gloss": "BUSY",
+      "match": "direct",
+      "citizen_clips": 16,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "tired",
+      "category": "Adjectives",
+      "gloss": "TIRED",
+      "match": "direct",
+      "citizen_clips": 11,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "sick",
+      "category": "Adjectives",
+      "gloss": "SICK",
+      "match": "direct",
+      "citizen_clips": 13,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "strong",
+      "category": "Adjectives",
+      "gloss": "STRONG",
+      "match": "direct",
+      "citizen_clips": 15,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "many",
+      "category": "Quantity",
+      "gloss": "MANY",
+      "match": "direct",
+      "citizen_clips": 13,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "much",
+      "category": "Quantity",
+      "gloss": "MUCH",
+      "match": "direct",
+      "citizen_clips": 15,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "few",
+      "category": "Quantity",
+      "gloss": "FEW",
+      "match": "direct",
+      "citizen_clips": 15,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "little",
+      "category": "Quantity",
+      "gloss": null,
+      "status": "not_in_asl_citizen",
+      "note": "no matching gloss in ASL Citizen 2731 \u2014 new class if recorded"
+    },
+    {
+      "word": "more",
+      "category": "Quantity",
+      "gloss": "MORE",
+      "match": "direct",
+      "citizen_clips": 13,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "most",
+      "category": "Quantity",
+      "gloss": "MOST",
+      "match": "direct",
+      "citizen_clips": 15,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "some",
+      "category": "Quantity",
+      "gloss": "SOME",
+      "match": "direct",
+      "citizen_clips": 12,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "any",
+      "category": "Quantity",
+      "gloss": "ANY",
+      "match": "direct",
+      "citizen_clips": 14,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "all",
+      "category": "Quantity",
+      "gloss": "ALL",
+      "match": "direct",
+      "citizen_clips": 15,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "every",
+      "category": "Quantity",
+      "gloss": null,
+      "status": "not_in_asl_citizen",
+      "note": "no matching gloss in ASL Citizen 2731 \u2014 new class if recorded"
+    },
+    {
+      "word": "in",
+      "category": "Prepositions",
+      "gloss": "IN",
+      "match": "direct",
+      "citizen_clips": 13,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "on",
+      "category": "Prepositions",
+      "gloss": "ON",
+      "match": "direct",
+      "citizen_clips": 15,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "at",
+      "category": "Prepositions",
+      "gloss": "AT",
+      "match": "direct",
+      "citizen_clips": 13,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "to",
+      "category": "Prepositions",
+      "gloss": "TO",
+      "match": "direct",
+      "citizen_clips": 13,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "from",
+      "category": "Prepositions",
+      "gloss": "FROM",
+      "match": "direct",
+      "citizen_clips": 13,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "with",
+      "category": "Prepositions",
+      "gloss": "WITH",
+      "match": "direct",
+      "citizen_clips": 12,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "about",
+      "category": "Prepositions",
+      "gloss": "ABOUT2",
+      "match": "variant",
+      "citizen_clips": 14,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "for",
+      "category": "Prepositions",
+      "gloss": "FOR",
+      "match": "direct",
+      "citizen_clips": 13,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "of",
+      "category": "Prepositions",
+      "gloss": null,
+      "status": "no_lexical_sign",
+      "note": "ASL uses pointing/space or no distinct lexical sign"
+    },
+    {
+      "word": "by",
+      "category": "Prepositions",
+      "gloss": null,
+      "status": "no_lexical_sign",
+      "note": "ASL uses pointing/space or no distinct lexical sign"
+    },
+    {
+      "word": "into",
+      "category": "Prepositions",
+      "gloss": null,
+      "status": "no_lexical_sign",
+      "note": "ASL uses pointing/space or no distinct lexical sign"
+    },
+    {
+      "word": "over",
+      "category": "Prepositions",
+      "gloss": "OVER",
+      "match": "direct",
+      "citizen_clips": 15,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "under",
+      "category": "Prepositions",
+      "gloss": "UNDER",
+      "match": "direct",
+      "citizen_clips": 13,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "between",
+      "category": "Prepositions",
+      "gloss": "BETWEEN",
+      "match": "direct",
+      "citizen_clips": 14,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "through",
+      "category": "Prepositions",
+      "gloss": null,
+      "status": "no_lexical_sign",
+      "note": "ASL uses pointing/space or no distinct lexical sign"
+    },
+    {
+      "word": "and",
+      "category": "Conjunctions",
+      "gloss": "AND",
+      "match": "direct",
+      "citizen_clips": 14,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "but",
+      "category": "Conjunctions",
+      "gloss": "BUT",
+      "match": "direct",
+      "citizen_clips": 14,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "or",
+      "category": "Conjunctions",
+      "gloss": "OR",
+      "match": "direct",
+      "citizen_clips": 14,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "so",
+      "category": "Conjunctions",
+      "gloss": "SO",
+      "match": "direct",
+      "citizen_clips": 6,
+      "in_deployed_236": false,
+      "status": "ok"
+    },
+    {
+      "word": "because",
+      "category": "Conjunctions",
+      "gloss": "BECAUSE",
+      "match": "direct",
+      "citizen_clips": 13,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "if",
+      "category": "Conjunctions",
+      "gloss": "IF",
+      "match": "direct",
+      "citizen_clips": 12,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "then",
+      "category": "Conjunctions",
+      "gloss": "THEN",
+      "match": "direct",
+      "citizen_clips": 14,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "while",
+      "category": "Conjunctions",
+      "gloss": "WHILE",
+      "match": "direct",
+      "citizen_clips": 15,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "though",
+      "category": "Conjunctions",
+      "gloss": null,
+      "status": "not_in_asl_citizen",
+      "note": "no matching gloss in ASL Citizen 2731 \u2014 new class if recorded"
+    },
+    {
+      "word": "also",
+      "category": "Conjunctions",
+      "gloss": null,
+      "status": "not_in_asl_citizen",
+      "note": "no matching gloss in ASL Citizen 2731 \u2014 new class if recorded"
+    },
+    {
+      "word": "very",
+      "category": "Adverbs",
+      "gloss": "VERY",
+      "match": "direct",
+      "citizen_clips": 13,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "really",
+      "category": "Adverbs",
+      "gloss": "REALLY",
+      "match": "direct",
+      "citizen_clips": 8,
+      "in_deployed_236": false,
+      "status": "ok"
+    },
+    {
+      "word": "just",
+      "category": "Adverbs",
+      "gloss": null,
+      "status": "not_in_asl_citizen",
+      "note": "no matching gloss in ASL Citizen 2731 \u2014 new class if recorded"
+    },
+    {
+      "word": "only",
+      "category": "Adverbs",
+      "gloss": null,
+      "status": "not_in_asl_citizen",
+      "note": "no matching gloss in ASL Citizen 2731 \u2014 new class if recorded"
+    },
+    {
+      "word": "always",
+      "category": "Adverbs",
+      "gloss": "ALWAYS",
+      "match": "direct",
+      "citizen_clips": 13,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "never",
+      "category": "Adverbs",
+      "gloss": "NEVER",
+      "match": "direct",
+      "citizen_clips": 15,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "often",
+      "category": "Adverbs",
+      "gloss": "OFTEN",
+      "match": "direct",
+      "citizen_clips": 15,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "sometimes",
+      "category": "Adverbs",
+      "gloss": "SOMETIMES",
+      "match": "direct",
+      "citizen_clips": 13,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "again",
+      "category": "Adverbs",
+      "gloss": "AGAIN",
+      "match": "direct",
+      "citizen_clips": 12,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "still",
+      "category": "Adverbs",
+      "gloss": "STILL",
+      "match": "direct",
+      "citizen_clips": 14,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "now",
+      "category": "Adverbs",
+      "gloss": "NOW",
+      "match": "direct",
+      "citizen_clips": 15,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "here",
+      "category": "Adverbs",
+      "gloss": "HERE",
+      "match": "direct",
+      "citizen_clips": 14,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "one",
+      "category": "Numbers",
+      "gloss": "ONE",
+      "match": "direct",
+      "citizen_clips": 12,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "two",
+      "category": "Numbers",
+      "gloss": "TWO",
+      "match": "direct",
+      "citizen_clips": 9,
+      "in_deployed_236": false,
+      "status": "ok"
+    },
+    {
+      "word": "first",
+      "category": "Numbers",
+      "gloss": "FIRST",
+      "match": "direct",
+      "citizen_clips": 12,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "last",
+      "category": "Numbers",
+      "gloss": "LAST",
+      "match": "direct",
+      "citizen_clips": 13,
+      "in_deployed_236": true,
+      "status": "ok"
+    },
+    {
+      "word": "next",
+      "category": "Numbers",
+      "gloss": "NEXT",
+      "match": "direct",
+      "citizen_clips": 15,
+      "in_deployed_236": true,
+      "status": "ok"
+    }
+  ]
+}
