@@ -1,0 +1,33 @@
+{
+  "manifest_rows": 824,
+  "targets": [
+    "GOOD",
+    "HELLO",
+    "SORRY",
+    "HAVE",
+    "KNOW",
+    "THINK",
+    "TAKE",
+    "SELL"
+  ],
+  "control": [
+    "WASH2"
+  ],
+  "classification_counts": {
+    "Manual review required": 486,
+    "Accepted": 338
+  },
+  "source_counts": {
+    "ASL_CITIZEN": 275,
+    "LOCAL_SUPPLEMENTARY": 549
+  },
+  "duplicate_groups": 0,
+  "cv2_available": true,
+  "outputs": [
+    "canonical_product_core_manifest.csv",
+    "cleaned_counts_by_sign.csv",
+    "recalculated_data_gaps.csv",
+    "vocabulary_reassessment.csv",
+    "nosign_oov_transition_gap.json"
+  ]
+}

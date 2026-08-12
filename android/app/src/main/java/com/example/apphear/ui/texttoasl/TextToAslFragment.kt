@@ -58,12 +58,7 @@ class TextToAslFragment : Fragment(R.layout.fragment_text_to_asl) {
 
     private val playHandler = Handler(Looper.getMainLooper())
     private val advanceRunnable = Runnable {
-        currentIndex++
-        if (currentIndex < currentQueue.size) {
-            playCurrentAsset()
-        } else {
-            showIdleAvatar()
-        }
+        advancePlayback()
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -94,6 +89,15 @@ class TextToAslFragment : Fragment(R.layout.fragment_text_to_asl) {
                             avatarReady = true
                             showIdleAvatar()
                             consumePendingAutoSubmitIfReady()
+                        }
+                    },
+                )
+                controller.setPlaybackCallback(
+                    object : TextToAslPlaybackController.PlaybackCallback {
+                        override fun onFinished(asset: AslAnimationAsset) {
+                            if (currentQueue.getOrNull(currentIndex)?.id == asset.id) {
+                                advancePlayback()
+                            }
                         }
                     },
                 )
@@ -261,7 +265,17 @@ class TextToAslFragment : Fragment(R.layout.fragment_text_to_asl) {
         fragmentBinding.currentProgressText.text = "${currentIndex + 1} / ${currentQueue.size}"
 
         playHandler.removeCallbacks(advanceRunnable)
-        playHandler.postDelayed(advanceRunnable, durationFor(asset))
+        playHandler.postDelayed(advanceRunnable, PLAYBACK_SAFETY_TIMEOUT_MS)
+    }
+
+    private fun advancePlayback() {
+        playHandler.removeCallbacks(advanceRunnable)
+        currentIndex++
+        if (currentIndex < currentQueue.size) {
+            playCurrentAsset()
+        } else {
+            showIdleAvatar()
+        }
     }
 
     private fun showIdleAvatar() {
@@ -270,15 +284,6 @@ class TextToAslFragment : Fragment(R.layout.fragment_text_to_asl) {
         binding?.currentSignText?.setText(R.string.text_to_asl_current_sign_placeholder)
         if (currentQueue.isNotEmpty()) {
             binding?.currentProgressText?.text = "Complete"
-        }
-    }
-
-    private fun durationFor(asset: AslAnimationAsset): Long {
-        return when (asset.type) {
-            AslAnimationAsset.Type.PHRASE,
-            AslAnimationAsset.Type.WORD -> PHRASE_DURATION_MS
-            AslAnimationAsset.Type.LETTER,
-            AslAnimationAsset.Type.POSE -> LETTER_DURATION_MS
         }
     }
 
@@ -319,8 +324,9 @@ class TextToAslFragment : Fragment(R.layout.fragment_text_to_asl) {
     }
 
     private companion object {
-        const val PHRASE_DURATION_MS = 2_500L
-        const val LETTER_DURATION_MS = 1_200L
+        // The imported batch tops out at about 5.71 seconds. The model-viewer completion event
+        // normally advances immediately; this only prevents a malformed asset from stalling forever.
+        const val PLAYBACK_SAFETY_TIMEOUT_MS = 7_000L
         const val KEY_PENDING_AUTO_SUBMIT_TEXT = "pending_auto_submit_text"
         const val KEY_CONSUMED_AUTO_SUBMIT_TEXT = "consumed_auto_submit_text"
     }

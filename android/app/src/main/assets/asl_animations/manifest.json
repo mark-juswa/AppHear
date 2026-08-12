@@ -1,48 +1,959 @@
 {
-  "version": 1,
-  "source": "AppHear2 filtered smoke slice",
+  "version": 2,
+  "source": "AppHear3 starter set plus NEW BATCH GLB (2026-08-02)",
   "clips": [
     {
       "id": "idle",
       "displayText": "Idle",
       "asset": "asl_animations/asl_idle.glb",
       "type": "pose",
-      "aliases": ["idle", "rest", "stand"]
+      "aliases": [
+        "idle",
+        "rest",
+        "stand"
+      ]
     },
     {
       "id": "hello",
       "displayText": "Hello",
       "asset": "asl_animations/hello.glb",
       "type": "phrase",
-      "aliases": ["hello", "hi", "hey"]
+      "aliases": [
+        "hello",
+        "hi",
+        "hey"
+      ]
     },
     {
       "id": "thank_you",
       "displayText": "Thank you",
       "asset": "asl_animations/thank-you.glb",
       "type": "phrase",
-      "aliases": ["thank you", "thanks", "thank"]
+      "aliases": [
+        "thank you",
+        "thanks",
+        "thank"
+      ]
     },
     {
       "id": "good",
       "displayText": "Good",
       "asset": "asl_animations/GOOD.glb",
       "type": "word",
-      "aliases": ["good"]
+      "aliases": [
+        "good"
+      ]
     },
     {
       "id": "a",
       "displayText": "A",
       "asset": "asl_animations/anim_a.glb",
       "type": "letter",
-      "aliases": ["a"]
+      "aliases": [
+        "a"
+      ]
     },
     {
       "id": "b",
       "displayText": "B",
       "asset": "asl_animations/anim_b.glb",
       "type": "letter",
-      "aliases": ["b"]
+      "aliases": [
+        "b"
+      ]
+    },
+    {
+      "id": "possessive_adjective",
+      "displayText": "His / Her / Hers / Its",
+      "asset": "asl_animations/adjective-his-her-hers-its-belongs-to.glb",
+      "type": "word",
+      "aliases": [
+        "his",
+        "her",
+        "hers",
+        "its",
+        "belongs to",
+        "possessive adjective"
+      ]
+    },
+    {
+      "id": "again",
+      "displayText": "Again",
+      "asset": "asl_animations/again.glb",
+      "type": "word",
+      "aliases": [
+        "again"
+      ]
+    },
+    {
+      "id": "all",
+      "displayText": "All",
+      "asset": "asl_animations/all.glb",
+      "type": "word",
+      "aliases": [
+        "all"
+      ]
+    },
+    {
+      "id": "best",
+      "displayText": "Best",
+      "asset": "asl_animations/best.glb",
+      "type": "word",
+      "aliases": [
+        "best"
+      ]
+    },
+    {
+      "id": "better",
+      "displayText": "Better",
+      "asset": "asl_animations/better.glb",
+      "type": "word",
+      "aliases": [
+        "better"
+      ]
+    },
+    {
+      "id": "brother_you_how_many",
+      "displayText": "Brother You How Many",
+      "asset": "asl_animations/brother-you-how-many.glb",
+      "type": "phrase",
+      "aliases": [
+        "brother you how many"
+      ]
+    },
+    {
+      "id": "brother",
+      "displayText": "Brother",
+      "asset": "asl_animations/brother.glb",
+      "type": "word",
+      "aliases": [
+        "brother"
+      ]
+    },
+    {
+      "id": "child",
+      "displayText": "Child",
+      "asset": "asl_animations/child.glb",
+      "type": "word",
+      "aliases": [
+        "child"
+      ]
+    },
+    {
+      "id": "children",
+      "displayText": "Children",
+      "asset": "asl_animations/children.glb",
+      "type": "word",
+      "aliases": [
+        "children"
+      ]
+    },
+    {
+      "id": "city_you_live",
+      "displayText": "City You Live",
+      "asset": "asl_animations/city-you-live.glb",
+      "type": "phrase",
+      "aliases": [
+        "city you live"
+      ]
+    },
+    {
+      "id": "city",
+      "displayText": "City",
+      "asset": "asl_animations/city.glb",
+      "type": "word",
+      "aliases": [
+        "city"
+      ]
+    },
+    {
+      "id": "class",
+      "displayText": "Class",
+      "asset": "asl_animations/class.glb",
+      "type": "word",
+      "aliases": [
+        "class"
+      ]
+    },
+    {
+      "id": "come_to_here",
+      "displayText": "Come To Here",
+      "asset": "asl_animations/come-to-here.glb",
+      "type": "phrase",
+      "aliases": [
+        "come to here"
+      ]
+    },
+    {
+      "id": "critical_must",
+      "displayText": "Critical / Must",
+      "asset": "asl_animations/critical-must.glb",
+      "type": "word",
+      "aliases": [
+        "critical",
+        "must"
+      ]
+    },
+    {
+      "id": "dad",
+      "displayText": "Dad",
+      "asset": "asl_animations/dad.glb",
+      "type": "word",
+      "aliases": [
+        "dad"
+      ]
+    },
+    {
+      "id": "divorce",
+      "displayText": "Divorce",
+      "asset": "asl_animations/divorce.glb",
+      "type": "word",
+      "aliases": [
+        "divorce"
+      ]
+    },
+    {
+      "id": "dont",
+      "displayText": "Dont",
+      "asset": "asl_animations/dont.glb",
+      "type": "word",
+      "aliases": [
+        "dont"
+      ]
+    },
+    {
+      "id": "entire_whole",
+      "displayText": "Entire / Whole",
+      "asset": "asl_animations/entire-all-whole.glb",
+      "type": "word",
+      "aliases": [
+        "entire",
+        "whole"
+      ]
+    },
+    {
+      "id": "family",
+      "displayText": "Family",
+      "asset": "asl_animations/family.glb",
+      "type": "word",
+      "aliases": [
+        "family"
+      ]
+    },
+    {
+      "id": "fine",
+      "displayText": "Fine",
+      "asset": "asl_animations/fine.glb",
+      "type": "word",
+      "aliases": [
+        "fine"
+      ]
+    },
+    {
+      "id": "fingerspell",
+      "displayText": "Fingerspell",
+      "asset": "asl_animations/fingerspell.glb",
+      "type": "word",
+      "aliases": [
+        "fingerspell"
+      ]
+    },
+    {
+      "id": "from",
+      "displayText": "From",
+      "asset": "asl_animations/from.glb",
+      "type": "word",
+      "aliases": [
+        "from"
+      ]
+    },
+    {
+      "id": "girl",
+      "displayText": "Girl",
+      "asset": "asl_animations/girl.glb",
+      "type": "word",
+      "aliases": [
+        "girl"
+      ]
+    },
+    {
+      "id": "go_to",
+      "displayText": "Go to",
+      "asset": "asl_animations/go-to.glb",
+      "type": "word",
+      "aliases": [
+        "go to"
+      ]
+    },
+    {
+      "id": "well",
+      "displayText": "Well",
+      "asset": "asl_animations/good-well.glb",
+      "type": "word",
+      "aliases": [
+        "well"
+      ]
+    },
+    {
+      "id": "grandma",
+      "displayText": "Grandma",
+      "asset": "asl_animations/grandma.glb",
+      "type": "word",
+      "aliases": [
+        "grandma"
+      ]
+    },
+    {
+      "id": "grandpa",
+      "displayText": "Grandpa",
+      "asset": "asl_animations/grandpa.glb",
+      "type": "word",
+      "aliases": [
+        "grandpa"
+      ]
+    },
+    {
+      "id": "grow_up_raised",
+      "displayText": "Grow up / Raised",
+      "asset": "asl_animations/grow-up-raised.glb",
+      "type": "word",
+      "aliases": [
+        "grow up",
+        "raised"
+      ]
+    },
+    {
+      "id": "have",
+      "displayText": "Have",
+      "asset": "asl_animations/have.glb",
+      "type": "word",
+      "aliases": [
+        "have"
+      ]
+    },
+    {
+      "id": "he_she",
+      "displayText": "He / She",
+      "asset": "asl_animations/he-she.glb",
+      "type": "word",
+      "aliases": [
+        "he",
+        "she"
+      ]
+    },
+    {
+      "id": "here",
+      "displayText": "Here",
+      "asset": "asl_animations/here.glb",
+      "type": "word",
+      "aliases": [
+        "here"
+      ]
+    },
+    {
+      "id": "hey_name_you",
+      "displayText": "Hey Name You",
+      "asset": "asl_animations/hey-name-you.glb",
+      "type": "phrase",
+      "aliases": [
+        "hey name you"
+      ]
+    },
+    {
+      "id": "house",
+      "displayText": "House",
+      "asset": "asl_animations/house.glb",
+      "type": "word",
+      "aliases": [
+        "house"
+      ]
+    },
+    {
+      "id": "how_are_you",
+      "displayText": "How Are You",
+      "asset": "asl_animations/how-are-you.glb",
+      "type": "phrase",
+      "aliases": [
+        "how are you"
+      ]
+    },
+    {
+      "id": "husband",
+      "displayText": "Husband",
+      "asset": "asl_animations/husband.glb",
+      "type": "word",
+      "aliases": [
+        "husband"
+      ]
+    },
+    {
+      "id": "i_love_you",
+      "displayText": "I Love You",
+      "asset": "asl_animations/i-love-you.glb",
+      "type": "phrase",
+      "aliases": [
+        "i love you"
+      ]
+    },
+    {
+      "id": "i_me",
+      "displayText": "I / Me",
+      "asset": "asl_animations/i-me.glb",
+      "type": "word",
+      "aliases": [
+        "i",
+        "me"
+      ]
+    },
+    {
+      "id": "lady_woman",
+      "displayText": "Lady / Woman",
+      "asset": "asl_animations/lady-woman.glb",
+      "type": "word",
+      "aliases": [
+        "lady",
+        "woman"
+      ]
+    },
+    {
+      "id": "large",
+      "displayText": "Large",
+      "asset": "asl_animations/large.glb",
+      "type": "word",
+      "aliases": [
+        "large"
+      ]
+    },
+    {
+      "id": "like_affection_for",
+      "displayText": "Like / Affection / For",
+      "asset": "asl_animations/like-affection-for.glb",
+      "type": "word",
+      "aliases": [
+        "like",
+        "affection",
+        "for"
+      ]
+    },
+    {
+      "id": "little_small",
+      "displayText": "Little / Small",
+      "asset": "asl_animations/little-small.glb",
+      "type": "word",
+      "aliases": [
+        "little",
+        "small"
+      ]
+    },
+    {
+      "id": "live",
+      "displayText": "Live",
+      "asset": "asl_animations/live.glb",
+      "type": "word",
+      "aliases": [
+        "live"
+      ]
+    },
+    {
+      "id": "male_boy",
+      "displayText": "Male / Boy / Dude / Guy / Fellow",
+      "asset": "asl_animations/male-boy-dude-guy-fellow.glb",
+      "type": "word",
+      "aliases": [
+        "male",
+        "boy",
+        "dude",
+        "guy",
+        "fellow"
+      ]
+    },
+    {
+      "id": "man",
+      "displayText": "Man",
+      "asset": "asl_animations/man.glb",
+      "type": "word",
+      "aliases": [
+        "man"
+      ]
+    },
+    {
+      "id": "marriage",
+      "displayText": "Marriage / Marry / Married",
+      "asset": "asl_animations/marriage-marry-married.glb",
+      "type": "word",
+      "aliases": [
+        "marriage",
+        "marry",
+        "married"
+      ]
+    },
+    {
+      "id": "mom",
+      "displayText": "Mom",
+      "asset": "asl_animations/mom.glb",
+      "type": "word",
+      "aliases": [
+        "mom"
+      ]
+    },
+    {
+      "id": "more",
+      "displayText": "More",
+      "asset": "asl_animations/more.glb",
+      "type": "word",
+      "aliases": [
+        "more"
+      ]
+    },
+    {
+      "id": "morning",
+      "displayText": "Morning",
+      "asset": "asl_animations/morning.glb",
+      "type": "word",
+      "aliases": [
+        "morning"
+      ]
+    },
+    {
+      "id": "my_mine",
+      "displayText": "My / Mine",
+      "asset": "asl_animations/my-mine.glb",
+      "type": "word",
+      "aliases": [
+        "my",
+        "mine"
+      ]
+    },
+    {
+      "id": "my_name",
+      "displayText": "My Name",
+      "asset": "asl_animations/my-name.glb",
+      "type": "phrase",
+      "aliases": [
+        "my name"
+      ]
+    },
+    {
+      "id": "need",
+      "displayText": "Need",
+      "asset": "asl_animations/need.glb",
+      "type": "word",
+      "aliases": [
+        "need"
+      ]
+    },
+    {
+      "id": "negative_minus",
+      "displayText": "Negative / Minus",
+      "asset": "asl_animations/negative-minus.glb",
+      "type": "word",
+      "aliases": [
+        "negative",
+        "minus"
+      ]
+    },
+    {
+      "id": "nice_to_meet_you",
+      "displayText": "Nice To Meet You",
+      "asset": "asl_animations/nice-to-meet-you.glb",
+      "type": "phrase",
+      "aliases": [
+        "nice to meet you"
+      ]
+    },
+    {
+      "id": "no",
+      "displayText": "No",
+      "asset": "asl_animations/no.glb",
+      "type": "word",
+      "aliases": [
+        "no"
+      ]
+    },
+    {
+      "id": "none_of_your_business",
+      "displayText": "None Of Your Business",
+      "asset": "asl_animations/none-of-your-business.glb",
+      "type": "phrase",
+      "aliases": [
+        "none of your business"
+      ]
+    },
+    {
+      "id": "our",
+      "displayText": "Our",
+      "asset": "asl_animations/our.glb",
+      "type": "word",
+      "aliases": [
+        "our"
+      ]
+    },
+    {
+      "id": "parents",
+      "displayText": "Parents",
+      "asset": "asl_animations/parents.glb",
+      "type": "word",
+      "aliases": [
+        "parents"
+      ]
+    },
+    {
+      "id": "prefer_favorite",
+      "displayText": "Prefer / Favorite",
+      "asset": "asl_animations/prefer-favorite.glb",
+      "type": "word",
+      "aliases": [
+        "prefer",
+        "favorite"
+      ]
+    },
+    {
+      "id": "request",
+      "displayText": "Request",
+      "asset": "asl_animations/request.glb",
+      "type": "word",
+      "aliases": [
+        "request"
+      ]
+    },
+    {
+      "id": "school",
+      "displayText": "School",
+      "asset": "asl_animations/school.glb",
+      "type": "word",
+      "aliases": [
+        "school"
+      ]
+    },
+    {
+      "id": "see_you_tomorrow",
+      "displayText": "See You Tomorrow",
+      "asset": "asl_animations/see-you-tomorrow.glb",
+      "type": "phrase",
+      "aliases": [
+        "see you tomorrow"
+      ]
+    },
+    {
+      "id": "single_alone",
+      "displayText": "Single / Alone / Something / Someone",
+      "asset": "asl_animations/single-alone-something-someone.glb",
+      "type": "word",
+      "aliases": [
+        "single",
+        "alone",
+        "something",
+        "someone"
+      ]
+    },
+    {
+      "id": "sister_you_how_many",
+      "displayText": "Sister You How Many",
+      "asset": "asl_animations/sister-you-how-many.glb",
+      "type": "phrase",
+      "aliases": [
+        "sister you how many"
+      ]
+    },
+    {
+      "id": "sister",
+      "displayText": "Sister",
+      "asset": "asl_animations/sister.glb",
+      "type": "word",
+      "aliases": [
+        "sister"
+      ]
+    },
+    {
+      "id": "so_so",
+      "displayText": "So-so",
+      "asset": "asl_animations/so-so.glb",
+      "type": "word",
+      "aliases": [
+        "so so"
+      ]
+    },
+    {
+      "id": "them",
+      "displayText": "Them",
+      "asset": "asl_animations/they-them.glb",
+      "type": "word",
+      "aliases": [
+        "them"
+      ]
+    },
+    {
+      "id": "they",
+      "displayText": "They",
+      "asset": "asl_animations/they.glb",
+      "type": "word",
+      "aliases": [
+        "they"
+      ]
+    },
+    {
+      "id": "think",
+      "displayText": "Think",
+      "asset": "asl_animations/think.glb",
+      "type": "word",
+      "aliases": [
+        "think"
+      ]
+    },
+    {
+      "id": "this_theirs",
+      "displayText": "This / Theirs",
+      "asset": "asl_animations/this-his-hers-theirs.glb",
+      "type": "word",
+      "aliases": [
+        "this",
+        "theirs"
+      ]
+    },
+    {
+      "id": "us",
+      "displayText": "Us",
+      "asset": "asl_animations/we-us.glb",
+      "type": "word",
+      "aliases": [
+        "us"
+      ]
+    },
+    {
+      "id": "we",
+      "displayText": "We",
+      "asset": "asl_animations/we.glb",
+      "type": "word",
+      "aliases": [
+        "we"
+      ]
+    },
+    {
+      "id": "what",
+      "displayText": "What",
+      "asset": "asl_animations/what.glb",
+      "type": "word",
+      "aliases": [
+        "what"
+      ]
+    },
+    {
+      "id": "who_is_he_she",
+      "displayText": "Who Is He She",
+      "asset": "asl_animations/who-is-he-she.glb",
+      "type": "phrase",
+      "aliases": [
+        "who is he she"
+      ]
+    },
+    {
+      "id": "work_labor_employment",
+      "displayText": "Work Labor Employment",
+      "asset": "asl_animations/work-labor-employment.glb",
+      "type": "phrase",
+      "aliases": [
+        "work labor employment"
+      ]
+    },
+    {
+      "id": "you_all",
+      "displayText": "You All",
+      "asset": "asl_animations/you-all.glb",
+      "type": "phrase",
+      "aliases": [
+        "you all"
+      ]
+    },
+    {
+      "id": "you_children_how_many",
+      "displayText": "You Children How Many",
+      "asset": "asl_animations/you-children-how-many.glb",
+      "type": "phrase",
+      "aliases": [
+        "you children how many"
+      ]
+    },
+    {
+      "id": "you_from_where",
+      "displayText": "You From Where",
+      "asset": "asl_animations/you-from-where.glb",
+      "type": "phrase",
+      "aliases": [
+        "you from where"
+      ]
+    },
+    {
+      "id": "you_go_to_school",
+      "displayText": "You Go To School",
+      "asset": "asl_animations/you-go-to-school.glb",
+      "type": "phrase",
+      "aliases": [
+        "you go to school"
+      ]
+    },
+    {
+      "id": "you_house_bathroom_how_many",
+      "displayText": "You House Bathroom How Many",
+      "asset": "asl_animations/you-house-bathroom-how-many.glb",
+      "type": "phrase",
+      "aliases": [
+        "you house bathroom how many"
+      ]
+    },
+    {
+      "id": "you_like_learn_sign",
+      "displayText": "You Like Learn Sign",
+      "asset": "asl_animations/you-like-learn-sign.glb",
+      "type": "phrase",
+      "aliases": [
+        "you like learn sign"
+      ]
+    },
+    {
+      "id": "you_like_your_work",
+      "displayText": "You Like Your Work",
+      "asset": "asl_animations/you-like-your-work.glb",
+      "type": "phrase",
+      "aliases": [
+        "you like your work"
+      ]
+    },
+    {
+      "id": "you_live_here",
+      "displayText": "You Live Here",
+      "asset": "asl_animations/you-live-here.glb",
+      "type": "phrase",
+      "aliases": [
+        "you live here"
+      ]
+    },
+    {
+      "id": "you_live_where",
+      "displayText": "You Live Where",
+      "asset": "asl_animations/you-live-where.glb",
+      "type": "phrase",
+      "aliases": [
+        "you live where"
+      ]
+    },
+    {
+      "id": "you_married",
+      "displayText": "You Married",
+      "asset": "asl_animations/you-married.glb",
+      "type": "phrase",
+      "aliases": [
+        "you married"
+      ]
+    },
+    {
+      "id": "you_need_bathroom",
+      "displayText": "You Need Bathroom",
+      "asset": "asl_animations/you-need-bathroom.glb",
+      "type": "phrase",
+      "aliases": [
+        "you need bathroom"
+      ]
+    },
+    {
+      "id": "you_think_i_sign_bad",
+      "displayText": "You Think I Sign Bad",
+      "asset": "asl_animations/you-think-i-sign-bad.glb",
+      "type": "phrase",
+      "aliases": [
+        "you think i sign bad"
+      ]
+    },
+    {
+      "id": "you_think_i_sign_good",
+      "displayText": "You Think I Sign Good",
+      "asset": "asl_animations/you-think-i-sign-good.glb",
+      "type": "phrase",
+      "aliases": [
+        "you think i sign good"
+      ]
+    },
+    {
+      "id": "you_want_more_children",
+      "displayText": "You Want More Children",
+      "asset": "asl_animations/you-want-more-children.glb",
+      "type": "phrase",
+      "aliases": [
+        "you want more children"
+      ]
+    },
+    {
+      "id": "you_work_where",
+      "displayText": "You Work Where",
+      "asset": "asl_animations/you-work-where.glb",
+      "type": "phrase",
+      "aliases": [
+        "you work where"
+      ]
+    },
+    {
+      "id": "you",
+      "displayText": "You",
+      "asset": "asl_animations/you.glb",
+      "type": "word",
+      "aliases": [
+        "you"
+      ]
+    },
+    {
+      "id": "your_yours",
+      "displayText": "Your / Yours",
+      "asset": "asl_animations/your-belongs-to-you-yours.glb",
+      "type": "word",
+      "aliases": [
+        "your",
+        "yours",
+        "belongs to you"
+      ]
+    },
+    {
+      "id": "your_dad_deaf",
+      "displayText": "Your Dad Deaf",
+      "asset": "asl_animations/your-dad-deaf.glb",
+      "type": "phrase",
+      "aliases": [
+        "your dad deaf"
+      ]
+    },
+    {
+      "id": "your_dad_name",
+      "displayText": "Your Dad Name",
+      "asset": "asl_animations/your-dad-name.glb",
+      "type": "phrase",
+      "aliases": [
+        "your dad name"
+      ]
+    },
+    {
+      "id": "your_house_big",
+      "displayText": "Your House Big",
+      "asset": "asl_animations/your-house-big.glb",
+      "type": "phrase",
+      "aliases": [
+        "your house big"
+      ]
+    },
+    {
+      "id": "your_house_small",
+      "displayText": "Your House Small",
+      "asset": "asl_animations/your-house-small.glb",
+      "type": "phrase",
+      "aliases": [
+        "your house small"
+      ]
+    },
+    {
+      "id": "your_mom_name_what",
+      "displayText": "Your Mom Name What",
+      "asset": "asl_animations/your-mom-name-what.glb",
+      "type": "phrase",
+      "aliases": [
+        "your mom name what"
+      ]
     }
   ]
 }

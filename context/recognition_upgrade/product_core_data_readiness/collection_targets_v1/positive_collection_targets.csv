@@ -1,0 +1,9 @@
+canonical_gloss,accepted_total_clips,accepted_local_clips,accepted_local_signers,remaining_total_gap,remaining_local_gap,remaining_local_signer_gap,recommended_new_local_clips,recommended_new_local_signers,minimum_clips_per_new_signer,priority,notes
+GOOD,81,50,2,69,25,3,69,3,23,P1,Collect with fresh local signers only; do not reuse previous local signers as fresh validation/test signers.
+HELLO,151,119,3,0,0,2,20,2,10,P2,Collect with fresh local signers only; do not reuse previous local signers as fresh validation/test signers.
+SORRY,81,51,3,69,24,2,69,2,35,P1,Collect with fresh local signers only; do not reuse previous local signers as fresh validation/test signers.
+HAVE,80,50,2,70,25,3,70,3,24,P1,Collect with fresh local signers only; do not reuse previous local signers as fresh validation/test signers.
+KNOW,74,50,2,76,25,3,76,3,26,P1,Collect with fresh local signers only; do not reuse previous local signers as fresh validation/test signers.
+THINK,51,20,1,99,55,4,99,4,25,P0,Collect with fresh local signers only; do not reuse previous local signers as fresh validation/test signers.
+TAKE,49,20,1,101,55,4,101,4,26,P0,Collect with fresh local signers only; do not reuse previous local signers as fresh validation/test signers.
+SELL,49,20,1,101,55,4,101,4,26,P0,Collect with fresh local signers only; do not reuse previous local signers as fresh validation/test signers.

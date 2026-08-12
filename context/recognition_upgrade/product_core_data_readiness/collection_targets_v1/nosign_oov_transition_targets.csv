@@ -1,0 +1,7 @@
+sample_kind,target_windows,recommended_video_minutes,notes
+N0_NO_HAND,150,15,No visible hands; person absent or hands outside frame.
+P1_IDLE_HANDS,200,20,"Hands visible, not signing; natural waiting/resting."
+P1_FACE_ADJACENT,200,20,"Hands near face/hair/glasses/phone, not signing; HELLO-like hard negatives."
+P1_ACCIDENTAL_MOTION,150,15,"Reaching, typing, holding objects, adjusting camera, drinking."
+OOV_SIGN,200,20,Real signs not in GOOD/HELLO/SORRY/HAVE/KNOW/THINK/TAKE/SELL.
+TRANSITION_PARTIAL,100,10,"Rest-to-sign, sign-to-rest, between-sign movement, aborted/partial selected signs."

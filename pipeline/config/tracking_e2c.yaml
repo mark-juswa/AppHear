@@ -1,0 +1,43 @@
+# Recognition upgrade E2c - paired MediaPipe IMAGE vs VIDEO hand tracking.
+# Experiment-only: production Stage E, Android, models, and schema 3.0 remain unchanged.
+
+experiment_version: "e2c.temporal_tracking.v0.1"
+seed: 260726
+
+dataset:
+  root: "F:/ASL DATASET/ASL CITIZEN/ASL_Citizen"
+  videos_subdir: "videos"
+
+source_e2b:
+  run_dir: "F:/ASL DATASET/ASL CITIZEN/derived/apphear3/recognition_upgrade/e2b_roi_recovery_v0/engineering_e2b_01"
+
+output:
+  root: "F:/ASL DATASET/ASL CITIZEN/derived/apphear3/recognition_upgrade/e2c_temporal_tracking_v0"
+
+model:
+  hand_task: "assets/mediapipe/hand_landmarker.task"
+  num_hands: 2
+  min_hand_detection_confidence: 0.5
+  min_hand_presence_confidence: 0.5
+  min_tracking_confidence: 0.5
+
+sampling:
+  engineering_base_items: 120
+  smoke_base_items: 6
+  cadences: [1, 4, 8]
+
+crop:
+  diagnostic_size: 112
+  diagnostic_expansion: 1.75
+  min_valid_landmarks: 15
+  min_side_fraction: 0.12
+  max_side_fraction: 0.75
+  pad_value_rgb: [0, 0, 0]
+
+audit:
+  jpeg_quality: 92
+  panel_full_frame_width: 320
+  parent_usable_gate: 0.98
+  diagnostic_min_availability_gain: 0.20
+  diagnostic_max_wrong_or_stale_rate: 0.02
+  diagnostic_max_video_to_image_p95_latency_ratio: 1.20

@@ -8,6 +8,7 @@ class AslTextNormalizer {
 
         val normalized = input
             .lowercase(Locale.US)
+            .replace(Regex("['?]"), "")
             .replace(Regex("[^a-z0-9\\s]"), " ")
             .replace(Regex("\\s+"), " ")
             .trim()

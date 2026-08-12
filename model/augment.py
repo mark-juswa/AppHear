@@ -41,9 +41,16 @@ def _geo(
     return result
 
 
-def augment_batch(x: np.ndarray, cfg: AugmentConfig, rng: np.random.Generator) -> np.ndarray:
-    """(B,T,258) -> (B,T,258) augmented. Per-sample random rotation/scale/noise + frame masking."""
+def augment_batch(
+    x: np.ndarray,
+    cfg: AugmentConfig,
+    rng: np.random.Generator,
+    valid_frame_mask: np.ndarray | None = None,
+) -> np.ndarray:
+    """Augment `(B,T,258)` while preserving explicitly padded streaming frames."""
     b, t, _ = x.shape
+    if valid_frame_mask is not None and valid_frame_mask.shape != (b, t):
+        raise ValueError(f"valid_frame_mask must have shape {(b, t)}, got {valid_frame_mask.shape}")
     out = x.copy()
     hl = out[:, :, _HAND_L].reshape(b, t, 21, 3)
     hr = out[:, :, _HAND_R].reshape(b, t, 21, 3)
@@ -75,4 +82,6 @@ def augment_batch(x: np.ndarray, cfg: AugmentConfig, rng: np.random.Generator) -
     if cfg.frame_mask_frac > 0.0:  # temporal dropout: zero a fraction of frames per clip
         mask = rng.random((b, t)) < cfg.frame_mask_frac
         out[mask] = 0.0
+    if valid_frame_mask is not None:
+        out[~valid_frame_mask.astype(bool)] = 0.0
     return out

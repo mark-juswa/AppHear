@@ -24,6 +24,10 @@ class TextToAslPlaybackController(
         fun onReady()
     }
 
+    interface PlaybackCallback {
+        fun onFinished(asset: AslAnimationAsset)
+    }
+
     private val appContext = context.applicationContext
     private val mainHandler = Handler(Looper.getMainLooper())
     private val assetLoader = WebViewAssetLoader.Builder()
@@ -31,7 +35,9 @@ class TextToAslPlaybackController(
         .build()
 
     private var pendingAsset: AslAnimationAsset? = null
+    private var playingAsset: AslAnimationAsset? = null
     private var readyCallback: ReadyCallback? = null
+    private var playbackCallback: PlaybackCallback? = null
     var isReady: Boolean = false
         private set
 
@@ -46,8 +52,13 @@ class TextToAslPlaybackController(
         }
     }
 
+    fun setPlaybackCallback(callback: PlaybackCallback?) {
+        playbackCallback = callback
+    }
+
     fun play(asset: AslAnimationAsset?) {
         if (asset == null) return
+        playingAsset = asset
         if (!isReady) {
             pendingAsset = asset
             return
@@ -64,7 +75,9 @@ class TextToAslPlaybackController(
 
     fun destroy() {
         readyCallback = null
+        playbackCallback = null
         pendingAsset = null
+        playingAsset = null
         isReady = false
         webView.removeJavascriptInterface(JS_BRIDGE_NAME)
         webView.stopLoading()
@@ -121,6 +134,17 @@ class TextToAslPlaybackController(
         @JavascriptInterface
         fun onModelLoaded(src: String, animationsJson: String) {
             Log.d(TAG, "GLB loaded: $src animations=$animationsJson")
+        }
+
+        @JavascriptInterface
+        fun onAnimationFinished(src: String) {
+            mainHandler.post {
+                val asset = playingAsset ?: return@post
+                val expectedUrl = BASE_URL + asset.assetPath
+                if (src == expectedUrl) {
+                    playbackCallback?.onFinished(asset)
+                }
+            }
         }
     }
 

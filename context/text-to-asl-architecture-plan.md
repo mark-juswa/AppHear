@@ -2,7 +2,7 @@
 
 Last updated: 2026-07-22
 
-Status: Phases T1-T4 starter playback slice complete; speech/TTS/recent history/full asset rollout not started
+Status: Phases T1-T6 and expanded GLB rollout complete; recent history remains deferred
 
 ## Purpose
 
@@ -408,3 +408,25 @@ Phase T2/T3 implementation after gates:
 - `TextToAslFragment` stores `incoming_text` as pending auto-submit state, preserves it with `onSaveInstanceState`, waits for planner/avatar readiness, runs the existing `submitInput()` once, then clears/marks the transcript consumed.
 - `RECORD_AUDIO` was not added; this path uses the system recognition activity via `RecognizerIntent`.
 - Recognition/camera/model/confirmation/temporal files were not modified.
+
+## 2026-08-02 expanded GLB vocabulary rollout
+
+- Audited `F:/ASL DATASET/NEW BATCH GLB`: 98 GLBs / 173.18 MiB total.
+- Excluded `not like-dont like-dislike.glb` because it is a 132-byte empty GLB with no nodes,
+  mesh, skin, or animation. The source file was preserved outside the project.
+- Reused the existing `thank-you.glb` because the batch copy is byte-identical.
+- Added 96 net-new playable GLBs. The bundled Text-to-ASL catalog now contains 102 clips totaling
+  185.36 MiB, including the original idle, starter words, and letter fallbacks.
+- Renamed the three filenames containing spaces/commas to URL-safe asset names during import.
+- Expanded manifest aliases explicitly and made duplicate IDs/aliases fail fast instead of silently
+  replacing another animation.
+- Playback now advances from the local `model-viewer` animation-completion event. A 7-second safety
+  timeout only prevents a malformed clip from stalling; it no longer truncates the 56 audited batch
+  animations that exceed the previous fixed 2.5-second timer.
+- Apostrophes are removed during Text-to-ASL normalization, so input such as `don't` maps to `dont`.
+- Verification: 11 focused Text-to-ASL JVM tests passed; clean `testDebugUnitTest assembleDebug`
+  passed; debug APK measured 193.45 MiB.
+- Recognition/detection Kotlin, model, vocabulary, config, and MediaPipe assets were hash-verified
+  unchanged. This rollout does not alter the recognition vocabulary or S0-S8 runtime.
+- Remaining gate: physical-device playback smoke for representative short/long phrases and
+  navigation away/back through the WebView lifecycle.

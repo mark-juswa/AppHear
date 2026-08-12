@@ -669,3 +669,11 @@ Choose a **major hybrid redesign**:
 Strategy verdict: A/258 remains a baseline (estimated 65-75% ceiling); B/hybrid is selected (estimated 80-90% for a well-collected isolated 100-236-sign vocabulary); C/raw continuous is a later high-end/cloud research path. These are engineering forecasts, not accuracy claims.
 
 Shortest credible path: `ST-GCN benchmark -> hand-crop fusion ablation -> 30-signer pilot -> quantized hybrid Android -> vocabulary expansion`.
+
+## 2026-07-25 - Formal Hybrid Upgrade Plan
+
+The implementation-governing research plan now lives in
+[`recognition_upgrade/README.md`](recognition_upgrade/README.md). It preserves the hybrid direction
+but corrects the experiment order using verified disk evidence: the slim early-stride GCN already
+failed at 0.1588 top-1, while the fair full-capacity config remains unrun. E1 therefore begins with
+graph/data/optimization sanity checks and a matched comparison before any RGB fusion work.

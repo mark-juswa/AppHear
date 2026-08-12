@@ -41,6 +41,21 @@ def test_absent_hands_stay_zero() -> None:
     assert np.all(out[:, :, 0:63] == 0.0)  # augmentation never invents an absent hand
 
 
+def test_streaming_padding_stays_zero_with_noise() -> None:
+    x = _batch(b=2, t=8)
+    valid = np.zeros((2, 8), dtype=bool)
+    valid[:, :3] = True
+    x[:, 3:] = 0.0
+    out = augment_batch(
+        x,
+        AugmentConfig(10.0, 0.1, 0.01, 0.0),
+        np.random.default_rng(1),
+        valid_frame_mask=valid,
+    )
+    assert np.any(out[:, :3] != 0.0)
+    assert np.all(out[:, 3:] == 0.0)
+
+
 def test_deterministic_with_seed() -> None:
     x = _batch()
     a = augment_batch(x, CFG, np.random.default_rng(7))

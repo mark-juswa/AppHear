@@ -29,6 +29,12 @@
                       "frames":  3,
                       "enabled":  true
                   },
+    "post_commit_rearm":  {
+                                "enabled":  false,
+                                "departure_frames":  0,
+                                "measurement_logging":  false,
+                                "measurement_status":  "required_before_enable"
+                            },
     "signing":  {
                     "k_on":  3,
                     "raise_margin":  0.1,
@@ -47,5 +53,10 @@
     "camera_analysis":  {
                             "target_width":  480,
                             "target_height":  360
-                        }
+                        },
+    "phase1_shadow":  {
+                           "enabled":  false,
+                           "log_every_n_frames":  5,
+                           "status":  "offline_parity_passed_device_profiling_pending"
+                       }
 }

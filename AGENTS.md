@@ -102,3 +102,9 @@ Adapted from the JS-Mastery Context System to AppHear 3. Defined in `.claude/ski
 5. When stuck after one failed fix â†’ `/recover`.
 6. End of session â†’ `/remember save`.
 
+
+## Recognition Upgrade Read Requirement
+
+Before any recognition architecture, feature-schema, dataset, model, MediaPipe-mode, boundary,
+calibration, or deployment experiment, read `context/recognition_upgrade/README.md` and its ordered
+documents. This is planning-only and does not authorize replacing the production v3.0 recognizer.

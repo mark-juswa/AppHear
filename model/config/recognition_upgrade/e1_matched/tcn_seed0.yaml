@@ -1,0 +1,24 @@
+# E1 matched fresh TCN, seed 0. No warm start; paired with corrected GCN seed 0.
+model:
+  type: tcn
+  blocks: 4
+  channels: 64
+  dilations: [1, 2, 4, 8]
+  kernel: 3
+  dropout: 0.3
+train:
+  seed: 0
+  batch_size: 64
+  epochs: 60
+  learning_rate: 0.0005
+  early_stop_patience: 10
+  weight_decay: 0.0001
+augment:
+  enabled: true
+  rotation_deg: 10.0
+  scale: 0.10
+  noise_std: 0.01
+  frame_mask_frac: 0.0
+features_dir: "../ASL CITIZEN/derived/apphear3/features_streaming_conversational_fps"
+vocab_dir: "../ASL CITIZEN/derived/apphear3/features_conversational"
+output_dir: "../ASL CITIZEN/derived/apphear3/runs/e1_matched_tcn_seed0_v30"

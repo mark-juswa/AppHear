@@ -1,0 +1,9 @@
+canonical_gloss,accepted_total_clips_now,accepted_local_clips_now,accepted_total_signers_now,accepted_local_signers_now,potential_total_after_manual_review,potential_local_after_manual_review,potential_total_signers_after_review,potential_local_signers_after_review,remaining_total_gap_accepted_now,remaining_local_gap_accepted_now,remaining_local_signer_gap_accepted_now,remaining_total_gap_after_review,remaining_local_gap_after_review,remaining_local_signer_gap_after_review
+GOOD,44,44,2,2,140,109,33,3,106,31,3,10,0,2
+HELLO,84,84,2,2,182,150,32,3,66,0,3,0,0,2
+SORRY,48,48,2,2,140,110,31,3,102,27,3,10,0,2
+HAVE,44,44,2,2,80,50,31,2,106,31,3,70,25,3
+KNOW,43,43,2,2,81,50,31,2,107,32,3,69,25,3
+THINK,18,18,1,1,51,20,28,1,132,57,4,99,55,4
+TAKE,20,20,1,1,50,20,30,1,130,55,4,100,55,4
+SELL,19,19,1,1,49,20,29,1,131,56,4,101,55,4

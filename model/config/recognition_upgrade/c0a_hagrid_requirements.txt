@@ -1,0 +1,9 @@
+# C0-A HaGRID transfer-screen environment only.
+# Do not install into the main AppHear .venv unless explicitly approved.
+#
+# HaGRID's repository pins torch==2.0.0 / torchvision==0.15.1.
+# This file uses a modern Ultralytics runtime only for desktop smoke/inference
+# against the frozen AppHear fixtures; it is not a production Android path.
+ultralytics==8.3.170
+opencv-python==4.10.0.84
+pillow==10.4.0

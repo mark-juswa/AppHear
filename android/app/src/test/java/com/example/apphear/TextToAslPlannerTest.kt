@@ -58,6 +58,7 @@ class TextToAslPlannerTest {
         assertEquals("", normalizer.normalize("   "))
         assertEquals("hello", normalizer.normalize("HEY"))
         assertEquals("hello", normalizer.normalize("hi"))
+        assertEquals("dont", normalizer.normalize("Don't"))
         assertEquals("nice to meet you", normalizer.normalize("Nice, to   meet you!"))
     }
 
@@ -103,6 +104,22 @@ class TextToAslPlannerTest {
         )
 
         assertEquals(listOf("asl_animations/anim_b.glb"), missing)
+    }
+
+    @Test(expected = IllegalArgumentException::class)
+    fun catalogRejectsAliasesThatWouldSilentlyReplaceAnotherAnimation() {
+        AslAnimationCatalog.fromAssets(
+            listOf(
+                hello,
+                asset(
+                    id = "other_hello",
+                    display = "Other hello",
+                    path = "asl_animations/other-hello.glb",
+                    type = AslAnimationAsset.Type.WORD,
+                    aliases = listOf("hello"),
+                ),
+            ),
+        )
     }
 
     private fun asset(

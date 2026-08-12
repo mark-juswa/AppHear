@@ -1,0 +1,6 @@
+{
+  "target_total_reviewed_nosign_oov_transition_windows": 1000,
+  "currently_repaired_in_this_manifest": 0,
+  "remaining_gap": 1000,
+  "note": "This phase audited positive product-core/WASH2 raw videos only. Existing E4-AG no-sign data remains useful but is not yet integrated into this canonical manifest."
+}

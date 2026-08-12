@@ -63,6 +63,11 @@
       const anims = JSON.stringify(viewer.availableAnimations || []);
       if (window.Android) Android.onModelLoaded(viewer.src, anims);
     });
+    viewer.addEventListener('finished', () => {
+      if (viewer.classList.contains('active') && window.Android) {
+        Android.onAnimationFinished(viewer.src);
+      }
+    });
   });
 
   window.playSign = function(url) {

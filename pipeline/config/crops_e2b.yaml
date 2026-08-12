@@ -1,0 +1,41 @@
+# Recognition upgrade E2b Phase A - paired causal ROI-recovery experiment.
+# Experiment-only: this does not change schema 3.0 or Android runtime behavior.
+
+experiment_version: "e2b.roi_recovery.v0.1"
+seed: 260726
+
+dataset:
+  root: "F:/ASL DATASET/ASL CITIZEN/ASL_Citizen"
+  videos_subdir: "videos"
+  landmarks_root: "F:/ASL DATASET/ASL CITIZEN/derived/apphear3/landmarks"
+
+source_e2:
+  run_dir: "F:/ASL DATASET/ASL CITIZEN/derived/apphear3/recognition_upgrade/e2_crop_quality_v0/engineering_run_02"
+  audit_csv: "audit_template_consistency_corrected.csv"
+
+output:
+  root: "F:/ASL DATASET/ASL CITIZEN/derived/apphear3/recognition_upgrade/e2b_roi_recovery_v0"
+
+sampling:
+  base_items: 120
+  smoke_base_items: 6
+  cadences: [1, 4, 8]
+
+roi:
+  diagnostic_crop_size: 112
+  diagnostic_expansion: 1.75
+  min_valid_landmarks: 15
+  min_side_fraction: 0.12
+  max_side_fraction: 0.75
+  control_hold_ms: 100
+  pose_track_max_age_ms: [150, 250, 350]
+  pose_min_visibility: 0.50
+  fallback_size_quantile: 0.90
+  pad_value_rgb: [0, 0, 0]
+
+audit:
+  jpeg_quality: 92
+  panel_full_frame_width: 320
+  parent_usable_gate: 0.98
+  promotion_min_availability_gain: 0.20
+  promotion_max_wrong_or_stale_rate: 0.02

@@ -1,6 +1,8 @@
 ﻿# Python environments, caches, and generated analysis
 .venv/
 **/.venv/
+.venv-*/
+**/.venv-*/
 __pycache__/
 **/__pycache__/
 *.py[cod]
@@ -61,6 +63,8 @@ classmate_supplementary_dataset_package/work/
 classmate_supplementary_dataset_package/logs/
 
 # Generated model/evaluation scratch output
+artifacts/
+scratchpad/
 artifacts/tmp_*/
 artifacts/*.tflite
 

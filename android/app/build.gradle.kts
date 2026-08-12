@@ -28,6 +28,9 @@ android {
         .orElse(providers.environmentVariable("SUPABASE_ANON_KEY"))
         .orNull
         .orEmpty()
+    val phase1ShadowDebug = providers.gradleProperty("phase1Shadow")
+        .map { it.equals("true", ignoreCase = true) }
+        .getOrElse(false)
 
     namespace = "com.example.apphear"
     compileSdk = 36
@@ -48,8 +51,12 @@ android {
     }
 
     buildTypes {
+        debug {
+            buildConfigField("boolean", "PHASE1_SHADOW_ENABLED", phase1ShadowDebug.toString())
+        }
         release {
             isMinifyEnabled = false
+            buildConfigField("boolean", "PHASE1_SHADOW_ENABLED", "false")
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"

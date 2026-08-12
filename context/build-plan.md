@@ -191,3 +191,12 @@ Compare native Android baseline against the iPhone prototype using the same cont
 lighting, signer, camera convention, cool-start run, and sustained run.
 
 Non-goal: this track does not migrate or replace `android/`.
+
+## Recognition Upgrade Architecture Track (research complete; implementation not approved)
+
+The hybrid landmark + RGB plan, dataset strategy, feature contract, experiment matrix, acceptance
+gates, Android deployment, and rollback sequence are in
+[`recognition_upgrade/README.md`](recognition_upgrade/README.md). E1 graph sanity/fairness precedes
+crop/fusion implementation because the existing slim ST-GCN failed at 0.1588 top-1 and the prepared
+full-capacity comparison has not been run. No production model, schema, or runtime change is
+authorized by this plan.

@@ -211,3 +211,11 @@ cannot load 3.15-saved models (`input_axes` deserialization error). [VERIFIED â€
 ## 8. Relationship to the 2026-07-24 Target Architecture Decision
 
 This remains the first controlled architecture baseline, not the selected final production design. Run the frozen-contract ST-GCN experiment to isolate encoder quality. A pass proves graph structure is useful; it does not prove the 258-feature representation is sufficient. The selected long-term direction is the hybrid landmark + RGB hand-appearance architecture recorded in `context/recognition-accuracy.md`. The next gate after ST-GCN is an identical-split comparison of landmark graph, RGB hand crops, and fused hybrid input.
+
+## 2026-07-25 Correction - Existing GCN Result
+
+The slim early-stride `gcn_conversational_fps_v30` run is complete and failed (test top-1 0.1588,
+top-5 0.4374). The full-capacity fair-comparison config exists but has no run artifact. Do not
+describe ST-GCN as unrun or expected to win. The governing next-step protocol is E1 in
+`recognition_upgrade/EXPERIMENT_MATRIX.md`: sanity/overfit checks first, then a matched
+full-capacity comparison, with the TCN retained if it fails.

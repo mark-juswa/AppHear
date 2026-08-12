@@ -51,7 +51,7 @@ def make_stream_dataset(
     if augment_fn is not None:
 
         def _aug(xb: Any, yb: Any, sw: Any) -> Any:
-            xa = tf.numpy_function(augment_fn, [xb], tf.float32)
+            xa = tf.numpy_function(augment_fn, [xb, sw], tf.float32)
             xa.set_shape(xb.shape)
             return xa, yb, sw
 

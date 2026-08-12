@@ -18,6 +18,7 @@ import os
 os.environ.setdefault("TF_ENABLE_ONEDNN_OPTS", "0")
 
 import argparse  # noqa: E402
+import csv  # noqa: E402
 import sys  # noqa: E402
 from dataclasses import dataclass  # noqa: E402
 from pathlib import Path  # noqa: E402
@@ -47,6 +48,7 @@ class StreamConfig:
     scale: float
     noise_std: float
     frame_mask_frac: float
+    augmentation_contract: str | None
     warm_start_from: Path | None
     features_dir: Path
     output_dir: Path
@@ -59,8 +61,11 @@ class StreamConfig:
     # per-frame masked loss/eval below work unchanged (mean over identical rows = the clip prob).
     model_type: str = "tcn"
     gcn_channels: tuple[int, ...] | None = None
-    gcn_early_strides: bool = False   # temporal downsample at blocks {0,4} instead of {4,7} (~2x)
+    gcn_early_strides: bool = False  # temporal downsample at blocks {0,4} instead of {4,7} (~2x)
     gcn_keypoints: str | None = None  # "upper51" -> hands + upper-body subset (~2x with strides)
+    gcn_mask_padded_frames: bool = False
+    gcn_infer_hand_presence: bool = False
+    gcn_pose_topology: str = "legacy"
 
 
 def load_stream_config(path: Path) -> StreamConfig:
@@ -85,6 +90,7 @@ def load_stream_config(path: Path) -> StreamConfig:
         scale=float(a.get("scale", 0.0)),
         noise_std=float(a.get("noise_std", 0.0)),
         frame_mask_frac=float(a.get("frame_mask_frac", 0.0)),
+        augmentation_contract=str(a["contract"]) if a.get("contract") else None,
         warm_start_from=Path(ws) if ws else None,
         features_dir=Path(raw["features_dir"]),
         output_dir=Path(raw["output_dir"]),
@@ -95,8 +101,10 @@ def load_stream_config(path: Path) -> StreamConfig:
         gcn_channels=tuple(m["gcn_channels"]) if m.get("gcn_channels") else None,
         gcn_early_strides=bool(m.get("gcn_early_strides", False)),
         gcn_keypoints=m.get("gcn_keypoints"),
+        gcn_mask_padded_frames=bool(m.get("gcn_mask_padded_frames", False)),
+        gcn_infer_hand_presence=bool(m.get("gcn_infer_hand_presence", False)),
+        gcn_pose_topology=str(m.get("gcn_pose_topology", "legacy")),
     )
-
 
 
 def _apply_class_weighting(
@@ -125,6 +133,7 @@ def _apply_class_weighting(
         return frame_mask
     print("[stream] class_weighting active: " + ", ".join(applied))
     return frame_mask.astype(np.float32) * multipliers[y][:, None]
+
 
 def warm_start_encoder(stream_model: Any, isolated_path: Path) -> int:
     """Copy matching-name layer weights (the shared causal encoder) from the isolated model into
@@ -173,6 +182,9 @@ def _build_and_compile(input_len: int, feat_dim: int, num_classes: int, cfg: Str
             dropout=cfg.dropout,
             strides={0: 2, 4: 2} if cfg.gcn_early_strides else None,
             keypoint_subset=UPPER51 if cfg.gcn_keypoints == "upper51" else None,
+            mask_padded_frames=cfg.gcn_mask_padded_frames,
+            infer_hand_presence=cfg.gcn_infer_hand_presence,
+            pose_topology=cfg.gcn_pose_topology,
         )
     else:
         from .model import build_streaming_classifier
@@ -195,13 +207,43 @@ def _build_and_compile(input_len: int, feat_dim: int, num_classes: int, cfg: Str
     return model
 
 
-def run(config_path: Path, smoke: bool, epochs_override: int | None) -> int:
+def _history_state(path: Path) -> tuple[int, float | None]:
+    """Return the next epoch and best validation accuracy recorded in a CSV history."""
+    if not path.exists():
+        return 0, None
+    epochs: list[int] = []
+    values: list[float] = []
+    with path.open("r", encoding="utf-8", newline="") as handle:
+        for row in csv.DictReader(handle):
+            try:
+                epochs.append(int(row["epoch"]))
+                values.append(float(row["val_pf_acc"]))
+            except (KeyError, TypeError, ValueError):
+                continue
+    return (max(epochs) + 1 if epochs else 0), (max(values) if values else None)
+
+
+def _validate_resume_model(model: Any, input_len: int, feat_dim: int, num_classes: int) -> None:
+    expected_input = (None, input_len, feat_dim)
+    expected_output = (None, input_len, num_classes)
+    if tuple(model.input_shape) != expected_input or tuple(model.output_shape) != expected_output:
+        raise ValueError(
+            "resume checkpoint contract mismatch: "
+            f"got {model.input_shape}->{model.output_shape}, "
+            f"expected {expected_input}->{expected_output}"
+        )
+
+
+def run(config_path: Path, smoke: bool, epochs_override: int | None, resume: bool = False) -> int:
     import tensorflow as tf
 
     from .data import load_streaming_split, load_vocab, make_stream_dataset
 
     cfg = load_stream_config(config_path)
     tf.keras.utils.set_random_seed(cfg.seed)
+    if smoke and resume:
+        print("[stream] --resume is not supported with --smoke", file=sys.stderr)
+        return 2
 
     if smoke:
         x_tr, y_tr, fm_tr, num_classes = _synthetic(cfg.seed)
@@ -223,10 +265,34 @@ def run(config_path: Path, smoke: bool, epochs_override: int | None) -> int:
         epochs, out_dir, warm = epochs_override or cfg.epochs, cfg.output_dir, cfg.warm_start_from
 
     out_dir.mkdir(parents=True, exist_ok=True)
-    input_len, feat_dim = x_tr.shape[1], x_tr.shape[2]
-    model = _build_and_compile(input_len, feat_dim, num_classes, cfg)
+    history_path = out_dir / "history.csv"
+    latest_path = out_dir / "latest.keras"
+    best_path = out_dir / "best.keras"
+    if (
+        not smoke
+        and not resume
+        and any(path.exists() for path in (history_path, latest_path, best_path))
+    ):
+        print(
+            f"[stream] refusing to overwrite existing run in {out_dir}; "
+            "use --resume or a new output_dir",
+            file=sys.stderr,
+        )
+        return 2
 
-    n_warm = warm_start_encoder(model, warm) if (warm and warm.exists()) else 0
+    input_len, feat_dim = x_tr.shape[1], x_tr.shape[2]
+    initial_epoch, prior_best = _history_state(history_path) if resume else (0, None)
+    if resume:
+        checkpoint = latest_path if latest_path.exists() else best_path
+        if not checkpoint.exists():
+            print(f"[stream] no checkpoint to resume in {out_dir}", file=sys.stderr)
+            return 2
+        model = tf.keras.models.load_model(checkpoint, safe_mode=False)
+        _validate_resume_model(model, input_len, feat_dim, num_classes)
+        n_warm = 0
+    else:
+        model = _build_and_compile(input_len, feat_dim, num_classes, cfg)
+        n_warm = warm_start_encoder(model, warm) if (warm and warm.exists()) else 0
 
     augment_fn = None
     if cfg.aug_enabled:
@@ -234,31 +300,50 @@ def run(config_path: Path, smoke: bool, epochs_override: int | None) -> int:
 
         acfg = AugmentConfig(cfg.rotation_deg, cfg.scale, cfg.noise_std, cfg.frame_mask_frac)
         rng = np.random.default_rng(cfg.seed)
-        augment_fn = lambda a: augment_batch(a, acfg, rng)  # noqa: E731
+        if cfg.augmentation_contract == "apphear.landmark_geometry.v0":
+            from pipeline.features.landmark_geometry import augment_landmark_geometry_batch
+
+            augment_fn = lambda a, m: augment_landmark_geometry_batch(  # noqa: E731
+                a, acfg, rng, valid_frame_mask=np.asarray(m) > 0
+            )
+        elif cfg.augmentation_contract is None:
+            augment_fn = lambda a, m: augment_batch(  # noqa: E731
+                a, acfg, rng, valid_frame_mask=np.asarray(m) > 0
+            )
+        else:
+            raise ValueError(f"unsupported augmentation contract: {cfg.augmentation_contract}")
 
     if cfg.class_weighting_enabled and not smoke:
         fm_tr = _apply_class_weighting(fm_tr, y_tr, vocab, cfg.class_weighting_weights)
 
     print(
         f"[stream] {'SMOKE' if smoke else 'REAL'}: X={x_tr.shape} classes={num_classes} "
-        f"params={model.count_params():,} epochs={epochs} warm_started_layers={n_warm}"
+        f"params={model.count_params():,} epochs={epochs} initial_epoch={initial_epoch} "
+        f"warm_started_layers={n_warm} resume={resume}"
     )
 
     callbacks = [
         tf.keras.callbacks.ModelCheckpoint(
-            str(out_dir / "best.keras"), monitor="val_pf_acc", mode="max", save_best_only=True
+            str(best_path),
+            monitor="val_pf_acc",
+            mode="max",
+            save_best_only=True,
+            initial_value_threshold=prior_best,
         ),
-        tf.keras.callbacks.CSVLogger(str(out_dir / "history.csv")),
+        tf.keras.callbacks.ModelCheckpoint(str(latest_path), save_best_only=False),
+        tf.keras.callbacks.CSVLogger(str(history_path), append=resume),
         tf.keras.callbacks.EarlyStopping(
             monitor="val_pf_acc",
             mode="max",
             patience=cfg.early_stop_patience,
+            baseline=prior_best,
             restore_best_weights=True,
         ),
     ]
     model.fit(
         make_stream_dataset(x_tr, y_tr, fm_tr, cfg.batch_size, True, cfg.seed, augment_fn),
         validation_data=make_stream_dataset(x_val, y_val, fm_val, cfg.batch_size, False, cfg.seed),
+        initial_epoch=initial_epoch,
         epochs=epochs,
         callbacks=callbacks,
         shuffle=False,
@@ -274,10 +359,10 @@ def main() -> int:
     p.add_argument("--smoke", action="store_true")
     p.add_argument("--epochs", type=int, default=None)
     p.add_argument("--config", type=Path, default=DEFAULT_CONFIG)
+    p.add_argument("--resume", action="store_true")
     args = p.parse_args()
-    return run(args.config, args.smoke, args.epochs)
+    return run(args.config, args.smoke, args.epochs, args.resume)
 
 
 if __name__ == "__main__":
     raise SystemExit(main())
-

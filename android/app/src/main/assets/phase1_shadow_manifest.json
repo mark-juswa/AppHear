@@ -1,0 +1,143 @@
+{
+  "experiment": "phase1_android_shadow_export_v1",
+  "candidate_id": "phase1_production_tcn_ensemble_101_202_303",
+  "schema_version": "3.0",
+  "feature_dim": 258,
+  "time_window": 96,
+  "num_classes": 236,
+  "ensemble": "arithmetic_mean_probabilities",
+  "quantization": "float32",
+  "models": [
+    {
+      "seed": 101,
+      "source_checkpoint_sha256": "992DACDF0BB24682435999CC87F620E5FB948CD7450FA47D7C85E0C1DC00D646",
+      "asset_name": "phase1_shadow_seed_101.tflite",
+      "tflite_sha256": "00CC8FC3FABA73A8CE0D6FF5AFF1473A97F401AF1A657212AD5F933FC295AAD5",
+      "bytes": 713628,
+      "input_shape": [
+        1,
+        96,
+        258
+      ],
+      "output_shape": [
+        1,
+        96,
+        236
+      ],
+      "host_latency_ms": {
+        "p50": 0.2669000023161061,
+        "p95": 0.3266949983299128
+      }
+    },
+    {
+      "seed": 202,
+      "source_checkpoint_sha256": "3C2BD4F333F65B9435DEACFD578B40C04CE51FD9C1321051944101285AA4872F",
+      "asset_name": "phase1_shadow_seed_202.tflite",
+      "tflite_sha256": "A06193473BF275D320B83BDEB27FF47CFED08E28F400DBA3CE6409DE70BAFE34",
+      "bytes": 713628,
+      "input_shape": [
+        1,
+        96,
+        258
+      ],
+      "output_shape": [
+        1,
+        96,
+        236
+      ],
+      "host_latency_ms": {
+        "p50": 0.26805000015883707,
+        "p95": 0.3697349993672104
+      }
+    },
+    {
+      "seed": 303,
+      "source_checkpoint_sha256": "1EEABBCED91061B632E275C547DDCFB5B6F74700D80F674462EC0384A4F676E7",
+      "asset_name": "phase1_shadow_seed_303.tflite",
+      "tflite_sha256": "0ECB59FE8DB2ABE930C70D2C30BF15422A14BB12669FE5DFE8BA61516286AAA2",
+      "bytes": 713628,
+      "input_shape": [
+        1,
+        96,
+        258
+      ],
+      "output_shape": [
+        1,
+        96,
+        236
+      ],
+      "host_latency_ms": {
+        "p50": 0.2729999996518018,
+        "p95": 0.3614999986893963
+      }
+    }
+  ],
+  "vocab_asset": "phase1_shadow_vocab.json",
+  "vocab_sha256": "A7D7B08D1C9FF52455AAA93CEFEE40E744B86A11FA5047DCE08D2DD23FC0539B",
+  "selection_freeze_sha256": "63978B98D77486F53AC076083EF4362719F522B118B8BC9CECC6C540E23A8A02",
+  "selection_freeze": {
+    "experiment": "phase1_full_vocab_tcn_comparison_v1",
+    "stage": "validation_selection_freeze",
+    "frozen_branch": "production_streaming_tcn",
+    "seeds": [
+      101,
+      202,
+      303
+    ],
+    "selection_metric": "mean validation clip top-1; macro-F1 tie-break",
+    "validation_summary": {
+      "mean_val_top1": 0.6711601307189543,
+      "std_val_top1": 0.004043911330315261,
+      "mean_val_top5": 0.9040032679738562,
+      "mean_val_macro_f1": 0.648246249199639
+    },
+    "experiment_config_sha256": "5AC6229FEEFAD3CDFDB9948051876FEE70CD579121B7A92068D9F5479F7DE122",
+    "validation_metrics_sha256": "02B338E86303F26580A2967DFC63EE64B72770C3EFE3A9E55158CDDAA41D4CFF",
+    "protected_test": {
+      "path": "F:\\ASL DATASET\\5. Apphear3\\artifacts\\recognition_upgrade\\phase1_full_vocab\\dataset_v1\\test.npz",
+      "sha256": "A46151114652369A092A6AAF6135F1CD10838CA218CA8001AB2198E98201AC49",
+      "rows_expected": 2620,
+      "accessed": false
+    },
+    "checkpoints": [
+      {
+        "seed": 101,
+        "path": "F:\\ASL DATASET\\5. Apphear3\\artifacts\\recognition_upgrade\\phase1_full_vocab\\tcn_comparison_01\\models\\production_streaming_tcn\\seed_101\\best.keras",
+        "sha256": "992DACDF0BB24682435999CC87F620E5FB948CD7450FA47D7C85E0C1DC00D646"
+      },
+      {
+        "seed": 202,
+        "path": "F:\\ASL DATASET\\5. Apphear3\\artifacts\\recognition_upgrade\\phase1_full_vocab\\tcn_comparison_01\\models\\production_streaming_tcn\\seed_202\\best.keras",
+        "sha256": "3C2BD4F333F65B9435DEACFD578B40C04CE51FD9C1321051944101285AA4872F"
+      },
+      {
+        "seed": 303,
+        "path": "F:\\ASL DATASET\\5. Apphear3\\artifacts\\recognition_upgrade\\phase1_full_vocab\\tcn_comparison_01\\models\\production_streaming_tcn\\seed_303\\best.keras",
+        "sha256": "1EEABBCED91061B632E275C547DDCFB5B6F74700D80F674462EC0384A4F676E7"
+      }
+    ],
+    "production_authorized": false,
+    "passed": true,
+    "next": "run the separately authorized one-time protected-test evaluation"
+  },
+  "parity": {
+    "rows": 128,
+    "mean_abs_probability_difference": 1.6753370912780952e-09,
+    "max_abs_probability_difference": 6.556510925292969e-07,
+    "ensemble_argmax_agreement": 1.0,
+    "keras_validation_subset_top1": 0.5703125,
+    "tflite_validation_subset_top1": 0.5703125,
+    "absolute_top1_delta": 0.0
+  },
+  "parity_gates": {
+    "mean_abs_probability_difference_max": 0.01,
+    "ensemble_argmax_agreement_min": 0.98,
+    "absolute_top1_delta_max": 0.01
+  },
+  "shadow_only": true,
+  "may_commit": false,
+  "may_update_sentence_or_ui": false,
+  "protected_test_accessed": false,
+  "production_authorized": false,
+  "passed": true
+}

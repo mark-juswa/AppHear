@@ -174,3 +174,16 @@ The target boundary is a non-camera app shell for ordinary destinations plus a d
 activity. UI code consumes a documented recognition-state adapter; it never duplicates or directly
 owns S4 feature math, S5 gating, S6 inference, S7 confirmation, or S8 sentence behavior. Until the
 recognition integration phase, the existing `android/` runtime and its launcher remain the baseline.
+
+## Planned Hybrid Recognition Upgrade
+
+The research-only transition from v3.0 landmark-only recognition to a hybrid landmark + RGB
+architecture is governed by [`recognition_upgrade/README.md`](recognition_upgrade/README.md).
+Production remains the current schema-3.0 `[1,96,258]` path until that plan's signer-disjoint,
+quantization, Android, calibration, false-positive, and rollback gates pass. Hybrid work uses new
+schema/model/config/artifact names and a default-off feature flag; it never silently replaces S4-S7.
+
+As approved on 2026-08-11, execution order is: (1) a trustworthy 236-sign landmark baseline,
+(2) an isolated landmark + RGB hand-crop hybrid guided by baseline errors, (3) continuous
+boundary/gloss recognition after phrase-level data exists, and (4) language intelligence after
+visual reliability. Only Phase 1 preparation is active; Android serving remains unchanged.

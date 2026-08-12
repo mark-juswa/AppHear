@@ -1,0 +1,7 @@
+{
+  "positive_target_clips": 605,
+  "positive_new_signer_slots": 25,
+  "nosign_oov_transition_target_windows": 1000,
+  "positive_targets": "positive_collection_targets.csv",
+  "negative_targets": "nosign_oov_transition_targets.csv"
+}

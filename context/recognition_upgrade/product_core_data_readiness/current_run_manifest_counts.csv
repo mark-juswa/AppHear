@@ -1,0 +1,52 @@
+run,gloss,split,rows,signer_count,signers,rows_with_raw_video_path,source_paths
+E5_G_clean7,GOOD,test,9,8,P15 P17 P22 P35 P42 P48 P49 P6,0,F:\ASL DATASET\ASL CITIZEN\derived\apphear3\features_streaming_conversational_plus_pc_236\test.npz:9
+E5_G_clean7,GOOD,train,83,16,3B96F6-S001 6F7328-S001 93EB89-S001 P11 P14 P16 P27 P29 P31 P33 P37 P4 P40 P50 P51 P52,0,F:\ASL DATASET\ASL CITIZEN\derived\apphear3\features_streaming_conversational_plus_pc_236\train.npz:83
+E5_G_clean7,GOOD,val,3,3,P21 P26 P39,0,F:\ASL DATASET\ASL CITIZEN\derived\apphear3\features_streaming_conversational_plus_pc_236\val.npz:3
+E5_G_clean7,SELL,test,11,11,P15 P17 P18 P22 P35 P42 P47 P48 P49 P6 P9,0,F:\ASL DATASET\ASL CITIZEN\derived\apphear3\features_streaming_conversational_plus_pc_236\test.npz:11
+E5_G_clean7,SELL,train,23,14,3B96F6-S001 P11 P23 P27 P29 P3 P31 P33 P37 P40 P43 P46 P50 P52,0,F:\ASL DATASET\ASL CITIZEN\derived\apphear3\features_streaming_conversational_plus_pc_236\train.npz:23
+E5_G_clean7,SELL,val,2,2,P21 P39,0,F:\ASL DATASET\ASL CITIZEN\derived\apphear3\features_streaming_conversational_plus_pc_236\val.npz:2
+E5_G_clean7,TAKE,test,10,10,P15 P17 P18 P35 P42 P47 P48 P49 P6 P9,0,F:\ASL DATASET\ASL CITIZEN\derived\apphear3\features_streaming_conversational_plus_pc_236\test.npz:10
+E5_G_clean7,TAKE,train,20,15,3B96F6-S001 P11 P14 P16 P24 P27 P30 P31 P33 P34 P37 P40 P50 P51 P52,0,F:\ASL DATASET\ASL CITIZEN\derived\apphear3\features_streaming_conversational_plus_pc_236\train.npz:20
+E5_G_clean7,TAKE,val,2,2,P21 P39,0,F:\ASL DATASET\ASL CITIZEN\derived\apphear3\features_streaming_conversational_plus_pc_236\val.npz:2
+E5_G_clean7,THINK,test,11,10,P15 P17 P22 P35 P42 P47 P48 P49 P6 P9,0,F:\ASL DATASET\ASL CITIZEN\derived\apphear3\features_streaming_conversational_plus_pc_236\test.npz:11
+E5_G_clean7,THINK,train,17,14,3B96F6-S001 P11 P14 P16 P23 P27 P29 P30 P31 P33 P37 P40 P50 P52,0,F:\ASL DATASET\ASL CITIZEN\derived\apphear3\features_streaming_conversational_plus_pc_236\train.npz:17
+E5_G_clean7,THINK,val,3,3,P21 P26 P39,0,F:\ASL DATASET\ASL CITIZEN\derived\apphear3\features_streaming_conversational_plus_pc_236\val.npz:3
+E5_G_clean7,WASH2,test,11,10,P15 P17 P18 P22 P35 P42 P47 P48 P6 P9,0,F:\ASL DATASET\ASL CITIZEN\derived\apphear3\features_streaming_conversational_plus_pc_236\test.npz:11
+E5_G_clean7,WASH2,train,29,16,3B96F6-S001 P11 P14 P16 P23 P27 P29 P31 P33 P37 P40 P50 P51 P52 P7 P8,0,F:\ASL DATASET\ASL CITIZEN\derived\apphear3\features_streaming_conversational_plus_pc_236\train.npz:29
+E5_G_clean7,WASH2,val,3,3,P21 P26 P39,0,F:\ASL DATASET\ASL CITIZEN\derived\apphear3\features_streaming_conversational_plus_pc_236\val.npz:3
+E5_D_reduced15,GOOD,test,9,8,P15 P17 P22 P35 P42 P48 P49 P6,0,F:\ASL DATASET\ASL CITIZEN\derived\apphear3\features_streaming_conversational_plus_pc_236\test.npz:9
+E5_D_reduced15,GOOD,train,83,16,3B96F6-S001 6F7328-S001 93EB89-S001 P11 P14 P16 P27 P29 P31 P33 P37 P4 P40 P50 P51 P52,0,F:\ASL DATASET\ASL CITIZEN\derived\apphear3\features_streaming_conversational_plus_pc_236\train.npz:83
+E5_D_reduced15,GOOD,val,3,3,P21 P26 P39,0,F:\ASL DATASET\ASL CITIZEN\derived\apphear3\features_streaming_conversational_plus_pc_236\val.npz:3
+E5_D_reduced15,HAVE,test,10,9,P15 P17 P22 P35 P42 P47 P48 P6 P9,0,F:\ASL DATASET\ASL CITIZEN\derived\apphear3\features_streaming_conversational_plus_pc_236\test.npz:10
+E5_D_reduced15,HAVE,train,29,16,3B96F6-S001 6F7328-S001 P11 P14 P16 P27 P29 P30 P31 P33 P37 P40 P50 P51 P52 P7,0,F:\ASL DATASET\ASL CITIZEN\derived\apphear3\features_streaming_conversational_plus_pc_236\train.npz:29
+E5_D_reduced15,HAVE,val,4,4,P12 P21 P26 P39,0,F:\ASL DATASET\ASL CITIZEN\derived\apphear3\features_streaming_conversational_plus_pc_236\val.npz:4
+E5_D_reduced15,SELL,test,11,11,P15 P17 P18 P22 P35 P42 P47 P48 P49 P6 P9,0,F:\ASL DATASET\ASL CITIZEN\derived\apphear3\features_streaming_conversational_plus_pc_236\test.npz:11
+E5_D_reduced15,SELL,train,23,14,3B96F6-S001 P11 P23 P27 P29 P3 P31 P33 P37 P40 P43 P46 P50 P52,0,F:\ASL DATASET\ASL CITIZEN\derived\apphear3\features_streaming_conversational_plus_pc_236\train.npz:23
+E5_D_reduced15,SELL,val,2,2,P21 P39,0,F:\ASL DATASET\ASL CITIZEN\derived\apphear3\features_streaming_conversational_plus_pc_236\val.npz:2
+E5_D_reduced15,TAKE,test,10,10,P15 P17 P18 P35 P42 P47 P48 P49 P6 P9,0,F:\ASL DATASET\ASL CITIZEN\derived\apphear3\features_streaming_conversational_plus_pc_236\test.npz:10
+E5_D_reduced15,TAKE,train,20,15,3B96F6-S001 P11 P14 P16 P24 P27 P30 P31 P33 P34 P37 P40 P50 P51 P52,0,F:\ASL DATASET\ASL CITIZEN\derived\apphear3\features_streaming_conversational_plus_pc_236\train.npz:20
+E5_D_reduced15,TAKE,val,2,2,P21 P39,0,F:\ASL DATASET\ASL CITIZEN\derived\apphear3\features_streaming_conversational_plus_pc_236\val.npz:2
+E5_D_reduced15,THINK,test,11,10,P15 P17 P22 P35 P42 P47 P48 P49 P6 P9,0,F:\ASL DATASET\ASL CITIZEN\derived\apphear3\features_streaming_conversational_plus_pc_236\test.npz:11
+E5_D_reduced15,THINK,train,17,14,3B96F6-S001 P11 P14 P16 P23 P27 P29 P30 P31 P33 P37 P40 P50 P52,0,F:\ASL DATASET\ASL CITIZEN\derived\apphear3\features_streaming_conversational_plus_pc_236\train.npz:17
+E5_D_reduced15,THINK,val,3,3,P21 P26 P39,0,F:\ASL DATASET\ASL CITIZEN\derived\apphear3\features_streaming_conversational_plus_pc_236\val.npz:3
+E5_D_reduced15,WASH2,test,11,10,P15 P17 P18 P22 P35 P42 P47 P48 P6 P9,0,F:\ASL DATASET\ASL CITIZEN\derived\apphear3\features_streaming_conversational_plus_pc_236\test.npz:11
+E5_D_reduced15,WASH2,train,29,16,3B96F6-S001 P11 P14 P16 P23 P27 P29 P31 P33 P37 P40 P50 P51 P52 P7 P8,0,F:\ASL DATASET\ASL CITIZEN\derived\apphear3\features_streaming_conversational_plus_pc_236\train.npz:29
+E5_D_reduced15,WASH2,val,3,3,P21 P26 P39,0,F:\ASL DATASET\ASL CITIZEN\derived\apphear3\features_streaming_conversational_plus_pc_236\val.npz:3
+E4_S_stable4,GOOD,train,15,1,3B96F6-S001,0,F:\ASL DATASET\5. Apphear3\artifacts\recognition_upgrade\e4_generalization\e4_j_reliable_core_3sign_pilot_01\dataset\landmark_features.npz:15
+E4_S_stable4,GOOD,val,5,1,3B96F6-S001,0,F:\ASL DATASET\5. Apphear3\artifacts\recognition_upgrade\e4_generalization\e4_j_reliable_core_3sign_pilot_01\dataset\landmark_features.npz:5
+E4_S_stable4,GOOD,test,30,1,6F7328-S001,0,F:\ASL DATASET\5. Apphear3\artifacts\recognition_upgrade\e4_generalization\e4_j_reliable_core_3sign_pilot_01\dataset\landmark_features.npz:30
+E4_S_stable4,HAVE,train,23,15,3B96F6-S001 P11 P14 P16 P27 P29 P30 P31 P33 P37 P40 P50 P51 P52 P7,0,F:\ASL DATASET\ASL CITIZEN\derived\apphear3\features_streaming_conversational\train.npz:14 | F:\ASL DATASET\ASL CITIZEN\derived\apphear3\features_streaming_recorded_local_pc_236\recorded.npz:9
+E4_S_stable4,HAVE,val,6,5,3B96F6-S001 P12 P21 P26 P39,0,F:\ASL DATASET\ASL CITIZEN\derived\apphear3\features_streaming_conversational\val.npz:4 | F:\ASL DATASET\ASL CITIZEN\derived\apphear3\features_streaming_recorded_local_pc_236\recorded.npz:2
+E4_S_stable4,HAVE,test,14,10,6F7328-S001 P15 P17 P22 P35 P42 P47 P48 P6 P9,0,F:\ASL DATASET\ASL CITIZEN\derived\apphear3\features_streaming_conversational\test.npz:10 | F:\ASL DATASET\ASL CITIZEN\derived\apphear3\features_streaming_recorded_local_pc_236\recorded.npz:4
+E4_S_stable4,HELLO,train,45,1,3B96F6-S002,0,F:\ASL DATASET\5. Apphear3\artifacts\recognition_upgrade\e4_generalization\e4_j_reliable_core_3sign_pilot_01\dataset\landmark_features.npz:45
+E4_S_stable4,HELLO,val,15,1,3B96F6-S002,0,F:\ASL DATASET\5. Apphear3\artifacts\recognition_upgrade\e4_generalization\e4_j_reliable_core_3sign_pilot_01\dataset\landmark_features.npz:15
+E4_S_stable4,HELLO,test,30,1,6F7328-S001,0,F:\ASL DATASET\5. Apphear3\artifacts\recognition_upgrade\e4_generalization\e4_j_reliable_core_3sign_pilot_01\dataset\landmark_features.npz:30
+E4_S_stable4,KNOW,train,18,11,3B96F6-S001 P11 P27 P30 P33 P37 P4 P40 P50 P52 P7,0,F:\ASL DATASET\ASL CITIZEN\derived\apphear3\features_streaming_conversational\train.npz:10 | F:\ASL DATASET\ASL CITIZEN\derived\apphear3\features_streaming_recorded_local_pc_236\recorded.npz:8
+E4_S_stable4,KNOW,val,6,5,3B96F6-S001 P12 P21 P26 P39,0,F:\ASL DATASET\ASL CITIZEN\derived\apphear3\features_streaming_conversational\val.npz:4 | F:\ASL DATASET\ASL CITIZEN\derived\apphear3\features_streaming_recorded_local_pc_236\recorded.npz:2
+E4_S_stable4,KNOW,test,14,12,6F7328-S001 P15 P17 P18 P22 P35 P42 P47 P48 P49 P6 P9,0,F:\ASL DATASET\ASL CITIZEN\derived\apphear3\features_streaming_conversational\test.npz:13 | F:\ASL DATASET\ASL CITIZEN\derived\apphear3\features_streaming_recorded_local_pc_236\recorded.npz:1
+E4_V_good_sorry_specialist,GOOD,test,30,1,6F7328-S001,30,
+E4_V_good_sorry_specialist,GOOD,train,15,1,3B96F6-S001,15,
+E4_V_good_sorry_specialist,GOOD,val,5,1,3B96F6-S001,5,
+E4_V_good_sorry_specialist,SORRY,test,30,1,6F7328-S001,30,
+E4_V_good_sorry_specialist,SORRY,train,15,1,3B96F6-S002,15,
+E4_V_good_sorry_specialist,SORRY,val,5,1,3B96F6-S002,5,

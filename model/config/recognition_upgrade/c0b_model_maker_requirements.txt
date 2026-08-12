@@ -1,0 +1,14 @@
+# Linux/Python 3.10 Docker toolchain only. Do not install on native Windows or
+# into the main AppHear .venv. tensorflow-text has no matching native Windows
+# distribution for this dependency chain.
+# Google marks MediaPipe Model Maker as no longer actively maintained.
+# Model Maker imports pkg_resources, which setuptools 81+ no longer provides.
+setuptools==80.9.0
+# Keep TFDS metadata generated for protobuf 4.x; 1.21.0 requires a newer
+# protobuf runtime that conflicts with MediaPipe 0.10.14.
+tensorflow-metadata==1.17.3
+mediapipe-model-maker==0.2.1.4
+mediapipe==0.10.14
+tensorflow==2.15.1
+tensorflow-text==2.15.0
+tf-models-official==2.15.0

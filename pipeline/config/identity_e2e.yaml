@@ -1,0 +1,54 @@
+# Recognition upgrade E2e-A - camera-coordinate and anatomical-hand identity audit.
+# Experiment-only: no production extractor, Android, model, or schema changes.
+
+experiment_version: "e2e.coordinate_identity.v0.1"
+seed: 260726
+
+source:
+  e2d_run_dir: "F:/ASL DATASET/ASL CITIZEN/derived/apphear3/recognition_upgrade/e2d_detector_operating_point_v0/engineering_e2d_01"
+  asl_citizen_videos: "F:/ASL DATASET/ASL CITIZEN/ASL_Citizen/videos"
+  android_fixture_dir: "scratchpad/e2e_android_fixtures"
+
+output:
+  root: "F:/ASL DATASET/ASL CITIZEN/derived/apphear3/recognition_upgrade/e2e_coordinate_identity_v0"
+
+sampling:
+  smoke_frames: 6
+  engineering_min_frames: 120
+  engineering_max_frames: 200
+  cadences: [1, 4, 8]
+  required_camera_paths: ["offline_unmirrored", "android_front"]
+  required_conditions:
+    - "left_only"
+    - "right_only"
+    - "two_hands_separated"
+    - "two_hands_crossing"
+    - "occluded"
+    - "motion_blur"
+
+coordinates:
+  annotation_space: "upright_unmirrored_normalized"
+  box_order: ["x_min", "y_min", "x_max", "y_max"]
+  anatomical_sides: ["left", "right"]
+  record_preview_and_inference_mirroring_separately: true
+  swap_symmetric_pose_sides_when_mirrored: true
+
+  swap_hand_labels_when_mirrored: true
+association:
+  pose_weight: 1.0
+  temporal_weight: 0.65
+  confidence_weight: 0.05
+  max_cost: 0.60
+  max_track_age_ms: 250
+
+metrics:
+  iou_thresholds: [0.50, 0.75]
+
+gates:
+  require_all_coordinate_fixtures: true
+  min_identity_accuracy_overall: 0.98
+  min_identity_accuracy_each_side_camera: 0.95
+  min_visible_hand_recall_overall: 0.95
+  min_visible_hand_recall_each_cadence_blur: 0.90
+  max_false_roi_rate: 0.02
+  max_stale_or_wrong_hand_rate: 0.01

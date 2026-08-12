@@ -17,6 +17,9 @@ model:
   type: gcn
   gcn_channels: [64, 64, 64, 64, 128, 128, 128, 256, 256, 256]  # full width
   gcn_early_strides: false   # LATE strides {4,7} (default) — early strides were the main killer
+  gcn_mask_padded_frames: true
+  gcn_infer_hand_presence: true
+  gcn_pose_topology: mediapipe
   # gcn_keypoints omitted -> all 75 keypoints
   dropout: 0.3
   blocks: 4

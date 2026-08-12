@@ -93,6 +93,18 @@ Adds per-landmark velocity + a native-duration scalar.
 more overfitting surface. Adopt only on a proven cross-signer, end-to-end win. v3.0 is the
 safe default.
 
+## E6-2 experiment - `apphear.landmark_geometry.v0` (not production)
+
+This separate `[96,444]` contract preserves v3.0 channels `0:258` exactly and appends `186`
+deterministic geometry channels: hand-local coordinates `120`, joint cosines `28`, palm normals
+`6`, body/head relations `28`, and quality/masks `4`. The implementation is
+`pipeline/features/landmark_geometry.py`.
+
+This is not schema v3.1 or a production schema promotion. It deliberately excludes the old
+velocity/acceleration candidate tested in E3-B6/B7. It remains offline-only until the gates in
+`context/recognition_upgrade/E6_2_RICHER_LANDMARK_CONTROL_PLAN.md` pass and a Kotlin golden-vector
+parity implementation is separately approved. Production v3.0 remains current.
+
 ---
 
 ## Missing-Data Convention (versioned)
@@ -201,6 +213,26 @@ Neither N4 nor Q is an Android **S4 parity surface** (N4 off at runtime; runtime
 
 **Val health:** 94.4% accepted; rejections = invalid_span (2) + low_coverage (3), attributable.
 
+## Phase 1 Full-Vocabulary Contract Lock - 2026-08-11
+
+Phase 1 retains schema v3.0 exactly: sequences are padded to `96` frames with `258` values per
+frame, and `frame_mask`/`lengths` remain auxiliary sequence metadata. Production TCN and mask-aware
+TCN consume the same base tensor; mask awareness is model behavior, not a feature-schema change.
+No face landmarks, RGB values, derived geometry, or detector outputs are added in Phase 1. Android
+S4 and the golden skew tolerance remain unchanged.
+
+`pipeline/splits/phase1_full_vocab.py` is a dataset-lineage component, not feature math. It requires
+`schema_version=3.0`; its existence does not change train/serve parity.
+
+`pipeline/splits/phase1_assemble.py` materializes only manifest-authorized existing v3.0 features.
+Each NPZ preserves `X`, `y`, `frame_mask`, `lengths`, signer/sample/source/hash metadata, and an
+explicit `schema_version`. It validates but never recalculates feature values. Protected replay is
+not emitted as a model tensor.
+
+`model/experiments/phase1_full_vocab_baseline.py` applies low-FPS training augmentation by selecting
+real frames at a bounded stride, compacting them to the front, regenerating `frame_mask`, and
+zero-padding to 96. It does not change the 258 values of retained frames or the schema version.
+
 ## Component Registry (reusable pipeline/runtime pieces)
 
 *Living list, appended via `/imprint`. Each entry: name, path, purpose, I/O, and the contract
@@ -233,8 +265,13 @@ stage/version it targets — so new components match existing ones instead of dr
 | `clip_features_realtimed` | `pipeline/features/contract.py` | Phase-1 N4-off compose: real-timed span → padded `(t_max,258)` + frame_mask + length | landmarks+span → padded seq | v3.0 streaming |
 | streaming builder | `pipeline/features/streaming.py` | Build real-timed padded features per split (reuses vocab) | npz+span → `X,frame_mask,lengths,y` | v3.0 streaming |
 | `build_streaming_classifier` | `model/model.py` | Shared causal encoder + PER-FRAME softmax → `(T,num_classes)` | streaming X → per-frame probs | Phase 1 |
-| streaming trainer | `model/train_streaming.py` | Per-frame train (masked), warm-start encoder from isolated `best.keras` | streaming features → model | Phase 1 |
-| streaming eval | `eval/streaming.py` | Mean-over-real-frames aggregation → feature-08 harness + per-frame/last-frame diagnostics | streaming model → `eval_streaming_test.json` | Phase 1 |
+| `build_stgcn` | `model/model_gcn.py` | Experimental E1 graph encoder; legacy behavior is default, while config can opt into MediaPipe pose topology, inferred hand presence, and padded-frame-masked pooling | `(T,258)` → tiled `(T,num_classes)` clip posterior | v3.0 experimental S6; no feature-contract change |
+| streaming trainer | `model/train_streaming.py` | Per-frame train with explicit overwrite refusal and `latest.keras`/`--resume`; optional warm start only into a fresh output | streaming features → resumable model run | Phase 1 / E1 |
+| `augment_batch` | `model/augment.py`, `model/data.py` | Train-only geometric/noise augmentation; streaming caller supplies `frame_mask`, and padded frames are forcibly restored to exact zero | `(B,T,258)` + optional `(B,T)` valid mask → augmented `(B,T,258)` | v3.0 training; no schema change |
+| `build_landmark_geometry` | `pipeline/features/landmark_geometry.py` | E6-2 experiment-only deterministic hand-local shape, angle, palm, head/body relation, and mask builder; preserves channels `0:258` | `(N,T,258)` + `(N,T)` frame mask → `(N,T,444)` + schema manifest | `apphear.landmark_geometry.v0`; offline only |
+| `augment_landmark_geometry_batch` | `pipeline/features/landmark_geometry.py`, opt-in dispatch in `model/train_streaming.py` | Augments the v3.0 base block then rebuilds all derived channels so training never mixes transformed landmarks with stale geometry | `(B,T,444)` + frame mask → consistent augmented `(B,T,444)` | E6-2 only; selected by `augment.contract` |
+| E6-2 geometry runner | `pipeline/rgb/e6_2_landmark_geometry.py` | Derives isolated tensors, creates zero-extended broad-warm-start initializers, smoke-tests, trains on explicit command, and evaluates frozen gates | repaired v3.0 split package → isolated E6-2 artifacts | E6-2 offline; no Android/export |
+| streaming eval | `eval/streaming.py` | Mean-over-real aggregation plus per-frame/last-frame diagnostics; caller supplies a safe unique report name with model/config/feature provenance | streaming model → named eval JSON | Phase 1 / E1 |
 | `SplitManifest` / `build_manifest` / `verify_disjoint` | `pipeline/splits/registry.py` | Frozen signer→split map + disjointness leakage guard + content hash | official CSVs → `artifacts/splits.json` | shared |
 | splits runner | `pipeline/splits/run.py` | Build/verify the pinned split manifest (`--verify` = drift guard) | CSVs ↔ manifest | shared |
 | `build_encoder` / `build_classifier` | `model/model.py` | Causal-TCN encoder (shared across phases) + Phase-0 softmax classifier | `(T,258)` → embeddings / logits | v3.0 |
@@ -243,6 +280,7 @@ stage/version it targets — so new components match existing ones instead of dr
 | golden exporter | `pipeline/features/export_golden.py` | F18 skew-test fixtures: real val clips → JSON (raw landmarks+span+expected 258+params) for the Kotlin S4 test | clips → `android/.../test/resources/golden/s4_golden.json` | **v3.0 parity** |
 | **Kotlin S4 port** | `android/app/src/main/java/com/example/apphear/pipeline/features/{Topology,S4Features}.kt` | On-device S4: byte-exact port of N1-N3 normalize + 258-vector (N4 off). Flat frames: pose`[k*4+c]`, hands`[(s*21+l)*3+c]` | landmarks+span → `List<FloatArray(258)>`+params | **v3.0 (S4 parity)** |
 | S4 skew test | `android/app/src/test/java/com/example/apphear/S4SkewTest.kt` | JVM gate: Kotlin S4 vs Python golden, max abs diff ≤ 1e-4 (the train/serve-parity guard) | golden json → pass/fail | **v3.0 parity** |
+| `PostCommitRearm` | `android/app/src/main/java/com/example/apphear/pipeline/recognition/PostCommitRearm.kt` | Default-off S5/S7 bridge: establishes a configurable, candidate-stable departure from the last commit, then requires candidate-matched confirmation through unchanged S7; reads `post_commit_rearm.enabled` + measured `departure_frames` | post-commit per-frame top-1 + last committed class → departure/re-arm state; never emits a word | v3.0 runtime policy; no feature-contract change |
 | eval metrics + calibration | `eval/metrics.py`, `eval/calibration.py` | Per-signer top-k, ECE, confusion; temperature scaling | probs+labels → numbers | — |
 | eval harness + runner | `eval/harness.py`, `eval/run.py` | Cross-signer report (report-only JSON); seeds S7 calibration | model+features → `eval_<split>.json` | — |
 | cross-signer pilot | `pipeline/pilot.py` | Gloss-restricted multi-signer slice through E→D→F (de-risk before full run); `extract.run(only=...)` allowlist | splits → small aligned features | — |

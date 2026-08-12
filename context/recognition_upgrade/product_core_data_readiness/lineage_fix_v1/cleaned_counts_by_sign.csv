@@ -1,0 +1,28 @@
+canonical_gloss,source_dataset,total_rows,accepted_rows,manual_review_rows,rejected_rows,accepted_signers,total_signers,training_eligible_rows_now,validation_eligible_rows_now,fresh_test_eligible_rows_now,previous_exact_usage_rows,source_schemas
+GOOD,ASL_CITIZEN,31,0,31,0,0,30,0,0,0,0,official_split_csv:31
+GOOD,LOCAL_SUPPLEMENTARY,109,44,65,0,2,3,44,0,0,109,recorder_video_primary:50 | baked_258_json_use_video_only:59
+GOOD,ALL,140,44,96,0,2,33,44,0,0,109,official_split_csv:31 | recorder_video_primary:50 | baked_258_json_use_video_only:59
+HELLO,ASL_CITIZEN,32,0,32,0,0,29,0,0,0,0,official_split_csv:32
+HELLO,LOCAL_SUPPLEMENTARY,150,84,66,0,2,3,84,0,0,150,recorder_video_primary:90 | baked_258_json_use_video_only:60
+HELLO,ALL,182,84,98,0,2,32,84,0,0,150,official_split_csv:32 | recorder_video_primary:90 | baked_258_json_use_video_only:60
+SORRY,ASL_CITIZEN,30,0,30,0,0,28,0,0,0,0,official_split_csv:30
+SORRY,LOCAL_SUPPLEMENTARY,110,48,62,0,2,3,48,0,0,110,recorder_video_primary:50 | baked_258_json_use_video_only:60
+SORRY,ALL,140,48,92,0,2,31,48,0,0,110,official_split_csv:30 | recorder_video_primary:50 | baked_258_json_use_video_only:60
+HAVE,ASL_CITIZEN,30,0,30,0,0,29,0,0,0,0,official_split_csv:30
+HAVE,LOCAL_SUPPLEMENTARY,50,44,6,0,2,2,44,0,0,50,recorder_video_primary:50
+HAVE,ALL,80,44,36,0,2,31,44,0,0,50,official_split_csv:30 | recorder_video_primary:50
+KNOW,ASL_CITIZEN,31,0,31,0,0,29,0,0,0,0,official_split_csv:31
+KNOW,LOCAL_SUPPLEMENTARY,50,43,7,0,2,2,43,0,0,50,recorder_video_primary:50
+KNOW,ALL,81,43,38,0,2,31,43,0,0,50,official_split_csv:31 | recorder_video_primary:50
+THINK,ASL_CITIZEN,31,0,31,0,0,27,0,0,0,0,official_split_csv:31
+THINK,LOCAL_SUPPLEMENTARY,20,18,2,0,1,1,18,0,0,20,recorder_video_primary:20
+THINK,ALL,51,18,33,0,1,28,18,0,0,20,official_split_csv:31 | recorder_video_primary:20
+TAKE,ASL_CITIZEN,30,0,30,0,0,29,0,0,0,0,official_split_csv:30
+TAKE,LOCAL_SUPPLEMENTARY,20,20,0,0,1,1,20,0,0,20,recorder_video_primary:20
+TAKE,ALL,50,20,30,0,1,30,20,0,0,20,official_split_csv:30 | recorder_video_primary:20
+SELL,ASL_CITIZEN,29,0,29,0,0,28,0,0,0,0,official_split_csv:29
+SELL,LOCAL_SUPPLEMENTARY,20,19,1,0,1,1,19,0,0,20,recorder_video_primary:20
+SELL,ALL,49,19,30,0,1,29,19,0,0,20,official_split_csv:29 | recorder_video_primary:20
+WASH2,ASL_CITIZEN,31,0,31,0,0,29,0,0,0,0,official_split_csv:31
+WASH2,LOCAL_SUPPLEMENTARY,20,18,2,0,1,1,18,0,0,20,recorder_video_primary:20
+WASH2,ALL,51,18,33,0,1,30,18,0,0,20,official_split_csv:31 | recorder_video_primary:20

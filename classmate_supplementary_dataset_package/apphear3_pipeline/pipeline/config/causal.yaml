@@ -1,9 +1,0 @@
-# Causal (streaming) param-estimation policy. Scale/roll use running medians (stable, converge to
-# the offline value). Mirror defaults to no-mirror (79% of clips are not mirrored) and switches to
-# mirror ONLY on decisive, confirmed left-dominance, then freezes. Thresholds from the mirror-policy
-# sweep (scratchpad, on test): (0.30, 0.15, 4) reproduced the offline 21% mirror rate at ~88%
-# agreement — the causal ceiling, since partial pre-commit motion can't fully resolve handedness.
-# The abs-diff guard is what fixes early tiny-motion false mirrors (a twitch can spike the ratio).
-mirror_decisive_margin: 0.30  # signed (cumL-cumR)/(cumL+cumR) ratio above which left is decisive
-mirror_min_abs_diff: 0.15     # AND require this absolute left lead (kills early noise)
-mirror_confirm_k: 4           # both conditions must hold this many consecutive frames before freeze

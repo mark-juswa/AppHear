@@ -1,0 +1,9 @@
+gloss,target_total_reviewed_lineage_clips,current_verified_raw_clips_asl_plus_local,minimum_additional_clips_needed,target_local_app_domain_clips,current_local_raw_clips,additional_local_app_domain_clips_needed,target_total_signers,current_official_asl_signers,target_local_app_domain_signers,current_local_raw_signers,additional_local_signers_needed,required_action,notes
+GOOD,150,81,69,75,50,25,10,30,5,2,3,rebuild_from_raw_with_manifest_then_collect_local_gap,Do not model until rows have raw path/hash/variant/split and signer-disjoint assignment.
+HELLO,150,82,68,75,50,25,10,29,5,2,3,rebuild_from_raw_with_manifest_then_collect_local_gap,Do not model until rows have raw path/hash/variant/split and signer-disjoint assignment.
+SORRY,150,80,70,75,50,25,10,28,5,2,3,rebuild_from_raw_with_manifest_then_collect_local_gap,Do not model until rows have raw path/hash/variant/split and signer-disjoint assignment.
+HAVE,150,80,70,75,50,25,10,29,5,2,3,rebuild_from_raw_with_manifest_then_collect_local_gap,Do not model until rows have raw path/hash/variant/split and signer-disjoint assignment.
+KNOW,150,81,69,75,50,25,10,29,5,2,3,rebuild_from_raw_with_manifest_then_collect_local_gap,Do not model until rows have raw path/hash/variant/split and signer-disjoint assignment.
+THINK,150,51,99,75,20,55,10,27,5,1,4,rebuild_from_raw_with_manifest_then_collect_local_gap,Do not model until rows have raw path/hash/variant/split and signer-disjoint assignment.
+TAKE,150,50,100,75,20,55,10,29,5,1,4,rebuild_from_raw_with_manifest_then_collect_local_gap,Do not model until rows have raw path/hash/variant/split and signer-disjoint assignment.
+SELL,150,49,101,75,20,55,10,28,5,1,4,rebuild_from_raw_with_manifest_then_collect_local_gap,Do not model until rows have raw path/hash/variant/split and signer-disjoint assignment.

@@ -90,6 +90,9 @@ data class RuntimeConfig(
     val lowFpsSmoothingWindow: Int,
     val enableRecognitionPoseCadence: Boolean,
     val recognitionPoseEveryN: Int,
+    val enablePostCommitRearm: Boolean,
+    val postCommitDepartureFrames: Int,
+    val enablePostCommitMeasurementLogging: Boolean,
 ) {
     companion object {
         fun defaults(): RuntimeConfig = RuntimeConfig(
@@ -104,6 +107,9 @@ data class RuntimeConfig(
             lowFpsSmoothingWindow = 5,
             enableRecognitionPoseCadence = false,
             recognitionPoseEveryN = 1,
+            enablePostCommitRearm = false,
+            postCommitDepartureFrames = 0,
+            enablePostCommitMeasurementLogging = false,
         )
 
         fun load(context: Context): RuntimeConfig {
@@ -114,6 +120,12 @@ data class RuntimeConfig(
             val pre = o.optJSONObject("pre_onset") ?: JSONObject()
             val s5 = o.optJSONObject("low_fps_s5") ?: JSONObject()
             val pose = o.optJSONObject("pose_cadence_experiment") ?: JSONObject()
+            val rearm = o.optJSONObject("post_commit_rearm") ?: JSONObject()
+            val rearmEnabled = rearm.optBoolean("enabled", false)
+            val departureFrames = rearm.optInt("departure_frames", 0)
+            require(!rearmEnabled || departureFrames > 0) {
+                "post_commit_rearm.departure_frames must be measured and set to > 0 before enabling"
+            }
             return RuntimeConfig(
                 lowFpsEnterBelow = low.optDouble("enter_below_fps", 10.0),
                 lowFpsExitAbove = low.optDouble("exit_above_fps", 12.0),
@@ -126,6 +138,9 @@ data class RuntimeConfig(
                 lowFpsSmoothingWindow = s5.optInt("smoothing_window", 5).coerceAtLeast(1),
                 enableRecognitionPoseCadence = pose.optBoolean("enabled", false),
                 recognitionPoseEveryN = pose.optInt("pose_every_n", 1).coerceAtLeast(1),
+                enablePostCommitRearm = rearmEnabled,
+                postCommitDepartureFrames = departureFrames.coerceAtLeast(0),
+                enablePostCommitMeasurementLogging = rearm.optBoolean("measurement_logging", false),
             )
         }
     }

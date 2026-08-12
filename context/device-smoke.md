@@ -21,10 +21,10 @@ Set expectations first (these are known, accepted limits — NOT smoke failures)
 ## 2. Startup (tag `AppHearRecog` / `AppHearLandmarker`)
 - [ ] App launches to camera preview + live hand+pose overlay; no crash.
 - [ ] `landmarkers on GPU delegate` (or `…falling back to CPU` — both acceptable).
-- [ ] `recognizer loaded: window=96 classes=250`.
+- [ ] `recognizer loaded: window=96 classes=236` for the currently protected baseline.
 - [ ] fps HUD shows a number + quality tier; degraded banner only when maxed-out under the floor.
 
-## 3. Recognition (sign 250-set glosses: DOG, CUT, MILK, BELT, …)
+## 3. Recognition (sign protected 236-set glosses such as GOOD, HELLO, and BYE)
 - [ ] Signing commits a gloss: `COMMIT '<gloss>' … candidates=[A, B, C]`.
 - [ ] On-screen: big #1 + dimmed #2/#3; committed word == #1 and is among the three.
 - [ ] **One** commit per sign (no repeated-spam of the held sign); `S5 RELEASE … after commit`.

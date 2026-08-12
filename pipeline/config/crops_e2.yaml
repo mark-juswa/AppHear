@@ -1,0 +1,45 @@
+# Recognition upgrade E2 - RGB hand-crop quality experiment.
+# Experiment-only: this does not change schema 3.0 or Android runtime behavior.
+
+experiment_version: "e2.crop.v0.1"
+seed: 260726
+
+dataset:
+  root: "F:/ASL DATASET/ASL CITIZEN/ASL_Citizen"
+  videos_subdir: "videos"
+  splits_subdir: "splits"
+  landmarks_root: "F:/ASL DATASET/ASL CITIZEN/derived/apphear3/landmarks"
+  spans_root: "F:/ASL DATASET/ASL CITIZEN/derived/apphear3/spans"
+
+output:
+  root: "F:/ASL DATASET/ASL CITIZEN/derived/apphear3/recognition_upgrade/e2_crop_quality_v0"
+
+sampling:
+  # Test signers stay untouched. E2 is preprocessing selection, not final model evaluation.
+  split_fraction:
+    train: 0.8
+    val: 0.2
+  engineering_clips: 60
+  audit_clips: 200
+  smoke_clips: 1
+  smoke_candidate_pool: 12
+  frames_per_clip: 12
+  smoke_frames_per_clip: 3
+  coverage_bins: [0.35, 0.70]
+  cadences: [1, 4, 8]
+  audit_max_items: 600
+
+roi:
+  crop_sizes: [80, 96, 112]
+  expansion_factors: [1.5, 1.75, 2.0]
+  min_valid_landmarks: 15
+  min_side_fraction: 0.12
+  max_side_fraction: 0.75
+  max_hold_ms: 100
+  pad_value_rgb: [0, 0, 0]
+
+audit:
+  usable_gate: 0.98
+  jpeg_quality: 92
+  panel_full_frame_width: 320
+

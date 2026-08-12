@@ -1,0 +1,10 @@
+canonical_gloss,recommendation,evidence_summary,data_reason,accepted_now,potential_after_review
+GOOD,Keep,confusion-sensitive; GOOD-like false commits and MAKE/GET collapse history; E4-V/E4-W positive specialist evidence,Product-core value justifies repair; known confusion/history means no promotion without fresh signer-disjoint baseline.,44,140
+HELLO,Keep,product-important; HELLO-like no-sign false commits; E5-B regressed toward SEEM,Product-core value justifies repair; known confusion/history means no promotion without fresh signer-disjoint baseline.,84,182
+SORRY,Keep,product-important; broad-context confusion in E4-P/E4-Q; E4-V landmark binary evidence positive,Product-core value justifies repair; known confusion/history means no promotion without fresh signer-disjoint baseline.,48,140
+HAVE,Keep,product-useful; E4-S strong but E5-D confusion with DRIVE/WANT2 group,Product-core value justifies repair; known confusion/history means no promotion without fresh signer-disjoint baseline.,44,80
+KNOW,Keep,product-useful; E4-S strong but E5-B regressed toward SEEM,Product-core value justifies repair; known confusion/history means no promotion without fresh signer-disjoint baseline.,43,81
+THINK,Keep,strong E5-D/E5-G class but low local signer support,"Keep as evidence-backed signs, but collection must add local signers before modeling.",18,51
+TAKE,Keep,strong E5-D/E5-G class but low local signer support,"Keep as evidence-backed signs, but collection must add local signers before modeling.",20,50
+SELL,Keep,good E5 evidence but low local signer support,"Keep as evidence-backed signs, but collection must add local signers before modeling.",19,49
+WASH2,Control only,strong control evidence; not first product-core sign,Strong previous evidence but lower first-product priority; useful sanity check for rebuilt data pipeline.,,51

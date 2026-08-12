@@ -16,16 +16,28 @@ class AslAnimationCatalog private constructor(
         fun fromAssets(assets: List<AslAnimationAsset>): AslAnimationCatalog {
             val aliasMap = linkedMapOf<String, AslAnimationAsset>()
             val normalizedAssets = assets.map { asset ->
+                require(asset.id.isNotBlank()) { "ASL animation id must not be blank" }
+                require(asset.assetPath.startsWith("asl_animations/") && asset.assetPath.endsWith(".glb")) {
+                    "Invalid ASL animation asset path: ${asset.assetPath}"
+                }
                 asset.copy(
                     aliases = asset.aliases.map(::normalizeAlias).filter { it.isNotEmpty() }.distinct(),
                 )
             }
 
+            val duplicateIds = normalizedAssets.groupingBy { normalizeAlias(it.id) }
+                .eachCount()
+                .filterValues { it > 1 }
+                .keys
+            require(duplicateIds.isEmpty()) {
+                "Duplicate ASL animation ids: ${duplicateIds.sorted().joinToString(", ")}"
+            }
+
             for (asset in normalizedAssets) {
-                aliasMap[normalizeAlias(asset.id)] = asset
-                aliasMap[normalizeAlias(asset.displayText)] = asset
+                registerAlias(aliasMap, asset.id, asset)
+                registerAlias(aliasMap, asset.displayText, asset)
                 for (alias in asset.aliases) {
-                    aliasMap[alias] = asset
+                    registerAlias(aliasMap, alias, asset)
                 }
             }
 
@@ -44,6 +56,21 @@ class AslAnimationCatalog private constructor(
                 .lowercase(Locale.US)
                 .trim()
                 .replace(Regex("\\s+"), " ")
+        }
+
+        private fun registerAlias(
+            aliasMap: MutableMap<String, AslAnimationAsset>,
+            rawAlias: String,
+            asset: AslAnimationAsset,
+        ) {
+            val alias = normalizeAlias(rawAlias)
+            if (alias.isEmpty()) return
+
+            val existing = aliasMap[alias]
+            require(existing == null || existing.id == asset.id) {
+                "Duplicate ASL alias '$alias' maps to both '${existing?.id}' and '${asset.id}'"
+            }
+            aliasMap[alias] = asset
         }
     }
 }

@@ -80,7 +80,19 @@ def predict_aggregate(
     return clip, pf_correct / pf_total, last_correct / n
 
 
-def run(smoke: bool, config_path: Path = DEFAULT_CONFIG, features_dir: Path | None = None) -> int:
+def _report_path(output_dir: Path, report_name: str) -> Path:
+    candidate = Path(report_name)
+    if candidate.name != report_name or candidate.suffix.lower() != ".json":
+        raise ValueError("report_name must be a plain .json filename")
+    return output_dir / candidate
+
+
+def run(
+    smoke: bool,
+    config_path: Path = DEFAULT_CONFIG,
+    features_dir: Path | None = None,
+    report_name: str = "eval_streaming_test.json",
+) -> int:
     import tensorflow as tf
 
     from model.data import load_streaming_split
@@ -122,8 +134,13 @@ def run(smoke: bool, config_path: Path = DEFAULT_CONFIG, features_dir: Path | No
 
     report = evaluate(clip_v, yv, clip_t, yt, np.asarray(pt))
     report["streaming"] = {"per_frame_acc": pf_acc, "last_frame_acc": last_acc}
+    report["provenance"] = {
+        "config": str(config_path.resolve()),
+        "features_dir": str(feat_dir.resolve()),
+        "model": "synthetic-smoke" if smoke else str(mp.resolve()),
+    }
     out_dir.mkdir(parents=True, exist_ok=True)
-    out_path = out_dir / "eval_streaming_test.json"
+    out_path = _report_path(out_dir, report_name)
     out_path.write_text(json.dumps(report, indent=2), encoding="utf-8")
 
     o, s = report["overall"], report["streaming"]
@@ -151,10 +168,15 @@ def main() -> int:
     p = argparse.ArgumentParser(description="AppHear 3 streaming cross-signer eval")
     p.add_argument("--smoke", action="store_true")
     p.add_argument("--config", type=Path, default=DEFAULT_CONFIG)
-    p.add_argument("--features-dir", type=Path, default=None,
-                   help="override: eval the config model on THIS feature set (e.g. low-fps test)")
+    p.add_argument(
+        "--features-dir",
+        type=Path,
+        default=None,
+        help="override: eval the config model on THIS feature set (e.g. low-fps test)",
+    )
+    p.add_argument("--report-name", default="eval_streaming_test.json")
     args = p.parse_args()
-    return run(args.smoke, args.config, args.features_dir)
+    return run(args.smoke, args.config, args.features_dir, args.report_name)
 
 
 if __name__ == "__main__":

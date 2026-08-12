@@ -97,7 +97,7 @@
   <string name="settings_about_value">Phase 5</string>
   <string name="text_to_asl_kicker">ASL TRANSLATOR</string>
   <string name="text_to_asl_stage_title">Avatar stage</string>
-  <string name="text_to_asl_stage_body">Local WebView/GLB playback is enabled for the starter set: hello, thank you, good, A, and B.</string>
+  <string name="text_to_asl_stage_body">Local avatar playback includes an expanded set of everyday words and phrases.</string>
   <string name="text_to_asl_current_sign_placeholder">-</string>
   <string name="text_to_asl_signing_label">SIGNING</string>
   <string name="text_to_asl_idle_text">Ready when you are</string>

@@ -1,0 +1,47 @@
+# Recognition upgrade E2d - MediaPipe detector operating-point sweep.
+# Experiment-only: no production extractor, Android, model, or schema changes.
+
+experiment_version: "e2d.detector_operating_point.v0.1"
+seed: 260726
+
+dataset:
+  root: "F:/ASL DATASET/ASL CITIZEN/ASL_Citizen"
+  videos_subdir: "videos"
+
+source_positive:
+  run_dir: "F:/ASL DATASET/ASL CITIZEN/derived/apphear3/recognition_upgrade/e2b_roi_recovery_v0/engineering_e2b_01"
+
+source_negative:
+  run_dir: "F:/ASL DATASET/ASL CITIZEN/derived/apphear3/recognition_upgrade/e2_crop_quality_v0/engineering_run_02"
+  audit_csv: "audit_template_consistency_corrected.csv"
+
+output:
+  root: "F:/ASL DATASET/ASL CITIZEN/derived/apphear3/recognition_upgrade/e2d_detector_operating_point_v0"
+
+model:
+  hand_task: "assets/mediapipe/hand_landmarker.task"
+  num_hands: 2
+  min_tracking_confidence: 0.5
+
+sampling:
+  engineering_positive_items: 120
+  engineering_negative_items: 120
+  smoke_positive_items: 6
+  smoke_negative_items: 6
+  cadences: [1, 4, 8]
+
+candidates:
+  - {id: "image_d50_p50", mode: "image", detection: 0.5, presence: 0.5}
+  - {id: "image_d40_p40", mode: "image", detection: 0.4, presence: 0.4}
+  - {id: "image_d30_p30", mode: "image", detection: 0.3, presence: 0.3}
+  - {id: "video_d50_p50", mode: "video", detection: 0.5, presence: 0.5}
+  - {id: "video_d40_p40", mode: "video", detection: 0.4, presence: 0.4}
+  - {id: "video_d30_p30", mode: "video", detection: 0.3, presence: 0.3}
+
+gates:
+  control_candidate: "image_d50_p50"
+  min_positive_recall_gain: 0.20
+  max_negative_false_roi_rate: 0.05
+  max_negative_false_roi_increase: 0.02
+  max_candidate_to_control_p95_latency_ratio: 1.20
+  require_no_hand_or_cadence_regression: true
