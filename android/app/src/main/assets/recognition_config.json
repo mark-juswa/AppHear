@@ -58,5 +58,14 @@
                            "enabled":  false,
                            "log_every_n_frames":  5,
                            "status":  "offline_parity_passed_device_profiling_pending"
-                       }
+                       },
+    "runtime_diagnostics":  {
+                                "enabled":  false,
+                                "max_evidence_frames":  48,
+                                "evidence_stride":  1,
+                                "evidence_width":  240,
+                                "jpeg_quality":  70,
+                                "post_release_frames":  8,
+                                "status":  "RU-D1 default-off observational diagnostics"
+                            }
 }

@@ -31,6 +31,15 @@ android {
     val phase1ShadowDebug = providers.gradleProperty("phase1Shadow")
         .map { it.equals("true", ignoreCase = true) }
         .getOrElse(false)
+    val ruD1Debug = providers.gradleProperty("ruD1")
+        .map { it.equals("true", ignoreCase = true) }
+        .getOrElse(false)
+    val ruD10ObservationContinuity = providers.gradleProperty("ruD10A")
+        .map { it.equals("true", ignoreCase = true) }
+        .getOrElse(false)
+    val ruD10S5OneShortGap = providers.gradleProperty("ruD10B")
+        .map { it.equals("true", ignoreCase = true) }
+        .getOrElse(false)
 
     namespace = "com.example.apphear"
     compileSdk = 36
@@ -53,10 +62,20 @@ android {
     buildTypes {
         debug {
             buildConfigField("boolean", "PHASE1_SHADOW_ENABLED", phase1ShadowDebug.toString())
+            buildConfigField("boolean", "RU_D1_ENABLED", ruD1Debug.toString())
+            buildConfigField(
+                "boolean",
+                "RU_D10_OBSERVATION_CONTINUITY_ENABLED",
+                ruD10ObservationContinuity.toString(),
+            )
+            buildConfigField("boolean", "RU_D10_S5_ONE_SHORT_GAP_ENABLED", ruD10S5OneShortGap.toString())
         }
         release {
             isMinifyEnabled = false
             buildConfigField("boolean", "PHASE1_SHADOW_ENABLED", "false")
+            buildConfigField("boolean", "RU_D1_ENABLED", "false")
+            buildConfigField("boolean", "RU_D10_OBSERVATION_CONTINUITY_ENABLED", "false")
+            buildConfigField("boolean", "RU_D10_S5_ONE_SHORT_GAP_ENABLED", "false")
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"

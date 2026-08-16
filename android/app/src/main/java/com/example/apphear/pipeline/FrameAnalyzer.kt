@@ -9,6 +9,8 @@ import com.example.apphear.pipeline.recognition.LandmarkAdapter
 import com.example.apphear.pipeline.recognition.RecognitionPipeline
 import com.example.apphear.pipeline.recognition.RecognitionState
 import com.example.apphear.pipeline.recognition.RuntimeConfig
+import com.example.apphear.pipeline.diagnostics.RuD1Diagnostics
+import com.example.apphear.pipeline.diagnostics.RuD1FrameObservation
 import com.google.mediapipe.framework.image.BitmapImageBuilder
 import com.google.mediapipe.tasks.vision.handlandmarker.HandLandmarkerResult
 import com.google.mediapipe.tasks.vision.poselandmarker.PoseLandmarkerResult
@@ -43,6 +45,7 @@ class FrameAnalyzer(
     private val recognizer: RecognitionPipeline?,
     private val runtime: RuntimeConfig,
     private val deviceSummary: String,
+    private val ruD1: RuD1Diagnostics? = null,
     private val onResult: (FrameResult) -> Unit,
 ) : ImageAnalysis.Analyzer {
 
@@ -61,6 +64,7 @@ class FrameAnalyzer(
     private var processedFrames = 0L
     private var droppedFrames = 0L
     private var lastPose: PoseLandmarkerResult? = null
+    private var lastProcessedStartNs = 0L
 
     override fun analyze(image: ImageProxy) {
         val inputRate = cameraFps.tick()
@@ -70,6 +74,8 @@ class FrameAnalyzer(
             return
         }
         val wallStart = System.nanoTime()
+        val interFrameNs = if (lastProcessedStartNs == 0L) 0L else wallStart - lastProcessedStartNs
+        lastProcessedStartNs = wallStart
         val rotation = image.imageInfo.rotationDegrees
         var convNs = 0L
         val bitmap = try {
@@ -84,9 +90,14 @@ class FrameAnalyzer(
         }
 
         scope.launch {
+            var upright: Bitmap? = null
             try {
                 var rotateNs = 0L
-                val upright = run { var u: Bitmap; rotateNs = measureNanoTime { u = rotate(bitmap, rotation) }; u }
+                val analysisBitmap = run {
+                    var rotated: Bitmap
+                    rotateNs = measureNanoTime { rotated = rotate(bitmap, rotation) }
+                    rotated.also { upright = it }
+                }
                 val mode = FeatureFlags.PROFILING_MODE
                 val runHands = mode == ProfilingMode.HAND_ONLY || mode == ProfilingMode.HAND_AND_POSE ||
                     mode == ProfilingMode.FULL_RECOGNITION
@@ -103,12 +114,17 @@ class FrameAnalyzer(
 
                 var handNs = 0L
                 var poseNs = 0L
-                val mpImage = BitmapImageBuilder(upright).build()
+                val handImage = if (runHands) BitmapImageBuilder(analysisBitmap).build() else null
+                val poseImage = if (runPose) BitmapImageBuilder(analysisBitmap).build() else null
                 val handsDeferred = if (runHands) {
                     async {
                         var h: HandLandmarkerResult
-                        handNs = measureNanoTime { h = landmarkers.detectHands(mpImage) }
-                        h
+                        try {
+                            handNs = measureNanoTime { h = landmarkers.detectHands(checkNotNull(handImage)) }
+                            h
+                        } finally {
+                            if (FeatureFlags.RU_D10_OBSERVATION_CONTINUITY) handImage?.close()
+                        }
                     }
                 } else {
                     null
@@ -116,23 +132,28 @@ class FrameAnalyzer(
                 val poseDeferred = if (runPose) {
                     async {
                         var p: PoseLandmarkerResult
-                        poseNs = measureNanoTime { p = landmarkers.detectPose(BitmapImageBuilder(upright).build()) }
-                        p
+                        try {
+                            poseNs = measureNanoTime { p = landmarkers.detectPose(checkNotNull(poseImage)) }
+                            p
+                        } finally {
+                            if (FeatureFlags.RU_D10_OBSERVATION_CONTINUITY) poseImage?.close()
+                        }
                     }
                 } else {
                     null
                 }
                 val hands = handsDeferred?.await()
+                val poseFresh = poseDeferred != null
                 val pose = if (poseDeferred != null) poseDeferred.await().also { lastPose = it } else lastPose
                 frameIndex++
 
                 var recognition: RecognitionState? = null
                 val low = lowFps.active
+                val poseArray = LandmarkAdapter.pose(pose)
+                val handsArray = LandmarkAdapter.hands(hands)
                 val recogNs = measureNanoTime {
                     if (mode == ProfilingMode.FULL_RECOGNITION && recognizer != null && hands != null && pose != null) {
-                        recognition = recognizer.processFrame(
-                            LandmarkAdapter.pose(pose), LandmarkAdapter.hands(hands), low,
-                        )
+                        recognition = recognizer.processFrame(poseArray, handsArray, low)
                     }
                 }
 
@@ -140,10 +161,33 @@ class FrameAnalyzer(
                 processedFrames++
                 val lowNow = lowFps.update(f)
                 adaptive.update(f)
+                val trace = recognizer?.lastRuD1Trace
+                if (trace != null && ruD1?.isActive == true) {
+                    ruD1.record(
+                        RuD1FrameObservation(
+                            timestampNs = wallStart,
+                            processedFps = f,
+                            lowFpsUsed = low,
+                            poseFresh = poseFresh,
+                            handCount = detectedHandCount(handsArray),
+                            leftHandPresent = slotPresent(handsArray, 0),
+                            rightHandPresent = slotPresent(handsArray, 1),
+                            posePresent = poseArray.any { !it.isNaN() },
+                            leftWristVisibility = poseVisibility(poseArray, 15),
+                            rightWristVisibility = poseVisibility(poseArray, 16),
+                            leftElbowVisibility = poseVisibility(poseArray, 13),
+                            rightElbowVisibility = poseVisibility(poseArray, 14),
+                            leftShoulderVisibility = poseVisibility(poseArray, 11),
+                            rightShoulderVisibility = poseVisibility(poseArray, 12),
+                            pipeline = trace,
+                        ),
+                        analysisBitmap,
+                    )
+                }
                 val wallNs = System.nanoTime() - wallStart
                 if (FeatureFlags.PROFILE_STAGES || mode != ProfilingMode.FULL_RECOGNITION) {
                     profiler.record(
-                        RuntimeTiming(convNs, rotateNs, handNs, poseNs, recogNs, wallNs),
+                        RuntimeTiming(convNs, rotateNs, handNs, poseNs, recogNs, wallNs, interFrameNs),
                         inputRate,
                         f,
                         processedFrames,
@@ -155,12 +199,16 @@ class FrameAnalyzer(
 
                 onResult(
                     FrameResult(
-                        hands, pose, upright.width, upright.height, f, isFrontCamera,
+                        hands, pose, analysisBitmap.width, analysisBitmap.height, f, isFrontCamera,
                         adaptive.qualityLabel(), requestedPoseEvery, recognition,
                         inputRate, droppedFrames, lowNow,
                     ),
                 )
             } finally {
+                if (FeatureFlags.RU_D10_OBSERVATION_CONTINUITY) {
+                    upright?.takeUnless { it.isRecycled }?.recycle()
+                    if (upright !== bitmap && !bitmap.isRecycled) bitmap.recycle()
+                }
                 busy.set(false)
             }
         }
@@ -175,4 +223,12 @@ class FrameAnalyzer(
         val m = Matrix().apply { postRotate(degrees.toFloat()) }
         return Bitmap.createBitmap(bitmap, 0, 0, bitmap.width, bitmap.height, m, true)
     }
+
+    private fun slotPresent(hands: FloatArray, slot: Int): Boolean = !hands[slot * 21 * 3].isNaN()
+
+    private fun detectedHandCount(hands: FloatArray): Int =
+        (if (slotPresent(hands, 0)) 1 else 0) + (if (slotPresent(hands, 1)) 1 else 0)
+
+    private fun poseVisibility(pose: FloatArray, landmark: Int): Float? =
+        pose[landmark * 4 + 3].takeIf { it.isFinite() }
 }

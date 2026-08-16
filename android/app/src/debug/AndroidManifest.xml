@@ -5,7 +5,13 @@
     <application>
         <activity
             android:name=".RecognitionActivity"
-            android:exported="true"
+            android:exported="false"
             tools:replace="android:exported" />
+        <!-- Debug-only ADB entry point for bounded device benchmarks. The production activity
+             remains non-exported in every build; release does not contain this alias. -->
+        <activity-alias
+            android:name=".RuD10BenchmarkActivity"
+            android:exported="true"
+            android:targetActivity=".RecognitionActivity" />
     </application>
 </manifest>

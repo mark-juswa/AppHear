@@ -12,6 +12,7 @@ import android.os.PowerManager
 import android.speech.RecognizerIntent
 import android.util.Log
 import android.util.Size
+import android.util.Base64
 import android.view.View
 import android.view.WindowManager
 import android.widget.Toast
@@ -28,6 +29,8 @@ import androidx.lifecycle.lifecycleScope
 import com.example.apphear.databinding.ActivityRecognitionBinding
 import com.example.apphear.pipeline.FrameAnalyzer
 import com.example.apphear.pipeline.FrameResult
+import com.example.apphear.pipeline.diagnostics.RuD1AttemptSpec
+import com.example.apphear.pipeline.diagnostics.RuD1Diagnostics
 import com.example.apphear.pipeline.LandmarkerBundle
 import com.example.apphear.pipeline.LandmarkerConfig
 import com.example.apphear.pipeline.recognition.FeatureFlags
@@ -59,6 +62,9 @@ class RecognitionActivity : AppCompatActivity() {
     private var modelLoadError: String? = null
     private var degradedBannerDismissed = false
     private lateinit var speechPlayer: AppHearSpeechPlayer
+    private lateinit var ruD1: RuD1Diagnostics
+    private var ruD1Transitioning = false
+    private var ruD1DisplayState = RuD1DisplayState.READY
 
     private val prefs by lazy { getSharedPreferences("apphear", MODE_PRIVATE) }
 
@@ -95,6 +101,7 @@ class RecognitionActivity : AppCompatActivity() {
         binding = ActivityRecognitionBinding.inflate(layoutInflater)
         setContentView(binding.root)
         speechPlayer = AppHearSpeechPlayer(this)
+        ruD1 = RuD1Diagnostics.create(applicationContext)
         binding.btnBack.setOnClickListener { finish() }
         binding.dragHandleWrapper.setOnClickListener {
             binding.expandableContent.visibility =
@@ -114,7 +121,17 @@ class RecognitionActivity : AppCompatActivity() {
 
         binding.clearButton.setOnClickListener {
             recognizer?.clearSentence()
-            binding.sentenceText.text = getString(R.string.sentence_placeholder)
+            if (ruD1.config.enabled && ruD1QueueGloss().isNotBlank()) {
+                renderRuD1QueueStatus()
+            } else {
+                binding.sentenceText.text = getString(R.string.sentence_placeholder)
+            }
+        }
+        if (ruD1.config.enabled) {
+            binding.clearButton.setOnLongClickListener {
+                toggleRuD1Attempt()
+                true
+            }
         }
 
         binding.speakButton.setOnClickListener {
@@ -142,6 +159,7 @@ class RecognitionActivity : AppCompatActivity() {
             ).show()
         }
         applyCameraLabel()
+        renderRuD1QueueStatus()
 
         if (hasCameraPermission()) start() else requestCamera.launch(Manifest.permission.CAMERA)
     }
@@ -254,6 +272,7 @@ class RecognitionActivity : AppCompatActivity() {
             recognizer,
             runtime,
             deviceSummary(),
+            ruD1,
             ::onFrame,
         ).also { analyzer = it }
         val analysisSize = cameraAnalysisSize()
@@ -307,11 +326,62 @@ class RecognitionActivity : AppCompatActivity() {
     }
 
     private fun renderRecognitionSnapshot(snapshot: RecognitionUiSnapshot) {
+        if (renderRuD1QueueStatus()) return
         binding.glossText.text = snapshot.primaryText
         binding.altText.text = snapshot.candidatesText
         binding.altText.visibility = if (snapshot.showCandidates) View.VISIBLE else View.GONE
         binding.sentenceText.text = snapshot.sentenceText
     }
+
+    /**
+     * Diagnostic-only queue prompt. It deliberately changes display text only; recognition,
+     * frame timing, S1-S7 state, and the production build remain untouched. Keeping READY on
+     * screen makes queue advancement safe: launching the next item never starts its capture.
+     */
+    private fun renderRuD1QueueStatus(): Boolean {
+        if (!ruD1.config.enabled) return false
+        val gloss = ruD1QueueGloss()
+        if (gloss.isBlank()) return false
+        val repetition = intent.getStringExtra(EXTRA_RU_D1_REPETITION_ID).orEmpty().trim()
+        val order = intent.getIntExtra(EXTRA_RU_D1_CAPTURE_ORDER, 0)
+        val total = intent.getIntExtra(EXTRA_RU_D1_TOTAL_ATTEMPTS, 0)
+        val position = if (order > 0 && total > 0) "%02d/%02d".format(order, total) else "RU-D1"
+        val attempt = listOf(gloss, repetition).filter { it.isNotBlank() }.joinToString(" • ")
+        val instruction = intent.getStringExtra(EXTRA_RU_D1_INSTRUCTION_B64)
+            ?.let { encoded ->
+                runCatching { String(Base64.decode(encoded, Base64.NO_WRAP), Charsets.UTF_8) }.getOrDefault("")
+            }
+            .orEmpty()
+            .trim()
+
+        when (ruD1DisplayState) {
+            RuD1DisplayState.READY -> {
+                binding.glossText.text = "READY: $attempt"
+                binding.altText.text = "$position • Long-press CLEAR to start"
+                binding.sentenceText.text = instruction.ifBlank { "Return to rest before starting" }
+            }
+            RuD1DisplayState.RECORDING -> {
+                binding.glossText.text = "RECORDING: $attempt"
+                binding.altText.text = "$position • Sign once, return to rest, then long-press CLEAR to save"
+                binding.sentenceText.text = "Capture active"
+            }
+            RuD1DisplayState.SAVING -> {
+                binding.glossText.text = "SAVING: $attempt"
+                binding.altText.text = "$position • Please wait"
+                binding.sentenceText.text = "Finalizing evidence"
+            }
+            RuD1DisplayState.SAVED -> {
+                binding.glossText.text = "SAVED: $attempt"
+                binding.altText.text = "$position • Preparing the next queued attempt"
+                binding.sentenceText.text = "Keep resting; do not start yet"
+            }
+        }
+        binding.altText.visibility = View.VISIBLE
+        return true
+    }
+
+    private fun ruD1QueueGloss(): String =
+        intent.getStringExtra(EXTRA_RU_D1_GLOSS).orEmpty().trim().uppercase()
 
     private fun renderRuntimeError(title: String, details: String) {
         binding.glossText.text = title
@@ -332,7 +402,9 @@ class RecognitionActivity : AppCompatActivity() {
 
     private fun deviceSummary(): String =
         "device='${Build.MANUFACTURER} ${Build.MODEL}' android=${Build.VERSION.RELEASE} sdk=${Build.VERSION.SDK_INT} " +
-            "battery_saver=${batterySaverEnabled()} profiling_mode=${FeatureFlags.PROFILING_MODE}"
+            "battery_saver=${batterySaverEnabled()} profiling_mode=${FeatureFlags.PROFILING_MODE} " +
+            "ru_d10_a=${FeatureFlags.RU_D10_OBSERVATION_CONTINUITY} " +
+            "ru_d10_b=${FeatureFlags.RU_D10_S5_ONE_SHORT_GAP}"
 
     private fun batterySaverEnabled(): Boolean {
         val pm = getSystemService(Context.POWER_SERVICE) as PowerManager
@@ -359,11 +431,101 @@ class RecognitionActivity : AppCompatActivity() {
         cameraExecutor.shutdown()
         landmarkers?.close()
         recognizer?.close()
+        if (::ruD1.isInitialized) ruD1.close()
         if (::speechPlayer.isInitialized) speechPlayer.close()
     }
 
-    private companion object {
+    companion object {
         const val TAG = "AppHearRecognition"
         const val KEY_HAND = "handedness"
+        const val EXTRA_RU_D1_GLOSS = "ru_d1_gloss"
+        const val EXTRA_RU_D1_EXPECTED_HANDS = "ru_d1_expected_hands"
+        const val EXTRA_RU_D1_SIGNER_ID = "ru_d1_signer_id"
+        const val EXTRA_RU_D1_VARIANT = "ru_d1_variant"
+        const val EXTRA_RU_D1_SESSION_ID = "ru_d1_session_id"
+        const val EXTRA_RU_D1_REPETITION_ID = "ru_d1_repetition_id"
+        const val EXTRA_RU_D1_CAPTURE_ORDER = "ru_d1_capture_order"
+        const val EXTRA_RU_D1_TOTAL_ATTEMPTS = "ru_d1_total_attempts"
+        const val EXTRA_RU_D1_INSTRUCTION_B64 = "ru_d1_instruction_b64"
     }
+
+    private fun toggleRuD1Attempt() {
+        if (ruD1Transitioning) return
+        val pipeline = recognizer
+        if (pipeline == null) {
+            Toast.makeText(this, "RU-D1 unavailable: recognizer not loaded", Toast.LENGTH_LONG).show()
+            return
+        }
+        if (ruD1.isActive) {
+            pipeline.ruD1Enabled = false
+            ruD1Transitioning = true
+            ruD1DisplayState = RuD1DisplayState.SAVING
+            renderRuD1QueueStatus()
+            lifecycleScope.launch {
+                val directory = withContext(Dispatchers.IO) { ruD1.stopAttempt() }
+                ruD1Transitioning = false
+                ruD1DisplayState = RuD1DisplayState.SAVED
+                renderRuD1QueueStatus()
+                Toast.makeText(
+                    this@RecognitionActivity,
+                    "RU-D1 saved: ${directory?.name}",
+                    Toast.LENGTH_LONG,
+                ).show()
+            }
+            return
+        }
+        val gloss = intent.getStringExtra(EXTRA_RU_D1_GLOSS).orEmpty().trim().uppercase()
+        val expectedHands = intent.getStringExtra(EXTRA_RU_D1_EXPECTED_HANDS).orEmpty().trim().lowercase()
+        val signerId = intent.getStringExtra(EXTRA_RU_D1_SIGNER_ID).orEmpty().trim()
+        val variant = intent.getStringExtra(EXTRA_RU_D1_VARIANT).orEmpty().trim()
+        val sessionId = intent.getStringExtra(EXTRA_RU_D1_SESSION_ID).orEmpty().trim()
+        val repetitionId = intent.getStringExtra(EXTRA_RU_D1_REPETITION_ID).orEmpty().trim()
+        val captureOrder = intent.getIntExtra(EXTRA_RU_D1_CAPTURE_ORDER, 0)
+        val spec = runCatching {
+            RuD1AttemptSpec(
+                gloss,
+                expectedHands,
+                signerId,
+                variant,
+                sessionId,
+                repetitionId,
+                captureOrder,
+            )
+        }.getOrElse {
+            Toast.makeText(
+                this,
+                "RU-D1 extras required: gloss, expected hands, signer id",
+                Toast.LENGTH_LONG,
+            ).show()
+            return
+        }
+        ruD1Transitioning = true
+        lifecycleScope.launch {
+            val result = withContext(Dispatchers.IO) { runCatching { ruD1.startAttempt(spec) } }
+            result.onSuccess { directory ->
+                pipeline.ruD1Enabled = true
+                pipeline.prepareRuD1Attempt()
+                ruD1Transitioning = false
+                ruD1DisplayState = RuD1DisplayState.RECORDING
+                renderRuD1QueueStatus()
+                Toast.makeText(
+                    this@RecognitionActivity,
+                    "RU-D1 recording ${spec.gloss}; long-press CLEAR to stop (${directory.name})",
+                    Toast.LENGTH_LONG,
+                ).show()
+            }.onFailure {
+                pipeline.ruD1Enabled = false
+                ruD1Transitioning = false
+                ruD1DisplayState = RuD1DisplayState.READY
+                renderRuD1QueueStatus()
+                Toast.makeText(
+                    this@RecognitionActivity,
+                    "RU-D1 start failed: ${it.message}",
+                    Toast.LENGTH_LONG,
+                ).show()
+            }
+        }
+    }
+
+    private enum class RuD1DisplayState { READY, RECORDING, SAVING, SAVED }
 }

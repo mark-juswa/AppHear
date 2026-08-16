@@ -58,6 +58,12 @@ data class SigningDiagnostics(
     val releaseCausedByHandDropout: Boolean,
     val motion: Double,
     val handsSeen: Boolean,
+    val raisedGate: Boolean,
+    val onsetCandidate: Boolean,
+    val onsetGapUsed: Boolean,
+    val onsetGapBridgedThisFrame: Boolean,
+    val onCount: Int,
+    val offCount: Int,
 )
 
 /**
@@ -67,6 +73,7 @@ data class SigningDiagnostics(
 class SigningDetector(
     private val cfg: SigningConfig,
     private val runtime: RuntimeConfig = RuntimeConfig.defaults(),
+    private val allowOneShortOnsetGap: Boolean = false,
 ) {
     private var signing = false
     private var onCount = 0
@@ -83,8 +90,12 @@ class SigningDetector(
     private var firstCandidateFrame: Long? = null
     private var onsetFrame: Long? = null
     private var activeHandGapFrames = 0
+    private var onsetGapUsed = false
 
-    var lastDiagnostics = SigningDiagnostics(0, null, null, null, null, null, null, 0, false, 0.0, false)
+    var lastDiagnostics = SigningDiagnostics(
+        0, null, null, null, null, null, null, 0, false, 0.0, false, false, false,
+        false, false, 0, 0,
+    )
         private set
 
     val isSigning: Boolean get() = signing
@@ -118,9 +129,16 @@ class SigningDetector(
             RuntimeLog.i(TAG, "S5 first_motion_frame=$frame motion=%.3f".format(motion))
         }
         val onsetCandidate = motion > cfg.thetaOn && gate && handsSeen
-        if (!signing && !onsetCandidate) {
+        val bridgeOnsetGap = !signing &&
+            allowOneShortOnsetGap &&
+            onCount > 0 &&
+            !onsetGapUsed &&
+            !onsetCandidate &&
+            handsSeen &&
+            gate &&
+            motion >= cfg.thetaOff
+        if (!signing && !onsetCandidate && !bridgeOnsetGap) {
             firstCandidateFrame = null
-            if (!handsSeen || motion < cfg.thetaOff) onCount = 0
         }
         if (!signing && onsetCandidate && firstCandidateFrame == null) {
             firstCandidateFrame = frame
@@ -142,6 +160,7 @@ class SigningDetector(
                     signing = true
                     onsetFrame = frame
                     activeHandGapFrames = 0
+                    onsetGapUsed = false
                     onCount = 0
                     offCount = 0
                     val motionDelay = firstMotionFrame?.let { frame - it }
@@ -156,8 +175,12 @@ class SigningDetector(
                 } else {
                     SigningEvent.NONE
                 }
+            } else if (bridgeOnsetGap) {
+                onsetGapUsed = true
+                SigningEvent.NONE
             } else {
                 onCount = 0
+                onsetGapUsed = false
                 SigningEvent.NONE
             }
         } else {
@@ -196,6 +219,12 @@ class SigningDetector(
             releaseCausedByHandDropout = releaseByDropout,
             motion = motion,
             handsSeen = handsSeen,
+            raisedGate = gate,
+            onsetCandidate = onsetCandidate,
+            onsetGapUsed = onsetGapUsed,
+            onsetGapBridgedThisFrame = bridgeOnsetGap,
+            onCount = onCount,
+            offCount = offCount,
         )
         if (event == SigningEvent.RELEASE) resetBoutDiagnostics()
         return event
@@ -209,6 +238,7 @@ class SigningDetector(
         prevHands = null
         ringFilled = 0
         ringPos = 0
+        onsetGapUsed = false
         resetBoutDiagnostics()
     }
 
