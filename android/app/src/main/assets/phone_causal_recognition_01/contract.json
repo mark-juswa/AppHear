@@ -1,0 +1,48 @@
+{
+  "causal_runtime": "bounded rolling prefix; last output only",
+  "feature_schema": "apphear.perception_vnext.segmentation_features.v1",
+  "feature_width": 378,
+  "fixture": {
+    "features_asset": "s2_parity_normalized_features.f32",
+    "features_sha256": "ea3a8b0cef457ac3674d55991e5855bacf7540147076afb2bf378fb3d90e90d7",
+    "maximum_abs_probability_difference_keras_vs_tflite": 6.556510925292969e-07,
+    "observation_count": 131,
+    "partition": "CAL",
+    "probabilities_asset": "s2_parity_probabilities.f32",
+    "probabilities_sha256": "d107d85188fd8c0701a7d1771d1714a5afadb0603392684cb5ead61c0e690dd2",
+    "view_key": "e6:e6p_00799::VIEW_A"
+  },
+  "input_dtype": "FLOAT32",
+  "input_shape_signature": [
+    1,
+    -1,
+    378
+  ],
+  "materializer_contract_sha256": "0a59dc80fe54cb37e09fbce8aa108dbfce32bc4b5cb48b98e61619b5b3b34971",
+  "milestone": "PHONE_CAUSAL_RECOGNITION_INTEGRATION_01",
+  "normalization_asset_sha256": "d1f3b47ea9cf67578ea13e528a444d87be2246bfa62a0067b70f96393c39f1eb",
+  "output_dtype": "FLOAT32",
+  "output_shape_signature": [
+    1,
+    3
+  ],
+  "quantization": "NONE_FP32",
+  "receptive_field_observations": 61,
+  "schema": "apphear.phone_causal_recognition.s2_mobile_contract.v1",
+  "segmentation_feature_builder_fixture": {
+    "expected_asset": "segmentation_feature_parity_expected.f32",
+    "expected_sha256": "935db38e086780d9b8d5cd31b4d3a9cb01ed43f81ccb8218661887c4e9aa689f",
+    "observation_count": 4,
+    "raw_asset": "segmentation_feature_parity_raw.json",
+    "raw_sha256": "1aae3fe6360d6f3696f541c79e32e511624ba7c701b40e2baba2c03b3487743e"
+  },
+  "source_checkpoint_sha256": "dea7cf986d39ce252eb197ae7e130d2d66a101d03fde27427192bbf70ce35e73",
+  "source_normalization_sha256": "3018348ae8cc9fe0671eda913535556e14cebf5a16fbe72a96be73ed494e9130",
+  "state_order": [
+    "PRE_IDLE",
+    "ACTIVE_SIGN",
+    "POST_RECOVERY"
+  ],
+  "tflite_sha256": "820023d15c98dab2fb8f21914906ccd637d32bce7b825cbd1d89a58c80cd4ed7",
+  "training_executed": false
+}

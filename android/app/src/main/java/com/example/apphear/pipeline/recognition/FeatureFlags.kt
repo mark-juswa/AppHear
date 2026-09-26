@@ -46,4 +46,8 @@ object FeatureFlags {
      */
     val RU_D10_S5_ONE_SHORT_GAP: Boolean =
         BuildConfig.DEBUG && BuildConfig.RU_D10_S5_ONE_SHORT_GAP_ENABLED
+
+    /** A1 independent-clock analyzer. Compiled out of release and runtime-defaults to Baseline. */
+    val A1_INDEPENDENT_CLOCK_AVAILABLE: Boolean =
+        BuildConfig.DEBUG && BuildConfig.A1_INDEPENDENT_CLOCK_ENABLED
 }

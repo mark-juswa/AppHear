@@ -1,0 +1,53 @@
+{
+  "experiment_id": "a2_1_identity_only_01",
+  "schema_version": "3.0",
+  "selection": {
+    "sign_span_padding_observations": 4,
+    "rest_observations_per_edge": 2,
+    "include_all_a1_mode_attempts": true,
+    "include_ru_d9_supplement": true
+  },
+  "tracker": {
+    "wrist_weight": 0.65,
+    "palm_weight": 0.2,
+    "pose_wrist_weight": 0.05,
+    "mediapipe_label_penalty": 0.1,
+    "invert_mediapipe_handedness": false,
+    "velocity_ema": 0.6,
+    "max_prediction_dt_s": 0.5,
+    "max_assignment_cost": 0.85,
+    "min_assignment_margin": 0.12,
+    "collision_ambiguity_distance": 0.08
+  },
+  "preregistered_gates": {
+    "minimum_known_direct_instances": 80,
+    "minimum_contact_or_crossing_frames": 10,
+    "maximum_tracker_identity_error_rate": 0.01,
+    "maximum_new_identity_errors": 0,
+    "maximum_identity_switch_rate_ratio": 1.0,
+    "maximum_assignment_coverage_drop_fraction": 0.05,
+    "maximum_ambiguous_assignment_rate": 0.1,
+    "minimum_baseline_error_reduction_fraction_when_errors_exist": 0.5
+  },
+  "hard_boundaries": {
+    "causal": true,
+    "landmark_recovery": false,
+    "future_frames_for_algorithm": false,
+    "s4_s5_s6_s7_changes": false,
+    "android_changes": false,
+    "default_off": true
+  },
+  "identity_semantics": {
+    "camera_evidence_orientation": "unmirrored_front_camera",
+    "all_selected_trace_mirrored_flags": false,
+    "mediapipe_left_slot_initial_anatomical_prior": "right",
+    "mediapipe_right_slot_initial_anatomical_prior": "left",
+    "human_truth_perspective": "signer_anatomical",
+    "human_review_slot_names": {
+      "mp_left": "blue",
+      "mp_right": "orange"
+    },
+    "detected_slot_identity_default": "ambiguous",
+    "detector_label_used_as_human_truth": false
+  }
+}

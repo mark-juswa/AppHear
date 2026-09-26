@@ -11,7 +11,10 @@ param(
     [int]$StartAt = 1,
 
     [ValidateRange(0, 3600)]
-    [int]$AttemptTimeoutSeconds = 0
+    [int]$AttemptTimeoutSeconds = 0,
+
+    [ValidateRange(0, 5000)]
+    [int]$A1MaxPoseAgeMs = 0
 )
 
 $ErrorActionPreference = "Stop"
@@ -43,6 +46,23 @@ Write-Host "For every attempt: follow the READY instruction, long-press CLEAR, s
 
 foreach ($row in $queue) {
     $order = [int]$row.capture_order
+    $a1Mode = ([string]$row.a1_mode).Trim().ToUpperInvariant()
+    if ($a1Mode -and $a1Mode -notin @('BASELINE', 'A1')) {
+        throw "Attempt $order has invalid a1_mode '$a1Mode'. Expected BASELINE or A1."
+    }
+    if ($a1Mode -eq 'A1' -and $A1MaxPoseAgeMs -le 0) {
+        throw "Attempt $order requests A1 but -A1MaxPoseAgeMs was not supplied."
+    }
+    $activity = if ($a1Mode) {
+        'com.example.apphear/.A1BenchmarkActivity'
+    } else {
+        'com.example.apphear/.SplashActivity'
+    }
+    $attemptSessionId = if ($a1Mode) {
+        "${SessionId}_$($a1Mode.ToLowerInvariant())"
+    } else {
+        $SessionId
+    }
     $instructionBase64 = [Convert]::ToBase64String([Text.Encoding]::UTF8.GetBytes([string]$row.instruction))
     Write-Host ""
     Write-Host ("[{0:D2}/{1:D2}] {2} {3} | expected hands: {4}" -f $order, $totalAttempts, $row.gloss, $row.repetition_id, $row.expected_hands)
@@ -50,16 +70,26 @@ foreach ($row in $queue) {
 
     $before = @(& $adb shell "find $remoteRoot -mindepth 2 -maxdepth 2 -name capture_complete.json -print 2>/dev/null")
     & $adb shell am force-stop com.example.apphear | Out-Null
-    & $adb shell am start -n com.example.apphear/.SplashActivity `
-        --es ru_d1_gloss $row.gloss `
-        --es ru_d1_expected_hands $row.expected_hands `
-        --es ru_d1_signer_id $SignerId `
-        --es ru_d1_variant $row.variant `
-        --es ru_d1_session_id $SessionId `
-        --es ru_d1_repetition_id $row.repetition_id `
-        --es ru_d1_instruction_b64 $instructionBase64 `
-        --ei ru_d1_capture_order $order `
-        --ei ru_d1_total_attempts $totalAttempts | Out-Null
+    $launch = @(
+        'shell', 'am', 'start', '-n', $activity,
+        '--es', 'ru_d1_gloss', $row.gloss,
+        '--es', 'ru_d1_expected_hands', $row.expected_hands,
+        '--es', 'ru_d1_signer_id', $SignerId,
+        '--es', 'ru_d1_variant', $row.variant,
+        '--es', 'ru_d1_session_id', $attemptSessionId,
+        '--es', 'ru_d1_repetition_id', $row.repetition_id,
+        '--es', 'ru_d1_instruction_b64', $instructionBase64,
+        '--ei', 'ru_d1_capture_order', $order.ToString(),
+        '--ei', 'ru_d1_total_attempts', $totalAttempts.ToString()
+    )
+    if ($a1Mode) {
+        $launch += @('--es', 'a1_mode', $a1Mode, '--es', 'a1_run_id', "SIGNING_$order")
+    }
+    if ($a1Mode -eq 'A1') {
+        $launch += @('--el', 'a1_max_pose_age_ms', $A1MaxPoseAgeMs.ToString())
+    }
+    & $adb @launch | Out-Null
+    if ($LASTEXITCODE -ne 0) { throw "Activity launch failed for attempt $order." }
 
     $deadline = if ($AttemptTimeoutSeconds -gt 0) {
         (Get-Date).AddSeconds($AttemptTimeoutSeconds)

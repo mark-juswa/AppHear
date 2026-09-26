@@ -2,7 +2,35 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <application>
+    <!-- Debug-only full-session synchronized visual capture holds source-frame copies while its
+         writer drains. Low-memory phones otherwise cap this diagnostic process at 128 MiB. -->
+    <application android:largeHeap="true">
+        <!-- Phase 4A Gate 4A-1B: debug-only controlled recapture with bounded visual evidence.
+             It never commits text to the production conversation UI. -->
+        <activity
+            android:name=".perceptionvnext.PerceptionVNextLiveRecognitionActivity"
+            android:exported="true" />
+        <!-- Bounded exact-frame Candidate 01 parity; debug-only and recognition-disconnected. -->
+        <activity
+            android:name=".perceptionvnext.PerceptionVNextFixtureActivity"
+            android:exported="true" />
+        <!-- Perception vNext candidate 01. Debug-only, build-flagged, explicit ADB opt-in,
+             current-frame observation only, and disconnected from recognition/S5/S7/UI. -->
+        <activity android:name=".perceptionvnext.PerceptionVNextActivity" android:exported="true" />
+        <!-- P8-C3B1 controlled Student-only capture. Debug-only, explicit ADB opt-in, and
+             disconnected from DWPose, recognition, S5, S7, and sentence generation. -->
+        <activity android:name=".p8c3b1.P8c3b1CaptureActivity" android:exported="true" />
+        <!-- P8-B frozen Student-1 mobile engineering baseline. Debug-only and explicit opt-in;
+             never connected to S5/S6/S7, sentence generation, or production recognition. -->
+        <activity android:name=".p8b.P8bRuntimeActivity" android:exported="true" />
+        <!-- P7E fixed-15 camera experiment: debug-only, explicit opt-in, no production use. -->
+        <activity android:name=".p7e.P7eRuntimeActivity" android:exported="true" />
+        <!-- P7D-R2 native host feasibility, isolated debug-only explicit opt-in. -->
+        <activity android:name=".p7dr2.P7dr2RuntimeActivity" android:exported="true" />
+        <!-- P7D-R1 isolated, default-off data-path remediation; no production connection. -->
+        <activity android:name=".p7dr1.P7dr1RuntimeActivity" android:exported="true" />
+        <!-- P7-D is debug-only, no launcher, explicit intent opt-in and host-pass marker. -->
+        <activity android:name=".p7d.P7dRuntimeActivity" android:exported="true" />
         <activity
             android:name=".RecognitionActivity"
             android:exported="false"
@@ -13,5 +41,22 @@
             android:name=".RuD10BenchmarkActivity"
             android:exported="true"
             android:targetActivity=".RecognitionActivity" />
+        <activity-alias
+            android:name=".A1BenchmarkActivity"
+            android:exported="true"
+            android:targetActivity=".RecognitionActivity" />
+        <!-- P6-C debug-only/default-off ADB entry point. It has no launcher intent and is not
+             connected to RecognitionPipeline, S5, S6, S7, or production assets. -->
+        <activity
+            android:name=".p6c.P6cFixtureParityActivity"
+            android:exported="true" />
+        <activity
+            android:name=".p6c.P6cLiveBenchmarkActivity"
+            android:exported="true" />
+        <!-- P6C-P1 debug-only provider triage. This consumes prepared tensors only and has no
+             CameraX, recognizer, S5, S7, or production-pipeline connection. -->
+        <activity
+            android:name=".p6c.P6cp1ProviderBenchmarkActivity"
+            android:exported="true" />
     </application>
 </manifest>

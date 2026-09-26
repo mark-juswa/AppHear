@@ -40,6 +40,22 @@ android {
     val ruD10S5OneShortGap = providers.gradleProperty("ruD10B")
         .map { it.equals("true", ignoreCase = true) }
         .getOrElse(false)
+    val a1IndependentClock = providers.gradleProperty("a1IndependentClock")
+        .map { it.equals("true", ignoreCase = true) }
+        .getOrElse(false)
+    val perceptionVNextDebug = providers.gradleProperty("perceptionVNext")
+        .map { it.equals("true", ignoreCase = true) }
+        .getOrElse(false)
+    val phoneCausalRecognitionDebug = providers.gradleProperty("phoneCausalRecognition")
+        .map { it.equals("true", ignoreCase = true) }
+        .getOrElse(false)
+    val phoneS2DebugPackage = providers.gradleProperty("apphearPhoneS2Package")
+        .orNull
+        ?.uppercase()
+        ?: "S2_R2_CANDIDATE"
+    require(phoneS2DebugPackage in setOf("S2_R2_CANDIDATE", "PHASE7_CONTROL")) {
+        "apphearPhoneS2Package must be S2_R2_CANDIDATE or PHASE7_CONTROL"
+    }
 
     namespace = "com.example.apphear"
     compileSdk = 36
@@ -61,6 +77,7 @@ android {
 
     buildTypes {
         debug {
+            buildConfigField("String", "APP_PHONE_S2_PACKAGE", "\"$phoneS2DebugPackage\"")
             buildConfigField("boolean", "PHASE1_SHADOW_ENABLED", phase1ShadowDebug.toString())
             buildConfigField("boolean", "RU_D1_ENABLED", ruD1Debug.toString())
             buildConfigField(
@@ -69,13 +86,24 @@ android {
                 ruD10ObservationContinuity.toString(),
             )
             buildConfigField("boolean", "RU_D10_S5_ONE_SHORT_GAP_ENABLED", ruD10S5OneShortGap.toString())
+            buildConfigField("boolean", "A1_INDEPENDENT_CLOCK_ENABLED", a1IndependentClock.toString())
+            buildConfigField("boolean", "PERCEPTION_VNEXT_ENABLED", perceptionVNextDebug.toString())
+            buildConfigField(
+                "boolean",
+                "PHONE_CAUSAL_RECOGNITION_ENABLED",
+                phoneCausalRecognitionDebug.toString(),
+            )
         }
         release {
+            buildConfigField("String", "APP_PHONE_S2_PACKAGE", "\"S2_R2_CANDIDATE\"")
             isMinifyEnabled = false
             buildConfigField("boolean", "PHASE1_SHADOW_ENABLED", "false")
             buildConfigField("boolean", "RU_D1_ENABLED", "false")
             buildConfigField("boolean", "RU_D10_OBSERVATION_CONTINUITY_ENABLED", "false")
             buildConfigField("boolean", "RU_D10_S5_ONE_SHORT_GAP_ENABLED", "false")
+            buildConfigField("boolean", "A1_INDEPENDENT_CLOCK_ENABLED", "false")
+            buildConfigField("boolean", "PERCEPTION_VNEXT_ENABLED", "false")
+            buildConfigField("boolean", "PHONE_CAUSAL_RECOGNITION_ENABLED", "false")
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
@@ -93,6 +121,7 @@ android {
     androidResources {
         noCompress += "task"
         noCompress += "tflite"
+        noCompress += "onnx"
     }
     buildFeatures {
         buildConfig = true
@@ -123,6 +152,9 @@ dependencies {
 
     // S6 recognition: the INT8 streaming model (custom .tflite, separate from MediaPipe's landmarkers).
     implementation(libs.tensorflow.lite)
+
+    // Candidate01 uses the already-parity-checked DWPose-t ONNX runner in the real app.
+    implementation(libs.onnxruntime.android)
 
     testImplementation(libs.junit)
     testImplementation(libs.gson)

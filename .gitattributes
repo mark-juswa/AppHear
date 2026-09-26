@@ -1,0 +1,5 @@
+# Runtime and parity assets are byte-identity contracts. Never line-ending convert them.
+android/app/src/main/assets/** -text -diff
+android/app/src/debug/assets/** -text -diff
+android/app/src/main/jniLibs/** -text -diff
+android/app/src/debug/jniLibs/** -text -diff

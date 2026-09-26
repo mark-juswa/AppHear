@@ -4,6 +4,42 @@ Operational architecture contract. Deep rationale: [`../docs/01-system-architect
 
 ---
 
+## Current governed vNext architecture — 2026-09-15
+
+The next production-candidate flow is:
+
+```text
+REAL PHONE CAMERA
+→ frozen Candidate 01 continuous perception
+→ rolling apphear.perception_vnext.raw.v1 observation buffer
+→ automatic isolated-sign active-window extraction
+→ one small controlled pre/post boundary margin
+→ frozen apphear.perception_vnext.recognition.v2 [96,350] + [96] mask
+→ improved 236-class isolated-sign recognizer
+→ gloss
+→ existing AppHear conversational UI
+→ automatic re-arm for the next isolated sign
+```
+
+This event loop processes a continuous camera stream, but its recognition unit remains one
+pause-separated isolated sign. It is not a claim of fluent continuous-ASL recognition or solved
+coarticulation.
+
+Gate 4A-1C causally established the need for the active-window stage: with perception, V2 and the
+ordinary V2 TCN frozen, oracle temporal isolation improved Top-1 `2/10→7/10` and expected-in-Top-5
+`5/10→8/10`, with five wrong attempts becoming correct and none becoming wrong. Complete
+body-reference validity is not a hard global recognition gate: HELLO stayed correct and HOME ×2
+became correct with 0% complete body-group availability. Future framing support is guidance and a
+quality aid unless separately validated as a mandatory gate.
+
+Phase 1 and Phase 2 remain frozen. Gate 5 formally classified Phase 4A as
+`PHASE_4A_COMPLETE_RETURN_TO_PHASE_3`; Gate 4A-2 is superseded by later governed validation after
+Phase-3 improvement. Phase 3 unseen-signer/generalization is still unsolved and the next primary
+boundary is `PHASE_3_RECOGNIZER_GENERALIZATION_REOPEN`. No segmentation, Phase-3 implementation,
+or training is authorized by this context update.
+
+---
+
 ## Stack
 
 | Layer | Tool | Purpose |
@@ -187,3 +223,16 @@ As approved on 2026-08-11, execution order is: (1) a trustworthy 236-sign landma
 (2) an isolated landmark + RGB hand-crop hybrid guided by baseline errors, (3) continuous
 boundary/gloss recognition after phrase-level data exists, and (4) language intelligence after
 visual reliability. Only Phase 1 preparation is active; Android serving remains unchanged.
+
+## 2026-09-04 — Recognition-upgrade current-state clarification
+
+The older hybrid roadmap above is historical, not the current execution queue.
+[Progress through P7F-A](recognition_upgrade/PROGRESS_THROUGH_P7FA_2026_09_04.md) records the intervening governed decisions.
+
+Production remains the legacy MediaPipe/S4/S5/S6/S7 path. Offline PFCE_MATCHED + EC_P3 uses
+DWPose V2 [96,238], with MODERATE validation confidence and no assumed checkpoint transfer.
+The future Family-A hypothesis is FA_DS_SPATIAL_V1, explicit anatomical hands/eight body joints,
+not a production integration: full-frame384 FP32 → heatmaps96x96x50 + two assignment logits →
+frozen decoder → future calibrated202-float ABI/representation adapter. Random outputs remain
+POLICY_UNCONFIGURED and never feed S5/S6/S7. Exact DWPose mobile serving is closed on target;
+DWPose is retained as offline reference/teacher. No architectural change is made by this note.

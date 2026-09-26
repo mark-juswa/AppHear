@@ -1,5 +1,26 @@
 # Project Overview
 
+## Current governed product state — 2026-09-15
+
+The current product target is **full 236+ vocabulary isolated-sign recognition**, not fluent
+continuous ASL: real phone camera → frozen Candidate 01 perception → automatic isolation of one
+sign event → frozen recognition-v2 → improved 236-class recognizer → gloss → the existing AppHear
+conversational UI. The future runtime must use a rolling raw-v1 buffer, automatic sign-start/end,
+a small controlled pre/post margin, and automatic re-arm for the next isolated sign. Continuous
+fluent ASL with coarticulation remains later research and is not solved by this architecture.
+
+Gate 4A-1C is an independently validated causal result. With Candidate01, recognition-v2, the
+ordinary V2 TCN and all weights frozen, oracle active-sign isolation improved the same retained
+live attempts from Top-1 `2/10` to `7/10` and expected-in-Top-5 `5/10` to `8/10`; five wrong
+attempts became correct and none became wrong. Automatic active-sign temporal segmentation is
+therefore a required product component, but AT ×2 and one STREET attempt remained wrong. Gate 5
+formally classified Phase 4A as **`PHASE_4A_COMPLETE_RETURN_TO_PHASE_3`** and assigned the
+separate unresolved unseen-signer/generalization blocker back to Phase 3. Gate 4A-2 is superseded
+by a later governed phone
+validation after Phase-3 improvement. The next primary boundary is
+`PHASE_3_RECOGNIZER_GENERALIZATION_REOPEN` for a new-information/diversity strategy—not same-data
+microtuning; this state does not authorize implementation or training.
+
 ## About the Project
 
 AppHear 3 is a **real-time, on-device American Sign Language recognition system** for budget

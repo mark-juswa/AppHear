@@ -1,0 +1,88 @@
+{
+  "authorization": "User explicitly authorized appending progress to context and tracker while preserving old content.",
+  "date": "2026-09-04",
+  "scope": "Documentation synchronization only; no experiment, implementation, training or production approval.",
+  "verification_method": "Before/after SHA256 plus SHA256 of each original full text prefix after normalizing CRLF to LF. Existing text and blank lines preserved; line-ending encoding is not claimed byte-identical.",
+  "files": [
+    {
+      "path": "context/progress-tracker.md",
+      "prefix_sha256": "107a9f9e4ac68baa22b4002b597da753ce4bcf6a586545431646e2e81ea9d511",
+      "sha256": "eba8e1f715f50cbf6b2af53903aa929e5fd8d381da12fe67e151d7bd5e1c5a79",
+      "characters": 399389,
+      "before_sha256": "12cf08f81959a413a60aa1f869615a24485a41ee3d796e61fce7489ae5c480cf",
+      "original_content_preserved": true,
+      "characters_added": 3535
+    },
+    {
+      "path": "context/feature-schema.md",
+      "prefix_sha256": "8764ba717d2f078faf042250d88480520e78173a233e9c6c991860306c698a3f",
+      "sha256": "1a271ac75a948032c3f67867882fa0bc071b3642a53e1ac3e77d8753e558904d",
+      "characters": 38314,
+      "before_sha256": "43c8d2ed96d7900fe2a77bb9d0efc641429328e572a86cf6c9d99cc331de3969",
+      "original_content_preserved": true,
+      "characters_added": 3214
+    },
+    {
+      "path": "context/recognition_upgrade/README.md",
+      "prefix_sha256": "09d72180b0e12aef03d775f6d4dcf842c3d97920b7e388f77ddcbf1e85013922",
+      "sha256": "83a003a51cbb1d31ec35977b4709123d4a703ecb41ccf47d74d30e51bd0aeaa6",
+      "characters": 53474,
+      "before_sha256": "1b7c47070126c590e66e7c4f8a9403bd95ed31509a16243eb3bc5b572563fd09",
+      "original_content_preserved": true,
+      "characters_added": 1085
+    },
+    {
+      "path": "context/architecture.md",
+      "prefix_sha256": "553c288b034f28b5af77971ee4ffa49621a2d117911318f0b9eab473332d72af",
+      "sha256": "c0fffa9daa392e1fc40cf5f9597a17293344fbb476f3cebeb08d5624cabc11cc",
+      "characters": 11524,
+      "before_sha256": "c90f2f343a306646a5f66748614f1dcc7f063bc9e4234c08913e7cdcd7045156",
+      "original_content_preserved": true,
+      "characters_added": 930
+    },
+    {
+      "path": "context/runtime-constraints.md",
+      "prefix_sha256": "2ead416a0844bd1738c045e2fb7d4ba5662c1cfb6576c39430b7fd8c41760497",
+      "sha256": "fcd754c4fa2266051a29f26e8bc3971094c3fcd0306086461d4101580f549881",
+      "characters": 4741,
+      "before_sha256": "2ead416a0844bd1738c045e2fb7d4ba5662c1cfb6576c39430b7fd8c41760497",
+      "original_content_preserved": true,
+      "characters_added": 1001
+    },
+    {
+      "path": "context/eval-protocol.md",
+      "prefix_sha256": "462e3b0e29a256419f8dd8aaed55992e8e8250abf0ea37ff75a082dcac75ff60",
+      "sha256": "87879197ff35441c0b4400349b04dfae36b7a8bc7249a483aaae7eca3de665a3",
+      "characters": 5025,
+      "before_sha256": "462e3b0e29a256419f8dd8aaed55992e8e8250abf0ea37ff75a082dcac75ff60",
+      "original_content_preserved": true,
+      "characters_added": 1304
+    },
+    {
+      "path": "context/build-plan.md",
+      "prefix_sha256": "d2501f614a7d5f1d978fbecda0689a81956edd715d6ceb43e354f25cb1cb05a5",
+      "sha256": "7aae06746ce7b66b21780ecb539786a96fa6f3155ff88197e3c1f6a38977b586",
+      "characters": 10198,
+      "before_sha256": "beba744a939412683470ae7804cf61cd7d5da11a279654a2c3c4e0c72c0582e0",
+      "original_content_preserved": true,
+      "characters_added": 831
+    },
+    {
+      "path": "memory.md",
+      "prefix_sha256": "b8b50de0903439e30d357a4a99f5ddf682332c2516ef022bb57ec00ac4aa7d73",
+      "sha256": "2084f4f965d3a55e5102a4686704a4d6daeb3b4a8b9cc6246f9ff982f667f47a",
+      "characters": 7715,
+      "before_sha256": "b8b50de0903439e30d357a4a99f5ddf682332c2516ef022bb57ec00ac4aa7d73",
+      "original_content_preserved": true,
+      "characters_added": 907
+    }
+  ],
+  "new_consolidated_document": "context/recognition_upgrade/PROGRESS_THROUGH_P7FA_2026_09_04.md",
+  "P7FA_artifact_manifest_entries_verified": 29,
+  "P7FA_artifact_changes": [],
+  "historical_results_reclassified": false,
+  "old_experiment_finalizers_rerun": false,
+  "next_gate": "PROJECT_LEAD_FAMILY_A_SUPERVISION_CONTRACT_REVIEW",
+  "next_gate_executed": false,
+  "imprint_usage": "Appended existing contract/experimental component registry boundaries; no new schema or implementation change."
+}

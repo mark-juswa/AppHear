@@ -7,6 +7,9 @@ import android.graphics.Paint
 import android.util.AttributeSet
 import android.view.View
 import com.example.apphear.pipeline.FrameResult
+import com.example.apphear.perceptionvnext.PerceptionVNextMath
+import com.example.apphear.perceptionvnext.PerceptionVNextOverlayRenderer
+import com.example.apphear.perceptionvnext.PerceptionVNextOverlayView
 import kotlin.math.max
 
 /**
@@ -54,6 +57,29 @@ class OverlayView(context: Context, attrs: AttributeSet?) : View(context, attrs)
             return if (r.isFrontCamera) width - x else x
         }
         fun mapY(ny: Float): Float = ny * r.imageHeight * scale + dy
+
+        r.phoneOverlay?.let { phone ->
+            fun hand(side: Int): PerceptionVNextOverlayView.Hand {
+                val centerSide = phone.handRoiCenterSide[side]
+                val roi = centerSide.takeIf { it[2] > 0f }?.let {
+                    PerceptionVNextMath.HandRoi(
+                        it[0], it[1], it[2], phone.sourceWidth, phone.sourceHeight, 0,
+                    )
+                }
+                return PerceptionVNextOverlayView.Hand(
+                    phone.handXy[side], phone.handValid[side], phone.handObserved[side],
+                    phone.handPresence[side].takeIf { it.isFinite() }, roi,
+                )
+            }
+            PerceptionVNextOverlayRenderer.draw(
+                canvas, width, height,
+                PerceptionVNextOverlayView.Snapshot(
+                    phone.sourceWidth, phone.sourceHeight, hand(0), hand(1),
+                    phone.bodyXy, phone.bodySupport,
+                ),
+            )
+            return
+        }
 
         r.pose?.landmarks()?.forEach { pose ->
             pose.forEach { lm -> canvas.drawCircle(mapX(lm.x()), mapY(lm.y()), 6f, posePaint) }

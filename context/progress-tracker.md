@@ -1,5 +1,158 @@
 # Progress Tracker
 
+**CURRENT STATUS 2026-09-23 — `APPHEAR_S2_R2_REAL_APP_INTEGRATION_COMPLETE`:** The normal
+AppHear RecognitionActivity on Xiaomi M2101K7AG completed the fixed HELLO → HOME → TABLE →
+HELLO live sequence with one S2-R2 SignEvent, one displayed/sentence result, and natural
+re-arm per intended sign. Two distinct ordinary-motion commits before/after the sequence
+remain a confirmed product limitation, not a measured false-positive rate. No model or
+lifecycle tuning occurred. Return integrated-app evidence to the Project Lead before choosing
+the next component; do not start another S2 experiment automatically.
+
+**PRIOR STATUS 2026-09-23 — `S2_R2_INTEGRATION_READY_WITH_KNOWN_LIMITATIONS`:** The
+representative Xiaomi `M2101K7AG` final validation used a frozen six-attempt cohort and a
+supervisor-attested distinct signer. The frozen S2-R2 package acquired ACTIVE in 6/6 intended
+signs (52/56 human ACTIVE observations), emitted one event per attempt, and delivered 6/6 windows
+with 100% human ACTIVE containment; Phase-7 same-observation control attained 5/6, 20/56, and
+1/6 >=90%-contained windows. All seven S2-R2 events re-armed. Five visually confirmed non-sign
+intervals (227 observations) had zero ACTIVE states and zero event onsets in either branch. One
+pre-HELLO S2-R2 event remains **uncertain/mixed**, not a confirmed false positive or genuine sign.
+Three of six usable windows produced wrong recognizer Top-1 results. Cadence, 714/714 visual
+coverage, Android/host parity, and unchanged downstream replay all passed. Next milestone:
+`APPHEAR_S2_R2_REAL_APP_INTEGRATION_01`; no new S2 training/tuning from this signer.
+
+**PHASE 8A-U STATUS 2026-09-20 — DATA AND CAUSAL OBJECTIVE CORRECTION SUPPORTED:** Audited the
+exact Phase-7 optimization exposure separately from checkpoint selection: FIT contained `71`
+clips / `213` sparse views and CAL contained `18` clips / `54` views. FIT supplied `52`
+ASL_CITIZEN clips across 23 signers, `9` APPHEAR_CAPTURE clips from one signer, and `10` LOCAL
+clips across three signers. Although `210/213` FIT views retained supervised ACTIVE→POST evidence
+and `191/213` covered CONFIG_01's 266.616 ms confirmation timescale, LOCAL POST supervision was
+highly concentrated: one signer supplied `82.65%` of its sparse POST observations. Phase-7
+checkpoint selection was also causally misaligned: it used the completed-sequence global decoder
+and omitted causal completion/terminal-latency metrics; the selected epoch scored global emission
+`54/54` but CONFIG_01 emission only `50/54` on the same CAL views. The governed unused pool can
+add known-signer/ASL transition volume, but contains no unreserved independent APPHEAR/LOCAL
+signer outside current TRAIN/DEV roles. The Phase-8A-T `97` versus `94` control discrepancy is
+valid: three successful VIEW_A events committed just before human END, leaving no causal
+post-END-to-commit observation to summarize. Final state:
+`TARGETED_S2_DATA_AND_CAUSAL_OBJECTIVE_CORRECTION_SUPPORTED`. No S2-R1 run, inference,
+extraction, phone/recognition/protected access, decoder/materializer change, or Android change
+occurred. Current boundary: `WAIT_FOR_PROJECT_LEAD_S2_R1_ARCHITECTURE_REVIEW`.
+
+**PHASE 8A-T STATUS 2026-09-19 — TERMINAL FAILURE ATTRIBUTED TO S2 GENERALIZATION:** Reused
+persisted frozen-S2 streams for 54 CAL and 69 signer-disjoint sparse DEV views. Of seven genuine
+non-censored DEV no-event views, six lacked terminal signal, one was ambiguous, and zero contained
+successful-commit-like terminal evidence unused by CONFIG_01; three additional no-events remain
+explicitly right-censored. Final state: `S2_TERMINAL_GENERALIZATION_CORRECTION_SUPPORTED`.
+Probability-aware decoder work is not justified first. Current boundary:
+`WAIT_FOR_PROJECT_LEAD_TERMINAL_ARCHITECTURE_DECISION`; if authorized, audit signer/recovery
+transition diversity before one targeted S2 ACTIVE-to-POST correction. Do not train, retune,
+access phone/protected populations, or reopen the frozen materializer automatically.
+
+**PHASE 5.1S STATUS 2026-09-16 — END CONFLICT ATTRIBUTED, NO REPAIR AUTHORIZED:** Decomposed all
+49 timestamp-derived END durations over all 1,028,193 discrete calibration low-threshold tuples and
+constructed exact per-attempt regions, pairwise conflicts, end traces, quiet-veto counts,
+recovery-motion attribution, and the four bounded one-at-a-time counterfactuals. All four
+TABLE/non-TABLE pairwise regions are disjoint whenever TABLE is feasible, solely on
+`H_proposal_image`: TABLE requires `<=0.09955792507085848`; closest partner HOME requires
+`>=0.24807557246229403`. The threshold gap is the numerical symptom. Primary root cause is
+`RECOVERY_AS_ACTIVITY_CONFLICT_SUPPORTED`: at the fixed TABLE-side diagnostic anchor, oracle-only
+CF-D makes all five attempts structurally feasible, whereas CF-A/CF-B/CF-C do not. Post-oracle
+recovery motion in the four non-TABLE attempts is treated as renewed activity and pushes padded
+ends beyond the 500 ms context target; increasing the proposal threshold avoids that recovery but
+cuts TABLE before its oracle end. Tier/validity transitions are secondary, and missingness or quiet
+fusion alone is ruled out as primary. This is diagnostic only: no state logic, threshold, schema,
+Android, recognizer, or training change occurred. Holdout 004/006/008/010 remains sealed.
+Canonical report:
+`artifacts/recognition_upgrade/perception_vnext/recognition_utility_236_01/phase5_1s_global_end_conflict_attribution_01/PHASE_5_1S_GLOBAL_END_CONFLICT_ATTRIBUTION_01.md`.
+Current boundary: `WAIT_FOR_PROJECT_LEAD_PHASE_5_1S_ARCHITECTURE_DECISION`; do not implement a
+repair or begin Phase 5.2.
+
+**PHASE 5.1R STATUS 2026-09-16 — NO GLOBAL FEASIBLE END DURATION, HOLDOUT SEALED:** Ran the
+authorized single-variable recovery with every Phase-5.1 component fixed except
+`end_quiet_persistence_ms`. Derived 49 behaviorally distinct candidates from genuine calibration
+source-timestamp differences below 500 ms; no arbitrary millisecond grid was used. Exact/pruned
+complete end-policy feasibility found zero joint low-threshold motion patterns at every candidate.
+TABLE becomes individually feasible only within part of the approximately 266.616–199.962 ms
+frontier, but no shared pattern satisfies all five calibration attempts; at shorter behavior HOME
+and TABLE become individually infeasible. Final classification:
+`END_POLICY_RECOVERY_NO_GLOBAL_FEASIBLE_DURATION`. No thresholds or runnable config were frozen,
+LOgO was not run, and holdout attempts 004/006/008/010 remain unopened. Phase-5.1 core source
+hashes are unchanged; the new non-runnable config SHA-256 is
+`4188a4d2037066c657a5589a9e714bde89e663e152e4b517ef6a21da1c8b61e2`. Canonical report:
+`artifacts/recognition_upgrade/perception_vnext/recognition_utility_236_01/phase5_1r_end_policy_feasibility_recovery_01/PHASE_5_1R_END_POLICY_FEASIBILITY_RECOVERY_01.md`.
+Current boundary: `WAIT_FOR_PROJECT_LEAD_SEGMENTATION_DIAGNOSIS`; do not change another policy
+component, open holdout, run recognition, integrate Android, or begin Phase 5.2 automatically.
+
+**PHASE 5.1 STATUS 2026-09-16 — CALIBRATION STOP, HOLDOUT SEALED:** Implemented the offline-only
+raw-v1 activity signals, deterministic timestamp-based state machine, hard-gap/missingness handling,
+canonical `apphear.segmentation.sign_event.v1` serializer, exact calibration feasibility proof, and
+engineering fixtures. The locked oracle SHA-256 matched
+`0e6f14f159287ce830b68c4d33edba88dbb6aeef386060b80f79e3fed4a1e41f`. Exact evaluation of
+1,028,193 empirical low-threshold tuples collapsed to 65,674 distinct motion patterns and found
+zero joint feasible patterns under the initial temporal policy; attempt 009/TABLE independently had
+zero feasible end patterns even with start activation relaxed. Final classification:
+`CALIBRATION_INSUFFICIENT_FOR_CURRENT_TEMPORAL_POLICY`. No duration sweep or LOO selection ran, no
+runnable threshold configuration was frozen, and holdout attempts 004/006/008/010 were not opened.
+Gap/missingness fixtures pass, and 12 targeted segmentation/adjacent-schema tests pass. Candidate01,
+Recognition V2, the recognizer, Android behavior, training, DEV, and protected TEST remain unchanged
+or unaccessed. Canonical report:
+`artifacts/recognition_upgrade/perception_vnext/recognition_utility_236_01/phase5_1_offline_automatic_segmenter_01/PHASE_5_1_OFFLINE_AUTOMATIC_SEGMENTER_01.md`.
+Current boundary: `WAIT_FOR_PROJECT_LEAD_SEGMENTATION_DIAGNOSIS`; do not alter durations, tune
+thresholds, open holdout, or begin Android integration automatically.
+
+**PHASE 5.0 STATUS 2026-09-15 — AUDIT / CONTRACT COMPLETE:** Exact raw-v1 signal inventory and
+calibration-only activity audit are complete. The proposed deterministic timestamp-based state
+machine, global one-shot threshold method, pre/post margins, re-arm/gap policy, and future
+`apphear.segmentation.sign_event.v1` wrapper are awaiting project-lead review. Phase 5.1 is not
+started. Current boundary: `WAIT_FOR_PROJECT_LEAD_PHASE_5_1_IMPLEMENTATION_REVIEW`.
+
+**PRODUCT RE-ANCHOR 2026-09-12 — AUDIT COMPLETE, PHONE BASELINE REVIEW NEXT:** The true product
+target is the existing expandable 236-sign Android sign-to-text application, with production path
+CameraX -> MediaPipe Hand/Pose -> schema-3.0 S4 `[96,258]` -> S5 -> 236-class S6 -> S7
+confirmation/release -> sentence UI. P8-C2 is retained only as reusable debug/mobile engineering;
+its failed 50-point Student is not production-compatible and remains disconnected. Family-A,
+Students 1/2, P7G03 five-sign work, exact Android DWPose and the rejected RTMDet P0 route are
+closed. No existing replacement is both phone-qualified and contract-compatible, so MediaPipe
+remains the shipping baseline. Exact next milestone, after project-lead approval, is
+`PHONE_REANCHOR_236_END_TO_END_BASELINE`; no training, Student-3, recognition experiment,
+five-sign scope reduction or closed-branch retry is authorized. `STOP_FOR_PROJECT_LEAD_REVIEW`.
+
+**P3 DWPOSE LANDMARK TEMPORAL USABILITY 2026-08-22 - `TEMPORALLY_USABLE`, QUALIFIED COMPLETE:** Reused the immutable P2-A DWPose-L 256x192 checkpoint/config/environment and ran one frozen raw-native temporal audit over 753 frames from 33 sequences and 14 governed signer IDs: all 21/551 human-reviewed A2 phone sequences plus 12 unique-signer, condition-balanced consecutive gold-video windows. Human 21-point landmark truth is unavailable, so geometry results are internal-consistency diagnostics rather than landmark accuracy. Against 323 directly reviewed visible anatomical hand observations, DWPose presence coverage was 321/323 (99.38%) versus recorded, not rerun, MediaPipe 230/323 (71.21%); complete two-visible-hand frames were 96/97 (98.97%) versus 50/97 (51.55%). DWPose produced two one-observation dropouts and no multi-observation dropout, zero suspected swaps across 261 two-slot adjacent pairs, zero direct wrong-slot-only contradictions, zero collapse/scatter frames, and two sudden jumps across 741 adjacent present-slot pairs. Direct SISTER crossing/body-contact frames retained both hands with no swap flag; the four historical RU-D9 interaction spans retained any hand in every frame and both hands in 8/8 GOOD R1, 10/10 GOOD R2, 5/11 WE torso-contact/blur, and 17/21 SISTER overlap frames. Important qualification: the frozen top-down presence rule emitted at least one hand on 116/324 (35.80%) human-reviewed zero-hand frames and 85/271 (31.37%) explicit rest frames, so `TEMPORALLY_USABLE` describes visible-hand landmark continuity/slot stability, not a production-safe absence signal or drop-in recognizer input. DWPose supplies 2D xy+score and no compatible z/depth, so replay into current `[96,258]` was correctly not performed. CPU latency p50/p95 was 125.38/145.32 ms and peak RSS 0.619 GiB, diagnostic only. A scoring-only cohort-association defect omitted three RU-D9 case spans in the first report pass; the original evaluator/protocol/report are preserved, the correction is fully hashed, native inference was not rerun, and aggregate results did not change. Canonical report: `artifacts/recognition_upgrade/perception_backend_replacement/p3_dwpose_temporal_usability_01/P3_DWPOSE_LANDMARK_TEMPORAL_USABILITY_RESULT.md`. Stop before any representation experiment, presence-gate design, S6 retraining, Sapiens, Android, or S4-S7 change.
+
+**P2-A DWPOSE-L WSL2 CONTINUATION 2026-08-22 - `ARCHITECTURE_PROMISING`, COMPLETE:** Preserved the historical Windows result as `INCONCLUSIVE_P2A` (full-MMCV environment blocker), then resumed the identical frozen DWPose-L 256x192 experiment under Ubuntu 24.04 WSL2. Reused the exact read-only `dw-ll_ucoco.pth` checkpoint (SHA-256 `e9600664e7927229ed594197d552023e3be213f810beb38847a959ec8261e0f7`) and pinned config; full MMCV 2.0.1 compiled ops, the 133-keypoint path, hand indices, official SimCC decoder, full-frame ROI, flip test, 0.30/11-joint gate, and spatial matcher all verified unchanged. Frozen manifest SHA-256 `dce78eeb8855dfaaa01b23aeeeee4cecaa13e391022857e195376a948dfa3833`; processed 350/350. Ungated/gated hand recall was 182/184 (98.91%) / 181/184 (98.37%), MediaPipe misses recovered 60/62 / 59/62, MediaPipe hits lost 0/122 / 0/122, complete two-hand recall 65/67 / 64/67, HARD_CORE recovery 44/46 / 43/46, and REGRESSION_25 retained 25/25 in both views. Gates A-D pass ungated and gated. Forced whole-frame negative stress produced gated presence in 69/200 (34.5%), explicitly not a production false-positive rate; an upstream person/ROI eligibility decision remains necessary. CPU total latency p50/p95 was 119.94/142.94 ms and peak process RSS 0.620 GiB, diagnostic only. Canonical Linux result: `artifacts/recognition_upgrade/perception_backend_replacement/p2a_dwpose_l_linux_01/P2A_DWPOSE_L_FROZEN_PERCEPTION_RESULT.md`. No Sapiens, training, threshold/ROI retry, Android, S4-S7, or recognition change occurred. Stop before the next perception phase.
+
+**P2-A DWPOSE-L 2026-08-22 - `INCONCLUSIVE_P2A`, BLOCKED BEFORE INFERENCE:** Obtained the exact requested `dw-ll_ucoco.pth` (404,734,742 bytes) and verified SHA-256 `e9600664e7927229ed594197d552023e3be213f810beb38847a959ec8261e0f7`; pinned the exact 256x192 config from IDEA-Research/DWPose commit `0232d66f420f411451d277905a08ff8d541dc78e`. Created a separate Python 3.9 CPU environment without touching production. The untouched model-load smoke failed because `mmcv-lite 2.0.1` lacks `mmcv._ext`; the one clean corrective attempt to build official full `mmcv 2.0.1` failed because Microsoft Visual C++ 14+ is absent. Applied the preregistered package-compatibility stop rule: no model-code bypass, alternate checkpoint/ONNX, compiler installation, manifest scoring, or inference. Processed 0/350 images; all perception metrics and Gates A-D are `NOT_EVALUATED`. Canonical report: `context/recognition_upgrade/P2A_DWPOSE_L_FROZEN_PERCEPTION_RESULT.md`; machine result: `artifacts/recognition_upgrade/perception_backend_replacement/p2a_dwpose_l_01/p2a_dwpose_blocker_result.json`. No Sapiens, MediaPipe rerun, training, threshold change, Android, S4-S7, or benchmark change occurred.
+
+**NEGATIVE_GOLD_V1 EXTERNAL CONFIRMATION 2026-08-22 - `NEGATIVE_GOLD_V1_STILL_INCOMPLETE`, HARD QC FAIL:** Formally processed all 180 completed second-pass rows into 160 canonical labels and 20 concealed-repeat comparisons. All 160 canonical rows are `ZERO_HAND`, and all 160 are mechanically dual-pass/dHash clean, but two byte-identical repeats changed from canonical `ZERO_HAND` to `HAND_VISIBLE` and `UNCERTAIN`. Exact and binary repeat agreement are both 18/20 = 90%; this fails the required >=92% exact threshold and the stricter zero-critical-binary-disagreement gate. Diagnostic inspection found a real visible human hand in the first discordant image and garden-gnome sculpted hands in the second, confirming human semantic inconsistency rather than tooling/copy drift; no label was overridden. Run-level QC blocks every promotion: confirmed new trusted zeros 0, selected additions 0, reserve 0, NEGATIVE_GOLD_V1 remains 76/200, exact deficit 124, and no benchmark/reserve manifest was created. Canonical report: `context/recognition_upgrade/NEGATIVE_GOLD_EXTERNAL_CONFIRMATION_RESULT.md`; formal artifacts: `artifacts/recognition_upgrade/perception_backend_replacement/negative_gold_external_confirmation_01/finalization`. Stop without an automatic review loop. Only a separately approved independently blinded adjudication of the two discordant source images is eligible as the smallest repair. No detector/model/training/download/Android/S4-S7 work occurred.
+
+**NEGATIVE_GOLD_V1 EXTERNAL CONFIRMATION 2026-08-22 - PACKAGE FROZEN, FINAL HUMAN PASS NEXT:** Verified the completed first-pass package unchanged and confirmed 181 provisional canonical `ZERO_HAND`, of which one is implicated in a binary repeat disagreement, leaving exactly 180 eligible non-discordant provisional zeros. Diversity-selected 160 canonical confirmation candidates and inserted 20 concealed byte-identical repeats. The frozen queue retains all 38 eligible people-present discoveries plus 122 person-free discoveries, spans ten scene buckets, 159 authors, and 134 primary metadata labels; minimum internal and seed-relative dHash distance is 10 against the unchanged conflict boundary `<=4`. The UI remains fully blind to first-pass labels, metadata, QC state, model output, and repeat identity. Focused plus inherited tests pass 15/15; Ruff/Black and package validation pass. Status is correctly 0/180 reviewed with no structural errors. Canonical report: `context/recognition_upgrade/NEGATIVE_GOLD_EXTERNAL_CONFIRMATION_PACKAGE.md`; package: `artifacts/recognition_upgrade/perception_backend_replacement/negative_gold_external_confirmation_01`. Next human action: run `model/config/recognition_upgrade/run_negative_gold_external_confirmation.ps1 -Command Review`, finish all 180 rows, then run `-Command Check`. NEGATIVE_GOLD_V1 remains 76/200 until hard repeat QC and dual-pass confirmation permit exact-124 finalization. No download, detector/model/training/Android/S4-S7 work occurred.
+
+**NEGATIVE_GOLD_V1 OPEN IMAGES REVIEW 2026-08-21 - `OPEN_IMAGES_REVIEW_COMPLETE_QC_FAILED_REPAIR_REQUIRED`:** Processed all 240 saved external-review rows into 220 canonical labels: 181 provisional `ZERO_HAND`, 38 `HAND_VISIBLE`, and one `UNCERTAIN`. All 20 concealed pairs are byte-identical and the repeat mapping is valid, but exact three-class agreement is 18/20 (90.0%), with two zero/non-zero disagreements and one critical `ZERO_HAND`/`HAND_VISIBLE` disagreement. The hard preregistered QC gate therefore failed; no external row was promoted, no 200-row benchmark/reserve was frozen, and `NEGATIVE_GOLD_V1` remains 76/200 with a trusted deficit of 124. Both discordant images visibly contain hands, confirming human inconsistency rather than a tooling defect, but their labels were not silently changed. Canonical report: `context/recognition_upgrade/NEGATIVE_GOLD_EXTERNAL_OPEN_IMAGES_REVIEW_RESULT.md`; evidence remains under `artifacts/recognition_upgrade/perception_backend_replacement/negative_gold_open_images_v7_01`. The earlier 150+15 recommendation is superseded by the approved frozen 160+20 package above. No new download, detector/model/training/Android work occurred.
+
+**NEGATIVE_GOLD_V1 EXTERNAL OPEN IMAGES PACKAGE 2026-08-21 - FROZEN, HUMAN REVIEW NEXT:** Verified Open Images V7 official source/access and licensing boundaries, then froze a bounded external review package without running a perception model. All 220 canonical validation images have complete per-image CC BY 2.0 metadata, original URL/landing page, author, UTC download time, and SHA-256; Open Images annotations remain CC BY 4.0 and annotation absence is explicitly not hand truth. The label-blind package contains 143 person-free-discovery and 77 people-present-discovery candidates, 219 authors, 174 primary metadata labels, ten coarse scene buckets, and 20 concealed byte-identical repeats. All 220 source images decoded, passed the frozen exact/dHash (`<=4`) checks against the trusted 76-frame seed and each other, and preserve exact source bytes; four rotation records are corrected only in the reviewer display. Focused tests pass 8/8; Ruff/Black pass. Current review status is 0/240 with zero structural errors; `passed: false` is expected before human labels. Canonical report: `context/recognition_upgrade/NEGATIVE_GOLD_EXTERNAL_OPEN_IMAGES_PACKAGE.md`; package: `artifacts/recognition_upgrade/perception_backend_replacement/negative_gold_open_images_v7_01`. Next human action: run `model/config/recognition_upgrade/run_negative_gold_open_images_v7.ps1 -Command Review`, finish all 240 rows, then run `-Command Check`. `NEGATIVE_GOLD_V1` remains 76/200 until repeat QC and finalization select exactly 124 confirmed independent zeros. No detector/model/training/Android work occurred.
+
+**NEGATIVE_GOLD_V1 N0 FINALIZATION + EXISTING-RGB TOP-UP 2026-08-21 - `EXISTING_DIVERSE_POOL_SUFFICIENT_FOR_NEXT_REVIEW`:** Formally accepted the completed N0 human re-adjudication as `N0_BLINDED_READJUDICATION_COMPLETE_DIVERSITY_INSUFFICIENT`: 250 canonical labels, 25/25 concealed-repeat exact agreement, no critical repeat disagreement, 238 canonical `ZERO_HAND`, 43 surviving the frozen exact/dHash (`<=4`) diversity rules, and 195 preserved as redundant non-independent evidence. Frozen the corrected-gold 33 plus N0 43 as a validated 76/200 seed with no exact/near duplicate, positive P0 overlap, protected-test row, or missing source image; 124 trusted independent zeros remain. A read-only dHash boundary audit passed without changing the threshold. Comprehensive model/label-blind inventory and image screening found 569 existing review candidates; froze a randomized next queue of 320 unique frames plus 32 hidden repeats spanning 318 clip IDs, 49 participants, six recorded device values, and seven recorded environment values. Decision: existing RGB plausibly finishes the deficit, so new recording is not justified yet. Canonical reports: `context/recognition_upgrade/N0_BLINDED_READJUDICATION_RESULT.md` and `context/recognition_upgrade/NEGATIVE_DIVERSITY_TOPUP_AUDIT.md`; package: `artifacts/recognition_upgrade/perception_backend_replacement/negative_gold_v1_topup_01`. Next human action: run `model/config/recognition_upgrade/run_negative_gold_topup.ps1 -Command Review`, finish all 352 rows, then `-Command Check`. `NEGATIVE_GOLD_V1` remains incomplete and no detector/model/Android/training work occurred.
+
+**N0 BLINDED RE-ADJUDICATION PACKAGE 2026-08-21 - PREPARED, HUMAN REVIEW NEXT:** Preregistered the exact 200-frame repair target before candidate selection in `context/recognition_upgrade/N0_BLINDED_READJUDICATION_PROTOCOL.md`: retain the 33 corrected-gold zeros and obtain 167 new `ZERO_HAND` frames from existing N0 RGB. Added a dedicated five-class semantic reviewer, deterministic metadata-only candidate selection, 25 concealed repeat-QC rows, conservative zero-hand semantics, atomic resumability, exact/dHash deduplication, clip caps, diversity gates, and overwrite refusal. Prepared `artifacts/recognition_upgrade/perception_backend_replacement/n0_blinded_readjudication_01` with 250 exact-unique candidates plus 25 hidden repeats. The unique candidates cover all 57 N0 clips, six participants, five devices, and five environments, with at most five candidates per clip. All 57 recorded source-video hashes passed; protocol/config/runner hashes match package provenance; focused tests pass 3/3; Ruff and Black pass. Current review status is 0/275 with zero structural errors; `passed: false` is expected until all human rows are accepted. No historical label or model output was used for selection, and no annotation, detector, training, Android, recognition, or production change occurred. Next developer action: run `model/config/recognition_upgrade/run_n0_blinded_readjudication.ps1 -Command Review`, complete all 275 neutral rows, then run `-Command Check`. Do not run `Finalize` until Check reports 275 complete and zero errors.
+
+**PERCEPTION NEGATIVE EVIDENCE AUDIT 2026-08-21 - `NEW_NEGATIVE_ANNOTATION_REQUIRED`:** Audited every existing human-review, no-sign, detector-negative, A1/A2, RU-D, E4/E6, recorder, and corrected-gold source without running a detector or changing annotations. Historical assets contain 1,066 zero/no-hand candidate rows, but direct RGB validation found the same semantic defect that invalidated P0 N0: several N0, P1, C0B, and A2 rows marked zero/no-hand visibly contain lap, edge, or moving hands. Only the corrected all-hand gold's 33 zero frames remain admissible now; they are 33 exact-unique/near-duplicate-clean clips across 27 signers. Therefore `TRUSTWORTHY_ZERO_HAND_EXISTING=33` and the exact deficit to 200 is 167. No new recording is needed: separately approve a blinded re-adjudication of approximately 220-250 existing N0 candidates, stopping only after 167 accepted zeros pass diversity/dedup rules. P0 diagnostic subsets are frozen directly from the canonical pairwise CSV as complementary 16, regression 25, and both-miss hard core 46, with selection hashes in `context/recognition_upgrade/PERCEPTION_NEGATIVE_EVIDENCE_AUDIT.md`. No annotation, detector execution, training, Android, or recognition change occurred.
+
+**PERCEPTION REPLACEMENT P0 DETECTOR VALIDATION 2026-08-20 - `REJECT_RTMDET_P0`:** Perception replacement P0 detector validation: `REJECT_RTMDET_P0`. Evaluated the exact pretrained OpenMMLab `rtmdet_nano_8xb32-300e_hand-267f9c8f` 320x320 ONNX detector at the documented/default 0.30 threshold on the unchanged corrected all-hand gold: 150 frames, 41 signers, 184 visible hands. RTMDet was worse than frozen MediaPipe direct perception on visible-hand recall (`61.41%` vs `66.30%`), any-hand coverage (`75.21%` vs `77.78%`), complete two-hand recall (`37.31%` vs `46.27%`), blur (`53.33%` vs `58.33%`), occlusion (`36.00%` vs `52.00%`), and two-hand instances (`58.96%` vs `64.93%`); merged-hand failures were `6/67 = 8.96%`. It supplied 16 MediaPipe-miss -> RTMDet-hit observations but lost 25 MediaPipe hits. Post-score audit invalidated the 613-frame N0 fixture for safety inference because multiple frozen no-hand rows visibly contain hands; raw outputs are preserved, and the trustworthy 33-frame zero-hand subset is too small and had `4/33` RTMDet false-presence frames. Positive evidence independently rejects the detector, so this is not inconclusive. Canonical report: `context/recognition_upgrade/P0_RTMDET_DETECTOR_RESULT.md`; machine package: `artifacts/recognition_upgrade/perception_backend_replacement/p0_rtmdet_detector_02`. Do not start P1/MobRecon/RTMPose landmarks, threshold tuning, RTMDet fine-tuning, or Android integration. Next eligible work is a blinded governed >=200-frame negative-set repair, then at most one materially different off-the-shelf full-frame detector family under a separately approved protocol.
+
+**PERCEPTION BACKEND REPLACEMENT STUDY 2026-08-20 - COMPLETE, POC PENDING:** A2-2R recovery rejected -> incremental perception patches closed -> Perception Backend Replacement Study complete/pending PoC. Created `context/recognition_upgrade/PERCEPTION_BACKEND_REPLACEMENT_STUDY.md` from a read-only repository audit plus current public model/runtime research. Decision: preserve A1 independent-clock/latest-frame scheduling conceptually and evaluate a genuinely new direct backend offline before Android. Ranked #1 RTMDet-nano full-frame hand detection + MobRecon DenseStack 3D hand regression, #2 person detector + RTMW3D-m whole-body context, #3 AppHear-domain fine-tuned license-clean detector + 3D regressor only if the off-the-shelf stack reveals a correctable domain gap. The smallest next experiment is a no-training frozen-frame PoC on corrected E2E gold, A2 temporal evidence, governed negatives, and a new human 2D-landmark subset, with direct recall/two-hand/contact/false-presence/dropout/export gates. Cross-device CPU/XNNPACK correctness and sustained >=15 useful observations/s remain mandatory later; Xiaomi-only or desktop results cannot promote a backend. No backend implementation, model download, training, Android integration, MediaPipe/S4-S7 change, or recognition retraining occurred.
+
+**A2-2R CONSERVATIVE ONE-OBSERVATION RECOVERY 2026-08-20 - REJECTED, INCREMENTAL RECOVERY CLOSED:** Ran the preregistered offline C0 direct-only versus C1 one-observation hold versus C2 bounded causal velocity comparison on the frozen 551-row, 21-attempt A2 package. Both candidates improved visible-hand recall 69.97% -> 75.85% and complete two-hand coverage 51.55% -> 61.86%, recovering 6/12 scoreable single-observation cases. The narrow implementation boundary held (zero recursive persistence, identity swaps, or wrong-hand recovery), but each candidate produced eight false recoveries on true absence, three on no-hand/rest, five on leaving frames, and 19 stale recoveries at longer-gap onset; both also failed p95 velocity continuity (2.358/2.308 > 2.0) and added one downstream wrong commit (`SISTER`). C1 additionally recovered one correct `NOW` commit; C2 improved mean re-entry landmark error only 3.3%, below its 10% complexity gate. Decision `REJECT_A2_2R_RECOVERY`. Do not tune carry-forward/extrapolation again or integrate Android. Next eligible work is planning a Perception Backend Replacement Study, not started here. Canonical report: `context/recognition_upgrade/A2_2R_RECOVERY_RESULT.md`; machine result: `artifacts/recognition_upgrade/a2_landmark_continuity/a2_2r_one_observation_01/a2_2r_result.json`.
+
+**A2-1R SINGLE-FACTOR PRIOR REPAIR 2026-08-20 - REJECTED, STOP BEFORE RECOVERY:** Ran the sole authorized repair on the unchanged 551-frame package after recording branch/HEAD/worktree state, all required source/input hashes, the 13 protected baseline hashes, and a normalized proof that only `invert_mediapipe_handedness: true -> false` changed. Focused tests passed 7/7 and package validation passed 551/551. Removing inversion collapsed most of the original failure: combined correct rose 14 -> 168, wrong fell 110 -> 23, ambiguity fell 106 -> 39, coverage rose 53.91% -> 83.04%, and propagation errors fell 91 -> 18. It still performed substantially worse than raw handedness (224/230 correct): primary tracker was 103 correct / 14 wrong / 24 ambiguous, 9.93% identity error, 82.98% coverage, 13 new errors, and only 1/3 baseline errors fixed. Six of eight gates remain unsatisfied; the stress gate remains `INSUFFICIENT EVIDENCE` at 0/10 distinct primary contact/crossing frames. Decision `REJECT_A2_1R`. Do not tune this tracker again, start A2-2, collect stress evidence automatically, or integrate Android. Canonical report: `context/recognition_upgrade/A2_1R_IDENTITY_RESULT.md`; machine package: `artifacts/recognition_upgrade/a2_landmark_continuity/a2_1r_identity_only_01`.
+
+**A2-1 OFFLINE CAUSAL IDENTITY 2026-08-20 - REJECTED, SUPERSEDED BY A2-1R:** Completed all 551 corrected color-based human annotations with zero structural errors, then ran the frozen identity-only candidate. The A1 direct-label baseline was already anatomically correct on 138/141 primary and 224/230 combined known instances. A2-1 failed six of eight gates: primary tracker correct/incorrect/ambiguous was 3/72/66, assignment coverage 53.19%, identity error 51.06%, new errors 71, and baseline errors fixed 1/3. Switch rate decreased, but only alongside catastrophic wrong/ambiguous assignment. The frozen inverted MediaPipe prior was disproved: occasional detector disagreement did not imply systematic inversion, and temporal state propagated the wrong initialization. The independent evidence gate also failed: primary contact/crossing frames 0 versus required 10; supplemental RU-D9 had one body-contact flag and three crossing flags spanning three distinct frames. Decision `REJECT_A2_1_IDENTITY_TRACKER`. The one authorized non-inverted refinement was subsequently run as A2-1R and also rejected. Canonical report: `context/recognition_upgrade/A2_1_IDENTITY_RESULT.md`; machine result: `artifacts/recognition_upgrade/a2_landmark_continuity/a2_0_identity_01/a2_1_result.json`.
+
+**A2-0 LANDMARK CONTINUITY EVIDENCE 2026-08-16 - PACKAGE READY, HUMAN REVIEW GATE:** Generated the offline-only `a2_1_identity_only_01` evidence package from 21 existing chronological phone sequences: all 12 A1-mode signing-sentinel attempts (315 selected frames) plus nine RU-D9 adjudicated stress attempts (236 frames), covering eight glosses, 11 one-hand sequences, and 10 two-hand sequences. Historical stress labels include three contact/occlusion and two detector-dropout sequences; crossing, leaving-frame, rest, true dropout, and recoverability counts deliberately await per-frame human adjudication. Added a resumable reviewer, strict annotation validator, causal anatomical `Track_L`/`Track_R` identity-only tracker, preregistered gates, focused tests, and frozen baseline hashes. Human review caught that raw detector `Left/Right` labels are unsuitable human annotation concepts: the anatomical right hand appeared under both labels across inspected frames. Replaced detector-side wording with neutral BLUE/ORANGE detection colors, default every present detection to `ambiguous`, and derive recovery-control applicability automatically. Preserved the 38 rows accepted under the confusing interface in `annotations_before_color_ui_correction.csv` and reset all active rows to neutral/unreviewed; the earlier seven-row backup also remains. The tracker has explicit ambiguity and never carries or recovers missing landmarks. Mechanical direct-only primary facts are 106/315 any-hand frames, 35/315 two-hand frames, and pooled any-direct gaps 267.04 ms median / 386.79 ms p95; visible-hand recall and identity metrics cannot be claimed until review. Canonical plan: `context/recognition_upgrade/A2_IDENTITY_EXPERIMENT.md`; package: `artifacts/recognition_upgrade/a2_landmark_continuity/a2_0_identity_01`. Next action belongs to the user: restart `run_a2_identity.ps1 -Command Review` and accept all 551 rows, then run `-Command Check`. A2-1 evaluation, landmark recovery, Android work, S4-S7 changes, retraining, and production changes remain blocked.
+
+**A1 SIGNING SENTINEL 2026-08-16 - COMPLETE, KEEP A1 AS DEFAULT-OFF V2 FOUNDATION:** Pulled and structurally verified all 24 order-balanced phone bundles: two Baseline and two A1 natural attempts for each of `GOOD`, `WE`, `NOW`, `KNOW`, `HAVE`, and `HELLO`. All performances were visually valid with independent visible sign-span annotation, exact reconstructed window hashes matched Android `24/24`, and recorded S7 replay matched `24/24`. X86-vs-Android quantized argmax matched only `14/24` (max probability delta `0.1797`), so oracle counterfactuals were not used; recorded phone ranks/commits are authoritative. Baseline vs A1: mean hand coverage `57.1%` vs `57.9%`, two-hand coverage `20.6%` vs `20.0%`, pose coverage `100%` both, S5 onset `11/12` both, target Top-1 `4/12` vs `5/12`, Top-5 `10/12` vs `9/12`, correct commits `2/12` vs `5/12`, wrong commits `5/12` vs `4/12`, no commit `5/12` vs `3/12`. A1 produced correct `GOOD` and `HAVE` commits in both attempts; one A1 `HELLO` missed onset while both Baseline attempts committed correctly, an isolated caveat with no identified narrow scheduling defect. `KNOW`, `NOW`, and `WE` remain unresolved. Combined with the strong Stage-1 runtime pass, the final decision is `KEEP A1 AS V2 FOUNDATION`, still debug-only/default-off and not authorized for production deployment. Flat signed landmark coverage proves scheduling improves freshness but does not solve underlying MediaPipe dropout/contact/occlusion continuity. Canonical result: `context/recognition_upgrade/A1_SIGNING_SENTINEL_RESULT.md`; machine summary: `artifacts/recognition_upgrade/a1_independent_clock/signing_sentinel_01/a1_signing_sentinel_summary.json`. No A2 code, retraining, model/schema/threshold/MediaPipe setting, S4-S7, or production change occurred.
+
+**A1 INDEPENDENT-CLOCK HANDS-FIRST PERCEPTION 2026-08-16 - STAGE 1 PASSED, SIGNING SENTINEL NEXT:** The corrected order-balanced Xiaomi no-sign benchmark at `artifacts/recognition_upgrade/a1_independent_clock/device_benchmark_02` passed every frozen gate with full trace coverage. A1 versus Baseline: fresh hands `7.077` vs `5.300/s` (`+33.5%`), S4 `7.063` vs `5.304/s` (`+33.1%`), p95 hand gap `169.3` vs `258.3 ms` (`-34.5%`), and p95 hand-end→S4 `3.9` vs `63.3 ms` (`-93.8%`). A1 yield was `0.9980` with three `POSE_TOO_OLD` rejections, no ordering/future-pose violations, no crash markers, and no no-sign onset/commit. Peak PSS rose only `1.84%`; throughput half-decay was not worse. The material tradeoff is p95 reused-pose age `505.1` vs `296.3 ms`, still below the frozen `582 ms` ceiling. API-level hand/pose interval overlap rose from about `65.7%` to `99.5%`, though GPU internals remain unobservable. Decision is `PROCEED_TO_SMALL_SIGNING_SENTINEL`, not yet final KEEP. Prepared a 24-attempt order-balanced RU-D1 sentinel over `GOOD`, `WE`, `NOW`, `KNOW`, `HAVE`, and `HELLO` (two natural attempts per mode), preserving the 582 ms ceiling and unchanged S4-S7. Canonical result: `context/recognition_upgrade/A1_STAGE1_NO_SIGN_RESULT.md`. Next command: `powershell.exe -NoProfile -ExecutionPolicy Bypass -File "F:\ASL DATASET\5. Apphear3\model\config\recognition_upgrade\run_a1_signing_sentinel.ps1" -Command Install`. A2 remains forbidden.
+
 **RU-D10 FINAL RECOGNITION STABILIZATION 2026-08-16 - COMPLETE, KEEP BASELINE / REVERT A AND B:** The bounded four-mode device benchmark completed, but detailed logs corrected the launcher's initial structural `passed: true`: both modes containing candidate A (`A_ONLY`, `A_PLUS_B`) suffered an AppHear native `SIGSEGV` in `libhwui BitmapWrapper::freePixels`, so A fails the runtime-stability gate and is rejected. Baseline was stable at 5.50 processed FPS with 191.0 ms mean / 302.1 ms p95 inter-frame gaps and 153.9 ms mean / 267.4 ms p95 analysis wall time. A did not improve FPS (5.50), and its small mean-gap change (186.3 ms) is invalidated by the crash. B was stable on device but slower in its sequential no-sign run (4.74 FPS, 223.7 ms mean gap); more importantly, frozen replay recovered KNOW R1 and WE R2 onsets with zero added off-span onsets yet changed KNOW R1, SISTER R2, and WE R2 from no commit to wrong diagnostic commits. B therefore fails the end-to-end regression gate and is rejected; A+B inherits both failures. All four no-sign runs logged zero S5 onsets and commits, but that does not override the stability and wrong-commit failures. No safe throughput optimization was found: hand/pose MediaPipe inference remains the dominant cost. The corrected benchmark summary is `passed: false`, the final analysis verdict is complete, and the saved BASELINE APK has been restored to the connected device and force-stopped. No signed-phone confirmation is justified. Both experimental flags remain default-off for traceability, release remains forced off, and no training/data/model/threshold/MediaPipe-setting/S6/S7/schema/production-contract/protected-test change occurred. Canonical report: `artifacts/recognition_upgrade/ru_d10/device_benchmark_01/RU_D10_FINAL_RESULT.md`.
 
 **RU-D9 OBSERVATION CONTINUITY / S5 ONSET ROOT CAUSE 2026-08-16 - COMPLETE, STOP BEFORE FIX:** Reused only the nine specified RU-D7/RU-D8 attempts and reconstructed one Android-recorded frame timeline per attempt. Exclusive primary causes are `TWO_HAND_OCCLUSION_OR_CONTACT` 3 (GOOD R1/R2, SISTER R2), `HAND_DETECTOR_DROPOUT` 2 (WE R1, NOW R2), `S5_CONSECUTIVE_EVIDENCE_TOO_STRICT` 2 (KNOW R1, WE R2), and `S5_SIGNAL_NOT_RESPONDING_TO_VALID_MOTION` 2 (WHO R1/R2); no case is primarily low sampling, pose/S4, other, or uncertain. All spans ran near 4-5 processed FPS with maximum gaps of roughly 0.27-0.35 seconds, so temporal sampling is a pervasive amplifier rather than a proven primary cause. Required landmarks were continuous in the KNOW core and present in 8/9 WE R2 core frames; a diagnostic one-noncandidate-gap tolerance would have completed their low-FPS `k_on=2` onset accumulation. WHO had continuous core landmarks but inadequate S5 motion response, so gap tolerance would not help; WHO also retains its separate severe S6/representation failure. Hand confidence scores were not captured and are explicitly unavailable. Ranked next attention is perception continuity first, throughput measurement second, a separately gated S5 short-gap experiment third, and WHO-specific onset features later without implying WHO recognition is solved. Canonical outputs: `artifacts/recognition_upgrade/ru_d7/phone_bc_01/reports/ru_d9/`. No fix, recollection, retraining, data/settings/threshold/S5/S7/schema/model/Android/ARM-x86 policy change, or protected-test access occurred.
@@ -1906,3 +2059,2924 @@ Added `F:\ASL DATASET\5. Apphear3\pipeline\rgb\e4_z_signing_gate.py` and ran it 
 - Threshold diagnosis: I320 can reach 85.84% availability only with 85.71% no-hand FPR; allowing one no-hand false-positive frame still gives only 75.22% availability. This is not a minor threshold issue.
 - Decision: C0-B0 promotion no-go. Do not run QAT/INT8, frozen P0/N0/P1, Android, or a generic hyperparameter sweep. Next is one explicit architecture/data decision using this result and the independent hard-negative inventory.
 - Detailed source: `context/recognition_upgrade/C0B_STAGE2_DEVELOPMENT_RESULT.md`.
+
+## 2026-08-25 - P4-R1A Targeted RTMPose-Hand5 Recovery Complete; Candidate Insufficient
+- Verified `P4_ELIGIBILITY_TRUTH_V2`, reconciled exactly 18 residual visible-hand observations, and ran only the official MMPose `hand` stack: SSDLite-MobileNetV2 plus `rtmpose-m_8xb256-210e_hand5-256x256`, at the frozen `score > 0.30` / NMS 0.30 operating point and one preregistered current-frame DWPose interaction ROI. All 132/132 unique frames processed; no threshold, crop, or model retry occurred.
+- The independent 18-case physical-instance review found 0 `MISSING_HAND_RECOVERED`, 0 duplicates, 17 false/no-output cases, and one ambiguous case. Residual recovery is 0/18, so combined governed physical coverage remains 426/444 = 95.95%, below the required 436/444.
+- Frozen controls also fail: ZERO activation 14/40 (35%), ONE existence 26/40 (65%), and TWO complete output capacity at most 6/40 (15%). ONE two-or-more-output activation is 0/40 but does not offset the primary failures.
+- Final classification: `RECOVERY_CANDIDATE_INSUFFICIENT`. Canonical report/package: `artifacts/recognition_upgrade/perception_backend_replacement/p4r1a_rtmpose_hand5_targeted_recovery_01`. Stop without P4-R1B, alternate model, threshold change, training, Android, recognition, or S4-S7 work.
+
+## 2026-08-22 - NEGATIVE_GOLD_V1 Item-Level Audit Package Frozen
+- Historical outcomes remain unchanged: the first Open Images review is `QC FAIL`; the second
+  confirmation review remains `NEGATIVE_GOLD_V1_STILL_INCOMPLETE` under its original failed QC
+  gate. The current trusted benchmark remains 76/200.
+- The two second-pass binary repeat-conflict candidates were preserved and permanently excluded
+  without relabeling. The verified retained dual-confirmed pool is 158.
+- Frozen an independently blinded 40-image item-level audit at
+  `artifacts/recognition_upgrade/perception_backend_replacement/negative_gold_item_level_audit_01`
+  using seed 20260822 and presentation seed 20260823. All 19 scene/category strata are represented;
+  the queue contains 12 people-present and 28 person-free discovery candidates from 40 authors.
+- Frozen dHash rule remains <=4; measured minimum distance is 10 internally and 10 against the
+  existing 76-frame seed. Source/provenance hashes passed; queue is 0/40 reviewed with zero errors.
+- Next action: user completes the 40-image blinded audit. Do not prepare the conditional 20-image
+  follow-up or freeze the benchmark until the human result is evaluated against the preregistered
+  0/1/>=2 contamination rules. No perception/model/training/Android work occurred.
+
+## 2026-08-22 - NEGATIVE_GOLD_V1 Complete And Frozen
+- The independently blinded item-level audit completed 40/40 with 40
+  `NO_HUMAN_HAND_VISIBLE`, zero clear actual-human-hand contamination, zero uncertain rows, and
+  zero tooling/provenance defects. The preregistered zero-contamination branch passed; no
+  follow-up audit was required.
+- Historical outcomes remain unchanged: first Open Images review `QC FAIL`; second confirmation
+  review `QC FAIL` / `NEGATIVE_GOLD_V1_STILL_INCOMPLETE`. The two known binary repeat-conflict
+  items remain permanently excluded without relabeling.
+- All 158 retained candidates passed the frozen exact/dHash diversity checks. Deterministic
+  proportional-stratum/farthest-first ranking selected exactly 124 additions and placed 34 in
+  `NEGATIVE_GOLD_RESERVE`; selected minimum internal/seed dHash distance is 16/16.
+- Final decision: `NEGATIVE_GOLD_V1_COMPLETE`. Frozen benchmark is 76 existing + 124 Open Images
+  = 200 rows with 200 unique SHA-256 values and zero deficit. Main and reserve manifests, audit
+  labels, contamination result, diversity report, and final hashes are under
+  `artifacts/recognition_upgrade/perception_backend_replacement/negative_gold_item_level_audit_01/finalization`.
+- Negative-benchmark construction is closed. Do not expand or reopen it absent a concrete defect,
+  and do not begin the next perception phase automatically. No perception/model/training/Android
+  work occurred.
+
+## 2026-08-22 - P1 Perception Architecture Feasibility/Adapter Audit Complete
+- Verified the corrected positive gold (150 frames, 41 signers, 184 hand boxes), frozen
+  NEGATIVE_GOLD_V1 (200 paths/hashes; 76 historical + 124 Open Images), exact 16/25/46 diagnostic
+  instance subsets, MediaPipe raw 21-landmark outputs, and exact 122/184 baseline associations.
+- Positive GT supports spatial hand-box matching but has no human landmark truth and all 184
+  anatomical-side values are unknown. P2 can measure availability/localization and pairwise
+  recovery, not landmark error or anatomical L/R accuracy.
+- Recommended one shared model-independent ROI: full image as a single pseudo-person box with the
+  official 1.25-padded 3:4 top-down affine for each model. No person detector or GT-derived crop.
+- DWPose-L 256x192 adapter is feasible and CPU-plausible after an isolated compatible environment.
+  Sapiens-2B adapter is specifiable but `SAPIENS_2B_NOT_FEASIBLE` locally: 8.07-GiB checkpoint,
+  no operational CUDA device, and only 9.44 GiB free on F:. Sapiens remains research-ceiling only.
+- Proposed rule for lead freeze: native score >=0.30 on at least 11/21 joints; reuse frozen palm
+  center + >=50% landmarks-inside-box maximum-cardinality matching. No threshold was tuned or
+  candidate executed.
+- Canonical report: `context/recognition_upgrade/P1_PERCEPTION_ARCHITECTURE_FEASIBILITY_ADAPTER_AUDIT.md`.
+  P2 remains blocked pending Sapiens hardware/fallback decision and explicit rule/gate freeze. No
+  checkpoint download, model run, Android, S4-S7, training, or production change occurred.
+
+## 2026-08-22 - P4-A DWPose Presence Eligibility Complete, Improved But Gates Failed
+- Reused the frozen 753-frame P3 native DWPose output package; no DWPose or other perception model
+  inference was rerun. Derived 1,102 governed anatomical-slot truth rows from the 551 reviewed A2
+  frames: 323 `VISIBLE`, 753 `NOT_VISIBLE`, and 26 retained-but-unscored `UNKNOWN` rows.
+- Froze a leakage-safe sequence split before fitting: 11 train, 5 validation, and 5 one-time
+  holdout sequences. Consecutive frames from an attempt never cross splits; the reviewed
+  crossing/contact sequence was retained in holdout. The frozen baseline remained score >=0.30
+  on at least 11/21 joints.
+- Evaluated the bounded candidates only. The fixed anatomical logical rule rejected all validation
+  positives. Validation selected `E2_FIXED_L2_LOGISTIC_SINGLE_FRAME`, which passed all validation
+  gates; the conditional causal candidate was therefore not activated. No threshold, feature,
+  depth, or regularization sweep occurred.
+- On the one-time holdout, E2 reduced zero-hand frame false presence from 37/75 (49.33%) to 2/75
+  (2.67%) and explicit-rest false presence from 28/63 (44.44%) to 0/63, while retaining 24/24
+  complete two-hand frames. Per-hand precision was 95.00%, but visible recall was 76/79 (96.20%),
+  below the preregistered >=98% holdout gate. Three visible observations were rejected.
+- Full governed diagnostics (not independent holdout evidence) were 318/323 visible recall
+  (98.45%), 11/324 zero-hand false-presence frames (3.40%), 3/271 rest false-presence frames
+  (1.11%), and 96/97 complete two-hand retention (98.97%). Crossing/contact visible recall was
+  100% on the six holdout slot rows; one-hand holdout recall was the weak subgroup at 90.48%.
+- Final classification: `ELIGIBILITY_IMPROVED_BUT_GATES_FAILED`. The same whole-body output has
+  strong eligibility evidence, but this fitted rule is not approved as a production gate because
+  it missed the frozen visible-recall requirement. P4-B was not started. No Android, S4-S7,
+  recognition, S6 retraining, Sapiens, z fabrication, or production feature change occurred.
+- Canonical report and frozen artifacts:
+  `artifacts/recognition_upgrade/perception_backend_replacement/p4a_dwpose_presence_eligibility_01/`.
+
+## 2026-08-22 - P4-A2 High-Recall Eligibility Rescue Blocked Before Fitting
+- Historical P4-A remains `ELIGIBILITY_IMPROVED_BUT_GATES_FAILED`. Reverified the frozen P4-A
+  truth, sequence split, E2 coefficients, feature normalization, and holdout-prediction hashes.
+  The old holdout is `HISTORICAL_DIAGNOSTIC_ONLY` and was not used for fitting, selection, or a
+  new success claim.
+- Comprehensive fresh-evidence inventory contains 1,539 rows. The strongest untouched temporal
+  phone pool has 68 attempts, 2,857 saved frames, two governed signer IDs, and 25 one-hand / 41
+  two-hand / 2 variant-dependent attempts. Sixty-six attempts have onset/release/performance span
+  annotations, but none has fresh per-frame anatomical left/right visibility truth.
+- Twelve P3 gold-video diagnostic sequences add 202 consecutive frames from 12 signers with native
+  DWPose output, but only their center frames have human hand-box truth. P2 adds 150 static gold
+  images and 200 static NEGATIVE_GOLD_V1 images. E6 contributes 486 product-core reviewed videos,
+  63 collection spot-review videos, and 560 provisional negative-context videos. These sources
+  have accessible RGB but only static, whole-video, or batch-level truth—not the required
+  per-frame anatomical visibility plus rest and entry/exit truth.
+- All 21 sequences with direct A2 frame-level anatomical truth were consumed by P4-A. A2-0 and
+  A2-1R are byte-identical 551-row annotation copies, while A2-2R is a subset; none is fresh.
+- Final status: `P4A2_BLOCKED`; classification: `INSUFFICIENT_FRESH_EVIDENCE`. No split, rescue
+  feature list, R1 rule, R2 activation, fitting, or final evaluation was fabricated.
+- Smallest repair uses existing RGB only: blinded frame adjudication of all 12 P3 gold temporal
+  sequences plus 16 untouched phone attempts, capped at about 600 reviewed frames. Require direct
+  left/right visibility, zero/rest, entering/leaving, blur/occlusion, crossing/contact, and
+  clear/weak visibility labels before freezing development/validation/final splits. New recording
+  is not currently justified.
+- Canonical report and blocked artifacts:
+  `artifacts/recognition_upgrade/perception_backend_replacement/p4a2_high_recall_eligibility_rescue_01/`.
+  No DWPose inference, model work, Android, S4-S7, S6, recognition, Sapiens, z fabrication, or
+  P4-B work occurred.
+
+## 2026-08-24 - P4-A2 Fresh-Evidence Repair Review Package Frozen
+- Historical decisions remain unchanged: P4-A is `ELIGIBILITY_IMPROVED_BUT_GATES_FAILED`, and
+  P4-A2 remains `P4A2_BLOCKED — INSUFFICIENT_FRESH_EVIDENCE`. This step repairs evidence only.
+- Deterministically selected all 12 P3 gold temporal sequences plus 16 untouched phone attempts:
+  eight signer_01 attempts for future development/validation and eight withheld_phone attempts
+  reserved for final evaluation. All three available untouched withheld one-hand attempts are
+  included. Selection used signer/gloss/expected-hand metadata and timing only—not model output.
+- Frozen an initial blinded queue of 458 RGB frames: all 202 consecutive P3 frames plus 16
+  timing-sampled frames from each phone attempt. Another 128 timing-only phone frames remain a
+  bounded reserve (eight per attempt) and may be added only to address a measured human-semantic
+  deficit after the initial review.
+- The reviewer queue exposes only anonymous sequence progress and raw RGB. The GUI makes
+  anatomical left/right explicit, supports previous/next raw context, undo, autosave, resume,
+  three-way uncertainty, visibility quality, rest/entry/leaving, and condition/contact tags.
+- Corrected the initial review GUI's broken Steps 1-3 layout before adjudication began. The
+  revised interface uses explicit Yes/No/Unsure buttons, automatic ZERO_HAND consistency,
+  plain-language definitions, an ordinary-frame shortcut, clearer context/edit navigation, and
+  a larger image while preserving the same annotation schema and autosave file.
+- Reduced common-frame annotation to one click (or F1-F5): no-hands/rest, anatomical-left only,
+  anatomical-right only, both hands, or unsure now save and advance immediately with complete
+  internally consistent ordinary-frame labels. Detailed controls remain available only for
+  weak/special/rest-with-visible-hand/entry/leaving/contact/crossing cases.
+- Package validation and focused tests pass. Human review is pending at
+  `artifacts/recognition_upgrade/perception_backend_replacement/p4a2_fresh_evidence_repair_01/`.
+  Do not run E2/R1/R2 or freeze model-development splits until the human semantic minimums pass.
+- No E2, DWPose, MediaPipe, recognition, training, Android, S4-S7, S6, Sapiens, P4-B, or new
+  recording work occurred.
+
+## 2026-08-24 - P4-A2 Initial Human Review Complete; Transition Top-Up Pending
+- Completed and validated all 458 initial blinded review rows. Human semantic evidence strongly
+  exceeds five requirements: 412 visible-hand observations, 142 one-hand visible observations,
+  181 zero-hand frames, 173 explicit-rest frames, and 135 complete two-hand frames. Four frames
+  have uncertain visibility. One-hand quality includes 140 clear and only two weak observations.
+- Entry/leaving evidence is the sole deficit: 6 certain frames versus the required 25, short by
+  exactly 19. The fresh evidence is therefore not frozen and no development/evaluation split has
+  been released yet.
+- Added one bounded 29-frame review top-up from the existing timing-only reserve: 19 available
+  onset/release candidates plus ten additional closest timing candidates. Selection used only the
+  preregistered timing phases and existing attempt metadata, never E2/DWPose/MediaPipe results or
+  human-label prediction. Ninety-nine reserve frames remain untouched.
+- Next action: review only the 29 newly queued rows, using detailed mode to mark genuinely visible
+  entering/leaving behavior. The GUI now exposes six one-click transition presets (anatomical
+  left/right/both × entering/leaving, F6-F11), each of which completes the full underlying label,
+  autosaves, and advances. Recalculate human semantic counts afterward. Do not fit E2/R1/R2.
+- Recovery diagnosis after reviewer feedback: the prior interaction model was architecturally
+  misaligned because it exposed storage fields as separate questions and split ordinary versus
+  special frames into unequal workflows. A matrix redesign was also rejected by the reviewer as
+  too cognitively dense. The final simplified interaction is a two-step keyboard workflow:
+  state `A/R/E/L/U`, followed by hands `0/1/2/3/4`; the hands key produces every required field,
+  saves, and advances. Ordinary frames need only a hand key because state resets to Ordinary.
+  Optional quality/condition chips remain collapsed and are needed only when applicable. Existing
+  labels remain untouched and resumable.
+
+## 2026-08-24 - P4-A2 Evidence Repair Stopped: Benchmark Tooling Defect
+- The apparent completed 487-row result is invalid and was not frozen. Only 29 top-up rows were
+  added, but entry/leaving increased from 8 to 102 and several original semantic totals changed
+  beyond the mathematical contribution possible from 25 remaining reviews.
+- Root cause: after saving the first sparse top-up row, the GUI advanced to the adjacent queue row
+  rather than the next unlabeled row. Because top-up rows were interspersed by sequence/frame order,
+  it revisited completed initial rows and overwrote their labels. The defect affects 438/458 initial
+  rows across all 28 sequences; only 20 initial labels precede the first top-up review timestamp.
+  Ninety-five current transition labels occur on affected initial rows.
+- Original overwritten item labels are not recoverable from the package; only earlier aggregate
+  counts survive. The current label file was preserved unchanged and an affected-row manifest plus
+  machine-readable defect result were frozen. `P4A2_FRESH_HUMAN_TRUTH_V1` and its splits were not
+  created/released.
+- Navigation is corrected for any future governed review: Save now jumps strictly to the next
+  unlabeled row, and deliberate revisions are recorded in an append-only journal before overwrite.
+- Status: `BENCHMARK_TOOLING_DEFECT — NOT FROZEN`. No E2/R1/R2, DWPose, MediaPipe, recognition,
+  training, Android, S4-S7, S6, Sapiens, P4-B, or new recording work occurred.
+
+## 2026-08-24 - P4-A2 Annotation Tool v2 Repaired; Clean Relabel Pending
+- Historical v1 status remains `BENCHMARK_TOOLING_DEFECT — NOT FROZEN`. Preserved the corrupted
+  label file, defect report, and 438-row affected audit under an explicit
+  `INVALID_TOOLING_DEFECT_DO_NOT_USE` package. The preserved label SHA-256 is
+  `0ea210d178d312cb41955f332794314c72186ab0f27cfc691d3f5b8e3249342e`.
+- Built a separate v2 annotation store. Each immutable row ID derives from sequence ID, frame
+  index, and image SHA-256; every save rechecks displayed ID/sequence/frame/hash/source bytes,
+  rejects completed rows, atomically replaces the canonical CSV, then rescans status to jump only
+  to the next non-COMPLETE row. Array position is never the save identity or resume authority.
+- Completed-label edits require explicit confirmation and reason and journal prior/new values.
+  Explicit undo is also journaled. Backups occur every 25 completions, at session close, and before
+  top-up merge. Interspersed top-up preserves completed row payloads byte-equivalently.
+- Required focused suite passes 10/10: empty review, partial resume, fully complete, exact
+  interspersed-top-up reproduction, undo, explicit completed edit, crash/restart, duplicate ID,
+  wrong image identity/hash, and top-up after partial completion.
+- Froze a clean 458-row v2 initial package from exactly the same selected RGB evidence. All 458
+  rows are `UNREVIEWED`; no corrupted labels were imported or displayed. The same 29 deterministic
+  prior top-up candidates are preserved inactive and may be activated only after initial human
+  semantic counts demonstrate a deficit.
+- Human relabeling is pending under
+  `artifacts/recognition_upgrade/perception_backend_replacement/p4a2_fresh_evidence_repair_v2_01/`.
+  `P4A2_FRESH_HUMAN_TRUTH_V1` and model-development splits remain unfrozen. Do not run E2/R1/R2.
+
+## 2026-08-24 - P4-A2 Clean Fresh Human Truth Complete And Frozen
+- Completed the repaired clean v2 review: 458/458 rows, 28 sequences, 14 signers. The historical
+  v1 result remains `BENCHMARK_TOOLING_DEFECT — NOT FROZEN`; no corrupted label was imported.
+- All semantic evidence minimums passed without activating the 29 inactive top-up candidates:
+  448 visible-hand observations, 162 one-hand visible frames, 153 zero-hand frames, 146 rest
+  frames, 72 entry/leaving frames, and 143 complete two-hand frames. Top-up count is zero.
+- Final integrity audit passed: 458 unique immutable IDs, verified image hashes, zero revisions,
+  no edit journal, reproducible semantic counts, and exact frozen review-tool/test/source hashes.
+  Required annotation-tool tests remain 10/10 passed.
+- Froze `P4A2_FRESH_HUMAN_TRUTH_V1` with dataset SHA-256
+  `7819c59123b4dacdafac190c81754deb766d6ed6087a2b58535490d45a6a3edd` and annotation SHA-256
+  `1b9f34412ba885e397019742bf29027987ce58668d099fd3914e48ab3206774b`.
+- Sequence-level splits are frozen: dev 132 rows / 8 sequences, validation 130 / 8, and sealed
+  final evaluation 196 / 12. Final evaluation is signer-separated from development/validation.
+- Limitation: the reviewer labeled zero WEAK one-hand observations and zero positive optional
+  blur/occlusion/edge/partial/crossing/contact cases. The core visibility/rest/transition truth is
+  frozen, but this package cannot support those optional subgroup diagnostics.
+- Evidence repair is complete. Do not rerun annotation or activate top-up absent a concrete truth
+  defect. No E2/R1/R2, DWPose, MediaPipe, recognition, training, Android, S4-S7, S6, Sapiens,
+  P4-B, or new recording work occurred.
+
+## 2026-08-24 - P4-A2 High-Recall Eligibility Rescue Complete; Gates Failed
+- Historical P4-A remains `ELIGIBILITY_IMPROVED_BUT_GATES_FAILED`. Verified the frozen
+  `P4A2_FRESH_HUMAN_TRUTH_V1` dataset, annotation, source, tool, and split hashes before work;
+  the 196-frame/12-sequence final set remained sealed and signer-separated until candidate freeze.
+- Reused the exact frozen E2 coefficients, feature ordering, normalization, and 0.5 decision rule.
+  Native P3 DWPose outputs covered 202/458 frames. Ran the exact unchanged DWPose-L checkpoint,
+  config, whole-frame ROI, preprocessing, decoder, and flip test only for the 256 missing phone
+  frames; checkpoint SHA-256 remained
+  `e9600664e7927229ed594197d552023e3be213f810beb38847a959ec8261e0f7`.
+- Fresh E2 generalization was substantially weaker than its historical P4-A holdout: development
+  visible recall 109/136 (80.15%) and validation 89/148 (60.14%), while validation zero/rest false
+  presence remained 1/31 (3.23%) and 1/32 (3.13%). This is fresh cross-signer evidence and does
+  not alter the historical P4-A result.
+- Froze one primary R1 logical rescue and two bounded DEV-derived variants before validation.
+  All acted only on E2 rejections and used only preregistered current-frame DWPose score, arm/body,
+  and geometry features. Validation selected the least-complex primary rule by the frozen ranking,
+  but it failed all five gates: visible recall 138/148 (93.24%), one-hand 48/50 (96.0%), zero-hand
+  false presence 9/31 (29.03%), rest false presence 11/32 (34.38%), and complete two-hand 41/49
+  (83.67%). R2 was not activated: zero remaining validation misses met its frozen safe causal-
+  continuity conditions.
+- Opened the signer-separated final truth once after freezing code, rule, thresholds, feature
+  manifest, and identity-only final manifest. Frozen E2 achieved visible recall 93/164 (56.71%),
+  one-hand recall 34/48 (70.83%), zero/rest false presence 2/90 (2.22%) and 2/87 (2.30%), and
+  complete two-hand retention 24/58 (41.38%).
+- The selected `E2_PLUS_R1` rescue recovered 61 visible observations and lost zero E2 hits, but
+  still reached only 154/164 visible recall (93.90%), 43/48 one-hand recall (89.58%), and 53/58
+  complete two-hand retention (91.38%). It reopened false presence to 40/90 zero-hand frames
+  (44.44%) and 38/87 rest frames (43.68%), introducing 38 and 36 new false-positive frames.
+- Final status: `P4A2_COMPLETE`; classification:
+  `ELIGIBILITY_IMPROVED_BUT_GATES_FAILED`. All five preregistered final gates failed. This is a
+  valid bounded-rescue result, not a tooling/model-load/sealing failure. Do not retune, create R3,
+  add another detector, run Sapiens, or start P4-B automatically.
+- Scope limitation: the fresh package contains zero WEAK one-hand labels and no positive optional
+  blur/occlusion/contact subgroup labels, so this result cannot claim robustness for those cases.
+  No Android, S4-S7, S6, recognition, representation, z fabrication, training, fine-tuning, or
+  production integration work occurred. Canonical artifacts:
+  `artifacts/recognition_upgrade/perception_backend_replacement/p4a2_high_recall_rescue_final_01/`.
+
+## 2026-08-24 - P4-C1 WiLoR-Det Eligibility Screen Complete; Recall Insufficient
+- Closed the approved detector-only WiLoR architecture screen on the complete 458-frame
+  `GOVERNED_P4C_ARCHITECTURE_COMPARISON_BENCHMARK`. Recomputed the frozen dataset and annotation
+  hashes, rehashed all 458 source images, and processed 458/458 without changing the official
+  reference operating point, crop, NMS, class mapping, or preprocessing.
+- The exact official artifact was `pretrained_models/detector.pt` from WiLoR source commit
+  `fcb911312a38fa8badd30d9656a167485d61b8f9`, checkpoint SHA-256
+  `5ef3df44e42d2db52d4ffe91f83a22ce9925e2acc9abebf453f2c5d22e380033`. Its internal model is
+  an Ultralytics YOLOv8m-Pose-derived medium detector with classes `0=left`, `1=right`, 21x3
+  auxiliary keypoints, 512-pixel reference inference, confidence 0.30, and class-aware IoU-NMS
+  0.70. The full WiLoR reconstruction model was not loaded or run.
+- Anatomical-side scoring was valid and preserved separately from side-agnostic existence
+  capacity. Strict visible-hand recall was 416/448 (92.86%); side-agnostic detection capacity was
+  only 418/448 (93.30%), showing that nearly all losses were detector misses rather than only
+  handedness mistakes. One-hand anatomical recall was 151/162 (93.21%); existence recall was
+  153/162 (94.44%). Complete two-hand retention was 124/143 (86.71%).
+- False presence was also unacceptable: 84/153 human ZERO_HAND frames (54.90%), 82/146 explicit
+  rest frames (56.16%), and 77/141 frames that were both rest and ZERO_HAND (54.61%). Per-hand
+  precision was 80.15%, specificity 77.99%, F1 86.04%; opposite-slot false presence occurred on
+  12/162 one-hand frames (7.41%).
+- Against frozen DWPose presence on visible slots, WiLoR/DWPose both hit 411, WiLoR alone hit 5,
+  DWPose alone hit 18, and both missed 14. On 153 ZERO_HAND frames, WiLoR rejected 25 cases where
+  DWPose hallucinated, but fired on 37 that DWPose rejected and both fired on 47. WiLoR therefore
+  did not provide a sufficiently safe independent eligibility signal at the frozen operating point.
+- All five architecture-screening gates failed: visible recall, one-hand recall, zero-hand false
+  presence, rest false presence, and complete two-hand retention. Final classification:
+  `WILOR_DETECTION_RECALL_INSUFFICIENT`. Do not lower or sweep the threshold, add HVD behind this
+  failed detector, combine it with DWPose, or start P4-D automatically. The protocol-directed next
+  decision is a body-associated fallback architecture review; BPJDet was not run.
+- CPU diagnostic runtime was p50 173.52 ms / p95 187.01 ms total model time, with peak process RSS
+  564.8 MiB and a 51.1 MiB checkpoint. This is not an Android FPS result. Deployment remains
+  `DEPLOYMENT_LICENSE_REVIEW_REQUIRED` because WiLoR models are CC-BY-NC-ND-4.0 and the pinned
+  Ultralytics runtime is AGPL-3.0 absent a separate license.
+- No other detector, full WiLoR reconstruction, training, fine-tuning, DWPose/E2/R1 combination,
+  HVD, BPJDet, Sapiens, Android, S4-S7, recognition, `[96,258]`, or S6 work occurred. Canonical
+  report and artifacts:
+  `artifacts/recognition_upgrade/perception_backend_replacement/p4c1_wilor_det_01/`.
+
+## 2026-08-24 - P4-C2A DWPose-Guided RGB Crop Audit Prepared; Human Review Pending
+- Verified the frozen `P4A2_FRESH_HUMAN_TRUTH_V1` dataset and annotation hashes and reused all
+  458 exact frozen native DWPose outputs. No DWPose frame required new inference.
+- The governed slot inventory contains 429 REAL_VISIBLE_HAND proposals, 159
+  FALSE_DWPOSE_PROPOSAL examples, and 19 visible observations without a frozen presence-qualified
+  proposal. Proposal-generation recall is therefore 429/448 (95.76%), which is the ceiling for a
+  proposal-based RGB verifier under this frozen gate.
+- Froze one geometry-only crop rule before review: the smallest rectangle around all finite native
+  21-point coordinates, expanded 1.5x about its center, each dimension at least
+  `max(32 px, 10% of the shorter frame side)`, then clamped once to the source frame. Human boxes,
+  human truth, WiLoR, E2/R1, and manual adjustment never position a crop.
+- Generated 588 immutable lossless RGB crops. The sequence-aware blinded audit contains 100 true
+  proposal crops and 100 false proposal crops, spanning 28 sequences/14 signers and 26
+  sequences/13 signers respectively. Review order is frozen and randomized; the UI reveals only
+  anonymous crop ID/progress and RGB pixels. Full-frame context is available only after an initial
+  crop-only choice and is recorded.
+- Review tooling uses immutable crop IDs and source hashes, atomic saves, status-driven resume,
+  completed-row overwrite protection, journaled explicit edits, and periodic backups. Nine focused
+  regression tests plus a GUI construction smoke test pass. Human review is pending; no feasibility
+  gate or classification has been claimed.
+- No MobileNet/CNN/classifier training, logistic regression, augmentation, HVD, threshold tuning,
+  WiLoR fusion, P4-C2B, P4-D, P4-B, Android, recognition, S4-S7, or DWPose modification occurred.
+  Pending review package:
+  `artifacts/recognition_upgrade/perception_backend_replacement/p4c2a_dwpose_rgb_crop_separability_01/`.
+
+## 2026-08-24 - P4-C2A Crop Audit Complete; Experiment Invalidated by Truth/Target Defects
+- Completed the blinded crop review for all 200 frozen audit crops with intact identities and
+  provenance: 34 `YES_CLEAR`, 81 `YES_PARTIAL`, 69 `NO`, and 16 `UNCERTAIN`. The review artifact
+  SHA-256 is `fe47dd7c710a91e2a2bb88df3d33269aa89edf8b0d657898394b86783c89522f`.
+- After unblinding, governed REAL_VISIBLE_HAND crops contained 33 clear, 49 partial, 10 no-hand,
+  and 8 uncertain judgments. Human identifiability was 82/100 (82%), so frozen Gate A (>=95%)
+  failed. Governed FALSE_DWPOSE_PROPOSAL crops contained 1 clear, 32 partial, 59 no-hand, and 8
+  uncertain judgments. Human rejection was 59/100 (59%), so Gate B (>=80%) failed. Overall
+  uncertainty was 16/200 (8%), so Gate C (<=10%) passed.
+- The unblinding exposed material evidence-definition defects. Ten visually positive false-proposal
+  crops from eight source frames were governed as `ZERO_HAND`; bounded full-frame inspection shows
+  conspicuous real human hands in those frames. Their frozen labels remain unchanged and are
+  explicitly listed for governance review. Another 23 visually positive false proposals are absent
+  anatomical slots in one-hand frames, consistent with the DWPose slot crop capturing the other
+  real hand. A crop-only binary question, “does any hand appear?”, cannot establish which anatomical
+  slot owns that hand.
+- Classification is therefore `EXPERIMENT_INVALID`, not a valid pass or clean architecture
+  rejection. The review is diagnostically useful, but corrupt/contradictory truth and a slot-target
+  mismatch prevent using these percentages to justify P4-C2B training. The frozen 1.5x crop rule
+  was not changed and no labels were silently repaired.
+- Stop for project-lead governance/target-definition review. No MobileNet/CNN/classifier training,
+  DWPose inference or modification, threshold tuning, HVD, WiLoR fusion, P4-C2B, P4-D, P4-B,
+  Android, recognition, S4-S7, or S6 work occurred. Canonical report and artifacts:
+  `artifacts/recognition_upgrade/perception_backend_replacement/p4c2a_dwpose_rgb_crop_separability_01/`.
+
+## 2026-08-25 - P4-C2R R0 Frozen; R1 Independent Truth Review Prepared
+- Verified and froze the immutable P4-A2 V1 dataset/annotation evidence, the complete P4-C2A
+  package and review, all 588 crop hashes, and all 458 preserved native DWPose outputs. V1 was not
+  edited and `P4_ELIGIBILITY_TRUTH_V2` has not been created.
+- Prepared a blinded 148-frame full-RGB adjudication queue: 48 unique flagged frames (8 known
+  zero-hand discrepancies, 23 opposite-slot cases, and 17 unique proposal-miss frames) plus the
+  required deterministic 100-frame QA sample (40 V1 zero-hand, 40 one-hand, 20 two-hand). The
+  package spans all 28 sequences and 14 signers.
+- The repaired review tool uses immutable row/image identities, atomic writes, status-driven
+  resume, completed-label overwrite protection, explicit journaled edits, and periodic backups.
+  Ten focused regression tests, PowerShell parsing, GUI construction smoke, and the independent
+  pre-review package validator pass. The launcher now explicitly enters the resolved project root
+  before invoking the local Python module and restores the caller's directory afterward; it was
+  verified successfully from `C:\Users\Gigabyte`. Human review is pending at 0/148.
+- R2 proposal-ceiling recomputation, R3 fallback analysis, R4 ownership analysis, and R5 P4-C2A
+  rescore are intentionally blocked until adjudication completes. No classifier/model inference,
+  training, detector, Android, recognition, S4-S7, P4-C2B, HVD, P4-D, or P4-B work occurred.
+  Pending package:
+  `artifacts/recognition_upgrade/perception_backend_replacement/p4c2r_proposal_ownership_truth_repair_01/`.
+
+## 2026-08-25 - P4-C2R Stopped at R1 QA Gate; Broader V1 Re-Audit Required
+- Completed all 148/148 independent blinded full-frame adjudications with intact row/image
+  identities and no journaled edits. Immutable V1 and R0 source hashes reverified.
+- The preregistered 100-frame random QA subset found 13 material visibility-disagreement frames
+  (17 anatomical-side changes): 4/40 V1 zero-hand, 6/40 V1 one-hand, and 3/20 V1 two-hand. This is
+  above the mandatory stop boundary of at least 3/100, so status is
+  `TRUTH_V1_BROADER_REAUDIT_REQUIRED`.
+- Across all reviewed targeted plus QA evidence, 29 frames / 39 anatomical-side labels differed
+  materially from V1. They are preserved in a non-applied change log; none were silently promoted.
+- V1 remains immutable, `P4_ELIGIBILITY_TRUTH_V2` was not created, and zero corrections were
+  applied. R2 proposal coverage, R3 fallback, R4 ownership, and R5 P4-C2A rescore did not start
+  because their human-truth basis failed bounded QA.
+- No classifier/MobileNet/HVD, detector, DWPose inference, threshold tuning, Android, recognition,
+  S4-S7, P4-C2B, P4-D, or P4-B work occurred. Canonical stop report and artifacts:
+  `artifacts/recognition_upgrade/perception_backend_replacement/p4c2r_proposal_ownership_truth_repair_01/`.
+
+## 2026-08-25 - P4-GT1 Remaining Pass-1 Review Ready
+- Started ground-truth repair only after the P4-C2R QA stop. V1 remains immutable and both frozen
+  V1 hashes were verified. The completed 148-row P4-C2R review was audited as compatible with the
+  newly frozen P4-GT1 visibility standard: full-frame RGB, model/V1 blinding, independently
+  recorded anatomical sides, compatible YES/NO/UNCERTAIN semantics, and zero completed-label
+  edits. It is reused as Pass-1 evidence rather than asking the reviewer to repeat it.
+- Froze `P4GT1_VISIBILITY_ANNOTATION_STANDARD.md`, explicitly separating physical target-signer
+  hand visibility from activity state, anatomical from screen side, and target-signer hands from
+  other people's hands.
+- Prepared a randomized blinded queue for the remaining 310 unique frames. The reused 148 plus the
+  new 310 cover all 458 governed frames exactly once. The queue is currently 0/310 complete.
+- The review infrastructure preserves immutable row/image identities, atomic writes,
+  status-driven resume, completed-row protection, explicit edit journaling, backups, and zoom.
+  Fifteen regression tests, GUI construction smoke, external-directory launcher execution, and an
+  independent package/hash validation pass.
+- Status `P4GT1_PASS1_REVIEW_READY`. Pass-2 repeatability, adjudication, V2 creation, proposal and
+  crop rescoring, historical rescoring, and all model/Android/recognition work remain unstarted.
+  Package:
+  `artifacts/recognition_upgrade/perception_backend_replacement/p4gt1_eligibility_ground_truth_rebuild_01/`.
+
+## 2026-08-25 - P4-GT1 Pass-1 Complete; Repeatability Review Ready
+- Verified the completed 310/310 remaining-frame review with unchanged source identities/hashes,
+  no duplicate/missing rows, and zero completed-label revisions. Combined it with the reusable 148
+  P4-C2R judgments to freeze provisional `p4gt1_pass1_full.csv` at 458/458 unique frames.
+- Provisional Pass-1 composition is 158 zero-hand, 150 one-hand, 146 two-hand, and 4 frames with
+  at least one uncertain anatomical side. This is not V2 and is not yet model truth.
+- Froze a deterministic signer/sequence-aware 100-frame repeatability queue: 40 Pass-1 zero-hand,
+  40 one-hand, and 20 two-hand frames; 34 originate from the reused P4-C2R set and 66 from the new
+  P4-GT1 review. Pass-1/V1 labels, source category, strata, disagreements, sequence/gloss, and all
+  model information remain hidden.
+- Repeatability queue/tool integrity, 15 regression tests, GUI construction smoke, launcher use
+  from `C:\Users\Gigabyte`, and the artifact hash manifest pass. Queue is 0/100 complete.
+- Status `P4GT1_REPEATABILITY_REVIEW_READY`. No repeatability scoring, adjudication, V2, proposal,
+  crop/historical rescore, model, Android, recognition, P4-C2B, P4-D, or P4-B work occurred.
+
+## 2026-08-25 - P4-GT1 Repeatability Insufficient; Model Development Remains Stopped
+- Completed the blinded repeatability review at 100/100 frames / 200 anatomical sides with intact
+  source identities/hashes and zero completed-label revisions.
+- Found 6/200 direct YES↔NO anatomical-side disagreements across 6/100 frames, yielding 97% side
+  and 94% frame direct-binary repeatability. Both preregistered gates failed (required at most
+  2/200 sides and at most 2/100 frames). There were zero uncertainty transitions.
+- Disagreements span two Pass-1 zero-hand, three one-hand, and one two-hand case; five came from the
+  reused P4-C2R evidence and one from the new 310-frame review. Exact IDs and both judgments are
+  frozen in `p4gt1_repeatability_disagreements.csv`.
+- Classification `P4GT1_REPEATABILITY_INSUFFICIENT`. No adjudication queue was created,
+  `P4_ELIGIBILITY_TRUTH_V2` was not created, and DWPose proposal/P4-C2A/E2/R1/WiLoR rescoring did
+  not start. No classifier/model, detector, threshold, Android, recognition, S4-S7, P4-C2B, P4-D,
+  or P4-B work occurred. Canonical report/package:
+  `artifacts/recognition_upgrade/perception_backend_replacement/p4gt1_eligibility_ground_truth_rebuild_01/`.
+
+## 2026-08-25 - P4-GT1R Six-Frame Count-First Adjudication Ready
+- Preserved immutable V1, P4-C2R, P4-GT1 Pass-1/Pass-2/disagreement evidence, P4-C2A crop labels,
+  native model evidence, and all historical decisions. Created only new P4-GT1R artifacts.
+- Reinterpreted the existing 100-frame repeatability sample under the separated physical-count and
+  anatomical-ownership schema. Physical visible-hand count agrees on 94/100 frames. All six prior
+  YES↔NO conflict frames classify as `COUNT_DISAGREEMENT`; ownership-only and mixed conflicts are
+  both zero.
+- Prepared exactly the six conflict frames for count-first adjudication. The UI initially shows
+  only the exact current non-mirrored RGB frame and asks count 0/1/2/uncertain. Ownership appears
+  only for count=1; uncertain ownership is valid, and adjacent RGB context is available only for
+  ownership. Selection never auto-saves; explicit Confirm/Enter is required.
+- Immutable identity/hash checks, atomic/status-driven persistence, completed-label protection,
+  edit journaling, 23 regression tests, GUI smoke, external-directory launcher use, and independent
+  package validation pass. Queue is 0/6 complete.
+- Status `P4GT1R_ADJUDICATION_READY`. No V2, rescore, model inference/training, threshold, proposal
+  fallback, ownership heuristic, Android, recognition, P4-C2B, P4-D, or P4-B work occurred. New
+  package:
+  `artifacts/recognition_upgrade/perception_backend_replacement/p4gt1r_schema_repair_v2_01/`.
+
+## 2026-08-25 - P4-GT1R Development Truth V2 Frozen and Rescored
+- Completed the six count-first adjudications without edits: three ONE/RIGHT, two TWO, and one
+  ZERO. All six prior repeatability failures were physical-count disagreements; none was merely
+  ownership-only or mixed.
+- Froze `P4_ELIGIBILITY_TRUTH_V2` as governed **development** ground truth, not final research
+  gold. It contains 454 count-known and 4 count-uncertain frames: 157 ZERO, 150 ONE, and 147 TWO;
+  444 visible and 464 absent hand slots are known, while 8 uncertain sides are excluded. V1 and
+  every historical result remain immutable.
+- Stored DWPose output gives 419/444 = 94.37% physical proposal capacity, below the 98% gate.
+  One-hand existence is 147/150 = 98.00%, but complete two-hand proposals are only 130/147 =
+  88.44%. Zero-hand activation remains 76/157 = 48.41%. Status flag:
+  `V2_PHYSICAL_PROPOSAL_CEILING_BELOW_GATE`.
+- On 150 known-ownership one-hand frames, the true slot is active in 147/150 = 98.00%, while the
+  opposite slot also activates in 60/150 = 40.00%; all 60 are dual-slot collisions. Proposal
+  coverage and anatomical ownership remain distinct unresolved problems.
+- Reinterpreted the immutable 200 crop reviews as RGB authenticity rather than slot correctness:
+  115 hand-present, 69 hand-absent, and 16 uncertain (92% binary decidability). Of the prior 33
+  alleged false visual positives, V2 classifies 9 as valid visible-hand cases, 20 as opposite-hand
+  or ownership cases, 3 as genuine false visual positives, and 1 as uncertain.
+- Frozen-output-only rescoring does not rehabilitate P4-A2 E2/R1 or P4-C1 WiLoR; none passes every
+  relevant original gate under V2. P4-A cannot be joined to V2 by frame identity. No model was
+  rerun or trained, and no fallback, ownership rule, classifier, Android, recognition, P4-C2B,
+  P4-D, or P4-B work occurred. Classification:
+  `P4GT1R_V2_READY_FOR_ARCHITECTURE_DECISIONS`. Canonical report/package:
+  `artifacts/recognition_upgrade/perception_backend_replacement/p4gt1r_schema_repair_v2_01/`.
+
+## 2026-08-25 - P4-C3A Raw DWPose Failure Decomposition Complete
+- Verified frozen V2 (`24f5d8d...d4252d`) and all 458 preserved native DWPose outputs. No model
+  inference, threshold change, or new human review occurred. Diagnostic geometry/collision criteria
+  were frozen before aggregate classification and are explicitly not production rules.
+- Decomposed all 25 missing visible-hand observations: 21 retain coherent raw native hand geometry
+  (category A), 1 lacks usable hand geometry but has usable same-frame arm context (B), 3 have no
+  defensible hand or arm-derived proposal (C), and 0 are truth-uncertain (D). Misses are strongly
+  concentrated in two-hand frames: 22/25, versus 3/25 one-hand.
+- The base 419/444 proposal capacity becomes a theoretical 440/444 = 99.10% using category-A raw
+  candidates alone and 441/444 = 99.32% with A+B. Both exceed the 436/444 physical-proposal target;
+  these are candidate-region ceilings, not landmark or recognition recovery claims.
+- Decomposed all 60 one-hand dual-slot collisions: 59 are spatially the same physical hand
+  duplicated into both slots, 0 are separate false regions, and 1 is ambiguous. Simple anatomical
+  arm association prefers the true slot in only 39/59 = 66.10%, versus 10 false preferences and 10
+  ties, so it is not a reliable ownership solution.
+- Existing crop review overlaps 28/60 collision frames. All 12 binary-reviewed true-slot crops and
+  all 21 binary-reviewed false-slot crops contain a real hand; no reviewed false-slot collision
+  crop is visually empty (4 are uncertain). RGB authenticity therefore cannot resolve the
+  duplicate-hand ownership problem, although it remains relevant for general empty-region
+  rejection.
+- Final diagnostic path: `A_RAW_CANDIDATE_RGB_VERIFY`, with independent
+  `OWNERSHIP_REQUIRED=YES`. Raw candidates already clear the proposal ceiling; arm fallback adds
+  only one proposal and targeted second-stage recovery is not justified by the ceiling evidence.
+  Path A is not sufficient alone because anatomical ownership remains unsolved.
+- No verifier/classifier, ownership heuristic, arm fallback, second-stage model, Android,
+  recognition, or S4-S7 work was started. Canonical report/package:
+  `artifacts/recognition_upgrade/perception_backend_replacement/p4c3a_raw_dwpose_failure_decomposition_01/`.
+
+## 2026-08-25 - P4-C3B Independent Physical-Instance Review Ready
+- Audited the P4-C3A duplicate-label source as `GEOMETRY_DERIVED`; those 59/60 classifications
+  were not reused as independent physical-instance truth for geometry evaluation.
+- Verified frozen V2 and preserved native-output identities, then prepared exactly the required
+  bounded review evidence: 21 category-A raw-candidate cases, all 60 one-hand collision pairs, and
+  40 deterministic two-hand reference pairs. The reference sample is signer/sequence/time aware
+  and was not selected using proposal overlap, distance, apparent ease, or model outcome.
+- Generated 121 immutable full-frame overlays. Raw-candidate views distinguish accepted proposals
+  from the recovery candidate; pair views use randomized candidate A/B ordering and hide native
+  anatomical slot source. V2 labels, confidence, P4-C3A rationale, signer/sequence, pair origin,
+  and expected answers remain hidden from the reviewer.
+- The minimal UI uses one physical-instance question per image, large labeled buttons, direct
+  keyboard shortcuts (`1`-`4` for raw cases, `1`-`3` for pairs), zoom, autosave, status-driven
+  next-incomplete navigation, immutable completed rows, and explicit journaled undo. Five focused
+  persistence/integrity tests, Python compilation, PowerShell launcher/status execution, overlay
+  counts, and GUI construction smoke pass. Queue is 0/121 complete.
+- Status `P4C3B_RAW_CANDIDATE_REVIEW_READY`. Part B pair-feature fitting/validation has not
+  started. No DWPose rerun, deduplication rule, classifier/HVD/detector, Android, recognition,
+  S4-S7, or downstream architecture implementation occurred. Package:
+  `artifacts/recognition_upgrade/perception_backend_replacement/p4c3b_physical_instance_validation_01/`.
+
+## P5-A — DWPose-native missingness-aware representation (2026-08-25)
+
+- P4 perception remains frozen. No detector, DWPose inference/tuning, recovery model, training, recognition inference, Android, or S4-S7 work occurred.
+- Classification: `P5A_REPRESENTATION_READY`. Frozen experimental contract: `DWPOSE_REPRESENTATION_V2_238`, shape `[96,238]`, little-endian float32.
+- Layout: left hand `21x(xy,score,valid)`, right hand `21x(xy,score,valid)`, body indices `0..16` with the same four channels, plus two current-frame hand-observed masks. The masks describe usable native geometry, not physical-hand truth.
+- Same-frame shoulder-midpoint/shoulder-distance body normalization succeeded on 458/458 governed frames; fallback 0/458. All 28 sequences converted to `[96,238]` with no truncation, NaN/Inf, stale hand block, padding, or GT-leakage violation. No DWPose rerun was required.
+- Contract Markdown SHA-256 `57a45b6b5dd5340fbc5bf0eef12f30620f1478569b0e0b887cc9357f59911337`; contract JSON SHA-256 `0c94e9c885f331164d8ab1f7f0915eb89de43101394bd0949fae033b57f76d8b`; governed frame feature-data SHA-256 `7f0e4c4007279e8c8aa1562052959dc67d0d33ae89e3cdb19f7ceb4e975da70d`.
+- Migration audit: the 8,131-row, 236-class canonical Phase-1 inventory has no DWPose V2 tensors. All 8,131 rows require migration for a complete rebuild (7,362 for the core primary train/validation/test baseline). `OLD S6 [96,258] MODEL IS NOT INPUT-COMPATIBLE WITH [96,238]`; no 238→258 padding or compatibility inference is allowed.
+- Next allowed phase: `P5-B — Temporal Recognition Baseline on Representation V2`, after project-lead review. P5-B was not started.
+- Canonical package: `artifacts/recognition_upgrade/perception_backend_replacement/p5a_dwpose_representation_v2_01/`.
+
+## 2026-08-25 - P4-C3B Physical Instance Validation Complete; Path 2 Selected
+- Completed all 121/121 blinded physical-instance judgments. Four explicit undos are fully
+  journaled and match the four revision counters; no silent edits or identity/hash defects were
+  found. Independent raw-candidate truth is 7 missing-real-hand, 4 duplicate-existing-hand, 10
+  other-false-region, and 0 ambiguous.
+- The independently validated raw-candidate capacity is only 426/444 = 95.95%, below the required
+  436/444 (98%). P4-C3A's theoretical 440/444 ceiling is therefore rejected: coherent raw geometry
+  often represents an already accepted hand or a non-hand region.
+- Independent pair truth contains 61 SAME, 38 DISTINCT, and 1 AMBIGUOUS case. The ambiguous pair
+  was excluded from binary rule fitting/scoring. Froze a signer-separated split with 65 development
+  and 35 validation rows (10 development and 4 validation signers); sequences are also disjoint.
+- Fitted exactly one candidate-order-symmetric rule family from development only using normalized
+  center distance AND normalized median corresponding-landmark distance. Native/anatomical
+  left/right slots are not inputs. On the first and only validation, duplicate recall is 8/21 =
+  38.10% (FAIL ≥95%), while distinct-hand preservation is 13/13 = 100% (PASS ≥98%): 0 false
+  merges, 13 false splits, precision 100%, F1 55.17%, diagnostic AUC 0.9377.
+- Final classification `RAW_CANDIDATES_INSUFFICIENT_TARGETED_RECOVERY_REQUIRED`, architecture
+  `PATH_2`. `ANATOMICAL_SLOT_AS_PRIMARY_IDENTITY=RETAIN`. A targeted second-stage landmark
+  recovery direction is justified for the difficult missing-hand cases, but no recovery model was
+  selected or run.
+- No RGB verifier, detector/model inference or training, production deduplication, recovery
+  implementation, Android, recognition, S4-S7, P4-D, or representation work occurred. Ten focused
+  integrity/symmetry/split tests pass. Canonical report/package:
+  `artifacts/recognition_upgrade/perception_backend_replacement/p4c3b_physical_instance_validation_01/`.
+
+## 2026-09-04 — Authorized progress catch-up through P7F-A
+
+This appended status supersedes older pending/next-step statements for the recognition-upgrade
+track only. All older entries and checkboxes remain historical; no experiment result is rewritten.
+The user now explicitly permits context/tracker updates after earlier gates kept them untouched.
+
+Full chronology, data findings and source links:
+[Consolidated P5-B through P7F-A progress](recognition_upgrade/PROGRESS_THROUGH_P7FA_2026_09_04.md).
+
+### Status / completed work
+
+- [x] P5-B migration, controlled horizon work and augmentation diagnosis completed.
+- [x] P5-D1–D12 evidence synthesized: PFCE_MATCHED + EC_P3 leads offline, MODERATE confidence.
+  D1 remains inconclusive/LOW; V2 sufficiency is not proven. D11 NLL worsened3/3,
+  per-frame accuracy declined2/3, Top5 mixed; no pristine confirmation or deployment seed.
+- [x] P6-A/B/B-R1 compatibility evidence completed; both formal desktop parity failures retained.
+- [x] P6-C Android effective V2 parity passed60/60 but device performance was below target.
+- [x] P6C-P1 acceleration triage completed: XNNPACK1.861052 backend FPS; NNAPI semantic failure.
+  Exact DWPose-L FP32 flip-test mobile path closed on target; retained as offline teacher.
+- [x] P7-A architecture audit, P7-B Family-A contract, P7-C FA_DS_SPATIAL_V1 selection completed.
+- [x] P7-D and P7D-R1 failed their frozen runtime screens; no results relabeled.
+- [x] P7D-R2 native host compute passed: V3 p95=25.133427ms;40.733333loops/sec.
+- [x] P7E fixed[15,15] camera-only passed; integrated result remains BELOW_SCREEN:
+  capture15FPS, analyzer/completed14.883333FPS, complete p95=48.6157707ms.
+- [x] P7F-A completed: `P7FA_GEOMETRY_READY_IDENTITY_MISSINGNESS_GAPS`.
+  3309 ASL TRAIN +617 local TRAIN RGB/native pairs verified. Frozen881 Sem-Lex P3 pairs
+  hash-match, but798 need frame-alignment revalidation;77 have repeated timestamps.
+
+### Decisions Made — current, not new execution authorization
+
+- Production schema3.0 [96,258], offline V2 [96,238], Family-A202-float ABI and native
+  heatmap/assignment outputs are distinct contracts, not reshape-compatible alternatives.
+- Family A primary; Family B only predeclared fallback, never automatic; Family C unauthorized.
+- Existing Family-A runtime weights remain random/untrained and POLICY_UNCONFIGURED.
+- Geometry pseudo-supervision supports base-TRAIN contract design; identity labels NOT_READY,
+  physical missingness PARTIAL, direct teacher-score regression NOT_SUPPORTED.
+- Sem-Lex historical review provenance is resolved; exact policy remains
+  `P3_ONE_PER_SIGNER_CLASS_CLASS_SHARE_67`. No2415 expansion or83-clip replacement authorized.
+- P7E runtime debt remains parked. No training, extraction, human labeling, calibration,
+  benchmark, S5/S7 integration or production replacement authorized by this documentation update.
+
+### Open items / one next gate
+
+- [ ] `PROJECT_LEAD_FAMILY_A_SUPERVISION_CONTRACT_REVIEW` — recommended, NOT executed.
+- [ ] Reviewed anatomical assignment/crossing/contact and physical missingness evidence.
+- [ ] Sem-Lex source-frame/timestamp revalidation without changing frozen membership.
+- [ ] Future target/mask/loss and calibration contracts; no thresholds selected yet.
+- [ ] Future normalization/S5/S7 and parked integrated-runtime closure, separately governed.
+
+D10/protected replay/pristine remain protected; ASL Citizen VAL evaluation-only. Existing
+historical context hashes remain records of their original audits, not a reason to rewrite them.
+
+## 2026-09-05 — P7F-B teacher chirality resolution and Student-1 contract/cache
+
+This entry is append-only and preserves every historical status above. It supersedes the older
+P7F-A next-gate statement for the recognition-upgrade track without relabeling prior evidence.
+
+### Status / completed work
+
+- [x] Continued the existing `P7FB_FAMILY_A_GEOMETRY_STUDENT_READINESS_CONTRACT_01`; no new
+  research branch was created.
+- [x] Preserved the original `P7FB_RGB_TEACHER_ALIGNMENT_BLOCKED` result and all accepted
+  frame/timestamp/rotation/decode/coordinate/integrity evidence as historical controls.
+- [x] Completed the native-array-only chirality audit on the authorized base TRAIN population:
+  ASL Citizen 3,309 clips = `COHERENT`; AppHear Capture 297 = `COHERENT`; Local 320 =
+  `COHERENT`; overall `PASS`; no adequately covered signer had a systematic swap signal.
+- [x] Recorded `P7FB_REFLECTION_EFFECT_RESOLVED_FOR_GEOMETRY_DISTILLATION` while retaining
+  `historical_acquisition_reflection = UNESTABLISHED`.
+- [x] Froze geometry-only Student-1 contracts/tooling and classified the package
+  `P7FB_STUDENT1_TRAINING_CONTRACT_READY`. Training plane is
+  `TEACHER_DECODED_UPRIGHT_SOURCE_RGB`; no flip, teacher-channel swap or physical-unmirrored
+  claim is permitted.
+- [x] Froze 3,204 TRAIN / 722 internal DEV clips with zero signer overlap where feasible.
+  AppHear Capture is TRAIN-only because its single governed signer cannot support a disjoint DEV.
+- [x] Verified bounded implementation readiness: 11/11 unit tests, lint, finite forward/backward
+  smoke, 68 hashed artifacts and 1,295 unchanged historical/control files.
+- [x] User executed the exact resumable float32 cache. Verified complete at
+  `G:\AppHear3_P7FB_Student1_Cache`: 3,926 manifest rows, 3,926 clip arrays, 3,926 lineage
+  sidecars, 164,675 frames, 291,388,304,128 bytes; cache-manifest SHA-256
+  `cb5a35dc0d7e3f86dbf99964798945d43b7e673d708c28d7a999be5fd4e5ea30`.
+
+### Decisions Made — frozen P7F-B Student-1 contract
+
+- Historical acquisition reflection remains `UNESTABLISHED`; the audit supports only internal
+  DWPose hand-channel/body-wrist semantic coherence across the three authorized sources.
+- Geometry eligibility is governed lineage + retained frame + finite, source-in-bounds XY. No
+  DWPose score threshold, clamping, fabricated border target or confidence regression is used.
+- Targets are `[96,96,50]` unit-mass continuous subpixel Gaussians with sigma 1.5 cells, 3-sigma
+  truncation and admissible-border renormalization. Loss is per-channel masked spatial cross
+  entropy with zero-supervision frames excluded.
+- Assignment-support, physical missingness/presence and direct confidence losses are off.
+- Sampling is source then uniform clip then uniform eligible frame at 85% / 7.5% / 7.5% for
+  ASL Citizen / AppHear Capture / Local. Horizontal flip and geometric augmentation are off.
+- Checkpoint selection and acceptance remain channel-sensitive. The swap-tolerant hand metric is
+  diagnostic only and cannot select a checkpoint or determine Student-1 PASS.
+- The production Family-A schema/runtime contract is unchanged. No recognition improvement,
+  human anatomical correctness or deployment readiness is established by this work.
+
+### Open items / one next gate
+
+- [ ] `USER_EXECUTED_FAMILY_A_GEOMETRY_STUDENT_01` — run integrity, one fresh training run,
+  all-frame internal DEV evaluation and final packaging using `p7fb_long_run_handoff.md`.
+- [ ] If training is interrupted, use the frozen resume command; do not launch another fresh run
+  into the same output directory.
+- [ ] Interpret the result only against the frozen teacher-fidelity acceptance contract. AppHear
+  Capture has no signer-disjoint DEV result, and assignment/missingness/recognition/mobile work
+  remains separately governed.
+
+Student-1 training, long DEV evaluation, final result packaging, DWPose extraction, protected-data
+access, Android changes, S5/S7 integration and production replacement remain unexecuted.
+
+## 2026-09-07 — Family-A Geometry Student 01 finalized
+
+This append-only entry supersedes only the preceding statement that Student-1 execution and
+finalization were pending. The frozen P7F-B contract and all earlier evidence remain unchanged.
+
+### Status / completed work
+
+- [x] The user completed `USER_EXECUTED_FAMILY_A_GEOMETRY_STUDENT_01` in the isolated
+  `p7fb_family_a_geometry_student_01_optimized` output directory. The earlier non-optimized,
+  partial attempt was preserved without modification.
+- [x] Independently reverified all 68 frozen P7F-B artifact hashes; run/config, TRAIN/DEV
+  manifests, baseline implementation, optimized implementation, cache ledger and execution-only
+  optimization identities all match. Pretraining equivalence remains exact and reports no
+  scientific-contract change.
+- [x] Reverified the authorized 3,926-clip base-TRAIN population: 3,204 Student-1 TRAIN and 722
+  internal DEV clips, authorized ASL Citizen/AppHear Capture/Local sources only, Sem-Lex absent,
+  protected populations absent, and zero TRAIN/DEV signer overlap where defined.
+- [x] Verified `FA_DS_SPATIAL_V1` with 154,076 trainable parameters. Training completed 29 epochs
+  and 23,229 optimizer steps. Frozen early stopping fired after epochs 24–29 failed to improve
+  on epoch 23; best checkpoint step is 18,423. Resume continuity, optimizer iterations,
+  checkpoint state and the 29-record history are consistent, with no finite-value failure.
+- [x] Verified the existing all-frame internal DEV evaluation used the frozen best checkpoint
+  `ckpt-23`, all 25,338 eligible frames, 1,192,035 eligible points and 74,865 ignored targets.
+  AppHear Capture remains unavailable for signer-disjoint DEV because its one governed signer is
+  TRAIN-only.
+- [x] Applied the preregistered gates without alteration. Final classification:
+  `FAMILY_A_GEOMETRY_STUDENT_01_MODEL_FAILURE`. Failed gates are mean NME, PCK@0.02,
+  PCK@0.05, LH PCK@0.05 and RH PCK@0.05; BODY PCK@0.05 passed.
+- [x] Deterministically created per-source/per-region evidence, acceptance tables, integrity and
+  inventory records, `student1_result.json`, a 24-file run hash manifest and
+  `FAMILY_A_GEOMETRY_STUDENT_01_REPORT.md`. All 24 manifest entries reverify.
+
+### Final channel-sensitive internal DEV results
+
+- Overall: NME 0.077213216; PCK@0.02 0.242763006; PCK@0.05 0.580797544.
+- LH PCK@0.05 0.545979687; RH PCK@0.05 0.564375390; BODY PCK@0.05 0.743109307.
+- ASL Citizen: 20,027 frames / 945,621 points; NME 0.084084140; PCK@0.05 0.536285679.
+- Local: 5,311 frames / 246,414 points; NME 0.050845842; PCK@0.05 0.751613139.
+- The two-hand swap-tolerant NME is 0.081502127 versus normal channel-sensitive paired-hand NME
+  0.082568016 (1.291% relative improvement). It did not control selection or acceptance;
+  `HAND_LOCALIZATION_IS_PRIMARY_WEAKNESS` is the supported diagnostic interpretation.
+- `TEACHER_SUPPORT_STRATIFICATION_NOT_AVAILABLE`; the completed experiment was not modified to
+  manufacture this optional diagnostic. Standalone terminal stdout was not captured, while the
+  structured history, checkpoints and raw evaluation CSVs are preserved.
+
+### Claim limits / next gate
+
+- `HISTORICAL_ACQUISITION_REFLECTION_UNESTABLISHED`
+- `MOBILE_DOMAIN_GENERALIZATION_NOT_ESTABLISHED`
+- `HUMAN_ANATOMICAL_ACCURACY_NOT_ESTABLISHED`
+- `WORD_RECOGNITION_IMPROVEMENT_NOT_ESTABLISHED`
+- [ ] `PROJECT_LEAD_REVIEW_OF_STUDENT1_CROSS_SOURCE_HAND_LOCALIZATION_FAILURE` — review the
+  preserved per-source, per-region, per-point, supervision-coverage and swap diagnostics before
+  authorizing any new experiment. Student 2, retraining, architecture changes and deployment are
+  not authorized by this finalization.
+
+## 2026-09-07 — Student-1 failure-attribution audit complete
+
+This append-only entry supersedes only the preceding unresolved-cause review gate. It does not
+change the frozen P7F-B contract or the historical Student-1 result.
+
+### Status / completed work
+
+- [x] Completed inference-only `P7FB_STUDENT1_FAILURE_ATTRIBUTION_01` in the isolated
+  `p7fb_family_a_geometry_student_01_failure_attribution_01` directory without modifying the
+  completed optimized run.
+- [x] Preregistered all diagnostic definitions, verified exact evaluator parity, evaluated the
+  deterministic matched TRAIN/DEV frame sets, independently rechecked ckpt-23 all-frame DEV and
+  compared the final epoch-29 checkpoint on the same all-frame DEV population.
+- [x] Verified parent immutability across all 14 sealed artifacts, all 22 required outputs present,
+  and all 54 non-self diagnostic-manifest entries hash-correct. No training, protected data,
+  Sem-Lex, DWPose rerun, label repair or deployment work occurred.
+- [x] Final diagnostic classification:
+  `STUDENT1_FAILURE_ATTRIBUTION_MIXED_CAUSES_SUPPORTED`. The historical experiment remains
+  `FAMILY_A_GEOMETRY_STUDENT_01_MODEL_FAILURE`.
+
+### Decisions Made — failure attribution
+
+- Supported: unseen-signer generalization gap, low-teacher-support association and clip-boundary
+  difficulty. Mixed causes are supported under the preregistered rules.
+- Contradicted: optimization failed to learn, weak matched-TRAIN hand fit, systematic hand swap,
+  mobile supervision coverage as the primary cause, and checkpoint-probe misselection.
+- Hand-scale/resolution association and architecture capacity remain inconclusive; neither is a
+  causal conclusion from this audit.
+- Matched pooled hand NME was 0.047740762 TRAIN versus 0.080300243 DEV. Teacher-support Q1/Q5 NME
+  ratio was 2.657560 with Spearman -0.388090. Boundary/central NME ratio was 1.453.
+- Epoch 29 worsened all-frame NME by 0.002138605 and PCK@0.05 by 0.000845613 versus ckpt-23;
+  the historical checkpoint selection remains appropriate and unchanged.
+- A packaging-only empty Local-Q4 hand-scale subgroup is recorded as zero-count/unevaluable;
+  no evidence or metric definition was modified.
+
+### Open items / one next gate
+
+- [ ] `PROJECT_LEAD_SELECT_CONTROLLED_FOLLOWUP_FROM_STUDENT1_ATTRIBUTION_MATRIX` — select at most
+  one controlled next experiment capable of distinguishing the supported generalization,
+  teacher-support and boundary contributors. This tracker entry does not authorize execution.
+- [ ] Preserve the unresolved limits: AppHear Capture signer-disjoint generalization, causal
+  architecture capacity, causal hand-resolution limitation, DWPose anatomical correctness,
+  recognition improvement and production readiness remain unestablished.
+
+## 2026-09-08 — Family-A Geometry Student 2 geometric-augmentation package ready
+
+This append-only entry records the project-lead-selected controlled follow-up to the Student-1
+failure-attribution matrix. It does not change Student 1 or authorize any agent-executed training.
+
+### Status / completed work
+
+- [x] Prepared isolated experiment
+  `P7FB_FAMILY_A_GEOMETRY_STUDENT_02_GEOMETRIC_AUGMENTATION_01` under
+  `artifacts/recognition_upgrade/p7fb_family_a_geometry_student_02_geometric_augmentation_01/`.
+- [x] Preserved the sole scientific delta as TRAIN-only, coordinate-consistent post-letterbox
+  affine augmentation. `FA_DS_SPATIAL_V1`, 154,076 trainable parameters, TRAIN/DEV manifests,
+  teacher mapping/eligibility and score policy, heatmaps, masked loss, source-first sampler,
+  source probabilities, AdamW/cosine optimization, batch size 4, seed 707, maximum 40 epochs,
+  patience 6, checkpoint policy, and unaugmented DEV remain inherited from Student 1.
+- [x] Froze a single identity-centered policy before training: 20% geometric identity;
+  otherwise triangular rotation ±8 degrees, uniform scale 0.90–1.10 and X/Y translation
+  ±7.5% of 384. Horizontal reflection, perspective and anatomical swapping remain prohibited.
+- [x] Verified exact identity equivalence on one governed example per source: RGB, targets,
+  masks and admissible grids all had maximum absolute error 0.0 relative to Student 1.
+- [x] Passed analytic translation/scale/rotation, affine round-trip, heatmap-centroid,
+  out-of-frame ignore/no-clamp, handedness and one-batch forward-only tests. Pytest: 5/5.
+- [x] Audited 4,096 deterministic TRAIN occurrences. Overall eligible-point retention was
+  99.047%; LH 98.774%, RH 99.428%, BODY 98.661%; zero-supervision frames 0/4,096; qualifying
+  hand sides losing most/all points 58/7,809 (0.743%). All preregistered safety gates passed,
+  so the policy was not changed after audit.
+- [x] Generated nine deterministic visual overlays (three per authorized source) and a contact
+  sheet. Selection used sorted sample identity and middle eligible position, not model outcome.
+- [x] Verified all Student-1 parent hashes before/after preparation; all 25 parent run files are
+  unchanged. Sealed 24 Student-2 static artifacts; package integrity passes.
+- [x] Completed imprint and implementation review. No production feature-schema/S4↔F change was
+  introduced; review found 0 critical, 0 important and 0 minor issues.
+- [x] No optimizer update, training epoch, DWPose rerun, Sem-Lex access, protected-data access,
+  Android change or production-model change occurred.
+
+### Exact next gate
+
+- [ ] `USER_EXECUTED_FAMILY_A_GEOMETRY_STUDENT_02_GEOMETRIC_AUGMENTATION_01` — the project lead
+  runs the sealed Student-2 `train` command. If interrupted, use `resume`; do not start a second
+  fresh run. After completion, run the frozen best/all DEV evaluation and project-lead comparison.
+
+### Claim limits
+
+- Geometric augmentation is a causal hypothesis under test, not an established root cause.
+- Historical acquisition reflection, human anatomical accuracy, AppHear signer-disjoint/mobile
+  generalization, word-recognition improvement and production readiness remain unestablished.
+
+## 2026-09-08 — Student-2 user run paused safely at epoch 14
+
+This append-only execution note supersedes only the statement that Student-2 training had not
+started. It does not change the frozen Student-2 contract or interpret unfinished model quality.
+
+- [x] The project lead started the authorized Student-2 training run in the isolated experiment
+  directory and later cancelled it near epoch 14 step 800/801.
+- [x] On-disk inspection confirms 13 complete history records, `state.json` at the completed
+  epoch-13 boundary (`optimizer_iterations=10413`, `best_epoch=12`), and a valid latest resumable
+  checkpoint `checkpoints/latest/ckpt-11213` corresponding to epoch 14 step 800.
+- [x] Cancellation is recoverable under the frozen resume contract. No second fresh run should be
+  started; `resume` will restore model, optimizer/schedule, saved step state, sampler sequence and
+  deterministic augmentation sequence.
+- [ ] Next action: run the exact Student-2 `resume` command using output directory
+  `artifacts/recognition_upgrade/p7fb_family_a_geometry_student_02_geometric_augmentation_01`,
+  cache `G:\AppHear3_P7FB_Student1_Cache`, and the existing cache-verification ledger.
+- [ ] Student-2 result, all-frame DEV comparison and augmentation-hypothesis conclusion remain
+  unknown until training and governed evaluation complete.
+
+## 2026-09-09 — Family-A Geometry Student 2 finalized
+
+This append-only entry supersedes only the preceding paused/pending Student-2 execution state.
+All earlier experimental results, contracts and claim limits remain historical evidence.
+
+### Status / completed work
+
+- [x] The project lead resumed and completed
+  `USER_EXECUTED_FAMILY_A_GEOMETRY_STUDENT_02_GEOMETRIC_AUGMENTATION_01`: 34 epochs and
+  27,234 optimizer steps, with frozen early stopping after six non-improving epochs. Best is
+  epoch 28 / step 22,428 (`ckpt-28`); final is step 27,234.
+- [x] Verified exact epoch/step continuity, finite history, readable best/final checkpoints,
+  frozen run/package identity and unchanged Student-1 parent evidence.
+- [x] Diagnosed the first all-frame evaluation attempt as Windows virtual-memory exhaustion and a
+  Python `0xc0000005` process crash, not a model/checkpoint error. The incomplete attempt wrote no
+  final evaluation artifact, and the finalizer correctly refused it.
+- [x] Added an isolated inference-only memory-safe evaluator under
+  `p7fb_family_a_geometry_student_02_memory_safe_evaluation_01`. It streams observation CSV rows,
+  reproduced the complete epoch-28 probe with zero differences at tolerance `1e-9`, performed no
+  training/weight update and left the sealed Student-2 runner unchanged.
+- [x] Completed frozen best-checkpoint/all-frame DEV evaluation on 25,338 frames / 1,192,035
+  eligible points / 74,865 ignored targets, with DEV augmentation off. AppHear Capture remains
+  unevaluable under the signer-disjoint split.
+- [x] Finalized `student2_result.json` and the raw summary/per-point/swap evidence. All 44 entries
+  in `student2_run_artifact_hash_manifest.json` reverify and no temporary output remains.
+
+### Final result / decisions
+
+- Formal execution validity: `VALID_RUN`. Frozen absolute acceptance: `FAIL`.
+- Overall NME `0.080706929`, PCK@0.02 `0.255052914`, PCK@0.05 `0.576680215`.
+  LH/RH/BODY PCK@0.05: `0.532444973` / `0.572864050` / `0.728356534`.
+- Failed overall NME, PCK@0.02, PCK@0.05, LH and RH gates; BODY alone passed. Thresholds and
+  historical Student-1 result remain unchanged.
+- Versus Student 1, overall NME worsened 4.525%; tight PCK@0.01/PCK@0.02 improved, but PCK@0.05
+  declined. Student 2 improved a subset of precise predictions without improving broad/tail
+  reliability.
+- ASL Citizen NME worsened 8.609% and PCK@0.05 fell 0.023187 absolute. Local NME improved 21.395%
+  and PCK@0.05 rose 0.069063 absolute. Five of seven ASL DEV signers worsened; P24 improved and P1
+  was essentially flat. The sole Local DEV signer improved substantially.
+- LH NME worsened 8.632% and LH regressed in every clip-position band. RH was mixed; BODY remained
+  broadly stable. ASL low-teacher-support observations worsened disproportionately, while both
+  small and large ASL hand-scale strata regressed.
+- Conservative interpretation:
+  `GEOMETRIC_AUGMENTATION_NOT_SUPPORTED_AS_A_BROAD_GENERALIZATION_FIX` and
+  `LOCAL_DOMAIN_BENEFIT_SUPPORTED`. Do not automatically strengthen augmentation or launch a
+  third training experiment from this result.
+
+### Claim limits / one next gate
+
+- Teacher-support association does not prove incorrect teacher anatomy and must not become a
+  confidence target, filter or loss weight without a separate governed contract.
+- Historical acquisition reflection, human anatomical accuracy, AppHear/mobile signer
+  generalization, word-recognition improvement and production readiness remain unestablished.
+- [ ] `PROJECT_LEAD_ASL_TEACHER_SUPERVISION_RELIABILITY_REVIEW` — recommended bounded next gate,
+  NOT executed. If teacher coordinates prove reliable, the project lead may separately consider a
+  hand-focused representation/capacity experiment. No Student 3, retraining or deployment is
+  authorized by this tracker update.
+
+## 2026-09-10 — P7G01 Family-A downstream recognition utility gate prepared
+
+- [x] Frozen an isolated ASL Citizen-only T50/S1-50/S2-50 comparison with identical 96-frame
+  selection, common teacher-derived availability masks, body-relative XY/velocity features, and
+  one 166,956-parameter causal TCN configuration.
+- [x] Verified 2,647 TRAIN and 662 internal DEV clips, identical 236-class vocabulary, 28/7
+  signer groups, zero signer overlap, frozen Student-1 `ckpt-23`, frozen Student-2 `ckpt-28`, and
+  zero protected-population references.
+- [x] Passed a bounded three-clip forward-only parity audit for `[96,250]` tensors and common
+  masks. No recognizer optimizer update or heavy feature preparation/training was executed.
+- [ ] Project lead runs the resumable P7G01 `run-all` command and returns the finalized utility
+  comparison. This gate does not change production schema v3.0 or either historical geometry result.
+
+## 2026-09-10 — P7G01 finalized; P7G02 Teacher-50 temporal correction ready
+
+This append-only entry supersedes only the pending P7G01 execution statement above. It does not
+rewrite Student-1, Student-2, P7G01, or any production contract.
+
+### P7G01 historical result
+
+- [x] The project lead completed the valid P7G01 gate. Teacher-50 reached Top-1 `0.315710`,
+  Top-5 `0.664653`, Macro-F1 `0.287358`, and balanced accuracy `0.317938` on the frozen
+  662-clip signer-disjoint internal DEV population.
+- [x] Student-1 and Student-2 retained much less downstream utility than Teacher-50, while
+  Teacher-50 itself remained weak. The historical classification is
+  `FAMILY_A_50_POINT_REPRESENTATION_OR_RECOGNIZER_LIMIT`.
+- [x] P7G01's 96-slot temporal construction duplicated native positions in 99.471% of TRAIN
+  clips and 100% of DEV clips; 68.513%/68.487% of TRAIN/DEV slots were duplicates and
+  69.234%/69.208% of adjacent velocity observations were forced to zero by repetition.
+
+### P7G02 prepared state
+
+- [x] Preregistered `P7G02_TEACHER50_CREDIBLE_TEMPORAL_CEILING_01` as one Teacher-50-only
+  temporal-construction correction. P7G01, both geometry students, DWPose arrays, landmark
+  mapping, body normalization, class balance, optimizer philosophy, population, split, seed,
+  and compact causal-TCN parameterization remain frozen.
+- [x] Audited 2,647 TRAIN / 662 DEV clips, 236 classes, 28/7 signers and zero signer overlap.
+  TRAIN native lengths are min/p10/p25/median/mean/p75/p90/p95/max
+  `10/13/16/25/30.302/39/56/68/165`; DEV is
+  `10/13/20/28/30.252/40/48/52/88`.
+- [x] Froze sequence cap 64 before P7G02 DEV results. It preserves every governed native
+  observation in 94.069% TRAIN and 98.640% DEV clips. Short clips keep every real frame then
+  tail-pad; long clips use 64 unique chronological positions. Cache audit covers all 3,309 clips
+  and 97,970 real observations with zero duplicate or non-monotonic positions.
+- [x] Froze body-normalized velocity as displacement divided by positive native-array
+  `frame_indices` delta. First frames, invalid point pairs, and padded positions emit zero
+  velocity under explicit masks; teacher scores are not features.
+- [x] Preserved the P7G01 4-block, 64-channel causal TCN and 166,956 trainable parameters,
+  replacing only unmasked global pooling with masked pooling. Arbitrary padded values changed
+  predictions by exactly 0.0; the irregular-interval constant-motion test had maximum error
+  `7.45e-09`.
+- [x] Reproduced the sealed P7G01 Teacher-50 baseline exactly, verified all 57 parent-manifest
+  entries, unchanged Teacher-50 mapping, exact frozen population/hashes, and zero protected
+  references. Pre-training validation is `PASS`.
+- [x] Prepared the complete ~212 MB Teacher-50 feature cache. No optimizer update, recognizer
+  training, Student inference/training, DWPose inference, protected access, Android change, or
+  production feature change occurred.
+
+### Exact next gate
+
+- [ ] The project lead runs the P7G02 `run-all` command once. It reuses the sealed feature cache,
+  trains only the authorized Teacher-50 recognizer, evaluates the frozen DEV population, and
+  produces the preregistered P7G01-vs-P7G02 decision. Re-running the same command safely resumes
+  from the latest completed epoch if interrupted.
+
+## 2026-09-10 — P7G02 Teacher-50 temporal correction finalized
+
+This append-only entry supersedes only the pending P7G02 execution statement above. P7G01 and
+all perception experiments remain immutable historical evidence.
+
+- [x] The project lead completed the single authorized P7G02 Teacher-50 run: 40 epochs,
+  3,320 optimizer steps, no early stop, and the frozen Macro-F1-selected best checkpoint at
+  epoch 37 / step 3,071. Both best and final models retain 166,956 parameters.
+- [x] Reverified run/implementation/recognizer-contract/feature-cache identities, all 38 final
+  artifact-manifest entries, the exact P7G01 baseline, the frozen 662-clip DEV population and
+  the duplicate-free/masked temporal contract. No integrity mismatch was found.
+- [x] P7G02 Teacher-50 achieved Top-1 `0.282477`, Top-5 `0.587613`, Macro-F1 `0.243498`, and
+  balanced accuracy `0.280720`. Against P7G01 this is `-0.033233`, `-0.077039`, `-0.043860`,
+  and `-0.037218` respectively. Recognized classes fell from 139 to 122.
+- [x] The three DEV signers containing 639/662 clips all regressed. Across 236 classes, recall
+  improved for 34, worsened for 58, and was unchanged for 144; therefore the result is not an
+  isolated class or tiny-signer artifact.
+- [x] Final contractual classification:
+  `P7G02_TEMPORAL_CONSTRUCTION_NOT_DOMINANT`. The correction removed the known representation
+  defect but did not raise the Teacher-50 ceiling and produced a broad Top-5 regression.
+- [x] The preregistered `teacher_improvement_small=true` flag means only that absolute Top-1 and
+  Macro-F1 changes are each below five points; both changes are negative. The independent
+  `broad_contradictory_regression=true` flag preserves the 7.704-point Top-5 decline.
+
+### Decision boundary
+
+- [ ] Stop temporal-format experimentation. Do not try another sequence cap or recognizer merely
+  because Teacher-50 remains weak. Return to the project lead to select one bounded next gate
+  addressing sparse class supervision/data, recognition representation, product vocabulary
+  scope, or recognizer capability. No Student retraining, hand refiner, protected evaluation,
+  production integration, or claim of 50-point insufficiency is authorized by P7G02.
+
+## 2026-09-10 — P8-A Student-1 FP32 TFLite export/parity finalized
+
+- [x] Restored the exact sealed Student-1 best checkpoint `ckpt-23`; all 24 relied-upon parent
+  artifacts matched their recorded SHA-256 before and after P8-A. `FA_DS_SPATIAL_V1` retains
+  154,076 trainable parameters and the historical
+  `FAMILY_A_GEOMETRY_STUDENT_01_MODEL_FAILURE` classification remains unchanged.
+- [x] Exported the trained spatial/heatmap path only as a 643,200-byte FP32 TFLite model with
+  input `[1,384,384,3]` and output `[1,96,96,50]`. The graph uses only TFLite builtins
+  (22 Conv2D, 17 DepthwiseConv2D, two ResizeBilinear and one Concatenation), loads under the
+  ordinary interpreter, and invokes through XNNPACK. Flex/SELECT_TF_OPS is not required.
+- [x] Verified 36 deterministic governed TRAIN-domain fixtures: 12 each from ASL Citizen,
+  AppHear Capture and Local, balanced across early/center/late positions. Exact input tensors,
+  native lineage, transforms and six Android binary goldens are hashed.
+- [x] Two-thread TF-vs-TFLite logit absolute differences were mean `1.3863e-06`, p99
+  `6.1989e-06`, max `2.7657e-05`. Frozen-decoder 384-plane coordinate differences were mean
+  `1.6724e-06` px, p95 `3.4982e-06` px, max `8.0694e-06` px; source-plane max was
+  `0.000125827` px. No landmark changed heatmap peak cell. One- and two-thread results matched.
+- [x] Final classification: `STUDENT1_TFLITE_PARITY_PASS`. Host smoke was 8.229 ms median at
+  one thread and 5.983 ms at two threads, labeled `HOST_ONLY_NOT_MOBILE_RUNTIME_EVIDENCE`.
+
+### Boundary
+
+- [ ] Ready only for project-lead P8-B Android integration review. P8-A does not establish
+  Student-1 anatomical accuracy, trained presence/missingness, recognition utility, mobile
+  latency, production readiness, or permission to replace the existing recognizer.
+
+## 2026-09-11 — P8-B Student-1 Android debug integration device evidence
+
+- [x] Added an isolated debug-only `P8bRuntimeActivity`, exact model/hash guard, frozen
+  P7C half-pixel preprocessing and local-3 decoder, raw LH/RH/BODY overlay, reusable large
+  buffers, keep-latest CameraX analyzer and bounded timing/coordinate telemetry. No production
+  recognizer, S5, S7, sentence, assignment, presence, model weight or precision path changed.
+- [x] Host JVM decoder-equivalence tests and the debug APK build passed. The APK embeds the exact
+  643,200-byte Student-1 FP32 model with SHA-256
+  `f49a66e80241d67f9ef06729c01670190dd63a7eeb552d2737f46856e8670b43`.
+- [x] On Xiaomi `M2101K7AG`, six P8-A tensor goldens passed Android TFLite/decoder parity:
+  mean input-plane coordinate error `1.02e-06` px and maximum `3.05e-05` px against the frozen
+  `1.0` px gate. Four TRAIN-domain raw-RGB fixtures reproduced the host letterbox tensor with
+  exact zero numerical difference and exact geometry.
+- [x] Completed one 15-second-warmup plus 180-second front-camera run at fixed 15 FPS. Camera
+  captured 2,700 frames; 1,009 completed perception (`5.606 FPS`) with keep-latest dropping or
+  skipping an estimated 1,690 frames. Median/p95/max were preprocessing
+  `86.895/89.480/293.714 ms`, native TFLite `34.242/35.810/149.193 ms`, decoder
+  `49.008/50.227/142.929 ms`, and whole perception `171.903/176.730/406.655 ms`.
+  Every completed frame exceeded 150 ms and 20 exceeded 200 ms. There were no recorded crashes,
+  ANRs, runtime errors or thermal throttling; PSS ranged approximately 91-175 MiB and 16 GC events
+  occurred.
+- [ ] Manual anatomical LH/RH behavior under front-preview mirroring remains to be explicitly
+  confirmed from the prescribed one-hand/cross-body matrix. Automated metadata verifies upright,
+  unmirrored model input and display-only preview mirroring, but this does not by itself establish
+  the complete manual anatomical-orientation gate.
+
+### Boundary
+
+- [ ] P8-B is not a production-recognition integration. Device execution is stable but the current
+  exact debug pipeline is substantially below the historical 15 FPS perception target; return the
+  sealed evidence to the project lead without delegate/model/decoder/preprocessing changes in P8-B.
+
+## 2026-09-11 — P8-C1 native preprocessing-only device result
+
+- [x] Reused the unchanged, historically parity-proven P7D-R2 C++/JNI/arm64 preprocessing path
+  behind an isolated `p8c1_enabled` branch of the P8-B debug activity. The exact Student-1 model,
+  FP32 precision, two-thread XNNPACK configuration, CameraX cadence/backpressure, Kotlin local-3
+  decoder, overlay, mapping and telemetry remained frozen.
+- [x] Verified the four P8-B TRAIN-domain raw fixtures through native preprocessing with exact
+  zero difference across 1,769,472 float values and exact landscape/portrait letterbox geometry.
+- [x] Verified eight identical live CameraX frames through both P7D-R1 JVM and P7D-R2 native
+  preprocessing before timing: 3,538,944 values, zero differences, 640x480 source, row stride
+  2560, pixel stride 4, rotation 270 degrees and unmirrored model input. Duplicate preprocessing
+  stopped before the formal measurement interval.
+- [x] Completed the same 15-second warmup plus 180-second Xiaomi M2101K7AG run. Native
+  preprocessing p50/p95 fell from `86.895/89.480 ms` to `5.418/6.836 ms`
+  (`-93.764%/-92.360%`). Whole-perception p50/p95 fell from `171.903/176.730 ms` to
+  `90.775/96.878 ms`; completed throughput rose from `5.606` to `10.139 FPS` and estimated
+  skipped frames fell from 1,690 to 873.
+- [x] Frozen stages remained broadly comparable: TFLite p50/p95 changed from
+  `34.242/35.810 ms` to `34.312/37.189 ms`, and the unchanged Kotlin decoder changed from
+  `49.008/50.227 ms` to `49.291/51.154 ms`. No crash, ANR, thermal event or runtime error was
+  recorded.
+- [x] Final classification: `P8C1_NATIVE_PREPROCESSING_FIX_SUPPORTED`. This establishes the
+  independent native preprocessing gain only; it does not establish 15 FPS overall or authorize
+  a native decoder, delegate, model, recognition or training change.
+
+### Boundary
+
+- [ ] `STOP_FOR_PROJECT_LEAD_REVIEW`. Live anatomical LH/RH semantics remain unresolved; no
+  channel swap or recognition connection occurred.
+
+## 2026-09-11 — P8-C2 native decoder-only device result
+
+- [x] Preserved the exact P8-C1 native preprocessor, Student-1 FP32 model/hash, two-thread
+  XNNPACK configuration, CameraX front-camera fixed-15 cadence, keep-latest backpressure,
+  overlay math and 50-channel mapping. A separate debug-only heatmap adapter copies only the
+  established P7D-R2 local-3 geometry and source-restoration math; obsolete identity/assignment,
+  presence and confidence outputs are excluded.
+- [x] Static parity passed on six real Student-1 heatmaps, eleven synthetic center/edge/corner/
+  tie/competing-peak fixtures and nine nonfinite cases. The 384-plane difference was exactly
+  zero for all 850 points, peak-cell differences were zero, nonfinite-policy mismatches were
+  zero, and source-plane maximum difference was `0.000136479 px` against the frozen `0.001 px`
+  gate.
+- [x] Eight live CameraX frames invoked Student-1 exactly once each and fed that same heatmap to
+  Kotlin and native decoders. Input-plane difference and peak-cell differences were exactly
+  zero; source-plane maximum was `0.0000682394 px`. Kotlin duplicate decoding was disabled before
+  formal timing.
+- [x] Completed the frozen 15-second warmup plus 180-second Xiaomi M2101K7AG run. Decoder
+  p50/p95 fell from P8-C1 `49.291/51.154 ms` to `1.738/1.873 ms`; whole-perception p50/p95 fell
+  from `90.775/96.878 ms` to `45.762/48.318 ms`. Camera captured 2,700 frames, 2,699 completed
+  (`14.994 FPS`), and only one frame was estimated skipped.
+- [x] Frozen-stage comparison remained within gates: preprocessing p50/p95 was
+  `5.880/6.473 ms` and TFLite p50/p95 was `37.336/39.123 ms`. There were 79 whole frames over
+  50 ms, 26 over 66.7 ms, five over 100 ms, none over 150/200 ms, and no crash, ANR, runtime
+  error or thermal event.
+- [x] Final classification: `P8C2_NATIVE_DECODER_FIX_SUPPORTED`.
+
+### Boundary
+
+- [ ] `STOP_FOR_PROJECT_LEAD_REVIEW`. This result establishes only the parity-preserving native
+  decoder implementation gain. Recognition remains `NOT_TESTED_BY_DESIGN`, Student-1 presence
+  remains unavailable, and live anatomical LH/RH semantics remain unresolved.
+
+## 2026-09-11 — P8-C3A overlay topology / index verification
+
+- [x] Recovered all 50 authoritative Student channels and teacher indices from the frozen
+  Student-1/P8-A/Family-A contracts: LH `0..20` maps to DWPose `91..111`, RH `21..41` to
+  `112..132`, and BODY `42..49` to bilateral shoulders, elbows, wrists and hips at `5..12`.
+- [x] Audited the live debug overlay against that mapping. Expected and actual topology match:
+  23 edges per hand, 8 BODY edges, zero out-of-range edges, zero cross-hand edges, zero
+  hand-to-BODY edges and zero per-channel neighbor mismatches.
+- [x] Added an opt-in debug-only `POINTS_ONLY` renderer and deterministic on-device synthetic
+  fixture. The same 50 unique coordinates rendered correctly with 54 canonical edges in full
+  mode and zero edges plus local-index labels in points-only mode.
+- [x] Verified asymmetric `FILL_CENTER` display math: the front preview mirrors X exactly once,
+  never mirrors model coordinates, applies no overlay rotation and preserves LH/RH semantic
+  labels. Gradle/unit builds, the new instrumentation test and retained P8-C2 decoder parity
+  instrumentation all passed on Xiaomi `M2101K7AG`.
+- [x] Bounded live points-only/full captures show that visibly tangled lines follow already
+  scattered/collapsed Student-decoded coordinates; the renderer connects the correct neighbors.
+  No topology, display-transform or label-mapping fix was required.
+- [x] Final classification: `P8C3A_OVERLAY_TOPOLOGY_VALID`.
+
+### Boundary
+
+- [ ] `STOP_FOR_PROJECT_LEAD_REVIEW`. This diagnostic does not establish Student anatomical
+  accuracy, trained presence/missingness, or physical live LH/RH identity; it changes no model,
+  preprocessing, decoder, production recognition, S5, S7 or sentence behavior.
+
+## 2026-09-11 — P8-C3B1 controlled live Student geometry capture
+
+- [x] Added a debug-only, operator-confirmed capture activity around the retained P8-C2 stack.
+  Each retained record copies one exact upright/unmirrored source RGB frame, the same-invocation
+  50 source/model-plane coordinates, peak cells, raw uncalibrated peak logits, CameraX/letterbox
+  metadata and physical condition label; no Teacher, recognition, smoothing or model update runs.
+- [x] Preserved the first rejected capture attempt, then completed a valid 320-frame controlled
+  population spanning empty scene, person/hands-down, anatomical left-only, anatomical right-only,
+  both separated, one crossing sequence, near-face, near-torso and four explicit articulation poses.
+  A separate 20-frame empty-scene retake replaced only invalid C0 canonical evidence; both raw
+  device sessions and the deterministic merge ledger remain preserved.
+- [x] Canonical validation passed: 320/320 required frames, all 11 logical conditions and all four
+  10-frame articulation substeps, unique images, matching PNG SHA-256/dimensions, finite 50-channel
+  evidence, valid peak indices, exact model/preview mirror semantics and monotonic synchronization
+  within each device session.
+- [x] Student-only analysis found complete forced geometry in empty/no-hand scenes, a repeatedly
+  near-boundary and unusually compact LH block, substantially more variable RH/BODY outputs and
+  heavy-tailed stationary jumps. The unilateral channel centroids remained far apart rather than
+  collapsing onto one region. The controlled crossing produced no event under the preregistered
+  association-cost exchange rule, but had a maximum centroid jump of `228.973 px` (`0.2862` source
+  diagonals); this does not establish anatomical continuity.
+- [x] Final Gradle debug/debug-test/unit build passed. Xiaomi device installation passed, and the
+  retained P8-C2 native-decoder plus P8-C3A overlay instrumentation passed (`OK (2 tests)`). Parent
+  manifests, Student model, native preprocessor, native decoder and debug model runner hashes are
+  unchanged.
+- [x] Final classification: `P8C3B1_CONTROLLED_STUDENT_CAPTURE_VALID`.
+
+### Boundary
+
+- [ ] `STOP_FOR_PROJECT_LEAD_REVIEW`. This phase localizes raw live Student behavior but creates no
+  point-level anatomical truth and does not establish cause. Teacher/DWPose and recognition remain
+  `NOT_RUN_BY_DESIGN`; no fix, channel swap, presence rule or inference change is authorized.
+
+## 2026-09-11 — P8-C3B2 exact phone-frame DWPose Teacher reference
+
+- [x] Verified the canonical P8-C3B1 parent before inference: 320/320 canonical PNG hashes,
+  synchronized Student records, condition protocol and merge ledger passed; rejected B1 evidence
+  was excluded and the Student model remains SHA-256
+  `f49a66e80241d67f9ef06729c01670190dd63a7eeb552d2737f46856e8670b43`.
+- [x] Resolved the governed frozen DWPose-L identity (`dw-ll_ucoco.pth`, SHA-256
+  `e9600664e7927229ed594197d552023e3be213f810beb38847a959ec8261e0f7`) and ran it exactly once on
+  each upright/unmirrored canonical phone frame. All 320 frames succeeded and the fixed
+  133→Family-A-50 mapping passed; no Student rerun or score gate was used.
+- [x] Same-frame evidence showed median Student→Teacher point error of `345.084 px` for LH,
+  `68.943 px` for RH and `42.781 px` for BODY. In 80 Teacher-blind Student-LH collapse frames,
+  Student/Teacher median compactness was `0.720/27.129 px`, while Teacher retained a median
+  `17.5/21` in-bounds LH points.
+- [x] Hand decomposition localized mixed Student disagreement: LH raw/wrist-aligned/similarity
+  median errors were `336.408/69.901/23.997 px`; RH values were
+  `121.642/110.129/18.989 px`. This supports prominent whole-hand placement loss plus residual
+  internal hand-shape disagreement relative to Teacher.
+- [x] Bounded visual review across every condition and all four articulation poses found coherent
+  Teacher hands on visible-hand frames where Student geometry was displaced, scattered or
+  collapsed. The empty-frame control also showed low-support spurious Teacher geometry, so the
+  result does not treat Teacher as human ground truth or a calibrated presence detector.
+- [x] Final classification: `P8C3B2_TEACHER_RECOVERS_STUDENT_FAILURE`.
+
+### Boundary
+
+- [ ] `STOP_FOR_PROJECT_LEAD_REVIEW`. No mirror counterfactual, retraining, MediaPipe, Android
+  change or recognition was run. Historical/physical reflection and absolute anatomical truth
+  remain unresolved.
+
+## 2026-09-12 — P8-C3B3 frozen Student mirror counterfactual
+
+- [x] Verified exact 320/320 B1 source-image, preserved Student and B2 Teacher alignment; all
+  canonical PNG hashes, Student model SHA-256
+  `f49a66e80241d67f9ef06729c01670190dd63a7eeb552d2737f46856e8670b43`, and frozen Teacher
+  identity passed. Parent evidence remained byte-for-byte unchanged.
+- [x] Reflected each upright/unmirrored source image exactly once, reused the frozen P8-A
+  half-pixel letterbox and local-3 decoder, ran Student-1 once per frame, and mapped only X back
+  to the original source plane with `x=(W-1)-x`. All 320 inferences succeeded; channel order was
+  never changed and no weight update occurred.
+- [x] On the preregistered visible-hand populations, mirrored-input median per-frame error was
+  worse for LH (`342.178 → 403.047 px`, paired median `+67.534 px`, 95% frame-bootstrap CI
+  `[62.217,72.034]`) and RH (`88.578 → 207.937 px`, `+132.959 px`, CI
+  `[115.532,145.837]`). BODY worsened from `77.681` to `230.958 px` (`+148.499 px`, CI
+  `[143.875,153.258]`).
+- [x] No preregistered visible-hand condition showed the required median improvement for either
+  hand (`0/6` LH, `0/6` RH). On the fixed 80 B2 LH-collapse frames, mirror reduced the frequency
+  of the same compact boundary pattern but worsened Teacher-relative raw median error from
+  `361.541` to `405.628 px`; therefore displacement of the failure mode is not a rescue.
+- [x] Deterministic visual review of 23 condition-selected panels, including all articulation
+  poses and fixed collapse cases, agreed with the paired analysis. Reflection often moved or
+  spread erroneous geometry and severely degraded BODY/RH placement rather than recovering the
+  Teacher reference.
+- [x] Final classification: `P8C3B3_MIRROR_COUNTERFACTUAL_NOT_MATERIAL`.
+
+### Boundary
+
+- [ ] `STOP_FOR_PROJECT_LEAD_REVIEW`. This closes simple source-image reflection as a sufficient
+  explanation for the observed Student failure. It does not establish Teacher as human ground
+  truth, authorize a production mirror change, channel swap, retraining, MediaPipe, Android,
+  recognition, presence or downstream-policy change.
+
+## 2026-09-12 — P8-C3B4 Student supervision / spatial-prior audit
+
+- [x] Verified frozen Student-1 contracts/manifests/model, failure-attribution evidence, verified
+  cache ledger and canonical B1/B2/B3 records; all parent before/after hashes passed and no
+  protected population was accessed.
+- [x] Enumerated all 5,749,760 eligible Teacher targets across the governed 3,204-clip TRAIN
+  population and audited target location, source, aspect ratio, Teacher support and fragmentary
+  hand supervision without RGB corpus decode or DWPose rerun.
+- [x] The exact frozen target generator passed 52 center/edge/corner fixtures. Boundary truncation
+  shifted centroids inward but could not create a bottom-right attractor without a bottom-right
+  Teacher target. TRAIN LH bottom-right-within-two target occupancy was `0.239%`; the
+  preregistered boundary-prior rule did not trigger.
+- [x] Forward-only Student inference on the frozen 19,630-frame matched TRAIN/DEV manifest found
+  no replicated offline LH bottom-right attractor (`0.337%` matched TRAIN, `0.029%` DEV), while
+  canonical B1 visible-hand LIVE occupancy was `84.571%`.
+- [x] Supported contributors were replicated low-support/boundary association, `27.739%`
+  zero-or-partial hand supervision without a presence objective, LH/RH supervision asymmetry and
+  a live-only domain failure pattern. Target-generation bug, strong TRAIN boundary prior, portrait
+  under-supervision and replicated offline attractor were contradicted; architecture causality
+  remains inconclusive.
+- [x] Final classification:
+  `P8C3B4_SUPERVISION_CONTRIBUTORS_SUPPORTED_BUT_NOT_SUFFICIENT`.
+
+### Boundary
+
+- [ ] `STOP_FOR_PROJECT_LEAD_REVIEW`. No supervision repair, threshold, filtering, retraining,
+  architecture change, Android change, MediaPipe, mirroring, presence logic, recognition or
+  protected evaluation is authorized by this audit.
+
+## 2026-09-12 — Product re-anchor and phone-first recovery audit
+
+- [x] Completed a read-only repository-wide audit of the governed context, experiment history,
+  Android production path, P5/P6/P7/P8 evidence, perception-backend replacement study,
+  production assets and current dirty worktree. No implementation, training, export or
+  recognition experiment ran.
+- [x] Re-established the product boundary: the target is the existing expandable 236-sign,
+  isolated/pause-separated Android sign-to-text application. The production path remains
+  CameraX -> MediaPipe Hand/Pose -> schema-3.0 S4 `[96,258]` -> S5 -> 236-class S6 -> S7
+  confirmation/release -> sentence UI.
+- [x] Confirmed that P8-C2 is a debug-only engineering shell around Student-1. Its 50-point 2D
+  output lacks the exact hand z, 33-point pose xyz/visibility, calibrated missingness and stable
+  anatomical assignment required before production S4. It remains intentionally disconnected
+  from S4/S5/S6/S7 and sentence generation.
+- [x] Confirmed B1/B2/B3/B4 strengthen the non-connection decision: live Student geometry fails;
+  topology, mirror, preprocessing and decoder are not sufficient explanations; supervision and
+  domain contributors are supported but no sufficient repair exists.
+- [x] Located product drift: alternate DWPose `[96,238]` recognition representation was the
+  initial departure, Family-A's 50-point/202-value ABI deepened it, and P7G03's five-sign
+  recognizer was the explicit product-scope break.
+- [x] Froze Family-A, Student-1, Student-2, P7G03 and the P8 Student diagnosis as research
+  evidence. No Student-3, five-sign expansion or alternate-recognition branch is authorized.
+- [x] Verified the historical RTMDet-nano -> MobRecon DenseStack -> anatomical adapter was never
+  executed. RTMDet failed P0 before MobRecon attachment; the old stack is not the current
+  deadline candidate.
+- [x] Final replacement conclusion: DWPose-L remains the strongest quality teacher/oracle and
+  P8-C2 the strongest mobile engineering shell, but no existing backend is both phone-qualified
+  and production-contract compatible. MediaPipe remains the shipping baseline pending a strict
+  pre-S4 replacement gate.
+- [x] Locked the only valid replacement boundary: upright/unmirrored `hands [2,21,3]` plus
+  `pose [33,4]`, with exact topology, handedness, presence/missingness, visibility and
+  training-compatible z semantics, followed by unchanged schema-3.0 S4/S5/S6/S7/sentence.
+- [x] Retained reusable P8 infrastructure only: CameraX plumbing, native preprocessing, native
+  decoder structure where applicable, profiler, overlays, controlled capture, coordinate
+  restoration, asset guards and static/live parity evidence tooling.
+- [ ] Next authorized milestone is `PHONE_REANCHOR_236_END_TO_END_BASELINE`: create a
+  release-equivalent profiling-off, reproducible phone run through the normal app shell; verify
+  production asset hashes/schema/vocabulary; demonstrate commit, release, re-arm and a two-sign
+  sentence; and complete remaining F22 two-signer, mirror, lifecycle, kill-switch and load-failure
+  gates without involving P8 Student, DWPose recognition or an alternate schema.
+
+### Closed-loop boundary
+
+- [ ] `STOP_FOR_PROJECT_LEAD_REVIEW`. Do not train, create another Student, run another
+  recognition experiment, reduce scope to five signs, connect Family-A to production or reopen
+  MediaPipe threshold/VIDEO, ROI/flow/tracking/hold, I320, RTMDet P0, Android DWPose, DWPose
+  `[96,238]`, P7G01/G02/G03, P8 mirror/topology/preprocess/decoder diagnosis, or RU-D10B branches.
+
+## 2026-09-13 — Phase 1 Perception vNext candidate 01 implementation
+
+- [x] Project-lead direction superseded the prior pre-S4 replacement constraint and authorized a
+  richer, not-yet-frozen perception representation while keeping recognition training, S5/S7,
+  continuous signing, five-sign work, and Student-3 closed.
+- [x] Selected one pretrained-first decomposed candidate: single-pass DWPose-t 256x192 for
+  current-frame whole-body/anatomical hand proposals plus the mature MediaPipe 224x224 hand
+  landmark submodel as a high-resolution 21-joint crop refiner. Exact DWPose-L remains Teacher
+  only. No weights were trained or fine-tuned.
+- [x] Exported the official DWPose-t checkpoint to single-pass ONNX. ONNX SHA-256 is
+  `37b0f265200f8e249adba1cc9b62925f5e1252245580ed1f66f583d7bce239c0`; synthetic
+  PyTorch/ORT maximum errors were `1.356e-6` (X) and `2.228e-6` (Y).
+- [x] Ran the bounded viability screen on all 320 frozen P8-C3B1 Xiaomi frames against the frozen
+  DWPose-L reference. Coarse DWPose-t body availability was 100% with a person and 0% without;
+  supported-hand median Teacher error was about 1.54%/1.57% image diagonal, but hands-down and
+  opposite-side false proposals confirmed that the coarse stage cannot define observation alone.
+- [x] Added the direct crop refiner and explicit current-frame missingness. At the single
+  preregistered group presence rule (`>=0.50`, `>=18/21` valid XY), visible LH/RH observation was
+  `77.0%/76.5%`, complete two-hand observation `72.5%`, unilateral exact anatomical state
+  `77.5%`, and no-usable-hand false observation `0%`. Refined median Teacher error was
+  `0.469%/0.562%` image diagonal. Visual panels show coherent whole-hand placement/finger chains.
+- [x] Implemented a new debug-only Android activity under `perceptionvnext/` with separate pinned
+  ONNX/TFLite assets, build flag plus explicit intent opt-in, CameraX front-camera processing,
+  upright/unmirrored source semantics, reusable input buffers, source overlay, 14-step/320-frame
+  controlled capture, full observation telemetry, p50/p95 stage timing, FPS/skips, PSS, thermal
+  status, and immutable session/model identity. Recognition/S5/S7/sentence/UI calls do not exist.
+- [x] Python lint/tests, Android debug compilation, all debug unit tests, flagged APK assembly,
+  and release Kotlin compilation passed. Release excludes the debug activity and assets; the new
+  release BuildConfig flag is forced false.
+- [x] Completed `PERCEPTION_VNEXT_PHONE_01` on Xiaomi M2101K7AG. The full 320-frame controlled
+  run completed all 14 conditions without crash, ANR, or thermal escalation. Visible LH/RH
+  observation was `95.5%/97.0%`, complete two-hand observation `90.83%`, unilateral anatomical
+  correctness `99.375%`, crossing/contact completion `84%`, no-usable-hand false observation
+  `0%`, and person-body availability `100%`. Live screenshots show coherent whole-hand placement,
+  finger chains, anatomical slotting, and upper-body context. Status: geometry pass.
+- [x] Measured the initial CPU data path: `2.257` completed FPS, preprocessing `83.960 ms` p50,
+  DWPose-t `77.219 ms`, hand-crop resampling `171.705 ms`, per-hand refiner `51.368 ms`, and total
+  `438.573 ms` p50. Classified `GEOMETRY_PASS_RUNTIME_FAIL`; the single bounded corrective action
+  was native preprocessing/crop resampling with unchanged models and observation rules.
+- [x] Added a reusable debug-only arm64 JNI preprocessing kernel and a mandatory four-live-frame
+  Kotlin-reference parity gate. Final native build SHA-256 is
+  `4187118fd33512de000056a8070bec85fd50f952da8ab8545552c33f8b85bfc5`; all 1,191,936 compared
+  float elements were bit-exact. No parity tolerance was relaxed.
+- [x] Native live evidence over 840 analyzed frames reached `5.607` completed FPS. Full-frame
+  preprocessing fell to `2.693 ms` p50 and crop resampling to `3.324 ms`; one-hand total was
+  `142.968 ms`, and the two-hand serial path remains about `188–192 ms`. DWPose-t is about
+  `80.006 ms` p50 and each hand refiner about `50.946 ms`. The exact remaining blocker is neural
+  inference latency; the current serial FP32 pair cannot satisfy the 15 FPS / 66.7 ms floor.
+- [x] PHONE_01 final decision is
+  `GEOMETRY_PASS_NATIVE_DATA_PATH_PASS_MODEL_RUNTIME_FAIL / FIX_ONE_BLOCKER`. Preserve candidate
+  01 geometry and native infrastructure as evidence; do not freeze it for deployment, connect
+  recognition, or start candidate 02 without project-lead review. Canonical results are
+  `artifacts/recognition_upgrade/perception_vnext/phone_01/device/session_20260913T055327Z/phone_audit.json`
+  and `artifacts/recognition_upgrade/perception_vnext/phone_01/NATIVE_RUNTIME_RESULT.md`.
+
+### Boundary
+
+- [x] Project lead explicitly authorized the bounded
+  `PERCEPTION_VNEXT_RECOGNITION_UTILITY_236_01` experiment despite Candidate 01's current
+  5–6 completed observations/sec. This does not waive the runtime issue or promote Candidate 01;
+  it measures whether the current observation stream has useful 236-class information.
+- [x] Added explicit current-frame body per-point validity without changing any frozen model,
+  threshold, ROI, topology, orientation, or anatomical-slot policy. Defined separate experimental
+  contracts `apphear.perception_vnext.raw.v1` and `apphear.perception_vnext.recognition.v1`.
+- [x] Implemented an offline Candidate 01 extractor and a debug-only exact-PNG Android fixture.
+  A 16-frame Xiaomi M2101K7AG gate passed every structural check and stayed far inside numeric
+  tolerances: body XY and ROI max difference `0 px`; refined-hand XY max difference
+  `0.000126 px`. The debug fixture reports `recognizer_connected=false`; production v3.0 is
+  unchanged and the release APK contains no Perception-vNext asset/native-library entry.
+- [x] Implemented the `[96,208]` mask-aware recognition representation, real chronological dense
+  view, timestamp-derived PHONE_01-sparse view with no copying/interpolation, one 4-block/64-channel
+  causal TCN, and full signer/source/per-class evaluation reporting. Unit/lint/build gates pass.
+- [x] Tiny synthetic contract-only training sanity passed: finite forward/backward/optimizer step,
+  236-output model, checkpoint write/reload with max absolute difference `0`, and dense/sparse DEV
+  metrics pipeline. This is explicitly not an accuracy result.
+- [x] Corrected the initial false missing-corpus diagnosis after the project lead supplied the
+  relocated root. The pinned manifests remain byte-identical; a source-specific resolver maps only
+  the moved ASL Citizen root `F:\ASL DATASET\ASL CITIZEN` to
+  `G:\ASL CITIZEN\ASL CITIZEN` when the original file is absent. All 4,125 moved ASL Citizen
+  videos resolve, all governed span paths resolve, and the full 4,742-row audit is PASS with zero
+  signer overlap and no protected-TEST discovery.
+- [x] Governed one-TRAIN/one-DEV extraction smoke PASS on real ASL Citizen data: BIG produced 20
+  chronological raw/dense frames and four PHONE_01-sparse observations; signer-disjoint CHAIR
+  produced 19 raw/dense and four sparse. Raw/feature shapes, identities, timestamps, missingness,
+  normalization, masks, finite values, save, and reload passed.
+- [x] One-epoch governed-package training sanity PASS with the single authorized TCN: finite loss,
+  forward/backward/optimizer update, 236 outputs, best/latest/final checkpoint writes, and reload
+  max difference `0`. The two-clip result carries `recognition_accuracy_claim=false`.
+- [x] User-run full governed extraction PASS: all 4,742 clips were written and indexed (TRAIN
+  3,926; signer-disjoint DEV 816; all 236 classes), governance PASS, and protected TEST untouched.
+- [x] User-run full 40-epoch TCN training completed. The original command then raised a false
+  post-fit sanity failure because `EarlyStopping(restore_best_weights=True)` restored the best
+  in-memory weights while the validator compared them against last-epoch `latest.keras`.
+  Artifact diagnosis proved `best.keras == final.keras` on the diagnostic input and isolated the
+  reported `0.0830802917` delta to `latest.keras`. The validator now round-trips `final.keras`, and
+  a completed `--resume` skips fitting, preserves the restored-best final model, and writes the
+  missing result. Recovery PASS: finite history, reload delta `0`, 156,204 parameters, no extra
+  training epoch, and `training_result.json` status PASS. Lowest combined DEV loss was epoch 39 in
+  user-facing numbering (CSV epoch 38): `2.5803`, Top-1 `0.3811`, Top-5 `0.7040`. These epoch logs
+  are not the required matched dense/sparse final evaluation.
+- [x] User-run full matched evaluation PASS structurally and is now interpreted. Checkpoint hash,
+  all `236 x 236` confusion matrices, clip/support/signer/source totals, recomputed Top-1 and
+  macro-F1, and protected-TEST guard all pass. TRAIN dense/sparse Top-1 is `76.74%/70.10%`;
+  signer-disjoint DEV is `41.30%/34.93%`. DEV Top-5 is `73.53%/67.28%`, macro-F1
+  `38.70%/32.42%`, and zero-recall classes `57/73`. PHONE_01 sparsity costs 6.37 DEV Top-1
+  points (111 dense-correct/sparse-wrong versus 59 sparse-correct/dense-wrong), but the dominant
+  loss is the `35.45/35.17`-point TRAIN-to-DEV gap. Classification:
+  **`GENERALIZATION_LIMITED` with a secondary cadence limitation**. Candidate 01 remains held
+  constant; this recognizer is not promoted to phone/UI. Canonical interpretation:
+  `artifacts/recognition_upgrade/perception_vnext/recognition_utility_236_01/EVALUATION_INTERPRETATION.md`.
+  Current boundary: `STOP_FOR_PROJECT_LEAD_GENERALIZATION_REVIEW`; no automatic new training,
+  perception change, Candidate 02, phone recognition integration, or protected-TEST access.
+
+### 2026-09-14 — Perception vNext generalization attribution 236
+
+- [x] Completed `PERCEPTION_VNEXT_GENERALIZATION_ATTRIBUTION_236_01` using only the saved 4,742
+  raw/feature packages, frozen `best.keras`, and sealed `evaluation.json`. No extraction, training,
+  representation/perception change, Android work, or protected-TEST access occurred. The bounded
+  DEV forward pass reproduced dense/sparse Top-1 and Top-5 exactly before per-clip evidence was used.
+- [x] Raw quality is contributory but not sufficient: P5/P12 have lower RH/either-hand observation
+  than stronger signers, and correct clips carry moderately better RH observation/valid-hand counts;
+  however P21 resembles P12 in coverage while recognizing far better, and P26 recognizes far
+  better despite the worst body-support profile. Per-observed-hand joint validity remains about
+  `99.75-99.85%`; body-normalization fallback is effectively zero.
+- [x] Class-conditioned normalized-coordinate shift is materially associated with errors
+  (composite correct-minus-incorrect SMD `-0.383` dense, `-0.291` sparse), but it is not sufficient:
+  P5 and P26 share the largest signer-level composite median shift (`0.662`) despite substantially
+  different recognition.
+- [x] Independent signer diversity is more associated with DEV recall than clip count: Spearman
+  rho `0.304` versus `0.226` dense and `0.228` versus `0.167` sparse. Signer concentration HHI is
+  negatively associated (`-0.271/-0.181`). Five supplemented classes occupy `17.29%` of TRAIN,
+  average `9.66x` more clips than other classes, but add little signer diversity and generalize
+  inconsistently. Source concentration alone is near-zero-correlated and is not called causal.
+- [x] Cadence remains secondary. Dense-only harmed clips are not systematically short or
+  perception-poor (duration SMD `+0.060`, sparse-count `+0.041`, valid-hand-count `+0.005`).
+- [x] Primary attribution: **`MIXED_GENERALIZATION_FAILURE`**, medium confidence. Representation
+  reopening: NO. Perception reopening: NO. Recommended exactly one next change, not executed:
+  replace clip-uniform TRAIN sampling with a class→signer→clip hierarchical balanced sampler while
+  freezing every other subsystem. Canonical report and machine decision live under
+  `artifacts/recognition_upgrade/perception_vnext/recognition_utility_236_01/generalization_attribution_236_01/`.
+  Current boundary: `WAIT_FOR_PROJECT_LEAD_REVIEW`.
+
+### 2026-09-14 — Perception vNext sampling generalization 236 preparation
+
+- [x] Implemented the sole authorized scientific delta for
+  `PERCEPTION_VNEXT_SAMPLING_GENERALIZATION_236_01`: deterministic class→signer→clip TRAIN
+  sampling with replacement. Candidate 01, raw-v1, recognition-v1 `[96,208]`, extracted data,
+  TRAIN/DEV membership, TCN, optimizer/loss, dense+sparse policy, 3,926-draw/7,852-view epoch
+  budget, validation, and protected-TEST boundary remain unchanged.
+- [x] Sampling audit PASS over 100 simulated epochs (392,600 draws). Every epoch gives each class
+  16 or 17 draws and signer quotas within each class differ by at most one. Aggregate class CV is
+  `0.283%`; maximum signer-share deviation from the uniform-within-class target is `0.893%`.
+  Same seed+epoch reproduces the exact sequence, a different epoch changes it, and all sampled rows
+  are governed TRAIN rows.
+- [x] Supplemented-class optimizer exposure is corrected without changing membership: expected
+  clip-uniform draws for GOOD/HAVE/HELLO/KNOW/SORRY were `123/124/190/120/122` per epoch; the
+  hierarchical audit produces `16.61/16.60/16.59/16.59/16.70`. Their largest within-class signer
+  shares fall from `48.78/48.39/31.58/50.00/46.72%` to
+  `6.38/6.02/7.11/8.08/5.75%`.
+- [x] Bounded mechanics smoke PASS: 236 draws, 472 unchanged dense+sparse views, all 236 labels,
+  `[96,208]` features and `[96]` masks, no DEV leakage, finite forward/backward/optimizer state,
+  checkpoint reload delta `0`, and evaluation plumbing. The exact training entry point also passed
+  an interrupted-run-equivalent resume test: the repeated invocation recovered the hashed
+  completed-epoch state and skipped duplicate fitting.
+- [x] No extraction, full training, full evaluation, Android/UI work, or protected-TEST access was
+  performed. Baseline `tcn_run_01` remains immutable. User commands are prepared in
+  `artifacts/recognition_upgrade/perception_vnext/recognition_utility_236_01/sampling_generalization_236_01/SAMPLING_GENERALIZATION_IMPLEMENTATION.md`.
+  Current boundary: `WAIT_FOR_USER_HEAVY_RUN_RESULTS`.
+
+### 2026-09-14 — Perception vNext sampling generalization 236 result
+
+- [x] User-run balanced training and matched evaluation completed with intact config, dataset,
+  sampler, checkpoint, vocabulary, and protected-TEST identities. Training completed all 40
+  epochs; combined DEV loss selected zero-based epoch 36 (`2.681486`). Best checkpoint SHA-256 is
+  `e7a5e00f95b79e9adbebfe001552ebc409ba597bd69e22541d2a5b831fae5f34`; evaluation totals and
+  confusion diagonals reproduce reported Top-1 exactly.
+- [x] Hierarchical sampling did not improve aggregate unseen-signer recognition. DEV dense
+  Top-1/Top-5/macro-F1 changed from `41.30/73.53/38.70%` to `40.07/70.10/37.08%`; sparse changed
+  from `34.93/67.28/32.42%` to `34.31/63.48/32.06%`. Dense zero-recall classes worsened `57→63`;
+  sparse improved only `73→71`. Per-class recall improved/worsened for `46/64` dense and `51/58`
+  sparse classes.
+- [x] DEV signer effects are mixed rather than coherent: dense improves P12/P21, is unchanged for
+  P5, and worsens P26/P39; sparse improves P12/P21 and worsens P5/P26/P39. The five supplemented
+  classes also respond inconsistently, so their removal from excessive exposure is not sufficient
+  evidence of a generalization fix.
+- [x] TRAIN dense/sparse Top-1 fell from `76.74/70.10%` to `68.57/62.18%`. Consequently the gap
+  reduction of about `6.95/7.31` points is caused by weaker TRAIN fit, not stronger DEV accuracy.
+  The direct controlled classification is **`SAMPLING_HARMFUL`**, medium confidence: the direction
+  is negative across aggregate Top-1, Top-5, macro-F1, most signer comparisons, and more classes
+  worsen than improve, but this remains one fixed-seed run on a small DEV population.
+- [x] Do not promote hierarchical sampling and do not automatically try another sampler, add
+  weights/augmentation, change normalization/architecture/FPS, or retrain. Candidate 01 and
+  recognition-v1 remain frozen. Canonical result:
+  `artifacts/recognition_upgrade/perception_vnext/recognition_utility_236_01/tcn_sampling_balanced_01/SAMPLING_GENERALIZATION_RESULT.md`.
+  Current boundary: `WAIT_FOR_PROJECT_LEAD_REVIEW`; the lead must choose between genuinely greater
+  independent signer diversity and formally reopening Phase 2 representation/invariance.
+
+### 2026-09-14 — Perception vNext Representation V2 gate
+
+- [x] Formally reopened Phase 2 once for
+  `PERCEPTION_VNEXT_REPRESENTATION_V2_236_PRODUCTION_01` while freezing Candidate 01, raw-v1,
+  the 4,742-clip TRAIN/DEV population, vocabulary, temporal source selection, TCN baseline and
+  protected TEST. No DWPose/hand-refiner inference or recognizer training occurred.
+- [x] Implemented the single experimental schema `apphear.perception_vnext.recognition.v2`:
+  `[96,350]` plus `[96]` mask. It uses palm-local bone directions/joint angles/fingertip geometry,
+  body-frame sign location and inter-hand relations, upper-body directions/support/validity, and
+  timestamp-aware motion recomputed over each view's selected real observations. No depth,
+  interpolation, carry-forward or copied evidence is introduced.
+- [x] Contract mechanics PASS: global translation/scale/roll invariance, explicit missing-joint
+  behavior, finite tensors, zero-only masked padding, and real dense/sparse timestamp deltas are
+  covered by tests. All 4,742 saved raw packages produced V2 features (TRAIN 3,926; DEV 816); every
+  V2 dense/sparse source-index array and mask exactly matched recognition-v1. Protected TEST was
+  not accessed. No perception extraction was rerun.
+- [x] Representation gate result: **`REPRESENTATION_V2_GATE_INCONCLUSIVE`**. Cross-class signer
+  identifiability fell from `38.66%→26.41%` dense and `35.96%→22.84%` sparse, while DEV nearest
+  TRAIN-class-centroid Top-1 improved `15.32%→21.94%` and `11.40%→15.44%`. However median
+  class-conditioned TRAIN↔DEV centroid shift worsened `0.4347→0.4645` dense and `0.4511→0.5101`
+  sparse; median DEV true-class distance also worsened `0.7415→0.7822` and `0.7680→0.8212`.
+  Sparse Fisher separation declined while other separation measures improved.
+- [x] Locked stop applied: no TCN smoke/full training, evaluation command, Android S4 port, V3,
+  data/sampler/model change, or protected-TEST access. V1 `[96,208]` remains the controlled
+  recognizer baseline; V2 is retained as unpromoted evidence. Canonical artifacts live under
+  `artifacts/recognition_upgrade/perception_vnext/recognition_utility_236_01/representation_v2_236_production_01/`.
+  Current boundary: `WAIT_FOR_PROJECT_LEAD_REVIEW`.
+
+### 2026-09-14 — Representation V2 gate validation and training readiness
+
+- [x] Independently reimplemented and recomputed the V1/V2 gate from the saved feature packages;
+  aggregate values reproduce within `3.95e-7` and all P5/P12/P21/P26/P39 values within `1.40e-6`.
+  No original gate metric helper was imported by the validation path.
+- [x] Resolved the misleading separation-ratio name. The implemented formula is
+  `median(nearest-wrong RMS distance / true-class RMS distance)`, so higher is correctly better;
+  the old `true_vs_nearest_wrong...` key is worded backwards, but the reported direction was not.
+- [x] Distance audit: each summary coordinate is standardized from TRAIN only, constant
+  dimensions are removed, and distances use `sqrt(mean(squared standardized difference))`.
+  Therefore raw Euclidean `sqrt(dimension)` inflation is already removed. Cross-version distance
+  comparison remains partial because V1/V2 semantics, redundancy and correlations differ.
+- [x] Sparse timing/motion audit PASS over 32 deterministic real packages and 164 nonconsecutive
+  sparse steps: maximum dt error `6.85e-9`, elapsed error `2.91e-8`, selected-motion error
+  `7.99e-8`, with zero duplicate/interpolated observations, invalid nonzero motions or first-step
+  failures.
+- [x] Final validation classification: **`V2_GATE_VALID_PROMISING`**. Reduced signer
+  identifiability plus improved dense/sparse centroid Top-1, Top-5 and nearest-wrong/true separation
+  are genuine; the worse class-conditioned/true-class distances and sparse Fisher ratio remain
+  explicit risks to be resolved by the one controlled TCN result rather than another gate variant.
+- [x] Added a V2-only TCN entry point that refuses any non-representation scientific delta.
+  Actual-package smoke PASS on 16 TRAIN/16 DEV: `[96,350]`/mask loading, forward/loss/backward,
+  optimizer, 236-output head, best/latest/final checkpoints, reload delta `0`, and bounded
+  evaluation plumbing. Model has 192,556 parameters due only to the wider first input layer.
+- [x] Full extraction/training remains unexecuted and protected TEST untouched. Exact user commands
+  are frozen in `representation_v2_236_production_01/REPRESENTATION_V2_GATE_VALIDATION_AND_TRAINING_READINESS.md`.
+  Current boundary: `WAIT_FOR_USER_V2_RESULTS`.
+
+### 2026-09-14 — Controlled Representation V2 recognition result
+
+- [x] User-run full clip-uniform V2 training and evaluation completed with all frozen scientific
+  controls intact: 3,926 TRAIN, 816 signer-disjoint DEV, 236 classes, dense+sparse views, seed 101,
+  unchanged 4×64 TCN/optimizer/loss/checkpoint policy, and no protected-TEST access. Training ran
+  40 epochs; best combined DEV loss was zero-based epoch 32 (`2.4083843`). Best checkpoint SHA-256:
+  `8107accbc621ae5652766fec80d314fe8dc9f94ba0d0548a6aef80ed91729340`.
+- [x] V2 materially improves every primary DEV aggregate. Dense Top-1/Top-5/macro-F1 changes
+  `41.30/73.53/38.70% → 50.25/76.23/48.55%`; zero-recall classes fall `57→34`. PHONE_01 sparse
+  changes `34.93/67.28/32.42% → 39.95/70.96/38.15%`; zero-recall falls `73→52`.
+- [x] Improvement is broadly signer/class distributed: dense Top-1 improves for all five DEV
+  signers; sparse improves P12/P21/P26/P39 and declines P5 by one of 28 clips. Dense class recall
+  improves/worsens for `94/49`; sparse for `80/59`.
+- [x] Cadence remains a material risk: the DEV dense-to-sparse penalty grows `6.37→10.29` points.
+  TRAIN-to-DEV gaps also grow to `36.66/42.30` points because TRAIN improves more strongly, but
+  unlike balanced sampling, DEV itself improves by `8.95/5.02` points.
+- [x] Classification: **`V2_RECOGNITION_SUPPORTED_WITH_CADENCE_RISK`**. V2 is the strongest
+  governed Candidate 01 representation tested and is eligible for project-lead Phase-2 freeze;
+  it is not automatically promoted to Android. No V3, retraining, sampler/data/perception change,
+  or protected-TEST access is authorized. Canonical result:
+  `artifacts/recognition_upgrade/perception_vnext/recognition_utility_236_01/tcn_v2_run_01/V2_RECOGNITION_RESULT.md`.
+  Current boundary: `WAIT_FOR_PROJECT_LEAD_V2_FREEZE_AND_PHASE4_DECISION`.
+
+### 2026-09-14 — Signer/cadence-invariant recognizer preparation
+
+- [x] Froze Candidate 01, raw-v1, recognition-v2 `[96,350]`, the governed 3,926 TRAIN / 816
+  signer-disjoint DEV population, all temporal construction, and the established 4×64 causal TCN.
+  Implemented one Phase-3 objective only: 236-way sparse categorical cross-entropy plus a
+  same-gloss/different-TRAIN-signer supervised contrastive loss and exact same-clip dense↔sparse
+  cosine consistency over the shared normalized 64D masked-pool sequence embedding.
+- [x] Full deterministic pairing audit PASS. All 236 classes have usable cross-signer positives;
+  signers/class are min/median/mean/max `8/13/13.136/18`; TRAIN has 40 signers, DEV contains
+  P5/P12/P21/P26/P39, and signer overlap is zero. Every TRAIN clip is an anchor exactly once per
+  epoch, producing the unchanged 7,852 classification views in exactly 246 optimizer batches.
+- [x] Bounded real-data smoke PASS over two pair-aware TRAIN batches and 16 DEV clips. First-step
+  classification/metric/consistency/total losses were `5.999947/2.660548/0.079906/6.548038`;
+  gradients were finite, logits had 236 classes, the checkpoint reload maximum absolute delta was
+  `0`, and the unchanged V2 dense/sparse evaluation plumbing passed. These are mechanics only,
+  not recognition-accuracy results.
+- [x] Full training/evaluation, protected TEST, perception extraction, Android integration, V3,
+  Sem-Lex, balanced sampling, augmentation, architecture and optimizer changes were not executed.
+  The exact user commands are recorded in
+  `signer_cadence_invariant_236_01/SIGNER_CADENCE_INVARIANT_IMPLEMENTATION.md`. Current boundary:
+  `WAIT_FOR_USER_SIGNER_CADENCE_INVARIANT_RESULTS`.
+
+### 2026-09-14 — Signer/cadence-invariant recognizer result
+
+- [x] User-run full training and matched evaluation completed with all integrity gates passing:
+  frozen recognition-v2 dataset/config/control hashes, 3,926 TRAIN, 816 signer-disjoint DEV,
+  236 classes, 7,852 views and 246 pair-aware batches in every epoch. All 40 epochs were finite;
+  combined DEV loss selected zero-based epoch 35 (`2.363961`). Candidate best SHA-256 is
+  `57fb3c2784e7a95b23a881c2325d3453687e2e89f42dba420a9e08abeca86952`. Protected TEST was not
+  accessed.
+- [x] The candidate does not beat the frozen V2 TCN. DEV dense Top-1/Top-5/macro-F1 changes
+  `50.25/76.23/48.55% → 46.32/76.96/43.46%`; zero-recall classes worsen `34→46`. PHONE_01 sparse
+  changes `39.95/70.96/38.15% → 39.09/68.50/36.77%`; zero recall worsens `52→61`. Dense improves
+  only P12; sparse improves only P39, is unchanged for P5/P21, and worsens P12/P26.
+- [x] The objective performed its local alignment function but compressed class margins. Mean
+  same-clip dense↔sparse cosine distance improves `0.07851→0.07244` TRAIN and
+  `0.09636→0.09056` DEV. Mean TRAIN same-class/other-signer distance improves
+  `0.19273→0.16388` dense and `0.21503→0.18741` sparse. However nearest TRAIN class-centroid
+  separation shrinks `0.12706→0.11304` dense and `0.12755→0.11096` sparse; DEV nearest-centroid
+  Top-1 falls `47.43→45.10%` and `37.75→36.15%`.
+- [x] Cadence penalty narrows `10.29→7.23` points, but this is not a product gain: dense DEV falls
+  `3.92` points while sparse DEV also falls `0.86`. TRAIN dense/sparse Top-1 falls
+  `86.91/82.25% → 79.29/74.35%`, so reduced TRAIN→DEV gaps again reflect weaker fit rather than
+  improved DEV recognition.
+- [x] Scientific classification: **`SIGNER_CADENCE_INVARIANT_NOT_SUPPORTED`**, high confidence for
+  this fixed candidate. Stop the current TCN-objective tuning branch: no weight/contrastive/sampler/
+  seed/epoch/LR follow-up and no phone promotion. Frozen ordinary V2 TCN remains the Phase-3
+  recognizer control. Canonical report and decision live in `tcn_signer_cadence_invariant_01/`.
+  Current boundary: `WAIT_FOR_PROJECT_LEAD_FUNDAMENTALLY_STRONGER_RECOGNITION_OR_DATA_DECISION`.
+
+### 2026-09-14 — Project-state handoff to Phase 4A
+
+- [x] Project lead formally froze Phase 1 Candidate 01 and closed/froze Phase 2 on
+  `apphear.perception_vnext.recognition.v2` `[96,350] + [96]` mask. Candidate 02, V2.1 and V3 are
+  not authorized.
+- [x] Phase 3 is **PAUSED — NOT SOLVED**. The ordinary V2 4×64 causal TCN remains the active control;
+  best checkpoint SHA-256 is
+  `8107accbc621ae5652766fec80d314fe8dc9f94ba0d0548a6aef80ed91729340`. Its governed DEV
+  dense/sparse Top-1 is `50.25%/39.95%`; unseen-signer generalization remains primary and phone
+  cadence/observation density secondary. The recognizer is not production-ready.
+- [x] Balanced sampling and the explicit signer/cadence-invariant objective remain preserved closed
+  evidence. Do not restart class weighting, more epochs, LR/optimizer/seed sweeps, representation
+  revisions, metric-loss variants, or simple TCN-objective tuning.
+- [x] Phase 4A is now **ACTIVE** with milestone
+  `PHASE_4A_BOUNDED_PHONE_RECOGNITION_VALIDATION`. Required order is Android recognition-v2 parity,
+  frozen ordinary-V2-TCN runtime parity, manually bounded START→SIGN→STOP→CLASSIFY, then governed
+  diagnostic phone evidence. Automatic gating, UI commit, production deployment, continuous
+  recognition, new training, and protected-TEST access remain prohibited.
+- [x] After Phase 4A, real-phone versus offline-sparse evidence must drive an explicit project-lead
+  choice: fix a phone/runtime mismatch first, or formally reopen Phase 3 for external/pretrained
+  signing diversity or another fundamentally stronger recognition strategy. Canonical handoff:
+  `context/recognition_upgrade/PHASE4A_PROJECT_STATE_HANDOFF.md`. Current boundary:
+  `WAIT_FOR_PHASE_4A_IMPLEMENTATION_INSTRUCTION`.
+- [x] Durable-state save verified: the Phase 4A handoff now declares the anti-drift source order,
+  `context/feature-schema.md` identifies recognition-v2 as the frozen Phase-4A production-candidate
+  contract, and `memory.md` records the non-restart evidence chain from PHONE_01 through V1,
+  attribution, harmful balancing, Sem-Lex partial value, successful V2, and the rejected invariant
+  objective. Scientific artifacts were not modified.
+
+### 2026-09-14 — Phase 4A Gate 0 + Gate 1 Android V2 parity
+
+- [x] Gate 0 deployment identity PASS. Active ordinary-V2-TCN checkpoint SHA-256 is exactly
+  `8107accbc621ae5652766fec80d314fe8dc9f94ba0d0548a6aef80ed91729340`; vocabulary is 236 classes
+  with SHA-256 `a7d7b08d1c9ff52455aaa93cefee40e744b86a11fa5047dce08d2dd23fc0539b`.
+  The invariant and balanced-sampler checkpoints were not selected.
+- [x] Implemented the exact frozen `apphear.perception_vnext.recognition.v2` transformation as a
+  debug-only Kotlin component. It preserves the `[96,350]` layout, anatomical sides, body/hand
+  frames, explicit validity, dense and PHONE_01 sparse unique-observation selection, motion from
+  actual selected timestamps, elapsed fraction, and zero/false tail padding. Candidate 01 and all
+  model/runtime code remain unchanged.
+- [x] Prepared a deterministic TRAIN-only parity corpus from the 3,926 existing raw-v1 packages:
+  10 clips, 10 dense views and 10 sparse views selected only for structural observation coverage.
+  No DEV or protected TEST artifact was accessed.
+- [x] Android module and instrumentation sources compile. Host preflight of the same Kotlin debug
+  source against Python goldens PASS: global max/p95/mean absolute error
+  `1.1920929e-7/0/6.3152280e-11`, zero discrete mismatches; every feature group passes the
+  pre-registered `1e-5` maximum tolerance.
+- [x] Physical Xiaomi M2101K7AG instrumentation PASS. Dense max/p95/mean absolute error is
+  `1.1920929e-7/0/1.0493871e-10`; PHONE_01 sparse is
+  `1.1920929e-7/0/2.1365850e-11`. Selection, selected timestamps, frame masks and discrete
+  features have zero mismatches. All eight feature groups pass `1e-5`; 1,106 padded frames,
+  missing-hand/body-reference semantics, 10,134 invalid motion endpoints and 255 sparse `dt`
+  checks pass. Device evidence SHA-256 is
+  `6f4e0cb2adc9544ce71eaf1f703b4572cef109365d63f65fddbbd7f408af09a8`.
+- [x] Gate 1 classification: **`ANDROID_V2_PARITY_PASS`**. No Gate 2 model conversion/runtime,
+  recognition, live capture, training, DEV parity use or protected-TEST access occurred. Current
+  boundary: `WAIT_FOR_PROJECT_LEAD_GATE_2_AUTHORIZATION`.
+
+### 2026-09-15 — Phase 4A Gate 2 recognizer runtime parity
+
+- [x] Pinned the unchanged Gate-1 Kotlin implementation and fixture manifest before model work.
+  `RecognitionV2.kt` remains SHA-256
+  `0a5fd969c574f3077060e75bcf697390e322da7e87e870da50b547714ba39699`; repository HEAD before
+  Gate 2 was `7dd4fa05f2e7dffd3f06a2fdc88f90b1ea66836f` on the existing dirty worktree.
+- [x] Independently verified the active ordinary V2 checkpoint SHA-256
+  `8107accbc621ae5652766fec80d314fe8dc9f94ba0d0548a6aef80ed91729340` and the 236-class
+  vocabulary SHA-256 `a7d7b08d1c9ff52455aaa93cefee40e744b86a11fa5047dce08d2dd23fc0539b`.
+  Source contract is `features [None,96,350] float32` + `frame_mask [None,96] bool` to
+  `[None,236]` FP32 softmax probabilities; model parameters are `192,556`.
+- [x] Converted exactly one FP32 TFLite model with no quantization, weight compression,
+  architecture rewrite or Select TF Ops. Standard builtins suffice. Model is `814,068` bytes,
+  SHA-256 `1ccf0afa9af9aa602aa0de33c9635f5cffd7feec7d9b4e32382bc5e3fa02880c`.
+- [x] Host parity PASS on the exact Gate-1 TRAIN-only 10 dense + 10 PHONE_01-sparse tensors:
+  Keras↔TFLite max/p95/mean absolute error `4.7683716e-7/1.4581019e-9/1.2949251e-9`, with zero
+  Top-1, Top-5 membership or Top-5 ordering mismatches.
+- [x] Physical Xiaomi M2101K7AG / Android 12 parity PASS using TFLite 2.16.1, CPU 4 threads,
+  XNNPACK requested, and no GPU/NNAPI. Keras↔Android max/p95/mean absolute error is
+  `3.5762787e-7/1.7462298e-9/1.4873060e-9`; all Top-1/Top-5 checks match. Four preregistered
+  padded-garbage cases are exactly invariant in Keras, host TFLite and Android TFLite.
+- [x] Recognizer-only device latency after 10 warmups over 50 invocations is p50/p95/max
+  `1.693/1.823/1.859 ms`; diagnostic only. The Android asset manifest explicitly pins and checks
+  `apphear.perception_vnext.recognition.v2` before consuming the feature tensor. Classification:
+  **`RECOGNIZER_RUNTIME_PARITY_PASS`**. No training, DEV, protected TEST, CameraX, live phone
+  recognition, START/STOP UI or Gate 3 work occurred. Evidence root:
+  `artifacts/recognition_upgrade/perception_vnext/recognition_utility_236_01/phase4a_gate2_recognizer_runtime_parity_01/`.
+  Current boundary: `WAIT_FOR_PROJECT_LEAD_GATE_3_AUTHORIZATION`.
+- [x] `/remember save` synchronized `memory.md`, this tracker, the Phase-4A handoff, the
+  recognition-upgrade current-state override and the feature-component registry. No credentials
+  or sensitive values were stored.
+
+### 2026-09-15 — Phase 4A Gate 3 known-TRAIN end-to-end replay
+
+- [x] Reverified every frozen deployment identity before composition: unchanged `RecognitionV2.kt`
+  SHA `0a5fd969c574f3077060e75bcf697390e322da7e87e870da50b547714ba39699`, Gate-1 manifest SHA
+  `01fd271c25df2d0b7a64e803fabe0b745d51be1ac8f7c6f646546e2a3aa055b3`, TFLite SHA
+  `1ccf0afa9af9aa602aa0de33c9635f5cffd7feec7d9b4e32382bc5e3fa02880c`, vocabulary SHA
+  `a7d7b08d1c9ff52455aaa93cefee40e744b86a11fa5047dce08d2dd23fc0539b`, and Gate-2 verifier/
+  manifest SHAs. No frozen component was modified or regenerated.
+- [x] Added a Gate-3-only fail-closed Android replay consumer and deterministic instrumented test.
+  It starts from the same 10 Gate-1 TRAIN raw-v1 fixtures, builds both dense and PHONE_01-sparse
+  V2 views, immediately runs the authorized ordinary-V2 FP32 TFLite, preserves selected indices,
+  timestamps, masks, generated tensors and all 236 output probabilities, and checks exact
+  class-index/gloss mapping. The consumer explicitly requires raw-v1 and recognition-v2 before
+  accepting data.
+- [x] Physical Xiaomi M2101K7AG / Android 12 composed replay PASS. Android V2 intermediate
+  max/p95/mean error was `1.1920929e-7/0/6.3152280e-11` across 672,000 elements, with zero
+  selection/timestamp/mask/discrete mismatches. Frozen Keras vs composed Android output
+  max/p95/mean error was `4.1723251e-7/1.7462298e-9/1.5262949e-9` across 4,720 probabilities,
+  with zero Top-1, Top-5 membership or Top-5 order mismatches and exact gloss mapping.
+- [x] Reused buffers passed forward/reverse, dense→sparse, and sparse→dense order tests exactly:
+  maximum difference `0` over 14,160 comparisons. Device replay latency excluding perception was
+  V2 p50/p95 `8.335/40.665 ms`, TFLite `1.997/7.076 ms`, combined `10.243/44.808 ms`; diagnostic
+  only. Ground-truth correctness was 9/10 dense and 8/10 sparse, recorded only as a diagnostic and
+  excluded from the gate decision.
+- [x] Independent host finalization reproduced the pulled tensor/output statistics and classified
+  **`KNOWN_TRAIN_END_TO_END_REPLAY_PASS`**. No training, live CameraX recognition, DEV access or
+  protected-TEST access occurred. Evidence root:
+  `artifacts/recognition_upgrade/perception_vnext/recognition_utility_236_01/phase4a_gate3_known_train_end_to_end_replay_01/`.
+  Current boundary: `WAIT_FOR_PROJECT_LEAD_GATE_4_AUTHORIZATION`.
+- [x] `/imprint` registered the composed raw-v1→V2→TFLite component without changing the frozen
+  feature contract, and `memory.md` plus the Phase-4A state files were synchronized. No credentials
+  or sensitive values were stored.
+
+### 2026-09-15 — Phase 4A Gate 4A-1 live plumbing validation
+
+- [x] Reverified the frozen RecognitionV2.kt, authorized FP32 TFLite, vocabulary, Gate-1/2/3
+  manifests, Candidate 01 source components and camera/preprocess configuration before live work.
+  Frozen V2 and model identities remain `0a5fd969…699` and `1ccf0afa…80c`; no frozen component,
+  threshold, temporal rule, vocabulary or weight was changed.
+- [x] Added a debug-only CameraX surface implementing only `START → one isolated sign → STOP →
+  classify`. Candidate 01 loads and completes four live/native-parity observations before START is
+  enabled. Capture membership uses `ImageProxy.imageInfo.timestamp`, never completion callback
+  time. The first strictly chronological processed source timestamp newer than `T_stop` is the
+  deterministic drain sentinel; eligible work completing after STOP is retained.
+- [x] Live temporal behavior is correctly **not** PHONE_01-resimulated. All unique chronological
+  live observations are fed to frozen V2 through its DENSE actual-observation path; only the frozen
+  96-step selection rule applies if a capture exceeds 96 observations. Motion/dt uses adjacent
+  actual selected timestamps. No interpolation, duplication, carry-forward or synthetic cadence.
+- [x] Deterministically froze the first five unique Gate-3 TRAIN fixtures whose sparse reference
+  was ground-truth correct: HELLO/80, AT/8, HOME/83, STREET/179 and TABLE/183. Tester signer status
+  is `UNKNOWN`; no unseen-signer claim is made.
+- [x] Five valid physical-Xiaomi attempts completed with zero no-observation attempts. Evidence was
+  pulled to the host **before** any uninstall/cleanup/reinstall (28 files, 1,658,539 bytes), hashed,
+  and replayed through frozen Python V2 + ordinary Keras. Every capture-bound, chronology,
+  duplicate, drain, no-double-sparse, mask and selected-timestamp-dt assertion passed.
+- [x] Live→offline V2 max/p95/mean absolute error is
+  `1.1920929e-7/0/3.6046133e-11` over 168,000 elements. Probability error is
+  `3.8743019e-7/1.1670636e-9/2.0584177e-9` over 1,180 outputs. Top-1, Top-5 membership and Top-5
+  order mismatches are all zero. Classification: **`LIVE_PLUMBING_VALIDATED`**.
+- [x] Semantic results are diagnostic only and weak: Top-1 `1/5`, expected gloss in Top-5 `2/5`.
+  Observation counts were min/median/max `48/59/79`, live rates `6.48/6.95/8.07 Hz`, body
+  availability `100%`, but mean LH/RH observed rates were only `4.15%/24.62%`; TABLE had no
+  observed hand in 60 frames. This is retained evidence of a likely live perception/domain or
+  execution-quality problem, not a plumbing-parity failure and not proof that Phase 3 is solved.
+- [x] Candidate01 latency p50/p95 was `121.48/184.52 ms`; V2 `35.22/69.94 ms`; TFLite
+  `2.79/11.62 ms`; STOP→result `359.59/497.55 ms`. No crash/ANR, training, DEV access, protected
+  TEST access, production UI connection, automatic gating or 30-class panel occurred. Evidence:
+  `artifacts/recognition_upgrade/perception_vnext/recognition_utility_236_01/phase4a_gate4a1_live_plumbing_validation_01/`.
+  Current boundary: `WAIT_FOR_PROJECT_LEAD_GATE_4A2_DECISION`; do not start Gate 4A-2 automatically.
+
+### 2026-09-15 — Phase 4A Gate 4A-1B controlled live-input recovery
+
+- [x] Reverified all frozen Candidate01/V2/model/vocabulary identities and resolved the exact five
+  TRAIN references: HELLO `e6:e6p_00795`, AT `asl:train:3317802933195262-AT`, HOME
+  `asl:train:4506537239301789-HOME`, STREET `asl:train:44175204654391864-STREET`, and TABLE
+  `asl:train:072729520535459-TABLE`. ASL Citizen sources resolve under the governed relocated
+  `G:\ASL CITIZEN\ASL CITIZEN` root. No DEV or protected TEST was read.
+- [x] Added debug-only bounded visual diagnostics without changing Candidate 01: first accepted,
+  every 10th, last, and all observed/proposal hand-state transitions retain upright/unmirrored RGB,
+  DWPose body/proposals, hand ROIs, refiner state, timestamps, luminance/sharpness and hashes.
+  The phone requires a fresh exact-reference acknowledgement before each attempt.
+- [x] Completed HELLO/AT/HOME/STREET/TABLE × two repetitions: 10 valid attempts, zero invalid
+  no-observation attempts. Host evidence was pulled before cleanup: 548 files, 22,137,372 bytes,
+  session `session_20260915T065635Z`, with a SHA-256 manifest. No uninstall/reinstall or app-data
+  cleanup followed capture.
+- [x] Offline replay technical PASS: V2 max/p95/mean absolute error
+  `1.1920929e-7/0/1.9362189e-11`; probability error
+  `5.9604645e-7/3.7252903e-9/3.2923340e-9`; zero Top-1, Top-5 membership or Top-5 ordering
+  mismatches. All source-bound, drain, chronology, uniqueness, mask, selected-dt, no-double-sparse,
+  artifact-hash and diagnostic-sampling checks pass.
+- [x] Semantic result is diagnostic only: Top-1 `2/10`, expected in Top-5 `5/10`. Both HELLO
+  repetitions were Top-1; HOME was Top-5 once and STREET Top-5 twice; AT/TABLE never reached Top-5.
+- [x] Corrected the interpretation of low whole-attempt hand rates. Seven of ten attempts had
+  `87.5–100%` either-hand continuity from the first to last observed-hand frame. STREET had both
+  hands continuously observed during `1.47 s` and `1.80 s` active intervals. The `6.14–10.83 s`
+  manual capture windows contain substantial hands-down lead-in/out and dilute the earlier rate.
+- [x] Evidence is not uniformly healthy: TABLE contact/overlap yielded only 2 observed-hand frames
+  per repetition and saved overlays show refiner-presence collapse. Its exact TRAIN reference also
+  had 0% refined-hand observation, so this alone is not a new phone-only Candidate01 failure. HELLO/HOME body availability
+  was 0 under the frozen group predicate despite partial visible body keypoints because close
+  framing omitted a complete body reference. Finite luminance/sharpness does not support gross
+  darkness or blur as the sole cause.
+- [x] Final attribution: **`MIXED_OR_INCONCLUSIVE`**. Exact-exemplar guidance and controlled light
+  did not isolate one cause; long manual bounds/body framing, TABLE contact/refiner weakness in both TRAIN and live,
+  failure, and the known recognizer-generalization limitation remain entangled. Candidate01,
+  Recognition V2 and the model are unchanged; no training, Gate 4A-2, production UI, automatic
+  boundary work, DEV or protected-TEST access occurred.
+- [x] `/imprint` registered only the debug diagnostics component and confirmed no feature-contract
+  change. Canonical evidence:
+  `artifacts/recognition_upgrade/perception_vnext/recognition_utility_236_01/phase4a_gate4a1b_controlled_live_input_recovery_01/`.
+  Current boundary: `WAIT_FOR_PROJECT_LEAD_REVIEW_AFTER_GATE_4A1B`; do not start Gate 4A-2 or a
+  Candidate01 change automatically.
+
+### 2026-09-15 — Project-lead Gate 4A-1C validation and Phase-4 closure
+
+- [x] Project lead independently validated Gate 4A-1C as **PASS** with classification
+  **TEMPORAL_BOUNDARY_PRIMARY_EFFECT_SUPPORTED**. Locked oracle-boundary SHA-256:
+  0e6f14f159287ce830b68c4d33edba88dbb6aeef386060b80f79e3fed4a1e41f; source session
+  session_20260915T065635Z; confidence HIGH 8, MEDIUM 1, LOW 1, UNCERTAIN 0.
+- [x] Locked causal interpretation: wide live START→STOP windows add idle, preparation and recovery
+  context that materially damages the frozen isolated-sign recognizer. Oracle isolation improved
+  Top-1 2/10→7/10, expected-in-Top-5 5/10→8/10, median expected probability
+  0.053839→0.585159, and median expected rank 5→1; five wrong attempts became correct and
+  none became wrong.
+- [x] Automatic isolated-sign active-window extraction is now a required future product component:
+  continuous Candidate01 raw-v1 → rolling buffer → automatic start/active/end → controlled
+  pre/post margin → frozen V2 → recognizer → gloss → re-arm. This remains isolated-sign
+  recognition; fluent continuous ASL/coarticulation remains later research.
+- [x] Candidate01 systemic failure is not supported. Phase 1 remains frozen; no Candidate02,
+  threshold, ROI, anatomical-hand, scheduling or camera-preprocess work is authorized. Framing
+  readiness is guidance/quality aid, not a hard recognition gate: HELLO stayed correct and HOME ×2
+  became correct despite 0% complete body-group availability.
+- [x] Phase-4 causal investigation is **CLOSED**. No Gate 4A-1D/1E and no further five-sign causal
+  diagnostics. Gate 4A-2 is **HOLD**. Phase 5 is not started.
+- [x] Next primary project boundary is **RETURN TO PHASE 3**, which remains paused but unsolved.
+  Any next serious ML effort must add new signer/information diversity; no exact implementation or
+  training run is authorized. Balanced sampling, invariant-objective/weight retries, class/loss
+  weighting, LR/optimizer/seed/epoch sweeps, V2.1/V3, FPS/threshold loops and protected TEST remain
+  closed.
+- [x] Governance: Candidate01 modified NO; V2 modified NO; recognizer modified NO; training
+  executed NO; DEV accessed NO; protected TEST accessed NO. Current boundary:
+  WAIT_FOR_PROJECT_LEAD_PHASE3_STRATEGY_AUTHORIZATION.
+
+### 2026-09-15 — Phase 4A Gate 4A-1C oracle temporal-boundary replay
+
+- [x] Used only the 10 retained Gate-4A1B live attempts from `session_20260915T065635Z`; no new
+  phone capture, DEV, protected TEST, extraction or training occurred. Reverified the frozen
+  RecognitionV2.kt, authorized FP32 TFLite, vocabulary and ordinary V2 Keras checkpoint hashes.
+- [x] Annotated sign intervals from retained RGB/annotated frames, raw trajectories and exact TRAIN
+  motion references without using recognizer probabilities or predictions. Applied the same one
+  accepted-observation margin before/after every interval. Confidence was HIGH `8`, MEDIUM `1`,
+  LOW `1`, UNCERTAIN `0`, so 9/10 passed the predeclared causal-evidence threshold.
+- [x] Finalized and hashed `oracle_bounds.json` before inference. Frozen SHA-256:
+  `0e6f14f159287ce830b68c4d33edba88dbb6aeef386060b80f79e3fed4a1e41f`. Trimmed sequences were
+  rebuilt from raw-v1 through frozen Python Recognition V2; the old V2 tensor was never sliced, so
+  motion, selected-observation dt and elapsed fraction were recomputed from actual retained times.
+- [x] Oracle trimming materially improved semantic results: Top-1 `2/10→7/10`, expected gloss in
+  Top-5 `5/10→8/10`, median expected-class probability `0.053839→0.585159`, and median rank
+  `5→1`. HOME ×2, STREET attempt 1 and TABLE ×2 became correct; no attempt became wrong.
+- [x] Final classification: **`TEMPORAL_BOUNDARY_PRIMARY_EFFECT_SUPPORTED`**. Wide manual
+  START→STOP windows are a major Phase-4 recognition contributor, but not a complete solution:
+  AT ×2 and STREET attempt 2 remained wrong after oracle trimming. Candidate01, Recognition V2,
+  the ordinary V2 TCN and all frozen temporal semantics remain unchanged.
+- [x] `/imprint` registered the replay/audit component and confirmed there is no feature-contract
+  change. Canonical evidence:
+  `artifacts/recognition_upgrade/perception_vnext/recognition_utility_236_01/phase4a_gate4a1c_oracle_temporal_boundary_replay_01/`.
+  Pre-validation boundary was WAIT_FOR_PROJECT_LEAD_REVIEW_AFTER_GATE_4A1C. It is superseded by
+  the validated project-state entry below; do not implement segmentation or start Gate 4A-2.
+
+### 2026-09-15 — Authoritative state after Gate 4A-1C validation
+
+- [x] **Phase 1:** FROZEN / COMPLETE. **Phase 2:** FROZEN / COMPLETE.
+- [x] **Phase 3:** PAUSED BUT UNSOLVED and restored as the next primary project problem.
+- [x] **Phase 4A:** all listed gates validated; causal investigation CLOSED; Gate 4A-2 HOLD.
+- [x] **Phase 5:** NOT STARTED. Automatic isolated-sign active-window extraction and re-arm are
+  required future architecture but are not authorized for implementation yet.
+- [x] **Current boundary:** WAIT_FOR_PROJECT_LEAD_PHASE3_STRATEGY_AUTHORIZATION. No training or
+  experiment starts automatically.
+
+### 2026-09-15 — Phase 4A Gate 5 final attribution and decision
+
+- [x] Reviewed only retained Gate 0 through Gate 4A-1C reports, decisions and frozen identities;
+  ran no new inference, capture, extraction, evaluation or training and accessed neither DEV nor
+  protected TEST.
+- [x] Ruled out as primary by direct evidence: Android runtime, Android/Python V2 skew,
+  Keras/TFLite skew, label mapping, buffer/state contamination, source-timestamp START/STOP
+  membership and live double sparsification.
+- [x] Confirmed excessive temporal context/bad sign boundaries as the major Phase-4 contributor.
+  Body/framing and phone cadence are secondary. General Candidate01 failure, lighting, sign
+  variant and missing refined hands are not supported as primary causes by the bounded evidence.
+- [x] Preserved the causal result: frozen oracle isolation improved Top-1 `2/10→7/10`, expected
+  Top-5 `5/10→8/10`, median expected probability `0.053839→0.585159`, and median rank `5→1`, with
+  five wrong attempts becoming correct and zero regressions.
+- [x] Phase-3 unseen-signer/independent-signer generalization remains unresolved. The ordinary V2
+  TCN is not production-ready; same-data sampler/loss/LR/optimizer/seed/epoch and small-TCN loops
+  remain closed. The next strategy must introduce new signer/information diversity.
+- [x] Gate 4A-2 is **SUPERSEDED BY LATER VALIDATION AFTER PHASE-3 IMPROVEMENT**; no Gate 4A-1D/1E,
+  further five-sign diagnostic, Phase 5 work or automatic-segmentation implementation starts now.
+- [x] Final status: **`PHASE_4A_COMPLETE_RETURN_TO_PHASE_3`**. Phase state is Phase 1 frozen/
+  complete; Phase 2 frozen/complete; Phase 3 **REOPEN NEXT — GENERALIZATION UNSOLVED**; Phase 4A
+  **COMPLETE**; Phase 5 not started.
+- [x] Current boundary: **`PHASE_3_RECOGNIZER_GENERALIZATION_REOPEN`**. This is a decision boundary,
+  not authorization to implement or train. Canonical report:
+  `artifacts/recognition_upgrade/perception_vnext/recognition_utility_236_01/phase4a_gate5_live_phone_failure_attribution_and_decision_01/PHASE4A_GATE5_FINAL_REPORT.md`.
+- [x] Governance: Candidate01 modified NO; V2 modified NO; recognizer modified NO; training
+  executed NO; DEV accessed during Gate 5 NO; protected TEST accessed NO.
+
+### 2026-09-15 — Phase 5.0 segmentation contract and signal audit
+
+- [x] Project lead authorized Phase 5.0 audit/contract work only. Inspected the actual
+  `apphear.perception_vnext.raw.v1` Python/Kotlin/live-persistence contract and the retained
+  Gate-4A1B/Gate-4A1C session without changing Candidate01, Recognition V2, the recognizer, or
+  Android behavior.
+- [x] Reverified oracle-boundary SHA-256
+  `0e6f14f159287ce830b68c4d33edba88dbb6aeef386060b80f79e3fed4a1e41f`. Signal analysis read only
+  calibration attempts 002/003/005/007/009. Holdout raw-v1 payloads 004/006/008/010 and secondary
+  attempt 001 were not used for threshold design; DEV and protected TEST were not accessed.
+- [x] Found no single globally sufficient activity signal. Refined-hand motion is useful but fails
+  TABLE contact; proposal ROI motion survives all five active intervals but overlaps pre/post;
+  upper-limb geometry survives contact but also overlaps preparation/recovery. Hand presence,
+  both-hand requirements, complete-body gating, inter-hand-only logic and fixed-frame timing are
+  rejected.
+- [x] Proposed one timestamp-based, validity-aware deterministic state machine with hysteresis,
+  rolling pre-roll, controlled post-roll, fail-closed perception-gap behavior, stable-idle re-arm,
+  one global one-shot calibration method, and `apphear.segmentation.sign_event.v1` as a future
+  wrapper preserving original raw-v1 observations. No production segmentation was implemented.
+- [x] Canonical report and reproducible calibration summary:
+  `artifacts/recognition_upgrade/perception_vnext/recognition_utility_236_01/phase5_0_segmentation_contract_and_signal_audit_01/`.
+  Current boundary: `WAIT_FOR_PROJECT_LEAD_PHASE_5_1_IMPLEMENTATION_REVIEW`; do not start Phase 5.1
+  automatically.
+
+### 2026-09-16 — Phase 5.1T-0 segmentation data-readiness audit
+
+- [x] Audited only the frozen governed recognition TRAIN population: 3,926 clips, 236 glosses,
+  40 signer groups; ASL_CITIZEN 3,309, APPHEAR_CAPTURE 297, LOCAL 320. Recognition DEV,
+  protected TEST, Gate-4 phone payloads, and sealed Phase-5 holdouts were not opened.
+- [x] All 3,926 raw videos exist and expose valid container metadata. Found zero unreadable videos,
+  duplicate sample IDs, duplicate source files, non-positive durations, out-of-bounds spans,
+  negative context values, or ambiguous span units.
+- [x] ASL_CITIZEN has 3,309 governed D1 detector sidecars using inclusive frame indices and a
+  declared native FPS. APPHEAR_CAPTURE and LOCAL have no governed temporal span for all 617 rows;
+  their E6 recognition features were built over the entire decoded clip. Sixty-four D1 spans
+  exactly equal the full source-frame interval.
+- [x] Context eligibility remains broad but sparse: +/-250 ms has 1,562 clips/34 signers/236
+  glosses; +/-500 ms has 1,122/33/236; +/-750 ms has 685/26/235; +/-1000 ms has 440/20/220.
+  The recovery-oriented 500 ms PRE + 750 ms POST bin has 953 clips/32 signers/236 glosses; 213
+  glosses have at least 3 clips and 82 have at least 5.
+- [x] Span lineage is understood but temporal truth is not. D1 uses landmark-motion hysteresis,
+  a hands-raised gate, the longest run, and two-frame backoff; it is not a manual boundary. Frames
+  outside a D1 span are detector-negative context, not proven preparation/idle or recovery.
+  Therefore current spans may seed a weak-label/human-review candidate pool but must not be used
+  as ground-truth PRE/ACTIVE/POST labels without detector-independent visual adjudication.
+- [x] Final evidence statement: **`SEGMENTATION_SOURCE_CONTEXT_PARTIAL`**. No extraction, model
+  training, recognition inference, Candidate01/V2/recognizer/Android change, or authoritative
+  manifest creation occurred. Canonical evidence:
+  `artifacts/recognition_upgrade/perception_vnext/recognition_utility_236_01/phase5_1t_0_segmentation_data_readiness_audit_01/`.
+  Current boundary: `WAIT_FOR_PROJECT_LEAD_PHASE_5_1T_1_DATASET_DECISION`.
+
+### 2026-09-16 — Phase 5.1T-1 human temporal semantics validation
+
+- [x] Froze the existing 24-sample inspection manifest without replacement. SHA-256
+  `73b4e5c320ef36ca8c9dc27c86a23aff66c272bad712c85d9b719087b6600658`; population is 8
+  APPHEAR_CAPTURE, 8 ASL_CITIZEN, and 8 LOCAL clips across 12 signer groups and 12 glosses.
+- [x] Added a localhost-only browser reviewer with video playback/scrubbing/frame stepping,
+  approximate START/END marking, four required semantic judgments, optional notes, deterministic
+  navigation, immutable commit, and atomic save/resume.
+- [x] ASL_CITIZEN D1 values, span paths, and span-derived context remain absent from browser state
+  before each human commit. D1 onset/release and signed differences are loaded server-side and
+  stored only after the corresponding human boundary is immutable. Non-ASL sources receive no
+  invented D1 span.
+- [x] Eleven focused technical tests, Ruff, and a live HTTP/video-range smoke pass. The combined
+  relevant test run is 28 passed. No scientific holdout, recognizer output, training, Candidate01,
+  Recognition V2, recognizer, source video, D1 span, recognition manifest, or Android behavior was
+  accessed or modified beyond the authorized TRAIN videos used by the local reviewer.
+- [x] All 24 frozen samples were human-reviewed and the guarded finalizer verified exact ordered
+  membership. Results: clear PRE `21/24`, clear ACTIVE `23/24`, clear POST/recovery `20/24`, full
+  PRE/ACTIVE/POST supervision `20/24`, recognizable active plus at least some surrounding context
+  `21/24`, ambiguous/unusable `3/24`.
+- [x] Source results: APPHEAR_CAPTURE full usable `7/8` and ambiguous `1/8`; ASL_CITIZEN full
+  usable `8/8` and ambiguous `0/8`; LOCAL full usable `5/8`, active-plus-context `6/8`, and
+  ambiguous `2/8`. The difficult cases do not overturn the substantial-majority result.
+- [x] ASL_CITIZEN D1 diagnostic only: median absolute START difference `389.69 ms`, median
+  absolute END difference `367.04 ms`, and `3/8` major disagreements above the frozen 500 ms
+  criterion. D1 START was earlier than the human boundary in `7/8`; END direction split `4/4`.
+  No D1 threshold, span, or human annotation was changed from this comparison.
+- [x] Final binary decision: **`REUSE_EXISTING_SOURCE_POOL`**. The frozen decision rule passed
+  (`23/24 >= 16/24` clear ACTIVE; `21/24 >= 16/24` active plus PRE or POST context). No dataset
+  construction or training began. Current boundary:
+  **`WAIT_FOR_PROJECT_LEAD_PHASE_5_1T_2_SEGMENTATION_DATASET_CONSTRUCTION_DECISION`**.
+
+### 2026-09-16 — Phase 5.1T-2 bounded segmentation seed finalized
+
+- [x] Deterministically froze exactly 120 governed recognition-TRAIN clips before inspecting
+  reusable labels: ASL_CITIZEN 90, APPHEAR_CAPTURE 12, LOCAL 18. The population covers 37 signer
+  groups and 92 glosses; all 32 eligible ASL_CITIZEN signers are represented and no ASL signer
+  contributes more than four selected clips. Selected-manifest SHA-256:
+  `832ba25420bef80acda3b40e7a44414654c3227222e4336d66174b8cca7ea15e`.
+- [x] Froze a separate segmentation split at 96 TRAIN / 24 DEV with zero signer overlap. DEV holds
+  six ASL_CITIZEN signers and one LOCAL signer; the sole APPHEAR_CAPTURE signer remains wholly in
+  TRAIN. Nineteen DEV glosses are absent from segmentation TRAIN. Frozen-split SHA-256:
+  `b4a2dbaf9c3810a86f8407068ea50dfc3f2079fc951932ff3a76bbe411b599c6`.
+- [x] Intersected the immutable Phase-5.1T-1 annotations only after both freeze artifacts existed.
+  Three selected clips were naturally reusable and remain unchanged; 117 new blinded annotations
+  were completed. Historical PRE/POST checkboxes were not copied; PRE/POST availability is
+  derived only from human timestamps and source duration.
+- [x] Added a localhost reviewer with play/scrub/frame-step, approximate START/END, one
+  ambiguous/unusable judgment, notes, immutable commits, atomic resume, and server-side D1 reveal
+  only after each ASL_CITIZEN commit. All 35 focused/adjacent tests, Ruff, Python compilation, and
+  live state/video-range smoke checks pass. Black and mypy are not installed in this environment.
+- [x] All 120 selected rows were committed in exact frozen order. The guarded finalizer classified
+  112 usable and 8 unusable without selecting replacements. Usable by source: ASL_CITIZEN 84/90,
+  APPHEAR_CAPTURE 12/12, LOCAL 16/18; usable by split: segmentation TRAIN 89/96 and DEV 23/24.
+  Of the usable rows, 104 have at least 250 ms PRE context and 110 have at least 250 ms POST
+  context. There are zero invalid bounds or negative derived margins.
+- [x] Final evidence state: **`SEGMENTATION_SEED_READY`** (`112 >= 100`). No model training,
+  recognizer access, replacement selection, DEV/protected-TEST/phone-holdout access, or runtime
+  modification occurred. Canonical package:
+  `artifacts/recognition_upgrade/perception_vnext/recognition_utility_236_01/phase5_1t_2_bounded_segmentation_seed_dataset_01/`.
+  Current boundary:
+  `WAIT_FOR_PROJECT_LEAD_PHASE_5_1T_3_FIRST_SEGMENTER_TRAINING_DECISION`.
+
+### 2026-09-17 — Phase 5.1T-3 first class-agnostic causal segmenter
+
+- [x] Reverified the frozen Phase-5.1T-2 selected-manifest SHA-256
+  `832ba25420bef80acda3b40e7a44414654c3227222e4336d66174b8cca7ea15e` and segmentation-split
+  SHA-256 `b4a2dbaf9c3810a86f8407068ea50dfc3f2079fc951932ff3a76bbe411b599c6`.
+  Used exactly 89 usable segmentation-TRAIN and 23 usable unseen-signer DEV clips with zero signer
+  overlap; no unusable replacement or new annotation occurred.
+- [x] Verified complete-source Candidate01 raw-v1 for all 112 usable clips. Reused 28 prior
+  APPHEAR_CAPTURE/LOCAL raw sequences only after proving `whole_isolated_clip`, frame-zero through
+  decoded-final-frame coverage, and source-video hash identity. Re-extracted all 84 ASL_CITIZEN
+  clips because their prior recognition sequences were D1-span cropped. Human boundaries were
+  labels only; no governed/human span controlled extraction.
+- [x] Froze `apphear.perception_vnext.segmentation_features.v1`: causal `[T,378]` current raw-v1
+  hand/proposal/ROI/body/timing evidence plus one backward transition, explicit validity,
+  zero-with-validity missingness, no future frame, interpolation, stale carry, RGB, gloss/class,
+  Recognition V2 or recognizer output. Normalization came from segmentation TRAIN only.
+- [x] Applied the single fixed 100 ms inclusive ignore band at human START/END. Supervised counts:
+  TRAIN PRE/ACTIVE/POST `3452/2350/4025` with `1072` ignored; DEV `982/626/955` with `264`
+  ignored. Trained one predeclared 123,779-parameter causal TCN for 50 fixed epochs with seed 5103,
+  TRAIN-count class weights, no architecture/hyperparameter/threshold sweep, and no rerun.
+- [x] The predeclared DEV boundary checkpoint selected epoch 7. Frozen DEV state accuracy/macro-F1
+  are `0.8213/0.8213`; ACTIVE precision/recall/F1 are `0.7878/0.8898/0.8357`. The fixed decoder
+  emitted `23/23` events, achieved >=90% human-ACTIVE containment on `22/23` (`95.65%`), median
+  ACTIVE recall `1.0`, mean window precision `0.6337`, and one premature cut (`4.35%`).
+- [x] Mean retained context fell from `3139.74 ms` for the full-video baseline to `678.02 ms`
+  (`78.41%` reduction). All 19 DEV glosses absent from segmentation TRAIN emitted and met the
+  containment rule; their mean ACTIVE recall was `0.9943`. The only premature cut was LOCAL HELLO
+  `e6:e6p_00729` with ACTIVE recall `0.7838`; the held-out LOCAL signer remained the weakest group
+  (mean recall `0.9459`) and must remain visible in live-integration planning.
+- [x] All predeclared promotion checks passed. Final evidence state:
+  **`LEARNED_SEGMENTER_PROMOTED_FOR_LIVE_INTEGRATION`**. This is an architecture-viability result,
+  not production readiness. Candidate01, Recognition V2, the 236-class recognizer, recognition
+  manifests, Android, protected TEST, recognition DEV, and sealed phone holdouts remain unchanged
+  or unopened.
+- [x] Fifty-three relevant tests, Ruff, Python compilation, saved-model loading, causal-future
+  perturbation checks, and artifact/hash verification pass. Canonical package:
+  `artifacts/recognition_upgrade/perception_vnext/recognition_utility_236_01/phase5_1t_3_first_class_agnostic_segmenter_01/`.
+  Current boundary:
+  **`WAIT_FOR_PROJECT_LEAD_PHASE_5_1T_4_LIVE_INTEGRATION_DECISION`**.
+
+### 2026-09-17 — Phase 6 frozen learned-segmenter phone replay
+
+- [x] Verified every supplied Phase-5.1T-3 config/model/normalization/feature/decoder SHA-256,
+  then replayed only the ten retained chronological Candidate01 raw-v1 attempts from
+  `session_20260915T065635Z`. No Candidate01 rerun, interpolation, duplication, synthetic frame,
+  timestamp modification, training, new capture, recognition DEV, protected TEST, other phone
+  holdout, or Android change occurred.
+- [x] Built sparse-phone `[T,378]` features with each backward delta taken against the immediately
+  preceding actual phone observation and the frozen TRAIN normalization unchanged. The blind stage
+  emitted 10/10 learned events and froze them before comparison at SHA-256
+  `7f47050a92ce40ebf60b2f0a0859d2236bc10b1b781ce8071bc1d9e8894aebba`.
+- [x] Reproduced the governed references exactly: FULL Top-1/Top-5 `2/10`/`5/10`, median expected
+  probability/rank `0.0538386`/`5`; ORACLE `7/10`/`8/10`, `0.585159`/`1`.
+- [x] Learned boundary recall was conservative rather than truncating: all 9 HIGH/MEDIUM attempts
+  retained 100% of the unpadded oracle interval, with 0 below 0.60. However, all 10 events extended
+  to the final phone observation, four started at the first observation, and mean full-window
+  reduction was only `7.79%`, failing the predeclared `>=25%` gate.
+- [x] LEARNED recognition remained Top-1 `2/10` while expected Top-5 improved to `7/10`, median
+  expected probability to `0.0717128`, and median rank to `4.5`. Both FULL-correct HELLO attempts
+  remained correct, but none of the five oracle-rescued HOME/STREET/TABLE attempts were rescued by
+  LEARNED. AT attempts 003/004 and STREET 008 remained wrong under ORACLE and are bounded as
+  `NOT_FIXED_BY_TEMPORAL_BOUNDARY`; the other five are `SEGMENTATION_TRANSFER_GAP`.
+- [x] Production-transfer diagnostics show an extreme timing-domain shift: aggregate cadence
+  `5.168 Hz`, median dt `199.962 ms`, and 98.33% of normalized dt observations above `|10 z|`.
+  Valid refined-hand/ROI/body delta dimensions above `|3 z|` were respectively
+  `11.73%/10.38%/16.61%`. This is consistent with cadence/delta-domain shift, while the dominant
+  output behavior is ACTIVE/POST confusion or recovery-as-ACTIVE; it is not evidence for a more
+  specific signer/perception cause.
+- [x] Eleven bounded tests and Ruff pass. Final evidence state:
+  **`PHASE6_LEARNED_SEGMENTER_PHONE_TRANSFER_NOT_SUPPORTED`**. The causal TCN plus sequence-global
+  primary-run decoder remains an offline replay only; streaming Android SignEvent emission is not
+  proven or authorized. Canonical package:
+  `artifacts/recognition_upgrade/perception_vnext/recognition_utility_236_01/phase6_frozen_learned_segmenter_phone_replay_01/`.
+  Current boundary:
+  **`WAIT_FOR_PROJECT_LEAD_PHONE_TRANSFER_FAILURE_DIAGNOSIS`**.
+
+### 2026-09-17 — Phase 7 cadence-aligned corrective experiment completed
+
+- [x] Verified all 112 Phase-5.1T-3 complete-source raw-v1 files against their frozen hashes:
+  exactly 89 segmentation TRAIN and 23 signer-disjoint DEV; no missing/hash-invalid raw and no
+  Candidate01 rerun.
+- [x] Implemented one deterministic three-view timestamp sampler at `133.308`, `199.962`, and
+  `266.616 ms`, with SHA-256-derived per-sample/view phase, genuine strictly increasing raw
+  observations only, and full recomputation of the unchanged 378-wide causal feature schema from
+  the immediately preceding selected observation.
+- [x] Predeclared and tested a source-stratified 71 FIT / 18 CAL split within the 89 TRAIN clips;
+  all three views remain grouped with their original clip. FIT-only sparse normalization/class
+  weights and CAL-only lexicographic checkpointing prevent frozen DEV leakage.
+- [x] Implemented guarded `prepare`, `train`, `evaluate`, and `phone-replay` stages. The unchanged
+  123,779-parameter TCN trains from scratch for one 30-epoch run. The known Phase-6 session cannot
+  open until checkpoint hashing and sparse DEV evaluation, and is refused entirely if the sparse
+  DEV gate fails.
+- [x] The supervisor completed the single authorized 30-epoch from-scratch run. CAL alone selected
+  epoch 17: containment `90.74%`, premature cuts `9.26%`, event emission `100%`, mean window
+  precision `0.6636`, and macro-F1 `0.9452`. The frozen checkpoint hash matches its sidecar.
+- [x] Sparse signer-disjoint DEV passed all seven gates across 69 views: emission `100%`,
+  containment `88.41%`, median/mean ACTIVE recall `1.0/0.9686`, premature cuts `11.59%`, mean
+  full-window reduction `52.55%`, final-observation endings `13.04%`, and state accuracy/macro-F1
+  `0.9164/0.9109`. Each cadence bucket mean recall remained >=`0.949`. The LOCAL held-out signer
+  remains weak (containment `75%`, premature cuts `25%`, final endings `75%`, macro-F1 `0.738`).
+- [x] The guarded known-phone diagnostic corrected the original ACTIVE-to-POST collapse:
+  final-observation endings improved `10/10→0/10`, mean window reduction `7.79%→67.83%`, and
+  recognition Top-1 `2/10→6/10` with four of five oracle-rescued HOME/STREET/TABLE attempts also
+  recovered. Both FULL-correct HELLO attempts stayed correct.
+- [x] The predeclared correction gate nevertheless failed: only `6/9` HIGH/MEDIUM attempts retained
+  >=80% of the unpadded oracle interval. Attempts 004 and 006 retained `55.3%/53.8%`; attempt 008
+  selected an early disjoint interval (`0%`). Cadence was therefore material but not sufficient;
+  persistence collapse was replaced by phone truncation/phase-selection error.
+- [x] Fifteen focused tests, Ruff, compilation, artifact/hash checks, and governance checks pass.
+  Final evidence state: **`CADENCE_ALIGNMENT_ALONE_INSUFFICIENT`**. No post-result tuning or second
+  model is authorized. Canonical package:
+  `artifacts/recognition_upgrade/perception_vnext/recognition_utility_236_01/phase7_production_cadence_aligned_segmenter_01/`.
+  Current boundary: **`WAIT_FOR_PROJECT_LEAD_FEATURE_REPRESENTATION_DECISION`**.
+
+### 2026-09-17 — Phase 8A causal streaming SignEvent decoder stopped at CAL
+
+- [x] Verified frozen Segmenter S2 checkpoint SHA-256
+  `dea7cf986d39ce252eb197ae7e130d2d66a101d03fde27427192bbf70ce35e73`, best epoch 17,
+  unchanged 378-wide feature contract, and unchanged cadence-aligned normalization. No training,
+  feature/normalization change, Candidate01/Recognition V2/recognizer change, or Android change
+  occurred.
+- [x] Implemented the reusable five-state timestamp decoder in
+  `pipeline/perception_vnext/segmentation/streaming_decoder.py`: ACTIVE→PRE never emits, short PRE
+  gaps may bridge, sustained PRE discards, ACTIVE→POST requires confirmation, POST→PRE may continue
+  terminal evidence, padding retains only already-observed samples, emitted events are immutable,
+  and re-arm requires 399.924 ms stable PRE.
+- [x] Evaluated exactly the predeclared 27 configurations on Phase-7 CAL only (18 original clips,
+  54 sparse views). Zero configurations were eligible. The closest lexicographic frontier emitted
+  exactly one event on `50/54` (`92.59%`) but achieved only `50.00%` >=90%-ACTIVE containment,
+  `50.00%` premature cuts, and `16.67%` severe cuts; mean context reduction was `69.77%`. Every
+  configuration failed emission, exactly-one, containment, premature-cut, and severe-cut gates;
+  every configuration passed context reduction.
+- [x] Fifteen pytest cases, Ruff, Python compilation, and thirteen direct causal invariance/state
+  checks pass. The CAL stop rule was honored: no decoder config was frozen, sparse DEV was not
+  opened, the known phone session was not replayed, recognition was not run, and no Phase-8B
+  package was prepared.
+- [x] Final evidence state:
+  **`PHASE8A_NO_ELIGIBLE_CAUSAL_STREAMING_DECODER`**. Canonical package:
+  `artifacts/recognition_upgrade/perception_vnext/recognition_utility_236_01/phase8a_causal_streaming_sign_event_decoder_01/`.
+  Current boundary: **`WAIT_FOR_PROJECT_LEAD_CAUSAL_DECODER_DIAGNOSIS`**.
+
+### 2026-09-17 — Phase 8A-R causal episode failure attribution completed
+
+- [x] Audited frozen S2, the unchanged 378-wide contract, Phase-8A Decoder V1, and the written
+  27-row grid. Reproduced the Phase-7 CAL global aggregate (`100%` emission, `90.74%` containment,
+  `9.26%` premature cuts) and CONFIG_01 (`92.59%`, `50.00%`, `50.00%`) exactly before attribution.
+- [x] Used only the 18 original Phase-7 CAL clips / 54 sparse CAL views. Sparse DEV, known phone,
+  recognition DEV, protected TEST, sealed phone holdouts, and new captures remained unopened. No
+  training, model/feature/label change, Decoder V2, recognizer inference, or Android change occurred.
+- [x] The primary global-success/V1-failure set contains 22 views. Supported premature-first-commit
+  cases: `0`; wrong-early episodes: `0`; primary internal PRE/POST interruption sequences: `1/2`;
+  right-censored confirmation: `2`. Only `4/22` (`18.18%`) failures are attributable to the
+  predeclared interruption/right-censor mechanisms.
+- [x] Truncation is mixed: START-dominant `8`, END-dominant `6`, BOTH `4`, NO_EVENT `4`.
+  Bounded-causally recoverable cases: `0/22`; no empirical grace distribution exists. All four
+  predeclared Episode-V2 gates fail, including START-dominant `36.36% > 30%`.
+- [x] Eight focused tests, Ruff, identity/source hashes, deterministic state-run checks, and exact
+  aggregate reproduction pass. Final evidence state:
+  **`EPISODE_V2_CAUSAL_DESIGN_NOT_SUPPORTED`**. Evidence favors
+  **`MIXED_UNRESOLVED_CAUSES`**, not delayed terminal commitment as the principal repair. Canonical
+  package:
+  `artifacts/recognition_upgrade/perception_vnext/recognition_utility_236_01/phase8a_r_causal_episode_failure_attribution_01/`.
+  Current boundary: **`WAIT_FOR_PROJECT_LEAD_SEGMENTATION_ARCHITECTURE_DIAGNOSIS`**.
+
+### 2026-09-19 — Phase 8A-R evaluator correction completed
+
+- [x] Reclassified the 2026-09-17 Phase 8A-R decision as provisional while auditing the evaluator.
+  Confirmed that historical bounded recoverability required an already-emitted event and that
+  interruption presence was counted without proving causal containment improvement.
+- [x] Reused the persisted per-observation probabilities, timestamps, argmax states, and state runs
+  for exactly 18 CAL clips / 54 sparse CAL views. S2 inference was not rerun. Sparse DEV, known
+  phone, recognition DEV, protected TEST, sealed/new phone data, and Android remained unopened;
+  no training, feature/normalization/label change, Decoder V2, threshold search, or grace search
+  occurred.
+- [x] Reconstructed every V1 provisional candidate trajectory, including candidate opens, PRE
+  bridges/discards, POST entries/cancellations, emissions, and EOF states. Added deterministic
+  semantic tests for all predeclared cases A-H. Ten correction tests plus eight historical focused
+  tests pass; Ruff and exact Phase-7/CONFIG_01 reproduction pass.
+- [x] The evaluator defect was real, but correction strengthened the negative diagnosis. The
+  primary failure set remains `22`; causally attributable failures decrease from `4/22` to `2/22`
+  because the one PRE and two POST interruption counts were presence rather than causation. Both
+  retained attributable cases are right-censored terminal confirmations. Bounded-causally
+  recoverable cases remain `0/22`; no empirical grace distribution exists.
+- [x] Frozen truncation remains START-dominant `8`, END-dominant `6`, BOTH `4`, NO_EVENT `4`.
+  All four original Episode-V2 gates still fail unchanged. Corrected evidence state:
+  **`EPISODE_V2_CAUSAL_DESIGN_NOT_SUPPORTED`**; supported direction remains
+  **`MIXED_UNRESOLVED_CAUSES`**. Correction package:
+  `artifacts/recognition_upgrade/perception_vnext/recognition_utility_236_01/phase8a_r_causal_episode_failure_attribution_01/evaluator_correction_01/`.
+  Current boundary: **`WAIT_FOR_PROJECT_LEAD_SEGMENTATION_ARCHITECTURE_DECISION`**.
+
+### 2026-09-19 — Phase 8A-M cadence-safe sparse recognition-window materialization completed on CAL
+
+- [x] Audited Phase-7 and Phase-8A CONFIG_01 materialization from source and persisted CAL traces.
+  Phase 7 reports continuous padded time bounds, while CONFIG_01 inward-brackets genuine sparse
+  observations. The Phase-7 reported reference therefore contains continuous-time optimism:
+  reported >=90%-ACTIVE containment was `49/54`, but the genuine observations selected inside its
+  bounds achieved `33/54`.
+- [x] Confirmed that materialization is nevertheless a real isolated defect: CONFIG_01 emitted on
+  `50/54` views; `49/50` emitted events had exactly the same logical ACTIVE start/end as the
+  Phase-7 selected run, and all 49 had different delivered sparse windows. B/C preserve the exact
+  same CONFIG_01 logical decisions and boundaries.
+- [x] Added the deterministic `apphear.recognition_window_materializer.v1` component and a bounded
+  observation ring buffer. It outward-brackets the fixed 250 ms request using only genuine,
+  chronological observations already available by commit time and reports actual context plus
+  explicit censoring; no interpolation, duplication, stale carry, or future read is allowed.
+- [x] On emitted CONFIG_01 events, cadence-safe materialization improved >=90% containment
+  `27/50→45/50` (`54%→90%`), premature cuts `46%→10%`, severe cuts `10%→0%`, and mean ACTIVE recall
+  `0.8486→0.9787`, while preserving `48.98%` mean context reduction. It recovered `18/22`
+  (`81.82%`) of the reported Phase-7→CONFIG_01 containment gap.
+- [x] All cadence buckets retained mean ACTIVE recall above `0.95`; VIEW_C containment remained
+  weaker at `13/16` emitted events. Five windows were left-censored; none were right-censored by
+  materialization. The unchanged logical producer still had two right-censored confirmations and
+  two missing-terminal-POST failures. LOCAL emitted only `3/6`, which materialization cannot fix.
+- [x] Twelve focused tests, Ruff, compilation, CAL-only population guards, and contract/hash checks
+  pass. No S2 inference, training, sparse DEV, known phone, recognition, Android, feature,
+  normalization, label, or state-machine change occurred. Final evidence state:
+  **`CADENCE_SAFE_RECOGNITION_WINDOW_MATERIALIZER_CAL_SUPPORTED`**. Canonical package:
+  `artifacts/recognition_upgrade/perception_vnext/recognition_utility_236_01/phase8a_m_causal_sparse_recognition_window_materialization_01/`.
+  Current boundary: **`WAIT_FOR_PROJECT_LEAD_PHASE8A_M_SPARSE_DEV_DECISION`**.
+
+### 2026-09-19 — Phase 8A-M2 frozen signer-disjoint sparse DEV validation completed
+
+- [x] Reverified the frozen S2 checkpoint SHA-256
+  `dea7cf986d39ce252eb197ae7e130d2d66a101d03fde27427192bbf70ce35e73`, Phase-7 FIT-only
+  normalization, unchanged `[378]` feature schema, exact CONFIG_01 parameters, and frozen
+  materializer contract SHA-256
+  `0a59dc80fe54cb37e09fbce8aa108dbfce32bc4b5cb48b98e61619b5b3b34971` before DEV.
+- [x] Reused the exact 69 prepared sparse DEV views from 23 clips / 7 signer-disjoint groups in
+  equal VIEW_A/B/C buckets. Phase 7 had not persisted DEV probabilities, so one frozen S2 forward
+  pass was performed and hash-bound state streams were retained; no raw-v1 extraction,
+  Candidate01 rerun, training, model selection, recognition, known-phone access, protected TEST,
+  parameter change, or Android change occurred.
+- [x] The complete causal stack failed the strict event-production gate: CONFIG_01 emitted exactly
+  one event on `59/69` (`85.51%`) with zero multiple events, below the approximately-95% criterion.
+  Censor-aware potential emission was only `62/69` (`89.86%`) and was not used to relax the gate.
+- [x] The frozen materializer generalized when an event existed: containment `52/59` (`88.14%`),
+  mean/median ACTIVE recall `0.9661/1.0`, premature cuts `11.86%`, severe cuts `0%`, and mean
+  context reduction `55.47%`. All materializer responsibility gates passed. VIEW_A/B/C mean
+  recall was `0.9757/0.9672/0.9542`; VIEW_C containment was mildly weaker at `16/19` (`84.21%`)
+  but did not catastrophically collapse.
+- [x] Failure is sharply source/domain localized. ASL_CITIZEN emitted `57/57`; LOCAL emitted only
+  `2/12`, although both emitted LOCAL windows achieved >=90% containment. All ten no-events were
+  LOCAL: three were finite-source censored before terminal confirmation was observable, while
+  seven had adequate post-sign observations but never produced terminal POST. This supports a
+  LOCAL/mobile-domain terminal-state/event-production limit, not materializer failure.
+- [x] Ten focused tests, Ruff, compilation, DEV membership/hash guards, and artifact hash checks
+  pass. No post-DEV tuning occurred. Final evidence state:
+  **`MATERIALIZER_DEV_SUPPORTED_EVENT_PRODUCER_LIMITED`**. Canonical package:
+  `artifacts/recognition_upgrade/perception_vnext/recognition_utility_236_01/phase8a_m2_frozen_signer_disjoint_sparse_dev_validation_01/`.
+  Current boundary: **`WAIT_FOR_PROJECT_LEAD_EVENT_PRODUCER_DECISION`**.
+
+### 2026-09-19 — Phase 8A-T causal terminal-evidence attribution completed
+
+- [x] Reused persisted frozen-S2 probability streams for all `54` CAL and `69` signer-disjoint
+  sparse DEV views. The S2 checkpoint, `[378]` features, cadence-aligned normalization,
+  CONFIG_01 behavior, and cadence-safe materializer remained unchanged. No inference, extraction,
+  training, probability-threshold search, decoder implementation, recognition, phone, protected
+  TEST, or Android access occurred.
+- [x] Added the analytical-only `apphear.diagnostics.terminal_evidence.v1` component. Its frozen
+  attribution rule compares five post-end measures against the successful-terminal p10 envelope
+  and the ordinary intra-sign POST-fluctuation p95 envelope; it performs no threshold search.
+- [x] The seven genuine non-censored DEV no-event views span three underlying LOCAL clips from the
+  single held-out LOCAL signer. Six views were `MODEL_TERMINAL_SIGNAL_ABSENT`, one was
+  `MIXED_OR_AMBIGUOUS`, and zero contained successful-commit-like terminal evidence that
+  CONFIG_01 merely failed to exploit. At clip level, two clips are signal-absent and one is mixed.
+- [x] Cadence sensitivity is present but not universal: two clips succeed at VIEW_A and fail at
+  VIEW_B/VIEW_C, while one clip lacks terminal evidence across all three views. The three views
+  from a fourth LOCAL clip remain explicitly right-censored and do not vote in attribution.
+- [x] A CAL no-event with strong terminal POST confirms that decoder-utilization failures can
+  exist, but that is not the dominant opened-DEV mechanism. Probability-aware decoder work is
+  therefore not supported as the first repair. The supported next direction is a bounded audit of
+  signer/recovery-transition diversity before one targeted S2 ACTIVE→POST generalization
+  correction. Current TRAIN support is shallow: `12` LOCAL clips across three signers plus `12`
+  APPHEAR_CAPTURE clips from one signer.
+- [x] Nine focused tests, Ruff, and compilation pass. Final evidence state:
+  **`S2_TERMINAL_GENERALIZATION_CORRECTION_SUPPORTED`**. Canonical package:
+  `artifacts/recognition_upgrade/perception_vnext/recognition_utility_236_01/phase8a_t_causal_terminal_evidence_attribution_01/`.
+  Current boundary: **`WAIT_FOR_PROJECT_LEAD_TERMINAL_ARCHITECTURE_DECISION`**.
+
+### 2026-09-20 — Phase 8A-U S2 training exposure and terminal-diversity audit completed
+
+- [x] Distinguished actual weight-update exposure from available labels: FIT-71/213 views updated
+  S2; CAL-18/54 views selected the checkpoint. FIT exact supervised counts reproduce Phase 7:
+  PRE `1,469`, ACTIVE `995`, POST `1,752`, plus `476` ignored boundary observations.
+- [x] FIT contained ASL_CITIZEN `52` clips / `23` signers, APPHEAR_CAPTURE `9` / `1`, and LOCAL
+  `10` / `3`. ACTIVE→POST labels survived in `210/213` views; CONFIG_01-timescale POST coverage
+  survived in `191/213` overall and `26/30` LOCAL views. The weakness is not absence of POST label
+  volume: it is source-domain signer depth and concentration. One LOCAL signer supplied `405/490`
+  (`82.65%`) of FIT LOCAL sparse POST observations; APPHEAR_CAPTURE came entirely from one signer.
+- [x] CAL contained ASL_CITIZEN `13` clips / `11` signers, APPHEAR_CAPTURE `3` / `1`, and LOCAL
+  `2` / `2`. One CAL LOCAL signer supplied `144/150` (`96%`) sparse POST observations, so
+  selection-side source-domain terminal evidence was also concentrated.
+- [x] Verified checkpoint-objective misalignment from source and artifacts. Epoch 17 was selected
+  by completed-sequence global containment/premature-cut/emission/precision/macro-F1. No causal
+  CONFIG_01 event availability, terminal POST, or emission-latency measure participated. On the
+  same CAL views the selected checkpoint had global emission/containment `1.0/0.9074`, versus
+  CONFIG_01 `0.9259/0.5` with `0.5` premature cuts.
+- [x] Audited existing governed TRAIN data without promoting weak labels. `3,806` clips remain
+  unselected (`3,219` ASL_CITIZEN, `285` APPHEAR_CAPTURE, `302` LOCAL); `863` ASL clips have
+  D1-estimated 500/750 ms room, but D1 remains detector-derived and is not temporal truth.
+  Phase 5.1T-1 contributes `19` usable human-labeled clips outside the selected 120; `17` preserve
+  DEV signer isolation, but APPHEAR/LOCAL rows add only already represented signers. There is no
+  unreserved independent source-domain signer in the governed unused pool.
+- [x] Resolved the Phase-8A-T 97-versus-94 discrepancy. The omitted controls are
+  `asl:train:5919946010475778-RUN 2::VIEW_A`, `e6:e6p_00528::VIEW_A`, and
+  `e6:e6p_00799::VIEW_A`. All committed slightly before human END, so `[human END, commit]` had
+  zero observations. Exclusion is deterministic and causal; the attribution conclusion is
+  unchanged.
+- [x] Nine focused tests, Ruff, and compilation pass. No training, inference, raw-v1 extraction,
+  decoder search, recognition, known-phone, Recognition DEV, protected TEST, or Android work ran.
+  Final state: **`TARGETED_S2_DATA_AND_CAUSAL_OBJECTIVE_CORRECTION_SUPPORTED`**. Canonical package:
+  `artifacts/recognition_upgrade/perception_vnext/recognition_utility_236_01/phase8a_u_s2_training_exposure_and_terminal_diversity_audit_01/`.
+  Current boundary: **`WAIT_FOR_PROJECT_LEAD_S2_R1_ARCHITECTURE_REVIEW`**.
+
+### 2026-09-20 — Phone causal recognition integration implementation prepared
+
+- [x] Project Lead deferred S2-R1 and authorized phone-first integration using the exact frozen S2,
+  Phase-7 normalization, segmentation feature schema v1 `[378]`, unchanged CONFIG_01, frozen
+  cadence-safe materializer, Recognition V2, and frozen 236-class recognizer.
+- [x] Added a debug-only, build-flagged and intent-opt-in continuous pipeline in the existing
+  Candidate01 live activity. Release remains hard-disabled. The pipeline maintains genuine
+  chronological observations, a bounded ring buffer, CONFIG_01-owned re-arm, and no interpolation,
+  duplication, stale carry, future reads, or parallel legacy re-arm.
+- [x] Exported the frozen S2 checkpoint to an identity-preserving FP32 TFLite current-state wrapper.
+  Host bounded-prefix parity passes across 131 CAL observations with maximum absolute probability
+  difference `6.556510925292969e-07`; exported model SHA-256 is
+  `820023d15c98dab2fb8f21914906ccd637d32bce7b825cbd1d89a58c80cd4ed7`.
+- [x] Added JVM causality/materialization/feature tests, Android feature and S2 parity fixtures, and
+  structured per-observation/event/attempt logging with synchronized visual-audit evidence. JVM
+  tests, debug assembly, and Android-test compilation pass. No training or frozen-contract change
+  occurred.
+- [x] Current on-device parity passes on the authorized Xiaomi M2101K7AG Android 12 device: the
+  regenerated four-observation 378-feature fixture passes at `1e-6` per-feature absolute tolerance,
+  and the corrected 131-observation fixed-output S2 fixture passes at `1e-4` per-probability
+  tolerance (`2/2` instrumentation tests; `BUILD SUCCESSFUL`).
+- [x] Started a fresh controlled session `session_20260920T095253Z`. Attempt 1 (HELLO) emitted
+  exactly one marked event, and the frozen recognizer returned HELLO at probability `0.9999137`
+  (expected rank 1). Bounded visual review confirms the 14-observation materialized window contains
+  the visible sign and early recovery; this is not an independent human annotation study.
+- [x] After that correct event, CONFIG_01 did not re-arm across 261 genuine observations spanning
+  `57.922 s`: PRE/ACTIVE/POST argmax counts were `2/35/224`, median POST probability was
+  `0.9992494`, both PRE re-arm starts reset, and the final state remained
+  `EVENT_EMITTED_WAIT_REARM`. The frozen 399.924 ms stable-PRE requirement is incompatible with
+  this observed POST-stable recovery stream. The remaining nine attempts were not captured.
+- [x] Preserved and imported all 409 observations, 2 events (one unmarked while positioning),
+  synchronized attempt frames, identities, and timings. The app was stopped; no re-arm bypass,
+  threshold change, S2-R1 training, or repeat run occurred.
+- [x] Final bounded integration classification: **`PHONE_EVENT_PRODUCER_LIMIT_SUPPORTED`**, with
+  supported subcause `CONFIG_01_PRE_ONLY_REARM_LIFECYCLE`. This is one-attempt architecture
+  evidence, not a production accuracy estimate. Current boundary:
+  **`WAIT_FOR_PROJECT_LEAD_PHONE_EVENT_LIFECYCLE_DECISION`**.
+
+### 2026-09-20 — Phone lifecycle re-arm Stage-A replay
+
+- [x] Reconstructed Python and Android CONFIG_01 re-arm semantics: after an immutable event, only
+  argmax PRE advances the frozen 399.924 ms timer; POST and ACTIVE reset it.
+- [x] Reused persisted S2 probabilities only: 54 CAL sparse views, 69 signer-disjoint DEV sparse
+  views, and all 409 observations from fresh phone session `session_20260920T095253Z`. No S2 or
+  perception inference, training, recognition, phone capture, or Android production change ran.
+- [x] Evaluated exactly one counterfactual with no duration search: PRE or POST advances the same
+  399.924 ms persistence timer, while ACTIVE resets it. First-event identities remain exact for
+  `50/50` emitted CAL streams, `59/59` emitted DEV streams, and the marked phone HELLO event.
+- [x] CAL/DEV finite isolated clips produced no additional events, but only `22/50` emitted CAL and
+  `34/59` emitted DEV streams contained enough post-event evidence to re-arm. They are therefore a
+  weak continuous-stream duplicate-safety test.
+- [x] The continuous phone session is decisive: HELLO re-armed after `733.194 ms` and no event
+  occurred during its first two recovery seconds, but the unlocked decoder later emitted seven
+  unprompted events after attempt 1 was marked complete. The first appeared `15.197 s` after HELLO.
+  Control CONFIG_01 remained safely disarmed.
+- [x] Final Stage-A state: **`NON_ACTIVE_REARM_UNSAFE`**. A separately frozen hybrid readiness
+  policy using independent quiet/stability evidence is the supported next direction, but was not
+  designed, searched, implemented, or deployed. Android remains unchanged. Current boundary:
+  **`WAIT_FOR_PROJECT_LEAD_REARM_ARCHITECTURE_DECISION`**.
+
+### 2026-09-20 — Phone sign-admission and re-arm Stage-A attribution
+
+- [x] Audited visual coverage before designing an admission rule. Synchronized evidence ends with
+  attempt 1 at observation count `161`; the seven questioned post-HELLO onsets begin at indices
+  `184, 264, 279, 293, 303, 333, 352`. Visual/human ground truth is therefore `0/7`.
+- [x] Reconstructed each onset from persisted phone telemetry and compared it with validated HELLO
+  plus 50 governed CAL event onsets. Six of seven questioned ACTIVE runs have no refined-hand
+  observation, four have no body availability, and all retain proposal presence; however one has
+  full refined-hand/body availability. These support a mechanism description, not a semantic
+  false-positive label or a safe threshold.
+- [x] Did not use the tempting `no refined hand → reject` rule: HELLO itself loses refinement on
+  30% of its ACTIVE observations, CAL lacks equivalent phone validity telemetry, and no visual
+  labels establish that the seven episodes were non-sign movements.
+- [x] No admission policy was selected; DEV remained unused, Android remained unchanged, and no
+  perception/S2 rerun, training, recognition, or protected population access occurred. Prepared a
+  fixed eight-behavior negative diagnostic manifest covering neutral, stationary raised hands,
+  adjustment, repositioning, out/in motion, ordinary movement, HELLO, and TABLE.
+- [x] Final state: **`INSUFFICIENT_NEGATIVE_GROUND_TRUTH`**. Current boundary:
+  **`WAIT_FOR_PROJECT_SUPERVISOR_CONTROLLED_NEGATIVE_CAPTURE_DECISION`**.
+
+### 2026-09-20 — Repeated phone recognition lifecycle implementation prepared
+
+- [x] Audited the Android phone-causal lifecycle. `PhoneCausalEventProducer` is the sole lifecycle
+  and re-arm owner; no legacy downstream re-arm also runs. The retained HELLO deadlock is explained
+  by PRE-only re-arm semantics, not a competing-owner implementation defect.
+- [x] Added explicit `PRE_ONLY` and `PRE_OR_POST_EXPERIMENTAL` re-arm policies while preserving the
+  399.924 ms persistence requirement. ACTIVE resets recovery. Observation gaps over 533.232 ms
+  reset the timer so missing processing time cannot satisfy recovery.
+- [x] Added an independently testable new-sign admission boundary with exactly one authorized
+  behavior, `PASS_THROUGH`. No hand/body/proposal/motion/probability/recognizer gate was introduced
+  from the seven visually unlabeled phone events.
+- [x] Extended per-observation diagnostics with lifecycle policy, recovery progress/reasons,
+  admission decisions, attempt identity, Candidate01 support summaries, and visual references.
+  The next session saves a synchronized original for every processed observation plus bounded
+  annotated evidence around each event, fixing the previous post-HELLO visual-coverage gap.
+- [x] Read-only replay over the 409-observation retained phone session preserves the marked HELLO
+  exactly (logical indices `135..144`, terminal POST `145`, commit `147`, materialized window
+  `134..147`, V2 valid/mask `14/14`, HELLO `0.9999137`). PRE-only yields two events/one re-arm;
+  experimental PRE-or-POST yields nine events/nine re-arms, matching the accepted diagnostic.
+- [x] Focused JVM tests pass, existing Python lifecycle/admission tests pass `8/8`, debug assembly
+  passes, and physical Xiaomi feature/S2 parity passes `2/2`. The exact debug build is installed.
+  Full-project lint remains blocked by unrelated existing debug API-level errors; none were changed.
+- [x] Run the fixed supervisor-controlled HELLO/HELLO/AT/AT/HOME/HOME/STREET/STREET/TABLE/TABLE
+  cohort with `PRE_OR_POST_EXPERIMENTAL`, pull the complete synchronized session, then perform
+  visual failure attribution. Completed below as `session_20260920T145710Z`.
+
+### 2026-09-20 — Repeated phone recognition cohort completed and attributed
+
+- [x] Completed the fixed ten-attempt cohort as `session_20260920T145710Z`. Pulled 2,747 genuine
+  observations, 22 events, ten completed attempt records, and 2,747 synchronized originals with
+  no missing visual coverage. All ten intended signs are visibly present and all ten attempts began
+  in `IDLE`.
+- [x] PRE-or-POST recovery resolved the demonstrated lifecycle deadlock: all 22 emitted events
+  re-armed, zero gap resets occurred, and no intended attempt was blocked in WAIT_REARM. Median
+  re-arm latency was 466.9 ms (p90 2,132.9 ms).
+- [x] The full repeated-recognition target did not pass. Only 3/10 marked attempts emitted an event;
+  strict Top-1 was 1/10 and expected-gloss Top-5 was 2/10. HOME 006 was correct. STREET 007 had a
+  usable window but classified as CLOTHES (STREET rank 3). STREET 008 committed an early episode
+  whose materialized window truncated the visible sign.
+- [x] The seven no-event attempts are genuine signs, not missing capture. Five had zero ACTIVE
+  argmax observations and two had only one, supporting a phone ACTIVE-acquisition/generalization
+  failure distinct from the earlier terminal-POST problem.
+- [x] Full-session visual attribution confirms 16/22 events contained ordinary positioning,
+  phone interaction, non-sign movement, or a wrong early episode; five were defensible sign-like
+  events and one remained uncertain. PASS_THROUGH admission is therefore unsafe, but an admission
+  filter alone cannot recover the missed genuine signs.
+- [x] The materializer remains frozen: its failure on STREET 008 follows a wrong logical episode,
+  not a sparse-bracketing defect. No model, threshold, decoder, materializer, or recognizer change
+  was made after the cohort.
+- [x] Final state:
+  **`PHONE_REARM_SUPPORTED_REPEATED_RECOGNITION_NOT_YET_SUPPORTED`**. Current boundary:
+  **`WAIT_FOR_PROJECT_LEAD_PHONE_ADMISSION_AND_S2_ACTIVE_ACQUISITION_DECISION`**.
+
+### 2026-09-21 — New-sign admission and ACTIVE-acquisition design audit
+
+- [x] Reused the complete 2,747-observation/22-event synchronized design session
+  `session_20260920T145710Z`; no perception/S2 inference, training, DEV, protected TEST, or
+  recognition rerun occurred.
+- [x] Refined the former combined visual category into 15 `CONFIRMED_NON_SIGN` events, five
+  `GENUINE_SIGN_ONSET` events, event 20 as `EARLY_SIGN_FRAGMENT_OR_WRONG_EPISODE`, and event 6 as
+  `UNCERTAIN`. Event 20 is not used as a negative admission example.
+- [x] Rejected three bounded deterministic alternatives rather than tuning them: direct support at
+  first ACTIVE rejects 4/54 governed CAL genuine onsets while retaining 10/15 phone non-sign
+  events; allowing support across two ACTIVE observations preserves 54/54 CAL onsets but retains
+  11/15 phone non-sign events; requiring two consecutive ACTIVE observations loses reviewed
+  genuine phone episodes.
+- [x] Confirmed the design phone log does not persist the existing 378-feature motion blocks, so a
+  fresh-motion admission hypothesis cannot be exactly replayed against the labeled negatives.
+  Added compact debug-only hand/ROI/body delta magnitude and validity summaries derived from the
+  unchanged raw 378 vector. Admission remains `PASS_THROUGH`; re-arm and all frozen components are
+  unchanged.
+- [x] Added an explicit debug-harness selector for the fixed rested evidence sequence
+  HELLO/HELLO/HOME/HOME/TABLE/TABLE. It changes only target prompting and attempt metadata; the
+  temporal and recognition path remains unchanged.
+- [x] Focused Python tests pass `5/5`, Ruff passes, PhoneCausalCore JVM tests pass `13/13`, and
+  `:app:assembleDebug` passes. The next capture is diagnostic evidence acquisition, not validation
+  of a frozen admission rule.
+- [x] Final state: **`SIGN_ADMISSION_POLICY_NOT_YET_SUPPORTED`**. S2 training remains unauthorized.
+  Current boundary: **`WAIT_FOR_PROJECT_SUPERVISOR_RESTED_EVIDENCE_CAPTURE`**.
+
+### 2026-09-21 — Rested six-attempt phone evidence collected and attributed
+
+- [x] Closed and pulled `session_20260921T102840Z` without changing the runtime: 2,186 ordered
+  observations, 24 events, and all six fixed HELLO/HELLO/HOME/HOME/TABLE/TABLE attempts complete.
+  The Project Supervisor confirmed all six were deliberately and correctly performed.
+- [x] All six attempts began `IDLE`. Re-arm completed after both marked emitted events and 23/24
+  events overall; the final event had no post-event interval before shutdown. The previous re-arm
+  deadlock did not recur.
+- [x] Marked event emission and strict Top-1 were 2/6: HELLO 001 and TABLE 005 were recognized
+  correctly through the frozen materializer, Recognition V2, and recognizer. HELLO 002, HOME 003,
+  HOME 004, and TABLE 006 had zero S2 argmax ACTIVE observations despite intentional visible
+  gestures. In three misses, refined-hand and ROI-motion evidence was present during the gesture.
+- [x] PASS_THROUGH still emitted many events outside marked attempts. Original frames support
+  ordinary/non-sign positioning for 14 visually covered events; one shoulder-touch episode remains
+  uncertain. Events 18–24 lack synchronized originals and are not semantically classified. This
+  session cannot yield a production false-event rate or a safe admission threshold.
+- [x] Visual originals cover observations 0–1859 (1,860/2,186), including all marked attempts.
+  The evidence summary was written at attempt 006 completion (1,083 frames) and is stale. The
+  final 326 originals were not retained; the exact cause is unresolved, while source lacks a
+  verified final visual-writer drain. Flag before the next independent phone session.
+- [x] No admission rule, S2 training, decoder tuning, materializer change, recognizer change, or
+  protected-population access occurred. Final diagnostic state:
+  **`PHONE_ACTIVE_ACQUISITION_LIMIT_SUPPORTED`**. Stop at
+  **`WAIT_FOR_PROJECT_LEAD_PHONE_ACTIVE_ACQUISITION_AND_NON_SIGN_ARCHITECTURE_DECISION`**.
+
+### 2026-09-21 — S2-R2 parity gate paused; visual evidence finalization corrected
+
+- [x] Audited the rested `session_20260921T102840Z` capture path. Its 2,186 observation records retain compact summaries/probabilities, not full raw-v1 observations, Android 378 vectors, or normalized S2 inputs. JPEG replay cannot prove exact same-observation train/serve parity. **No parity pass/fail or model-domain root-cause claim is made.**
+- [x] Added a debug-only explicit final visual drain with camera stop, analyzer barrier, queued-writer wait, exact original-file count check, and final summary on verified completion. Focused drain test, causal-core tests, and debug Kotlin compile pass. Device-side drain verification remains pending.
+- [ ] Before S2-R2 training, obtain a bounded opt-in same-observation raw/378/normalized/S2 phone capture and compare it with the host reference. If runtime parity fails, fix it and stop. If it passes, assess whether signer-diverse positive and continuous-negative data is sufficient. No training, frozen-component change, protected TEST access, or fresh phone claim occurred.
+
+### 2026-09-21 — Exact phone S2 parity capture implemented; awaiting device cohort
+
+- [x] Added explicitly opted-in debug instrumentation (`s2_exact_parity_capture=true`) that copies the existing raw-v1 observation, already-derived 378 row, exact normalized S2 row, and PRE/ACTIVE/POST output without creating a second feature or inference path. Capture is bounded to 3,600 observations and finalized with sizes/hashes/linkage.
+- [x] Added the fail-closed host evaluator for progressive feature, normalization, and Keras-vs-Android S2 parity. The evaluator requires the fixed HELLO/HELLO/HOME/HOME/TABLE/TABLE cohort, complete same-observation linkage, and 100% finalized visual coverage before comparison.
+- [x] Host tests pass `2/2`; Ruff passes; focused recorder/finalizer/causal-core JVM tests pass; debug and Android-test APK builds pass. Connected instrumentation was not run because no device was attached.
+- [ ] Run the governed supervisor phone capture and then `audit-capture` followed by `parity`. Current state: **`WAIT_FOR_PROJECT_SUPERVISOR_EXACT_PARITY_PHONE_CAPTURE`**. There is no parity decision and S2-R2 training remains prohibited.
+
+### 2026-09-21 — Exact phone S2 parity passed; R2 data-governance stop
+
+- [x] Resolved the supervisor command failure: `<CAPTURED_SESSION>` was used literally. Pulled the actual device session `session_20260921T153138Z` (2,492 files / 68,890,924 bytes) and improved the evaluator's placeholder error.
+- [x] Capture integrity passes: 669 chronological observations, all six fixed attempts, exact raw/feature linkage, and 669/669 finalized synchronized originals.
+- [x] Exact progressive parity passes. Host vs Android 378 and normalized inputs are bit-identical (max abs 0.0); frozen Keras vs Android TFLite S2 max probability difference is `1.9073486328125e-6`; argmax mismatches are 0/669. Root decision: **`PARITY_PASS_S2_DOMAIN_CORRECTION_SUPPORTED`**.
+- [x] The new cohort still shows weak acquisition: marked events only for HOME 004 and TABLE 005, both correctly recognized. HELLO 001/002 and TABLE 006 had zero argmax ACTIVE; HOME 003 had one isolated ACTIVE and no event. Two events occurred outside marked attempts and require human semantic review.
+- [ ] Do not train yet: this is one `UNKNOWN`-identity phone signer with attempt markers rather than governed per-observation PRE/ACTIVE/POST labels, and inter-attempt negatives are not human-labeled. Resolve signer/split role, temporal labels, bounded negatives, an additional training-development phone/LOCAL signer, and a distinct untouched phone validation signer/session. Stop at **`WAIT_FOR_PROJECT_LEAD_S2_R2_DATA_GOVERNANCE_AND_LABELING_DECISION`**.
+
+### 2026-09-22 — S2-R2 historical negative source recovery audit
+
+- [x] Audited historical negative/background/non-sign sources without rerunning their experiments, model inference, training, threshold tuning, or protected TEST. Recovered 57 N0 and 30 P1 original MP4s totaling 1,555.063 seconds across eight historical capture-participant IDs.
+- [x] Identified P1 as the primary hard-continuous-negative candidate: 30 phone videos intentionally covering rest, ordinary object/phone handling, casual pointing, grooming/clothing adjustment, pickup/putdown, crossing, and occlusion. Historical review certifies sampled hand evidence, not blanket whole-video PRE labels; bounded semantic/temporal review remains required.
+- [x] Identified N0 as secondary static/background/body-arm/object-motion material. The blinded readjudication found 238/250 sampled frames `ZERO_HAND`, nine `VISIBLE_IDLE_HAND`, and three `TRANSITION`; raw videos remain candidates but cannot be auto-labeled from frame results.
+- [x] Excluded the 30 E4-AG files as byte-identical P1 aliases; excluded still-image gold, logs without raw video, unlabeled A1/A2 sign-context frames, transition-partial clips, and genuine OOV signs from negative temporal supervision.
+- [x] Preserved E6 signer `0F747C-S001` as untouched provisional negative validation: 180 idle/face-adjacent/accidental-motion clips are relevant, while 60 transition-partial and 320 OOV-sign clips are not negative supervision.
+- [x] Historical P01-P06 identities are not mapped to governed S2 signer IDs, so independence from FIT/CAL/DEV is unresolved rather than assumed. No new negative collection is justified until P1/N0 whole-video review and participant/split resolution are complete.
+- [x] Decision: **`HISTORICAL_NEGATIVE_SOURCE_RECOVERY_SUPPORTED_PENDING_TEMPORAL_REVIEW`**; **`NEW_NEGATIVE_CAPTURE_NOT_YET_JUSTIFIED`**. Stop at **`WAIT_FOR_PROJECT_LEAD_S2_R2_RECOVERED_NEGATIVE_REVIEW_AND_SPLIT_DECISION`**.
+
+### 2026-09-22 — S2-R2 temporal-supervision review gate prepared
+
+- [x] Frozen and hash-verified all 30 original P1 videos in a resumable local browser review. The schema supports multiple bounded `CONFIRMED_NON_SIGN`, `AMBIGUOUS_EXCLUDE`, and `POSSIBLE_LEXICAL_OR_SIGN_PREPARATION` intervals; unmarked time is excluded and confirmed non-sign intervals require behavior tags. No whole clip is auto-labeled PRE.
+- [x] Focused reviewer tests pass `4/4`; Ruff passes; the frozen P1 review manifest contains 30 clips and has SHA-256 `1ee9b04ba16c82a3d93eadc7d5366db887f50fecc15d9bb7229a508779a0e1be`.
+- [x] Signer archaeology remained bounded. The e2e_c0 runbook establishes stable anonymous IDs within that capture, so P01/P02 overlap between P1/N0 and N0 adds P03-P06. No authoritative mapping to governed `local_recorder:*` FIT/CAL/DEV identities or the current phone tester was found. P1/N0 remain quarantined development candidates pending identity/split attestation.
+- [x] Existing positive search found 17 eligible extra human-labeled TRAIN clips from known source-domain signers, but no unreserved independent continuous phone signer with governed temporal labels. E6 signer `0F747C-S001` remains untouched evaluation; its OOV clips are positive signing but too short to establish continuous PRE/POST behavior.
+- [ ] Complete the 30-video P1 semantic review before selecting any N0 subset, creating phone positive labels, freezing an S2-R2 dataset, or preparing training. Current stop: **`WAIT_FOR_HUMAN_P1_TEMPORAL_REVIEW_AND_SIGNER_ATTESTATION`**.
+
+### 2026-09-22 — S2-R2 P1 review finalized; bounded phone-positive review prepared
+
+- [x] The Project Supervisor completed immutable review of all 30 hash-locked P1 videos. The
+  finalized result contains 45 `CONFIRMED_NON_SIGN` intervals / 623.065 seconds across P01 and
+  P02. Covered behavior includes neutral stillness, visible hand motion, grooming/adjustment,
+  hand crossing/occlusion, hands entering/leaving frame, body repositioning, and other ordinary
+  non-sign motion. Unmarked gaps remain excluded; no historical whole video was auto-labeled PRE.
+- [x] A full N0 review is not currently justified: P1 supplies the needed hard-motion and static
+  behavior coverage. N0 remains preserved for a later minimal participant/device/environment
+  supplement only if authoritative P01-P06 signer/split attestation makes that useful.
+- [x] Prepared a blinded five-attempt phone-positive reviewer for rested HELLO 001/002, HOME
+  003/004, and TABLE 005. S2 predictions are hidden; attempt START/STOP markers are not labels;
+  the tool records human sign boundaries and derives observation-level PRE/ACTIVE/POST with the
+  already-frozen 100 ms transition ignore band. TABLE 006 stays excluded for weak perception
+  support. Focused tests pass `4/4`; Ruff passes; review manifest SHA-256 is
+  `3b03a51362d5bd3d219632eaa73e9fa4326f366eb771047523d52854420585a3`.
+- [ ] Complete the five-attempt phone-positive review and resolve authoritative P01-P06/current
+  phone-signer split roles before freezing or training S2-R2. No training is authorized. Current
+  stop: **`WAIT_FOR_HUMAN_PHONE_POSITIVE_TEMPORAL_REVIEW_AND_SIGNER_ATTESTATION`**.
+
+### 2026-09-22 — S2-R2 supervision labels complete; governance blocks training
+
+- [x] The Project Supervisor completed immutable blinded temporal review of five rested-phone
+  attempts: HELLO 001/002, HOME 003/004, and TABLE 005. All five have defensible PRE, ACTIVE, and
+  POST context. The frozen 100 ms transition ignore band yields 68 PRE, 62 ACTIVE, 62 POST, and
+  10 ignored observations.
+- [x] Joined all 202 labels to the exact persisted phone observation timestamps. On the 192 scored
+  observations, frozen S2 accuracy is 74/192 (`0.3854`) and human-ACTIVE observation recall is
+  12/62 (`0.1935`). S2 predicts POST for 50/62 human-ACTIVE observations and acquires ACTIVE only
+  in HELLO 001 and TABLE 005. This is design/hard-example evidence, not independent validation.
+- [x] Finalized the candidate dataset design and one-candidate causal-TCN training strategy without
+  extraction or training. No new negative capture is required; P1 supplies 623.065 seconds of
+  reviewed negative supervision. A full N0 review remains unjustified.
+- [x] Focused reviewer/readiness tests pass `10/10`; Ruff passes; `git diff --check` has no content
+  errors (repository-wide pre-existing line-ending warnings only). Protected TEST remained closed.
+- [ ] Dataset freeze and training remain blocked because P01-P06 and the current phone signer lack
+  authoritative governed split identities, and no unreserved independent continuous-phone
+  positive signer exists. Minimum new data after role resolution is one small distinct-signer
+  positive session reserved for post-freeze validation; no 236-word collection is needed.
+  Decision: **`S2_R2_SUPERVISION_READY_GOVERNANCE_BLOCKED`**. Next action:
+  **`PROJECT_LEAD_SIGNER_SPLIT_ATTESTATION_AND_INDEPENDENT_POSITIVE_VALIDATION_ROLE_FREEZE`**.
+
+### 2026-09-22 — S2-R2 governance frozen; learnability supported; exact tensor review pending
+
+- [x] Applied the Project Lead's conservative role decision: P01/P02 and the current phone design
+  signer are FIT/development-only with no independence claim. P03-P06/N0 remain unused. E6 signer
+  `0F747C-S001` remains untouched negative/acquisition validation, and one distinct future phone
+  signer/session remains reserved for untouched positive continuous validation.
+- [x] Froze the S2-R2 dataset design and source identities without accessing protected TEST. The
+  planned main candidate retains governed FIT-71, the 17 eligible prior human-labeled enrichment
+  clips, reviewed phone positives, and reviewed P1 hard negatives; candidate-specific
+  normalization is FIT-only and versioned with the weights.
+- [x] The bounded learnability sanity check passed with the unchanged 378 representation and
+  causal-TCN family. Training-fit diagnostics were phone human-ACTIVE recall `61/62`, selected P1
+  ACTIVE false rate `0/369`, baseline ACTIVE recall `1.0`, baseline POST recall `0.996`, and loss
+  `0.3171 -> 0.0069`. This establishes **`LEARNABILITY_SUPPORTED`** only; it is not a
+  generalization or promotion result.
+- [x] Identified a supervision-fidelity issue before the main run: reprocessing saved rested-phone
+  JPEGs changed frozen-S2 human-ACTIVE recall from the live exact-observation result `12/62` to
+  `42/62`. JPEG-reprocessed rows therefore cannot be represented as exact runtime hard misses.
+  This does not reopen the already-passed Android/host parity result.
+- [x] Prepared a separate blinded six-attempt review for exact-parity capture
+  `session_20260921T153138Z`. All 232 synchronized attempt visuals map exactly to records in the
+  persisted Android 378 tensor stream. Focused tests pass `7/7`; Ruff passes.
+- [ ] Complete and finalize the six-attempt exact-tensor temporal review before the one main
+  S2-R2 training run. Current stop: **`LEARNABILITY_SUPPORTED_WAIT_FOR_EXACT_PHONE_TENSOR_TEMPORAL_REVIEW`**.
+
+### 2026-09-22 — S2-R2 exact supervision frozen; one candidate ready for supervisor run
+
+- [x] Completed the six-attempt exact-tensor phone review for
+  `session_20260921T153138Z`: 232/232 reviewed observations link to the actual Android 378 rows;
+  67 PRE, 67 ACTIVE, 86 POST, and 12 ignored transition observations. All six attempts are
+  eligible, but remain current-signer FIT/internal-development evidence with no independence claim.
+- [x] Retired the JPEG-reprocessed rested-phone rows from the main candidate. They changed the
+  frozen-model hard-example behavior and are not same-observation supervision. Exact Android rows
+  are now mandatory for the phone component.
+- [x] Froze the single-candidate dataset and checkpoint policy: expected 369 rows (305 FIT, 64
+  internal development), unchanged 123,779-parameter Phase-7 causal TCN, FIT-only normalization,
+  one seed/run, fixed source-family balancing, unchanged CONFIG_01, and predeclared acquisition,
+  non-sign suppression, emission, exactly-one, and severe-cut gates.
+- [x] Ran the bounded all-domain smoke pipeline: 23 rows (14 FIT/9 internal development), two
+  epochs, finite decreasing loss `0.565482 -> 0.251641`, exact-phone rows used, JPEG phone rows
+  excluded, and the main run not consumed. The immature smoke model was correctly ineligible.
+- [x] Focused S2-R2 tests pass (18/18) and Ruff passes. The imprint registry records that the
+  reusable trainer targets the unchanged `segmentation_features.v1` 378 contract.
+- [ ] Project Supervisor must run exactly `prepare-main` then `train-main`. No full extraction or
+  main training was silently executed. Current stop:
+  **`S2_R2_ONE_CANDIDATE_READY_FOR_SUPERVISOR_LONG_RUN`**.
+
+### 2026-09-22 — S2-R2 preparation fail-closed recovery
+
+- [x] The first supervisor `prepare-main` stopped before producing a dataset manifest at the
+  reviewed `DRINK 2` enrichment clip. Its human ACTIVE interval is 239 ms; the unchanged 100 ms
+  transition-ignore band leaves only 39 ms eligible, and all three genuine sparse cadence views
+  contain zero ACTIVE-labeled observations. The separately attempted `train-main` could not run
+  because preparation had not completed. No main weights/normalization were produced.
+- [x] Read-only preflight across all 17 proposed enrichment clips showed this is the only clip
+  with zero ACTIVE supervision. Preserved the original config/freeze as history and recorded one
+  explicit corrected config/freeze that excludes this clip, not relabels it. Effective population:
+  16 enrichment clips/48 views; expected total 366 rows (302 FIT, 64 internal development).
+- [x] Added a pre-extraction sparse-label viability guard and a clear train-before-prepare error.
+  No model family, feature schema, threshold, cadence, checkpoint gate, split role, or untouched
+  validation population changed. Focused tests pass 20/20; Ruff and Python compile pass.
+- [ ] Supervisor should rerun **only** `prepare-main` and return its final output. Do not start
+  `train-main` until it reports `S2_R2_MAIN_DATA_PREPARED`. Current stop:
+  **`S2_R2_CORRECTED_PREPARATION_WAIT_FOR_SUPERVISOR`**.
+
+### 2026-09-22 — S2-R2 corrected main dataset prepared and verified
+
+- [x] Supervisor completed the corrected `prepare-main`. The persisted manifest reports
+  `S2_R2_MAIN_DATA_PREPARED`, 366 rows (302 FIT, 64 internal development), and the expected
+  source-family counts: 267 baseline, 48 enrichment, 45 P1 negative, six exact phone positive.
+- [x] Independently checked all 366 feature-file hashes and unique row IDs, `[T,378]` width,
+  finite values, strict chronology, legal PRE/ACTIVE/POST/ignore labels, exclusion of the
+  unsupervisable DRINK 2 clip, and absence of reserved E6 signer. The manifest links the corrected
+  config/freeze hashes and states exact-phone tensors used, JPEG phone tensors unused, protected
+  TEST unopened. Manifest SHA-256 is
+  `8c831dfd404cca935ae7356f4da10ec8dc0c1d6d08700b57bbc27a1ac00acf71`.
+- [ ] The one main S2-R2 training run has not started. Supervisor may now run `train-main` once,
+  without changing configuration or restarting for a favorable result. Current stop:
+  **`S2_R2_MAIN_DATA_PREPARED_WAIT_FOR_ONE_TRAINING_RUN`**.
+
+### 2026-09-22 — One S2-R2 candidate trained; host package frozen pending independent validation
+
+- [x] The Supervisor completed the one authorized 30-epoch run. Epoch 7 was the only checkpoint
+  satisfying all six frozen gates. Selected Keras model SHA-256 is
+  `b6f8b52cece72f0b6f5b802a4ea583060d923e90a6b951059e7013114c8fc151`; paired
+  normalization SHA-256 is
+  `65d885f62eaca6f11a596302d304f63149795ddaf01e702f1e6a36dd7da5c005`. The model
+  retains 123,779 parameters and the `[None,None,378] -> [None,None,3]` causal interface.
+- [x] Audited FIT-only normalization: 302/302 FIT row IDs, 8,285 observations, 378 mean/std
+  dimensions, zero development or validation rows. Actual file hashes match the training result.
+- [x] The frozen development comparison improves phone ACTIVE recall `13/25 -> 24/25` and P1
+  negative events `4/8 -> 0/8`, while CAL emission/exactly-one remains `50/54`. CAL containment
+  changes `27/54 -> 31/54`; severe cuts rise slightly `9/54 -> 10/54` but remain within the
+  predeclared gate. These phone/P1 development groups are not independent signer validation.
+- [x] A read-only per-source/cadence audit found a small APPHEAR_CAPTURE warning: one VIEW_A
+  clip drops from 78% to 38% containment, adding one severe cut, though all nine views still emit
+  exactly one event. VIEW_C severe cuts remain `7/18` for both models; CAL LOCAL emission remains
+  `3/6`. No post-result tuning or retraining was performed.
+- [x] Froze the host checkpoint+normalization package identity and report. E6 signer
+  `0F747C-S001`, the distinct future phone validation signer/session, and protected TEST remain
+  untouched. No Android export/deployment, phone capture, materializer, Admission, recognizer, or
+  re-arm change occurred.
+- [ ] Next bounded step: export this exact paired candidate to a versioned debug TFLite package,
+  verify host/TFLite/Android parity and old-model rollback, then run one fixed distinct-signer
+  continuous phone validation. Current stop:
+  **`S2_R2_HOST_CANDIDATE_FROZEN_PENDING_EXPORT_AND_INDEPENDENT_VALIDATION`**.
+
+### 2026-09-23 — S2-R2 debug export and independent phone validation handoff
+
+- [x] Verified the frozen epoch-7 Keras model and FIT-only normalization against their saved
+  SHA-256 identities. The single main training run remains the only S2-R2 run.
+- [x] Exported a separate versioned `S2_R2_CANDIDATE` FP32 TFLite debug package with matching
+  normalization, state order, 378-feature schema, 61-observation causal prefix, and source/asset
+  hashes. The unchanged Phase-7 package remains the default and explicit rollback control.
+- [x] Host Keras versus TFLite parity passed over 669 previously captured exact phone 378 rows:
+  maximum probability difference `8.642673492431641e-7`, zero argmax mismatches. No model fitting,
+  calibration, or threshold selection occurred.
+- [x] Added explicit package selection to the existing Android phone causal runner and session
+  identity. Candidate capture requires the fixed six-attempt cohort, PRE-or-POST re-arm, exact
+  observation logging, and a declared validation signer. Candidate and control continue through
+  unchanged Admission, CONFIG01 completion, materializer, Recognition V2, and recognizer.
+- [x] Froze HELLO/HELLO/HOME/HOME/TABLE/TABLE before capture, added a blinded temporal-review
+  profile, and prepared fail-closed capture integrity plus same-observation Phase-7/S2-R2 replay.
+  Ordinary movement receives negative status only after visual review.
+- [x] Opt-in debug APK and Android-test APK build; focused causal unit test passes. Both S2
+  packages are present in the APK. ADB reports no connected device, so the new candidate's
+  connected Android parity and distinct-signer capture have **not** occurred.
+- [x] Bounded blinded-review linkage regression passes: nanosecond visual timestamps map
+  uniquely to the exact captured tensor rows despite millisecond JSON/CSV rounding. Focused
+  reviewer/parity tests and Ruff pass.
+- [x] Connected-device parity passed on M2101K7AG Android 12: `4/4` instrumentation tests,
+  including the S2-R2 669-observation candidate fixture and Phase-7 control availability.
+  The original handoff PowerShell command parsed the dotted Gradle property as a task; quoting
+  the `-P...` arguments fixed command invocation without changing any test or model behavior.
+- [x] Installed the parity-tested debug APK on the connected phone. Capture did not start:
+  the then-available performer confirmed being the prior design phone signer, and no distinct
+  signer was available at that time. This preserved the untouched independent validation role.
+- [x] A new itel A665L Android 13 device and declared distinct signer
+  `phone_validation_signer_01` became available. The frozen candidate/control connected parity
+  suite passed `4/4` on that device. The first fixed-cohort capture
+  `session_20260923T011723Z` aborted during attempt 2 with a debug visual-frame
+  `OutOfMemoryError` under the 128 MiB Java heap; 238 observations and 238 original frames were
+  preserved. This partial run is unscored and not a promotion result.
+- [x] Recovery classified the incident as a specific debug visual-retention runtime failure,
+  not S2 behavior. Added debug-manifest-only `largeHeap=true` (device advertises 256 MiB),
+  rebuilt, and reran connected parity `4/4` unchanged. No model, feature, lifecycle, or
+  recognizer contract changed. Full-session capture stability is not yet verified.
+- [x] The Supervisor authorized one procedural replacement after the diagnostics-only visual
+  capture OOM. Empty-scene stress completed without OOM; the aborted session remains retained
+  and unscored. The replacement `session_20260923T013439Z` used attested distinct signer
+  `phone_validation_signer_01` and the unchanged HELLO/HELLO/HOME/HOME/TABLE/TABLE order.
+- [x] Replacement evidence is complete: 513 observations, 513 synchronized originals, six
+  BEGIN/COMPLETE pairs. Same-observation Android/host feature and normalized-input maximum
+  difference 0.0; S2 probability maximum difference `1.013278961e-6`; zero state mismatches.
+  Candidate Android event/materializer outputs exactly matched host replay.
+- [x] Blinded human temporal review and bounded non-sign review finalized. Six attempts contain
+  29 ACTIVE, 45 PRE, 43 POST, 12 ignored transition observations; four confirmed non-sign
+  intervals contain 109 observations. Phase-7 and S2-R2 were paired on the same 513 rows.
+- [x] Independent-phone result is **`S2_R2_INDEPENDENT_PHONE_MIXED`**: ACTIVE acquisition
+  1/6 attempts and 4/29 observations (Phase-7) vs 4/6 and 18/29 (S2-R2), but only 2/6
+  S2-R2 windows attained >=90% human ACTIVE containment. S2-R2 emitted two events outside
+  attempts whose semantics are pending specific visual adjudication; do not call them false
+  positives from telemetry. Both branches emitted zero events in four confirmed non-sign
+  intervals. Re-arm completed after all seven S2-R2 events.
+- [x] A major runtime/cadence confound was quantified: in-attempt median observation spacing
+  rose from ~335 ms for the two HELLO attempts to ~536 ms for HOME/TABLE; 68 within-attempt gaps
+  exceed the frozen 533.232 ms continuity limit. This does not invalidate the paired comparison,
+  but does limit attribution of late misses to S2 generalization alone. Detailed evidence:
+  `artifacts/recognition_upgrade/perception_vnext/recognition_utility_236_01/s2_r2_phone_deployment_and_independent_validation_01/INDEPENDENT_PHONE_VALIDATION_RESULT.md`.
+- [ ] Stop at Project Lead review. No S2 promotion or retraining, runtime change, lifecycle tuning,
+  Admission tuning, materializer tuning, recognizer training, or protected TEST access. Next bounded
+  decision: visually adjudicate the two extra events, then decide whether to investigate the
+  itel observation-throughput/cadence limit before another fresh phone validation.
+
+### 2026-09-23 — S2-R2 representative-phone final validation
+
+- [x] Verified the unchanged frozen S2-R2 Keras/normalization/TFLite package and Phase-7 rollback.
+  Candidate/control Android instrumentation passed `4/4`; steady-state Xiaomi preflight had
+  257 observations with median 200 ms, p95 266.6 ms, and no gap above 533.232 ms.
+- [x] Froze HELLO/HELLO/HOME/HOME/TABLE/TABLE before capture with new, supervisor-attested
+  `representative_phone_signer_01`. Session `session_20260923T030939Z` contains 714 exact
+  observations, six BEGIN/COMPLETE pairs, and 714/714 original frames. All six attempt medians
+  were 200–266.6 ms and none had an over-limit continuity gap.
+- [x] Same-observation 378 and normalized vectors matched Android/host exactly; maximum S2
+  probability difference `8.344650268554688e-7`, zero argmax mismatches. Android event and
+  materializer outputs matched host replay. Human review was blinded to model output and supplied
+  56 ACTIVE, 58 PRE, 59 POST, and 12 excluded transition observations.
+- [x] Paired Phase-7 vs S2-R2: genuine attempt ACTIVE acquisition `5/6 -> 6/6`; human ACTIVE
+  observation recall `20/56 -> 52/56`; exactly-one intended event `5/6 -> 6/6`; >=90% human ACTIVE
+  containment `1/6 -> 6/6`. All six S2-R2 windows covered 100% of human ACTIVE; no premature or
+  severe cut. Seven of seven S2-R2 events re-armed, ending IDLE.
+- [x] Five visually confirmed non-sign intervals (227 observations) produced zero ACTIVE states
+  and zero event onsets in both branches. One additional S2-R2 event before HELLO 1 (indices
+  227–233) is supervisor-adjudicated `UNCERTAIN / MIXED`; it is excluded from both confirmed
+  false-event and genuine-sign counts. This cannot support a zero-unwanted-event claim.
+- [x] Only after window-quality review, scored the unchanged recognizer on six usable S2-R2
+  windows: Top-1 correct 3/6 (HELLO twice, HOME once); HOME 2 and both TABLE repetitions were
+  wrong Top-1. These are word-identification errors, not no-event or materializer failures.
+- [x] Final decision: **`S2_R2_INTEGRATION_READY_WITH_KNOWN_LIMITATIONS`**. The representative
+  phone removed the systematic temporal failure seen on itel; one unclassified extra event and
+  good-window recognizer errors remain. Canonical report:
+  `artifacts/recognition_upgrade/perception_vnext/recognition_utility_236_01/s2_r2_representative_phone_final_validation_01/REPRESENTATIVE_PHONE_FINAL_VALIDATION_RESULT.md`.
+- [ ] Next bounded action after Project Lead review: `APPHEAR_S2_R2_REAL_APP_INTEGRATION_01`.
+  Make exact S2-R2 model-normalization pair the real-app default behind Phase-7 rollback and keep
+  focused diagnostics. Do not retrain/tune S2, Admission, re-arm, materializer, or recognizer from
+  this validation signer; protected TEST remains closed.
+
+### 2026-09-23 — Real AppHear S2-R2 backend integration (software gate)
+
+- [x] Project Lead approved the migration boundary: preserve `RecognitionActivity` and the
+  Supervisor UI, front camera only, no legacy 258-feature backend running in parallel.
+- [x] Promoted the parity-validated Candidate01 native/ONNX/TFLite, 378-feature, versioned S2,
+  lifecycle/materializer, Recognition V2, and recognizer components/assets from debug-only to
+  main source. Normal app uses one `Candidate01FrameAnalyzer` and `PhoneProductionSession`;
+  debug-only attempt controls, visual review, and tensor recording remain debug-only.
+- [x] Normal package is `S2_R2_CANDIDATE`, with model/normalization binding verified at load;
+  `PHASE7_CONTROL` remains an internal debug Gradle rollback selection. Unsupported ABI or asset
+  mismatch fails visibly rather than switching to legacy recognition. No scientific rules changed.
+- [x] Existing UI contract receives product-level recognition state, one result per causal event,
+  and the existing sentence semantics. Front/back and legacy handedness actions are disabled in
+  causal mode. READY is withheld until models/camera are loaded and initial live observations
+  reach the listening state. Heavy capture is absent from normal inference.
+- [x] Debug and release APKs build; 95 debug JVM unit tests pass, including the shared raw-v1 →
+  Recognition V2 adapter test. Release APK contains Candidate01 arm64 native library, ONNX,
+  hand refiner, both S2 packages, frozen materializer, and V2 recognizer. On Xiaomi, four selected
+  378/S2 package instrumented parity tests passed (0 failures).
+- [x] Installed the normal debug app on Xiaomi M2101K7AG. The real recognition screen reached
+  READY with `S2_R2_CANDIDATE`; no diagnostic Activity was used. The user was unable to perform
+  the planned HELLO/HOME/TABLE/HELLO interaction at that time.
+- [x] Connected Xiaomi regression after promotion: 4/4 selected 378/S2 package tests and 3/3
+  Recognition V2/236-class parity tests passed with zero failures. This verifies component
+  contracts, not the unperformed real-app repeated-sign interaction.
+- [x] **Integration smoke subsequently completed:** the fixed real-app repeated-sign sequence,
+  exactly-one intended UI/sentence commit, natural re-arm, and absence of legacy results were
+  observed in the later final smoke section below. This older software-gate entry is retained
+  for chronology; no S2/Admission/re-arm/materializer/recognizer tuning or protected TEST access
+  followed.
+
+### 2026-09-23 — Real-app overlay promotion and no-signer verification
+
+- [x] Promoted the existing Perception VNext display renderer/transform into shared Android main
+  code. The real `OverlayView` now draws hand/body skeletons, proposal ROIs, and hand presence
+  through the same presentation-only renderer as the validated debug view; the old UI layout is
+  unchanged and the overlay clears on stop. No scientific backend behavior changed.
+- [x] Debug/release builds and 95/95 JVM tests pass. Connected Xiaomi: overlay pixel/clear and
+  display-transform tests 2/2 pass; selected 378/S2, Recognition V2/recognizer, composed replay,
+  and overlay device regression tests 8/8 pass. Default package remains `S2_R2_CANDIDATE` with
+  Phase-7 debug rollback; paired package hashes are verified at load.
+- [x] Normal Xiaomi screen repeatedly reached READY after navigation and background/foreground
+  return with one visible causal backend. A roughly two-minute empty/still-scene soak had no
+  committed words, no crash, and stable PSS (~272 MB); brief ACTIVE candidates returned to IDLE.
+  Live screenshot confirmed hand-skeleton/front-camera visual alignment. This is not an ML
+  false-positive-rate or latency benchmark.
+- [x] One user-confirmed non-sign open-hand raise/hold nevertheless emitted a HELLO event/word
+  and re-armed. Record this as a specific real-app unwanted event; do not tune Admission/S2 from
+  this single uncontrolled action. Optional full-session UI replay was skipped because it would
+  require invasive fixture/parser migration; existing component parity and real-app observation
+  cover the bounded software check.
+- [x] **Final integration gate completed:** one fixed HELLO → HOME → TABLE → HELLO sequence
+  in the normal UI had one event/UI commit per intended sign and natural re-arm. See the
+  per-attempt result and non-sign-event caveat below; no ML tuning followed.
+
+### 2026-09-23 — Final real-app repeated-sign smoke
+
+- [x] **`APPHEAR_S2_R2_REAL_APP_INTEGRATION_COMPLETE`**: on Xiaomi M2101K7AG, the normal
+  `RecognitionActivity` loaded one Candidate01/S2-R2 backend. The fixed HELLO → HOME → TABLE →
+  HELLO physical sequence produced four sequential intended events (IDs 2–5), displayed those
+  four glosses, appended each once to the UI sentence, and returned to READY after each. The
+  Supervisor confirmed no duplicate intended result, freeze, or lifecycle failure. Final
+  four-word sentence was `HELLO HOME TABLE HELLO`; no diagnostic Activity or legacy recognizer
+  was active. This is an integration smoke, not cross-signer accuracy validation.
+- [x] Preserved two separate operator-confirmed unwanted events: HOSPITAL1 while adjusting a
+  seat before the fixed sequence (event 1; cleared from the sentence before HELLO), and STAND2
+  during ordinary movement afterward (event 6). Each appeared once and re-armed. Exact physical
+  boundaries were not video-recorded in the normal app; do not claim a measured false-positive
+  rate or assume one responsible ML layer. The earlier stationary-open-hand HELLO incident is
+  another bounded product observation.
+- [x] No model/feature, threshold, re-arm, Admission, CONFIG01, materializer, recognizer, or
+  UI-architecture changes were made during the smoke. Stop at Project Lead review of integrated
+  app evidence; do not automatically start another S2 experiment.

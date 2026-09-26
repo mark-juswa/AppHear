@@ -13,6 +13,8 @@ import android.speech.RecognizerIntent
 import android.util.Log
 import android.util.Size
 import android.util.Base64
+import android.util.Range
+import android.hardware.camera2.CaptureRequest
 import android.view.View
 import android.view.WindowManager
 import android.widget.Toast
@@ -21,14 +23,19 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.camera.core.CameraSelector
 import androidx.camera.core.ImageAnalysis
 import androidx.camera.core.Preview
+import androidx.camera.camera2.interop.Camera2Interop
 import androidx.camera.core.resolutionselector.ResolutionSelector
 import androidx.camera.core.resolutionselector.ResolutionStrategy
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.Lifecycle
 import com.example.apphear.databinding.ActivityRecognitionBinding
 import com.example.apphear.pipeline.FrameAnalyzer
 import com.example.apphear.pipeline.FrameResult
+import com.example.apphear.pipeline.CloseableFrameAnalyzer
+import com.example.apphear.pipeline.IndependentClockFrameAnalyzer
+import com.example.apphear.pipeline.diagnostics.A1Diagnostics
 import com.example.apphear.pipeline.diagnostics.RuD1AttemptSpec
 import com.example.apphear.pipeline.diagnostics.RuD1Diagnostics
 import com.example.apphear.pipeline.LandmarkerBundle
@@ -37,6 +44,8 @@ import com.example.apphear.pipeline.recognition.FeatureFlags
 import com.example.apphear.pipeline.recognition.Handedness
 import com.example.apphear.pipeline.recognition.RecognitionPipeline
 import com.example.apphear.pipeline.recognition.RuntimeConfig
+import com.example.apphear.perceptionvnext.Candidate01FrameAnalyzer
+import com.example.apphear.perceptionvnext.PhoneProductionSession
 import com.example.apphear.ui.recognition.RecognitionUiSnapshot
 import com.example.apphear.ui.speech.AppHearSpeechPlayer
 import com.example.apphear.ui.speech.SpeechInputHelper
@@ -46,19 +55,27 @@ import kotlinx.coroutines.withContext
 import org.json.JSONObject
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
+import java.util.concurrent.TimeUnit
+import java.util.concurrent.Future
 
 class RecognitionActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityRecognitionBinding
     private lateinit var cameraExecutor: ExecutorService
+    private lateinit var a1ShutdownExecutor: ExecutorService
 
     private var landmarkers: LandmarkerBundle? = null
     private var recognizer: RecognitionPipeline? = null
+    private var phoneSession: PhoneProductionSession? = null
+    private var phoneAnalyzer: Candidate01FrameAnalyzer? = null
     private var runtimeConfig: RuntimeConfig? = null
-    private var analyzer: FrameAnalyzer? = null
+    private var analyzer: CloseableFrameAnalyzer? = null
     private var cameraProvider: ProcessCameraProvider? = null
     private var frameCount = 0
     private var frontCamera = true
+    private var a1Active = false
+    private var a1ShutdownFuture: Future<*>? = null
+    private var a1ResumePending = false
     private var modelLoadError: String? = null
     private var degradedBannerDismissed = false
     private lateinit var speechPlayer: AppHearSpeechPlayer
@@ -108,6 +125,9 @@ class RecognitionActivity : AppCompatActivity() {
                 if (binding.expandableContent.visibility == View.VISIBLE) View.GONE else View.VISIBLE
         }
         cameraExecutor = Executors.newSingleThreadExecutor()
+        a1ShutdownExecutor = Executors.newSingleThreadExecutor { runnable ->
+            Thread(runnable, "apphear-a1-lifecycle-shutdown")
+        }
         logPerformanceSupport()
 
         binding.handToggle.setOnClickListener {
@@ -117,9 +137,14 @@ class RecognitionActivity : AppCompatActivity() {
             toastHandedness(next, Toast.LENGTH_SHORT)
         }
         applyHandedness(currentHandedness())
-        toastHandedness(currentHandedness(), Toast.LENGTH_LONG)
+        // Candidate01 estimates both hands; legacy handedness and rear-camera controls have no
+        // validated meaning for this causal path. Keep the existing UI but disable these actions.
+        binding.handToggle.isEnabled = false
+        binding.handToggle.alpha = 0.5f
+        binding.handToggle.contentDescription = "Hand selection unavailable in causal recognition"
 
         binding.clearButton.setOnClickListener {
+            phoneSession?.clearSentence()
             recognizer?.clearSentence()
             if (ruD1.config.enabled && ruD1QueueGloss().isNotBlank()) {
                 renderRuD1QueueStatus()
@@ -159,6 +184,9 @@ class RecognitionActivity : AppCompatActivity() {
             ).show()
         }
         applyCameraLabel()
+        binding.cameraToggle.isEnabled = false
+        binding.cameraToggle.alpha = 0.5f
+        binding.cameraToggle.contentDescription = "Front camera only in causal recognition"
         renderRuD1QueueStatus()
 
         if (hasCameraPermission()) start() else requestCamera.launch(Manifest.permission.CAMERA)
@@ -178,7 +206,7 @@ class RecognitionActivity : AppCompatActivity() {
     }
 
     private fun speakRecognizedSentence() {
-        val sentence = recognizer?.sentenceText?.trim().orEmpty()
+        val sentence = (phoneSession?.sentenceText ?: recognizer?.sentenceText)?.trim().orEmpty()
             .ifBlank { binding.sentenceText.text?.toString()?.trim().orEmpty() }
         if (sentence.isBlank() || sentence == getString(R.string.sentence_placeholder)) {
             Toast.makeText(this, R.string.speech_no_text_to_speak, Toast.LENGTH_SHORT).show()
@@ -221,29 +249,41 @@ class RecognitionActivity : AppCompatActivity() {
 
     private fun start() {
         lifecycleScope.launch {
-            runtimeConfig = RuntimeConfig.load(applicationContext)
-            val bundle = withContext(Dispatchers.IO) { LandmarkerBundle.create(applicationContext) }
-            landmarkers = bundle
-            if (FeatureFlags.RECOGNITION_ENABLED) {
-                val loadResult = withContext(Dispatchers.IO) {
-                    runCatching { RecognitionPipeline.load(applicationContext) }
-                }
-                recognizer = loadResult.getOrElse {
-                    modelLoadError = it.message ?: getString(R.string.recognition_model_load_failed)
-                    renderRuntimeError(getString(R.string.recognition_model_load_failed), modelLoadError.orEmpty())
-                    Toast.makeText(
-                        this@RecognitionActivity,
-                        getString(R.string.recognition_model_load_failed),
-                        Toast.LENGTH_LONG,
-                    ).show()
-                    null
-                }
-                if (recognizer != null) {
-                    modelLoadError = null
-                    applyHandedness(currentHandedness())
+            val loaded = withContext(Dispatchers.IO) {
+                runCatching {
+                    val session = PhoneProductionSession.load(applicationContext)
+                    try {
+                        session to Candidate01FrameAnalyzer(
+                            applicationContext, session, ::onFrame,
+                        ) { failure ->
+                            runOnUiThread {
+                                if (!isFinishing && !isDestroyed) {
+                                    cameraProvider?.unbindAll()
+                                    renderRuntimeError("Causal recognition stopped", failure.message.orEmpty())
+                                }
+                            }
+                        }
+                    } catch (failure: Throwable) {
+                        session.close()
+                        throw failure
+                    }
                 }
             }
-            bindCamera()
+            loaded.onSuccess { (session, frameAnalyzer) ->
+                if (isFinishing || isDestroyed) {
+                    frameAnalyzer.close()
+                    session.close()
+                    return@launch
+                }
+                phoneSession = session
+                phoneAnalyzer = frameAnalyzer
+                Log.i(TAG, "normal backend=Candidate01 package=${session.packageId}")
+                bindCamera()
+            }.onFailure { failure ->
+                modelLoadError = failure.message ?: "Causal recognition unavailable"
+                renderRuntimeError("Causal recognition unavailable", modelLoadError.orEmpty())
+                Log.e(TAG, "No legacy backend fallback", failure)
+            }
         }
     }
 
@@ -257,24 +297,68 @@ class RecognitionActivity : AppCompatActivity() {
 
     private fun rebindCamera() {
         val provider = cameraProvider ?: return
+        if (phoneSession != null) {
+            bindPhoneCamera(provider)
+            return
+        }
         val bundle = landmarkers ?: return
         val runtime = runtimeConfig ?: RuntimeConfig.load(applicationContext)
         val selector = if (frontCamera) CameraSelector.DEFAULT_FRONT_CAMERA else CameraSelector.DEFAULT_BACK_CAMERA
+        val a1Requested = intent.getStringExtra(EXTRA_A1_MODE).equals(A1_MODE, ignoreCase = true)
+        val a1Enabled = FeatureFlags.A1_INDEPENDENT_CLOCK_AVAILABLE && a1Requested
+
+        if (a1Enabled && a1Active && analyzer == null && a1ShutdownFuture != null) {
+            resumeAfterA1Shutdown(checkNotNull(a1ShutdownFuture))
+            return
+        }
+        if (a1Enabled && a1Active && analyzer != null) {
+            // Camera switch: detach immediately, then rebuild only after the old workers have
+            // joined. The shared LandmarkerBundle is never touched by two analyzer generations.
+            closeA1AnalyzerAsync(rebindWhenStarted = true)
+            return
+        }
 
         val preview = Preview.Builder().build().also {
             it.setSurfaceProvider(binding.previewView.surfaceProvider)
         }
 
         analyzer?.close()
-        val frameAnalyzer = FrameAnalyzer(
-            bundle,
-            frontCamera,
-            recognizer,
-            runtime,
-            deviceSummary(),
-            ruD1,
-            ::onFrame,
-        ).also { analyzer = it }
+        a1Active = a1Enabled
+        val diagnostics = if (FeatureFlags.A1_INDEPENDENT_CLOCK_AVAILABLE) {
+            A1Diagnostics(
+                mode = if (a1Enabled) A1_MODE else BASELINE_MODE,
+                runId = intent.getStringExtra(EXTRA_A1_RUN_ID) ?: "manual",
+            )
+        } else {
+            null
+        }
+        val frameAnalyzer: CloseableFrameAnalyzer = if (a1Enabled) {
+            val maxPoseAgeMs = intent.getLongExtra(EXTRA_A1_MAX_POSE_AGE_MS, 0L)
+            require(maxPoseAgeMs > 0L) {
+                "A1 requires --el $EXTRA_A1_MAX_POSE_AGE_MS derived from the Baseline trace"
+            }
+            IndependentClockFrameAnalyzer(
+                bundle,
+                frontCamera,
+                recognizer,
+                runtime,
+                TimeUnit.MILLISECONDS.toNanos(maxPoseAgeMs),
+                ruD1,
+                checkNotNull(diagnostics),
+                ::onFrame,
+            )
+        } else {
+            FrameAnalyzer(
+                bundle,
+                frontCamera,
+                recognizer,
+                runtime,
+                deviceSummary(),
+                ruD1,
+                diagnostics,
+                ::onFrame,
+            )
+        }.also { analyzer = it }
         val analysisSize = cameraAnalysisSize()
         Log.i(TAG, "camera_analysis target=${analysisSize.width}x${analysisSize.height}")
         val resolution = ResolutionSelector.Builder()
@@ -300,8 +384,33 @@ class RecognitionActivity : AppCompatActivity() {
         }
     }
 
+    private fun bindPhoneCamera(provider: ProcessCameraProvider) {
+        val frameAnalyzer = phoneAnalyzer ?: return
+        val preview = Preview.Builder().build().also {
+            it.setSurfaceProvider(binding.previewView.surfaceProvider)
+        }
+        val builder = ImageAnalysis.Builder()
+            .setTargetResolution(Size(480, 360))
+            .setBackpressureStrategy(ImageAnalysis.STRATEGY_KEEP_ONLY_LATEST)
+            .setOutputImageFormat(ImageAnalysis.OUTPUT_IMAGE_FORMAT_RGBA_8888)
+        Camera2Interop.Extender(builder).setCaptureRequestOption(
+            CaptureRequest.CONTROL_AE_TARGET_FPS_RANGE, Range(15, 15),
+        )
+        val analysis = builder.build().also { it.setAnalyzer(cameraExecutor, frameAnalyzer) }
+        try {
+            provider.unbindAll()
+            frameAnalyzer.resetTemporalSession()
+            provider.bindToLifecycle(this, CameraSelector.DEFAULT_FRONT_CAMERA, preview, analysis)
+            binding.glossText.text = "Initializing recognition…"
+        } catch (failure: Throwable) {
+            renderRuntimeError("Front camera unavailable", failure.message.orEmpty())
+            Log.e(TAG, "Causal camera bind failed; no legacy fallback", failure)
+        }
+    }
+
     private fun onFrame(r: FrameResult) {
         runOnUiThread {
+            if (isFinishing || isDestroyed) return@runOnUiThread
             frameCount++
             binding.overlayView.setResult(r)
             binding.fpsText.text = getString(R.string.fps_hud, r.fps, r.qualityLabel)
@@ -314,9 +423,17 @@ class RecognitionActivity : AppCompatActivity() {
                 return@runOnUiThread
             }
 
+            if (r.phoneReady == false && r.recognition is com.example.apphear.pipeline.recognition.RecognitionState.Idle) {
+                binding.glossText.text = "Initializing recognition…"
+                binding.altText.visibility = View.GONE
+                binding.sentenceText.text = r.phoneSentence.orEmpty()
+                    .ifBlank { getString(R.string.sentence_placeholder) }
+                return@runOnUiThread
+            }
+
             val snapshot = RecognitionUiSnapshot.from(
                 state = r.recognition,
-                sentence = recognizer?.sentenceText.orEmpty(),
+                sentence = r.phoneSentence ?: recognizer?.sentenceText.orEmpty(),
                 idleText = getString(R.string.gloss_placeholder),
                 signingText = getString(R.string.signing),
                 sentencePlaceholder = getString(R.string.sentence_placeholder),
@@ -404,7 +521,8 @@ class RecognitionActivity : AppCompatActivity() {
         "device='${Build.MANUFACTURER} ${Build.MODEL}' android=${Build.VERSION.RELEASE} sdk=${Build.VERSION.SDK_INT} " +
             "battery_saver=${batterySaverEnabled()} profiling_mode=${FeatureFlags.PROFILING_MODE} " +
             "ru_d10_a=${FeatureFlags.RU_D10_OBSERVATION_CONTINUITY} " +
-            "ru_d10_b=${FeatureFlags.RU_D10_S5_ONE_SHORT_GAP}"
+            "ru_d10_b=${FeatureFlags.RU_D10_S5_ONE_SHORT_GAP} " +
+            "a1_available=${FeatureFlags.A1_INDEPENDENT_CLOCK_AVAILABLE}"
 
     private fun batterySaverEnabled(): Boolean {
         val pm = getSystemService(Context.POWER_SERVICE) as PowerManager
@@ -427,12 +545,110 @@ class RecognitionActivity : AppCompatActivity() {
 
     override fun onDestroy() {
         super.onDestroy()
-        analyzer?.close()
+        cameraProvider?.unbindAll()
         cameraExecutor.shutdown()
-        landmarkers?.close()
-        recognizer?.close()
-        if (::ruD1.isInitialized) ruD1.close()
+        val closingPhoneAnalyzer = phoneAnalyzer
+        val closingPhoneSession = phoneSession
+        if (closingPhoneAnalyzer != null || closingPhoneSession != null) {
+            phoneAnalyzer = null
+            phoneSession = null
+            a1ShutdownExecutor.submit {
+                try {
+                    if (cameraExecutor.awaitTermination(10, TimeUnit.SECONDS)) {
+                        closingPhoneAnalyzer?.close()
+                        closingPhoneSession?.close()
+                    } else {
+                        Log.e(TAG, "Camera worker did not stop; keeping native runtime open to avoid use-after-free")
+                    }
+                } catch (failure: Throwable) {
+                    Log.e(TAG, "Causal runtime shutdown failed", failure)
+                } finally {
+                    a1ShutdownExecutor.shutdown()
+                }
+            }
+            if (::ruD1.isInitialized) ruD1.close()
+            if (::speechPlayer.isInitialized) speechPlayer.close()
+            return
+        }
+        if (a1Active) {
+            val currentAnalyzer = analyzer
+            analyzer = null
+            val previousShutdown = a1ShutdownFuture
+            a1ShutdownExecutor.submit {
+                try {
+                    // Tasks on this single executor are FIFO; get() also documents the required
+                    // happens-before edge when an earlier pause/switch shutdown exists.
+                    previousShutdown?.get()
+                    currentAnalyzer?.close()
+                    landmarkers?.close()
+                    recognizer?.close()
+                    if (::ruD1.isInitialized) ruD1.close()
+                    Log.i(TAG, "A1 lifecycle resources closed after worker join")
+                } catch (t: Throwable) {
+                    // Never close the shared landmarker/recognizer after a failed worker join. A
+                    // bounded process-lifetime leak is safer than native use-after-free.
+                    Log.e(TAG, "A1 lifecycle shutdown failed; shared runtime left open", t)
+                } finally {
+                    a1ShutdownExecutor.shutdown()
+                }
+            }
+        } else {
+            analyzer?.close()
+            landmarkers?.close()
+            recognizer?.close()
+            if (::ruD1.isInitialized) ruD1.close()
+            a1ShutdownExecutor.shutdown()
+        }
         if (::speechPlayer.isInitialized) speechPlayer.close()
+    }
+
+    override fun onStop() {
+        binding.overlayView.clear()
+        phoneAnalyzer?.resetTemporalSession()
+        if (a1Active) {
+            closeA1AnalyzerAsync(rebindWhenStarted = false)
+        }
+        super.onStop()
+    }
+
+    override fun onStart() {
+        super.onStart()
+        if (a1Active && analyzer == null && landmarkers != null && cameraProvider != null) {
+            val shutdown = a1ShutdownFuture
+            if (shutdown == null) rebindCamera() else resumeAfterA1Shutdown(shutdown)
+        }
+    }
+
+    private fun closeA1AnalyzerAsync(rebindWhenStarted: Boolean) {
+        val closing = analyzer ?: return
+        analyzer = null
+        cameraProvider?.unbindAll()
+        val shutdown = a1ShutdownExecutor.submit { closing.close() }
+        a1ShutdownFuture = shutdown
+        if (rebindWhenStarted) resumeAfterA1Shutdown(shutdown)
+    }
+
+    private fun resumeAfterA1Shutdown(shutdown: Future<*>) {
+        if (a1ResumePending) return
+        a1ResumePending = true
+        lifecycleScope.launch {
+            val outcome = withContext(Dispatchers.IO) { runCatching { shutdown.get() } }
+            a1ResumePending = false
+            if (a1ShutdownFuture === shutdown) a1ShutdownFuture = null
+            outcome.onFailure { failure ->
+                Log.e(TAG, "A1 worker shutdown failed; camera will not rebind", failure)
+                renderRuntimeError("A1 shutdown failed", failure.message.orEmpty())
+            }
+            if (
+                outcome.isSuccess &&
+                !isFinishing &&
+                !isDestroyed &&
+                lifecycle.currentState.isAtLeast(Lifecycle.State.STARTED) &&
+                analyzer == null
+            ) {
+                rebindCamera()
+            }
+        }
     }
 
     companion object {
@@ -443,6 +659,11 @@ class RecognitionActivity : AppCompatActivity() {
         const val EXTRA_RU_D1_SIGNER_ID = "ru_d1_signer_id"
         const val EXTRA_RU_D1_VARIANT = "ru_d1_variant"
         const val EXTRA_RU_D1_SESSION_ID = "ru_d1_session_id"
+        const val EXTRA_A1_MODE = "a1_mode"
+        const val EXTRA_A1_RUN_ID = "a1_run_id"
+        const val EXTRA_A1_MAX_POSE_AGE_MS = "a1_max_pose_age_ms"
+        const val BASELINE_MODE = "BASELINE"
+        const val A1_MODE = "A1"
         const val EXTRA_RU_D1_REPETITION_ID = "ru_d1_repetition_id"
         const val EXTRA_RU_D1_CAPTURE_ORDER = "ru_d1_capture_order"
         const val EXTRA_RU_D1_TOTAL_ATTEMPTS = "ru_d1_total_attempts"

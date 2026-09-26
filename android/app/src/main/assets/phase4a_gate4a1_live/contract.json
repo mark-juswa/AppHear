@@ -1,0 +1,53 @@
+{
+  "milestone": "PHASE_4A_GATE_4A1_LIVE_PLUMBING_VALIDATION_01",
+  "raw_schema": "apphear.perception_vnext.raw.v1",
+  "feature_schema": "apphear.perception_vnext.recognition.v2",
+  "feature_shape": [96, 350],
+  "mask_shape": [96],
+  "output_count": 236,
+  "image_semantics": "UPRIGHT_UNMIRRORED_SOURCE_RGB",
+  "tester_signer_status": "UNKNOWN",
+  "live_temporal_condition": "DENSE_ACTUAL_LIVE_OBSERVATIONS_NO_PHONE_01_RESAMPLING",
+  "tolerances": {
+    "android_vs_python_v2_max_abs": 1e-5,
+    "android_vs_keras_probability_max_abs": 1e-4
+  },
+  "frozen_hashes": {
+    "recognition_v2_kt": "0a5fd969c574f3077060e75bcf697390e322da7e87e870da50b547714ba39699",
+    "tflite_model": "1ccf0afa9af9aa602aa0de33c9635f5cffd7feec7d9b4e32382bc5e3fa02880c",
+    "vocabulary": "a7d7b08d1c9ff52455aaa93cefee40e744b86a11fa5047dce08d2dd23fc0539b",
+    "gate1_manifest": "01fd271c25df2d0b7a64e803fabe0b745d51be1ac8f7c6f646546e2a3aa055b3",
+    "gate2_manifest": "bfe8bec13a646eb6fa733c3bee6a421a44b5e58ed6dbb0dd59d88804e397d019",
+    "gate3_manifest": "26271282e79f81c048c36b54516782811904402cbbdadd4df29043417869b148",
+    "candidate01_activity_kt": "33523bfe626a0c053c09258024bee75430b3972c2ccf26dfd66205cdcb7ac86b",
+    "candidate01_runners_kt": "ffc8c176176dc9eb9ee4eb838192dd5481e185cd7a96283296139d342d71e6fe",
+    "candidate01_math_kt": "f3e18ea2184ed52df77e47237499507e1f9bfac4dbe8638d379acb2bf4fed233",
+    "candidate01_native_preprocessor_kt": "1a62c228da0be76d0faa9433a8163d5585d79d936cbd9bf7fdf7bbefed173512"
+  },
+  "target_selection": {
+    "source": "Gate-3 TRAIN fixture replay evidence only",
+    "rule": "sort by fixture_id; retain sparse ground-truth-correct views; deduplicate canonical gloss by first occurrence; take first five",
+    "final_targets": [
+      {"ordinal": 1, "fixture_id": "p4a_v2_02", "class_id": 80, "gloss": "HELLO"},
+      {"ordinal": 2, "fixture_id": "p4a_v2_03", "class_id": 8, "gloss": "AT"},
+      {"ordinal": 3, "fixture_id": "p4a_v2_05", "class_id": 83, "gloss": "HOME"},
+      {"ordinal": 4, "fixture_id": "p4a_v2_06", "class_id": 179, "gloss": "STREET"},
+      {"ordinal": 5, "fixture_id": "p4a_v2_07", "class_id": 183, "gloss": "TABLE"}
+    ]
+  },
+  "camera_contract": {
+    "selector": "DEFAULT_FRONT_CAMERA",
+    "target_resolution": [480, 360],
+    "output_format": "RGBA_8888",
+    "backpressure": "KEEP_ONLY_LATEST",
+    "requested_fps_range": [15, 15],
+    "source_clock": "ImageProxy.imageInfo.timestamp (ns)",
+    "boundary_clock": "SystemClock.elapsedRealtimeNanos (same elapsed-realtime domain)"
+  },
+  "governance": {
+    "training_executed": false,
+    "dev_accessed": false,
+    "protected_test_accessed": false,
+    "target_source_split": "train"
+  }
+}

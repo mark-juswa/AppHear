@@ -1,0 +1,45 @@
+{
+  "milestone": "PHASE_4A_GATE_4A1B_CONTROLLED_LIVE_INPUT_RECOVERY_01",
+  "raw_schema": "apphear.perception_vnext.raw.v1",
+  "feature_schema": "apphear.perception_vnext.recognition.v2",
+  "feature_shape": [96, 350],
+  "mask_shape": [96],
+  "classes": 236,
+  "live_temporal_condition": "DENSE_ACTUAL_LIVE_OBSERVATIONS_NO_PHONE_01_RESAMPLING",
+  "valid_attempts_required": 10,
+  "target_order": [
+    {"class_id": 80, "gloss": "HELLO", "fixture_id": "p4a_v2_02", "repetition": 1},
+    {"class_id": 80, "gloss": "HELLO", "fixture_id": "p4a_v2_02", "repetition": 2},
+    {"class_id": 8, "gloss": "AT", "fixture_id": "p4a_v2_03", "repetition": 1},
+    {"class_id": 8, "gloss": "AT", "fixture_id": "p4a_v2_03", "repetition": 2},
+    {"class_id": 83, "gloss": "HOME", "fixture_id": "p4a_v2_05", "repetition": 1},
+    {"class_id": 83, "gloss": "HOME", "fixture_id": "p4a_v2_05", "repetition": 2},
+    {"class_id": 179, "gloss": "STREET", "fixture_id": "p4a_v2_06", "repetition": 1},
+    {"class_id": 179, "gloss": "STREET", "fixture_id": "p4a_v2_06", "repetition": 2},
+    {"class_id": 183, "gloss": "TABLE", "fixture_id": "p4a_v2_07", "repetition": 1},
+    {"class_id": 183, "gloss": "TABLE", "fixture_id": "p4a_v2_07", "repetition": 2}
+  ],
+  "reference_acknowledgement_required_before_each_attempt": true,
+  "controlled_conditions": [
+    "strong front-facing illumination",
+    "avoid backlighting",
+    "neutral uncluttered background where possible",
+    "fixed phone position and approximate distance",
+    "upper body fully visible",
+    "hands inside frame throughout the sign"
+  ],
+  "diagnostic_sampling_rule": [
+    "first accepted observation",
+    "every 10th accepted observation",
+    "every observed/proposal hand-state transition",
+    "last accepted observation"
+  ],
+  "v2_max_abs_tolerance": 0.00001,
+  "probability_max_abs_tolerance": 0.0001,
+  "candidate01_modified": false,
+  "recognition_v2_modified": false,
+  "model_modified": false,
+  "dev_accessed": false,
+  "protected_test_accessed": false,
+  "training_executed": false
+}

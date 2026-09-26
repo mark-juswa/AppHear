@@ -1,0 +1,83 @@
+{
+  "experiment_id": "a2_2r_one_observation_01",
+  "schema_version": "3.0",
+  "source_package": "artifacts/recognition_upgrade/a2_landmark_continuity/a2_0_identity_01",
+  "output_directory": "artifacts/recognition_upgrade/a2_landmark_continuity/a2_2r_one_observation_01",
+  "conditions": [
+    "C0_DIRECT_ONLY",
+    "C1_ONE_OBSERVATION_HOLD",
+    "C2_ONE_OBSERVATION_BOUNDED_VELOCITY"
+  ],
+  "eligibility": {
+    "maximum_recovery_age_ms": 400.0,
+    "minimum_history_dt_ms": 50.0,
+    "maximum_history_dt_ms": 400.0,
+    "minimum_hand_scale": 0.08,
+    "maximum_hand_scale": 0.45,
+    "maximum_pose_wrist_distance": 0.50,
+    "maximum_wrist_radius": 1.25,
+    "outward_motion_radius_threshold": 0.75,
+    "outward_motion_delta_threshold": 0.08,
+    "required_consecutive_direct_history": 2,
+    "require_previous_signing_or_other_direct_hand": true,
+    "maximum_recovered_observations_per_gap": 1,
+    "recovered_observation_may_seed_history": false
+  },
+  "velocity": {
+    "wrist_velocity_clip_per_second": 0.75,
+    "relative_landmark_velocity_clip_per_second": 0.50,
+    "maximum_wrist_displacement": 0.12,
+    "maximum_landmark_displacement": 0.15,
+    "fingertip_indices": [4, 8, 12, 16, 20]
+  },
+  "geometry_proxy": {
+    "coordinate_scale": "S4 shoulder-normalized coordinates",
+    "missing_frame_truth_available": false,
+    "scoring_reference": "next trusted direct observation",
+    "interpretation": "re-entry continuity proxy, not exact missing-frame landmark error"
+  },
+  "downstream_replay": {
+    "s5_motion_method": "logged Android C0 motion plus shoulder-normalized recovered-hand motion delta",
+    "s5_raised_gate_source": "logged Android trace",
+    "s5_thresholds_frozen": true,
+    "s6_model_frozen": true,
+    "s7_policy_frozen": true,
+    "x86_tflite_interpretation": "diagnostic because ARM/x86 argmax parity is known to diverge"
+  },
+  "preregistered_gates": {
+    "minimum_scoreable_recoverable_single_observation_events": 8,
+    "minimum_recovered_scoreable_events": 6,
+    "minimum_scoreable_recovery_recall": 0.50,
+    "minimum_visible_hand_instance_recall_gain": 0.015,
+    "minimum_complete_two_hand_coverage_gain": 0.020,
+    "coverage_gate_logic": "visible_hand_instance_recall_gain OR complete_two_hand_coverage_gain",
+    "maximum_false_recoveries_on_true_absence": 0,
+    "maximum_recoveries_on_no_hand_rest": 0,
+    "maximum_recoveries_on_leaving_frames": 0,
+    "maximum_stale_recoveries_at_long_gap_onset": 0,
+    "maximum_multi_observation_persistence": 0,
+    "maximum_identity_swaps": 0,
+    "maximum_wrong_hand_recoveries": 0,
+    "maximum_reentry_wrist_error_p95": 0.50,
+    "maximum_reentry_mean_landmark_error_p95": 0.50,
+    "maximum_reentry_fingertip_error_p95": 0.65,
+    "maximum_direct_to_recovered_jump_p95": 0.15,
+    "maximum_velocity_discontinuity_p95_per_second": 2.0,
+    "maximum_wrong_commit_increase": 0,
+    "maximum_no_sign_false_onset_increase": 0,
+    "maximum_no_sign_false_commit_increase": 0,
+    "minimum_c2_mean_landmark_error_reduction_vs_c1": 0.10
+  },
+  "hard_boundaries": {
+    "causal": true,
+    "raw_non_inverted_direct_identity": true,
+    "rejected_a2_identity_tracker_used": false,
+    "future_frame_used_for_recovery": false,
+    "future_frame_used_for_scoring_only": true,
+    "android_changes": false,
+    "s4_s5_s6_s7_configuration_changes": false,
+    "model_or_schema_changes": false,
+    "longer_gap_recovery": false,
+    "recursive_recovery": false
+  }
+}
