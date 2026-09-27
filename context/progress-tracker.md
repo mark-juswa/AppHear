@@ -1,6 +1,16 @@
 # Progress Tracker
 
-**CURRENT STATUS 2026-09-23 — `APPHEAR_S2_R2_REAL_APP_INTEGRATION_COMPLETE`:** The normal
+**CURRENT STATUS 2026-09-28 — `DIAGNOSTIC_TOOLING_READY_WAIT_FOR_AB_CAPTURE`:**
+`APPHEAR_CONTINUOUS_TRANSITION_AND_READINESS_01` is implemented on
+`dev/continuous-transition-diagnostics` from protected baseline `76d93cecd85bf9f76064d320aa4a5791b5f0704a`.
+Implementation commit `befa94a54b7f0e1ebc471af21a77f2f2036641b7` adds only debug observer/cohort
+and human-boundary evaluation. Main runtime/UI, assets and scientific semantics are unchanged.
+96 JVM tests, 51 focused host tests, 669-row S2-R2 Keras/TFLite fixture regression, debug and
+release builds pass. No device was connected; A/B capture, human physical boundaries and
+root-cause decision remain pending. Full commands/stop boundary are in
+`APPHEAR_CONTINUOUS_TRANSITION_AND_READINESS_01_REPORT.md`. No readiness/Admission/model fix is authorized.
+
+**WORKING BASELINE STATUS 2026-09-23 — `APPHEAR_S2_R2_REAL_APP_INTEGRATION_COMPLETE`:** The normal
 AppHear RecognitionActivity on Xiaomi M2101K7AG completed the fixed HELLO → HOME → TABLE →
 HELLO live sequence with one S2-R2 SignEvent, one displayed/sentence result, and natural
 re-arm per intended sign. Two distinct ordinary-motion commits before/after the sequence
@@ -4980,3 +4990,21 @@ all perception experiments remain immutable historical evidence.
 - [x] No model/feature, threshold, re-arm, Admission, CONFIG01, materializer, recognizer, or
   UI-architecture changes were made during the smoke. Stop at Project Lead review of integrated
   app evidence; do not automatically start another S2 experiment.
+
+### 2026-09-28 — Continuous-transition diagnostic tooling gate
+
+- [x] Protected baseline refs remain at `76d93cecd85bf9f76064d320aa4a5791b5f0704a`.
+  Diagnostic branch starts at that commit; implementation is `befa94a54b7f0e1ebc471af21a77f2f2036641b7`.
+- [x] Traced the real normal/debug shared S2, episode, recovery, materializer, V2, recognition
+  and sentence owners. No production semantics changed; no competing live decoder was added.
+- [x] Reused exact source/378/S2/visual capture with whole A/B sequence markers and five bounded
+  ordinary-motion blocks, candidate/recovery clocks, source-window IDs and debug UI delivery.
+- [x] Added blinded physical-boundary review and fail-closed evaluator with A/B/C/D evidence,
+  unfinished/merged/ambiguous cases, runtime-gap confounds and separate downstream results.
+- [x] 96 JVM and 51 focused host tests pass; debug/release builds pass. Existing 669-row host
+  fixture remains within 8.64267349e-7 probability difference, zero argmax mismatches. Main
+  runtime/UI and packaged assets remain unchanged; imprint/report/handoff updated.
+- [ ] Actual representative-phone A/B capture and physical human review pending. ADB showed
+  no device during this tooling gate; no fresh connected parity or root-cause claim.
+- [ ] Return captured transition evidence to Project Lead before any readiness, Admission,
+  S2/recognizer or window behavior change. No automatic next development phase.

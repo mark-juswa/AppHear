@@ -751,3 +751,42 @@ research or change Admission automatically.
 - Which layer admits ordinary movement as a sign under governed continuous-phone evidence?
 - Do broader real-app signers/words preserve the four-attempt repeated-use behavior while
   recognizer generalization remains imperfect?
+
+---
+
+# Memory — Continuous-transition diagnostic tooling handoff
+
+Last updated: 2026-09-28 +08:00
+
+## Current state and decisions
+
+- Working real-app baseline stays `APPHEAR_S2_R2_REAL_APP_INTEGRATION_COMPLETE`, protected at
+  `76d93cecd85bf9f76064d320aa4a5791b5f0704a`; its named baseline branch/tag were not moved.
+- Diagnostic branch `dev/continuous-transition-diagnostics` starts at that exact commit.
+  Implementation commit: `befa94a54b7f0e1ebc471af21a77f2f2036641b7`.
+- Status `DIAGNOSTIC_TOOLING_READY_WAIT_FOR_AB_CAPTURE`. Debug-only whole-sequence A/B blocks
+  avoid per-word READY waits; five bounded ordinary-motion blocks follow. The same frozen
+  shared runtime produces source-linked raw/378/normalization/S2/lifecycle/window/Top-5 records.
+- New host evaluator requires complete evidence and human physical boundaries, not START/STOP
+  labels. It distinguishes recovery blocking, merged/no boundary, ACTIVE reacquisition,
+  downstream delivery and uncertainty; cadence gaps remain a separate confound.
+- Current Android starts eligible POST recovery on the commit observation itself. The old host
+  replay adapter needed an explicit opt-in to match that timing; its historical default remains
+  unchanged. This is an audit adaptation, not a production lifecycle fix.
+- No main/release runtime, UI, feature/model/normalization, Admission, CONFIG01, materializer,
+  recognizer, native library or asset changes. No training or protected TEST access.
+
+## Verification and next session
+
+- 96/96 JVM and 51 focused host tests pass; debug/release builds pass. The existing 669-row
+  Keras/TFLite fixture max probability difference is 8.64267349e-7, with zero state mismatches.
+  Both APKs preserve all 128 packaged main assets byte-for-byte. No phone is currently attached,
+  so connected parity and actual A/B capture are **not** claimed.
+- Start with the exact Supervisor install/run/pull/review/analyze instructions in
+  `APPHEAR_CONTINUOUS_TRANSITION_AND_READINESS_01_REPORT.md`. Use one representative phone and
+  the same signer for A (hands down) and B (hands up), each HELLO/HOME/TABLE/HELLO once.
+- Wait for explicit final evidence save; preserve any runtime incident rather than silently
+  replacing it. Review physical lexical onset/end from synchronized originals without looking
+  at predictions, then run the evaluator and return evidence to Project Lead.
+- Stop before any behavioral fix, shorter recovery, Admission tuning or model training.
+  The hands-up responsiveness mechanism is still unproven.
