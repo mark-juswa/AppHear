@@ -62,7 +62,10 @@ def identity(event: dict[str, Any]) -> dict[str, int]:
     }
 
 
-def replay(rows: list[dict[str, Any]], *, allow_post_rearm: bool) -> dict[str, Any]:
+def replay(
+    rows: list[dict[str, Any]], *, allow_post_rearm: bool,
+    exact_android_commit_recovery: bool = False,
+) -> dict[str, Any]:
     decoder = CausalStreamingSignEventDecoder(CONFIG_01)
     previous_timestamp: float | None = None
     gap_resets: list[dict[str, float]] = []
@@ -102,6 +105,10 @@ def replay(rows: list[dict[str, Any]], *, allow_post_rearm: bool) -> dict[str, A
         action = str(decoder.trace[-1]["action"])
         if event is not None:
             last_emission_ms = float(event.emitted_at_ms)
+            if exact_android_commit_recovery and allow_post_rearm and actual_state == POST_RECOVERY:
+                # Shared Android starts recovery on an eligible commit observation itself.
+                # Preserve the historical replay default; opt in for exact current-runtime audit.
+                decoder._rearm_pre_start_ms = timestamp  # noqa: SLF001 - reference parity adapter
         if action == "REARM_COMPLETE" and last_emission_ms is not None:
             rearm_completions.append(
                 {

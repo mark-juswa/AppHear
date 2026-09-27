@@ -1,0 +1,52 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>AppHear physical transition review</title>
+<style>
+body{background:#17202b;color:#eef3fa;font:16px system-ui;margin:20px;max-width:1050px}button,input,select,textarea{font:inherit;margin:4px;padding:7px}button{cursor:pointer}img{display:block;max-width:100%;height:52vh;object-fit:contain;background:black;width:100%}input[type=range]{width:95%}textarea{width:90%}small{display:block;color:#b9c9d9}#error{color:#ffaaa0;white-space:pre-wrap}
+</style>
+<h1>Physical sign / ordinary-motion review</h1>
+<p>Watch each entire block. Mark physical sign onset/end from visuals, not predictions or START/STOP buttons. Do not label uncertain motion as non-sign. This page shows no model output.</p>
+<label>Reviewer (non-secret ID) <input id="reviewer"></label>
+<label><input type="checkbox" id="blind" checked> Reviewed without looking at model outputs</label>
+<div><select id="block"></select><label><input type="checkbox" id="reviewed"> Entire block reviewed</label></div>
+<img id="image" alt="Synchronized source observation">
+<div id="position"></div>
+<input id="slider" type="range" min="0" step="1">
+<div><button id="back">◀ observation</button><button id="play">Play</button><button id="next">observation ▶</button><select id="speed"><option value="1">1×</option><option value="0.5">0.5×</option></select></div>
+<small>Playback uses genuine timestamp spacing; there are no interpolated frames. Image-load delays can slow playback. Boundaries have observation resolution; uncertainty should remain explicit.</small>
+<div><select id="entry"></select><select id="judgment"></select></div>
+<div><button id="start">Mark physical START</button><input id="startIndex" type="number" placeholder="start index"><button id="end">Mark physical END</button><input id="endIndex" type="number" placeholder="end index"><button id="clear">Clear interval</button></div>
+<textarea id="note" placeholder="Boundary uncertainty, execution, ordinary behavior, or other review notes"></textarea>
+<div><button id="save">Download human_boundaries.json</button><label>Load saved review <input id="load" type="file" accept=".json"></label></div>
+<small>Download the file and put it beside this page as human_boundaries.json. This page also autosaves locally, keyed to this exact evidence hash. The host evaluator validates every interval before analysis.</small>
+<p id="error"></p>
+<script>
+'use strict';
+const $=id=>document.getElementById(id);
+let manifest, labels, index=0, playing=false, timer, key;
+const items=()=>[...labels.signs,...labels.negative_intervals];
+const current=()=>items()[Number($('entry').value)];
+const blockRange=()=>manifest.blocks.find(b=>b.block===$('block').value);
+function message(e){$('error').textContent=String(e);}
+function autosave(){labels.reviewer=$('reviewer').value;labels.blinded_to_predictions=$('blind').checked;localStorage.setItem(key,JSON.stringify(labels));}
+function stop(){playing=false;clearTimeout(timer);$('play').textContent='Play';}
+function show(){const frame=manifest.frames[index];$('image').src=frame.image;$('slider').value=index;$('position').textContent=`Observation ${frame.source_index} | monotonic ${frame.timestamp_ms.toFixed(3)} ms | block ${$('block').value}`;}
+function entryUi(){const item=current();$('judgment').replaceChildren();const values=item.gloss?['GENUINE_SIGN','UNCERTAIN','NOT_PERFORMED']:['CONFIRMED_NON_SIGN','SIGN_PREPARATION_OR_LEXICAL','UNCERTAIN'];for(const value of values)$('judgment').add(new Option(value,value));$('judgment').value=item.judgment;$('startIndex').value=item.start_index??'';$('endIndex').value=item.end_index??'';$('note').value=item.note??'';}
+function blockUi(){stop();const range=blockRange();$('slider').min=range.start_index;$('slider').max=range.end_index;index=range.start_index;$('reviewed').checked=labels.reviewed_blocks.includes(range.block);$('entry').replaceChildren();items().forEach((item,i)=>{if((item.condition??item.block)===range.block)$('entry').add(new Option(item.gloss?`${item.ordinal}. ${item.gloss}`:item.block,String(i)));});entryUi();show();}
+function edit(){const item=current();for(const [field,id] of [['start_index','startIndex'],['end_index','endIndex']])item[field]=$(id).value===''?null:Number($(id).value);item.judgment=$('judgment').value;item.note=$('note').value;autosave();}
+function advance(){if(!playing)return;const range=blockRange();if(index>=range.end_index){stop();return;}const delay=(manifest.frames[index+1].timestamp_ms-manifest.frames[index].timestamp_ms)/Number($('speed').value);timer=setTimeout(()=>{index++;show();if($('image').complete)advance();else $('image').onload=()=>{if(playing)advance();};},delay);}
+async function initialize(){manifest=await (await fetch('review_manifest.json')).json();labels=await (await fetch('human_boundaries.template.json')).json();key=`apphear-transition:${manifest.evidence_sha256}`;const cached=localStorage.getItem(key);if(cached)labels=JSON.parse(cached);for(const b of manifest.blocks)$('block').add(new Option(b.block,b.block));$('reviewer').value=labels.reviewer;$('blind').checked=labels.blinded_to_predictions;blockUi();}
+$('block').onchange=blockUi;$('entry').onchange=entryUi;
+$('slider').oninput=()=>{stop();index=Number($('slider').value);show();};
+$('back').onclick=()=>{stop();index=Math.max(blockRange().start_index,index-1);show();};
+$('next').onclick=()=>{stop();index=Math.min(blockRange().end_index,index+1);show();};
+$('play').onclick=()=>{if(playing){stop();return;}playing=true;$('play').textContent='Pause';advance();};
+$('start').onclick=()=>{$('startIndex').value=index;edit();};$('end').onclick=()=>{$('endIndex').value=index;edit();};
+$('clear').onclick=()=>{$('startIndex').value='';$('endIndex').value='';edit();};
+for(const id of ['startIndex','endIndex','judgment','note'])$(id).onchange=edit;
+for(const id of ['reviewer','blind'])$(id).onchange=autosave;
+$('reviewed').onchange=()=>{const b=$('block').value;labels.reviewed_blocks=labels.reviewed_blocks.filter(v=>v!==b);if($('reviewed').checked)labels.reviewed_blocks.push(b);autosave();};
+$('save').onclick=()=>{edit();message('');const blob=new Blob([JSON.stringify(labels,null,2)+'\n'],{type:'application/json'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='human_boundaries.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);};
+$('load').onchange=async()=>{try{const incoming=JSON.parse(await $('load').files[0].text());if(incoming.schema!==manifest.schema||incoming.session_id!==manifest.session_id||incoming.evidence_sha256!==manifest.evidence_sha256)throw Error('Review belongs to different evidence.');labels=incoming;$('reviewer').value=labels.reviewer;$('blind').checked=labels.blinded_to_predictions;autosave();blockUi();message('Loaded saved review.');}catch(e){message(e);}};
+initialize().catch(message);
+</script>

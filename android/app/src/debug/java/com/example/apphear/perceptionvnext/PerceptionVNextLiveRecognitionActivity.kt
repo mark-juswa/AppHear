@@ -157,6 +157,7 @@ class PerceptionVNextLiveRecognitionActivity : AppCompatActivity() {
     private var phoneRearmPolicy = PhoneRearmPolicy.PRE_ONLY
     private var phoneS2Package = PhoneS2Package.PHASE7_CONTROL
     private var phoneS2ExactParityCaptureEnabled = false
+    private var transitionDiagnosticMode = false
     private var phoneEvidenceOrdinal = 0
     private val phoneEvidenceRing = ArrayDeque<Pair<Int, Gate4A1bVisualDiagnostics.Frame>>()
     private val phoneEvidenceFutures = mutableListOf<Future<*>>()
@@ -186,7 +187,9 @@ class PerceptionVNextLiveRecognitionActivity : AppCompatActivity() {
         Target(183, "TABLE", "p4a_v2_07", 2),
     )
     private val targets: List<Target>
-        get() = if (
+        get() = if (transitionDiagnosticMode) {
+            PhoneTransitionDiagnosticCohort.blocks.map { Target(-1, it, "DIAGNOSTIC_BLOCK", 1) }
+        } else if (
             phoneCausalMode &&
             (intent.getBooleanExtra(EXTRA_RESTED_ADMISSION_EVIDENCE_COHORT, false) ||
                 intent.getBooleanExtra(EXTRA_S2_R2_VALIDATION_COHORT, false))
@@ -200,6 +203,8 @@ class PerceptionVNextLiveRecognitionActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         phoneCausalMode = intent.getBooleanExtra(EXTRA_PHONE_CAUSAL_ENABLED, false)
         phoneS2ExactParityCaptureEnabled = intent.getBooleanExtra(EXTRA_S2_EXACT_PARITY_CAPTURE, false)
+        transitionDiagnosticMode = intent.getBooleanExtra(EXTRA_TRANSITION_DIAGNOSTICS, false)
+        require(!transitionDiagnosticMode || phoneCausalMode) { "TRANSITION_DIAGNOSTICS_REQUIRE_CAUSAL_PATH" }
         onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
                 if (phoneCausalMode && state == CaptureState.COMPLETE && !phoneEvidenceFinalized.get()) {
@@ -221,7 +226,7 @@ class PerceptionVNextLiveRecognitionActivity : AppCompatActivity() {
             }
         } ?: PhoneS2Package.PHASE7_CONTROL
         if (phoneCausalMode && phoneS2Package == PhoneS2Package.S2_R2_CANDIDATE) {
-            require(intent.getBooleanExtra(EXTRA_S2_R2_VALIDATION_COHORT, false)) {
+            require(transitionDiagnosticMode || intent.getBooleanExtra(EXTRA_S2_R2_VALIDATION_COHORT, false)) {
                 "S2_R2_VALIDATION_COHORT_REQUIRED"
             }
             require(phoneS2ExactParityCaptureEnabled) { "S2_R2_EXACT_EVIDENCE_REQUIRED" }
@@ -230,6 +235,15 @@ class PerceptionVNextLiveRecognitionActivity : AppCompatActivity() {
             }
             require(!intent.getStringExtra(EXTRA_VALIDATION_SIGNER_ID).isNullOrBlank()) {
                 "S2_R2_DECLARED_VALIDATION_SIGNER_REQUIRED"
+            }
+        }
+        if (transitionDiagnosticMode) {
+            require(phoneS2Package == PhoneS2Package.S2_R2_CANDIDATE && phoneS2ExactParityCaptureEnabled &&
+                phoneRearmPolicy == PhoneRearmPolicy.PRE_OR_POST_EXPERIMENTAL) {
+                "TRANSITION_DIAGNOSTICS_REQUIRE_FROZEN_PACKAGE_AND_EXACT_EVIDENCE"
+            }
+            require(!intent.getStringExtra(EXTRA_VALIDATION_SIGNER_ID).isNullOrBlank()) {
+                "TRANSITION_DIAGNOSTICS_REQUIRE_DECLARED_SIGNER"
             }
         }
         buildUi()
@@ -320,6 +334,8 @@ class PerceptionVNextLiveRecognitionActivity : AppCompatActivity() {
             referenceButton.visibility = android.view.View.GONE
             renderTarget()
             resultText.text = "Warming Candidate01 + frozen S2. Press START ATTEMPT only after READY."
+            if (transitionDiagnosticMode) resultText.text =
+                "Whole-sequence markers only. No STOP/START between words; do not react to predictions."
         }
     }
 
@@ -448,6 +464,7 @@ class PerceptionVNextLiveRecognitionActivity : AppCompatActivity() {
                     resultText.text = "${phoneResult.gloss}  ${"%.3f".format(phoneResult.top1Probability)} | " +
                         "event=${phoneResult.event.eventId} obs=${phoneResult.window.observations.size} | " +
                         "recognizer=${"%.1f".format(phoneResult.recognitionInvocationMs)} ms"
+                    phoneCausal?.recordUiDelivery(phoneResult.event.eventId, SystemClock.elapsedRealtimeNanos())
                 }
             }
             if (phoneCausalMode) {
@@ -534,6 +551,7 @@ class PerceptionVNextLiveRecognitionActivity : AppCompatActivity() {
             startButton.isEnabled = false
             stopButton.isEnabled = true
             resultText.text = "CAPTURING ${targets[targetOrdinal].gloss}. Perform one sign, return to rest, then STOP."
+            if (transitionDiagnosticMode) resultText.text = PhoneTransitionDiagnosticCohort.instructions[targetOrdinal]
         }
     }
 
@@ -573,10 +591,14 @@ class PerceptionVNextLiveRecognitionActivity : AppCompatActivity() {
             val stop = attempt.stoppedNs
             val eligible = frame.sourceTimestampNs >= attempt.startedNs && (stop == null || frame.sourceTimestampNs <= stop)
             if (eligible) {
-                attempt.frames.add(frame)
-                val ordinal = attempt.frames.size
-                attempt.lastDiagnostic = ordinal to diagnostic
-                scheduleDiagnostic(attempt, ordinal, diagnostic, listOf("PHONE_CAUSAL_HUMAN_AUDIT"))
+                // Transition blocks use full-session originals/exact records; avoid duplicate image writes
+                // and retaining another sequence of geometry/RGB frames on the inference executor.
+                if (!transitionDiagnosticMode) {
+                    attempt.frames.add(frame)
+                    val ordinal = attempt.frames.size
+                    attempt.lastDiagnostic = ordinal to diagnostic
+                    scheduleDiagnostic(attempt, ordinal, diagnostic, listOf("PHONE_CAUSAL_HUMAN_AUDIT"))
+                }
             } else if (state == CaptureState.DRAINING && stop != null && frame.sourceTimestampNs > stop) {
                 activeAttempt = null
                 finalize = attempt
@@ -697,7 +719,7 @@ class PerceptionVNextLiveRecognitionActivity : AppCompatActivity() {
             if (state == CaptureState.COMPLETE) {
                 // Preserve the historical last-attempt writer barrier, but do not mark a still-running
                 // continuous capture as finally complete.
-                PhoneVisualEvidenceFinalizer.awaitVerifiedOriginals(
+                if (!transitionDiagnosticMode) PhoneVisualEvidenceFinalizer.awaitVerifiedOriginals(
                     phoneEvidenceFutures,
                     File(sessionRoot, "continuous_visual/originals"),
                     phoneEvidenceOrdinal,
@@ -989,6 +1011,10 @@ class PerceptionVNextLiveRecognitionActivity : AppCompatActivity() {
         val contractBytes = assets.open(RecognitionV2LiveRecognizer.CONTRACT_ASSET).use { it.readBytes() }
         val experimentContractBytes = assets.open(EXPERIMENT_CONTRACT_ASSET).use { it.readBytes() }
         val value = JSONObject().put("milestone", if (phoneCausalMode) PHONE_CAUSAL_MILESTONE else MILESTONE)
+            .put("diagnostic_milestone", if (transitionDiagnosticMode) PhoneTransitionDiagnosticCohort.MILESTONE else JSONObject.NULL)
+            .put("protected_baseline_sha", if (transitionDiagnosticMode) PhoneTransitionDiagnosticCohort.BASELINE_SHA else JSONObject.NULL)
+            .put("transition_diagnostics_enabled", transitionDiagnosticMode)
+            .put("markers_are_physical_boundaries", false)
             .put("session_id", sessionRoot.name).put("created_utc", utcNow())
             .put("device_manufacturer", android.os.Build.MANUFACTURER).put("device_model", android.os.Build.MODEL)
             .put("android_version", android.os.Build.VERSION.RELEASE).put("tester_signer_status", TESTER_STATUS)
@@ -1009,7 +1035,9 @@ class PerceptionVNextLiveRecognitionActivity : AppCompatActivity() {
             .put("phone_rearm_policy", if (phoneCausalMode) phoneRearmPolicy.name else JSONObject.NULL)
             .put(
                 "phone_target_cohort",
-                if (
+                if (transitionDiagnosticMode) {
+                    "CONTINUOUS_TRANSITION_AB_AND_NEGATIVES_7_BLOCKS"
+                } else if (
                     phoneCausalMode &&
                     intent.getBooleanExtra(EXTRA_S2_R2_VALIDATION_COHORT, false)
                 ) {
@@ -1082,6 +1110,12 @@ class PerceptionVNextLiveRecognitionActivity : AppCompatActivity() {
     private fun isWarm() = warmObservations >= WARM_OBSERVATIONS && nativeParity.complete && recognizer != null
 
     private fun renderTarget() {
+        if (transitionDiagnosticMode) {
+            targetText.text = if (targetOrdinal < targets.size) {
+                "Block ${targetOrdinal + 1}/${targets.size}: ${targets[targetOrdinal].gloss}"
+            } else "A/B and negative blocks complete"
+            return
+        }
         if (phoneCausalMode) {
             targetText.text = if (targetOrdinal < targets.size) {
                 val target = targets[targetOrdinal]
@@ -1109,10 +1143,11 @@ class PerceptionVNextLiveRecognitionActivity : AppCompatActivity() {
                         ?.optString("event_state") == PhoneDecoderState.IDLE.name
                     startButton.text = when {
                         !isWarm() -> "WAITING FOR WARMUP"
-                        !decoderReady -> "WAITING FOR RE-ARM"
+                        !decoderReady && !transitionDiagnosticMode -> "WAITING FOR RE-ARM"
+                        transitionDiagnosticMode -> "START BLOCK (no READY gate)"
                         else -> "START ATTEMPT"
                     }
-                    startButton.isEnabled = isWarm() && decoderReady && targetOrdinal < targets.size
+                    startButton.isEnabled = isWarm() && (decoderReady || transitionDiagnosticMode) && targetOrdinal < targets.size
                     stopButton.isEnabled = false
                 }
                 CaptureState.CAPTURING -> {
@@ -1184,6 +1219,7 @@ class PerceptionVNextLiveRecognitionActivity : AppCompatActivity() {
     companion object {
         const val EXTRA_ENABLED = "perception_vnext_enabled"
         const val EXTRA_PHONE_CAUSAL_ENABLED = "phone_causal_enabled"
+        const val EXTRA_TRANSITION_DIAGNOSTICS = "continuous_transition_diagnostics"
         const val EXTRA_PHONE_REARM_POLICY = "phone_rearm_policy"
         const val EXTRA_RESTED_ADMISSION_EVIDENCE_COHORT = "rested_admission_evidence_cohort"
         const val EXTRA_S2_EXACT_PARITY_CAPTURE = "s2_exact_parity_capture"

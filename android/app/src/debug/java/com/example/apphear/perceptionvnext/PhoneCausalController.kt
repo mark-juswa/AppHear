@@ -1,6 +1,7 @@
 package com.example.apphear.perceptionvnext
 
 import android.content.Context
+import android.os.SystemClock
 import org.json.JSONArray
 import org.json.JSONObject
 import java.io.BufferedWriter
@@ -46,6 +47,12 @@ internal class PhoneCausalController(
     private var previousTimestampMs: Double? = null
     private var activeAttemptId: Int? = null
     private var activeAttemptGloss: String? = null
+    private var diagnosticCandidateStartIndex: Int? = null
+    private var diagnosticCandidateStartMs: Double? = null
+    private var diagnosticLastActiveMs: Double? = null
+    private var diagnosticLastCommittedEventId: Int? = null
+    private val deliveryLog = BufferedWriter(FileWriter(File(sessionRoot, "ui_delivery.jsonl"), true))
+    private var deliveryLogClosed = false
 
     init {
         require(sessionRoot.exists() || sessionRoot.mkdirs())
@@ -71,11 +78,25 @@ internal class PhoneCausalController(
             expectedGloss = activeAttemptGloss ?: expectedGloss,
         )
         val update = eventProducer.consume(observation.timestampMs, state.argmaxState)
+        val decisionElapsedNs = SystemClock.elapsedRealtimeNanos()
+        if (update.action == "START_ACTIVE_CANDIDATE") {
+            diagnosticCandidateStartIndex = observation.sourceIndex
+            diagnosticCandidateStartMs = observation.timestampMs
+            diagnosticLastActiveMs = observation.timestampMs
+        } else if (update.stateAfter == PhoneDecoderState.ACTIVE_CANDIDATE && state.argmaxState == 1) {
+            diagnosticLastActiveMs = observation.timestampMs
+        }
+        if (update.event != null) diagnosticLastCommittedEventId = update.event.eventId
         observationCount++
         val observationJson = JSONObject()
             .put("schema", "apphear.phone_causal_recognition.observation.v1")
             .put("source_index", observation.sourceIndex)
             .put("source_timestamp_ms", observation.timestampMs)
+            .put("decision_elapsed_realtime_ns", decisionElapsedNs)
+            .put("raw_schema", RecognitionV2.RAW_SCHEMA)
+            .put("feature_schema", PhoneSegmentationFeatureBuilder.SCHEMA)
+            .put("exact_record_index", if (exactParityRecorder != null) observation.sourceIndex else JSONObject.NULL)
+            .put("source_frame_identity", "frame_${(observation.sourceIndex + 1).toString().padStart(6, '0')}")
             .put("dt_ms", previousTimestampMs?.let { observation.timestampMs - it } ?: JSONObject.NULL)
             .put("left_observed", observation.handObserved[0])
             .put("right_observed", observation.handObserved[1])
@@ -109,6 +130,20 @@ internal class PhoneCausalController(
             .put("event_state_before", update.stateBefore.name)
             .put("event_state_after", update.stateAfter.name)
             .put("event_action", update.action)
+            .put("candidate_open_index", diagnosticCandidateStartIndex ?: JSONObject.NULL)
+            .put("candidate_open_ms", diagnosticCandidateStartMs ?: JSONObject.NULL)
+            .put("candidate_active_span_ms", diagnosticCandidateStartMs?.let { start ->
+                diagnosticLastActiveMs?.minus(start)
+            } ?: JSONObject.NULL)
+            .put("active_event_id", (if (update.stateAfter == PhoneDecoderState.EVENT_EMITTED_WAIT_REARM) {
+                diagnosticLastCommittedEventId
+            } else null) ?: JSONObject.NULL)
+            .put("pending_event_ordinal", if (diagnosticCandidateStartIndex != null && update.event == null &&
+                update.stateAfter != PhoneDecoderState.IDLE) eventCount + 1 else JSONObject.NULL)
+            .put("event_completed", update.event != null)
+            .put("wait_rearm_entered", update.stateBefore != PhoneDecoderState.EVENT_EMITTED_WAIT_REARM &&
+                update.stateAfter == PhoneDecoderState.EVENT_EMITTED_WAIT_REARM)
+            .put("event_decision_elapsed_realtime_ns", if (update.event != null) decisionElapsedNs else JSONObject.NULL)
             .put("rearm_policy", update.rearmPolicy.name)
             .put("rearm_candidate_state", update.rearmCandidateState ?: JSONObject.NULL)
             .put("rearm_timer_start_ms", update.rearmTimerStartMs ?: JSONObject.NULL)
@@ -130,6 +165,11 @@ internal class PhoneCausalController(
             .put("s2_ms", state.invocationMs)
             .put("s2_history_length", state.historyLength)
         appendJson(observationLog, observationJson)
+        if (update.stateAfter == PhoneDecoderState.IDLE || update.event != null) {
+            diagnosticCandidateStartIndex = null
+            diagnosticCandidateStartMs = null
+            diagnosticLastActiveMs = null
+        }
         previousTimestampMs = observation.timestampMs
         return update.event?.let { recognizeEvent(it) }
     }
@@ -145,6 +185,24 @@ internal class PhoneCausalController(
 
     fun finalizeDiagnostics() {
         exactParityRecorder?.close()
+        observationLog.flush()
+        eventLog.flush()
+        attemptLog.flush()
+        synchronized(deliveryLog) { if (!deliveryLogClosed) deliveryLog.flush() }
+        File(sessionRoot, SUMMARY_FILE).writeText(snapshotJson().toString(2))
+    }
+
+    /** Debug display delivery, not a claim about normal RecognitionActivity sentence commits. */
+    fun recordUiDelivery(eventId: Int, deliveredAtNs: Long) {
+        synchronized(deliveryLog) {
+            // Teardown may race an already-posted UI callback. Missing delivery is visible in audit.
+            if (deliveryLogClosed) return
+            appendJson(deliveryLog, JSONObject()
+                .put("event_id", eventId)
+                .put("ui_delivery_elapsed_realtime_ns", deliveredAtNs)
+                .put("ui_owner", "PerceptionVNextLiveRecognitionActivity")
+                .put("normal_app_sentence_commit", false))
+        }
     }
 
     fun beginAttempt(attemptId: Int, gloss: String, markedAtNs: Long) {
@@ -187,7 +245,9 @@ internal class PhoneCausalController(
         val recognitionV2Started = System.nanoTime()
         val view = RecognitionV2.temporalView(raw, RecognitionV2.TemporalCondition.DENSE)
         val recognitionV2Ms = (System.nanoTime() - recognitionV2Started) / 1_000_000.0
+        val recognitionStartNs = SystemClock.elapsedRealtimeNanos()
         val prediction = recognizer.invoke(view, RecognitionV2.FEATURE_SCHEMA)
+        val recognitionCompleteNs = SystemClock.elapsedRealtimeNanos()
         val top1 = prediction.top5.first()
         val top5 = prediction.top5.map { recognizer.glosses[it] to prediction.probabilities[it] }
         val eventExpectedGloss = activeAttemptGloss ?: expectedGloss
@@ -212,6 +272,10 @@ internal class PhoneCausalController(
             .put("terminal_post_ms", event.terminalPostMs)
             .put("commit_index", event.commitIndex)
             .put("commit_ms", event.commitMs)
+            .put("recognizer_start_elapsed_realtime_ns", recognitionStartNs)
+            .put("recognizer_complete_elapsed_realtime_ns", recognitionCompleteNs)
+            .put("materialized_source_indices", JSONArray(window.observations.map { it.sourceIndex }))
+            .put("recognition_v2_source_indices", JSONArray(view.sourceIndices.map { window.observations[it].sourceIndex }))
             .put("materialized_start_index", window.selectedStartIndex)
             .put("materialized_end_index", window.selectedEndIndex)
             .put("materialized_observation_count", window.observations.size)
@@ -316,6 +380,10 @@ internal class PhoneCausalController(
         observationLog.close()
         eventLog.close()
         attemptLog.close()
+        synchronized(deliveryLog) {
+            deliveryLogClosed = true
+            deliveryLog.close()
+        }
         s2.close()
     }
 
