@@ -1,5 +1,25 @@
 # Android Design System and Resource Migration
 
+## 2026-09-28 Established account UI restoration
+
+Inspected actual reference screenshots/XML before implementation. Reuse existing Profile card,
+avatar, fields and buttons. Added profile_auth_panel.xml derived from reference activity_profile.xml
+Login/Register panel and dark mascot header, adapted to a scroll container for keyboard/small screens.
+Reference auth drawables copied under profile_auth_{header_dark,panel_large,segment,segment_active};
+two_maskot.png copied as profile_auth_mascot.png (286112 bytes). Reference remains read-only.
+Existing Inter and input/button resources reused; all new copy uses profile_account_strings.xml.
+User card stays above preferences. Cancel/Continue as guest are 48 dp targets. Password fields disable
+view-state saving. Auth panel hides the underlying profile scroll for accessibility while open.
+No separate editor destination, old runtime toggle, navigation rewrite or recognition asset import.
+
+## 2026-09-28 Character choice row
+
+`row_setting_asl_character.xml` reuses the existing Settings row and value-pill backgrounds,
+Inter fonts, semantic text colors and spacing/touch tokens. Its vertical layout lets the
+coverage explanation and selected value wrap on small screens/large fonts. The whole row
+is focusable with a selected-value content description and opens a single-choice AppCompat
+dialog. It is hidden without the character-selection flag; no app-wide theme/navigation change.
+
 Last updated: 2026-07-21  
 Status: Phase 4 shared component resources complete; no fonts or raster assets imported
 

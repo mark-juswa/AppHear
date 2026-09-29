@@ -1,5 +1,14 @@
 # Android Screen and Feature Mapping
 
+## 2026-09-28 Profile/Auth mapping update (supersedes historical deferred entries)
+
+User approved restoring the established account flow after reference inspection. ProfileFragment
+owns the original card and preferences order; ProfileAccountContent owns the inline editor and
+reference Login/Register overlay, without a new destination or Edit→Settings redirect. AccountRepository
+owns Auth metadata/session IO; EncryptedAccountSessionStore owns remembered credentials. Debug-only
+profileAccounts pilot implemented/installed, offline and synthetic physical gates pass; live account,
+avatar policy and manual UI acceptance pending backend reactivation. Default/release remain guest.
+
 Last updated: 2026-07-21  
 Status: Home/dashboard, Recognition, and Text-to-ASL UI reference corrections BUILD GREEN; remaining screenshot UI corrections pending
 

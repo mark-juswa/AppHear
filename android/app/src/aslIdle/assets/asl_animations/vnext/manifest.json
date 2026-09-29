@@ -1,0 +1,396 @@
+{
+  "schemaVersion": 2,
+  "clips": [
+    {
+      "id": "a",
+      "sourceId": "A",
+      "asset": "asl_animations/vnext/shared-words-idle.glb",
+      "fallbackAsset": "asl_animations/anim_a.glb",
+      "animationName": "SIGN_LETTER_A_FEMALEASL",
+      "durationMs": 1334,
+      "sha256": "766bf2fba9578e1863cc81ee697a034cb8e71451cb6ca6d75b120a4e749a66dd",
+      "profile": "balanced-ktx2mixed-meshopt-shared-idle-v1",
+      "rigProfile": "FemaleASL-full-rig-341-875-342"
+    },
+    {
+      "id": "b",
+      "sourceId": "B",
+      "asset": "asl_animations/vnext/shared-words-idle.glb",
+      "fallbackAsset": "asl_animations/anim_b.glb",
+      "animationName": "SIGN_LETTER_B_FEMALEASL",
+      "durationMs": 1367,
+      "sha256": "766bf2fba9578e1863cc81ee697a034cb8e71451cb6ca6d75b120a4e749a66dd",
+      "profile": "balanced-ktx2mixed-meshopt-shared-idle-v1",
+      "rigProfile": "FemaleASL-full-rig-341-875-342"
+    },
+    {
+      "id": "all",
+      "sourceId": "ALL",
+      "asset": "asl_animations/vnext/shared-words-idle.glb",
+      "fallbackAsset": "asl_animations/all.glb",
+      "animationName": "SIGN_ALL_FEMALEASL",
+      "durationMs": 2367,
+      "sha256": "766bf2fba9578e1863cc81ee697a034cb8e71451cb6ca6d75b120a4e749a66dd",
+      "profile": "balanced-ktx2mixed-meshopt-shared-idle-v1",
+      "rigProfile": "FemaleASL-full-rig-341-875-342"
+    },
+    {
+      "id": "brother",
+      "sourceId": "BROTHER",
+      "asset": "asl_animations/vnext/shared-words-idle.glb",
+      "fallbackAsset": "asl_animations/brother.glb",
+      "animationName": "SIGN_BROTHER_FEMALEASL",
+      "durationMs": 1767,
+      "sha256": "766bf2fba9578e1863cc81ee697a034cb8e71451cb6ca6d75b120a4e749a66dd",
+      "profile": "balanced-ktx2mixed-meshopt-shared-idle-v1",
+      "rigProfile": "FemaleASL-full-rig-341-875-342"
+    },
+    {
+      "id": "child",
+      "sourceId": "CHILD",
+      "asset": "asl_animations/vnext/shared-words-idle.glb",
+      "fallbackAsset": "asl_animations/child.glb",
+      "animationName": "SIGN_CHILD_FEMALEASL",
+      "durationMs": 2067,
+      "sha256": "766bf2fba9578e1863cc81ee697a034cb8e71451cb6ca6d75b120a4e749a66dd",
+      "profile": "balanced-ktx2mixed-meshopt-shared-idle-v1",
+      "rigProfile": "FemaleASL-full-rig-341-875-342"
+    },
+    {
+      "id": "city",
+      "sourceId": "CITY",
+      "asset": "asl_animations/vnext/shared-words-idle.glb",
+      "fallbackAsset": "asl_animations/city.glb",
+      "animationName": "SIGN_CITY_FEMALEASL",
+      "durationMs": 2567,
+      "sha256": "766bf2fba9578e1863cc81ee697a034cb8e71451cb6ca6d75b120a4e749a66dd",
+      "profile": "balanced-ktx2mixed-meshopt-shared-idle-v1",
+      "rigProfile": "FemaleASL-full-rig-341-875-342"
+    },
+    {
+      "id": "family",
+      "sourceId": "FAMILY",
+      "asset": "asl_animations/vnext/shared-words-idle.glb",
+      "fallbackAsset": "asl_animations/family.glb",
+      "animationName": "SIGN_FAMILY_FEMALEASL",
+      "durationMs": 2567,
+      "sha256": "766bf2fba9578e1863cc81ee697a034cb8e71451cb6ca6d75b120a4e749a66dd",
+      "profile": "balanced-ktx2mixed-meshopt-shared-idle-v1",
+      "rigProfile": "FemaleASL-full-rig-341-875-342"
+    }
+  ],
+  "newClips": [
+    {
+      "id": "afternoon",
+      "sourceId": "AFTERNOON",
+      "displayText": "Afternoon",
+      "aliases": [
+        "afternoon"
+      ],
+      "type": "word",
+      "asset": "asl_animations/vnext/shared-words-idle.glb",
+      "animationName": "SIGN_AFTERNOON_FEMALEASL",
+      "durationMs": 2367,
+      "profile": "balanced-ktx2mixed-meshopt-shared-idle-v1",
+      "rigProfile": "FemaleASL-full-rig-341-875-342",
+      "sha256": "766bf2fba9578e1863cc81ee697a034cb8e71451cb6ca6d75b120a4e749a66dd"
+    },
+    {
+      "id": "any",
+      "sourceId": "ANY",
+      "displayText": "Any",
+      "aliases": [
+        "any"
+      ],
+      "type": "word",
+      "asset": "asl_animations/vnext/shared-words-idle.glb",
+      "animationName": "SIGN_ANY_FEMALEASL",
+      "durationMs": 2934,
+      "profile": "balanced-ktx2mixed-meshopt-shared-idle-v1",
+      "rigProfile": "FemaleASL-full-rig-341-875-342",
+      "sha256": "766bf2fba9578e1863cc81ee697a034cb8e71451cb6ca6d75b120a4e749a66dd"
+    },
+    {
+      "id": "ask",
+      "sourceId": "ASK",
+      "displayText": "Ask",
+      "aliases": [
+        "ask"
+      ],
+      "type": "word",
+      "asset": "asl_animations/vnext/shared-words-idle.glb",
+      "animationName": "SIGN_ASK_FEMALEASL",
+      "durationMs": 2600,
+      "profile": "balanced-ktx2mixed-meshopt-shared-idle-v1",
+      "rigProfile": "FemaleASL-full-rig-341-875-342",
+      "sha256": "766bf2fba9578e1863cc81ee697a034cb8e71451cb6ca6d75b120a4e749a66dd"
+    },
+    {
+      "id": "baby",
+      "sourceId": "BABY",
+      "displayText": "Baby",
+      "aliases": [
+        "baby"
+      ],
+      "type": "word",
+      "asset": "asl_animations/vnext/shared-words-idle.glb",
+      "animationName": "SIGN_BABY_FEMALEASL",
+      "durationMs": 3334,
+      "profile": "balanced-ktx2mixed-meshopt-shared-idle-v1",
+      "rigProfile": "FemaleASL-full-rig-341-875-342",
+      "sha256": "766bf2fba9578e1863cc81ee697a034cb8e71451cb6ca6d75b120a4e749a66dd"
+    },
+    {
+      "id": "bag",
+      "sourceId": "BAG",
+      "displayText": "Bag",
+      "aliases": [
+        "bag"
+      ],
+      "type": "word",
+      "asset": "asl_animations/vnext/shared-words-idle.glb",
+      "animationName": "SIGN_BAG_FEMALEASL",
+      "durationMs": 2434,
+      "profile": "balanced-ktx2mixed-meshopt-shared-idle-v1",
+      "rigProfile": "FemaleASL-full-rig-341-875-342",
+      "sha256": "766bf2fba9578e1863cc81ee697a034cb8e71451cb6ca6d75b120a4e749a66dd"
+    },
+    {
+      "id": "be",
+      "sourceId": "BE",
+      "displayText": "Be",
+      "aliases": [
+        "be"
+      ],
+      "type": "word",
+      "asset": "asl_animations/vnext/shared-words-idle.glb",
+      "animationName": "SIGN_BE_FEMALEASL",
+      "durationMs": 2067,
+      "profile": "balanced-ktx2mixed-meshopt-shared-idle-v1",
+      "rigProfile": "FemaleASL-full-rig-341-875-342",
+      "sha256": "766bf2fba9578e1863cc81ee697a034cb8e71451cb6ca6d75b120a4e749a66dd"
+    },
+    {
+      "id": "beautiful",
+      "sourceId": "BEAUTIFUL",
+      "displayText": "Beautiful",
+      "aliases": [
+        "beautiful"
+      ],
+      "type": "word",
+      "asset": "asl_animations/vnext/shared-words-idle.glb",
+      "animationName": "SIGN_BEAUTIFUL_FEMALEASL",
+      "durationMs": 2600,
+      "profile": "balanced-ktx2mixed-meshopt-shared-idle-v1",
+      "rigProfile": "FemaleASL-full-rig-341-875-342",
+      "sha256": "766bf2fba9578e1863cc81ee697a034cb8e71451cb6ca6d75b120a4e749a66dd"
+    },
+    {
+      "id": "become",
+      "sourceId": "BECOME",
+      "displayText": "Become",
+      "aliases": [
+        "become"
+      ],
+      "type": "word",
+      "asset": "asl_animations/vnext/shared-words-idle.glb",
+      "animationName": "SIGN_BECOME_FEMALEASL",
+      "durationMs": 2600,
+      "profile": "balanced-ktx2mixed-meshopt-shared-idle-v1",
+      "rigProfile": "FemaleASL-full-rig-341-875-342",
+      "sha256": "766bf2fba9578e1863cc81ee697a034cb8e71451cb6ca6d75b120a4e749a66dd"
+    },
+    {
+      "id": "begin",
+      "sourceId": "BEGIN",
+      "displayText": "Begin",
+      "aliases": [
+        "begin"
+      ],
+      "type": "word",
+      "asset": "asl_animations/vnext/shared-words-idle.glb",
+      "animationName": "SIGN_BEGIN_FEMALEASL",
+      "durationMs": 2201,
+      "profile": "balanced-ktx2mixed-meshopt-shared-idle-v1",
+      "rigProfile": "FemaleASL-full-rig-341-875-342",
+      "sha256": "766bf2fba9578e1863cc81ee697a034cb8e71451cb6ca6d75b120a4e749a66dd"
+    },
+    {
+      "id": "big_horizontally",
+      "sourceId": "BIG_AS_IN_LARGE_OR_BIG_HORIZONTALLY",
+      "displayText": "Big Horizontally",
+      "aliases": [
+        "big horizontally"
+      ],
+      "type": "word",
+      "asset": "asl_animations/vnext/shared-words-idle.glb",
+      "animationName": "SIGN_BIG_AS_IN_LARGE_OR_BIG_HORIZONTALLY_FEMALEASL",
+      "durationMs": 2234,
+      "profile": "balanced-ktx2mixed-meshopt-shared-idle-v1",
+      "rigProfile": "FemaleASL-full-rig-341-875-342",
+      "sha256": "766bf2fba9578e1863cc81ee697a034cb8e71451cb6ca6d75b120a4e749a66dd"
+    },
+    {
+      "id": "boss",
+      "sourceId": "BOSS",
+      "displayText": "Boss",
+      "aliases": [
+        "boss"
+      ],
+      "type": "word",
+      "asset": "asl_animations/vnext/shared-words-idle.glb",
+      "animationName": "SIGN_BOSS_FEMALEASL",
+      "durationMs": 2134,
+      "profile": "balanced-ktx2mixed-meshopt-shared-idle-v1",
+      "rigProfile": "FemaleASL-full-rig-341-875-342",
+      "sha256": "766bf2fba9578e1863cc81ee697a034cb8e71451cb6ca6d75b120a4e749a66dd"
+    },
+    {
+      "id": "busy",
+      "sourceId": "BUSY",
+      "displayText": "Busy",
+      "aliases": [
+        "busy"
+      ],
+      "type": "word",
+      "asset": "asl_animations/vnext/shared-words-idle.glb",
+      "animationName": "SIGN_BUSY_FEMALEASL",
+      "durationMs": 2367,
+      "profile": "balanced-ktx2mixed-meshopt-shared-idle-v1",
+      "rigProfile": "FemaleASL-full-rig-341-875-342",
+      "sha256": "766bf2fba9578e1863cc81ee697a034cb8e71451cb6ca6d75b120a4e749a66dd"
+    },
+    {
+      "id": "bye",
+      "sourceId": "BYE",
+      "displayText": "Bye",
+      "aliases": [
+        "bye"
+      ],
+      "type": "word",
+      "asset": "asl_animations/vnext/shared-words-idle.glb",
+      "animationName": "SIGN_BYE_FEMALEASL",
+      "durationMs": 2401,
+      "profile": "balanced-ktx2mixed-meshopt-shared-idle-v1",
+      "rigProfile": "FemaleASL-full-rig-341-875-342",
+      "sha256": "766bf2fba9578e1863cc81ee697a034cb8e71451cb6ca6d75b120a4e749a66dd"
+    },
+    {
+      "id": "call_by_phone",
+      "sourceId": "CALL_CALL_BY_PHONE",
+      "displayText": "Call by Phone",
+      "aliases": [
+        "call by phone"
+      ],
+      "type": "word",
+      "asset": "asl_animations/vnext/shared-words-idle.glb",
+      "animationName": "SIGN_CALL_CALL_BY_PHONE_FEMALEASL",
+      "durationMs": 2401,
+      "profile": "balanced-ktx2mixed-meshopt-shared-idle-v1",
+      "rigProfile": "FemaleASL-full-rig-341-875-342",
+      "sha256": "766bf2fba9578e1863cc81ee697a034cb8e71451cb6ca6d75b120a4e749a66dd"
+    },
+    {
+      "id": "call_someones_name",
+      "sourceId": "CALL_TO_CALL_SOMEONE_S_NAME",
+      "displayText": "Call Someone's Name",
+      "aliases": [
+        "call someones name"
+      ],
+      "type": "word",
+      "asset": "asl_animations/vnext/shared-words-idle.glb",
+      "animationName": "SIGN_CALL_TO_CALL_SOMEONE_S_NAME_FEMALEASL",
+      "durationMs": 2300,
+      "profile": "balanced-ktx2mixed-meshopt-shared-idle-v1",
+      "rigProfile": "FemaleASL-full-rig-341-875-342",
+      "sha256": "766bf2fba9578e1863cc81ee697a034cb8e71451cb6ca6d75b120a4e749a66dd"
+    },
+    {
+      "id": "car",
+      "sourceId": "CAR",
+      "displayText": "Car",
+      "aliases": [
+        "car"
+      ],
+      "type": "word",
+      "asset": "asl_animations/vnext/shared-words-idle.glb",
+      "animationName": "SIGN_CAR_FEMALEASL",
+      "durationMs": 2300,
+      "profile": "balanced-ktx2mixed-meshopt-shared-idle-v1",
+      "rigProfile": "FemaleASL-full-rig-341-875-342",
+      "sha256": "766bf2fba9578e1863cc81ee697a034cb8e71451cb6ca6d75b120a4e749a66dd"
+    },
+    {
+      "id": "cold",
+      "sourceId": "COLD",
+      "displayText": "Cold",
+      "aliases": [
+        "cold"
+      ],
+      "type": "word",
+      "asset": "asl_animations/vnext/shared-words-idle.glb",
+      "animationName": "SIGN_COLD_FEMALEASL",
+      "durationMs": 2000,
+      "profile": "balanced-ktx2mixed-meshopt-shared-idle-v1",
+      "rigProfile": "FemaleASL-full-rig-341-875-342",
+      "sha256": "766bf2fba9578e1863cc81ee697a034cb8e71451cb6ca6d75b120a4e749a66dd"
+    },
+    {
+      "id": "come",
+      "sourceId": "COME",
+      "displayText": "Come",
+      "aliases": [
+        "come"
+      ],
+      "type": "word",
+      "asset": "asl_animations/vnext/shared-words-idle.glb",
+      "animationName": "SIGN_COME_FEMALEASL",
+      "durationMs": 2334,
+      "profile": "balanced-ktx2mixed-meshopt-shared-idle-v1",
+      "rigProfile": "FemaleASL-full-rig-341-875-342",
+      "sha256": "766bf2fba9578e1863cc81ee697a034cb8e71451cb6ca6d75b120a4e749a66dd"
+    },
+    {
+      "id": "fast",
+      "sourceId": "FAST",
+      "displayText": "Fast",
+      "aliases": [
+        "fast"
+      ],
+      "type": "word",
+      "asset": "asl_animations/vnext/shared-words-idle.glb",
+      "animationName": "SIGN_FAST_FEMALEASL",
+      "durationMs": 1701,
+      "profile": "balanced-ktx2mixed-meshopt-shared-idle-v1",
+      "rigProfile": "FemaleASL-full-rig-341-875-342",
+      "sha256": "766bf2fba9578e1863cc81ee697a034cb8e71451cb6ca6d75b120a4e749a66dd"
+    },
+    {
+      "id": "pay_me",
+      "sourceId": "PAY_TO_PAY_ME",
+      "displayText": "Pay Me",
+      "aliases": [
+        "pay me"
+      ],
+      "type": "word",
+      "asset": "asl_animations/vnext/shared-words-idle.glb",
+      "animationName": "SIGN_PAY_TO_PAY_ME_FEMALEASL",
+      "durationMs": 2734,
+      "profile": "balanced-ktx2mixed-meshopt-shared-idle-v1",
+      "rigProfile": "FemaleASL-full-rig-341-875-342",
+      "sha256": "766bf2fba9578e1863cc81ee697a034cb8e71451cb6ca6d75b120a4e749a66dd"
+    }
+  ],
+  "idle": {
+    "id": "idle",
+    "sourceId": "IDLE",
+    "type": "pose",
+    "asset": "asl_animations/vnext/shared-words-idle.glb",
+    "profile": "balanced-ktx2mixed-meshopt-shared-idle-v1",
+    "sha256": "766bf2fba9578e1863cc81ee697a034cb8e71451cb6ca6d75b120a4e749a66dd",
+    "rigProfile": "FemaleASL-full-rig-341-875-342",
+    "animationName": "IDLE_NEUTRAL_FEMALEASL",
+    "durationMs": 6000,
+    "fallbackAsset": "asl_animations/asl_idle.glb"
+  }
+}

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="asl_character_title">Text-to-ASL character</string>
+    <string name="asl_character_original">Original character</string>
+    <string name="asl_character_new">New character</string>
+    <string name="asl_character_coverage">New character covers 27 signs and adds 20 word phrases. Other signs use their existing character. Original keeps the original vocabulary. Applies when you reopen Text-to-ASL.</string>
+    <string name="asl_character_accessibility">Text-to-ASL character, %1$s. Tap to change.</string>
+    <string name="asl_character_loading">Loading selected character…</string>
+</resources>

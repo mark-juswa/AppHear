@@ -27,7 +27,7 @@
   <string name="text_to_asl_title">Text to ASL</string>
   <string name="text_to_asl_placeholder">Avatar playback is enabled for a verified starter ASL animation set. Speech input is still planned.</string>
   <string name="profile_title">Profile</string>
-  <string name="profile_placeholder">Guest profile and supported settings will be rebuilt here. Supabase auth remains deferred.</string>
+  <string name="profile_placeholder">Your profile and preferences.</string>
   <string name="settings_title">Settings</string>
   <string name="settings_placeholder">Only AppHear3-supported settings will be exposed here. Old AppHear2 runtime switches are excluded.</string>
   <string name="component_status_ready">Ready</string>
@@ -61,7 +61,7 @@
   <string name="profile_guest_meta">Guest mode</string>
   <string name="profile_guest_initial">A</string>
   <string name="profile_status_title">Local profile</string>
-  <string name="profile_status_body">Profile editing and sign-in are deferred until the AppHear3 account/data contract is documented.</string>
+  <string name="profile_status_body">Sign in to edit and save your profile. Guest mode stays available.</string>
   <string name="profile_open_settings">Review settings</string>
   <string name="profile_preferences_line_1">Preference</string>
   <string name="profile_preferences_line_2">Your Setting</string>
@@ -77,8 +77,8 @@
   <string name="profile_camera_body">Front/back camera selection remains owned by the recognition screen lifecycle.</string>
   <string name="profile_camera_value">Runtime</string>
   <string name="profile_auth_title">Account sync</string>
-  <string name="profile_auth_body">Supabase/Auth behavior from AppHear2 is not migrated in this phase.</string>
-  <string name="profile_auth_value">Deferred</string>
+  <string name="profile_auth_body">Sign in from Profile to save your account details.</string>
+  <string name="profile_auth_value">Account</string>
   <string name="profile_version_note">AppHear 2026</string>
   <string name="settings_intro">Only AppHear3-supported settings are exposed here. AppHear2 experimental runtime toggles are intentionally excluded.</string>
   <string name="settings_group_runtime">Runtime ownership</string>

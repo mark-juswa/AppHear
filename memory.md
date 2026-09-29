@@ -790,3 +790,7 @@ Last updated: 2026-09-28 +08:00
   at predictions, then run the evaluator and return evidence to Project Lead.
 - Stop before any behavioral fix, shorter recovery, Admission tuning or model training.
   The hands-up responsiveness mechanism is still unproven.
+
+## 2026-09-29 — Git baseline handoff
+
+The user requested preservation, not another functionality change. The known-working Text-to-ASL alphabet pilot source was uncommitted on `dev/continuous-transition-diagnostics` at `f5a6cb4`. The separate context-aware assistant worktree/branch `feature/conversation-phrase-assist-mvp` at `24f0684` is clean and was not merged. The isolated preservation branch is `codex/current-working-text-to-asl-baseline-2026-09-29`; its scope and exact APK/asset hashes are in `context/current-working-baseline-2026-09-29.md`. Keep the assistant worktree separate and review overlapping Gradle/Text-to-ASL files before future integration. The tested APKs remain checksum-verified on I:; experimental source files are versioned while service configuration stays ignored. This is a stable Text-to-ASL pilot baseline, not promotion of recognition or release flags. Next development starts from its tag on a fresh branch/worktree after baseline push verification.

@@ -5008,3 +5008,9 @@ all perception experiments remain immutable historical evidence.
   no device during this tooling gate; no fresh connected parity or root-cause claim.
 - [ ] Return captured transition evidence to Project Lead before any readiness, Admission,
   S2/recognizer or window behavior change. No automatic next development phase.
+
+### 2026-09-29 — Current working Text-to-ASL baseline preservation
+
+- [x] Audited Git parent `f5a6cb4`, the uncommitted working Text-to-ASL/Profile pilot, the saved tested APK hashes, and the separate clean context-aware assistant worktree at `24f0684`.
+- [x] Isolated the tested app source/assets/tests and focused documentation on `codex/current-working-text-to-asl-baseline-2026-09-29`; see `context/current-working-baseline-2026-09-29.md` for exact scope, rollback and limits. The context-aware assistant branch is excluded.
+- [ ] Controlled first-load/frame/memory/low-RAM/thermal and broad F22 gates remain pending. Keep all Text-to-ASL pilot and account flags default/release OFF until separately validated.

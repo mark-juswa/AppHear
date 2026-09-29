@@ -95,3 +95,8 @@ provide it? Approved core set:
 - Android: `mediapipe-tasks-vision`, TFLite runtime, CameraX, Kotlin coroutines.
 
 Adding anything else requires updating this list first and a one-line justification.
+
+Offline Text-to-ASL asset pilot only (2026-09-28): `@gltf-transform/core`,
+`@gltf-transform/extensions`, `@gltf-transform/functions`, `sharp`, `meshoptimizer`, and
+`gltf-validator` are permitted in a separate generated tools package to create validated
+optimized GLB derivatives locally. They are not app or recognition-pipeline dependencies.

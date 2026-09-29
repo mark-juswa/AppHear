@@ -1,5 +1,20 @@
 # Android UI and Navigation Architecture
 
+## 2026-09-28 Text-to-ASL character setting
+
+The experimental Settings Character row is a local presentation preference owned by
+`data/settings/AslCharacterSettings`, independent of recognition settings. It exposes Original
+and New only in the expanded selector pilot; default/release hide it. On reopening Text-to-ASL,
+the fragment resolves the chosen catalog on IO, discards a prior character's queue, retains
+typed input and owns at most one player/WebView. New currently covers 27 signs and adds 20 word
+entries; other signs use the originals. See docs/text-to-asl-character-settings-plan-2026-09-28.md.
+Latest user correction restores the user card above Preference/Your Setting; the character choice
+is the first preference and remains directly accessible. `SettingsContent` serves both screens.
+The approved default-off account pilot restores the reference Login/Register panel and inline
+full-name/username editor (email read-only). Edit never routes to Settings. Guest retains the card
+and preferences. Backend/secure-session logic lives in data/profile, never in the recognition UI.
+See docs/profile-local-edit-plan-2026-09-28.md and feature-schema.md account contract.
+
 Last updated: 2026-07-21  
 Status: MainActivity is homepage/shell; RecognitionActivity owns recognition runtime; temporary AppShellActivity cleanup pending
 

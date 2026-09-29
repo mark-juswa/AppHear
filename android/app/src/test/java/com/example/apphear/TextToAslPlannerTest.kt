@@ -79,21 +79,59 @@ class TextToAslPlannerTest {
     }
 
     @Test
-    fun plannerReportsUnsupportedLettersWithoutPretendingPlaybackExists() {
-        val plan = planner.plan("az")
+    fun plannerDoesNotPlayPartOfAnUnsupportedWord() {
+        val plan = AslPhrasePlanner(catalog, completeWordFallback = true).plan("az")
 
-        assertEquals(listOf("a"), plan.queue.map { it.id })
-        assertEquals(listOf("z"), plan.unsupportedTokens)
-        assertTrue(plan.isPlayable)
+        assertTrue(plan.queue.isEmpty())
+        assertEquals(listOf("az"), plan.unsupportedTokens)
+        assertFalse(plan.isPlayable)
+        val mixed = AslPhrasePlanner(catalog, completeWordFallback = true).plan("hello cat")
+        assertEquals(listOf("hello"), mixed.queue.map { it.id })
+        assertEquals(listOf("cat"), mixed.unsupportedTokens)
     }
 
     @Test
     fun plannerReportsNoPlayableAssetsForUnsupportedInput() {
-        val plan = planner.plan("zzz")
+        val plan = AslPhrasePlanner(catalog, completeWordFallback = true).plan("zzz")
 
         assertTrue(plan.queue.isEmpty())
-        assertEquals(listOf("z", "z", "z"), plan.unsupportedTokens)
+        assertEquals(listOf("zzz"), plan.unsupportedTokens)
         assertFalse(plan.isPlayable)
+    }
+
+    @Test
+    fun separateLetterLookupSpellsUnknownWordWithoutHijackingPronounI() {
+        val pronoun = asset("i_me", "I / Me", "asl_animations/i-me.glb",
+            AslAnimationAsset.Type.WORD, listOf("i", "me"))
+        val letters = "cit".associateWith { letter ->
+            asset("letter_$letter", letter.uppercase(), "asl_animations/letter_$letter.glb",
+                AslAnimationAsset.Type.LETTER, emptyList())
+        }
+        val full = AslPhrasePlanner(AslAnimationCatalog.fromAssets(
+            listOf(hello, pronoun, letterA, letterB), letters,
+        ), completeWordFallback = true)
+
+        assertEquals(listOf("letter_c", "a", "letter_t"), full.plan("cat").queue.map { it.id })
+        assertEquals(listOf("i_me"), full.plan("I").queue.map { it.id })
+        assertEquals(listOf("letter_c", "letter_i", "letter_t"), full.plan("cit").queue.map { it.id })
+        assertEquals(listOf("hello", "letter_c", "a", "letter_t"),
+            full.plan("hello cat").queue.map { it.id })
+        assertTrue(full.plan("hello cat").unsupportedTokens.isEmpty())
+    }
+
+    @Test
+    fun completeAlphabetSpellsEveryLetterInOrder() {
+        val letters = ('c'..'z').associateWith { letter ->
+            asset("letter_$letter", letter.uppercase(), "asl_animations/letter_$letter.glb",
+                AslAnimationAsset.Type.LETTER, emptyList())
+        }
+        val full = AslPhrasePlanner(AslAnimationCatalog.fromAssets(
+            listOf(hello, letterA, letterB), letters,
+        ), completeWordFallback = true)
+
+        val plan = full.plan("abcdefghijklmnopqrstuvwxyz")
+        assertEquals(listOf("a", "b") + ('c'..'z').map { "letter_$it" }, plan.queue.map { it.id })
+        assertTrue(plan.unsupportedTokens.isEmpty())
     }
 
     @Test

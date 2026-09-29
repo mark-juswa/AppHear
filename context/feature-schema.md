@@ -240,6 +240,9 @@ stage/version it targets — so new components match existing ones instead of dr
 
 | Component | Path | Purpose | I/O | Targets |
 |-----------|------|---------|-----|---------|
+| Text-to-ASL neutral idle derivative / guard | `tools/text_to_asl_assets/new-idle.mjs`; `ui/texttoasl/AslIdlePilotContract.kt` | Adds a full neutral reset and gentle breathing without changing existing signs or resources; permits only the exact flagged idle override | Verified 27-sign shared GLB → 28-animation derivative + schema-2 manifest with optional `idle`; guarded metadata/hash → New POSE replacement with original fallback | Presentation-only; debug `aslNewIdle`, default/release OFF; no recognition schema/version or S4/F parity change |
+| Text-to-ASL complete alphabet fallback | `tools/text_to_asl_assets/alphabet-fallback.mjs`; `domain/texttoasl/{AslAnimationCatalog,AslPhrasePlanner}.kt`; `ui/texttoasl/{AslAlphabetPilotContract,AndroidAssetAslCatalogLoader}.kt` | Adds C–Z to the shared New rig; resolves unknown tokens atomically through a letter-only lookup without hijacking the standalone I/Me alias | Verified 28-animation sign/idle bundle + C–Z GLBs → 52-animation derivative/schema-3 manifest; known sign lookup first → complete per-token letters or whole unsupported token | Presentation-only; debug `aslAlphabetFallback` requires idle/character selector, default/release OFF; no recognition schema/version or S4/F parity change |
+| Account repository/session store | `android/app/src/main/java/com/example/apphear/data/profile/`; `domain/profile/AccountModels.kt` | Optional Auth account flow, serialized session refresh, encrypted remembered session and profile metadata | User-initiated login/register/edit/logout → Auth user/session; UI receives profile-only StateFlow | Presentation/account-only; debug `profileAccounts`, default/release OFF; no recognition feature schema |
 | Continuous-transition diagnostic observer/evaluator | `android/app/src/debug/java/com/example/apphear/perceptionvnext/{PhoneCausalController,PhoneTransitionDiagnosticCohort,PerceptionVNextLiveRecognitionActivity}.kt`; `eval/runtime_diagnostics/continuous_transition_diagnostics.{py,html}` | Debug-only A hands-down/B hands-up whole-sequence navigation plus bounded negative review; records existing lifecycle evidence without modifying it; audits linkage and evaluates human physical transitions | Existing raw-v1/exact 378 + normalized input + S2 output + source originals + shared decoder updates → source-linked logs; human-boundary manifest → transition timing, episode/window association and uncertainty | No feature/model version change; targets `apphear.perception_vnext.raw.v1`, `apphear.perception_vnext.segmentation_features.v1`, Recognition V2 and frozen S2-R2 package; review artifact only is `apphear.continuous_transition.human_boundaries.v1`; PRE_OR_POST 399.924 ms / 533.232 ms gap guard and PASS_THROUGH unchanged. Device A/B evidence pending. |
 | `LandmarkExtractor` | `pipeline/extract/landmarks.py` | Stage E: video → raw hand+pose landmarks (MediaPipe IMAGE mode, face off) | video path → `ClipLandmarks` + meta | stage E |
 | `ClipLandmarks` | `pipeline/extract/schema.py` | Typed raw-landmark arrays + `.npz` I/O + shape validation | arrays ↔ `.npz` | stage E |
@@ -640,3 +643,176 @@ features, model inputs, probabilities, or event decisions are fed back from draw
 instrumented `PhoneOverlayIntegrationInstrumentedTest` compares real-app and validated-debug
 rendering pixel-for-pixel and checks full-frame clear behavior; the existing P8c3a overlay
 test protects the display transform. Normal runtime still records no review images/tensors.
+
+## Offline Text-to-ASL asset batch utility (2026-09-28)
+
+`tools/text_to_asl_assets/Optimize-Characters.ps1` / `batch.mjs` prepares GLB derivatives from
+the assessed G-drive inventory. Inputs are SHA-256-pinned original GLBs and the accepted pilot's
+shared KTX2 texture template. Outputs are compact KTX2/Meshopt GLBs, per-file validation reports,
+and `apphear.text_to_asl.asset_batch.v1` summary/checksums under a separate output directory.
+It performs exact decoded rig/transform/animation/non-index data checks and oriented triangle
+topology checks, refuses unknown output overwrites, and resumes verified completions. Older
+textures, ambiguous sources and SORRY recovery candidates are excluded. Source hashes are checked
+before/after generation. Sequential processing and shared texture reuse bound preparation cost.
+
+This utility does not consume recognition feature vectors or change their `schema_version`,
+training/serving math, Android catalog, semantic sign mappings or playback behavior. It requires
+the existing machine-local pinned pilot dependencies and assessment artifacts. Production rollout
+still requires separate flagged integration, per-sign visual/semantic review and phone measurement.
+
+## Text-to-ASL replacement pilot runtime (2026-09-28)
+
+`AslAnimationAsset.Replacement` optionally carries original fallback path, animation name and
+duration for the presentation player. `AndroidAssetAslCatalogLoader` validates schema-1 override
+metadata/content hashes on an IO dispatcher and overlays only exact-ID replacements, preserving aliases,
+types, planner order and vocabulary. `ASL_ASSET_PILOT_ENABLED` is debug-only and defaults false;
+release/default builds exclude `src/aslPilot/assets` entirely. Original catalog/player/assets remain.
+
+Pilot `TextToAslPlaybackController` and `pilot_player.js` use matching URL/request tokens, actual
+per-viewer loaded source, local Basis/Meshopt decoders, one-shot signs, looping old idle, zero
+global cache and at most active/next models. Load failure retries original assets. Load timeout
+is separate from duration-based completion watchdog. Lifecycle stop clears pilot models/timers;
+resume replays the current sign. Six deterministic player tests and both ON/OFF Android builds
+protect behavior. Phone rendering/residency/performance and F22 smoke remain deferred by the user.
+No recognition feature-vector schema, train/serve math, vocabulary or inference contract changed.
+
+The expanded pilot has seven replacements: A, B, ALL, BROTHER, CHILD, CITY, FAMILY. Schema-1
+overrides now also require `sourceId` equal to the existing catalog ID in uppercase and WORD/LETTER
+type. `tools/text_to_asl_assets/stage_pilot.py` stages only these exact source/catalog matches from
+hash-validated batch outputs; it adds no aliases or vocabulary. Semantic near-matches (e.g. COME
+versus COME TO HERE), unmatched source words, other letters and pronoun-I mapping remain unchanged.
+
+
+Text-to-ASL pilot completion refinement (2026-09-28): after setting animationName, await
+model-viewer.updateComplete before one-shot play. Pinned4.3.1 lacks reliable DOM finished events
+because mixer subscriptions occur before loading; public currentTime>=duration monitor supplies
+exactly-once completion for the active URL/request. Event and monitor share one guard; new input,
+Clear and lifecycle stop cancel the monitor. Watchdog remains separate. Seven player regressions
+and99 JVM tests each ON/OFF pass. Phone functional pilot passes with user-confirmed shorter pauses;
+memory/decode, semantic and fullF22 gates remain pending. No recognition schema/parity changes.
+
+
+Text-to-ASL shared-character derivative (2026-09-28): `shared-character.mjs` verifies identical
+decoded meshes/textures/skins/hierarchy and all original animation channel data, bundles seven
+named clips on one character, and adds3 constant hair-node tracks per clip to preserve the sole
+source-specific rest transform. Schema1 metadata uses balanced-ktx2mixed-meshopt-shared-v1 and
+asl_animations/vnext/shared-character.glb only when debug ASL_SHARED_CHARACTER_ENABLED is true
+(-PaslSharedCharacter=true requires -PaslAssetPilot=true). Shared/default/separate variants retain
+original102 fallback GLBs; release/default exclude experimental assets. Loader hashes once per
+unique path on IO; existing player switches named clips with unchanged completion/cancellation.
+No recognition schema, vocabulary or train/serve changes. Eight player and99 JVM tests pervariant
+pass. Details: docs/text-to-asl-shared-character-results-2026-09-28.md.
+
+Text-to-ASL word expansion (2026-09-28): `tools/text_to_asl_assets/more-words.mjs` is the
+repeatable, source-hash-pinned builder for one 27-animation shared-character GLB. It preserves
+the seven existing replacement clips and adds 20 approved word clips with exact decoded source
+animation channels and source-specific hair rest transforms. The separate schema-2 presentation
+manifest contains seven original-ID overrides with original-file fallback plus 20 new entries
+with no original-file fallback. `AndroidAssetAslCatalogLoader` validates the approved source ID,
+alias, type, animation name, rig/profile, duration and one shared-file SHA-256 on its IO path.
+The four meaning-specific aliases are `big horizontally`, `call by phone`,
+`call someones name`, and `pay me`; plain `big`, `call`, and `pay` remain unmapped. This
+manifest version is a Text-to-ASL asset/catalog contract only: recognition feature-vector
+`schema_version`, training/serving math, model I/O and recognition vocabulary are unchanged.
+Debug `aslMoreWords=true` requires both existing pilot flags and is false in default/release
+builds. The original 102-file catalog and phone-tested seven-clip shared package remain rollback.
+Offline compatibility and APK gates pass; physical load, memory, frame and semantic gates await
+the user's later phone test. Details: docs/text-to-asl-more-words-results-2026-09-28.md.
+
+## Text-to-ASL character preference (2026-09-28)
+
+`domain/texttoasl/AslCharacterChoice` resolves stable local IDs `original` and `new`;
+`data/settings/AslCharacterSettings` stores them in SharedPreferences `text_to_asl` / `character`.
+With selection enabled, missing/invalid values select Original. When the selection experiment
+is disabled, existing asset-pilot behavior is preserved and the preference is ignored. Without
+pilot assets, New can never be selected. Debug `aslCharacterSelection=true` requires all three
+existing expanded-pilot properties; release/default selection is OFF and its Settings row hidden.
+
+Shared `SettingsContent` renders the existing configuration statuses and character preference
+on Settings and, in the selector pilot, directly on Profile below its account form. Dialogs are
+dismissed with their owning view; resume refreshes the saved value. `TextToAslFragment` resolves it
+before async catalog loading and on return; a changed choice cancels the old queue/job, clears
+playback metadata and releases the prior player document before rebuilding one catalog/player.
+Typed input is retained; an old queue does not resume under the new choice. The Original catalog
+has 102 unmodified entries; New has 122 entries with the same seven replacements and 20 approved
+new aliases. Other signs and idle retain their original character; selection does not promise
+all-sign character coverage. Runtime load failure keeps the existing fallback policy.
+The existing pilot completion player is used for both choices in this flagged build, retaining
+its timeline and cancellation fixes. No recognition schema, feature math or vocabulary changes.
+
+## Established Profile account contract (2026-09-28)
+
+User approved restoration after inspecting the actual reference. The Profile order is Your/Profile,
+user card, then Preference/Your Setting. Guest sees the card and preferences; its Sign in/Register
+action opens the reference auth panel. Signed-in Edit Profile enables full name/username inline,
+switches to Save Profile, offers Cancel and avatar picking, and always keeps email read-only.
+No Edit button routes to Settings. Character preference remains local and independent of accounts.
+
+`AccountRepository` serializes IO through Mutex; session refresh/save/logout finish their critical
+commit despite view cancellation. UI observes profile-only state; tokens are private and redacted.
+Remembered sessions use backend-bound AES/GCM Android Keystore encryption in apphear_account_secure,
+excluded from cloud/device backup. Unchecked login stays memory-only. Passwords are never saved.
+Auth v1 user_metadata keys username/full_name/avatar_url match the reference; no public users-table
+writes or authorization from metadata. Avatar JPEGs are bounded (8 MiB source, 1024 px decode,
+2 MiB upload) and written to authenticated user-ID-scoped profile-images paths. Remote image loading
+is restricted to the configured backend's public profile-images URL with redirects disabled.
+Signup email confirmation is a normal outcome. Logout uses scope=local, clears local identity even
+offline and reports incomplete server revocation. Invalid sessions clear; network failures retain
+cached identity. UI, images, network and secure storage never enter the recognition critical path.
+
+Independent debug-only `profileAccounts=true`, release/default false. No S4/F schema, parity,
+recognition vocabulary/model or player changes. Backend became reachable on the final read-only
+probe; live auth, avatar policy/public delivery and signed-in device acceptance remain gates before
+promotion. User passed guest/auth visual acceptance and explicitly deferred live account testing.
+
+## Text-to-ASL New idle (2026-09-28)
+
+With default-off debug aslNewIdle=true (requires aslMoreWords and its prerequisites),
+New replaces the existing idle POSE with IDLE_NEUTRAL_FEMALEASL in shared-words-idle.glb.
+Original still uses asl_idle.glb; counts remain Original102/New122. This supersedes the
+prior “idle remains original” note only for this new flagged variant. The schema-2
+manifest gains an optional idle object; prior shared manifests remain compatible.
+
+The derivative contains the same 27 signs plus a six-second authored neutral loop.
+Every 4,677 animated TRS properties reset to the verified first frame of A, including
+hands, fingers, face and hair. Two chest bones per each of three skins expand gently
+and synchronously; root/feet stay fixed. Existing channel data, resources, hierarchy
+and compressed binary prefix are exact. This is an authored compatible idle, not an
+old-rig retarget and not a source sign or recognition label.
+
+AslIdlePilotContract accepts only the approved path/profile/rig/name, six-second duration,
+POSE/id/source identity, original fallback and matching SHA-256. Missing/invalid idle
+metadata retains Original idle; model/clip load failure uses existing originalFallback.
+Pilot player suppresses finished callbacks for all loops. Signs and idle reuse the same
+loaded source; a cold shared-model load now occurs at the initial New idle. No new
+runtime dependency, recognition schema_version or S4/F math/parity change. Default/release
+exclude the derivative. Offline/APK gates and targeted phone playback passed;
+controlled frame/memory/thermal/low-RAM and broad F22 checks remain pending.
+
+The first phone attempt exposed mixed-catalog model eviction: after an original-only
+sign, a 20-second reload timeout rejected the shared New path. The optional New idle
+variant now pins its large source in the inactive model-viewer while original signs
+play; successive original-only signs reuse the active viewer. The most recent
+original source stays loaded in the second viewer for Replay. Residency remains
+bounded to two model-viewers. Pause/destroy and load failure clear the pin.
+Original and earlier pilot variants do not request pinning.
+Initial loading remains asynchronous, with a visible loading message until playback.
+
+## Text-to-ASL complete alphabet fallback (2026-09-29)
+
+The default-off `aslAlphabetFallback` debug flag requires the New idle and character
+selector pilots. The schema-3 alphabet manifest points its 27 existing signs, idle,
+and 24 added C–Z letters to a single 52-animation GLB. The builder verifies the
+existing 28 animation JSON records and binary prefix unchanged, exact decoded
+rendering resources, and each added source animation's channels. The loader checks
+the fixed path/profile/rig/name/identity, duration and shared SHA-256 before
+exposing C–Z through a separate letter lookup; it never adds letter I as alias `i`.
+
+With the flag on, the selected catalog's known whole-word or phrase sign wins.
+New keeps inherited Original-only signs, including HELLO. A token with no sign
+is then spelled only if every A–Z letter exists for that character; otherwise
+the whole token is reported unsupported. New has A–Z, while Original still has
+only A/B and never borrows New letter assets. Standalone `I` remains I/Me; an I
+inside an unknown word uses the New letter-I clip. The flag-off planner retains
+its prior character-by-character behavior. The 102 original GLBs and recognition
+contract are unchanged; no new runtime library or S4/F parity change is involved.

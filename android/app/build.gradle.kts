@@ -4,6 +4,47 @@ plugins {
 }
 
 android {
+    val profileAccounts = providers.gradleProperty("profileAccounts")
+        .map { it.equals("true", ignoreCase = true) }.getOrElse(false)
+    val aslAssetPilot = providers.gradleProperty("aslAssetPilot")
+        .map { it.equals("true", ignoreCase = true) }
+        .getOrElse(false)
+    val aslSharedCharacter = providers.gradleProperty("aslSharedCharacter")
+        .map { it.equals("true", ignoreCase = true) }
+        .getOrElse(false)
+    require(!aslSharedCharacter || aslAssetPilot) { "aslSharedCharacter requires aslAssetPilot=true" }
+    val aslMoreWords = providers.gradleProperty("aslMoreWords")
+        .map { it.equals("true", ignoreCase = true) }
+        .getOrElse(false)
+    require(!aslMoreWords || aslSharedCharacter) { "aslMoreWords requires aslSharedCharacter=true" }
+    val aslCharacterSelection = providers.gradleProperty("aslCharacterSelection")
+        .map { it.equals("true", ignoreCase = true) }
+        .getOrElse(false)
+    require(!aslCharacterSelection || aslMoreWords) { "aslCharacterSelection requires aslMoreWords=true" }
+    val aslNewIdle = providers.gradleProperty("aslNewIdle")
+        .map { it.equals("true", ignoreCase = true) }.getOrElse(false)
+    require(!aslNewIdle || aslMoreWords) { "aslNewIdle requires aslMoreWords=true" }
+    val aslAlphabetFallback = providers.gradleProperty("aslAlphabetFallback")
+        .map { it.equals("true", ignoreCase = true) }.getOrElse(false)
+    require(!aslAlphabetFallback || (aslNewIdle && aslCharacterSelection)) {
+        "aslAlphabetFallback requires aslNewIdle=true and aslCharacterSelection=true"
+    }
+    if (aslSharedCharacter) {
+        val sharedAssets = tasks.register<Sync>("prepareAslSharedAssets") {
+            from("src/aslPilot/assets") { exclude("asl_animations/vnext/**") }
+            from(when {
+                aslAlphabetFallback -> "src/aslAlphabet/assets"
+                aslNewIdle -> "src/aslIdle/assets"
+                aslMoreWords -> "src/aslWords/assets"
+                else -> "src/aslShared/assets"
+            })
+            into(layout.buildDirectory.dir("generated/aslSharedAssets"))
+        }
+        sourceSets.getByName("debug").assets.srcDir(layout.buildDirectory.dir("generated/aslSharedAssets"))
+        tasks.configureEach { if (name == "mergeDebugAssets") dependsOn(sharedAssets) }
+    } else if (aslAssetPilot) {
+        sourceSets.getByName("debug").assets.srcDir("src/aslPilot/assets")
+    }
     val elevenLabsApiKey = providers.gradleProperty("APPHEAR_ELEVENLABS_API_KEY")
         .orElse(providers.environmentVariable("APPHEAR_ELEVENLABS_API_KEY"))
         .orNull
@@ -77,6 +118,13 @@ android {
 
     buildTypes {
         debug {
+            buildConfigField("boolean", "PROFILE_ACCOUNTS_ENABLED", profileAccounts.toString())
+            buildConfigField("boolean", "ASL_ASSET_PILOT_ENABLED", aslAssetPilot.toString())
+            buildConfigField("boolean", "ASL_SHARED_CHARACTER_ENABLED", aslSharedCharacter.toString())
+            buildConfigField("boolean", "ASL_MORE_WORDS_ENABLED", aslMoreWords.toString())
+            buildConfigField("boolean", "ASL_CHARACTER_SELECTION_ENABLED", aslCharacterSelection.toString())
+            buildConfigField("boolean", "ASL_NEW_IDLE_ENABLED", aslNewIdle.toString())
+            buildConfigField("boolean", "ASL_ALPHABET_FALLBACK_ENABLED", aslAlphabetFallback.toString())
             buildConfigField("String", "APP_PHONE_S2_PACKAGE", "\"$phoneS2DebugPackage\"")
             buildConfigField("boolean", "PHASE1_SHADOW_ENABLED", phase1ShadowDebug.toString())
             buildConfigField("boolean", "RU_D1_ENABLED", ruD1Debug.toString())
@@ -95,6 +143,13 @@ android {
             )
         }
         release {
+            buildConfigField("boolean", "PROFILE_ACCOUNTS_ENABLED", "false")
+            buildConfigField("boolean", "ASL_ASSET_PILOT_ENABLED", "false")
+            buildConfigField("boolean", "ASL_SHARED_CHARACTER_ENABLED", "false")
+            buildConfigField("boolean", "ASL_MORE_WORDS_ENABLED", "false")
+            buildConfigField("boolean", "ASL_CHARACTER_SELECTION_ENABLED", "false")
+            buildConfigField("boolean", "ASL_NEW_IDLE_ENABLED", "false")
+            buildConfigField("boolean", "ASL_ALPHABET_FALLBACK_ENABLED", "false")
             buildConfigField("String", "APP_PHONE_S2_PACKAGE", "\"S2_R2_CANDIDATE\"")
             isMinifyEnabled = false
             buildConfigField("boolean", "PHASE1_SHADOW_ENABLED", "false")
