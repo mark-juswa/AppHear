@@ -5022,3 +5022,9 @@ all perception experiments remain immutable historical evidence.
 - [x] Default debug, pilot-plus-fake-Context-Assist, and pilot-with-Context-Assist-OFF JVM suites each passed 147/147 tests. Debug APK builds passed with the pilot both ON and OFF for Context Assist; release and Android test APK builds passed. Release Context Assist and all Text-to-ASL pilot flags remain hard-disabled.
 - [x] User-directed private debug APK install on Xiaomi M2101K7AG: Context Assist ON with Gemini, Text-to-ASL pilot flags ON. The phone's installed APK SHA-256 matches the built APK (`313F9D5E95AF692909EFA0BCF6CBB8C43546888B1A68201C8B7EDF785F0F1DCD`). The previously installed APK was backed up and the new build was left installed for the user's test.
 - [ ] Representative-phone F22 smoke, connected tests, and a real Gemini request through this combined build remain pending. Installation and hash verification are not a runtime behavior pass. Use only synthetic conversation text with the current Gemini Free-tier development setup.
+
+### 2026-10-04 — Recognition screen glass presentation and live advisory
+
+- [x] Kept the current Text-to-ASL source and Context Assist sidecar; changed only the Recognition screen presentation and a read-only match preview. The compact raw result, translucent predicted-reply strip, and lighter controls follow the supplied mockup. Predictions appear after signing begins, while the separate context-supported line requires an existing matcher match against committed Top-5 evidence.
+- [x] Hear/TTS still speaks raw `SentenceBuilder` text and finalizes the Deaf turn; the live preview neither finalizes nor rewrites it. Release Context Assist remains disabled. JVM, debug APK, Android test APK, and release APK builds pass.
+- [ ] Connected Android presentation test and real-phone visual smoke remain pending while ADB has no connected device. The on-phone appearance and camera responsiveness are not yet verified for this revision.

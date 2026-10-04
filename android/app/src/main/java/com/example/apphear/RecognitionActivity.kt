@@ -18,6 +18,7 @@ import android.hardware.camera2.CaptureRequest
 import android.view.View
 import android.view.WindowManager
 import android.widget.Toast
+import android.widget.TextView
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.camera.core.CameraSelector
@@ -75,6 +76,10 @@ class RecognitionActivity : AppCompatActivity() {
     private var phoneAnalyzer: Candidate01FrameAnalyzer? = null
     private val signingTurn = SigningTurnBuffer()
     private var evidenceInterrupted = false
+    private var signingVisible = false
+    private var signingInProgress = false
+    private var displayedHearingTurnId: Long? = null
+    private var renderedReplies: List<String> = emptyList()
     private var runtimeConfig: RuntimeConfig? = null
     private var analyzer: CloseableFrameAnalyzer? = null
     private var cameraProvider: ProcessCameraProvider? = null
@@ -125,6 +130,8 @@ class RecognitionActivity : AppCompatActivity() {
         window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
         binding = ActivityRecognitionBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        displayedHearingTurnId = ConversationPhraseAssist.presentationState.value.hearingTurnId
+        binding.sentenceCard.visibility = View.GONE
         speechPlayer = AppHearSpeechPlayer(this)
         ruD1 = RuD1Diagnostics.create(applicationContext)
         binding.btnBack.setOnClickListener { finish() }
@@ -156,6 +163,8 @@ class RecognitionActivity : AppCompatActivity() {
             recognizer?.clearSentence()
             signingTurn.clear()
             evidenceInterrupted = false
+            signingVisible = false
+            signingInProgress = false
             ConversationPhraseAssist.clearDisplayedInterpretation()
             renderPhraseAssist(ConversationPhraseAssist.presentationState.value)
             if (ruD1.config.enabled && ruD1QueueGloss().isNotBlank()) {
@@ -163,6 +172,7 @@ class RecognitionActivity : AppCompatActivity() {
             } else {
                 binding.sentenceText.text = getString(R.string.sentence_placeholder)
             }
+            updateSentenceCardVisibility()
         }
         if (ruD1.config.enabled) {
             binding.clearButton.setOnLongClickListener {
@@ -200,8 +210,8 @@ class RecognitionActivity : AppCompatActivity() {
         binding.cameraToggle.alpha = 0.5f
         binding.cameraToggle.contentDescription = "Front camera only in causal recognition"
         renderRuD1QueueStatus()
+        binding.recognizedLabel.setText(R.string.recognized_label)
         if (ConversationPhraseAssist.enabled) {
-            binding.recognizedLabel.setText(R.string.recognized_label)
             renderPhraseAssist(ConversationPhraseAssist.presentationState.value)
             lifecycleScope.launch {
                 repeatOnLifecycle(Lifecycle.State.STARTED) {
@@ -247,10 +257,59 @@ class RecognitionActivity : AppCompatActivity() {
     }
 
     private fun renderPhraseAssist(state: PhraseAssistUiState) {
-        if (!ConversationPhraseAssist.enabled) return
+        if (!ConversationPhraseAssist.enabled) {
+            binding.possibleRepliesGroup.visibility = View.GONE
+            binding.contextSupportedGroup.visibility = View.GONE
+            return
+        }
+        if (displayedHearingTurnId != state.hearingTurnId) {
+            displayedHearingTurnId = state.hearingTurnId
+            signingVisible = false
+            signingInProgress = false
+            signingTurn.clear()
+            // Existing raw words belong to an earlier response. Keep them untouched, but
+            // do not match new predictions against a mixed, un-cleared sentence.
+            val rawSentence = (phoneSession?.sentenceText ?: recognizer?.sentenceText)
+                ?.takeIf { it.isNotBlank() } ?: binding.sentenceText.text?.toString().orEmpty()
+            evidenceInterrupted = rawSentence.isNotBlank() &&
+                rawSentence != getString(R.string.sentence_placeholder)
+        }
+        val replies = state.possibleReplies.take(5)
+        if (renderedReplies != replies) {
+            renderedReplies = replies
+            binding.replyChipContainer.removeAllViews()
+            replies.forEach { reply ->
+                val chip = TextView(this).apply {
+                    text = reply
+                    setTextColor(getColor(R.color.white))
+                    textSize = 12f
+                    maxLines = 2
+                    gravity = android.view.Gravity.CENTER
+                    setPadding(16.dp, 9.dp, 16.dp, 9.dp)
+                    background = ContextCompat.getDrawable(this@RecognitionActivity,
+                        R.drawable.recognition_reply_chip)
+                }
+                binding.replyChipContainer.addView(chip,
+                    android.widget.LinearLayout.LayoutParams(
+                        android.widget.LinearLayout.LayoutParams.WRAP_CONTENT,
+                        android.widget.LinearLayout.LayoutParams.WRAP_CONTENT,
+                    ).apply { marginEnd = 8.dp })
+            }
+        }
+        binding.possibleRepliesGroup.visibility =
+            if (signingVisible && replies.isNotEmpty()) View.VISIBLE else View.GONE
         val supported = state.contextSupported
-        binding.contextSupportedGroup.visibility = if (supported == null) View.GONE else View.VISIBLE
+        binding.contextSupportedGroup.visibility =
+            if (signingVisible && supported != null) View.VISIBLE else View.GONE
         binding.contextSupportedText.text = supported.orEmpty()
+    }
+
+    private val Int.dp: Int get() = (this * resources.displayMetrics.density).toInt()
+
+    private fun updateSentenceCardVisibility() {
+        val text = binding.sentenceText.text?.toString()?.trim().orEmpty()
+        binding.sentenceCard.visibility = if (text.isNotEmpty() &&
+            text != getString(R.string.sentence_placeholder)) View.VISIBLE else View.GONE
     }
 
     private fun openTextToAslReply(transcript: String) {
@@ -450,10 +509,23 @@ class RecognitionActivity : AppCompatActivity() {
         runOnUiThread {
             if (isFinishing || isDestroyed) return@runOnUiThread
             if (ConversationPhraseAssist.enabled && lifecycle.currentState.isAtLeast(Lifecycle.State.STARTED)) {
+                val nowSigning = r.recognition is com.example.apphear.pipeline.recognition.RecognitionState.Signing
+                if (nowSigning && !signingInProgress) {
+                    signingInProgress = true
+                    signingVisible = true
+                    ConversationPhraseAssist.signingStarted()
+                    renderPhraseAssist(ConversationPhraseAssist.presentationState.value)
+                } else if (!nowSigning) {
+                    signingInProgress = false
+                }
                 r.recognitionEvidence?.let { evidence ->
                     if (signingTurn.add(evidence)) {
+                        signingVisible = true
                         ConversationPhraseAssist.signingStarted()
                         Stage3Diagnostics.committed(evidence)
+                        ConversationPhraseAssist.previewSupportedTurn(signingTurn.snapshot(),
+                            r.phoneSentence.orEmpty(), evidenceInterrupted || signingTurn.overflowed)
+                        renderPhraseAssist(ConversationPhraseAssist.presentationState.value)
                     }
                 }
             }
@@ -474,6 +546,7 @@ class RecognitionActivity : AppCompatActivity() {
                 binding.altText.visibility = View.GONE
                 binding.sentenceText.text = r.phoneSentence.orEmpty()
                     .ifBlank { getString(R.string.sentence_placeholder) }
+                updateSentenceCardVisibility()
                 return@runOnUiThread
             }
 
@@ -494,6 +567,7 @@ class RecognitionActivity : AppCompatActivity() {
         binding.altText.text = snapshot.candidatesText
         binding.altText.visibility = if (snapshot.showCandidates) View.VISIBLE else View.GONE
         binding.sentenceText.text = snapshot.sentenceText
+        updateSentenceCardVisibility()
     }
 
     /**
@@ -650,6 +724,8 @@ class RecognitionActivity : AppCompatActivity() {
 
     override fun onStop() {
         binding.overlayView.clear()
+        signingVisible = false
+        signingInProgress = false
         ConversationPhraseAssist.recognitionScreenStopped()
         renderPhraseAssist(ConversationPhraseAssist.presentationState.value)
         if (ConversationPhraseAssist.enabled && signingTurn.snapshot().isNotEmpty()) evidenceInterrupted = true

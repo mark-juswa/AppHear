@@ -829,9 +829,14 @@ latest Hearing turn, so late results cannot replace newer candidates.
 
 `PhoneProductionSession` copies the already computed Top-5 labels/scores for a guarded
 committed event into `RecognitionEvidence`. `RecognitionActivity` buffers that lightweight
-evidence, evaluates the existing conservative matcher when Hear is tapped, and shows only
-a supported advisory interpretation. Raw `SentenceBuilder` text remains the displayed and
-spoken result and becomes the Deaf conversation turn; event-level evidence remains separate
-for matching and bounded diagnostics. No camera images, landmarks, feature vectors or
-recognizer tensors enter the sidecar. The 378-feature layout, Recognition V2 input, frozen
-236-class model, label order, Top-1 decision, and their schema versions are unchanged.
+evidence. The cached natural-language predictions stay hidden until the decoder reports
+signing activity, when they appear as clearly labeled possibilities. After each committed
+event, `ConversationPhraseAssist.previewSupportedTurn` may show a separate interpretation
+only if the existing conservative matcher supports it. This preview does not finalize a
+conversation turn or change raw state. Hear still finalizes the shadow evaluation and
+speaks the raw sentence. A later signing response cannot reuse the closed prediction window.
+Raw `SentenceBuilder` text remains the displayed and spoken result and becomes the Deaf
+conversation turn; event-level evidence remains separate for matching and bounded
+diagnostics. No camera images, landmarks, feature vectors or recognizer tensors enter the
+sidecar. The 378-feature layout, Recognition V2 input, frozen 236-class model, label order,
+Top-1 decision, and their schema versions are unchanged.

@@ -98,10 +98,31 @@ object ConversationPhraseAssist {
         return evaluation
     }
 
+    /** Read-only live preview after a committed sign; Hear still owns turn finalization. */
+    fun previewSupportedTurn(evidence: List<RecognitionEvidence>, rawSentence: String,
+                             incomplete: Boolean = false) {
+        if (!enabled) return
+        val turnId = context.latestHearingTurnId() ?: return
+        val replies = context.repliesForLatestHearingTurn()
+        if (incomplete || evidence.isEmpty() || replies.isEmpty()) return
+        val match = runCatching {
+            PhraseMatcher(checkNotNull(cachedPolicy)).interpret(evidence, replies)
+        }.onFailure { Log.w(TAG, "Live advisory unavailable", it) }.getOrNull() ?: return
+        if (!match.matched) return
+        presentation.value = presentation.value.evaluated(turnId,
+            ShadowEvaluation(rawSentence.trim(), evidence.toList(), replies, match,
+                match.assistedGlosses != evidence.map { it.originalGloss }, ShadowReason.MATCH))
+    }
+
     fun recentTurns(): List<ConversationTurn> = context.snapshot()
     fun recentShadowEvaluations(): List<ShadowEvaluation> = history.toList()
     fun signingStarted() {
-        if (enabled) presentation.value = presentation.value.signingStarted()
+        if (!enabled) return
+        val next = presentation.value.signingStarted()
+        // Hear closes the prediction window. A later signing response cannot reuse its hints.
+        presentation.value = if (context.repliesForLatestHearingTurn().isEmpty()) {
+            next.copy(possibleReplies = emptyList())
+        } else next
     }
     fun clearDisplayedInterpretation() = signingStarted()
     fun clearPendingHearingReply() {

@@ -141,4 +141,7 @@
     <string name="reply_speech_empty">No speech was detected.</string>    <string name="recognition_hear_content_description">Hear recognized sentence</string>
     <string name="context_supported_label">CONTEXT-SUPPORTED · ADVISORY</string>
     <string name="recognized_label">RECOGNIZED</string>
+    <string name="context_possible_replies_label">POSSIBLE REPLIES · PREDICTIONS</string>
+    <string name="recognition_speak_button">SPEAK</string>
+    <string name="recognition_speak_content_description">Speak a reply</string>
 </resources>

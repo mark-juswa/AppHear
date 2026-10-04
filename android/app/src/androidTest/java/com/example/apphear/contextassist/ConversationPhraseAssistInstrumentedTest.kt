@@ -287,7 +287,17 @@ class ConversationPhraseAssistInstrumentedTest {
             val spoken = mutableListOf<String>()
             instrumentation.runOnMainSync {
                 speaker.set(activity, { text: String -> spoken.add(text); Unit })
+                val shadowBefore = ConversationPhraseAssist.recentShadowEvaluations().size
+                assertEquals(View.GONE, activity.findViewById<View>(R.id.possibleRepliesGroup).visibility)
+                assertEquals(View.GONE, activity.findViewById<View>(R.id.sentenceCard).visibility)
+                onFrame.invoke(activity, frame(0, "", "", 0f).copy(
+                    recognition = RecognitionState.Signing(emptyList()),
+                    recognitionEvidence = null, phoneSentence = ""))
+                assertEquals(View.VISIBLE, activity.findViewById<View>(R.id.possibleRepliesGroup).visibility)
+                assertEquals(View.GONE, activity.findViewById<View>(R.id.sentenceCard).visibility)
                 onFrame.invoke(activity, frame(1, "GO", "GO", 0.72f))
+                assertEquals(View.VISIBLE, activity.findViewById<View>(R.id.possibleRepliesGroup).visibility)
+                assertEquals(View.VISIBLE, activity.findViewById<View>(R.id.sentenceCard).visibility)
                 onFrame.invoke(activity, frame(2, "THINK", "THINK", 0.35f,
                     alternative = SignScore("HOME", 0.33f), sentence = "GO THINK"))
                 // Re-delivery must not create another evidence/logging event.
@@ -298,9 +308,14 @@ class ConversationPhraseAssistInstrumentedTest {
                 assertEquals("RECOGNIZED",
                     activity.findViewById<TextView>(R.id.recognizedLabel).text.toString())
                 assertTrue(ConversationPhraseAssist.presentationState.value.possibleReplies.isNotEmpty())
-                assertFalse(visibleTexts(activity.window.decorView).any {
-                    it.contains("Possible replies") || it.contains("I'm going home.")
+                assertEquals("I'm going home.",
+                    activity.findViewById<TextView>(R.id.contextSupportedText).text.toString())
+                assertEquals(View.VISIBLE,
+                    activity.findViewById<View>(R.id.contextSupportedGroup).visibility)
+                assertTrue(visibleTexts(activity.window.decorView).any {
+                    it.contains("POSSIBLE REPLIES")
                 })
+                assertEquals(shadowBefore, ConversationPhraseAssist.recentShadowEvaluations().size)
                 activity.findViewById<View>(R.id.hearButton).performClick()
                 assertEquals("GO THINK", spoken.last())
                 assertEquals("GO THINK",
@@ -319,6 +334,7 @@ class ConversationPhraseAssistInstrumentedTest {
                 assertEquals(listOf("GO THINK", "GO THINK"), spoken)
                 assertSame(evaluation, ConversationPhraseAssist.recentShadowEvaluations().last())
                 onFrame.invoke(activity, frame(3, "GIFT", "GIFT", 0.6f, sentence = "GIFT HOME"))
+                assertEquals(View.GONE, activity.findViewById<View>(R.id.possibleRepliesGroup).visibility)
                 onFrame.invoke(activity, frame(4, "HOME", "HOME", 0.7f, sentence = "GIFT HOME"))
                 assertEquals(null, ConversationPhraseAssist.presentationState.value.contextSupported)
                 activity.findViewById<View>(R.id.hearButton).performClick()
@@ -363,12 +379,57 @@ class ConversationPhraseAssistInstrumentedTest {
                 assertEquals("GO THINK",
                     activity.findViewById<TextView>(R.id.sentenceText).text.toString())
                 assertEquals(before, ConversationPhraseAssist.recentShadowEvaluations().size)
-                assertEquals("SENTENCE",
+                assertEquals("RECOGNIZED",
                     activity.findViewById<TextView>(R.id.recognizedLabel).text.toString())
                 assertFalse(visibleTexts(activity.window.decorView).any { it.contains("Possible replies") })
+                assertEquals(View.GONE, activity.findViewById<View>(R.id.possibleRepliesGroup).visibility)
                 assertEquals(View.GONE, activity.findViewById<View>(R.id.contextSupportedGroup).visibility)
             }
             assertFalse(ConversationPhraseAssist.enabled)
+        } finally {
+            instrumentation.runOnMainSync { activity.finish() }
+            instrumentation.waitForIdleSync()
+        }
+    }
+
+    @Test fun newHearingTurnHidesOldAdvisoryWithoutClearingRawSentence() = runBlocking {
+        assumeTrue(ConversationPhraseAssist.enabled &&
+            BuildConfig.CONTEXT_PHRASE_ASSIST_PROVIDER == "fake")
+        val instrumentation = InstrumentationRegistry.getInstrumentation()
+        val appContext = instrumentation.targetContext
+        checkNotNull(ConversationPhraseAssist.recordHearingMessage(appContext,
+            "Where are you going?", ConversationSource.TYPED_TEXT)).join()
+        val activity = instrumentation.startActivitySync(
+            Intent(appContext, RecognitionActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK),
+        ) as RecognitionActivity
+        try {
+            val onFrame = RecognitionActivity::class.java.getDeclaredMethod("onFrame", FrameResult::class.java)
+                .apply { isAccessible = true }
+            instrumentation.runOnMainSync {
+                onFrame.invoke(activity, frame(1, "GO", "GO", 0.72f))
+                onFrame.invoke(activity, frame(2, "THINK", "THINK", 0.35f,
+                    alternative = SignScore("HOME", 0.33f), sentence = "GO THINK"))
+                assertEquals(View.VISIBLE,
+                    activity.findViewById<View>(R.id.contextSupportedGroup).visibility)
+            }
+            checkNotNull(ConversationPhraseAssist.recordHearingMessage(appContext,
+                "How are you?", ConversationSource.TYPED_TEXT)).join()
+            instrumentation.waitForIdleSync()
+            instrumentation.runOnMainSync {
+                assertEquals("GO THINK",
+                    activity.findViewById<TextView>(R.id.sentenceText).text.toString())
+                assertEquals(View.GONE, activity.findViewById<View>(R.id.possibleRepliesGroup).visibility)
+                assertEquals(View.GONE,
+                    activity.findViewById<View>(R.id.contextSupportedGroup).visibility)
+                onFrame.invoke(activity, frame(3, "GOOD", "GOOD", 0.7f,
+                    sentence = "GO THINK GOOD"))
+                assertEquals(View.VISIBLE,
+                    activity.findViewById<View>(R.id.possibleRepliesGroup).visibility)
+                assertEquals(View.GONE,
+                    activity.findViewById<View>(R.id.contextSupportedGroup).visibility)
+                assertEquals("GO THINK GOOD",
+                    activity.findViewById<TextView>(R.id.sentenceText).text.toString())
+            }
         } finally {
             instrumentation.runOnMainSync { activity.finish() }
             instrumentation.waitForIdleSync()
