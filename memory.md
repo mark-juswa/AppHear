@@ -1,3 +1,33 @@
+# Memory — Current working baseline for future experiments
+
+Last updated: 2026-10-04 +08:00
+
+## What was built
+
+- Added `context/current-working-baseline-2026-10-04.md` and a progress-tracker entry for an immutable annotated source tag plus a matching preservation branch. Saved private reviewed and all-flags-off debug APKs in ignored `android/build/stable-context-assist-ui-20261004/`.
+
+## Decisions made
+
+- Future experiments branch from `apphear-text-to-asl-context-assist-ui-2026-10-04`. Keep that tag and `baseline/apphear-text-to-asl-context-assist-ui-2026-10-04` fixed; do not move the older Text-to-ASL or S2-R2 baseline refs. This is a working integration baseline, not a release or accuracy sign-off.
+
+## Problems solved
+
+- The older Context Assist experiment was rooted in the S2-R2 baseline. The current reviewed UI and Context Assist source is verified as a descendant of the preserved Text-to-ASL baseline and now has its own stable source/rollback reference.
+
+## Current state
+
+- Context/Gemini debug and explicit all-flags-off debug configurations each pass 150/150 JVM tests. Debug, release, and Android-test APKs build. The user accepted the compact full-text prediction strip on the Xiaomi phone. Latest connected instrumentation remains unrun because the phone rejected its test companion; broad F22 and cross-signer validation remain open.
+
+## Next session starts with
+
+- Create a new feature branch/worktree from the new annotated tag for the next experiment. Preserve raw recognition and Hear behavior unless a future task explicitly authorizes a reviewed change.
+
+## Open questions
+
+- The next experiment scope, the phone's test-companion install restriction, and quantitative cross-signer contextual benefit.
+
+---
+
 # Memory — Full prediction text in compact strip
 
 Last updated: 2026-10-04 +08:00
