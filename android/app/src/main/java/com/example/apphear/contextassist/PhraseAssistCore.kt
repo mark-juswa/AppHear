@@ -180,17 +180,18 @@ class PhraseMatcher(private val policy: PhraseMatchPolicy) {
     }
 }
 
-/** UI-only prefix filter. A surviving phrase is still a prediction, not a completed match. */
+/** UI-only ordering. Visual evidence may promote a prediction but never erase it. */
 object EvidenceAwareReplies {
     fun visible(replies: List<ReplyCandidate>, evidence: List<RecognitionEvidence>,
                 policy: PhraseMatchPolicy): List<ReplyCandidate> {
         if (evidence.isEmpty()) return replies
         val matcher = PhraseMatcher(policy)
-        return replies.filter { reply ->
+        val (supportedPrefix, others) = replies.partition { reply ->
             reply.concepts.size >= evidence.size && matcher.interpret(
                 evidence, listOf(reply.copy(concepts = reply.concepts.take(evidence.size))),
             ).matched
         }
+        return supportedPrefix + others
     }
 }
 

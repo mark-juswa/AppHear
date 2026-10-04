@@ -136,21 +136,21 @@ class PhraseAssistCoreTest {
         assertTrue(fresh.id > old.id)
     }
 
-    @Test fun possibleRepliesNarrowByTopFiveSequenceWithoutPromotingPartialPhrase() {
+    @Test fun possibleRepliesRemainVisibleWhileTopFiveEvidenceRanksSupportedPrefixes() {
         val replies = listOf(
-            ReplyCandidate("I'm going home.", listOf("GO", "HOME")),
             ReplyCandidate("I'm going to school.", listOf("GO", "SCHOOL")),
             ReplyCandidate("I'm going to work.", listOf("GO", "WORK")),
+            ReplyCandidate("I'm going home.", listOf("GO", "HOME")),
         )
         val first = event(1, "GO", "GO" to 0.72f)
         assertEquals(replies, EvidenceAwareReplies.visible(replies, emptyList(), policy))
         assertEquals(replies, EvidenceAwareReplies.visible(replies, listOf(first), policy))
         assertFalse(matcher.interpret(listOf(first), replies).matched)
         val second = event(2, "THINK", "THINK" to 0.35f, "HOME" to 0.33f)
-        assertEquals(listOf(replies.first()),
+        assertEquals(listOf(replies.last(), replies.first(), replies[1]),
             EvidenceAwareReplies.visible(replies, listOf(first, second), policy))
         val unsupported = event(2, "GIFT", "GIFT" to 0.91f, "HOME" to 0.01f)
-        assertTrue(EvidenceAwareReplies.visible(replies, listOf(first, unsupported), policy).isEmpty())
+        assertEquals(replies, EvidenceAwareReplies.visible(replies, listOf(first, unsupported), policy))
     }
 
     @Test fun fakeProviderPredictsOnlySupportedDemoConcepts() = runBlocking {

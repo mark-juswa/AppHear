@@ -7,17 +7,19 @@ import android.widget.EditText
 import android.widget.TextView
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
+import androidx.navigation.fragment.NavHostFragment
 import com.example.apphear.BuildConfig
 import com.example.apphear.R
 import com.example.apphear.MainActivity
 import com.example.apphear.RecognitionActivity
+import com.example.apphear.ui.texttoasl.TextToAslFragment
 import com.example.apphear.pipeline.FrameResult
 import com.example.apphear.pipeline.recognition.RecognitionState
 import com.example.apphear.pipeline.recognition.SentenceBuilder
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.runBlocking
-import kotlinx.coroutines.withTimeout
+import kotlinx.coroutines.withTimeoutOrNull
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertFalse
 import org.junit.Assert.assertSame
@@ -46,27 +48,34 @@ class ConversationPhraseAssistInstrumentedTest {
             }
             instrumentation.waitForIdleSync()
             // The preserved Text-to-ASL baseline loads its catalog/avatar asynchronously.
-            withTimeout(30_000) {
-                while (true) {
-                    var ready = false
+            val avatarReadyField = TextToAslFragment::class.java
+                .getDeclaredField("avatarReady").apply { isAccessible = true }
+            val avatarReady = withTimeoutOrNull(60_000) {
+                var ready = false
+                while (!ready) {
                     instrumentation.runOnMainSync {
-                        ready = activity.findViewById<TextView>(R.id.current_progress_text)
-                            .text.toString() == "Ready"
+                        val navHost = activity.supportFragmentManager
+                            .findFragmentById(R.id.app_shell_nav_host) as NavHostFragment
+                        val textToAsl = navHost.childFragmentManager.primaryNavigationFragment
+                            as? TextToAslFragment
+                        ready = textToAsl != null && avatarReadyField.getBoolean(textToAsl)
                     }
-                    if (ready) break
-                    delay(50)
+                    if (!ready) delay(50)
                 }
+                true
             }
+            assertTrue("Text-to-ASL avatar did not finish cold idle loading", avatarReady == true)
             instrumentation.runOnMainSync {
                 activity.findViewById<EditText>(R.id.input_text).setText("Where are you going?")
                 activity.findViewById<View>(R.id.sign_it_button).performClick()
             }
-            val cached = withTimeout(30_000) {
+            val cached = withTimeoutOrNull(30_000) {
                 ConversationPhraseAssist.presentationState.first {
                     it.hearingTurnId != null && it.hearingTurnId > beforeTurnId &&
                         it.possibleReplies.isNotEmpty()
                 }
             }
+            checkNotNull(cached) { "Text-to-ASL submission did not cache fake reply predictions" }
             assertEquals("Where are you going?", cached.hearingText)
             assertTrue(cached.possibleReplies.contains("I'm going home."))
             assertEquals("Where are you going?", ConversationPhraseAssist.recentTurns().last().text)
@@ -317,7 +326,7 @@ class ConversationPhraseAssistInstrumentedTest {
                     it.contains("POSSIBLE REPLIES")
                 })
                 val chips = activity.findViewById<ViewGroup>(R.id.replyChipContainer)
-                assertEquals(1, chips.childCount)
+                assertEquals(3, chips.childCount)
                 assertEquals("I'm going home.", (chips.getChildAt(0) as TextView).text.toString())
                 val rawText = activity.findViewById<TextView>(R.id.sentenceText)
                 assertEquals(null, rawText.ellipsize)
@@ -455,27 +464,81 @@ class ConversationPhraseAssistInstrumentedTest {
             BuildConfig.CONTEXT_PHRASE_ASSIST_PROVIDER == "fake")
         val instrumentation = InstrumentationRegistry.getInstrumentation()
         val appContext = instrumentation.targetContext
-        checkNotNull(ConversationPhraseAssist.recordHearingMessage(appContext,
-            "Where are you going?", ConversationSource.TYPED_TEXT)).join()
-        val activity = instrumentation.startActivitySync(
-            Intent(appContext, RecognitionActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK),
-        ) as RecognitionActivity
+        val hearingActivity = instrumentation.startActivitySync(
+            Intent(appContext, MainActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK),
+        ) as MainActivity
         try {
-            val onFrame = RecognitionActivity::class.java.getDeclaredMethod("onFrame", FrameResult::class.java)
-                .apply { isAccessible = true }
-            instrumentation.runOnMainSync {
-                onFrame.invoke(activity, frame(1, "GO", "GO", 0.72f))
-                assertEquals(View.VISIBLE,
-                    activity.findViewById<View>(R.id.possibleRepliesGroup).visibility)
-                instrumentation.callActivityOnStop(activity)
-                assertEquals(View.GONE,
-                    activity.findViewById<View>(R.id.possibleRepliesGroup).visibility)
-                assertEquals("GO",
-                    activity.findViewById<TextView>(R.id.sentenceText).text.toString())
-                assertTrue(ConversationPhraseAssist.visibleRepliesForEvidence(emptyList()).isEmpty())
+            // The Hearing turn exists before Reply opens Sign Detection, while another
+            // app Activity keeps the session foregrounded during the transition.
+            checkNotNull(ConversationPhraseAssist.recordHearingMessage(appContext,
+                "Where are you going?", ConversationSource.TYPED_TEXT)).join()
+            val activity = instrumentation.startActivitySync(
+                Intent(appContext, RecognitionActivity::class.java)
+                    .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK),
+            ) as RecognitionActivity
+            try {
+                val onFrame = RecognitionActivity::class.java
+                    .getDeclaredMethod("onFrame", FrameResult::class.java)
+                    .apply { isAccessible = true }
+                instrumentation.runOnMainSync {
+                    onFrame.invoke(activity, frame(1, "GO", "GO", 0.72f))
+                    assertEquals(View.VISIBLE,
+                        activity.findViewById<View>(R.id.possibleRepliesGroup).visibility)
+                    instrumentation.callActivityOnStop(activity)
+                    assertEquals(View.GONE,
+                        activity.findViewById<View>(R.id.possibleRepliesGroup).visibility)
+                    assertEquals("GO",
+                        activity.findViewById<TextView>(R.id.sentenceText).text.toString())
+                    assertTrue(ConversationPhraseAssist.visibleRepliesForEvidence(emptyList()).isEmpty())
+                }
+            } finally {
+                instrumentation.runOnMainSync { activity.finish() }
+                instrumentation.waitForIdleSync()
             }
         } finally {
-            instrumentation.runOnMainSync { activity.finish() }
+            instrumentation.runOnMainSync { hearingActivity.finish() }
+            instrumentation.waitForIdleSync()
+        }
+    }
+
+    @Test fun unsupportedTwoSignEvidenceKeepsConversationPredictionsVisible() = runBlocking {
+        assumeTrue(ConversationPhraseAssist.enabled &&
+            BuildConfig.CONTEXT_PHRASE_ASSIST_PROVIDER == "fake")
+        val instrumentation = InstrumentationRegistry.getInstrumentation()
+        val appContext = instrumentation.targetContext
+        val hearingActivity = instrumentation.startActivitySync(
+            Intent(appContext, MainActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK),
+        ) as MainActivity
+        try {
+            checkNotNull(ConversationPhraseAssist.recordHearingMessage(appContext,
+                "Where are you going?", ConversationSource.TYPED_TEXT)).join()
+            val activity = instrumentation.startActivitySync(
+                Intent(appContext, RecognitionActivity::class.java)
+                    .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK),
+            ) as RecognitionActivity
+            try {
+                val onFrame = RecognitionActivity::class.java
+                    .getDeclaredMethod("onFrame", FrameResult::class.java)
+                    .apply { isAccessible = true }
+                instrumentation.runOnMainSync {
+                    onFrame.invoke(activity, frame(1, "GO", "GO", 0.72f))
+                    onFrame.invoke(activity, frame(2, "GIFT", "GIFT", 0.91f,
+                        sentence = "GO GIFT"))
+                    assertEquals("GO GIFT",
+                        activity.findViewById<TextView>(R.id.sentenceText).text.toString())
+                    assertEquals(View.VISIBLE,
+                        activity.findViewById<View>(R.id.possibleRepliesGroup).visibility)
+                    assertEquals(3,
+                        activity.findViewById<ViewGroup>(R.id.replyChipContainer).childCount)
+                    assertEquals(View.GONE,
+                        activity.findViewById<View>(R.id.contextSupportedGroup).visibility)
+                }
+            } finally {
+                instrumentation.runOnMainSync { activity.finish() }
+                instrumentation.waitForIdleSync()
+            }
+        } finally {
+            instrumentation.runOnMainSync { hearingActivity.finish() }
             instrumentation.waitForIdleSync()
         }
     }

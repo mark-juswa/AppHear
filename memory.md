@@ -1,3 +1,33 @@
+# Memory — Context Assist phone verification and prediction visibility fix
+
+Last updated: 2026-10-04 +08:00
+
+## What was built
+
+- The feature branch now keeps all cached conversation predictions visible during signing. Existing Top-5 prefix support only promotes a candidate's display order; the full matcher alone can show `Context-supported`. An Android regression test covers two unsupported signs without hiding predictions.
+
+## Decisions made
+
+- Leave raw `SentenceBuilder`, Hear/TTS, recognizer, and matcher behavior unchanged. Do not hide a prediction merely because the current visual prefix has no support; keep it labeled as a prediction.
+
+## Problems solved
+
+- USB install succeeded after wireless/phone approval failures. A phone screen showed raw `HELLO GOOD` in the widened `RECOGNIZED` card while the possible-replies strip remained visible. The user confirmed the strip no longer disappeared after two signs.
+
+## Current state
+
+- JVM 149/149 pass; debug, Android-test, and release builds pass. The Text-to-ASL fake-cache test, two-sign unsupported-evidence test, and Recognition exit test pass individually on the representative phone. The full 15-test instrumentation class still has an order-dependent Activity launch timeout after its heavy avatar/WebView test; three later UI tests timed out in the latest combined run. The private Gemini build was reinstalled after testing, with matching host/device APK hash and no test package left behind.
+
+## Next session starts with
+
+- Review the focused correction commit and decide whether to isolate the heavy Text-to-ASL instrumentation test into a separate process/run. Continue product evaluation only from real signed evidence; do not tune the recognizer or matcher from this UI check.
+
+## Open questions
+
+- What is the smallest test-runner isolation for the combined Android suite's Activity launch timeout? Cross-signer phrase accuracy and contextual benefit remain unmeasured.
+
+---
+
 # Memory — Context Assist recognition UI correction
 
 Last updated: 2026-10-04 +08:00

@@ -116,14 +116,14 @@ object ConversationPhraseAssist {
 
     fun recentTurns(): List<ConversationTurn> = context.snapshot()
     fun recentShadowEvaluations(): List<ShadowEvaluation> = history.toList()
-    /** Predicted phrases narrow only when their prefix has visual Top-K support. */
+    /** Keep conversation predictions visible; put visually supported prefixes first. */
     fun visibleRepliesForEvidence(evidence: List<RecognitionEvidence>): List<String> {
         if (!enabled) return emptyList()
         val turnId = context.latestHearingTurnId() ?: return emptyList()
         if (turnId != presentation.value.hearingTurnId) return emptyList()
         val replies = context.repliesForLatestHearingTurn()
         if (evidence.isEmpty()) return replies.map { it.naturalText }
-        val policy = cachedPolicy ?: return emptyList()
+        val policy = cachedPolicy ?: return replies.map { it.naturalText }
         return EvidenceAwareReplies.visible(replies, evidence, policy).map { it.naturalText }
     }
 
