@@ -1,3 +1,33 @@
+# Memory — Full prediction text in compact strip
+
+Last updated: 2026-10-04 +08:00
+
+## What was built
+
+- Removed `maxLines` and ellipsis from the three prediction TextViews in `RecognitionActivity`; each natural-language reply now wraps fully within the existing compact three-slot strip. The centered ranking and partial visual-anchor cue remain unchanged.
+
+## Decisions made
+
+- The user rejected a wide single-phrase carousel. Preserve the original compact keyboard-style three-column presentation, even when phrases need multiple lines. Do not truncate the natural reply text.
+
+## Problems solved
+
+- The phone had shown reply text ending in `…`. A later phone screenshot showed three full replies without ellipsis; the user confirmed this was much better.
+
+## Current state
+
+- JVM 150/150 pass; debug, release, and Android-test builds pass. The corrected private debug APK is installed on the representative phone with a matching host/device SHA-256. Android instrumentation could not run because the phone blocks its test companion install; the test package is absent.
+
+## Next session starts with
+
+- Continue only if the user requests another focused UI improvement. Do not change recognizer, matcher, Gemini provider, or raw Hear output for this display issue.
+
+## Open questions
+
+- None for this text-truncation fix. Cross-signer contextual benefit and the separate Android test-install restriction remain open project limitations.
+
+---
+
 # Memory — Centered prediction cue
 
 Last updated: 2026-10-04 +08:00

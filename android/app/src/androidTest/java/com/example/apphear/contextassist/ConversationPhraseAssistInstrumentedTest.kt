@@ -330,6 +330,10 @@ class ConversationPhraseAssistInstrumentedTest {
                 assertEquals("I'm going home.", (chips.getChildAt(1) as TextView).text.toString())
                 assertTrue((chips.getChildAt(1) as TextView).textSize >
                     (chips.getChildAt(0) as TextView).textSize)
+                assertEquals(null, (chips.getChildAt(1) as TextView).ellipsize)
+                assertEquals(null, (chips.getChildAt(0) as TextView).ellipsize)
+                assertTrue((chips.getChildAt(1) as TextView).maxLines > 5)
+                assertTrue((chips.getChildAt(0) as TextView).maxLines > 5)
                 val rawText = activity.findViewById<TextView>(R.id.sentenceText)
                 assertEquals(null, rawText.ellipsize)
                 assertTrue(rawText.maxLines >= 5)

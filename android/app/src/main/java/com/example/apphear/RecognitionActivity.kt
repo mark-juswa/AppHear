@@ -287,6 +287,7 @@ class RecognitionActivity : AppCompatActivity() {
             binding.replyChipContainer.removeAllViews()
             val centered = listOf(hints.getOrNull(1), hints.firstOrNull(), hints.getOrNull(2)) +
                 hints.drop(3)
+            // Preserve the compact three-suggestion row; phrases wrap inside each slot.
             val slotWidth = ((resources.displayMetrics.widthPixels - 86.dp) / 3).coerceAtLeast(70.dp)
             centered.forEachIndexed { index, hint ->
                 val leading = index == 1
@@ -305,8 +306,6 @@ class RecognitionActivity : AppCompatActivity() {
                     } else 12f
                     typeface = resources.getFont(if (leading) R.font.inter_semibold
                         else R.font.inter_regular)
-                    maxLines = if (leading) 2 else 1
-                    ellipsize = android.text.TextUtils.TruncateAt.END
                     gravity = android.view.Gravity.CENTER
                     minHeight = 40.dp
                     setPadding(3.dp, 3.dp, 3.dp, 3.dp)
