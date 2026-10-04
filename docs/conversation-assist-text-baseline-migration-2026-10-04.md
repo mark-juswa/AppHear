@@ -23,6 +23,7 @@ Recognition Top-1, event guard, SentenceBuilder, the 378-feature path, S2-R2, ma
 - Pilot flags with Context Assist OFF JVM suite: 147 tests, 0 failures.
 - Pilot-plus-Context-Assist debug APK, release APK, and Android test APK: built successfully.
 - Pilot with Context Assist OFF debug APK: built successfully.
-- The connected Android suite and physical F22 smoke remain pending until the representative phone appears in ADB. Build success and historical phone evidence do not establish a new device pass for this combined build.
+- On 2026-10-04, the user connected a Xiaomi M2101K7AG. Its previously installed APK was backed up at `android/build/device-backup-context-migration-20261004/preinstall-base.apk` (SHA-256 `CA7E7E449A36C549F454FC621CC7ECC1181192E0C58129C31B0A21C0EFCF128C`). The private debug build with pilot flags and real Gemini provider enabled installed successfully with app data retained. Installed and built APK SHA-256 both equal `313F9D5E95AF692909EFA0BCF6CBB8C43546888B1A68201C8B7EDF785F0F1DCD`; the user asked to leave it installed.
+- The connected Android suite, physical F22 smoke, and a real Gemini request through this combined build remain pending. Installation and hash verification do not establish a runtime behavior pass; historical phone evidence is not counted as a new validation.
 - The current Gemini Free-tier setup is for synthetic development conversation text only. Credentials belong in ignored local configuration and must not be committed.
 - Text-to-ASL pilot flags and Context Assist default to off, and release remains off. The existing deferred issue registry still applies, especially recognizer Top-5 absence, extra events, provider coverage, semantic grounding, and production credential transport.
