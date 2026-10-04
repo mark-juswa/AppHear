@@ -120,6 +120,39 @@ class PhraseAssistCoreTest {
         assertEquals(2, context.snapshot().size)
     }
 
+    @Test fun backgroundSessionClearsRepliesAndRejectsLateProviderResult() {
+        val context = ConversationContext()
+        val old = context.add(ConversationSpeaker.HEARING, ConversationSource.TYPED_TEXT,
+            "Where are you going?", 1)
+        assertTrue(context.setReplies(old.id,
+            listOf(ReplyCandidate("I'm going home.", listOf("GO", "HOME")))))
+        context.clearSession()
+        assertTrue(context.snapshot().isEmpty())
+        assertTrue(context.repliesForLatestHearingTurn().isEmpty())
+        assertFalse(context.setReplies(old.id,
+            listOf(ReplyCandidate("Late.", listOf("HOME")))))
+        val fresh = context.add(ConversationSpeaker.HEARING, ConversationSource.TYPED_TEXT,
+            "Are you tired?", 2)
+        assertTrue(fresh.id > old.id)
+    }
+
+    @Test fun possibleRepliesNarrowByTopFiveSequenceWithoutPromotingPartialPhrase() {
+        val replies = listOf(
+            ReplyCandidate("I'm going home.", listOf("GO", "HOME")),
+            ReplyCandidate("I'm going to school.", listOf("GO", "SCHOOL")),
+            ReplyCandidate("I'm going to work.", listOf("GO", "WORK")),
+        )
+        val first = event(1, "GO", "GO" to 0.72f)
+        assertEquals(replies, EvidenceAwareReplies.visible(replies, emptyList(), policy))
+        assertEquals(replies, EvidenceAwareReplies.visible(replies, listOf(first), policy))
+        assertFalse(matcher.interpret(listOf(first), replies).matched)
+        val second = event(2, "THINK", "THINK" to 0.35f, "HOME" to 0.33f)
+        assertEquals(listOf(replies.first()),
+            EvidenceAwareReplies.visible(replies, listOf(first, second), policy))
+        val unsupported = event(2, "GIFT", "GIFT" to 0.91f, "HOME" to 0.01f)
+        assertTrue(EvidenceAwareReplies.visible(replies, listOf(first, unsupported), policy).isEmpty())
+    }
+
     @Test fun fakeProviderPredictsOnlySupportedDemoConcepts() = runBlocking {
         val context = ConversationContext()
         val turn = context.add(ConversationSpeaker.HEARING, ConversationSource.TYPED_TEXT,

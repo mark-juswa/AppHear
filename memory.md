@@ -1,3 +1,33 @@
+# Memory — Context Assist recognition UI correction
+
+Last updated: 2026-10-04 +08:00
+
+## What was built
+
+- Commit `ae9f038` on `codex/conversation-assist-text-to-asl-migration` widens the raw sentence card, narrows visible predicted replies using committed Top-5 phrase prefixes, and closes stale reply windows on Sign Detection exit or app background.
+
+## Decisions made
+
+- Keep raw `SentenceBuilder` text and Hear speech authoritative. The prefix-filtered replies remain predictions; only the existing full matcher may display a separate context-supported phrase.
+
+## Problems solved
+
+- Source inspection found that the raw sentence accumulates in `PhoneProductionSession`; the former two-line, narrow card could clip the phrase. In-memory prediction turns no longer survive Back/Home into a later session.
+
+## Current state
+
+- 149 JVM tests pass; debug, Android-test, and release build gates pass. The corrected phone UI and connected test suite remain unverified because Android returned `INSTALL_FAILED_USER_RESTRICTED` after wireless ADB transfer. AppHear is currently absent from the connected phone after Gradle's canceled test install. A private debug APK and the backed-up pretest APK remain in this isolated worktree's `android/build`/`android/app/build` outputs. No credential value is recorded here.
+
+## Next session starts with
+
+- Obtain phone-side approval of the AppHear installation (or a stable USB install path), install the corrected private debug APK, verify the multiword raw card and stale-reply behavior, then run the focused connected test suite if transport permits. Do not repeat physical accuracy collection.
+
+## Open questions
+
+- Does the expanded card display a multiword sentence correctly on the representative phone? Does the corrected Android instrumentation pass once package installation is permitted?
+
+---
+
 # Memory — S2-R2 itel capture aborted from debug OOM; replacement decision pending
 
 Last updated: 2026-09-23 +08:00

@@ -79,6 +79,7 @@ class RecognitionActivity : AppCompatActivity() {
     private var signingVisible = false
     private var signingInProgress = false
     private var displayedHearingTurnId: Long? = null
+    private var openingHearingTurnId: Long? = null
     private var renderedReplies: List<String> = emptyList()
     private var runtimeConfig: RuntimeConfig? = null
     private var analyzer: CloseableFrameAnalyzer? = null
@@ -130,7 +131,8 @@ class RecognitionActivity : AppCompatActivity() {
         window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
         binding = ActivityRecognitionBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        displayedHearingTurnId = ConversationPhraseAssist.presentationState.value.hearingTurnId
+        openingHearingTurnId = ConversationPhraseAssist.presentationState.value.hearingTurnId
+        displayedHearingTurnId = openingHearingTurnId
         binding.sentenceCard.visibility = View.GONE
         speechPlayer = AppHearSpeechPlayer(this)
         ruD1 = RuD1Diagnostics.create(applicationContext)
@@ -274,7 +276,7 @@ class RecognitionActivity : AppCompatActivity() {
             evidenceInterrupted = rawSentence.isNotBlank() &&
                 rawSentence != getString(R.string.sentence_placeholder)
         }
-        val replies = state.possibleReplies.take(5)
+        val replies = ConversationPhraseAssist.visibleRepliesForEvidence(signingTurn.snapshot()).take(5)
         if (renderedReplies != replies) {
             renderedReplies = replies
             binding.replyChipContainer.removeAllViews()
@@ -726,7 +728,7 @@ class RecognitionActivity : AppCompatActivity() {
         binding.overlayView.clear()
         signingVisible = false
         signingInProgress = false
-        ConversationPhraseAssist.recognitionScreenStopped()
+        ConversationPhraseAssist.recognitionScreenStopped(openingHearingTurnId)
         renderPhraseAssist(ConversationPhraseAssist.presentationState.value)
         if (ConversationPhraseAssist.enabled && signingTurn.snapshot().isNotEmpty()) evidenceInterrupted = true
         signingTurn.clear()

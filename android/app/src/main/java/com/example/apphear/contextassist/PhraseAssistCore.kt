@@ -60,6 +60,14 @@ class ConversationContext(private val maximumTurns: Int = 6) {
         currentHearingId = null
         return finished
     }
+
+    /** End the in-memory conversation when the app leaves the foreground. */
+    @Synchronized fun clearSession() {
+        turns.clear()
+        replies = emptyList()
+        currentHearingId = null
+        // Keep nextId monotonic so a late provider response cannot match a new session.
+    }
 }
 
 /** Rejects unsupported or malformed provider concepts before matching. */
@@ -169,6 +177,20 @@ class PhraseMatcher(private val policy: PhraseMatchPolicy) {
         if (scored.size > 1 && winner.second - scored[1].second < policy.minimumWinnerLead) return fallback
         return AssistedInterpretation(raw, winner.first.concepts, winner.first.naturalText,
             evidence.map { it.eventId }, true, evidence.toList())
+    }
+}
+
+/** UI-only prefix filter. A surviving phrase is still a prediction, not a completed match. */
+object EvidenceAwareReplies {
+    fun visible(replies: List<ReplyCandidate>, evidence: List<RecognitionEvidence>,
+                policy: PhraseMatchPolicy): List<ReplyCandidate> {
+        if (evidence.isEmpty()) return replies
+        val matcher = PhraseMatcher(policy)
+        return replies.filter { reply ->
+            reply.concepts.size >= evidence.size && matcher.interpret(
+                evidence, listOf(reply.copy(concepts = reply.concepts.take(evidence.size))),
+            ).matched
+        }
     }
 }
 

@@ -831,10 +831,15 @@ latest Hearing turn, so late results cannot replace newer candidates.
 committed event into `RecognitionEvidence`. `RecognitionActivity` buffers that lightweight
 evidence. The cached natural-language predictions stay hidden until the decoder reports
 signing activity, when they appear as clearly labeled possibilities. After each committed
-event, `ConversationPhraseAssist.previewSupportedTurn` may show a separate interpretation
-only if the existing conservative matcher supports it. This preview does not finalize a
-conversation turn or change raw state. Hear still finalizes the shadow evaluation and
-speaks the raw sentence. A later signing response cannot reuse the closed prediction window.
+event, `EvidenceAwareReplies` retains only phrase hypotheses whose signed-concept prefix
+passes the existing matcher rules against that turn's Top-5 evidence. This prefix filter
+does not assert that a full phrase was signed. `ConversationPhraseAssist.previewSupportedTurn`
+shows a separate interpretation only if the unchanged full matcher supports the accumulated
+sequence. This preview does not finalize a conversation turn or change raw state. Hear still
+finalizes the shadow evaluation and speaks the raw sentence. The reply window closes when
+Sign Detection stops; the bounded conversation clears when the whole app backgrounds, so
+Back/Home cannot resurrect old possibilities. A later signing response cannot reuse the
+closed prediction window.
 Raw `SentenceBuilder` text remains the displayed and spoken result and becomes the Deaf
 conversation turn; event-level evidence remains separate for matching and bounded
 diagnostics. No camera images, landmarks, feature vectors or recognizer tensors enter the

@@ -116,6 +116,17 @@ object ConversationPhraseAssist {
 
     fun recentTurns(): List<ConversationTurn> = context.snapshot()
     fun recentShadowEvaluations(): List<ShadowEvaluation> = history.toList()
+    /** Predicted phrases narrow only when their prefix has visual Top-K support. */
+    fun visibleRepliesForEvidence(evidence: List<RecognitionEvidence>): List<String> {
+        if (!enabled) return emptyList()
+        val turnId = context.latestHearingTurnId() ?: return emptyList()
+        if (turnId != presentation.value.hearingTurnId) return emptyList()
+        val replies = context.repliesForLatestHearingTurn()
+        if (evidence.isEmpty()) return replies.map { it.naturalText }
+        val policy = cachedPolicy ?: return emptyList()
+        return EvidenceAwareReplies.visible(replies, evidence, policy).map { it.naturalText }
+    }
+
     fun signingStarted() {
         if (!enabled) return
         val next = presentation.value.signingStarted()
@@ -130,13 +141,22 @@ object ConversationPhraseAssist {
         context.finishReplyWindow()
         presentation.value = PhraseAssistUiState()
     }
-    fun recognitionScreenStopped() {
+    fun recognitionScreenStopped(openedTurnId: Long?) {
         if (!enabled) return
-        presentation.value = if (context.latestHearingTurnId() == null) {
-            PhraseAssistUiState()
+        val closesThisReply = openedTurnId != null && context.latestHearingTurnId() == openedTurnId
+        if (closesThisReply) context.finishReplyWindow()
+        presentation.value = if (closesThisReply || context.latestHearingTurnId() == null) {
+            presentation.value.copy(possibleReplies = emptyList(), contextSupported = null)
         } else {
+            // A new Hearing turn can arrive while the old Recognition screen is closing.
             presentation.value.signingStarted()
         }
+    }
+    fun appBackgrounded() {
+        if (!enabled) return
+        context.clearSession()
+        history.clear()
+        presentation.value = PhraseAssistUiState()
     }
 
     private fun provider(): ContextPredictionProvider = when (BuildConfig.CONTEXT_PHRASE_ASSIST_PROVIDER) {
