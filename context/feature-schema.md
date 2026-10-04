@@ -830,11 +830,12 @@ latest Hearing turn, so late results cannot replace newer candidates.
 `PhoneProductionSession` copies the already computed Top-5 labels/scores for a guarded
 committed event into `RecognitionEvidence`. `RecognitionActivity` buffers that lightweight
 evidence. The cached natural-language predictions stay hidden until the decoder reports
-signing activity, when they appear as clearly labeled possibilities. After each committed
-event, `EvidenceAwareReplies` orders hypotheses whose signed-concept prefix passes the
-existing matcher rules ahead of the others. All cached hypotheses remain labeled as
-conversation predictions during the signing turn, including when no prefix is supported.
-This ordering does not assert that a full phrase was signed. `ConversationPhraseAssist.previewSupportedTurn`
+signing activity, when they appear in a separate prediction strip with an accessibility
+description. After each committed event, `EvidenceAwareReplies` uses the existing matcher
+rules to promote hypotheses with supported signed-concept prefixes and to mark a partial
+one-concept anchor cue for presentation. The leading prediction is centered and may briefly
+pulse on that partial cue; all cached hypotheses remain available even when none is supported.
+This visual cue does not assert that a full phrase was signed. `ConversationPhraseAssist.previewSupportedTurn`
 shows a separate interpretation only if the unchanged full matcher supports the accumulated
 sequence. This preview does not finalize a conversation turn or change raw state. Hear still
 finalizes the shadow evaluation and speaks the raw sentence. The reply window closes when

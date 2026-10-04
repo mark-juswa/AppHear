@@ -153,6 +153,24 @@ class PhraseAssistCoreTest {
         assertEquals(replies, EvidenceAwareReplies.visible(replies, listOf(first, unsupported), policy))
     }
 
+    @Test fun aSingleVisualAnchorRanksOnlyThePredictionAndNeverMatchesThePhrase() {
+        val replies = listOf(
+            ReplyCandidate("I'm going to school.", listOf("GO", "SCHOOL")),
+            ReplyCandidate("I'm going home.", listOf("GO", "HOME")),
+        )
+        val home = event(1, "HOME", "HOME" to 0.72f)
+        val hints = EvidenceAwareReplies.hints(replies, listOf(home), policy)
+        assertEquals("I'm going home.", hints.first().naturalText)
+        assertTrue(hints.first().latestSignSupportsAnchor)
+        assertFalse(hints.last().latestSignSupportsAnchor)
+        assertFalse(matcher.interpret(listOf(home), replies).matched)
+        val unsupported = event(2, "GIFT", "GIFT" to 0.91f, "HOME" to 0.01f)
+        assertEquals(replies.map { it.naturalText },
+            EvidenceAwareReplies.hints(replies, listOf(unsupported), policy).map { it.naturalText })
+        assertTrue(EvidenceAwareReplies.hints(replies, listOf(unsupported), policy)
+            .none { it.latestSignSupportsAnchor })
+    }
+
     @Test fun fakeProviderPredictsOnlySupportedDemoConcepts() = runBlocking {
         val context = ConversationContext()
         val turn = context.add(ConversationSpeaker.HEARING, ConversationSource.TYPED_TEXT,

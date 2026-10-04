@@ -322,12 +322,14 @@ class ConversationPhraseAssistInstrumentedTest {
                     activity.findViewById<TextView>(R.id.contextSupportedText).text.toString())
                 assertEquals(View.VISIBLE,
                     activity.findViewById<View>(R.id.contextSupportedGroup).visibility)
-                assertTrue(visibleTexts(activity.window.decorView).any {
+                assertFalse(visibleTexts(activity.window.decorView).any {
                     it.contains("POSSIBLE REPLIES")
                 })
                 val chips = activity.findViewById<ViewGroup>(R.id.replyChipContainer)
                 assertEquals(3, chips.childCount)
-                assertEquals("I'm going home.", (chips.getChildAt(0) as TextView).text.toString())
+                assertEquals("I'm going home.", (chips.getChildAt(1) as TextView).text.toString())
+                assertTrue((chips.getChildAt(1) as TextView).textSize >
+                    (chips.getChildAt(0) as TextView).textSize)
                 val rawText = activity.findViewById<TextView>(R.id.sentenceText)
                 assertEquals(null, rawText.ellipsize)
                 assertTrue(rawText.maxLines >= 5)

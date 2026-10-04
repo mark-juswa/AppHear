@@ -49,6 +49,7 @@ import com.example.apphear.pipeline.recognition.RuntimeConfig
 import com.example.apphear.perceptionvnext.Candidate01FrameAnalyzer
 import com.example.apphear.perceptionvnext.PhoneProductionSession
 import com.example.apphear.contextassist.ConversationPhraseAssist
+import com.example.apphear.contextassist.EvidenceAwareReplies
 import com.example.apphear.contextassist.PhraseAssistUiState
 import com.example.apphear.contextassist.SigningTurnBuffer
 import com.example.apphear.contextassist.Stage3Diagnostics
@@ -80,7 +81,8 @@ class RecognitionActivity : AppCompatActivity() {
     private var signingInProgress = false
     private var displayedHearingTurnId: Long? = null
     private var openingHearingTurnId: Long? = null
-    private var renderedReplies: List<String> = emptyList()
+    private var renderedHints: List<EvidenceAwareReplies.Hint> = emptyList()
+    private var lastPulsedEventId: Int? = null
     private var runtimeConfig: RuntimeConfig? = null
     private var analyzer: CloseableFrameAnalyzer? = null
     private var cameraProvider: ProcessCameraProvider? = null
@@ -167,6 +169,7 @@ class RecognitionActivity : AppCompatActivity() {
             evidenceInterrupted = false
             signingVisible = false
             signingInProgress = false
+            lastPulsedEventId = null
             ConversationPhraseAssist.clearDisplayedInterpretation()
             renderPhraseAssist(ConversationPhraseAssist.presentationState.value)
             if (ruD1.config.enabled && ruD1QueueGloss().isNotBlank()) {
@@ -269,6 +272,7 @@ class RecognitionActivity : AppCompatActivity() {
             signingVisible = false
             signingInProgress = false
             signingTurn.clear()
+            lastPulsedEventId = null
             // Existing raw words belong to an earlier response. Keep them untouched, but
             // do not match new predictions against a mixed, un-cleared sentence.
             val rawSentence = (phoneSession?.sentenceText ?: recognizer?.sentenceText)
@@ -276,30 +280,64 @@ class RecognitionActivity : AppCompatActivity() {
             evidenceInterrupted = rawSentence.isNotBlank() &&
                 rawSentence != getString(R.string.sentence_placeholder)
         }
-        val replies = ConversationPhraseAssist.visibleRepliesForEvidence(signingTurn.snapshot()).take(5)
-        if (renderedReplies != replies) {
-            renderedReplies = replies
+        val evidence = signingTurn.snapshot()
+        val hints = ConversationPhraseAssist.replyHintsForEvidence(evidence).take(5)
+        if (renderedHints != hints) {
+            renderedHints = hints
             binding.replyChipContainer.removeAllViews()
-            replies.forEach { reply ->
+            val centered = listOf(hints.getOrNull(1), hints.firstOrNull(), hints.getOrNull(2)) +
+                hints.drop(3)
+            val slotWidth = ((resources.displayMetrics.widthPixels - 86.dp) / 3).coerceAtLeast(70.dp)
+            centered.forEachIndexed { index, hint ->
+                val leading = index == 1
                 val chip = TextView(this).apply {
-                    text = reply
-                    setTextColor(getColor(R.color.white))
-                    textSize = 12f
-                    maxLines = 2
+                    text = hint?.naturalText.orEmpty()
+                    contentDescription = hint?.naturalText?.let {
+                        getString(R.string.context_predicted_reply_accessibility, it)
+                    }
+                    setTextColor(when {
+                        leading && hint?.latestSignSupportsAnchor == true -> 0xFFB7FFF0.toInt()
+                        leading -> getColor(R.color.white)
+                        else -> 0xD8FFFFFF.toInt()
+                    })
+                    textSize = if (leading) {
+                        if (hint?.latestSignSupportsAnchor == true) 16f else 15f
+                    } else 12f
+                    typeface = resources.getFont(if (leading) R.font.inter_semibold
+                        else R.font.inter_regular)
+                    maxLines = if (leading) 2 else 1
+                    ellipsize = android.text.TextUtils.TruncateAt.END
                     gravity = android.view.Gravity.CENTER
-                    setPadding(16.dp, 9.dp, 16.dp, 9.dp)
-                    background = ContextCompat.getDrawable(this@RecognitionActivity,
-                        R.drawable.recognition_reply_chip)
+                    minHeight = 40.dp
+                    setPadding(3.dp, 3.dp, 3.dp, 3.dp)
+                    if (leading && hint?.latestSignSupportsAnchor == true) {
+                        setShadowLayer(6.dp.toFloat(), 0f, 0f, 0x9935D9BE.toInt())
+                    }
                 }
                 binding.replyChipContainer.addView(chip,
                     android.widget.LinearLayout.LayoutParams(
+                        slotWidth,
                         android.widget.LinearLayout.LayoutParams.WRAP_CONTENT,
-                        android.widget.LinearLayout.LayoutParams.WRAP_CONTENT,
-                    ).apply { marginEnd = 8.dp })
+                    ))
+            }
+            binding.replyScroll.post { binding.replyScroll.scrollTo(0, 0) }
+        }
+        val latestEventId = evidence.lastOrNull()?.eventId
+        if (hints.firstOrNull()?.latestSignSupportsAnchor == true && latestEventId != null &&
+            lastPulsedEventId != latestEventId) {
+            lastPulsedEventId = latestEventId
+            (binding.replyChipContainer.getChildAt(1) as? TextView)?.post {
+                val leading = binding.replyChipContainer.getChildAt(1) as? TextView ?: return@post
+                if (isFinishing || isDestroyed) return@post
+                leading.animate().cancel()
+                leading.animate().scaleX(1.10f).scaleY(1.10f).setDuration(140)
+                    .withEndAction {
+                        leading.animate().scaleX(1f).scaleY(1f).setDuration(180).start()
+                    }.start()
             }
         }
         binding.possibleRepliesGroup.visibility =
-            if (signingVisible && replies.isNotEmpty()) View.VISIBLE else View.GONE
+            if (signingVisible && hints.isNotEmpty()) View.VISIBLE else View.GONE
         val supported = state.contextSupported
         binding.contextSupportedGroup.visibility =
             if (signingVisible && supported != null) View.VISIBLE else View.GONE

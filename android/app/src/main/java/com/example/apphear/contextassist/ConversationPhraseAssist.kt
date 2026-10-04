@@ -127,6 +127,15 @@ object ConversationPhraseAssist {
         return EvidenceAwareReplies.visible(replies, evidence, policy).map { it.naturalText }
     }
 
+    fun replyHintsForEvidence(evidence: List<RecognitionEvidence>): List<EvidenceAwareReplies.Hint> {
+        if (!enabled) return emptyList()
+        val turnId = context.latestHearingTurnId() ?: return emptyList()
+        if (turnId != presentation.value.hearingTurnId) return emptyList()
+        val replies = context.repliesForLatestHearingTurn()
+        val policy = cachedPolicy ?: return replies.map { EvidenceAwareReplies.Hint(it.naturalText, false) }
+        return EvidenceAwareReplies.hints(replies, evidence, policy)
+    }
+
     fun signingStarted() {
         if (!enabled) return
         val next = presentation.value.signingStarted()

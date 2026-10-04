@@ -142,6 +142,7 @@
     <string name="context_supported_label">CONTEXT-SUPPORTED · ADVISORY</string>
     <string name="recognized_label">RECOGNIZED</string>
     <string name="context_possible_replies_label">POSSIBLE REPLIES · PREDICTIONS</string>
+    <string name="context_predicted_reply_accessibility">Predicted reply: %1$s</string>
     <string name="recognition_speak_button">SPEAK</string>
     <string name="recognition_speak_content_description">Speak a reply</string>
 </resources>

@@ -183,27 +183,27 @@
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/sentenceCard"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="22dp"
         android:layout_marginBottom="10dp"
         android:visibility="gone"
-        app:cardBackgroundColor="#71344243"
+        app:cardBackgroundColor="#9C303738"
         app:cardCornerRadius="23dp"
-        app:cardElevation="4dp"
+        app:cardElevation="2dp"
+        app:layout_constrainedWidth="true"
         app:layout_constraintBottom_toTopOf="@id/possibleRepliesGroup"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:strokeColor="#90FFFFFF"
-        app:strokeWidth="1dp">
+        app:strokeWidth="0dp">
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:orientation="vertical"
-            android:paddingHorizontal="22dp"
-            android:paddingVertical="13dp">
+            android:paddingHorizontal="18dp"
+            android:paddingVertical="12dp">
 
             <TextView
                 android:id="@+id/recognizedLabel"
@@ -217,12 +217,13 @@
 
             <TextView
                 android:id="@+id/sentenceText"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
                 android:fontFamily="@font/inter_semibold"
                 android:gravity="center"
                 android:lineSpacingExtra="3dp"
+                android:maxWidth="280dp"
                 android:minHeight="28dp"
                 android:text="@string/sentence_placeholder"
                 android:textColor="#FFFFFF"
@@ -230,20 +231,14 @@
 
             <LinearLayout
                 android:id="@+id/contextSupportedGroup"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:orientation="vertical"
                 android:visibility="gone">
 
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginBottom="9dp"
-                    android:background="#55FFFFFF" />
-
                 <TextView
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text="@string/context_supported_label"
@@ -252,9 +247,10 @@
 
                 <TextView
                     android:id="@+id/contextSupportedText"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
+                    android:maxWidth="280dp"
                     android:textColor="#FFFFFF"
                     android:textSize="15sp" />
             </LinearLayout>
@@ -265,32 +261,22 @@
         android:id="@+id/possibleRepliesGroup"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="22dp"
-        android:layout_marginBottom="9dp"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginBottom="8dp"
         android:background="@drawable/recognition_glass_strip"
+        android:contentDescription="@string/context_possible_replies_label"
         android:orientation="vertical"
-        android:paddingHorizontal="15dp"
-        android:paddingTop="10dp"
-        android:paddingBottom="11dp"
+        android:paddingHorizontal="13dp"
+        android:paddingVertical="7dp"
         android:visibility="gone"
         app:layout_constraintBottom_toTopOf="@id/bottomSheet"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/inter_semibold"
-            android:gravity="center"
-            android:letterSpacing="0.15"
-            android:text="@string/context_possible_replies_label"
-            android:textColor="#E7F4F2"
-            android:textSize="9sp" />
-
         <HorizontalScrollView
+            android:id="@+id/replyScroll"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="7dp"
             android:fillViewport="true"
             android:scrollbars="none">
 

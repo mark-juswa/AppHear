@@ -1,3 +1,63 @@
+# Memory — Centered prediction cue
+
+Last updated: 2026-10-04 +08:00
+
+## What was built
+
+- Removed the visible prediction-strip label, centered the leading predicted phrase, retained smaller alternatives, and added a brief teal pop when the latest committed sign visually supports any one expected concept under the existing matcher policy. This remains a partial prediction cue; it cannot create a full context-supported interpretation or mutate raw output.
+
+## Decisions made
+
+- Rank and animate predictions only; keep `RECOGNIZED` and Hear/TTS raw. A single anchor can guide visual hierarchy but never counts as a verified whole phrase. No recognizer, model, provider, or matcher thresholds changed.
+
+## Problems solved
+
+- The high-ranked suggestion is now visibly centered. A single supported sign can respond visually even when the full predicted phrase is not yet signed.
+
+## Current state
+
+- JVM 150/150 pass; debug, release, and Android-test APKs build. Private debug APK is installed on the representative phone with matching host/device hash. The phone denied the test companion installation (`INSTALL_FAILED_USER_RESTRICTED`); no instrumentation result from this turn. Prior APK backup remains private in ignored `android/build`.
+
+## Next session starts with
+
+- Review the user's visual feedback on the installed strip. If the layout needs polish, adjust only presentation. Do not call one supported anchor a full phrase match or alter raw recognition.
+
+## Open questions
+
+- Whether the center typography and teal pop are clear on the device. The existing combined instrumentation suite's order-dependent Activity timeout remains unresolved separately.
+
+---
+
+# Memory — Compact recognition and prediction UI
+
+Last updated: 2026-10-04 +08:00
+
+## What was built
+
+- Refined only the Recognition screen: borderless translucent card and unified prediction strip, content-fitting multiword raw result, emphasized leading suggestion, and scroll reset when evidence reorders suggestions. Updated `context/progress-tracker.md`.
+
+## Decisions made
+
+- User chose to rank context as a labeled prediction while keeping `RECOGNIZED` and Hear/TTS raw. Existing Top-5 prefix support may reorder predictions; a separate `Context-supported` interpretation still requires the unchanged full matcher.
+
+## Problems solved
+
+- A phone screenshot exposed the first suggestion partly offscreen after strip reordering. The strip now returns to its leading item. The same screenshot showed two raw words (`HOME WORLD`) fitting inside the card and predictions remaining visible.
+
+## Current state
+
+- JVM 149/149 pass; debug and release builds pass. The final private Gemini debug APK is installed on the representative phone with matching host/device SHA-256. The prior APK is privately backed up in ignored `android/build`. The combined Android instrumentation class has the previously documented order-dependent launch timeout; this screen polish did not change that suite.
+
+## Next session starts with
+
+- Ask the user to review the installed UI in normal use. If the keyboard-style suggestion ranking needs further tuning, use the existing visual evidence and keep raw output untouched. Do not repeat Stage 3 physical accuracy collection for this UI change.
+
+## Open questions
+
+- Whether the final transparency and typography meet the user's visual preference. Cross-signer phrase accuracy and contextual benefit remain unmeasured.
+
+---
+
 # Memory — Context Assist phone verification and prediction visibility fix
 
 Last updated: 2026-10-04 +08:00

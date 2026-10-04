@@ -182,6 +182,8 @@ class PhraseMatcher(private val policy: PhraseMatchPolicy) {
 
 /** UI-only ordering. Visual evidence may promote a prediction but never erase it. */
 object EvidenceAwareReplies {
+    data class Hint(val naturalText: String, val latestSignSupportsAnchor: Boolean)
+
     fun visible(replies: List<ReplyCandidate>, evidence: List<RecognitionEvidence>,
                 policy: PhraseMatchPolicy): List<ReplyCandidate> {
         if (evidence.isEmpty()) return replies
@@ -192,6 +194,22 @@ object EvidenceAwareReplies {
             ).matched
         }
         return supportedPrefix + others
+    }
+
+    /** UI-only partial cue. A single supported anchor is never a supported phrase. */
+    fun hints(replies: List<ReplyCandidate>, evidence: List<RecognitionEvidence>,
+              policy: PhraseMatchPolicy): List<Hint> {
+        val latest = evidence.lastOrNull() ?: return replies.map { Hint(it.naturalText, false) }
+        val matcher = PhraseMatcher(policy)
+        val ordered = visible(replies, evidence, policy).map { reply ->
+            val supported = reply.concepts.any { concept ->
+                matcher.interpret(listOf(latest),
+                    listOf(reply.copy(concepts = listOf(concept)))).matched
+            }
+            Hint(reply.naturalText, supported)
+        }
+        val (supported, others) = ordered.partition { it.latestSignSupportsAnchor }
+        return supported + others
     }
 }
 
