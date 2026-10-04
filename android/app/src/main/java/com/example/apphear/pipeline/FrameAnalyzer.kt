@@ -13,6 +13,7 @@ import com.example.apphear.pipeline.diagnostics.RuD1Diagnostics
 import com.example.apphear.pipeline.diagnostics.RuD1FrameObservation
 import com.example.apphear.pipeline.diagnostics.A1Diagnostics
 import com.example.apphear.ui.PhoneOverlayFrame
+import com.example.apphear.contextassist.RecognitionEvidence
 import com.google.mediapipe.framework.image.BitmapImageBuilder
 import com.google.mediapipe.tasks.vision.handlandmarker.HandLandmarkerResult
 import com.google.mediapipe.tasks.vision.poselandmarker.PoseLandmarkerResult
@@ -41,6 +42,7 @@ data class FrameResult(
     val phoneOverlay: PhoneOverlayFrame? = null,
     val phoneReady: Boolean? = null,
     val phoneSentence: String? = null,
+    val recognitionEvidence: RecognitionEvidence? = null,
 )
 
 /** S0->S1/S2 bridge with optional profiling ablations. */

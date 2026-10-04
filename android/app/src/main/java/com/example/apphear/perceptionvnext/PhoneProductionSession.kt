@@ -4,6 +4,7 @@ import android.content.Context
 import android.os.Build
 import android.util.Log
 import com.example.apphear.BuildConfig
+import com.example.apphear.contextassist.RecognitionEvidence
 import com.example.apphear.pipeline.recognition.RecognitionState
 import com.example.apphear.pipeline.recognition.SentenceBuilder
 import java.security.MessageDigest
@@ -22,6 +23,7 @@ internal class PhoneProductionSession private constructor(
         val top1Probability: Float?,
         val s2InvocationMs: Double,
         val recognitionInvocationMs: Double?,
+        val evidence: RecognitionEvidence? = null,
     )
 
     private val features = PhoneSegmentationFeatureBuilder()
@@ -59,6 +61,8 @@ internal class PhoneProductionSession private constructor(
             val top1 = prediction.top5.first()
             val gloss = recognizer.glosses[top1]
             val candidates = prediction.top5.map { recognizer.glosses[it] }
+            val evidence = RecognitionEvidence.fromExistingTop5(event.eventId, event.commitMs.toLong(),
+                prediction.top5, prediction.probabilities, recognizer.glosses)
             sentence.add(gloss)
             lastCommittedEventId = event.eventId
             heldCommit = RecognitionState.Committed(gloss, top1, candidates)
@@ -68,7 +72,7 @@ internal class PhoneProductionSession private constructor(
                 "probability=${prediction.probabilities[top1]}")
             return Update(
                 checkNotNull(heldCommit), episode.state, event.eventId, window.observations.size,
-                prediction.probabilities[top1], state.invocationMs, prediction.invocationMs,
+                prediction.probabilities[top1], state.invocationMs, prediction.invocationMs, evidence,
             )
         }
         val uiState = when (episode.state) {

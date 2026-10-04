@@ -5014,3 +5014,10 @@ all perception experiments remain immutable historical evidence.
 - [x] Audited Git parent `f5a6cb4`, the uncommitted working Text-to-ASL/Profile pilot, the saved tested APK hashes, and the separate clean context-aware assistant worktree at `24f0684`.
 - [x] Isolated the tested app source/assets/tests and focused documentation on `codex/current-working-text-to-asl-baseline-2026-09-29`; see `context/current-working-baseline-2026-09-29.md` for exact scope, rollback and limits. The context-aware assistant branch is excluded.
 - [ ] Controlled first-load/frame/memory/low-RAM/thermal and broad F22 gates remain pending. Keep all Text-to-ASL pilot and account flags default/release OFF until separately validated.
+
+### 2026-10-04 — Conversation Assist migrated onto preserved Text-to-ASL source
+
+- [x] Verified the current working Text-to-ASL source branch and annotated tag at `cc1f394`; the existing Context Assist branch at `75f5959` has merge base `76d93ce`. Kept the preservation branch/tag and its unrelated local work untouched. Migration branch: `codex/conversation-assist-text-to-asl-migration`.
+- [x] Carried the existing Context Assist sidecar, policy, read-only Top-5 event evidence, advisory UI, bounded diagnostics, tests, and historical evidence onto the newer source. Adapted only the Text-to-ASL completed-submission seam and Gradle flags where the branches diverged. Deferred New-character submission keeps its typed/speech source, and Replay remains outside conversation history.
+- [x] Default debug, pilot-plus-fake-Context-Assist, and pilot-with-Context-Assist-OFF JVM suites each passed 147/147 tests. Debug APK builds passed with the pilot both ON and OFF for Context Assist; release and Android test APK builds passed. Release Context Assist and all Text-to-ASL pilot flags remain hard-disabled.
+- [ ] Representative-phone F22 smoke and connected tests remain pending because ADB currently lists no device. No live Gemini request or physical signing test was run for this migration; prior experiment evidence is retained, not counted as a new baseline validation.

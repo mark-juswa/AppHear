@@ -94,6 +94,22 @@ android {
         .orNull
         ?.uppercase()
         ?: "S2_R2_CANDIDATE"
+    val contextPhraseAssistDebug = providers.gradleProperty("contextPhraseAssist")
+        .map { it.equals("true", ignoreCase = true) }.getOrElse(false)
+    val contextPhraseAssistProvider = providers.gradleProperty("contextPhraseAssistProvider")
+        .orNull?.lowercase() ?: "fake"
+    val contextPhraseCaptureDebug = providers.gradleProperty("contextPhraseCapture")
+        .map { it.equals("true", ignoreCase = true) }.getOrElse(false)
+    require(contextPhraseAssistProvider in setOf("fake", "remote", "gemini"))
+    val contextPhraseAssistApiKey = providers.gradleProperty("APPHEAR_CONTEXT_ASSIST_API_KEY")
+        .orElse(providers.environmentVariable("APPHEAR_CONTEXT_ASSIST_API_KEY"))
+        .orNull.orEmpty()
+    val contextPhraseAssistGeminiApiKey = if (contextPhraseAssistDebug &&
+        contextPhraseAssistProvider == "gemini") {
+        providers.gradleProperty("APPHEAR_GEMINI_API_KEY")
+            .orElse(providers.environmentVariable("APPHEAR_GEMINI_API_KEY"))
+            .orNull.orEmpty()
+    } else ""
     require(phoneS2DebugPackage in setOf("S2_R2_CANDIDATE", "PHASE7_CONTROL")) {
         "apphearPhoneS2Package must be S2_R2_CANDIDATE or PHASE7_CONTROL"
     }
@@ -126,6 +142,12 @@ android {
             buildConfigField("boolean", "ASL_NEW_IDLE_ENABLED", aslNewIdle.toString())
             buildConfigField("boolean", "ASL_ALPHABET_FALLBACK_ENABLED", aslAlphabetFallback.toString())
             buildConfigField("String", "APP_PHONE_S2_PACKAGE", "\"$phoneS2DebugPackage\"")
+            buildConfigField("boolean", "CONTEXT_PHRASE_ASSIST_ENABLED", contextPhraseAssistDebug.toString())
+            buildConfigField("boolean", "CONTEXT_PHRASE_CAPTURE_ENABLED", contextPhraseCaptureDebug.toString())
+            buildConfigField("String", "CONTEXT_PHRASE_ASSIST_PROVIDER", "\"$contextPhraseAssistProvider\"")
+            buildConfigField("String", "CONTEXT_PHRASE_ASSIST_API_KEY", "\"$contextPhraseAssistApiKey\"")
+            buildConfigField("String", "CONTEXT_PHRASE_ASSIST_GEMINI_API_KEY",
+                "\"$contextPhraseAssistGeminiApiKey\"")
             buildConfigField("boolean", "PHASE1_SHADOW_ENABLED", phase1ShadowDebug.toString())
             buildConfigField("boolean", "RU_D1_ENABLED", ruD1Debug.toString())
             buildConfigField(
@@ -151,6 +173,11 @@ android {
             buildConfigField("boolean", "ASL_NEW_IDLE_ENABLED", "false")
             buildConfigField("boolean", "ASL_ALPHABET_FALLBACK_ENABLED", "false")
             buildConfigField("String", "APP_PHONE_S2_PACKAGE", "\"S2_R2_CANDIDATE\"")
+            buildConfigField("boolean", "CONTEXT_PHRASE_ASSIST_ENABLED", "false")
+            buildConfigField("boolean", "CONTEXT_PHRASE_CAPTURE_ENABLED", "false")
+            buildConfigField("String", "CONTEXT_PHRASE_ASSIST_PROVIDER", "\"disabled\"")
+            buildConfigField("String", "CONTEXT_PHRASE_ASSIST_API_KEY", "\"\"")
+            buildConfigField("String", "CONTEXT_PHRASE_ASSIST_GEMINI_API_KEY", "\"\"")
             isMinifyEnabled = false
             buildConfigField("boolean", "PHASE1_SHADOW_ENABLED", "false")
             buildConfigField("boolean", "RU_D1_ENABLED", "false")

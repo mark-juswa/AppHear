@@ -30,6 +30,7 @@ import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.repeatOnLifecycle
 import com.example.apphear.databinding.ActivityRecognitionBinding
 import com.example.apphear.pipeline.FrameAnalyzer
 import com.example.apphear.pipeline.FrameResult
@@ -46,6 +47,10 @@ import com.example.apphear.pipeline.recognition.RecognitionPipeline
 import com.example.apphear.pipeline.recognition.RuntimeConfig
 import com.example.apphear.perceptionvnext.Candidate01FrameAnalyzer
 import com.example.apphear.perceptionvnext.PhoneProductionSession
+import com.example.apphear.contextassist.ConversationPhraseAssist
+import com.example.apphear.contextassist.PhraseAssistUiState
+import com.example.apphear.contextassist.SigningTurnBuffer
+import com.example.apphear.contextassist.Stage3Diagnostics
 import com.example.apphear.ui.recognition.RecognitionUiSnapshot
 import com.example.apphear.ui.speech.AppHearSpeechPlayer
 import com.example.apphear.ui.speech.SpeechInputHelper
@@ -68,6 +73,8 @@ class RecognitionActivity : AppCompatActivity() {
     private var recognizer: RecognitionPipeline? = null
     private var phoneSession: PhoneProductionSession? = null
     private var phoneAnalyzer: Candidate01FrameAnalyzer? = null
+    private val signingTurn = SigningTurnBuffer()
+    private var evidenceInterrupted = false
     private var runtimeConfig: RuntimeConfig? = null
     private var analyzer: CloseableFrameAnalyzer? = null
     private var cameraProvider: ProcessCameraProvider? = null
@@ -79,6 +86,7 @@ class RecognitionActivity : AppCompatActivity() {
     private var modelLoadError: String? = null
     private var degradedBannerDismissed = false
     private lateinit var speechPlayer: AppHearSpeechPlayer
+    private var speakSentence: (String) -> Unit = { speechPlayer.speak(it) }
     private lateinit var ruD1: RuD1Diagnostics
     private var ruD1Transitioning = false
     private var ruD1DisplayState = RuD1DisplayState.READY
@@ -146,6 +154,10 @@ class RecognitionActivity : AppCompatActivity() {
         binding.clearButton.setOnClickListener {
             phoneSession?.clearSentence()
             recognizer?.clearSentence()
+            signingTurn.clear()
+            evidenceInterrupted = false
+            ConversationPhraseAssist.clearDisplayedInterpretation()
+            renderPhraseAssist(ConversationPhraseAssist.presentationState.value)
             if (ruD1.config.enabled && ruD1QueueGloss().isNotBlank()) {
                 renderRuD1QueueStatus()
             } else {
@@ -188,6 +200,15 @@ class RecognitionActivity : AppCompatActivity() {
         binding.cameraToggle.alpha = 0.5f
         binding.cameraToggle.contentDescription = "Front camera only in causal recognition"
         renderRuD1QueueStatus()
+        if (ConversationPhraseAssist.enabled) {
+            binding.recognizedLabel.setText(R.string.recognized_label)
+            renderPhraseAssist(ConversationPhraseAssist.presentationState.value)
+            lifecycleScope.launch {
+                repeatOnLifecycle(Lifecycle.State.STARTED) {
+                    ConversationPhraseAssist.presentationState.collect(::renderPhraseAssist)
+                }
+            }
+        }
 
         if (hasCameraPermission()) start() else requestCamera.launch(Manifest.permission.CAMERA)
     }
@@ -212,7 +233,24 @@ class RecognitionActivity : AppCompatActivity() {
             Toast.makeText(this, R.string.speech_no_text_to_speak, Toast.LENGTH_SHORT).show()
             return
         }
-        speechPlayer.speak(sentence)
+        speakSentence(sentence)
+        if (ConversationPhraseAssist.enabled &&
+            (signingTurn.snapshot().isNotEmpty() || evidenceInterrupted)) {
+            val evidence = signingTurn.snapshot()
+            val incomplete = evidenceInterrupted || signingTurn.overflowed
+            signingTurn.clear()
+            evidenceInterrupted = false
+            runCatching { ConversationPhraseAssist.evaluateShadowTurn(evidence, sentence, incomplete) }
+                .onFailure { Log.w(TAG, "Shadow evaluation unavailable", it) }
+            renderPhraseAssist(ConversationPhraseAssist.presentationState.value)
+        }
+    }
+
+    private fun renderPhraseAssist(state: PhraseAssistUiState) {
+        if (!ConversationPhraseAssist.enabled) return
+        val supported = state.contextSupported
+        binding.contextSupportedGroup.visibility = if (supported == null) View.GONE else View.VISIBLE
+        binding.contextSupportedText.text = supported.orEmpty()
     }
 
     private fun openTextToAslReply(transcript: String) {
@@ -411,6 +449,14 @@ class RecognitionActivity : AppCompatActivity() {
     private fun onFrame(r: FrameResult) {
         runOnUiThread {
             if (isFinishing || isDestroyed) return@runOnUiThread
+            if (ConversationPhraseAssist.enabled && lifecycle.currentState.isAtLeast(Lifecycle.State.STARTED)) {
+                r.recognitionEvidence?.let { evidence ->
+                    if (signingTurn.add(evidence)) {
+                        ConversationPhraseAssist.signingStarted()
+                        Stage3Diagnostics.committed(evidence)
+                    }
+                }
+            }
             frameCount++
             binding.overlayView.setResult(r)
             binding.fpsText.text = getString(R.string.fps_hud, r.fps, r.qualityLabel)
@@ -604,6 +650,10 @@ class RecognitionActivity : AppCompatActivity() {
 
     override fun onStop() {
         binding.overlayView.clear()
+        ConversationPhraseAssist.recognitionScreenStopped()
+        renderPhraseAssist(ConversationPhraseAssist.presentationState.value)
+        if (ConversationPhraseAssist.enabled && signingTurn.snapshot().isNotEmpty()) evidenceInterrupted = true
+        signingTurn.clear()
         phoneAnalyzer?.resetTemporalSession()
         if (a1Active) {
             closeA1AnalyzerAsync(rebindWhenStarted = false)

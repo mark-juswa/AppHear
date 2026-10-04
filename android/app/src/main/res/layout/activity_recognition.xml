@@ -203,6 +203,7 @@
             android:paddingVertical="12dp">
 
             <TextView
+                android:id="@+id/recognizedLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/inter_semibold"
@@ -225,6 +226,32 @@
                 android:text="@string/sentence_placeholder"
                 android:textColor="#FFFFFF"
                 android:textSize="19sp" />
+
+            <LinearLayout
+                android:id="@+id/contextSupportedGroup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/context_supported_label"
+                    android:textColor="#D7C6A8"
+                    android:textSize="11sp" />
+
+                <TextView
+                    android:id="@+id/contextSupportedText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:maxLines="2"
+                    android:textColor="#FFFFFF"
+                    android:textSize="16sp" />
+            </LinearLayout>
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
     <com.google.android.material.card.MaterialCardView

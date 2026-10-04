@@ -22,6 +22,8 @@ import com.example.apphear.R
 import com.example.apphear.RecognitionActivity
 import com.example.apphear.TextToAslArgument
 import com.example.apphear.databinding.FragmentTextToAslBinding
+import com.example.apphear.contextassist.ConversationPhraseAssist
+import com.example.apphear.contextassist.ConversationSource
 import com.example.apphear.data.settings.AslCharacterSettings
 import com.example.apphear.domain.texttoasl.AslCharacterChoice
 import com.example.apphear.domain.texttoasl.AslAnimationAsset
@@ -49,6 +51,8 @@ class TextToAslFragment : Fragment(R.layout.fragment_text_to_asl) {
     private var speechPlayer: AppHearSpeechPlayer? = null
     private var avatarReady: Boolean = false
     private var queuedSubmitUntilReady: Boolean = false
+    private var queuedSubmitSource: ConversationSource = ConversationSource.TYPED_TEXT
+    private var queuedSubmitRecordTurn: Boolean = true
     private var resumeColdIdle: Boolean = false
     private var pendingAutoSubmitText: String? = null
     private var consumedAutoSubmitText: String? = null
@@ -65,7 +69,7 @@ class TextToAslFragment : Fragment(R.layout.fragment_text_to_asl) {
             if (spokenText.isNotEmpty()) {
                 fragmentBinding.tvSpeechStatus.text = spokenText
                 fragmentBinding.inputText.setText(spokenText)
-                submitInput()
+                submitInput(ConversationSource.SPEECH)
                 return@registerForActivityResult
             }
         }
@@ -145,7 +149,7 @@ class TextToAslFragment : Fragment(R.layout.fragment_text_to_asl) {
                                     resumeColdIdle = false
                                     if (queuedSubmitUntilReady) {
                                         queuedSubmitUntilReady = false
-                                        submitInput()
+                                        submitInput(queuedSubmitSource, queuedSubmitRecordTurn)
                                     } else {
                                         consumePendingAutoSubmitIfReady()
                                     }
@@ -229,7 +233,7 @@ class TextToAslFragment : Fragment(R.layout.fragment_text_to_asl) {
         fragmentBinding.signedText.text = incomingText
         consumedAutoSubmitText = incomingText
         pendingAutoSubmitText = null
-        submitInput()
+        submitInput(ConversationSource.SPEECH)
     }
 
     private fun startSpeechInput() {
@@ -264,7 +268,10 @@ class TextToAslFragment : Fragment(R.layout.fragment_text_to_asl) {
         speechPlayer?.speak(speakableText)
     }
 
-    private fun submitInput() {
+    private fun submitInput(
+        source: ConversationSource = ConversationSource.TYPED_TEXT,
+        recordTurn: Boolean = true,
+    ) {
         val fragmentBinding = binding ?: return
         val requestedText = fragmentBinding.inputText.text?.toString()?.trim().orEmpty()
         if (requestedText.isEmpty()) {
@@ -275,6 +282,8 @@ class TextToAslFragment : Fragment(R.layout.fragment_text_to_asl) {
         if (BuildConfig.ASL_ALPHABET_FALLBACK_ENABLED &&
             activeCharacter == AslCharacterChoice.NEW && !avatarReady) {
             queuedSubmitUntilReady = true
+            queuedSubmitSource = source
+            queuedSubmitRecordTurn = recordTurn
             fragmentBinding.currentProgressText.setText(R.string.asl_character_loading)
             return
         }
@@ -287,6 +296,8 @@ class TextToAslFragment : Fragment(R.layout.fragment_text_to_asl) {
 
         playHandler.removeCallbacks(advanceRunnable)
         val plan = planner.plan(requestedText)
+        if (recordTurn) ConversationPhraseAssist.recordHearingMessage(
+            requireContext().applicationContext, requestedText, source)
         lastInputText = requestedText
         currentQueue = plan.queue
         unsupportedWords = plan.unsupportedTokens
@@ -315,7 +326,7 @@ class TextToAslFragment : Fragment(R.layout.fragment_text_to_asl) {
             if (lastInputText.isEmpty()) {
                 fragmentBinding.currentProgressText.setText(R.string.text_to_asl_empty_warning)
             } else {
-                submitInput()
+                submitInput(recordTurn = false)
             }
             return
         }
@@ -326,10 +337,13 @@ class TextToAslFragment : Fragment(R.layout.fragment_text_to_asl) {
 
     private fun clearPlayback() {
         val fragmentBinding = binding ?: return
+        ConversationPhraseAssist.clearPendingHearingReply()
         playHandler.removeCallbacks(advanceRunnable)
         currentQueue = emptyList()
         unsupportedWords = emptyList()
         queuedSubmitUntilReady = false
+        queuedSubmitSource = ConversationSource.TYPED_TEXT
+        queuedSubmitRecordTurn = true
         currentIndex = 0
         lastInputText = ""
         fragmentBinding.inputText.text?.clear()

@@ -114,6 +114,7 @@ internal class Candidate01FrameAnalyzer(
                 phoneOverlay = overlay,
                 phoneReady = sourceIndex >= 4 && session.isReady,
                 phoneSentence = session.sentenceText,
+                recognitionEvidence = update.evidence,
             ))
         } catch (error: Throwable) {
             failed = true

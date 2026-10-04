@@ -816,3 +816,22 @@ only A/B and never borrows New letter assets. Standalone `I` remains I/Me; an I
 inside an unknown word uses the New letter-I clip. The flag-off planner retains
 its prior character-by-character behavior. The 102 original GLBs and recognition
 contract are unchanged; no new runtime library or S4/F parity change is involved.
+
+## Conversation-aware phrase assistance sidecar on Text-to-ASL baseline (2026-10-04)
+
+The sidecar is based on `apphear-text-to-asl-working-alphabet-2026-09-29` (`cc1f394`).
+`TextToAslFragment` records one completed typed or speech Hearing turn after a successful
+phrase plan; deferred New-character submissions retain their source until the avatar is ready.
+Replay does not add another turn. `ConversationPhraseAssist` holds a bounded in-memory
+conversation and predicts reply phrases asynchronously behind the debug-only
+`contextPhraseAssist` flag; release remains disabled. The prediction cache is keyed to the
+latest Hearing turn, so late results cannot replace newer candidates.
+
+`PhoneProductionSession` copies the already computed Top-5 labels/scores for a guarded
+committed event into `RecognitionEvidence`. `RecognitionActivity` buffers that lightweight
+evidence, evaluates the existing conservative matcher when Hear is tapped, and shows only
+a supported advisory interpretation. Raw `SentenceBuilder` text remains the displayed and
+spoken result and becomes the Deaf conversation turn; event-level evidence remains separate
+for matching and bounded diagnostics. No camera images, landmarks, feature vectors or
+recognizer tensors enter the sidecar. The 378-feature layout, Recognition V2 input, frozen
+236-class model, label order, Top-1 decision, and their schema versions are unchanged.

@@ -1,0 +1,2444 @@
+{
+  "schema": "apphear-stage3-pilot-v1",
+  "status": "PHYSICAL_PILOT_STOPPED_AFTER_FIRST_ROUND_AT_SIGNER_REQUEST",
+  "startingHead": "9b041eb600ffe0b138c59c031b9dfb5ae7c6ebdc",
+  "protectedBaseline": "76d93cecd85bf9f76064d320aa4a5791b5f0704a",
+  "model": "gemini-3.5-flash-lite",
+  "signer": {
+    "anonymousId": "pilot-01",
+    "trainingRelationship": "UNKNOWN"
+  },
+  "phraseSetStatus": "FROZEN_SIGNER_CONFIRMED_FIVE_PHRASES",
+  "proposedPhrases": [
+    {
+      "phraseId": "P1",
+      "syntheticHearingPrompt": "Where are you going?",
+      "expectedConcepts": [
+        "GO",
+        "HOME"
+      ]
+    },
+    {
+      "phraseId": "P2",
+      "syntheticHearingPrompt": "Where are you going?",
+      "expectedConcepts": [
+        "GO",
+        "WORK"
+      ]
+    },
+    {
+      "phraseId": "P3",
+      "syntheticHearingPrompt": "Are you tired?",
+      "expectedConcepts": [
+        "NO",
+        "TIRED"
+      ]
+    },
+    {
+      "phraseId": "P4",
+      "syntheticHearingPrompt": "Are you tired?",
+      "expectedConcepts": [
+        "YES",
+        "NEED",
+        "SLEEP"
+      ]
+    },
+    {
+      "phraseId": "P5",
+      "syntheticHearingPrompt": "How is your family?",
+      "expectedConcepts": [
+        "FAMILY",
+        "GOOD"
+      ]
+    }
+  ],
+  "plannedAttemptOrder": [
+    {
+      "attemptId": "T01",
+      "phraseId": "P1",
+      "repetition": 1
+    },
+    {
+      "attemptId": "T02",
+      "phraseId": "P2",
+      "repetition": 1
+    },
+    {
+      "attemptId": "T03",
+      "phraseId": "P3",
+      "repetition": 1
+    },
+    {
+      "attemptId": "T04",
+      "phraseId": "P4",
+      "repetition": 1
+    },
+    {
+      "attemptId": "T05",
+      "phraseId": "P5",
+      "repetition": 1
+    },
+    {
+      "attemptId": "T06",
+      "phraseId": "P1",
+      "repetition": 2
+    },
+    {
+      "attemptId": "T07",
+      "phraseId": "P2",
+      "repetition": 2
+    },
+    {
+      "attemptId": "T08",
+      "phraseId": "P3",
+      "repetition": 2
+    },
+    {
+      "attemptId": "T09",
+      "phraseId": "P4",
+      "repetition": 2
+    },
+    {
+      "attemptId": "T10",
+      "phraseId": "P5",
+      "repetition": 2
+    },
+    {
+      "attemptId": "T11",
+      "phraseId": "P1",
+      "repetition": 3
+    },
+    {
+      "attemptId": "T12",
+      "phraseId": "P2",
+      "repetition": 3
+    },
+    {
+      "attemptId": "T13",
+      "phraseId": "P3",
+      "repetition": 3
+    },
+    {
+      "attemptId": "T14",
+      "phraseId": "P4",
+      "repetition": 3
+    },
+    {
+      "attemptId": "T15",
+      "phraseId": "P5",
+      "repetition": 3
+    }
+  ],
+  "physicalAttempts": [
+    {
+      "attemptId": "T01",
+      "phraseId": "P1",
+      "repetition": 1,
+      "status": "COMPLETE_FIRST_HEAR_BOUNDARY",
+      "prompt": "Where are you going?",
+      "intendedConcepts": [
+        "GO",
+        "HOME"
+      ],
+      "signerId": "pilot-01",
+      "trainingRelationship": "UNKNOWN",
+      "appProcessId": 15661,
+      "physicalSignConfirmed": true,
+      "startedAtUtc": "2026-09-30T00:14:37.587314+00:00",
+      "predictions": [
+        {
+          "naturalText": "I'm going home.",
+          "expectedConcepts": [
+            "GO",
+            "HOME"
+          ]
+        },
+        {
+          "naturalText": "I'm going to the store.",
+          "expectedConcepts": [
+            "GO",
+            "SHOP1"
+          ]
+        },
+        {
+          "naturalText": "I'm going to work.",
+          "expectedConcepts": [
+            "GO",
+            "WORK"
+          ]
+        },
+        {
+          "naturalText": "I'm going to school.",
+          "expectedConcepts": [
+            "GO",
+            "SCHOOL"
+          ]
+        }
+      ],
+      "predictionCoverage": true,
+      "rawSentence": "GIFT HOME GIVE COME",
+      "committedEvents": [
+        {
+          "version": 1,
+          "kind": "evaluation_event",
+          "processId": 15661,
+          "wallTimeMs": 1790727688844,
+          "evaluationId": 1,
+          "eventId": 3,
+          "timestampMs": 215665269,
+          "top1": "GIFT",
+          "topK": [
+            {
+              "label": "GIFT",
+              "score": 0.2027886062860489
+            },
+            {
+              "label": "PERSON",
+              "score": 0.1535746306180954
+            },
+            {
+              "label": "NEED",
+              "score": 0.09545287489891052
+            },
+            {
+              "label": "OR",
+              "score": 0.0834258422255516
+            },
+            {
+              "label": "TO",
+              "score": 0.07373283803462982
+            }
+          ]
+        },
+        {
+          "version": 1,
+          "kind": "evaluation_event",
+          "processId": 15661,
+          "wallTimeMs": 1790727688845,
+          "evaluationId": 1,
+          "eventId": 4,
+          "timestampMs": 215672201,
+          "top1": "HOME",
+          "topK": [
+            {
+              "label": "HOME",
+              "score": 0.34505030512809753
+            },
+            {
+              "label": "KNOW",
+              "score": 0.32313549518585205
+            },
+            {
+              "label": "KID",
+              "score": 0.10679744184017181
+            },
+            {
+              "label": "WALK2",
+              "score": 0.07909069955348969
+            },
+            {
+              "label": "LUNCH1",
+              "score": 0.07176677137613297
+            }
+          ]
+        },
+        {
+          "version": 1,
+          "kind": "evaluation_event",
+          "processId": 15661,
+          "wallTimeMs": 1790727688846,
+          "evaluationId": 1,
+          "eventId": 5,
+          "timestampMs": 215689665,
+          "top1": "GIVE",
+          "topK": [
+            {
+              "label": "GIVE",
+              "score": 0.3005601167678833
+            },
+            {
+              "label": "WE",
+              "score": 0.28088799118995667
+            },
+            {
+              "label": "TELL",
+              "score": 0.0956016480922699
+            },
+            {
+              "label": "TURN",
+              "score": 0.06471967697143555
+            },
+            {
+              "label": "COME",
+              "score": 0.04606587067246437
+            }
+          ]
+        },
+        {
+          "version": 1,
+          "kind": "evaluation_event",
+          "processId": 15661,
+          "wallTimeMs": 1790727688847,
+          "evaluationId": 1,
+          "eventId": 6,
+          "timestampMs": 215744930,
+          "top1": "COME",
+          "topK": [
+            {
+              "label": "COME",
+              "score": 0.29723024368286133
+            },
+            {
+              "label": "MAN",
+              "score": 0.22700023651123047
+            },
+            {
+              "label": "STUDENT",
+              "score": 0.1648198664188385
+            },
+            {
+              "label": "STAND2",
+              "score": 0.12427417188882828
+            },
+            {
+              "label": "CALL1",
+              "score": 0.04502127319574356
+            }
+          ]
+        }
+      ],
+      "shadowEvaluation": {
+        "reason": "NO_MATCH_OR_AMBIGUOUS",
+        "assistedConcepts": null,
+        "wouldChangeRaw": false,
+        "eventIds": [
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "classification": {
+        "eventAssociations": [
+          {
+            "intended": "GO",
+            "eventId": 3,
+            "classification": "TOPK_ABSENT",
+            "basis": "Signer confirmed GO appeared as GIFT; GO absent from event 3 Top-5."
+          },
+          {
+            "intended": "HOME",
+            "eventId": 4,
+            "classification": "TOP1_CORRECT",
+            "basis": "Signer confirmed HOME correct; event 4 Top-1 HOME."
+          }
+        ],
+        "extraEvents": [
+          {
+            "eventId": 5,
+            "classification": "SPURIOUS_EVENT"
+          },
+          {
+            "eventId": 6,
+            "classification": "SPURIOUS_EVENT"
+          }
+        ],
+        "phrase": [
+          "NONRECOVERABLE_SUBSTITUTION",
+          "SPURIOUS_INSERTION"
+        ],
+        "rawPhraseSuccess": false,
+        "intendedTop1": 1,
+        "associatedWrongTop1": 1,
+        "topKRecoverableWrongTop1": 0,
+        "topKAbsent": 1,
+        "missingEvent": 0,
+        "jointContextVisualOpportunity": false
+      },
+      "validityNotes": [
+        "Two synthetic prompt submissions occurred in preparation process 14787; preserved separately, then app restarted before any physical sign. T01 requires one clean prompt in process 15661.",
+        "Camera setup produced committed MAN event 1 and COME event 2 before signer-confirmed start. Their role depends on Clear timing; retained as setup evidence, not assigned to intended signs.",
+        "User reports accidental second Hear tap. First complete evaluation is the T01 boundary; second evaluation and later commits are preserved as post-boundary procedural data."
+      ],
+      "hearingTurnId": 1,
+      "conversationInput": [
+        {
+          "speaker": "HEARING",
+          "text": "Where are you going?"
+        }
+      ],
+      "cacheVerifiedAtUtc": "2026-09-30T00:16:56.065826+00:00",
+      "setupCommittedEvents": [
+        {
+          "version": 1,
+          "kind": "committed_event",
+          "processId": 15661,
+          "wallTimeMs": 1790727470614,
+          "eventId": 1,
+          "timestampMs": 215537756,
+          "top1": "MAN",
+          "topK": [
+            {
+              "label": "MAN",
+              "score": 0.5366387963294983
+            },
+            {
+              "label": "COME",
+              "score": 0.14657728374004364
+            },
+            {
+              "label": "STAND2",
+              "score": 0.08168616890907288
+            },
+            {
+              "label": "STUDENT",
+              "score": 0.043150644749403
+            },
+            {
+              "label": "CALL1",
+              "score": 0.0321836844086647
+            }
+          ]
+        },
+        {
+          "version": 1,
+          "kind": "committed_event",
+          "processId": 15661,
+          "wallTimeMs": 1790727478217,
+          "eventId": 2,
+          "timestampMs": 215545433,
+          "top1": "COME",
+          "topK": [
+            {
+              "label": "COME",
+              "score": 0.37681853771209717
+            },
+            {
+              "label": "MAN",
+              "score": 0.2807449400424957
+            },
+            {
+              "label": "GIVE",
+              "score": 0.09213434904813766
+            },
+            {
+              "label": "WHY",
+              "score": 0.035764776170253754
+            },
+            {
+              "label": "BECAUSE",
+              "score": 0.03189452737569809
+            }
+          ]
+        }
+      ],
+      "baselineLastEventId": 2,
+      "physicalAttemptAuthorizedAtUtc": "2026-09-30T00:19:31.897236+00:00",
+      "physicalAttemptAuthorizedAtEpochMs": 1790727571897,
+      "reportedObservation": "Signer reports performing only GO then HOME; GO showed GIFT and HOME was correct.",
+      "postBoundary": {
+        "secondEvaluation": {
+          "version": 1,
+          "kind": "evaluation",
+          "processId": 15661,
+          "wallTimeMs": 1790727691767,
+          "evaluationId": 2,
+          "rawSentence": "GIFT HOME GIVE COME STAND2",
+          "eventIds": [
+            7
+          ],
+          "reason": "NO_PREDICTIONS",
+          "incomplete": false,
+          "wouldChangeRaw": false,
+          "assistedConcepts": null,
+          "naturalText": null,
+          "candidateCount": 0
+        },
+        "laterCommittedEvents": [
+          {
+            "version": 1,
+            "kind": "committed_event",
+            "processId": 15661,
+            "wallTimeMs": 1790727689931,
+            "eventId": 7,
+            "timestampMs": 215757147,
+            "top1": "STAND2",
+            "topK": [
+              {
+                "label": "STAND2",
+                "score": 0.22671271860599518
+              },
+              {
+                "label": "COME",
+                "score": 0.22404664754867554
+              },
+              {
+                "label": "STUDENT",
+                "score": 0.19201703369617462
+              },
+              {
+                "label": "MAN",
+                "score": 0.15160390734672546
+              },
+              {
+                "label": "CALL1",
+                "score": 0.04421684890985489
+              }
+            ]
+          },
+          {
+            "version": 1,
+            "kind": "committed_event",
+            "processId": 15661,
+            "wallTimeMs": 1790727703903,
+            "eventId": 8,
+            "timestampMs": 215771100,
+            "top1": "COME",
+            "topK": [
+              {
+                "label": "COME",
+                "score": 0.3268011510372162
+              },
+              {
+                "label": "GIVE",
+                "score": 0.246590718626976
+              },
+              {
+                "label": "MAN",
+                "score": 0.18320679664611816
+              },
+              {
+                "label": "KID",
+                "score": 0.03187618777155876
+              },
+              {
+                "label": "WE",
+                "score": 0.03137899935245514
+              }
+            ]
+          }
+        ]
+      },
+      "firstHearEvaluationComplete": true,
+      "firstHearRecordedAtUtc": "2026-09-30T00:24:22.887949+00:00",
+      "reportedHearTapCount": 2,
+      "readyAfterEachByRuntime": "Decoder returned to IDLE after event 3 and event 4.",
+      "readyAfterEachVisuallyConfirmed": null
+    },
+    {
+      "attemptId": "T02",
+      "phraseId": "P2",
+      "repetition": 1,
+      "status": "FIRST_HEAR_EVALUATED_PENDING_SIGNER_CONFIRMATION",
+      "prompt": "Where are you going?",
+      "intendedConcepts": [
+        "GO",
+        "WORK"
+      ],
+      "signerId": "pilot-01",
+      "trainingRelationship": "UNKNOWN",
+      "appProcessId": 17526,
+      "hearingTurnId": 1,
+      "conversationInput": [
+        {
+          "speaker": "HEARING",
+          "text": "Where are you going?"
+        }
+      ],
+      "predictions": [
+        {
+          "naturalText": "I'm going home.",
+          "expectedConcepts": [
+            "GO",
+            "HOME"
+          ]
+        },
+        {
+          "naturalText": "I'm going to the store.",
+          "expectedConcepts": [
+            "GO",
+            "SHOP1"
+          ]
+        },
+        {
+          "naturalText": "I'm going to school.",
+          "expectedConcepts": [
+            "GO",
+            "SCHOOL"
+          ]
+        },
+        {
+          "naturalText": "I'm going to work.",
+          "expectedConcepts": [
+            "GO",
+            "WORK"
+          ]
+        }
+      ],
+      "predictionCoverage": true,
+      "cacheVerifiedAtUtc": "2026-09-30T00:26:47.761451+00:00",
+      "physicalSignConfirmed": null,
+      "rawSentence": "PERSON WORK MOUTH STUDENT MOUTH TURN RIGHT3 COME STUDENT RIGHT3",
+      "committedEvents": null,
+      "shadowEvaluation": {
+        "reason": "INCOMPLETE_EVIDENCE",
+        "incomplete": true,
+        "eventIds": [
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "evidence": [
+          {
+            "version": 1,
+            "kind": "evaluation_event",
+            "processId": 17526,
+            "wallTimeMs": 1790728171691,
+            "evaluationId": 1,
+            "eventId": 5,
+            "timestampMs": 216123302,
+            "top1": "MOUTH",
+            "topK": [
+              {
+                "label": "MOUTH",
+                "score": 0.16206121444702148
+              },
+              {
+                "label": "SORRY",
+                "score": 0.10305654257535934
+              },
+              {
+                "label": "FEEL",
+                "score": 0.09383770078420639
+              },
+              {
+                "label": "COME",
+                "score": 0.07637905329465866
+              },
+              {
+                "label": "YOU",
+                "score": 0.061578087508678436
+              }
+            ]
+          },
+          {
+            "version": 1,
+            "kind": "evaluation_event",
+            "processId": 17526,
+            "wallTimeMs": 1790728171692,
+            "evaluationId": 1,
+            "eventId": 6,
+            "timestampMs": 216131780,
+            "top1": "STUDENT",
+            "topK": [
+              {
+                "label": "STUDENT",
+                "score": 0.3212883472442627
+              },
+              {
+                "label": "STAND2",
+                "score": 0.2571076452732086
+              },
+              {
+                "label": "COME",
+                "score": 0.15228214859962463
+              },
+              {
+                "label": "MAN",
+                "score": 0.09438925981521606
+              },
+              {
+                "label": "CALL1",
+                "score": 0.03350085765123367
+              }
+            ]
+          },
+          {
+            "version": 1,
+            "kind": "evaluation_event",
+            "processId": 17526,
+            "wallTimeMs": 1790728171693,
+            "evaluationId": 1,
+            "eventId": 7,
+            "timestampMs": 216137989,
+            "top1": "MOUTH",
+            "topK": [
+              {
+                "label": "MOUTH",
+                "score": 0.2540315091609955
+              },
+              {
+                "label": "FEEL",
+                "score": 0.09843795001506805
+              },
+              {
+                "label": "SORRY",
+                "score": 0.08176638931035995
+              },
+              {
+                "label": "COME",
+                "score": 0.05627742037177086
+              },
+              {
+                "label": "TALK1",
+                "score": 0.043043866753578186
+              }
+            ]
+          },
+          {
+            "version": 1,
+            "kind": "evaluation_event",
+            "processId": 17526,
+            "wallTimeMs": 1790728171694,
+            "evaluationId": 1,
+            "eventId": 8,
+            "timestampMs": 216183118,
+            "top1": "TURN",
+            "topK": [
+              {
+                "label": "TURN",
+                "score": 0.13867998123168945
+              },
+              {
+                "label": "COME",
+                "score": 0.12086508423089981
+              },
+              {
+                "label": "GIVE",
+                "score": 0.11074181646108627
+              },
+              {
+                "label": "TELL",
+                "score": 0.11058614403009415
+              },
+              {
+                "label": "MOUTH",
+                "score": 0.05889131501317024
+              }
+            ]
+          },
+          {
+            "version": 1,
+            "kind": "evaluation_event",
+            "processId": 17526,
+            "wallTimeMs": 1790728171695,
+            "evaluationId": 1,
+            "eventId": 9,
+            "timestampMs": 216191196,
+            "top1": "RIGHT3",
+            "topK": [
+              {
+                "label": "RIGHT3",
+                "score": 0.31522512435913086
+              },
+              {
+                "label": "COME",
+                "score": 0.18814730644226074
+              },
+              {
+                "label": "HOSPITAL1",
+                "score": 0.10133808851242065
+              },
+              {
+                "label": "LUNCH1",
+                "score": 0.07017084211111069
+              },
+              {
+                "label": "MOUTH",
+                "score": 0.06994111090898514
+              }
+            ]
+          },
+          {
+            "version": 1,
+            "kind": "evaluation_event",
+            "processId": 17526,
+            "wallTimeMs": 1790728171695,
+            "evaluationId": 1,
+            "eventId": 10,
+            "timestampMs": 216197605,
+            "top1": "COME",
+            "topK": [
+              {
+                "label": "COME",
+                "score": 0.6238882541656494
+              },
+              {
+                "label": "WHY",
+                "score": 0.0942184180021286
+              },
+              {
+                "label": "LUNCH1",
+                "score": 0.045512694865465164
+              },
+              {
+                "label": "NIGHT1",
+                "score": 0.032725200057029724
+              },
+              {
+                "label": "BREAKFAST1",
+                "score": 0.032525867223739624
+              }
+            ]
+          },
+          {
+            "version": 1,
+            "kind": "evaluation_event",
+            "processId": 17526,
+            "wallTimeMs": 1790728171697,
+            "evaluationId": 1,
+            "eventId": 11,
+            "timestampMs": 216209688,
+            "top1": "STUDENT",
+            "topK": [
+              {
+                "label": "STUDENT",
+                "score": 0.27131932973861694
+              },
+              {
+                "label": "COME",
+                "score": 0.23107296228408813
+              },
+              {
+                "label": "HUSBAND",
+                "score": 0.10854832828044891
+              },
+              {
+                "label": "STAND2",
+                "score": 0.08578584343194962
+              },
+              {
+                "label": "SICK",
+                "score": 0.03063920885324478
+              }
+            ]
+          },
+          {
+            "version": 1,
+            "kind": "evaluation_event",
+            "processId": 17526,
+            "wallTimeMs": 1790728171698,
+            "evaluationId": 1,
+            "eventId": 12,
+            "timestampMs": 216221370,
+            "top1": "RIGHT3",
+            "topK": [
+              {
+                "label": "RIGHT3",
+                "score": 0.2672659158706665
+              },
+              {
+                "label": "GIFT",
+                "score": 0.0839529037475586
+              },
+              {
+                "label": "FAST",
+                "score": 0.06599003821611404
+              },
+              {
+                "label": "TALK1",
+                "score": 0.0651409700512886
+              },
+              {
+                "label": "TRY",
+                "score": 0.06076908856630325
+              }
+            ]
+          }
+        ],
+        "assistedConcepts": null,
+        "wouldChangeRaw": false
+      },
+      "classification": {
+        "eventAssociations": [
+          {
+            "intended": "GO",
+            "eventId": 3,
+            "classification": "TOPK_ABSENT",
+            "basis": "Signer mapped GO to PERSON; GO absent from event 3 Top-5."
+          },
+          {
+            "intended": "WORK",
+            "eventId": 4,
+            "classification": "TOP1_CORRECT",
+            "basis": "Signer reported correct WORK; event 4 Top-1 WORK."
+          }
+        ],
+        "extraEvents": [
+          {
+            "eventId": 5,
+            "classification": "POSSIBLE_SPURIOUS_PENDING_CONFIRMATION"
+          },
+          {
+            "eventId": 6,
+            "classification": "POSSIBLE_SPURIOUS_PENDING_CONFIRMATION"
+          },
+          {
+            "eventId": 7,
+            "classification": "POSSIBLE_SPURIOUS_PENDING_CONFIRMATION"
+          },
+          {
+            "eventId": 8,
+            "classification": "POSSIBLE_SPURIOUS_PENDING_CONFIRMATION"
+          },
+          {
+            "eventId": 9,
+            "classification": "POSSIBLE_SPURIOUS_PENDING_CONFIRMATION"
+          },
+          {
+            "eventId": 10,
+            "classification": "POSSIBLE_SPURIOUS_PENDING_CONFIRMATION"
+          },
+          {
+            "eventId": 11,
+            "classification": "POSSIBLE_SPURIOUS_PENDING_CONFIRMATION"
+          },
+          {
+            "eventId": 12,
+            "classification": "POSSIBLE_SPURIOUS_PENDING_CONFIRMATION"
+          }
+        ],
+        "rawPhraseSuccess": false,
+        "intendedTop1": 1,
+        "associatedWrongTop1": 1,
+        "topKRecoverableWrongTop1": 0,
+        "topKAbsent": 1,
+        "missingEvent": 0,
+        "jointContextVisualOpportunity": false,
+        "phrase": [
+          "NONRECOVERABLE_SUBSTITUTION",
+          "POSSIBLE_SPURIOUS_INSERTIONS"
+        ]
+      },
+      "validityNotes": [
+        "First Hear evaluation retains event IDs 5..12 only and reports INCOMPLETE_EVIDENCE; live committed_event records preserve earlier signed event IDs 3 and 4. No matcher result is promoted to raw output."
+      ],
+      "reportedObservation": "Signer reports GO committed as PERSON and WORK committed correctly.",
+      "committedEventsBeforeFirstHear": [
+        {
+          "version": 1,
+          "kind": "committed_event",
+          "processId": 17526,
+          "wallTimeMs": 1790728031249,
+          "eventId": 1,
+          "timestampMs": 216098373,
+          "top1": "FEEL",
+          "topK": [
+            {
+              "label": "FEEL",
+              "score": 0.15576976537704468
+            },
+            {
+              "label": "SORRY",
+              "score": 0.15157565474510193
+            },
+            {
+              "label": "LIKE",
+              "score": 0.09030411392450333
+            },
+            {
+              "label": "TURN",
+              "score": 0.08185062557458878
+            },
+            {
+              "label": "TELL",
+              "score": 0.06528433412313461
+            }
+          ]
+        },
+        {
+          "version": 1,
+          "kind": "committed_event",
+          "processId": 17526,
+          "wallTimeMs": 1790728033345,
+          "eventId": 2,
+          "timestampMs": 216100506,
+          "top1": "TELL",
+          "topK": [
+            {
+              "label": "TELL",
+              "score": 0.1518430858850479
+            },
+            {
+              "label": "GIVE",
+              "score": 0.1115766391158104
+            },
+            {
+              "label": "TURN",
+              "score": 0.1060401126742363
+            },
+            {
+              "label": "SORRY",
+              "score": 0.1026158481836319
+            },
+            {
+              "label": "FEEL",
+              "score": 0.07248426973819733
+            }
+          ]
+        },
+        {
+          "version": 1,
+          "kind": "committed_event",
+          "processId": 17526,
+          "wallTimeMs": 1790728041560,
+          "eventId": 3,
+          "timestampMs": 216108771,
+          "top1": "PERSON",
+          "topK": [
+            {
+              "label": "PERSON",
+              "score": 0.30680638551712036
+            },
+            {
+              "label": "HAVE",
+              "score": 0.18235912919044495
+            },
+            {
+              "label": "YOUNG",
+              "score": 0.09831807762384415
+            },
+            {
+              "label": "SAME2",
+              "score": 0.04777100682258606
+            },
+            {
+              "label": "OFFICE",
+              "score": 0.04101527854800224
+            }
+          ]
+        },
+        {
+          "version": 1,
+          "kind": "committed_event",
+          "processId": 17526,
+          "wallTimeMs": 1790728049398,
+          "eventId": 4,
+          "timestampMs": 216116570,
+          "top1": "WORK",
+          "topK": [
+            {
+              "label": "WORK",
+              "score": 0.6903747916221619
+            },
+            {
+              "label": "SEND",
+              "score": 0.13063351809978485
+            },
+            {
+              "label": "WRITE",
+              "score": 0.05109504610300064
+            },
+            {
+              "label": "NIGHT1",
+              "score": 0.04558516666293144
+            },
+            {
+              "label": "AT",
+              "score": 0.03116612695157528
+            }
+          ]
+        },
+        {
+          "version": 1,
+          "kind": "committed_event",
+          "processId": 17526,
+          "wallTimeMs": 1790728056152,
+          "eventId": 5,
+          "timestampMs": 216123302,
+          "top1": "MOUTH",
+          "topK": [
+            {
+              "label": "MOUTH",
+              "score": 0.16206121444702148
+            },
+            {
+              "label": "SORRY",
+              "score": 0.10305654257535934
+            },
+            {
+              "label": "FEEL",
+              "score": 0.09383770078420639
+            },
+            {
+              "label": "COME",
+              "score": 0.07637905329465866
+            },
+            {
+              "label": "YOU",
+              "score": 0.061578087508678436
+            }
+          ]
+        },
+        {
+          "version": 1,
+          "kind": "committed_event",
+          "processId": 17526,
+          "wallTimeMs": 1790728064618,
+          "eventId": 6,
+          "timestampMs": 216131780,
+          "top1": "STUDENT",
+          "topK": [
+            {
+              "label": "STUDENT",
+              "score": 0.3212883472442627
+            },
+            {
+              "label": "STAND2",
+              "score": 0.2571076452732086
+            },
+            {
+              "label": "COME",
+              "score": 0.15228214859962463
+            },
+            {
+              "label": "MAN",
+              "score": 0.09438925981521606
+            },
+            {
+              "label": "CALL1",
+              "score": 0.03350085765123367
+            }
+          ]
+        },
+        {
+          "version": 1,
+          "kind": "committed_event",
+          "processId": 17526,
+          "wallTimeMs": 1790728070780,
+          "eventId": 7,
+          "timestampMs": 216137989,
+          "top1": "MOUTH",
+          "topK": [
+            {
+              "label": "MOUTH",
+              "score": 0.2540315091609955
+            },
+            {
+              "label": "FEEL",
+              "score": 0.09843795001506805
+            },
+            {
+              "label": "SORRY",
+              "score": 0.08176638931035995
+            },
+            {
+              "label": "COME",
+              "score": 0.05627742037177086
+            },
+            {
+              "label": "TALK1",
+              "score": 0.043043866753578186
+            }
+          ]
+        },
+        {
+          "version": 1,
+          "kind": "committed_event",
+          "processId": 17526,
+          "wallTimeMs": 1790728116004,
+          "eventId": 8,
+          "timestampMs": 216183118,
+          "top1": "TURN",
+          "topK": [
+            {
+              "label": "TURN",
+              "score": 0.13867998123168945
+            },
+            {
+              "label": "COME",
+              "score": 0.12086508423089981
+            },
+            {
+              "label": "GIVE",
+              "score": 0.11074181646108627
+            },
+            {
+              "label": "TELL",
+              "score": 0.11058614403009415
+            },
+            {
+              "label": "MOUTH",
+              "score": 0.05889131501317024
+            }
+          ]
+        },
+        {
+          "version": 1,
+          "kind": "committed_event",
+          "processId": 17526,
+          "wallTimeMs": 1790728124083,
+          "eventId": 9,
+          "timestampMs": 216191196,
+          "top1": "RIGHT3",
+          "topK": [
+            {
+              "label": "RIGHT3",
+              "score": 0.31522512435913086
+            },
+            {
+              "label": "COME",
+              "score": 0.18814730644226074
+            },
+            {
+              "label": "HOSPITAL1",
+              "score": 0.10133808851242065
+            },
+            {
+              "label": "LUNCH1",
+              "score": 0.07017084211111069
+            },
+            {
+              "label": "MOUTH",
+              "score": 0.06994111090898514
+            }
+          ]
+        },
+        {
+          "version": 1,
+          "kind": "committed_event",
+          "processId": 17526,
+          "wallTimeMs": 1790728130456,
+          "eventId": 10,
+          "timestampMs": 216197605,
+          "top1": "COME",
+          "topK": [
+            {
+              "label": "COME",
+              "score": 0.6238882541656494
+            },
+            {
+              "label": "WHY",
+              "score": 0.0942184180021286
+            },
+            {
+              "label": "LUNCH1",
+              "score": 0.045512694865465164
+            },
+            {
+              "label": "NIGHT1",
+              "score": 0.032725200057029724
+            },
+            {
+              "label": "BREAKFAST1",
+              "score": 0.032525867223739624
+            }
+          ]
+        },
+        {
+          "version": 1,
+          "kind": "committed_event",
+          "processId": 17526,
+          "wallTimeMs": 1790728142549,
+          "eventId": 11,
+          "timestampMs": 216209688,
+          "top1": "STUDENT",
+          "topK": [
+            {
+              "label": "STUDENT",
+              "score": 0.27131932973861694
+            },
+            {
+              "label": "COME",
+              "score": 0.23107296228408813
+            },
+            {
+              "label": "HUSBAND",
+              "score": 0.10854832828044891
+            },
+            {
+              "label": "STAND2",
+              "score": 0.08578584343194962
+            },
+            {
+              "label": "SICK",
+              "score": 0.03063920885324478
+            }
+          ]
+        },
+        {
+          "version": 1,
+          "kind": "committed_event",
+          "processId": 17526,
+          "wallTimeMs": 1790728154235,
+          "eventId": 12,
+          "timestampMs": 216221370,
+          "top1": "RIGHT3",
+          "topK": [
+            {
+              "label": "RIGHT3",
+              "score": 0.2672659158706665
+            },
+            {
+              "label": "GIFT",
+              "score": 0.0839529037475586
+            },
+            {
+              "label": "FAST",
+              "score": 0.06599003821611404
+            },
+            {
+              "label": "TALK1",
+              "score": 0.0651409700512886
+            },
+            {
+              "label": "TRY",
+              "score": 0.06076908856630325
+            }
+          ]
+        }
+      ],
+      "postBoundaryEvents": [
+        {
+          "version": 1,
+          "kind": "committed_event",
+          "processId": 17526,
+          "wallTimeMs": 1790728176309,
+          "eventId": 13,
+          "timestampMs": 216243453,
+          "top1": "RIGHT3",
+          "topK": [
+            {
+              "label": "RIGHT3",
+              "score": 0.2872694730758667
+            },
+            {
+              "label": "HOSPITAL1",
+              "score": 0.25448623299598694
+            },
+            {
+              "label": "MOUTH",
+              "score": 0.10064219683408737
+            },
+            {
+              "label": "SORRY",
+              "score": 0.05547036603093147
+            },
+            {
+              "label": "HURRY",
+              "score": 0.052934613078832626
+            }
+          ]
+        }
+      ],
+      "firstHearRecordedAtUtc": "2026-09-30T00:32:20.494582+00:00"
+    },
+    {
+      "attemptId": "T03",
+      "phraseId": "P3",
+      "repetition": 1,
+      "status": "COMPLETE_FIRST_HEAR_BOUNDARY",
+      "prompt": "Are you tired?",
+      "intendedConcepts": [
+        "NO",
+        "TIRED"
+      ],
+      "signerId": "pilot-01",
+      "trainingRelationship": "UNKNOWN",
+      "appProcessId": 19060,
+      "hearingTurnId": 1,
+      "conversationInput": [
+        {
+          "speaker": "HEARING",
+          "text": "Are you tired?"
+        }
+      ],
+      "predictions": [
+        {
+          "naturalText": "Yes, I am tired.",
+          "expectedConcepts": [
+            "YES",
+            "TIRED"
+          ]
+        },
+        {
+          "naturalText": "No, I am not tired.",
+          "expectedConcepts": [
+            "NO",
+            "TIRED"
+          ]
+        },
+        {
+          "naturalText": "I am very tired today.",
+          "expectedConcepts": [
+            "TIRED",
+            "VERY",
+            "TODAY"
+          ]
+        },
+        {
+          "naturalText": "Yes, because I worked hard.",
+          "expectedConcepts": [
+            "YES",
+            "BECAUSE",
+            "WORK",
+            "HARD"
+          ]
+        }
+      ],
+      "predictionCoverage": true,
+      "cacheVerifiedAtUtc": "2026-09-30T00:34:33.803923+00:00",
+      "physicalAttemptAuthorizedAtUtc": "2026-09-30T00:34:33.803923+00:00",
+      "physicalSignConfirmed": true,
+      "rawSentence": "NO LIVE2 GIVE",
+      "committedEvents": [
+        {
+          "version": 1,
+          "kind": "evaluation_event",
+          "processId": 19060,
+          "wallTimeMs": 1790728595558,
+          "evaluationId": 1,
+          "eventId": 1,
+          "timestampMs": 216650929,
+          "top1": "NO",
+          "topK": [
+            {
+              "label": "NO",
+              "score": 0.9402567744255066
+            },
+            {
+              "label": "SEE",
+              "score": 0.02665436640381813
+            },
+            {
+              "label": "HEAR1",
+              "score": 0.017737900838255882
+            },
+            {
+              "label": "FOR",
+              "score": 0.007073421962559223
+            },
+            {
+              "label": "CONFUSED1",
+              "score": 0.0019678145181387663
+            }
+          ]
+        },
+        {
+          "version": 1,
+          "kind": "evaluation_event",
+          "processId": 19060,
+          "wallTimeMs": 1790728595558,
+          "evaluationId": 1,
+          "eventId": 2,
+          "timestampMs": 216656537,
+          "top1": "LIVE2",
+          "topK": [
+            {
+              "label": "LIVE2",
+              "score": 0.5180233120918274
+            },
+            {
+              "label": "PERSON",
+              "score": 0.08804313093423843
+            },
+            {
+              "label": "MOST",
+              "score": 0.06749541312456131
+            },
+            {
+              "label": "CAR",
+              "score": 0.061927855014801025
+            },
+            {
+              "label": "WHICH",
+              "score": 0.02602340839803219
+            }
+          ]
+        },
+        {
+          "version": 1,
+          "kind": "evaluation_event",
+          "processId": 19060,
+          "wallTimeMs": 1790728595558,
+          "evaluationId": 1,
+          "eventId": 3,
+          "timestampMs": 216662144,
+          "top1": "GIVE",
+          "topK": [
+            {
+              "label": "GIVE",
+              "score": 0.3515758514404297
+            },
+            {
+              "label": "WE",
+              "score": 0.1898227035999298
+            },
+            {
+              "label": "TELL",
+              "score": 0.09787477552890778
+            },
+            {
+              "label": "COME",
+              "score": 0.07566221058368683
+            },
+            {
+              "label": "AND",
+              "score": 0.035547204315662384
+            }
+          ]
+        }
+      ],
+      "shadowEvaluation": {
+        "reason": "NO_MATCH_OR_AMBIGUOUS",
+        "incomplete": false,
+        "eventIds": [
+          1,
+          2,
+          3
+        ],
+        "assistedConcepts": null,
+        "wouldChangeRaw": false
+      },
+      "classification": {
+        "eventAssociations": [
+          {
+            "intended": "NO",
+            "eventId": 1,
+            "classification": "TOP1_CORRECT",
+            "basis": "Signer confirmed NO correct; event 1 Top-1 NO."
+          },
+          {
+            "intended": "TIRED",
+            "eventId": 2,
+            "classification": "TOPK_ABSENT",
+            "basis": "Signer confirmed TIRED appeared as LIVE2; TIRED absent from event 2 Top-5."
+          }
+        ],
+        "extraEvents": [
+          {
+            "eventId": 3,
+            "classification": "SPURIOUS_EVENT",
+            "basis": "Only NO and TIRED were intended; GIVE was a third committed event before first Hear."
+          }
+        ],
+        "phrase": [
+          "NONRECOVERABLE_SUBSTITUTION",
+          "SPURIOUS_INSERTION"
+        ],
+        "rawPhraseSuccess": false,
+        "intendedTop1": 1,
+        "associatedWrongTop1": 1,
+        "topKRecoverableWrongTop1": 0,
+        "topKAbsent": 1,
+        "missingEvent": 0,
+        "jointContextVisualOpportunity": false
+      },
+      "validityNotes": [
+        "Camera/Clear/sign/Hear steps issued in one instruction to reduce idle camera time. Same target and pipeline; setup events before Clear must be retained separately."
+      ],
+      "reportedObservation": "Signer confirmed NO was correct and intended TIRED appeared as LIVE2.",
+      "postBoundaryEvents": [
+        {
+          "version": 1,
+          "kind": "committed_event",
+          "processId": 19060,
+          "wallTimeMs": 1790728604166,
+          "eventId": 4,
+          "timestampMs": 216671290,
+          "top1": "GIVE",
+          "topK": [
+            {
+              "label": "GIVE",
+              "score": 0.40892013907432556
+            },
+            {
+              "label": "WE",
+              "score": 0.20963484048843384
+            },
+            {
+              "label": "TELL",
+              "score": 0.08147303014993668
+            },
+            {
+              "label": "COME",
+              "score": 0.06507525593042374
+            },
+            {
+              "label": "AND",
+              "score": 0.04231950268149376
+            }
+          ]
+        },
+        {
+          "version": 1,
+          "kind": "committed_event",
+          "processId": 19060,
+          "wallTimeMs": 1790728621295,
+          "eventId": 5,
+          "timestampMs": 216688514,
+          "top1": "GIVE",
+          "topK": [
+            {
+              "label": "GIVE",
+              "score": 0.29994720220565796
+            },
+            {
+              "label": "COME",
+              "score": 0.15635061264038086
+            },
+            {
+              "label": "TELL",
+              "score": 0.1245308369398117
+            },
+            {
+              "label": "WE",
+              "score": 0.036697011440992355
+            },
+            {
+              "label": "AND",
+              "score": 0.03452873229980469
+            }
+          ]
+        }
+      ],
+      "firstHearRecordedAtUtc": "2026-09-30T00:37:41.450502+00:00"
+    },
+    {
+      "attemptId": "T04",
+      "phraseId": "P4",
+      "repetition": 1,
+      "status": "COMPLETE_FIRST_HEAR_BOUNDARY",
+      "prompt": "Are you tired?",
+      "intendedConcepts": [
+        "YES",
+        "NEED",
+        "SLEEP"
+      ],
+      "signerId": "pilot-01",
+      "trainingRelationship": "UNKNOWN",
+      "appProcessId": 20189,
+      "hearingTurnId": 1,
+      "conversationInput": [
+        {
+          "speaker": "HEARING",
+          "text": "Are you tired?"
+        }
+      ],
+      "predictions": [
+        {
+          "naturalText": "Yes, I am tired.",
+          "expectedConcepts": [
+            "YES",
+            "TIRED"
+          ]
+        },
+        {
+          "naturalText": "No, I am not tired.",
+          "expectedConcepts": [
+            "NO",
+            "TIRED"
+          ]
+        },
+        {
+          "naturalText": "I feel very tired today.",
+          "expectedConcepts": [
+            "FEEL",
+            "VERY",
+            "TIRED",
+            "TODAY"
+          ]
+        },
+        {
+          "naturalText": "Yes, because I worked all day.",
+          "expectedConcepts": [
+            "YES",
+            "BECAUSE",
+            "WORK",
+            "DAY"
+          ]
+        }
+      ],
+      "predictionCoverage": false,
+      "cacheVerifiedAtUtc": "2026-09-30T00:39:27.063370+00:00",
+      "physicalAttemptAuthorizedAtUtc": "2026-09-30T00:39:27.063370+00:00",
+      "physicalSignConfirmed": true,
+      "rawSentence": "YES NEED SLEEP",
+      "committedEvents": [
+        {
+          "version": 1,
+          "kind": "evaluation_event",
+          "processId": 20189,
+          "wallTimeMs": 1790728802433,
+          "evaluationId": 1,
+          "eventId": 1,
+          "timestampMs": 216851681,
+          "top1": "YES",
+          "topK": [
+            {
+              "label": "YES",
+              "score": 0.9554787874221802
+            },
+            {
+              "label": "NEED",
+              "score": 0.031121889129281044
+            },
+            {
+              "label": "TOMORROW",
+              "score": 0.006144948769360781
+            },
+            {
+              "label": "LUNCH1",
+              "score": 0.0026280328165739775
+            },
+            {
+              "label": "SEND",
+              "score": 0.002386472187936306
+            }
+          ]
+        },
+        {
+          "version": 1,
+          "kind": "evaluation_event",
+          "processId": 20189,
+          "wallTimeMs": 1790728802433,
+          "evaluationId": 1,
+          "eventId": 2,
+          "timestampMs": 216857213,
+          "top1": "YES",
+          "topK": [
+            {
+              "label": "YES",
+              "score": 0.6553505063056946
+            },
+            {
+              "label": "NEED",
+              "score": 0.20236456394195557
+            },
+            {
+              "label": "IF",
+              "score": 0.05774455890059471
+            },
+            {
+              "label": "ANY",
+              "score": 0.023390037938952446
+            },
+            {
+              "label": "TOMORROW",
+              "score": 0.0219520665705204
+            }
+          ]
+        },
+        {
+          "version": 1,
+          "kind": "evaluation_event",
+          "processId": 20189,
+          "wallTimeMs": 1790728802434,
+          "evaluationId": 1,
+          "eventId": 3,
+          "timestampMs": 216862479,
+          "top1": "NEED",
+          "topK": [
+            {
+              "label": "NEED",
+              "score": 0.9891224503517151
+            },
+            {
+              "label": "YES",
+              "score": 0.00440469803288579
+            },
+            {
+              "label": "WALK2",
+              "score": 0.003128132550045848
+            },
+            {
+              "label": "TURN",
+              "score": 0.0006749317399226129
+            },
+            {
+              "label": "YOU",
+              "score": 0.0003703760157804936
+            }
+          ]
+        },
+        {
+          "version": 1,
+          "kind": "evaluation_event",
+          "processId": 20189,
+          "wallTimeMs": 1790728802434,
+          "evaluationId": 1,
+          "eventId": 4,
+          "timestampMs": 216867278,
+          "top1": "SLEEP",
+          "topK": [
+            {
+              "label": "SLEEP",
+              "score": 0.995919406414032
+            },
+            {
+              "label": "DINNER1",
+              "score": 0.0016016768058761954
+            },
+            {
+              "label": "HOT",
+              "score": 0.0013212101766839623
+            },
+            {
+              "label": "EAT1",
+              "score": 0.0005615586997009814
+            },
+            {
+              "label": "IF",
+              "score": 0.00017070252215489745
+            }
+          ]
+        }
+      ],
+      "shadowEvaluation": {
+        "reason": "NO_MATCH_OR_AMBIGUOUS",
+        "incomplete": false,
+        "eventIds": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "assistedConcepts": null,
+        "wouldChangeRaw": false
+      },
+      "classification": {
+        "eventAssociations": [
+          {
+            "intended": "YES",
+            "eventId": 1,
+            "classification": "TOP1_CORRECT"
+          },
+          {
+            "intended": "NEED",
+            "eventId": 3,
+            "classification": "TOP1_CORRECT"
+          },
+          {
+            "intended": "SLEEP",
+            "eventId": 4,
+            "classification": "TOP1_CORRECT"
+          }
+        ],
+        "extraEvents": [
+          {
+            "eventId": 2,
+            "classification": "SPURIOUS_EVENT",
+            "detail": "Duplicate YES committed; SentenceBuilder collapsed it in raw text."
+          }
+        ],
+        "phrase": [
+          "EXACT_RAW_SUCCESS",
+          "DUPLICATE_EVENT_COLLAPSED"
+        ],
+        "rawPhraseSuccess": true,
+        "intendedTop1": 3,
+        "associatedWrongTop1": 0,
+        "topKRecoverableWrongTop1": 0,
+        "topKAbsent": 0,
+        "missingEvent": 0,
+        "jointContextVisualOpportunity": false
+      },
+      "validityNotes": [
+        "Intended YES NEED SLEEP absent from current predicted set; physical target kept unchanged."
+      ],
+      "reportedObservation": "Signer confirmed YES, NEED, and SLEEP all committed correctly.",
+      "postBoundaryEvents": [
+        {
+          "version": 1,
+          "kind": "committed_event",
+          "processId": 20189,
+          "wallTimeMs": 1790728806808,
+          "eventId": 5,
+          "timestampMs": 216874010,
+          "top1": "GIVE",
+          "topK": [
+            {
+              "label": "GIVE",
+              "score": 0.37874162197113037
+            },
+            {
+              "label": "WE",
+              "score": 0.27297693490982056
+            },
+            {
+              "label": "TELL",
+              "score": 0.1016705110669136
+            },
+            {
+              "label": "TURN",
+              "score": 0.049734991043806076
+            },
+            {
+              "label": "AND",
+              "score": 0.04839208349585533
+            }
+          ]
+        },
+        {
+          "version": 1,
+          "kind": "committed_event",
+          "processId": 20189,
+          "wallTimeMs": 1790728828986,
+          "eventId": 6,
+          "timestampMs": 216896174,
+          "top1": "GIVE",
+          "topK": [
+            {
+              "label": "GIVE",
+              "score": 0.5153698921203613
+            },
+            {
+              "label": "TELL",
+              "score": 0.13542360067367554
+            },
+            {
+              "label": "COME",
+              "score": 0.11516237258911133
+            },
+            {
+              "label": "AND",
+              "score": 0.036443080753088
+            },
+            {
+              "label": "WE",
+              "score": 0.02258293516933918
+            }
+          ]
+        }
+      ],
+      "firstHearRecordedAtUtc": "2026-09-30T00:41:23.303599+00:00"
+    },
+    {
+      "attemptId": "T05",
+      "phraseId": "P5",
+      "repetition": 1,
+      "status": "COMPLETE_WITH_DELIBERATE_RETRY",
+      "plannedPrompt": "How is your family?",
+      "prompt": "How is your family",
+      "intendedConcepts": [
+        "FAMILY",
+        "GOOD"
+      ],
+      "signerId": "pilot-01",
+      "trainingRelationship": "UNKNOWN",
+      "appProcessId": 20783,
+      "hearingTurnId": 1,
+      "conversationInput": [
+        {
+          "speaker": "HEARING",
+          "text": "How is your family"
+        }
+      ],
+      "predictions": [
+        {
+          "naturalText": "My family is doing very well, thank you.",
+          "expectedConcepts": [
+            "FAMILY",
+            "GOOD"
+          ]
+        },
+        {
+          "naturalText": "They are all very busy with work and school.",
+          "expectedConcepts": [
+            "THEY1",
+            "BUSY",
+            "WORK",
+            "SCHOOL"
+          ]
+        },
+        {
+          "naturalText": "My parents are doing great, how about yours?",
+          "expectedConcepts": [
+            "FAMILY",
+            "GOOD",
+            "YOUR"
+          ]
+        }
+      ],
+      "predictionCoverage": true,
+      "cacheVerifiedAtUtc": "2026-09-30T00:43:46.463652+00:00",
+      "physicalAttemptAuthorizedAtUtc": "2026-09-30T00:43:46.463652+00:00",
+      "physicalSignConfirmed": true,
+      "rawSentence": "FAMILY HOT AFTERNOON",
+      "committedEvents": [
+        {
+          "version": 1,
+          "kind": "evaluation_event",
+          "processId": 20783,
+          "wallTimeMs": 1790729066168,
+          "evaluationId": 1,
+          "eventId": 1,
+          "timestampMs": 217119817,
+          "top1": "FAMILY",
+          "topK": [
+            {
+              "label": "FAMILY",
+              "score": 0.7844951748847961
+            },
+            {
+              "label": "FREE",
+              "score": 0.1730949878692627
+            },
+            {
+              "label": "DOOR",
+              "score": 0.029085302725434303
+            },
+            {
+              "label": "CLOSE",
+              "score": 0.005859509576112032
+            },
+            {
+              "label": "CITY2",
+              "score": 0.002045826055109501
+            }
+          ]
+        },
+        {
+          "version": 1,
+          "kind": "evaluation_event",
+          "processId": 20783,
+          "wallTimeMs": 1790729066168,
+          "evaluationId": 1,
+          "eventId": 2,
+          "timestampMs": 217124559,
+          "top1": "HOT",
+          "topK": [
+            {
+              "label": "HOT",
+              "score": 0.3559199571609497
+            },
+            {
+              "label": "YOUR",
+              "score": 0.2183954417705536
+            },
+            {
+              "label": "PICK",
+              "score": 0.19070965051651
+            },
+            {
+              "label": "MOVIE1",
+              "score": 0.16894277930259705
+            },
+            {
+              "label": "TAKE",
+              "score": 0.02153574489057064
+            }
+          ]
+        },
+        {
+          "version": 1,
+          "kind": "evaluation_event",
+          "processId": 20783,
+          "wallTimeMs": 1790729066169,
+          "evaluationId": 1,
+          "eventId": 3,
+          "timestampMs": 217130358,
+          "top1": "AFTERNOON",
+          "topK": [
+            {
+              "label": "AFTERNOON",
+              "score": 0.3727750778198242
+            },
+            {
+              "label": "BUSY",
+              "score": 0.16268448531627655
+            },
+            {
+              "label": "YOUR",
+              "score": 0.16056406497955322
+            },
+            {
+              "label": "GOOD",
+              "score": 0.14221836626529694
+            },
+            {
+              "label": "BREAKFAST1",
+              "score": 0.05134084075689316
+            }
+          ]
+        }
+      ],
+      "shadowEvaluation": {
+        "reason": "NO_MATCH_OR_AMBIGUOUS",
+        "incomplete": false,
+        "eventIds": [
+          1,
+          2,
+          3
+        ],
+        "assistedConcepts": null,
+        "wouldChangeRaw": false
+      },
+      "classification": {
+        "eventAssociations": [
+          {
+            "intended": "FAMILY",
+            "eventId": 1,
+            "classification": "TOP1_CORRECT"
+          },
+          {
+            "intended": "GOOD",
+            "eventId": 2,
+            "classification": "TOPK_ABSENT",
+            "basis": "Signer confirmed first GOOD became HOT; GOOD absent from event 2 Top-5."
+          }
+        ],
+        "deliberateRetry": [
+          {
+            "intended": "GOOD",
+            "eventId": 3,
+            "classification": "TOPK_RECOVERABLE",
+            "basis": "Signer deliberately signed GOOD again; AFTERNOON Top-1, GOOD fourth in Top-5."
+          }
+        ],
+        "extraEvents": [],
+        "phrase": [
+          "PROCEDURAL_RETRY",
+          "NONRECOVERABLE_FIRST_PASS_SUBSTITUTION",
+          "RECOVERABLE_RETRY_SUBSTITUTION"
+        ],
+        "rawPhraseSuccess": false,
+        "validForStrictPlannedSequenceMetrics": false,
+        "intendedTop1FirstPass": 1,
+        "associatedWrongTop1FirstPass": 1,
+        "topKRecoverableWrongTop1FirstPass": 0,
+        "topKAbsentFirstPass": 1,
+        "missingEvent": 0,
+        "jointContextVisualOpportunityStrict": false,
+        "jointContextVisualOpportunityWithRetry": true
+      },
+      "validityNotes": [
+        "Actual submitted synthetic prompt omitted final question mark; semantic content and fixed intended concept sequence unchanged.",
+        "Signer deliberately repeated GOOD, so event 3 is a retry, not a spurious insertion. Retain full attempt; exclude from strict planned-sequence aggregate and report first-pass/retry evidence separately.",
+        "Signer later clarified that commits after AFTERNOON were not deliberate signs; they remain post-first-Hear and are excluded from T05 attempt metrics."
+      ],
+      "reportedObservation": "Signer confirmed FAMILY correct; first GOOD became HOT; deliberately signed GOOD again and it became AFTERNOON.",
+      "postBoundaryEvents": [
+        {
+          "version": 1,
+          "kind": "committed_event",
+          "processId": 20783,
+          "wallTimeMs": 1790729068123,
+          "eventId": 4,
+          "timestampMs": 217135290,
+          "top1": "GIVE",
+          "topK": [
+            {
+              "label": "GIVE",
+              "score": 0.4653899371623993
+            },
+            {
+              "label": "TELL",
+              "score": 0.113594651222229
+            },
+            {
+              "label": "WE",
+              "score": 0.10320012271404266
+            },
+            {
+              "label": "COME",
+              "score": 0.07789093255996704
+            },
+            {
+              "label": "AND",
+              "score": 0.05671416223049164
+            }
+          ]
+        },
+        {
+          "version": 1,
+          "kind": "committed_event",
+          "processId": 20783,
+          "wallTimeMs": 1790729072867,
+          "eventId": 5,
+          "timestampMs": 217140023,
+          "top1": "COME",
+          "topK": [
+            {
+              "label": "COME",
+              "score": 0.2233639359474182
+            },
+            {
+              "label": "MAN",
+              "score": 0.17186181247234344
+            },
+            {
+              "label": "WHY",
+              "score": 0.07979712635278702
+            },
+            {
+              "label": "BECAUSE",
+              "score": 0.07923003286123276
+            },
+            {
+              "label": "STUDENT",
+              "score": 0.06198607757687569
+            }
+          ]
+        },
+        {
+          "version": 1,
+          "kind": "committed_event",
+          "processId": 20783,
+          "wallTimeMs": 1790729105546,
+          "eventId": 6,
+          "timestampMs": 217172683,
+          "top1": "GIVE",
+          "topK": [
+            {
+              "label": "GIVE",
+              "score": 0.4862841069698334
+            },
+            {
+              "label": "WE",
+              "score": 0.13414210081100464
+            },
+            {
+              "label": "COME",
+              "score": 0.09031200408935547
+            },
+            {
+              "label": "TELL",
+              "score": 0.048110827803611755
+            },
+            {
+              "label": "AND",
+              "score": 0.03689735010266304
+            }
+          ]
+        },
+        {
+          "version": 1,
+          "kind": "committed_event",
+          "processId": 20783,
+          "wallTimeMs": 1790729114001,
+          "eventId": 7,
+          "timestampMs": 217181082,
+          "top1": "GIVE",
+          "topK": [
+            {
+              "label": "GIVE",
+              "score": 0.36294567584991455
+            },
+            {
+              "label": "WELCOME2",
+              "score": 0.07649503648281097
+            },
+            {
+              "label": "FEEL",
+              "score": 0.06360804289579391
+            },
+            {
+              "label": "BAD",
+              "score": 0.062294851988554
+            },
+            {
+              "label": "SORRY",
+              "score": 0.05796888843178749
+            }
+          ]
+        },
+        {
+          "version": 1,
+          "kind": "committed_event",
+          "processId": 20783,
+          "wallTimeMs": 1790729123984,
+          "eventId": 8,
+          "timestampMs": 217191080,
+          "top1": "FEEL",
+          "topK": [
+            {
+              "label": "FEEL",
+              "score": 0.19532935321331024
+            },
+            {
+              "label": "GIVE",
+              "score": 0.18430881202220917
+            },
+            {
+              "label": "SORRY",
+              "score": 0.17486165463924408
+            },
+            {
+              "label": "LIKE",
+              "score": 0.044395316392183304
+            },
+            {
+              "label": "WELCOME2",
+              "score": 0.04268251359462738
+            }
+          ]
+        },
+        {
+          "version": 1,
+          "kind": "committed_event",
+          "processId": 20783,
+          "wallTimeMs": 1790729137185,
+          "eventId": 9,
+          "timestampMs": 217204344,
+          "top1": "COME",
+          "topK": [
+            {
+              "label": "COME",
+              "score": 0.4892037808895111
+            },
+            {
+              "label": "TABLE",
+              "score": 0.14581044018268585
+            },
+            {
+              "label": "MAN",
+              "score": 0.05860748142004013
+            },
+            {
+              "label": "GIVE",
+              "score": 0.049044519662857056
+            },
+            {
+              "label": "STUDENT",
+              "score": 0.0470271110534668
+            }
+          ]
+        }
+      ],
+      "firstHearRecordedAtUtc": "2026-09-30T00:46:25.940807+00:00",
+      "postBoundarySigningConfirmed": false
+    }
+  ],
+  "metrics": {
+    "physicalAttemptsRecorded": 5,
+    "plannedPhysicalAttempts": 15,
+    "strictPlannedSequenceAttempts": [
+      "T01",
+      "T02",
+      "T03",
+      "T04"
+    ],
+    "strictExcludedAttempt": {
+      "attemptId": "T05",
+      "reason": "Signer deliberately retried GOOD after HOT; retain both event-level results, exclude from strict first-pass aggregate."
+    },
+    "rawPhraseExact": {
+      "strict": {
+        "count": 1,
+        "denominator": 4
+      },
+      "allObservedIncludingRetry": {
+        "count": 1,
+        "denominator": 5
+      }
+    },
+    "intendedTop1": {
+      "count": 6,
+      "denominator": 9,
+      "scope": "confidently associated intended concepts in T01-T04"
+    },
+    "wrongTop1TopKRecoverable": {
+      "count": 0,
+      "denominator": 3,
+      "scope": "confidently associated wrong Top-1 events in T01-T04"
+    },
+    "wrongTop1TopKAbsent": {
+      "count": 3,
+      "denominator": 3,
+      "scope": "confidently associated wrong Top-1 events in T01-T04"
+    },
+    "predictionExactCoverage": {
+      "strict": {
+        "count": 3,
+        "denominator": 4
+      },
+      "allObservedIncludingRetry": {
+        "count": 4,
+        "denominator": 5
+      }
+    },
+    "jointStrictContextAndVisualOpportunity": {
+      "count": 0,
+      "denominator": 4,
+      "note": "Opportunity, not assisted accuracy. T01-T03 have absent intended labels; T04 lacks exact predicted phrase."
+    },
+    "confirmedSpuriousBeforeFirstHear": {
+      "eventCount": 4,
+      "attemptCount": 3,
+      "attemptDenominator": 4,
+      "eventsByAttempt": {
+        "T01": [
+          5,
+          6
+        ],
+        "T03": [
+          3
+        ],
+        "T04": [
+          2
+        ]
+      }
+    },
+    "possibleExtraT02": {
+      "eventCount": 8,
+      "eventIds": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "classification": "AMBIGUOUS_PENDING_SIGNER_CONFIRMATION"
+    },
+    "missingIntendedEvents": {
+      "count": 0,
+      "denominator": 9,
+      "scope": "confidently associated T01-T04 intended concepts; does not establish absence of segmentation failures in general"
+    },
+    "retryObservationT05": {
+      "firstGoodEventId": 2,
+      "firstGoodTop5": "ABSENT",
+      "deliberateRetryEventId": 3,
+      "retryGoodTop5Rank": 4,
+      "retryGoodTop5Score": 0.142,
+      "countedInStrictAggregate": false
+    },
+    "right3Recurrence": {
+      "attemptId": "T02",
+      "eventIds": [
+        9,
+        12
+      ],
+      "context": "extra events after confirmed GO and WORK; timing/source of extra events unconfirmed"
+    }
+  },
+  "decision": "FIRST_ROUND_SUGGESTS_NONRECOVERABLE_FIRST_PASS_SUBSTITUTIONS_WITH_ADDITIONAL_EVENT_NOISE; SMALL_NON_HELD_OUT_PILOT_DOES_NOT_JUSTIFY_DECODER_CHANGE",
+  "collectionDate": "2026-09-30",
+  "collectionStartingHead": "79bdc97079f52c46642a7d9bbfc8874f432dd771",
+  "phraseSetDecision": "YES GO SCHOOL excluded before collection as unfamiliar; user chose five phrases.",
+  "abortedPreparations": [
+    {
+      "attemptId": "T06",
+      "phraseId": "P1",
+      "repetition": 2,
+      "prompt": "Where are you going?",
+      "cacheComplete": true,
+      "predictedExpectedConcepts": [
+        [
+          "GO",
+          "HOME"
+        ],
+        [
+          "GO",
+          "SHOP1"
+        ],
+        [
+          "GO",
+          "WORK"
+        ]
+      ],
+      "committedSignEvents": 0,
+      "reason": "Text-to-ASL was closed before Reply; signer chose to stop after five physical attempts. Not counted as a physical attempt."
+    }
+  ],
+  "stopReason": "Signer requested stopping after the five first-round physical attempts."
+}
