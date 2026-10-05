@@ -89,8 +89,8 @@
 
     <FrameLayout
         android:id="@+id/reply_button"
-        android:layout_width="72dp"
-        android:layout_height="38dp"
+        android:layout_width="80dp"
+        android:layout_height="44dp"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="18dp"
         android:background="@drawable/bg_white_pill"
@@ -107,13 +107,13 @@
             android:fontFamily="@font/inter_semibold"
             android:text="@string/text_to_asl_reply"
             android:textColor="#0D1B1E"
-            android:textSize="12sp" />
+            android:textSize="13sp" />
     </FrameLayout>
 
     <LinearLayout
         android:id="@+id/signOverlay"
         android:layout_width="wrap_content"
-        android:layout_height="42dp"
+        android:layout_height="46dp"
         android:layout_marginBottom="18dp"
         android:background="@drawable/bg_glass_pill"
         android:gravity="center_vertical"
@@ -130,7 +130,7 @@
             android:fontFamily="@font/inter_semibold"
             android:text="@string/text_to_asl_current_sign_placeholder"
             android:textColor="#FFFFFF"
-            android:textSize="14sp" />
+            android:textSize="15sp" />
 
         <TextView
             android:id="@+id/current_progress_text"
@@ -140,7 +140,7 @@
             android:fontFamily="@font/inter_regular"
             android:text="@string/text_to_asl_no_animation"
             android:textColor="#CCFFFFFF"
-            android:textSize="12sp" />
+            android:textSize="13sp" />
     </LinearLayout>
 
     <com.google.android.material.card.MaterialCardView
@@ -161,12 +161,12 @@
             android:animateLayoutChanges="true"
             android:orientation="vertical"
             android:paddingHorizontal="22dp"
-            android:paddingBottom="22dp">
+            android:paddingBottom="26dp">
 
             <FrameLayout
                 android:id="@+id/dragHandleWrapper"
                 android:layout_width="match_parent"
-                android:layout_height="32dp"
+                android:layout_height="36dp"
                 android:clickable="true"
                 android:contentDescription="Expand or collapse translator controls"
                 android:focusable="true">
@@ -198,13 +198,16 @@
                         android:letterSpacing="0.22"
                         android:text="@string/text_to_asl_sign_label"
                         android:textColor="#8C775B"
-                        android:textSize="10sp" />
+                        android:textSize="11sp" />
 
                     <TextView
                         android:id="@+id/signed_text"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="3dp"
+                        android:clickable="true"
+                        android:contentDescription="@string/text_to_asl_open_text_input"
+                        android:focusable="true"
                         android:fontFamily="@font/inter_black"
                         android:text="@string/text_to_asl_idle_text"
                         android:textColor="#29AC9B"
@@ -213,16 +216,16 @@
 
                 <FrameLayout
                     android:id="@+id/replay_button"
-                    android:layout_width="42dp"
-                    android:layout_height="42dp"
+                    android:layout_width="46dp"
+                    android:layout_height="46dp"
                     android:background="@drawable/bg_circle_tan"
                     android:clickable="true"
                     android:contentDescription="Replay signing"
                     android:focusable="true">
 
                     <ImageView
-                        android:layout_width="21dp"
-                        android:layout_height="21dp"
+                        android:layout_width="23dp"
+                        android:layout_height="23dp"
                         android:layout_gravity="center"
                         android:contentDescription="Replay"
                         android:src="@drawable/ic_replay"
@@ -233,8 +236,8 @@
             <FrameLayout
                 android:id="@+id/mode_selector"
                 android:layout_width="match_parent"
-                android:layout_height="44dp"
-                android:layout_marginTop="16dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="18dp"
                 android:background="@drawable/apphear_translator_segment_bg">
 
                 <LinearLayout
@@ -261,7 +264,7 @@
                             android:fontFamily="@font/inter_semibold"
                             android:text="Text"
                             android:textColor="#FFFFFF"
-                            android:textSize="13sp" />
+                            android:textSize="15sp" />
                     </FrameLayout>
 
                     <FrameLayout
@@ -282,7 +285,7 @@
                             android:fontFamily="@font/inter_semibold"
                             android:text="@string/text_to_asl_mode_talk"
                             android:textColor="#8C775B"
-                            android:textSize="13sp" />
+                            android:textSize="15sp" />
                     </FrameLayout>
                 </LinearLayout>
             </FrameLayout>
@@ -291,7 +294,7 @@
                 android:id="@+id/expandableContent"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="9dp"
+                android:layout_marginTop="14dp"
                 android:orientation="vertical"
                 android:visibility="gone">
 
@@ -304,19 +307,19 @@
 
                     <ImageView
                         android:id="@+id/mode_talk_shortcut"
-                        android:layout_width="38dp"
-                        android:layout_height="38dp"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
                         android:clickable="true"
                         android:contentDescription="Switch to Talk"
                         android:focusable="true"
-                        android:padding="6dp"
+                        android:padding="9dp"
                         android:src="@drawable/translator_voice_search" />
 
                     <EditText
                         android:id="@+id/input_text"
                         android:layout_width="0dp"
-                        android:layout_height="54dp"
-                        android:layout_marginStart="14dp"
+                        android:layout_height="62dp"
+                        android:layout_marginStart="16dp"
                         android:layout_weight="1"
                         android:background="@drawable/apphear_translator_input_line_bg"
                         android:fontFamily="@font/inter_semibold"
@@ -327,66 +330,75 @@
                         android:singleLine="true"
                         android:textColor="#29AC9B"
                         android:textColorHint="#29AC9B"
-                        android:textSize="17sp" />
+                        android:textSize="18sp" />
                 </LinearLayout>
 
-                <LinearLayout
+                <FrameLayout
                     android:id="@+id/speech_deferred_section"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
+                    android:paddingTop="6dp"
+                    android:paddingBottom="4dp"
                     android:visibility="gone">
 
                     <ImageView
                         android:id="@+id/mode_text_shortcut"
-                        android:layout_width="38dp"
-                        android:layout_height="38dp"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
                         android:clickable="true"
                         android:contentDescription="Switch to Text"
                         android:focusable="true"
-                        android:padding="6dp"
+                        android:layout_gravity="top|start"
+                        android:padding="9dp"
                         android:src="@drawable/translator_chatting" />
 
-                    <FrameLayout
-                        android:id="@+id/btnMic"
-                        android:layout_width="76dp"
-                        android:layout_height="76dp"
-                        android:layout_gravity="center"
-                        android:clickable="true"
-                        android:contentDescription="Tap microphone to speak"
-                        android:focusable="true">
-
-                        <ImageView
-                            android:layout_width="58dp"
-                            android:layout_height="58dp"
-                            android:layout_gravity="center"
-                            android:contentDescription="Microphone"
-                            android:src="@drawable/translator_voice_search" />
-                    </FrameLayout>
-
-                    <TextView
-                        android:id="@+id/tvSpeechStatus"
+                    <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:gravity="center"
-                        android:fontFamily="@font/inter_semibold"
-                        android:text="@string/speech_tap_mic"
-                        android:textColor="#29AC9B"
-                        android:textSize="16sp" />
-                </LinearLayout>
+                        android:orientation="vertical">
+
+                        <FrameLayout
+                            android:id="@+id/btnMic"
+                            android:layout_width="84dp"
+                            android:layout_height="84dp"
+                            android:clickable="true"
+                            android:contentDescription="Tap microphone to speak"
+                            android:focusable="true">
+
+                            <ImageView
+                                android:layout_width="62dp"
+                                android:layout_height="62dp"
+                                android:layout_gravity="center"
+                                android:contentDescription="Microphone"
+                                android:src="@drawable/translator_voice_search" />
+                        </FrameLayout>
+
+                        <TextView
+                            android:id="@+id/tvSpeechStatus"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:gravity="center"
+                            android:fontFamily="@font/inter_semibold"
+                            android:text="@string/speech_tap_mic"
+                            android:textColor="#29AC9B"
+                            android:textSize="17sp" />
+                    </LinearLayout>
+                </FrameLayout>
 
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="14dp"
+                    android:layout_marginBottom="14dp"
                     android:background="#EAEAE7" />
 
                 <LinearLayout
                     android:id="@+id/action_row"
                     android:layout_width="match_parent"
-                    android:layout_height="48dp"
+                    android:layout_height="54dp"
                     android:background="@drawable/apphear_translator_segment_bg"
                     android:orientation="horizontal"
                     android:padding="2dp">
@@ -408,7 +420,7 @@
                             android:fontFamily="@font/inter_semibold"
                             android:text="@string/text_to_asl_sign_it"
                             android:textColor="#FFFFFF"
-                            android:textSize="13sp" />
+                            android:textSize="15sp" />
                     </FrameLayout>
 
                     <FrameLayout
@@ -427,7 +439,7 @@
                             android:fontFamily="@font/inter_semibold"
                             android:text="@string/text_to_asl_clear"
                             android:textColor="#8C775B"
-                            android:textSize="13sp" />
+                            android:textSize="15sp" />
                     </FrameLayout>
                 </LinearLayout>
             </LinearLayout>

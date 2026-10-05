@@ -206,6 +206,9 @@ class TextToAslFragment : Fragment(R.layout.fragment_text_to_asl) {
         }
         fragmentBinding.modeTextButton.setOnClickListener { setSpeechMode(false) }
         fragmentBinding.modeSpeechButton.setOnClickListener { setSpeechMode(true) }
+        fragmentBinding.signedText.setOnClickListener {
+            if (!fragmentBinding.expandableContent.isVisible) setSpeechMode(false)
+        }
         fragmentBinding.modeTextShortcut.setOnClickListener { setSpeechMode(false) }
         fragmentBinding.modeTalkShortcut.setOnClickListener { setSpeechMode(true) }
         fragmentBinding.inputText.setOnEditorActionListener { _, actionId, _ ->
@@ -437,6 +440,10 @@ class TextToAslFragment : Fragment(R.layout.fragment_text_to_asl) {
             if (expanded) R.string.text_to_asl_signing_label else R.string.text_to_asl_sign_label,
         )
         fragmentBinding.signedText.isVisible = !expanded || lastInputText.isNotBlank()
+        fragmentBinding.signedText.isClickable = !expanded
+        fragmentBinding.signedText.isFocusable = !expanded
+        fragmentBinding.signedText.contentDescription =
+            if (expanded) null else getString(R.string.text_to_asl_open_text_input)
     }
 
     override fun onStart() {

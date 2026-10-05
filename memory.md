@@ -16,15 +16,15 @@ Last updated: 2026-10-05 +08:00
 
 ## Current state
 
-- 150/150 JVM tests and debug, release, and Android-test APK builds pass. No phone or emulator was connected for visual/device smoke. The stable baseline tag and branch remain unchanged.
+- 150/150 JVM tests and debug, release, and Android-test APK builds pass. The phone is connected; its original APK was backed up in the ignored build folder, and the final private debug APK is installed with a matching host/device hash. The user approved the ready-title tap and the roomier Text/Talk sizing. The stable baseline tag and branch remain unchanged.
 
 ## Next session starts with
 
-- Connect the representative phone, install the feature-branch debug build after backing up its current APK, and visually verify the ready/text/talk layouts and Google speech overlay. Keep the protected baseline and current installed APK recoverable.
+- The focused phone check is complete. Keep the private UI build installed for review unless the user asks for restoration. The original APK backup remains available.
 
 ## Open questions
 
-- Phone-size visual fit and hands-on interaction remain unverified; no recognition or Context Assist accuracy inference should be made from this UI change.
+- The user confirmed typed `HELLO` starts avatar signing and Talk opens the existing Google speech dialog. Broad F22 recognition smoke and accuracy validation were outside this UI-only task; no recognition or Context Assist accuracy inference should be made from the redesign.
 
 ---
 
