@@ -1,5 +1,7 @@
 # Current working AppHear baseline — 2026-10-04
 
+Historical preserved baseline. The current user-reviewed application baseline is now described in [the October 5 handoff](current-working-baseline-2026-10-05.md). This October 4 branch/tag remains fixed for rollback and for experiments already based on it.
+
 ## Identity
 
 - Preservation branch: `baseline/apphear-text-to-asl-context-assist-ui-2026-10-04`.

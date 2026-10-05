@@ -1,3 +1,33 @@
+# Memory — October 5 working baseline and ongoing experiments
+
+Last updated: 2026-10-05 +08:00
+
+## What was built
+
+- Preserved the user-reviewed Text/Talk UI plus existing Context Assist under the October 5 baseline branch/tag. The exact source/rollback identity and separate experiment resume pointers are in the two October 5 context handoffs.
+
+## Decisions made
+
+- New application work starts from `apphear-text-to-asl-context-assist-ui-2026-10-05`. Existing dirty fingerspelling work remains separate until explicitly integrated; baseline publication must not sweep it into the reviewed app.
+
+## Problems solved
+
+- The latest UI is now distinguishable from the older October 4 application baseline and older Context Assist source. The handoff also records that the phone currently carries the UI build, superseding earlier fingerspelling installed-APK descriptions.
+
+## Current state
+
+- Application tests/builds and user phone checks are retained from `ec34034`. The separate Android fingerspelling worktree is dirty at October 4 detached HEAD; F: contains uncommitted research and preparation. No experiment process or files were changed by preservation.
+
+## Next session starts with
+
+- Read `context/current-working-baseline-2026-10-05.md` and `context/ongoing-experiments-2026-10-05.md`, then the selected experiment's own local handoff. Verify its actual process/artifact state before continuing.
+
+## Open questions
+
+- Fingerspelling bounded phone capture and TRAIN-4096 validation remain open. Context Assist's deferred evidence/accuracy/production questions also remain open.
+
+---
+
 # Memory — Text-to-ASL text/talk UI redesign
 
 Last updated: 2026-10-05 +08:00
