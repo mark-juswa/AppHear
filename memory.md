@@ -1,3 +1,33 @@
+# Memory — Text-to-ASL text/talk UI redesign
+
+Last updated: 2026-10-05 +08:00
+
+## What was built
+
+- A new ready/text/talk Text-to-ASL presentation on `codex/text-to-asl-text-speech-ui`, branched from the fixed 2026-10-04 Text-to-ASL plus Context Assist baseline. The two supplied chat and microphone PNGs were added to the screen resources.
+
+## Decisions made
+
+- Keep speech recognition's existing auto-submit. The newly visible Talk-mode Sign It button replays the current plan so it does not create another Hearing turn. Mode controls change presentation only; avatar, Reply, TTS, and conversation recording remain in their established owners.
+
+## Problems solved
+
+- The old always-expanded control panel did not match the user's ready, text, and talk mockups. The new panel provides a compact entry state and direct text/talk switching without duplicating translation logic.
+
+## Current state
+
+- 150/150 JVM tests and debug, release, and Android-test APK builds pass. No phone or emulator was connected for visual/device smoke. The stable baseline tag and branch remain unchanged.
+
+## Next session starts with
+
+- Connect the representative phone, install the feature-branch debug build after backing up its current APK, and visually verify the ready/text/talk layouts and Google speech overlay. Keep the protected baseline and current installed APK recoverable.
+
+## Open questions
+
+- Phone-size visual fit and hands-on interaction remain unverified; no recognition or Context Assist accuracy inference should be made from this UI change.
+
+---
+
 # Memory — Current working baseline for future experiments
 
 Last updated: 2026-10-04 +08:00

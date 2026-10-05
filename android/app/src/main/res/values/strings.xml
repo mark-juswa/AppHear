@@ -100,6 +100,8 @@
   <string name="text_to_asl_stage_body">Local avatar playback includes an expanded set of everyday words and phrases.</string>
   <string name="text_to_asl_current_sign_placeholder">-</string>
   <string name="text_to_asl_signing_label">SIGNING</string>
+  <string name="text_to_asl_sign_label">SIGN</string>
+  <string name="text_to_asl_mode_talk">Talk</string>
   <string name="text_to_asl_idle_text">Ready when you are</string>
   <string name="text_to_asl_mode_text">Text</string>
   <string name="text_to_asl_mode_speech">Speech</string>

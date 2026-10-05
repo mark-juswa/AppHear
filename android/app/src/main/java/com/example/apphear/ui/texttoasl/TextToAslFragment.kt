@@ -193,9 +193,11 @@ class TextToAslFragment : Fragment(R.layout.fragment_text_to_asl) {
         fragmentBinding.btnBack.setOnClickListener { findNavController().navigate(R.id.homeFragment) }
         fragmentBinding.btnSpeak.setOnClickListener { speakCurrentText() }
         fragmentBinding.dragHandleWrapper.setOnClickListener {
-            fragmentBinding.expandableContent.isVisible = !fragmentBinding.expandableContent.isVisible
+            showInputPanel(!fragmentBinding.expandableContent.isVisible)
         }
-        fragmentBinding.signItButton.setOnClickListener { submitInput() }
+        fragmentBinding.signItButton.setOnClickListener {
+            if (fragmentBinding.speechDeferredSection.isVisible) replayCurrentPlan() else submitInput()
+        }
         fragmentBinding.btnMic.setOnClickListener { startSpeechInput() }
         fragmentBinding.replayButton.setOnClickListener { replayCurrentPlan() }
         fragmentBinding.clearButton.setOnClickListener { clearPlayback() }
@@ -204,6 +206,8 @@ class TextToAslFragment : Fragment(R.layout.fragment_text_to_asl) {
         }
         fragmentBinding.modeTextButton.setOnClickListener { setSpeechMode(false) }
         fragmentBinding.modeSpeechButton.setOnClickListener { setSpeechMode(true) }
+        fragmentBinding.modeTextShortcut.setOnClickListener { setSpeechMode(false) }
+        fragmentBinding.modeTalkShortcut.setOnClickListener { setSpeechMode(true) }
         fragmentBinding.inputText.setOnEditorActionListener { _, actionId, _ ->
             if (actionId == EditorInfo.IME_ACTION_DONE) {
                 submitInput()
@@ -231,6 +235,7 @@ class TextToAslFragment : Fragment(R.layout.fragment_text_to_asl) {
 
         fragmentBinding.inputText.setText(incomingText)
         fragmentBinding.signedText.text = incomingText
+        fragmentBinding.signedText.isVisible = true
         consumedAutoSubmitText = incomingText
         pendingAutoSubmitText = null
         submitInput(ConversationSource.SPEECH)
@@ -303,6 +308,7 @@ class TextToAslFragment : Fragment(R.layout.fragment_text_to_asl) {
         unsupportedWords = plan.unsupportedTokens
         currentIndex = 0
         fragmentBinding.signedText.text = requestedText
+        fragmentBinding.signedText.isVisible = true
 
         if (plan.unsupportedTokens.isNotEmpty()) {
             fragmentBinding.currentProgressText.text = "Unsupported: ${plan.unsupportedTokens.joinToString(", ")}"
@@ -348,6 +354,8 @@ class TextToAslFragment : Fragment(R.layout.fragment_text_to_asl) {
         lastInputText = ""
         fragmentBinding.inputText.text?.clear()
         fragmentBinding.signedText.setText(R.string.text_to_asl_idle_text)
+        fragmentBinding.signedText.isVisible = !fragmentBinding.expandableContent.isVisible
+        fragmentBinding.tvSpeechStatus.setText(R.string.speech_tap_mic)
         fragmentBinding.currentSignText.setText(R.string.text_to_asl_current_sign_placeholder)
         fragmentBinding.currentProgressText.text = "Ready"
         if (avatarReady || !BuildConfig.ASL_ALPHABET_FALLBACK_ENABLED) showIdleAvatar()
@@ -397,6 +405,7 @@ class TextToAslFragment : Fragment(R.layout.fragment_text_to_asl) {
 
     private fun setSpeechMode(enabled: Boolean) {
         val fragmentBinding = binding ?: return
+        showInputPanel(true)
         fragmentBinding.textInputSection.isVisible = !enabled
         fragmentBinding.speechDeferredSection.isVisible = enabled
         if (enabled) fragmentBinding.tvSpeechStatus.setText(R.string.speech_tap_mic)
@@ -418,6 +427,16 @@ class TextToAslFragment : Fragment(R.layout.fragment_text_to_asl) {
                 requireContext().theme,
             ),
         )
+    }
+
+    private fun showInputPanel(expanded: Boolean) {
+        val fragmentBinding = binding ?: return
+        fragmentBinding.expandableContent.isVisible = expanded
+        fragmentBinding.modeSelector.isVisible = !expanded
+        fragmentBinding.translatorModeHeading.setText(
+            if (expanded) R.string.text_to_asl_signing_label else R.string.text_to_asl_sign_label,
+        )
+        fragmentBinding.signedText.isVisible = !expanded || lastInputText.isNotBlank()
     }
 
     override fun onStart() {
