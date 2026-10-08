@@ -847,3 +847,102 @@ conversation turn; event-level evidence remains separate for matching and bounde
 diagnostics. No camera images, landmarks, feature vectors or recognizer tensors enter the
 sidecar. The 378-feature layout, Recognition V2 input, frozen 236-class model, label order,
 Top-1 decision, and their schema versions are unchanged.
+
+
+## Automatic held-letter Fingerspell v1 — 2026-10-08
+
+Authoritative app source is the October5-based `fingerspell-continuous-oct05` worktree,
+branch `codex/fingerspell-continuous-oct05`; base b48594c4942d9e9ac0d94ff96396e80b9f049c0a.
+Contract: research `context/fingerspelling-continuous-v1.md`; Adapter.v1 `[T,405]` unchanged.
+
+| Component | Source | Input -> output | Contract / preservation |
+|---|---|---|---|
+| Automatic held-letter policy | new app `fingerspelling/HeldLetterPolicy.kt` | independent chronological raw observations -> bounded window/stable unconfirmed letters | apphear.fingerspelling.held_letter_policy.v1; operational timing asset, no confidence claim; same-letter latch/missingness rearm; no fabricated frames |
+| Continuous inference owner | new app `fingerspelling/ContinuousFingerspell.kt`, existing runtime delegate | raw window -> fresh frozen Adapter.v1 -> frozen V2.1 logits -> exact singleton CTC | one worker/no backlog; callback on camera executor; generation/epoch guard; WORD transition waits; no protected WORD/perception/model change |
+| Persisted recognition mode | new app `data/settings/RecognitionModeSettings.kt`, shared Settings/Profile row | explicit user setting -> exactly one recognition owner | default WORD; debug opt-in continuous; no Start/Done; spelling draft + Use confirmation; no WORD SentenceBuilder use |
+
+169 unit/54 singleton/14 model parity checks,2 Settings/owner Xiaomi tests and3local Context Assist
+checks pass. Supervisor confirms automatic flow and WORD restoration, not A–Z accuracy. Tracking
+loss can falsely rearm; incorrect letters can stabilize. Manual worktree/APK remain rollback.
+Full gate/evidence: research docs/apphear-fingerspelling-continuous-gate-2026-10-08.md and
+artifacts/fingerspelling_continuous_01. No training/data/model/decoder tuning.
+
+
+## Shared front/rear camera input — 2026-10-08
+
+Active app: October5 `fingerspell-continuous-oct05` checkout, baseline b48594c.
+Input remains `UPRIGHT_UNMIRRORED_SOURCE_RGB`; Adapter.v1 [T,405] and WORD contracts unchanged.
+
+| Component | Source | Input -> output | Contract / preservation |
+|---|---|---|---|
+| Shared camera binding | RecognitionActivity.bindPhoneCamera | either CameraX lens RGBA + rotation/strides -> existing Candidate01 analyzer | same native rotation/pose/ROI math; front baseline untouched; no horizontal pixel flip; generation reset/drain and stale UI guard |
+| Lens-aware overlay presentation | ui/OverlayView, PerceptionVNextOverlayRenderer | unchanged source XY -> lens preview coordinates | front mirror display unchanged; rear natural display; no reflection fed to model |
+| Bounded camera diagnostics | camera/CameraTimingProbe | capture/analysis clocks -> timing JSON | no pixel/model/feature modifications; sensor FPS differs from actual screen presentation FPS |
+
+Debug opt-in `recognitionRearCamera=true`; default/release front-only. Front AE range remains15/15;
+rear requests30/30 only when advertised, otherwise15/15; KEEP_ONLY_LATEST unchanged. Genuine
+observation timestamps drive existing Adapter timing/motion; recognition is not forced to30Hz.
+Xiaomi front270/rear90 rotations both yield480x640 source from640x480 raw. Eight native asymmetric
+rotation/stride cases byte-identical.169host/7device tests pass; WORD nonempty sentence preserved.
+Supervisor confirms both work and rear is smoother after measured15.1->29.6FPS; front unchanged.
+Report docs/apphear-front-back-camera-input-2026-10-08.md; artifacts/camera_input_01/summary.json.
+
+
+## Fingerspell presentation clarification — 2026-10-08
+
+CURRENT SIGN = presentation-only latest valid singleton decode (`currentLetter`); RECOGNIZED =
+confirmed + stabilized draft spelling. Tentative letter does not change accumulation. No new feature
+schema, threshold or decoding policy. Missing/empty/reset clears current display; stale results
+cannot overwrite it. This supersedes earlier hiding of CURRENT SIGN. Controls remain hidden.
+Source: HeldLetterPolicy / FingerspellSnapshot / ContinuousFingerspell.emit / Activity renderer,
+active October5 checkout.170host and5Xiaomi checks pass. WORD/model/camera contracts unchanged.
+
+
+## Recognition coordination v1 — 2026-10-08
+
+Adapter.v1 `[T,405]` and WORD feature contracts unchanged. Operational contract:
+`context/recognition-coordination-v1.md`; authoritative source is the October5 app worktree.
+
+| Component | Source | Input -> output | Contract / preservation |
+|---|---|---|---|
+| Recognition coordinator | coordination/RecognitionCoordinator.kt + recognition_coordination_policy.json | actual hearing text/turn + existing idle/current hand evidence -> exclusive owner command | apphear.recognition.coordination.v1; bounded English prompts; once per turn; manual veto; no prediction/confidence fusion |
+| UI/lifecycle bridge | coordination/RecognitionCoordinationBridge.kt + Activity seams | owner command / actual spelling -> existing select/confirm + stale-turn-checked history | no inference/feature math; explicit Finish; original WORD sentence unchanged; no Start/Done; generation guards |
+| Confirmed spelling context seam | additive ConversationPhraseAssist methods | explicit confirmed A–Z/SPACE + bound hearing ID -> actual DEAF conversation turn | no WORD matcher/provider modification; stale question rejects attribution; never generates recognized text |
+
+180 private/180 flag-off host tests; synthetic Xiaomi routing/confirmation plus existing owner,
+WORD/Context/camera gates. 659/662 existing app files and all281 assets unchanged. Default/release
+flag off; private APK retained. Existing cold-camera synthetic tests need readiness; initial
+failure logs retained and equivalent ready-camera replays pass. No recognition accuracy claim.
+Report/evidence: docs/apphear-recognition-coordination-2026-10-08.md;
+artifacts/recognition_coordination_01/validation.json.
+
+
+
+## Automatic orchestration UI / acceptance observability — 2026-10-08
+
+- RecognitionCoordinationBridge: status only, no camera-screen mode chooser. Context routing
+  policy unchanged; existing speaker/Hear confirmation completes spelling and restores WORD.
+  Bottom SPEAK retains hearing input; manual fallback remains in Settings.
+- HeldLetterPolicy.acceptanceState / lastAcceptanceReason: read-only acceptance evidence for
+  epoch, missingness, candidate count/span and latch; does not change acceptance/model input.
+- ContinuousFingerspell diagnostic adds apphear.fingerspelling.acceptance_diagnostic.v1 metadata;
+  bounded event storage remains 64, periodic flushing uses completed decode count instead of
+  capped deque size. No RGB/landmarks retained. Parent report v1 and Adapter.v1 [T,405] unchanged.
+- Xiaomi synthetic test: 104 draft characters fully displayed; original AM live plateau remains
+  unproven until actual acceptance evidence is available. No accuracy/threshold change claimed.
+
+Evidence: artifacts/recognition_coordination_01/automatic_ui_fix_01/validation.json.
+
+
+### Empty FINGERSPELL card visibility — 2026-10-09
+
+RecognitionActivity.renderFingerspell: active continuous F renders sentenceCard visible even with
+an empty stabilized buffer, using existing placeholder and waiting-for-letters accessibility text.
+WORD updateSentenceCardVisibility and all WORD render branches unchanged. 181 host +3 final Xiaomi
+checks pass; 104-character display remains untruncated. No acceptance/feature contract change.
+
+
+### Compact mode header — 2026-10-09
+Existing coordination status is now a glass pill between Back and Camera, labeled only Fingerspell
+or Word. Owner/routing/confirmation/recognition unchanged; no feature contract change. 181host
++3Xiaomi engineering checks pass; docs/apphear-recognition-mode-header-2026-10-09.md.

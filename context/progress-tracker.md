@@ -5080,3 +5080,222 @@ all perception experiments remain immutable historical evidence.
 - [x] User requested that the reviewed Text/Talk UI plus existing Context Assist become the new working baseline and be published. Preservation refs: `baseline/apphear-text-to-asl-context-assist-ui-2026-10-05` and `apphear-text-to-asl-context-assist-ui-2026-10-05`. Last application commit is `ec34034`; the preservation commit changes documentation only.
 - [x] See `context/current-working-baseline-2026-10-05.md` for identity, validation and private APK rollback. Future new application work branches from the October 5 tag; older baseline refs remain fixed.
 - [x] Saved pointers and next steps for ongoing Context Assist questions, the separate dirty fingerspelling Android worktree and TRAIN-4096 two-worker preparation in `context/ongoing-experiments-2026-10-05.md`. Those experiments were not merged, reset, stopped or promoted.
+
+
+### 2026-10-08 — automatic held-letter Fingerspell, October5 baseline
+
+Latest application source: C:/Users/Gigabyte/.codex/worktrees/fingerspell-continuous-oct05/5. Apphear3
+on codex/fingerspell-continuous-oct05, base b48594c4942d9e9ac0d94ff96396e80b9f049c0a.
+
+- [x] Supervisor approved October5 baseline and automatic held-letter flow with confirmation.
+- [x] Persistent Settings choice in Settings/Profile; default WORD; Start/Done absent when automatic.
+- [x] Bounded real raw windows, fresh Adapter, one async inference worker, stable singleton draft.
+- [x] Explicit owner, stale result cancellation, same-letter latch/rearm, Use/Retry/Clear.
+- [x]169unit checks,54singleton/14model parity,2device host/owner tests,3Context local regressions.
+- [x]626protected baseline files,648manual files and237priorAPK assets preserved.
+- [x] Settings crash fixed: shared Profile also needed the new row; both hosts now tested.
+- [x] Supervisor confirms automatic flow and return to WORD controls/camera.
+- [ ] Reliable all26 / fluent continuous spelling accuracy remains unproven and was not claimed.
+
+Default/release flags off; private continuous build installed. Frozen V2.1 epoch034/Adapter/WORD
+unchanged. Same-letter repetitions can rearm through tracking loss; confirmation remains required.
+No new training/job. Next action: use/review this experimental interaction; do not automatically
+launch another model experiment. Report: docs/apphear-fingerspelling-continuous-gate-2026-10-08.md.
+
+
+### 2026-10-08 — Fingerspell display cleanup
+Requested hide controls and move automatic letters to RECOGNIZED. Implemented in active October5 worktree RecognitionActivity only; no model/WORD/runtime change. Experimental panel absent, CURRENT SIGN column hidden only in Fingerspell, RECOGNIZED shows confirmed+draft, existing Clear retained. Existing Hear asks confirmation for pending spelling; WORD branch unchanged.169host tests/preservation pass. Separate APK private_apks/app-debug-private-recognized-ui.apk built. ADB currently disconnected: device install/display tests pending, previous installed continuous APK remains on phone. Next: connect Xiaomi and install saved UI APK, then run ContinuousFingerspellInstrumentedTest. Report docs/apphear-fingerspelling-recognized-ui-2026-10-08.md.
+
+
+### 2026-10-08 — Front/rear camera common input completed
+
+- [x] Inspected actual front RGBA/native rotation/pose/ROI preprocessing; no source reflection.
+- [x] Re-enabled rear behind debug flag; same recognition owner, analyzer/models and source contract.
+- [x] Camera generation drains/resets/stale guards; lens-aware presentation only; front unchanged.
+- [x]169host/7device checks,8byte-identical rotation/stride cases,654protected existing files intact.
+- [x] Nonempty WORD sentence survives front/back/front; Settings/owner/Context Assist regressions pass.
+- [x] Previous RECOGNIZED UI cleanup installed and device-tested; prior pending item is closed.
+- [x] Supervisor: both cameras work; rear video smoothing confirmed and front unchanged.
+
+Measured rear capture15.1->29.6FPS after supported30/30 rear-only AE request. Front remains15/15.
+Neither model inference nor feature math changed; KEEP_ONLY_LATEST and genuine timing remain.
+Private camera APK installed; previous APKs preserved. No training, dataset, TEST or model work.
+No all-letter/back-domain accuracy claim. Report docs/apphear-front-back-camera-input-2026-10-08.md.
+
+
+### 2026-10-08 — CURRENT SIGN clarification implemented
+
+Supervisor clarified CURRENT SIGN must remain visible for the live detected letter; RECOGNIZED
+constructs spelling. Prior hidden-column cleanup was a misunderstanding and is superseded.
+Presentation-only currentLetter exposed; tentative letters do not append until the existing stable
+policy accepts them. Missing/empty/reset clears current display; stale results ignored. Controls
+remain hidden, Hear confirmation retained.170host/5Xiaomi UI-owner-Context tests pass;655protected
+files unchanged. Private update installed, rear30/front15 retained. No model, decoder, stabilization,
+WORD, Context Assist or camera changes. Report docs/apphear-fingerspelling-current-sign-restored-2026-10-08.md.
+
+
+## 2026-10-08 reported three-letter RECOGNIZED limit
+
+No display/buffer cap reproduced: 104 characters accepted and visible in five lines
+on Xiaomi. 171 host/five phone checks passed; production app/model/camera/WORD unchanged.
+Only two regression test files changed. See
+`docs/apphear-fingerspelling-long-spelling-check-2026-10-08.md` and
+`artifacts/fingerspelling_long_spelling_01/validation.json`.
+Existing session EEA plateau includes unaccepted Y decisions; saved diagnostics lack
+policy/callback state to isolate rejection reason. Clarification pending: does CURRENT
+SIGN show the fourth letter while RECOGNIZED stays at three, or remain blank/incorrect?
+Next action: identify acceptance condition from that clarification; do not invent a
+three-letter UI cap or loosen recognition thresholds without evidence.
+
+
+## 2026-10-08 — WORD / Fingerspell / Context coordination
+
+Supervisor approved automatic switching before signing starts. Implemented a separate, debug
+opt-in coordinator in the October5 fingerspell-continuous-oct05 app checkout (base b48594c).
+Actual hearing text/turn ID drives six bounded English name/place/spell rules; predicted names
+and confidence scores never supply recognition. Idle/no-current-usable-hand and no-started-response
+gates allow once-per-turn automatic F entry. Manual WORD veto wins; new context cannot interrupt
+spelling. Finish spelling explicitly reviews real letters, records only confirmed text against
+the correct context turn, returns to WORD and preserves separate WORD sentence storage.
+
+- [x] Existing Candidate01/WORD/F models, raw/Adapter/decoders/held-letter policy unchanged.
+- [x] New coordinator/bridge/config/IDs; three additive integration files only.
+- [x] 180 private and 180 flag-off host tests, nine new policy tests.
+- [x] Xiaomi name routing, confirmation/repeats, stale-turn/manual veto, WORD sentence preservation.
+- [x] Existing owner/buffer/camera/Context regressions; 13 passing checks across configurations.
+- [x] 662 pre-edit app files: 659 unchanged, exactly three intended integration changes;
+  all 281 existing assets unchanged. No training/data/TEST access.
+- [x] Default/release coordination off, earlier APKs untouched; private validated APK restored.
+
+Two old fake-provider synthetic replays fired before camera generation readiness and failed;
+initial camera generation1/processing0/zero frames is recorded. Existing stale guard untouched.
+Equivalent readiness-aware WORD advisory/raw Hear/stop checks pass. Original failures/skips remain
+explicit in evidence; the old cold-camera replay harness is not claimed fully passing.
+
+Operational contract: context/recognition-coordination-v1.md.
+Report: docs/apphear-recognition-coordination-2026-10-08.md.
+Evidence: artifacts/recognition_coordination_01/validation.json.
+Private APK: artifacts/recognition_coordination_01/private_apks/app-debug-private-coordination.apk,
+SHA6f56dc583148a3725ddc7ed973b633c34528eac2f71d363a9bfb04d96a4b3591.
+Rebuild research wrapper: android_continuous_build.ps1 -Configuration private -RearCamera -Coordination.
+Latest generic build output may be fake-provider; use saved private APK or exact private command.
+
+Next session: restore this report/private candidate and follow supervisor feedback on actual
+Text-to-ASL name prompt -> Reply -> FINGERSPELL / manual WORD override. No new signing accuracy,
+arbitrary-intent understanding or recognition-quality improvement claimed. Reliable all26/fluent
+recognition remains unproven. No model/retraining/threshold cycle is authorized by this integration.
+
+
+## 2026-10-08 — context-to-recognition UI continuation completed
+
+Supervisor reaffirmed: Context selects mode; actual WORD/FINGERSPELL models alone produce text.
+Current October5 app and existing coordinator re-inspected; no production fix was needed.
+Added one test-only RecognitionContextUiFlowInstrumentedTest. Actual Text-to-ASL typed question
+“What is your name?” -> Sign It -> existing Reply -> recognition screen passes on Xiaomi with
+fake provider and controlled idle/no-hand evidence. F exclusive owner, no context-generated
+letters, manual WORD veto/no bounce, Settings preference preserved. Test13.213seconds;669existing
+files unchanged. No recognition accuracy claim or model/pipeline/decoder/provider/policy edits.
+Original private coordination APK/companion restored; SHA6f56dc583148a3725ddc7ed973b633c34528eac2f71d363a9bfb04d96a4b3591.
+Report addendum: docs/apphear-recognition-coordination-2026-10-08.md.
+New evidence: artifacts/recognition_coordination_01/ui_flow_01/validation.json. Earlier reports
+preserved. Broader context intent remains bounded to configured English patterns; manual override
+and explicit Finish are authoritative. Next: supervisor usability feedback using the restored
+private build; do not rebuild recognizers or begin another model experiment.
+
+
+
+## 2026-10-08 — automatic coordination UI correction
+
+Supervisor rejected recognition-screen WORD/Spell/Finish chooser. Removed buttons, retaining
+mode status and automatic context routing. Primary flow: Text-to-ASL question -> Sign It -> Reply
+-> automatic FINGERSPELL before signing. Existing top speaker/Hear reviews actual draft and
+returns to WORD on confirmation; bottom SPEAK remains hearing input. Settings retains manual
+fallback. Neither recognizer generates text from context; only one recognition owner runs.
+
+181 host checks and 6 fake-provider + 3 final-private Xiaomi engineering checks pass. Current
+104-character draft displays fully. 670 existing source/config files frozen; exactly six scoped
+UI/diagnostic/test files changed; 664 and model/Candidate01/Adapter/WORD/Context assets unchanged.
+No acceptance/decoder thresholds changed. Added exact acceptance-state/rejection diagnostics;
+fixed periodic diagnostic writes stopping when 64-event deque saturated. This is not an accuracy
+improvement claim. Original AM screenshot episode was absent from retained JSON; plateau cause
+remains unproven pending one bounded typed-context/held-letter check.
+
+New private APK: artifacts/recognition_coordination_01/automatic_ui_fix_01/app-debug-private-automatic-ui.apk
+SHA9501dbb1c91d08052338d66515cc56f115aabe6f6a3d81030485a533c1eafca8.
+Installed on Xiaomi 3ab64582 with data retained. Older private coordination rollback preserved.
+Report: docs/apphear-recognition-automatic-ui-correction-2026-10-08.md.
+Evidence: artifacts/recognition_coordination_01/automatic_ui_fix_01/validation.json.
+Next: inspect requested live held-letter acceptance trace, then fix only a demonstrated acceptance
+bug. Do not infer a UI cap, lower thresholds, guess missing letters, or start training.
+
+
+## 2026-10-09 — empty FINGERSPELL recognized container follow-up
+
+Supervisor reported RECOGNIZED gone during the live check. Phone inspection was on Text-to-ASL
+(no recognition card there; Reply opens detection). Independently fixed the camera renderer hiding
+an empty spelling placeholder: only active continuous FINGERSPELL now keeps sentenceCard visible.
+CURRENT SIGN unchanged. WORD helper/body unchanged. Two additional scoped app files:
+RecognitionActivity.kt F-render branch and ContinuousFingerspellInstrumentedTest.kt empty-card test.
+181 host checks + 3 exact-private Xiaomi checks pass (11.193s); empty card visible, 104 characters
+fully displayed, repeats/clear and zero F calls in WORD pass. Cumulative 8 scoped changes;662/670
+existing src/config files unchanged. Model/asset/threshold/owner/context rules unchanged.
+Latest installed private phone-only APK: artifacts/recognition_coordination_01/automatic_ui_fix_01/empty_card_fix_01/app-debug-private-empty-card.apk
+SHA1d38ce947fbcc8c8148b0d8037b60a7c809c6203bf86caa7bd3d2f7a0e9278c8.
+Older private builds preserved; do not install generic outputs blindly. User was asked for ONE
+fresh typed Text-to-ASL name question -> Sign It -> Reply -> held A/M/Y acceptance check. Await
+exact screen result and acceptance JSON before claiming the original AM plateau is diagnosed.
+No accuracy claim. Report/evidence child: automatic_ui_fix_01/empty_card_fix_01/validation.json.
+
+
+### Live follow-up outcome — 2026-10-09
+Supervisor confirmed corrected UI “now good.” Actual live draft was EY, not a verified correct
+AMY result. Ten raw decodes A,S,S,E,E,E,A,Y,Y,Y yielded only two
+accepted letters: A failed sustained matching, one S callback met current missing hand, E and Y
+stabilized. No cap/truncation or stale owner result was observed. Recognition remains imperfect;
+no threshold/model fix was made. Original AM episode not recoverable. No more attempts needed for
+this UI task. Keep newest private empty-card build installed, protected WORD intact. Next work only
+if supervisor requests it; do not silently launch model/training/threshold changes.
+
+
+## 2026-10-09 — compact recognition mode header completed
+
+Supervisor requested top label only. Active October5 bridge moved coordinationPanel between
+Back and Camera, centered in their top row, existing glass pill/Inter font. Labels only Fingerspell
+or Word; removed context/review/last-spelling copy from indicator. No chooser. Existing automatic
+routing, confirmation, CURRENT SIGN and RECOGNIZED unchanged. Bridge routing/confirmation methods
+byte-identical, Activity/camera/model/Adapter/decoder/WORD/Context core untouched.
+181 host +3 final private Xiaomi checks pass (10.303s); header bounds and both exact labels verified.
+666/670 existing app source/config files unchanged;four scoped UI/resource/test changes only.
+Latest private phone-only APK: artifacts/recognition_mode_header_01/app-debug-private-mode-header.apk
+SHAf3a6aed9394f8c1d23c7a1e3a657dce6034176568da79e5e983e429423a3ee6b. Installed with data retained; prior empty-card APK preserved.
+Report docs/apphear-recognition-mode-header-2026-10-09.md; evidence artifacts/recognition_mode_header_01/validation.json.
+No recognition accuracy claim or new model/threshold work. Next: supervisor visual feedback only.
+
+
+## 2026-10-09 — recognition mode pill hugs content
+
+Supervisor requested content-sized mode indicator. Single presentation change: bridge's panel
+ConstraintLayout width 0 -> WRAP_CONTENT. Existing 12dp horizontal padding, top-row centering,
+labels and owner/routing behavior preserved. No new tests/dependencies or recognition changes.
+181 existing host tests and 1 existing Xiaomi header/confirmation/WORD-preservation test pass
+(5.416s). Exactly1/670 source/config files changed;669 unchanged. Current private phone-only APK:
+artifacts/recognition_mode_header_01/hug_content_01/app-debug-private-hug-content.apk
+SHAcd92a856a86a078f79e6b1a40182587e1737a213dba6c0d3baa754c25d36d4c0. Installed with adb install -r, app data retained.
+Previous full-width header/private candidates preserved. Evidence child validation.json;
+report docs/apphear-recognition-mode-header-2026-10-09.md. No further accuracy work authorized.
+
+
+## Frozen integrated application baseline — 2026-10-09
+
+User authorized preserving and pushing the reviewed WORD + continuous held-letter
+FINGERSPELL + Context Assist application, including the compact hug-content mode
+pill. New fixed branch: `baseline/apphear-word-fingerspell-context-assist-2026-10-09`;
+tag: `apphear-word-fingerspell-context-assist-2026-10-09`.
+Read `context/current-working-baseline-2026-10-09.md` first for future application
+work. Start experiments on a separate branch/worktree from that tag. Older
+baselines, private rollback APKs and research datasets/runs remain preserved.
+Runtime model/policy and parity fixtures are now bundled byte-exact under
+`packages/fingerspelling_continuous_v2_1_01`; the repository-relative build preset
+uses these files without the previous machine-local research-folder dependency.
+No application source, model behavior or WORD behavior changed in this preservation.
+Recognition remains experimental; this baseline does not certify A–Z accuracy.

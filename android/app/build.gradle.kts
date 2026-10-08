@@ -90,6 +90,11 @@ android {
     val phoneCausalRecognitionDebug = providers.gradleProperty("phoneCausalRecognition")
         .map { it.equals("true", ignoreCase = true) }
         .getOrElse(false)
+    val recognitionRearCamera = providers.gradleProperty("recognitionRearCamera").map { it.equals("true", ignoreCase=true) }.getOrElse(false)
+    val recognitionCoordination = providers.gradleProperty("recognitionCoordination").map { it.equals("true",ignoreCase=true) }.getOrElse(false)
+    val fingerspellContinuous = providers.gradleProperty("fingerspellContinuous").map { it.equals("true",ignoreCase=true) }.getOrElse(false)
+    val fingerspellDebug = providers.gradleProperty("fingerspell")
+        .map { it.equals("true", ignoreCase = true) }.getOrElse(false)
     val phoneS2DebugPackage = providers.gradleProperty("apphearPhoneS2Package")
         .orNull
         ?.uppercase()
@@ -134,6 +139,10 @@ android {
 
     buildTypes {
         debug {
+            buildConfigField("boolean", "RECOGNITION_REAR_CAMERA_ENABLED", recognitionRearCamera.toString())
+            buildConfigField("boolean", "RECOGNITION_COORDINATION_ENABLED", (recognitionCoordination && fingerspellDebug && fingerspellContinuous && contextPhraseAssistDebug).toString())
+            buildConfigField("boolean", "FINGERSPELL_CONTINUOUS_ENABLED", (fingerspellDebug && fingerspellContinuous).toString())
+            buildConfigField("boolean", "FINGERSPELL_EXPERIMENT_ENABLED", fingerspellDebug.toString())
             buildConfigField("boolean", "PROFILE_ACCOUNTS_ENABLED", profileAccounts.toString())
             buildConfigField("boolean", "ASL_ASSET_PILOT_ENABLED", aslAssetPilot.toString())
             buildConfigField("boolean", "ASL_SHARED_CHARACTER_ENABLED", aslSharedCharacter.toString())
@@ -165,6 +174,10 @@ android {
             )
         }
         release {
+            buildConfigField("boolean", "RECOGNITION_REAR_CAMERA_ENABLED", "false")
+            buildConfigField("boolean", "RECOGNITION_COORDINATION_ENABLED", "false")
+            buildConfigField("boolean", "FINGERSPELL_CONTINUOUS_ENABLED", "false")
+            buildConfigField("boolean", "FINGERSPELL_EXPERIMENT_ENABLED", "false")
             buildConfigField("boolean", "PROFILE_ACCOUNTS_ENABLED", "false")
             buildConfigField("boolean", "ASL_ASSET_PILOT_ENABLED", "false")
             buildConfigField("boolean", "ASL_SHARED_CHARACTER_ENABLED", "false")
@@ -208,6 +221,12 @@ android {
     buildFeatures {
         buildConfig = true
         viewBinding = true
+    }
+    if (fingerspellDebug) {
+        val fingerspellArtifacts = providers.gradleProperty("fingerspellArtifactDir")
+            .getOrElse("../../artifacts/fingerspelling_android_01")
+        sourceSets.getByName("debug").assets.srcDir("$fingerspellArtifacts/android_assets")
+        sourceSets.getByName("androidTest").assets.srcDir("$fingerspellArtifacts/parity_assets")
     }
 }
 

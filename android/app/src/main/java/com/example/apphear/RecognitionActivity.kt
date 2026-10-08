@@ -18,7 +18,15 @@ import android.hardware.camera2.CaptureRequest
 import android.view.View
 import android.view.WindowManager
 import android.widget.Toast
+import android.widget.LinearLayout
 import android.widget.TextView
+import com.google.android.material.button.MaterialButton
+import com.example.apphear.fingerspelling.FingerspellModels
+import com.example.apphear.fingerspelling.FingerspellRuntime
+import com.example.apphear.fingerspelling.FingerspellSnapshot
+import com.example.apphear.fingerspelling.FingerspellPhase
+import com.example.apphear.data.settings.RecognitionModeSettings
+import com.example.apphear.fingerspelling.RecognitionMode
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.camera.core.CameraSelector
@@ -75,6 +83,12 @@ class RecognitionActivity : AppCompatActivity() {
     private var recognizer: RecognitionPipeline? = null
     private var phoneSession: PhoneProductionSession? = null
     private var phoneAnalyzer: Candidate01FrameAnalyzer? = null
+    @Volatile private var fingerspellRuntime: FingerspellRuntime? = null
+    private var coordination: com.example.apphear.coordination.RecognitionCoordinationBridge? = null
+    private val recognitionSettings by lazy { RecognitionModeSettings(this) }
+    @Volatile private var selectedRecognitionMode = RecognitionMode.WORD
+    private var fingerspellStatus: TextView? = null
+    private val fingerspellButtons = mutableMapOf<String, MaterialButton>()
     private val signingTurn = SigningTurnBuffer()
     private var evidenceInterrupted = false
     private var signingVisible = false
@@ -87,6 +101,13 @@ class RecognitionActivity : AppCompatActivity() {
     private var analyzer: CloseableFrameAnalyzer? = null
     private var cameraProvider: ProcessCameraProvider? = null
     private var frameCount = 0
+    private var phoneAnalysis: ImageAnalysis? = null
+    @Volatile private var cameraGeneration = 0
+    private var processingCameraGeneration = 0
+    private var processingFrontCamera = true
+    @Volatile private var cameraSwitching = false
+    @Volatile private var cameraInputFrames = 0
+    private val cameraInputFramesJson = org.json.JSONArray()
     private var frontCamera = true
     private var a1Active = false
     private var a1ShutdownFuture: Future<*>? = null
@@ -133,6 +154,7 @@ class RecognitionActivity : AppCompatActivity() {
         window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
         binding = ActivityRecognitionBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        selectedRecognitionMode = recognitionSettings.current()
         openingHearingTurnId = ConversationPhraseAssist.presentationState.value.hearingTurnId
         displayedHearingTurnId = openingHearingTurnId
         binding.sentenceCard.visibility = View.GONE
@@ -144,6 +166,26 @@ class RecognitionActivity : AppCompatActivity() {
                 if (binding.expandableContent.visibility == View.VISIBLE) View.GONE else View.VISIBLE
         }
         cameraExecutor = Executors.newSingleThreadExecutor()
+        if(BuildConfig.RECOGNITION_COORDINATION_ENABLED) {
+            coordination = runCatching {
+                com.example.apphear.coordination.RecognitionCoordinationBridge(this,binding.root,
+                    runtime={fingerspellRuntime},
+                    dispatch={task -> if(!cameraExecutor.isShutdown) cameraExecutor.execute { task() }},
+                    main={task -> runOnUiThread { if(!isFinishing && !isDestroyed) task() }},
+                    selected={mode ->
+                        selectedRecognitionMode=mode
+                        runOnUiThread {
+                            if(!isFinishing && !isDestroyed) {
+                                if(mode==RecognitionMode.FINGERSPELL && signingTurn.snapshot().isNotEmpty()) evidenceInterrupted=true
+                                if(mode==RecognitionMode.WORD) renderRecognitionSnapshot(RecognitionUiSnapshot.from(
+                                    com.example.apphear.pipeline.recognition.RecognitionState.Idle,
+                                    phoneSession?.sentenceText.orEmpty(),getString(R.string.gloss_placeholder),
+                                    getString(R.string.signing),getString(R.string.sentence_placeholder)))
+                            }
+                        }
+                    }, speak={speechPlayer.speak(it)}, initial=selectedRecognitionMode)
+            }.onFailure { Log.w(TAG,"Context routing unavailable; existing manual recognition preserved",it) }.getOrNull()
+        }
         a1ShutdownExecutor = Executors.newSingleThreadExecutor { runnable ->
             Thread(runnable, "apphear-a1-lifecycle-shutdown")
         }
@@ -163,6 +205,10 @@ class RecognitionActivity : AppCompatActivity() {
         binding.handToggle.contentDescription = "Hand selection unavailable in causal recognition"
 
         binding.clearButton.setOnClickListener {
+            if (fingerspellRuntime?.snapshot?.mode == RecognitionMode.FINGERSPELL) {
+                cameraExecutor.execute { fingerspellRuntime?.clear() }
+                return@setOnClickListener
+            }
             phoneSession?.clearSentence()
             recognizer?.clearSentence()
             signingTurn.clear()
@@ -200,6 +246,15 @@ class RecognitionActivity : AppCompatActivity() {
         }
 
         binding.cameraToggle.setOnClickListener {
+            if (phoneSession != null) {
+                if (!BuildConfig.RECOGNITION_REAR_CAMERA_ENABLED || cameraSwitching) return@setOnClickListener
+                val provider = cameraProvider ?: return@setOnClickListener
+                val requested = if (frontCamera) CameraSelector.DEFAULT_BACK_CAMERA else CameraSelector.DEFAULT_FRONT_CAMERA
+                if (!provider.hasCamera(requested)) {
+                    Toast.makeText(this, "Requested camera unavailable", Toast.LENGTH_SHORT).show()
+                    return@setOnClickListener
+                }
+            }
             frontCamera = !frontCamera
             applyCameraLabel()
             recognizer?.resetSession()
@@ -242,6 +297,31 @@ class RecognitionActivity : AppCompatActivity() {
     }
 
     private fun speakRecognizedSentence() {
+        if(coordination?.hear()==true) return
+        fingerspellRuntime?.snapshot?.takeIf { it.mode == RecognitionMode.FINGERSPELL }?.let {
+            if (BuildConfig.FINGERSPELL_CONTINUOUS_ENABLED && it.preview.isNotBlank()) {
+                val draft = it.preview
+                androidx.appcompat.app.AlertDialog.Builder(this)
+                    .setTitle("Confirm spelling")
+                    .setMessage(it.confirmed + draft)
+                    .setPositiveButton("Confirm and hear") { _, _ ->
+                        cameraExecutor.execute {
+                            val runtime = fingerspellRuntime ?: return@execute
+                            val current = runtime.snapshot
+                            if (current.mode == RecognitionMode.FINGERSPELL && current.preview == draft && current.confirmed == it.confirmed) {
+                                runtime.confirm()
+                                val confirmed = runtime.snapshot.confirmed
+                                runOnUiThread { if (!isFinishing && !isDestroyed) speechPlayer.speak(confirmed) }
+                            } else runOnUiThread {
+                                Toast.makeText(this, "Spelling changed. Tap Hear to review again.", Toast.LENGTH_SHORT).show()
+                            }
+                        }
+                    }
+                    .setNegativeButton(android.R.string.cancel, null).show()
+            } else if (it.confirmed.isBlank()) Toast.makeText(this, "No spelling to speak", Toast.LENGTH_SHORT).show()
+            else speechPlayer.speak(it.confirmed)
+            return
+        }
         val sentence = (phoneSession?.sentenceText ?: recognizer?.sentenceText)?.trim().orEmpty()
             .ifBlank { binding.sentenceText.text?.toString()?.trim().orEmpty() }
         if (sentence.isBlank() || sentence == getString(R.string.sentence_placeholder)) {
@@ -262,6 +342,13 @@ class RecognitionActivity : AppCompatActivity() {
     }
 
     private fun renderPhraseAssist(state: PhraseAssistUiState) {
+        coordination?.context(state)
+        if (fingerspellRuntime?.snapshot?.mode == RecognitionMode.FINGERSPELL) {
+            // WORD advisory remains cached; spelling never feeds its matcher/provider.
+            binding.possibleRepliesGroup.visibility = View.GONE
+            binding.contextSupportedGroup.visibility = View.GONE
+            return
+        }
         if (!ConversationPhraseAssist.enabled) {
             binding.possibleRepliesGroup.visibility = View.GONE
             binding.contextSupportedGroup.visibility = View.GONE
@@ -389,8 +476,26 @@ class RecognitionActivity : AppCompatActivity() {
                 runCatching {
                     val session = PhoneProductionSession.load(applicationContext)
                     try {
-                        session to Candidate01FrameAnalyzer(
+                        val spellingModels = if (BuildConfig.FINGERSPELL_EXPERIMENT_ENABLED) {
+                            runCatching { FingerspellModels(applicationContext) }.onFailure {
+                                Log.e(TAG, "Fingerspell unavailable; WORD preserved", it)
+                            }.getOrNull()
+                        } else null
+                        Triple(session, Candidate01FrameAnalyzer(
                             applicationContext, session, ::onFrame,
+                            ownsObservation = if (BuildConfig.FINGERSPELL_EXPERIMENT_ENABLED) { observation, image ->
+                                // Routing policy reads current visibility/idle only; Candidate01 and WORD are unchanged.
+                                coordination?.observation(session.isReady,(0..1).any { s ->
+                                    observation.handObserved[s] && observation.handJointValid[s].any { it } })
+                                val spelling = fingerspellRuntime
+                                if (spelling?.fingerspellOwnsFrames == true) {
+                                    spelling.consume(observation, image)
+                                    true
+                                } else {
+                                    if (spelling == null && selectedRecognitionMode == RecognitionMode.FINGERSPELL) true
+                                    else { spelling?.recordWordCadence(observation); false }
+                                }
+                            } else null,
                         ) { failure ->
                             runOnUiThread {
                                 if (!isFinishing && !isDestroyed) {
@@ -398,21 +503,32 @@ class RecognitionActivity : AppCompatActivity() {
                                     renderRuntimeError("Causal recognition stopped", failure.message.orEmpty())
                                 }
                             }
-                        }
+                        }, spellingModels)
                     } catch (failure: Throwable) {
                         session.close()
                         throw failure
                     }
                 }
             }
-            loaded.onSuccess { (session, frameAnalyzer) ->
+            loaded.onSuccess { (session, frameAnalyzer, spellingModels) ->
                 if (isFinishing || isDestroyed) {
                     frameAnalyzer.close()
                     session.close()
+                    spellingModels?.close()
                     return@launch
                 }
                 phoneSession = session
                 phoneAnalyzer = frameAnalyzer
+                if (spellingModels != null) {
+                    fingerspellRuntime = FingerspellRuntime(applicationContext, spellingModels,
+                        { frameAnalyzer.resetTemporalSession() }, ::onFingerspell,
+                        continuousEnabled = BuildConfig.FINGERSPELL_CONTINUOUS_ENABLED,
+                        dispatch = { task -> if (!cameraExecutor.isShutdown) cameraExecutor.execute { task() } })
+                    installFingerspellControls()
+                    cameraExecutor.execute { fingerspellRuntime?.select(selectedRecognitionMode) }
+                } else if (selectedRecognitionMode == RecognitionMode.FINGERSPELL) {
+                    renderRuntimeError("Fingerspell unavailable", "Select WORD in Settings to use word recognition.")
+                }
                 Log.i(TAG, "normal backend=Candidate01 package=${session.packageId}")
                 bindCamera()
             }.onFailure { failure ->
@@ -522,31 +638,124 @@ class RecognitionActivity : AppCompatActivity() {
 
     private fun bindPhoneCamera(provider: ProcessCameraProvider) {
         val frameAnalyzer = phoneAnalyzer ?: return
-        val preview = Preview.Builder().build().also {
-            it.setSurfaceProvider(binding.previewView.surfaceProvider)
-        }
-        val builder = ImageAnalysis.Builder()
-            .setTargetResolution(Size(480, 360))
-            .setBackpressureStrategy(ImageAnalysis.STRATEGY_KEEP_ONLY_LATEST)
-            .setOutputImageFormat(ImageAnalysis.OUTPUT_IMAGE_FORMAT_RGBA_8888)
-        Camera2Interop.Extender(builder).setCaptureRequestOption(
-            CaptureRequest.CONTROL_AE_TARGET_FPS_RANGE, Range(15, 15),
-        )
-        val analysis = builder.build().also { it.setAnalyzer(cameraExecutor, frameAnalyzer) }
-        try {
-            provider.unbindAll()
-            frameAnalyzer.resetTemporalSession()
-            provider.bindToLifecycle(this, CameraSelector.DEFAULT_FRONT_CAMERA, preview, analysis)
-            binding.glossText.text = "Initializing recognition…"
-        } catch (failure: Throwable) {
-            renderRuntimeError("Front camera unavailable", failure.message.orEmpty())
-            Log.e(TAG, "Causal camera bind failed; no legacy fallback", failure)
+        val boundFront = frontCamera
+        val selector = if (boundFront) CameraSelector.DEFAULT_FRONT_CAMERA else CameraSelector.DEFAULT_BACK_CAMERA
+        val ticket = ++cameraGeneration
+        cameraSwitching = true
+        binding.cameraToggle.isEnabled = false
+        phoneAnalysis?.clearAnalyzer()
+        provider.unbindAll()
+        binding.overlayView.clear()
+        cameraExecutor.execute {
+            // Drain old camera callbacks and invalidate any in-flight spelling result before binding.
+            fingerspellRuntime?.let { it.pause(); it.select(selectedRecognitionMode) }
+                ?: frameAnalyzer.resetTemporalSession()
+            cameraInputFrames = 0
+            runOnUiThread {
+                if (ticket != cameraGeneration || isFinishing || isDestroyed) return@runOnUiThread
+                val preview = Preview.Builder().build().also {
+                    it.setSurfaceProvider(binding.previewView.surfaceProvider)
+                }
+                // Identical front-baseline input settings. rotationDegrees is handled by the
+                // existing native preprocessor; neither lens adds any pixel reflection.
+                val builder = ImageAnalysis.Builder()
+                    .setTargetResolution(Size(480, 360))
+                    .setBackpressureStrategy(ImageAnalysis.STRATEGY_KEEP_ONLY_LATEST)
+                    .setOutputImageFormat(ImageAnalysis.OUTPUT_IMAGE_FORMAT_RGBA_8888)
+                // Front reference stays at 15. Rear preview uses 30 only when the camera
+                // explicitly advertises the exact range; analysis still keeps only latest.
+                val rearRanges = if(!boundFront) androidx.camera.camera2.interop.Camera2CameraInfo
+                    .from(selector.filter(provider.availableCameraInfos).first())
+                    .getCameraCharacteristic(android.hardware.camera2.CameraCharacteristics.CONTROL_AE_AVAILABLE_TARGET_FPS_RANGES)
+                    .orEmpty() else emptyArray()
+                val requestedFps = if(!boundFront && rearRanges.any { it.lower == 30 && it.upper == 30 }) 30 else 15
+                val timing = if(BuildConfig.RECOGNITION_REAR_CAMERA_ENABLED)
+                    com.example.apphear.camera.CameraTimingProbe(boundFront,ticket,requestedFps) else null
+                val interop = Camera2Interop.Extender(builder)
+                timing?.let { probe -> interop.setSessionCaptureCallback(object :
+                    android.hardware.camera2.CameraCaptureSession.CaptureCallback() {
+                    override fun onCaptureCompleted(session:android.hardware.camera2.CameraCaptureSession,
+                        request:android.hardware.camera2.CaptureRequest,
+                        result:android.hardware.camera2.TotalCaptureResult) {
+                        probe.capture(result.get(android.hardware.camera2.CaptureResult.SENSOR_TIMESTAMP),
+                            result.get(android.hardware.camera2.CaptureResult.SENSOR_EXPOSURE_TIME))
+                    }
+                }) }
+                interop.setCaptureRequestOption(
+                    CaptureRequest.CONTROL_AE_TARGET_FPS_RANGE, Range(requestedFps, requestedFps),
+                )
+                val analysis = builder.build().also { next ->
+                    next.setAnalyzer(cameraExecutor) { image ->
+                        if (ticket != cameraGeneration) { image.close(); return@setAnalyzer }
+                        processingCameraGeneration = ticket
+                        processingFrontCamera = boundFront
+                        cameraInputFrames++
+                        if (BuildConfig.RECOGNITION_REAR_CAMERA_ENABLED && cameraInputFrames <= 12) {
+                            if(cameraInputFramesJson.length() >= 120) cameraInputFramesJson.remove(0)
+                            val rotation = image.imageInfo.rotationDegrees
+                            cameraInputFramesJson.put(org.json.JSONObject()
+                                .put("generation",ticket).put("front",boundFront)
+                                .put("rotation_degrees",rotation).put("raw_width",image.width)
+                                .put("raw_height",image.height)
+                                .put("upright_width",if(rotation == 90 || rotation == 270) image.height else image.width)
+                                .put("upright_height",if(rotation == 90 || rotation == 270) image.width else image.height)
+                                .put("row_stride",image.planes[0].rowStride)
+                                .put("pixel_stride",image.planes[0].pixelStride)
+                                .put("timestamp_ns",image.imageInfo.timestamp)
+                                .put("mode",selectedRecognitionMode.name)
+                                .put("input_contract","UPRIGHT_UNMIRRORED_SOURCE_RGB"))
+                            if(cameraInputFrames == 12) java.io.File(filesDir,"camera_input_01.json")
+                                .writeText(org.json.JSONObject().put("frames",cameraInputFramesJson)
+                                    .put("accuracy_claim","NONE").toString(2))
+                        }
+                        val processingMode=if(fingerspellRuntime?.fingerspellOwnsFrames==true) "FINGERSPELL" else "WORD"
+                        val sourceTimestamp=image.imageInfo.timestamp
+                        val analysisStarted=android.os.SystemClock.elapsedRealtimeNanos()
+                        frameAnalyzer.analyze(image)
+                        if(timing?.analyzed(sourceTimestamp,
+                            (android.os.SystemClock.elapsedRealtimeNanos()-analysisStarted)/1e6)==true) {
+                            java.io.File(filesDir,"camera_timing_${ticket}_${if(boundFront) "front" else "back"}.json")
+                                .writeText(timing.report(processingMode).toString(2))
+                        }
+                    }
+                }
+                phoneAnalysis = analysis
+                try {
+                    provider.bindToLifecycle(this, selector, preview, analysis)
+                    cameraSwitching = false
+                    val enabled = BuildConfig.RECOGNITION_REAR_CAMERA_ENABLED &&
+                        provider.hasCamera(CameraSelector.DEFAULT_FRONT_CAMERA) &&
+                        provider.hasCamera(CameraSelector.DEFAULT_BACK_CAMERA)
+                    binding.cameraToggle.isEnabled = enabled
+                    binding.cameraToggle.alpha = if(enabled) 1f else 0.5f
+                    binding.cameraToggle.contentDescription = if(enabled) "Switch front or rear camera" else "Front camera only"
+                    binding.glossText.text = "Initializing recognition�"
+                } catch (failure: Throwable) {
+                    cameraSwitching = false
+                    renderRuntimeError("Camera unavailable", failure.message.orEmpty())
+                    Log.e(TAG, "Camera bind failed; no recognition fallback", failure)
+                }
+            }
         }
     }
 
-    private fun onFrame(r: FrameResult) {
+    private fun onFrame(frame: FrameResult) {
+        val ticket = if (phoneSession != null) processingCameraGeneration else cameraGeneration
+        // Lens identity is display metadata only. Candidate01 source coordinates stay unchanged.
+        val r = if(phoneSession != null) frame.copy(isFrontCamera = processingFrontCamera) else frame
         runOnUiThread {
-            if (isFinishing || isDestroyed) return@runOnUiThread
+            if (ticket != cameraGeneration || isFinishing || isDestroyed) return@runOnUiThread
+            if(r.recognitionEvidence!=null || r.recognition is com.example.apphear.pipeline.recognition.RecognitionState.Signing)
+                coordination?.wordActivity(committed = r.recognitionEvidence != null)
+            val spelling = fingerspellRuntime?.snapshot
+            if (spelling?.mode == RecognitionMode.FINGERSPELL) {
+                frameCount++
+                binding.overlayView.setResult(r)
+                binding.fpsText.text = getString(R.string.fps_hud, r.fps, r.qualityLabel)
+                renderFingerspell(spelling)
+                return@runOnUiThread
+            }
+            if (r.qualityLabel == "FINGERSPELL") return@runOnUiThread
             if (ConversationPhraseAssist.enabled && lifecycle.currentState.isAtLeast(Lifecycle.State.STARTED)) {
                 val nowSigning = r.recognition is com.example.apphear.pipeline.recognition.RecognitionState.Signing
                 if (nowSigning && !signingInProgress) {
@@ -607,6 +816,102 @@ class RecognitionActivity : AppCompatActivity() {
         binding.altText.visibility = if (snapshot.showCandidates) View.VISIBLE else View.GONE
         binding.sentenceText.text = snapshot.sentenceText
         updateSentenceCardVisibility()
+    }
+
+    /** Added only in the opt-in debug build; default/release layout and WORD controls unchanged. */
+    private fun installFingerspellControls() {
+        if (BuildConfig.FINGERSPELL_CONTINUOUS_ENABLED) {
+            fingerspellRuntime?.snapshot?.let(::renderFingerspell)
+            return
+        }
+        val container = binding.expandableContent.getChildAt(0) as LinearLayout
+        val panel = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL }
+        fingerspellStatus = TextView(this).apply { text = "Experimental fingerspelling • select a mode"; textSize = 14f; setTextColor(getColor(R.color.color_text_primary)) }
+        panel.addView(fingerspellStatus)
+        panel.addView(TextView(this).apply {
+            text = if (BuildConfig.FINGERSPELL_CONTINUOUS_ENABLED) "Hold one letter until it appears. Lower your hand to repeat a letter. Review, then Use." else "One attempt: Start → spell → Done → review → Use"
+            textSize = 12f; setTextColor(getColor(R.color.color_text_secondary))
+        })
+        fun row(vararg labels: String) {
+            val line = LinearLayout(this).apply { orientation = LinearLayout.HORIZONTAL }
+            for (label in labels) {
+                val button = MaterialButton(this).apply {
+                    setTextColor(android.content.res.ColorStateList(
+                        arrayOf(intArrayOf(android.R.attr.state_enabled), intArrayOf()),
+                        intArrayOf(getColor(R.color.color_text_on_brand), getColor(R.color.color_text_secondary))))
+                    text = label; contentDescription = "Fingerspell $label"; textSize = 12f
+                    layoutParams = LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.WRAP_CONTENT, 1f)
+                    setOnClickListener { cameraExecutor.execute {
+                        val runtime = fingerspellRuntime ?: return@execute
+                        when (label) {
+                            "WORD", "FINGERSPELL" -> {
+                                val mode = RecognitionMode.valueOf(label)
+                                runtime.select(mode)
+                                selectedRecognitionMode = mode
+                                recognitionSettings.select(mode)
+                            }
+                            "Start" -> runtime.start()
+                            "Done" -> runtime.finish()
+                            "Use" -> runtime.confirm()
+                            "Retry" -> runtime.retry()
+                            "Clear" -> runtime.clear()
+                        }
+                    } }
+                }
+                fingerspellButtons[label] = button; line.addView(button)
+            }
+            panel.addView(line)
+        }
+        row("WORD", "FINGERSPELL")
+        if (!BuildConfig.FINGERSPELL_CONTINUOUS_ENABLED) row("Start", "Done")
+        row("Use", "Retry", "Clear")
+        container.addView(panel, 0)
+        fingerspellRuntime?.snapshot?.let(::renderFingerspell)
+    }
+
+    private fun onFingerspell(snapshot: FingerspellSnapshot) {
+        runOnUiThread {
+            if (isFinishing || isDestroyed || !lifecycle.currentState.isAtLeast(Lifecycle.State.STARTED)) return@runOnUiThread
+            // Reject stale queued snapshots after mode/session/lifecycle transitions.
+            if (fingerspellRuntime?.snapshot !== snapshot) return@runOnUiThread
+            renderFingerspell(snapshot)
+            renderPhraseAssist(ConversationPhraseAssist.presentationState.value)
+        }
+    }
+
+    private fun renderFingerspell(s: FingerspellSnapshot) {
+        coordination?.recognitionChanged()
+        val active = s.mode == RecognitionMode.FINGERSPELL
+        val busy = s.phase == FingerspellPhase.CAPTURING || s.phase == FingerspellPhase.DECODING
+        fingerspellStatus?.text = if (active) "${s.message} • ${s.observations} observations" else "WORD mode • experimental fingerspelling available"
+        fingerspellButtons["WORD"]?.isEnabled = active && (!busy || BuildConfig.FINGERSPELL_CONTINUOUS_ENABLED)
+        fingerspellButtons["FINGERSPELL"]?.isEnabled = !active
+        fingerspellButtons["Start"]?.isEnabled = active && !busy
+        fingerspellButtons["Done"]?.isEnabled = active && s.phase == FingerspellPhase.CAPTURING
+        fingerspellButtons["Use"]?.isEnabled = active && s.phase == FingerspellPhase.PREVIEW && s.preview.isNotBlank()
+        fingerspellButtons["Retry"]?.isEnabled = active && s.phase != FingerspellPhase.DECODING
+        fingerspellButtons["Clear"]?.isEnabled = active && s.phase != FingerspellPhase.DECODING
+        if (BuildConfig.FINGERSPELL_CONTINUOUS_ENABLED) {
+            // CURRENT SIGN is the live letter; RECOGNIZED is the accumulated spelling.
+            (binding.glossText.parent as View).visibility = View.VISIBLE
+            if (active) {
+                binding.glossText.text = s.currentLetter.ifBlank { getString(R.string.gloss_placeholder) }
+                binding.altText.visibility = View.GONE
+                val spelling = s.confirmed + s.preview
+                binding.sentenceText.text = spelling.ifBlank { getString(R.string.sentence_placeholder) }
+                binding.sentenceText.contentDescription = if (s.preview.isNotEmpty())
+                    "Detected spelling: $spelling. Tap Hear to review and confirm." else spelling.ifBlank { "Waiting for letters" }
+                // This empty FINGERSPELL card remains visible; WORD still uses its original visibility rule.
+                binding.sentenceCard.visibility = View.VISIBLE
+            }
+            return
+        }
+        if (active) {
+            binding.glossText.text = s.preview.ifBlank { when(s.phase) { FingerspellPhase.CAPTURING -> "Spelling…"; FingerspellPhase.DECODING -> "Decoding…"; FingerspellPhase.ERROR -> "Retry needed"; else -> "Ready" } }
+            binding.altText.visibility = View.GONE
+            binding.sentenceText.text = s.confirmed.ifBlank { "Confirm spelling with Use" }
+            updateSentenceCardVisibility()
+        }
     }
 
     /**
@@ -708,14 +1013,17 @@ class RecognitionActivity : AppCompatActivity() {
         cameraExecutor.shutdown()
         val closingPhoneAnalyzer = phoneAnalyzer
         val closingPhoneSession = phoneSession
+        val closingFingerspell = fingerspellRuntime
         if (closingPhoneAnalyzer != null || closingPhoneSession != null) {
             phoneAnalyzer = null
             phoneSession = null
+            fingerspellRuntime = null
             a1ShutdownExecutor.submit {
                 try {
                     if (cameraExecutor.awaitTermination(10, TimeUnit.SECONDS)) {
                         closingPhoneAnalyzer?.close()
                         closingPhoneSession?.close()
+                        closingFingerspell?.close()
                     } else {
                         Log.e(TAG, "Camera worker did not stop; keeping native runtime open to avoid use-after-free")
                     }
@@ -762,6 +1070,7 @@ class RecognitionActivity : AppCompatActivity() {
     }
 
     override fun onStop() {
+        coordination?.stopped()
         binding.overlayView.clear()
         signingVisible = false
         signingInProgress = false
@@ -769,7 +1078,9 @@ class RecognitionActivity : AppCompatActivity() {
         renderPhraseAssist(ConversationPhraseAssist.presentationState.value)
         if (ConversationPhraseAssist.enabled && signingTurn.snapshot().isNotEmpty()) evidenceInterrupted = true
         signingTurn.clear()
-        phoneAnalyzer?.resetTemporalSession()
+        val spelling = fingerspellRuntime
+        if (spelling != null && !cameraExecutor.isShutdown) cameraExecutor.execute { spelling.pause() }
+        else phoneAnalyzer?.resetTemporalSession()
         if (a1Active) {
             closeA1AnalyzerAsync(rebindWhenStarted = false)
         }
@@ -778,6 +1089,11 @@ class RecognitionActivity : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
+        selectedRecognitionMode = recognitionSettings.current()
+        coordination?.started(selectedRecognitionMode)
+        if (::cameraExecutor.isInitialized && fingerspellRuntime != null && !cameraExecutor.isShutdown) {
+            cameraExecutor.execute { fingerspellRuntime?.select(selectedRecognitionMode) }
+        }
         if (a1Active && analyzer == null && landmarkers != null && cameraProvider != null) {
             val shutdown = a1ShutdownFuture
             if (shutdown == null) rebindCamera() else resumeAfterA1Shutdown(shutdown)

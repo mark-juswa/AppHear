@@ -78,14 +78,14 @@ internal object PerceptionVNextOverlayRenderer {
         isAntiAlias = true
         setShadowLayer(4f, 1f, 1f, Color.BLACK)
     }
-    fun draw(canvas: Canvas, width: Int, height: Int, value: PerceptionVNextOverlayView.Snapshot) {
+    fun draw(canvas: Canvas, width: Int, height: Int, value: PerceptionVNextOverlayView.Snapshot, mirrorPreview: Boolean = true) {
         if (width <= 0 || height <= 0) return
         val display = P8bOverlayContract.displayTransform(
             value.sourceWidth,
             value.sourceHeight,
             width,
             height,
-            true,
+            mirrorPreview,
         )
         fun x(source: Float) = display.x(source)
         fun y(source: Float) = display.y(source)
@@ -93,8 +93,8 @@ internal object PerceptionVNextOverlayRenderer {
         fun drawRoi(hand: PerceptionVNextOverlayView.Hand, acceptedPaint: Paint) {
             val roi = hand.roi ?: return
             val paint = if (hand.observed) acceptedPaint else rejectedPaint
-            val left = x(roi.right)
-            val right = x(roi.left)
+            val left = minOf(x(roi.right), x(roi.left))
+            val right = maxOf(x(roi.right), x(roi.left))
             canvas.drawRect(left, y(roi.top), right, y(roi.bottom), paint)
         }
         fun drawHand(hand: PerceptionVNextOverlayView.Hand, acceptedPaint: Paint, label: String) {

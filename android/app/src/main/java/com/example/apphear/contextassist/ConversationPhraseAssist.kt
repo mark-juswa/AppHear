@@ -114,6 +114,19 @@ object ConversationPhraseAssist {
                 match.assistedGlosses != evidence.map { it.originalGloss }, ShadowReason.MATCH))
     }
 
+    /** Read-only context identity for exclusive recognition routing; never a predicted reply. */
+    fun activeHearingTurnId(): Long? = if(enabled) context.latestHearingTurnId() else null
+
+    /** Called only after explicit spelling review. No WORD matcher or recognition mutation. */
+    fun recordConfirmedSpelling(actualText: String, expectedHearingTurnId: Long?): Boolean {
+        if(!enabled || actualText.isBlank() || actualText.any { it !in 'A'..'Z' && it!=' ' } ||
+            context.latestHearingTurnId()!=expectedHearingTurnId) return false
+        context.finishReplyWindow()
+        context.add(ConversationSpeaker.DEAF,ConversationSource.SIGN_TO_TEXT,actualText,System.currentTimeMillis())
+        presentation.value=PhraseAssistUiState()
+        return true
+    }
+
     fun recentTurns(): List<ConversationTurn> = context.snapshot()
     fun recentShadowEvaluations(): List<ShadowEvaluation> = history.toList()
     /** Keep conversation predictions visible; put visually supported prefixes first. */

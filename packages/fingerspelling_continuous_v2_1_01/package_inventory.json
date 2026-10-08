@@ -1,0 +1,173 @@
+{
+  "schema_version": "apphear.baseline.package_inventory.v1",
+  "candidate": "SEQUENCE_V2_1_EPOCH034_GEOMETRY_ONLY",
+  "files": [
+    {
+      "path": "android_assets/fingerspelling/continuous_policy.json",
+      "bytes": 463,
+      "sha256": "6a83c63552ee5a4c8f45a2b15dd988c65e7df7d29bb05b8faa95df2f9275c2b7"
+    },
+    {
+      "path": "android_assets/fingerspelling/geometry_sequence.tflite",
+      "bytes": 1305012,
+      "sha256": "e78de274b967acf0ea9d30bd3f3ac4422a1ef8ebdd95c8676b57dd05fed75c4c"
+    },
+    {
+      "path": "android_assets/fingerspelling/model_manifest.json",
+      "bytes": 3222,
+      "sha256": "8edc998728fa41883abacbc8382359d6d61621bc259da78ca7c2ab6f8126d01e"
+    },
+    {
+      "path": "parity_assets/fingerspell_beam/fixtures.bin",
+      "bytes": 5354617,
+      "sha256": "50ce26ab13e2f7c609f7b3ff8d0e5d1bf4e91b0bc763f9235f72a18ae5f53acc"
+    },
+    {
+      "path": "parity_assets/fingerspell_single_letter/fixtures.bin",
+      "bytes": 307090,
+      "sha256": "c76e37f28f2734b7cd684ec9337cddfdd2d0755d18783bbf3aaca785bd89d55d"
+    },
+    {
+      "path": "parity_assets/sequence_v2_1_geometry/cases.json",
+      "bytes": 8183,
+      "sha256": "baad2a20a46d618f2e748eb855405d3e800ce2973f2bd050a08b8c389d789879"
+    },
+    {
+      "path": "parity_assets/sequence_v2_1_geometry/edge_missing_partial_duplicate_motion.bin",
+      "bytes": 18484,
+      "sha256": "eb910c544a236488873339b3df55384ef9b6062bc6605458117ba17f2f82bd9d"
+    },
+    {
+      "path": "parity_assets/sequence_v2_1_geometry/edge_missing_partial_duplicate_motion.input.bin",
+      "bytes": 7075,
+      "sha256": "b4d44200fae054b78be89d9b185953a52ef0536e7958b18249bef1320190b038"
+    },
+    {
+      "path": "parity_assets/sequence_v2_1_geometry/fsboard-v13-train-0096a95955d86a2bf0e3-native.bin",
+      "bytes": 334492,
+      "sha256": "a9cae66883f37a38ff656d8238b66449931e20119baf638590983a6acbfb86ca"
+    },
+    {
+      "path": "parity_assets/sequence_v2_1_geometry/fsboard-v13-train-0096a95955d86a2bf0e3-native.input.bin",
+      "bytes": 127288,
+      "sha256": "cc0ded4cf0be7774afb3abf68f66674642df77a164a383b479d747e8f3dca8f7"
+    },
+    {
+      "path": "parity_assets/sequence_v2_1_geometry/fsboard-v13-train-0096a95955d86a2bf0e3-phone.bin",
+      "bytes": 68380,
+      "sha256": "168c439bbf3f170a05cec890540d5594ba366a84ff6dd486f0c34940102df995"
+    },
+    {
+      "path": "parity_assets/sequence_v2_1_geometry/fsboard-v13-train-0096a95955d86a2bf0e3-phone.input.bin",
+      "bytes": 26056,
+      "sha256": "70919199a2629143ee02ab796f7313d07e4589db5033092f46dc81ba7974f2c5"
+    },
+    {
+      "path": "parity_assets/sequence_v2_1_geometry/fsboard-v13-train-669b5befb06efb652892-native.bin",
+      "bytes": 223612,
+      "sha256": "9ea48406b823bf3cab10713a96d3e48dbc8fecd065d47ee57086922f5ac028b8"
+    },
+    {
+      "path": "parity_assets/sequence_v2_1_geometry/fsboard-v13-train-669b5befb06efb652892-native.input.bin",
+      "bytes": 85108,
+      "sha256": "1d7d3a445fa09966d37ab431a5dfb001b8c25582979284d9be1494813003fc3e"
+    },
+    {
+      "path": "parity_assets/sequence_v2_1_geometry/fsboard-v13-train-669b5befb06efb652892-phone.bin",
+      "bytes": 46204,
+      "sha256": "3f84b25d93ab3ca6b74219d2a5eb8dab7590df72395ae5daa1e68bd8fd2deee0"
+    },
+    {
+      "path": "parity_assets/sequence_v2_1_geometry/fsboard-v13-train-669b5befb06efb652892-phone.input.bin",
+      "bytes": 17620,
+      "sha256": "d271cb31c908c51bd372b31e278a7e88580eda8bd21d53ff2d8dec0bdc031eea"
+    },
+    {
+      "path": "parity_assets/sequence_v2_1_geometry/fsboard-v13-validation-025197d79ded9d0aeb8b-native.bin",
+      "bytes": 168172,
+      "sha256": "bca82a539130a2b62fa81489611e883d20b9238f3d23d1a9f531054c7f457259"
+    },
+    {
+      "path": "parity_assets/sequence_v2_1_geometry/fsboard-v13-validation-025197d79ded9d0aeb8b-native.input.bin",
+      "bytes": 64018,
+      "sha256": "00a9d5312d82b8039d198fb036cab0ff001915da7c1cac5e0ed19ba13dc3aa45"
+    },
+    {
+      "path": "parity_assets/sequence_v2_1_geometry/fsboard-v13-validation-025197d79ded9d0aeb8b-phone.bin",
+      "bytes": 35116,
+      "sha256": "a341c7e337a9a1542cd8bbcd15e13b2abf34c57ff09b485bc6caa7d23fc7feb5"
+    },
+    {
+      "path": "parity_assets/sequence_v2_1_geometry/fsboard-v13-validation-025197d79ded9d0aeb8b-phone.input.bin",
+      "bytes": 13402,
+      "sha256": "fbc282522b4db81af883f4752c071c6ef547f957cfedc435d5fa45d5c1fba34d"
+    },
+    {
+      "path": "parity_assets/sequence_v2_1_geometry/fsboard-v13-validation-061478bdc422a8ab10b1-native.bin",
+      "bytes": 334492,
+      "sha256": "0218c47a383a9034674d34adf0100a9233dd3142dd7e1472aadda399ec31b8f5"
+    },
+    {
+      "path": "parity_assets/sequence_v2_1_geometry/fsboard-v13-validation-061478bdc422a8ab10b1-native.input.bin",
+      "bytes": 127288,
+      "sha256": "50fa21a47e4bd1c55280795aa33cc31392d57f8ed362aff444738e82d863c513"
+    },
+    {
+      "path": "parity_assets/sequence_v2_1_geometry/fsboard-v13-validation-061478bdc422a8ab10b1-phone.bin",
+      "bytes": 68380,
+      "sha256": "289bde387f09a8becb29d2e13ac9ca03955ef3babc61517249d27b4e0bbae3f9"
+    },
+    {
+      "path": "parity_assets/sequence_v2_1_geometry/fsboard-v13-validation-061478bdc422a8ab10b1-phone.input.bin",
+      "bytes": 26056,
+      "sha256": "3c571490a1562131dc43947a6ad772782b9fdc567c54693e271607c83ca9a6a5"
+    },
+    {
+      "path": "parity_assets/sequence_v2_1_geometry/fsboard-v13-validation-07aa1066298e3ab95c1a-native.bin",
+      "bytes": 223612,
+      "sha256": "93863f710d718bb203508f1b3a8809ba3d71be018263b6d72ff1dadadfc6429c"
+    },
+    {
+      "path": "parity_assets/sequence_v2_1_geometry/fsboard-v13-validation-07aa1066298e3ab95c1a-native.input.bin",
+      "bytes": 85108,
+      "sha256": "8a0098c67f705858aabfc0ff2ea0311d71c0f7fd5a2ae75fed296d86c4f68b52"
+    },
+    {
+      "path": "parity_assets/sequence_v2_1_geometry/fsboard-v13-validation-07aa1066298e3ab95c1a-phone.bin",
+      "bytes": 46204,
+      "sha256": "3f095e697662482300ef472b384c1a6f7b2ef82f090a9d0e75474ee2cf5bb07b"
+    },
+    {
+      "path": "parity_assets/sequence_v2_1_geometry/fsboard-v13-validation-07aa1066298e3ab95c1a-phone.input.bin",
+      "bytes": 17620,
+      "sha256": "c5824d0d3fafb53c308bfeef5004eb7e13d55d7bd53c433291bfd73c10e11ee5"
+    },
+    {
+      "path": "parity_assets/sequence_v2_1_geometry/fsboard-v13-validation-2eb50b79c9d6c59bb4ca-native.bin",
+      "bytes": 611692,
+      "sha256": "46328ef144a9ca25d40a3223b560fddbdc777ea85618ef94013fc0748c12c47b"
+    },
+    {
+      "path": "parity_assets/sequence_v2_1_geometry/fsboard-v13-validation-2eb50b79c9d6c59bb4ca-native.input.bin",
+      "bytes": 232738,
+      "sha256": "7e73ec28fd4eb426a7fdfcce1ff567c02d121a719b16c2904a260fd90db1bf64"
+    },
+    {
+      "path": "parity_assets/sequence_v2_1_geometry/fsboard-v13-validation-2eb50b79c9d6c59bb4ca-phone.bin",
+      "bytes": 123820,
+      "sha256": "93a629ab44ea83d54de6cad898938a9dc5dc9a0cbfc8d131d7545d9557a4bbbb"
+    },
+    {
+      "path": "parity_assets/sequence_v2_1_geometry/fsboard-v13-validation-2eb50b79c9d6c59bb4ca-phone.input.bin",
+      "bytes": 47146,
+      "sha256": "a3f3014285c6e1a2cbbdde575289879662b030ac5b70fcfced3c7ba41da22de5"
+    },
+    {
+      "path": "parity_assets/sequence_v2_1_geometry/masked_padding.bin",
+      "bytes": 31420,
+      "sha256": "8d12d670a93d8c1378a58c48bb071f88ae2363113534719ff5c71025c09ec276"
+    }
+  ],
+  "test_payload_included": false,
+  "private_credentials_included": false
+}

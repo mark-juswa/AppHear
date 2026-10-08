@@ -13,10 +13,12 @@ import com.example.apphear.data.profile.AccountServices
 
 class SettingsContent(private val context: Context, private val view: View) {
     private var characterDialog: AlertDialog? = null
+    private var recognitionDialog: AlertDialog? = null
 
     fun render() {
         renderSettings(view)
         setupCharacterChoice(view)
+        setupRecognitionChoice()
     }
 
     private fun setupCharacterChoice(view: View) {
@@ -44,6 +46,28 @@ class SettingsContent(private val context: Context, private val view: View) {
                 }
                 .setNegativeButton(android.R.string.cancel, null)
                 .show()
+        }
+    }
+
+    private fun setupRecognitionChoice() {
+        val settings = com.example.apphear.data.settings.RecognitionModeSettings(context)
+        val row = view.findViewById<View>(R.id.recognitionModeRow)
+        row.isVisible = settings.selectionAvailable
+        if (!settings.selectionAvailable) return
+        val choices = com.example.apphear.fingerspelling.RecognitionMode.entries
+        val labels = arrayOf(context.getString(R.string.recognition_mode_word), context.getString(R.string.recognition_mode_fingerspell))
+        val value = view.findViewById<TextView>(R.id.recognitionModeValue)
+        fun renderChoice() {
+            value.text = labels[choices.indexOf(settings.current())]
+            row.contentDescription = context.getString(R.string.recognition_mode_accessibility, value.text)
+        }
+        renderChoice()
+        row.setOnClickListener {
+            recognitionDialog?.dismiss()
+            recognitionDialog = AlertDialog.Builder(context).setTitle(R.string.recognition_mode_title)
+                .setSingleChoiceItems(labels, choices.indexOf(settings.current())) { dialog,index ->
+                    settings.select(choices[index]); renderChoice(); dialog.dismiss()
+                }.setNegativeButton(android.R.string.cancel,null).show()
         }
     }
 
@@ -88,5 +112,6 @@ class SettingsContent(private val context: Context, private val view: View) {
     fun close() {
         characterDialog?.dismiss()
         characterDialog = null
+        recognitionDialog?.dismiss(); recognitionDialog = null
     }
 }

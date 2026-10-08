@@ -19,7 +19,8 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
         val fragmentBinding = FragmentProfileBinding.bind(view)
         binding = fragmentBinding
 
-        if (AslCharacterSettings(requireContext()).selectionAvailable || AccountServices.enabled) {
+        if (AslCharacterSettings(requireContext()).selectionAvailable || AccountServices.enabled ||
+            com.example.apphear.data.settings.RecognitionModeSettings(requireContext()).selectionAvailable) {
             settingsContent = SettingsContent(requireContext(), view).also { it.render() }
         }
 

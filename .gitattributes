@@ -3,3 +3,8 @@ android/app/src/main/assets/** -text -diff
 android/app/src/debug/assets/** -text -diff
 android/app/src/main/jniLibs/** -text -diff
 android/app/src/debug/jniLibs/** -text -diff
+
+# Frozen baseline model and parity fixtures retain exact bytes.
+packages/fingerspelling_continuous_v2_1_01/android_assets/** -text -diff
+packages/fingerspelling_continuous_v2_1_01/parity_assets/** -text -diff
+android/app/src/test/resources/fingerspell_beam/** -text -diff

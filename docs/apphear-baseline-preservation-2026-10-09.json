@@ -1,0 +1,11 @@
+{
+  "staged_files": 97,
+  "credential_pattern_findings": [],
+  "protected_word_core_changes": [],
+  "unchanged_source_hashes": 670,
+  "frozen_package_staged_byte_parity": true,
+  "apk_runtime_asset_parity": true,
+  "host_tests": 181,
+  "failures": 0,
+  "errors": 0
+}

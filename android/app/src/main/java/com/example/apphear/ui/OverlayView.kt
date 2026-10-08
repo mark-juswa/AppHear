@@ -76,7 +76,7 @@ class OverlayView(context: Context, attrs: AttributeSet?) : View(context, attrs)
                 PerceptionVNextOverlayView.Snapshot(
                     phone.sourceWidth, phone.sourceHeight, hand(0), hand(1),
                     phone.bodyXy, phone.bodySupport,
-                ),
+                ), r.isFrontCamera,
             )
             return
         }

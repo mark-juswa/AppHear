@@ -14,6 +14,7 @@ internal class Candidate01FrameAnalyzer(
     context: Context,
     private val session: PhoneProductionSession,
     private val onResult: (FrameResult) -> Unit,
+    private val ownsObservation: ((PhoneRawObservation, ImageProxy) -> Boolean)? = null,
     private val onFailure: (Throwable) -> Unit,
 ) : CloseableFrameAnalyzer {
     private data class HandFrame(
@@ -88,9 +89,12 @@ internal class Candidate01FrameAnalyzer(
                 candidatePoseDecodeMs = pose.decodeMs,
                 candidateTotalMs = (SystemClock.elapsedRealtimeNanos() - started) / 1_000_000.0,
             )
-            val update = session.consume(observation)
+            // Optional experimental owner taps the very same evidence/RGB before disposal.
+            // WORD cannot commit while this owner is active; perception itself is unchanged.
+            val spellingOwner = ownsObservation?.invoke(observation, image) == true
+            val update = if (spellingOwner) null else session.consume(observation)
             val processedFps = fps.tick()
-            if (update.decoderState != lastDecoderState) {
+            if (update != null && update.decoderState != lastDecoderState) {
                 Log.i(TAG, "state package=${session.packageId.name} index=${observation.sourceIndex} " +
                     "decoder=${update.decoderState} fps=${"%.1f".format(processedFps)}")
                 lastDecoderState = update.decoderState
@@ -108,13 +112,13 @@ internal class Candidate01FrameAnalyzer(
                 imageHeight = observation.sourceHeight,
                 fps = processedFps,
                 isFrontCamera = true,
-                qualityLabel = session.packageId.name,
+                qualityLabel = if (spellingOwner) "FINGERSPELL" else session.packageId.name,
                 poseEveryN = 1,
-                recognition = update.state,
+                recognition = update?.state ?: com.example.apphear.pipeline.recognition.RecognitionState.Idle,
                 phoneOverlay = overlay,
                 phoneReady = sourceIndex >= 4 && session.isReady,
                 phoneSentence = session.sentenceText,
-                recognitionEvidence = update.evidence,
+                recognitionEvidence = update?.evidence,
             ))
         } catch (error: Throwable) {
             failed = true

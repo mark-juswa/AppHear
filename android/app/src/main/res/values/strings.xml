@@ -148,4 +148,9 @@
     <string name="context_predicted_reply_accessibility">Predicted reply: %1$s</string>
     <string name="recognition_speak_button">SPEAK</string>
     <string name="recognition_speak_content_description">Speak a reply</string>
+    <string name="recognition_mode_title">Recognition mode</string>
+    <string name="recognition_mode_body">Only the selected mode recognizes signs. Fingerspell uses automatic held letters with confirmation.</string>
+    <string name="recognition_mode_word">WORD</string>
+    <string name="recognition_mode_fingerspell">FINGERSPELL · experimental</string>
+    <string name="recognition_mode_accessibility">Recognition mode: %1$s</string>
 </resources>

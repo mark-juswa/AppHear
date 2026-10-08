@@ -1,0 +1,13 @@
+{
+  "schema_version": "apphear.recognition.coordination.v1",
+  "automatic_entry": "IDLE_BEFORE_RESPONSE_WITHOUT_USABLE_HAND",
+  "completion": "EXPLICIT_CONFIRMATION",
+  "rules": [
+    {"kind":"NAME","pattern":"(?:what is|what's) (?:your|his|her|their) (?:first |last |full )?name"},
+    {"kind":"NAME","pattern":"(?:can|could|would) you tell me your (?:first |last |full )?name"},
+    {"kind":"PLACE","pattern":"what (?:city|town|country|place) (?:are you from|do you live in)"},
+    {"kind":"PLACE","pattern":"what is the name of (?:your city|your town|your school|that place)"},
+    {"kind":"SPELL","pattern":"(?:please )?spell (?:your |the |his |her )?(?:name|first name|last name|full name|city|town|place|word|address)"},
+    {"kind":"SPELL","pattern":"(?:can|could|would) you (?:please )?spell (?:your |the |his |her )?(?:name|first name|last name|full name|city|town|place|word|address)"}
+  ]
+}
