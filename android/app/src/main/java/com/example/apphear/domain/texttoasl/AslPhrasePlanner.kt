@@ -4,24 +4,11 @@ class AslPhrasePlanner(
     private val catalog: AslAnimationCatalog,
     private val normalizer: AslTextNormalizer = AslTextNormalizer(),
     private val completeWordFallback: Boolean = false,
-    private val strictPhraseMode: Boolean = false,
+    private val dictionarySequenceMode: Boolean = false,
 ) {
     fun plan(input: String?): TextToAslPlan {
         val requestedText = input?.trim().orEmpty()
-        if (strictPhraseMode) {
-            val normalized = normalizer.normalize(input, preserveUnknownCharacters = true)
-            val dictionaryMatch = catalog.findByAlias(normalized)?.takeIf { asset ->
-                asset.type != AslAnimationAsset.Type.POSE && asset.aliases.any { alias ->
-                    normalizer.normalize(alias, preserveUnknownCharacters = true) == normalized
-                }
-            }
-            val match = dictionaryMatch ?: if (completeWordFallback && normalized.length == 1 &&
-                normalized[0] in 'a'..'z') catalog.findLetter(normalized[0]) else null
-            // A dictionary clip does not establish English-to-ASL sentence translation.
-            // Never perform a recognized fragment of an unsupported complete input.
-            return TextToAslPlan(requestedText, normalized, match?.let { listOf(it) }.orEmpty(),
-                if (match == null && requestedText.isNotBlank()) listOf(requestedText) else emptyList())
-        }
+        if (dictionarySequenceMode) return planDictionarySequence(requestedText)
         var remaining = normalizer.normalize(input)
         val queue = mutableListOf<AslAnimationAsset>()
         val unsupported = mutableListOf<String>()
@@ -59,6 +46,43 @@ class AslPhrasePlanner(
             queue = queue,
             unsupportedTokens = unsupported,
         )
+    }
+
+    private fun planDictionarySequence(input: String): TextToAslPlan {
+        val normalized = normalizer.normalizeSequence(input)
+        // Match declared text forms, never internal IDs or partial characters of a word.
+        val entries = catalog.getAssets().filter { it.type != AslAnimationAsset.Type.POSE }
+            .flatMap { asset -> asset.aliases.map { normalizer.normalizeSequence(it) to asset } }
+            .filter { it.first.isNotBlank() }
+        val byAlias = linkedMapOf<String, AslAnimationAsset>()
+        for ((alias, asset) in entries) {
+            require(byAlias[alias] == null || byAlias[alias]?.id == asset.id) {
+                "Ambiguous normalized sign alias: $alias"
+            }
+            byAlias[alias] = asset
+        }
+        byAlias[normalized]?.let { asset ->
+            return TextToAslPlan(input, normalized, listOf(asset), emptyList(),
+                TextToAslPlan.Mode.DICTIONARY_ENTRY)
+        }
+        var remaining = normalized
+        val queue = mutableListOf<AslAnimationAsset>()
+        val unsupported = mutableListOf<String>()
+        val aliases = byAlias.keys.sortedByDescending { it.length }
+        while (remaining.isNotEmpty()) {
+            val alias = aliases.firstOrNull { remaining == it || remaining.startsWith("$it ") }
+            if (alias != null) {
+                queue += byAlias.getValue(alias)
+                remaining = consume(remaining, alias.length)
+            } else {
+                val word = remaining.substringBefore(' ')
+                val letter = if (completeWordFallback && word.length == 1 && word[0] in 'a'..'z')
+                    catalog.findLetter(word[0]) else null
+                if (letter != null) queue += letter else unsupported += word
+                remaining = consume(remaining, word.length)
+            }
+        }
+        return TextToAslPlan(input, normalized, queue, unsupported, TextToAslPlan.Mode.WORD_SEQUENCE)
     }
 
     private fun findLongestMatch(text: String): Match? {

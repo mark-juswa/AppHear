@@ -7,6 +7,7 @@ import android.webkit.WebView
 import androidx.test.platform.app.InstrumentationRegistry
 import com.example.apphear.domain.texttoasl.AslAnimationAsset
 import com.example.apphear.domain.texttoasl.AslPhrasePlanner
+import com.example.apphear.domain.texttoasl.SignDictionaryMetadata
 import com.example.apphear.ui.texttoasl.AndroidAssetAslCatalogLoader
 import com.example.apphear.ui.texttoasl.TextToAslPlaybackController
 import java.io.File
@@ -27,17 +28,24 @@ class OriginalWordBatchInstrumentedTest {
         val original=AndroidAssetAslCatalogLoader(i.targetContext,false).load()
         val elapsed=(System.nanoTime()-start)/1e6
         val newCharacter=AndroidAssetAslCatalogLoader(i.targetContext,true).load()
-        assertEquals(273,original.getAssets().size)
-        assertEquals(122,newCharacter.getAssets().size)
-        assertEquals("asl_animations/asl_idle.glb",original.findByAlias("idle")?.assetPath)
+        assertEquals(204,original.getAssets().size)
+        assertEquals(28,newCharacter.getAssets().size)
+        assertEquals(0.0,original.findByAlias("idle")?.neutralFrameSeconds)
         assertEquals(original.findByAlias("idle"),original.findByAlias("stand"))
+        assertTrue(original.getAssets().all { it.metadata.avatarProfile == SignDictionaryMetadata.AvatarProfile.ORIGINAL_HUMAN })
+        assertTrue(newCharacter.getAssets().all { it.metadata.avatarProfile == SignDictionaryMetadata.AvatarProfile.NEW_HUMAN })
+        assertTrue((original.getAssets()+newCharacter.getAssets()).all { it.replacement?.fallbackAssetPath == null })
+        assertNull(newCharacter.findByAlias("hello"))
         assertNull(newCharacter.findByAlias("right direction"))
         assertEquals("SIGN_LETTER_Z_FEMALEASL",newCharacter.findLetter('z')?.replacement?.animationName)
-        val planner=AslPhrasePlanner(original,completeWordFallback=true)
-        assertEquals(listOf("father","dad","right","right_direction"),
-            planner.plan("father dad right right direction").queue.map { it.id })
+        val planner=AslPhrasePlanner(original,dictionarySequenceMode=true)
+        for (input in listOf("hello beautiful", "HELLO BEAUTIFUL", "hello, beautiful!")) {
+            assertEquals(listOf("hello","beautiful"),planner.plan(input).queue.map { it.id })
+        }
+        assertEquals(listOf("thank_you"),planner.plan("thank you").queue.map { it.id })
+        assertEquals(listOf("unknownword"),planner.plan("hello unknownword").unsupportedTokens)
         File(i.targetContext.filesDir,"original_word_batch_catalog.json").writeText(
-            JSONObject().put("entries",273).put("newCharacterEntries",122).put("catalogLoadMs",elapsed).toString())
+            JSONObject().put("entries",204).put("newCharacterEntries",28).put("catalogLoadMs",elapsed).toString())
     }
 
     @Test fun representativeOriginalClipsLoadPlayFinishAndRelease() {
@@ -59,7 +67,7 @@ class OriginalWordBatchInstrumentedTest {
                 })
             }
             assertTrue("Offline viewer ready",ready.await(30,TimeUnit.SECONDS))
-            for(alias in listOf("hello","father","dad","right","right direction","baby","what rhetorical")) {
+            for(alias in listOf("hello","beautiful","father","right","right direction","baby","what rhetorical")) {
                 val clip=requireNotNull(catalog.findByAlias(alias))
                 val started=CountDownLatch(1)
                 val finished=CountDownLatch(1)

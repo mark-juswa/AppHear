@@ -16,6 +16,7 @@ function finishSign(viewer) {
   // Late/early mixer events cannot finish the current named clip.
   if (!(viewer.duration > 0) || viewer.currentTime + 0.001 < viewer.duration) return;
   const token = viewer.playRequest;
+  viewer.pause();
   viewer.playRequest = null;
   cancelAnimationFrame(completionFrame);
   completionFrame = null;
@@ -23,7 +24,7 @@ function finishSign(viewer) {
 }
 
 function watchCompletion(viewer, options) {
-  if (options.loop) return;
+  if (options.loop || options.neutralFrame != null) return;
   // Model-viewer 4.3.1 subscribes to mixers before they exist. Use its public
   // animation timeline, not elapsed wall time, when its finished event is absent.
   const check = () => {
@@ -63,7 +64,10 @@ viewers.forEach(viewer => {
 
 function waitForModel(viewer, url) {
   if (viewer.src === url && viewer.loaded && viewer.loadedSource === url) return Promise.resolve();
-  if (viewer.src === url && viewer.failedUrl === url) return Promise.reject(new Error('Previous load failed'));
+  // An explicit Repeat may retry a failed load; keep the visible character intact.
+  if (viewer.src === url && viewer.failedUrl === url) {
+    viewer.removeAttribute('src'); viewer.failedUrl = null; viewer.loadedSource = null;
+  }
   return new Promise((resolve, reject) => {
     const clean = () => {
       clearTimeout(timer);
@@ -91,10 +95,11 @@ async function replay(viewer, options) {
   // Lit's animationName update otherwise replaces explicit loop settings with Infinity.
   await viewer.updateComplete;
   if (lastRequest !== options.requestId) return false;
-  viewer.currentTime = 0;
-  viewer.playLoop = Boolean(options.loop);
-  viewer.playRequest = options.requestId;
-  viewer.play({repetitions: options.loop ? Infinity : 1});
+  const neutral = options.neutralFrame != null;
+  viewer.currentTime = neutral ? options.neutralFrame : 0;
+  viewer.playLoop = Boolean(options.loop) || neutral;
+  viewer.playRequest = neutral ? null : options.requestId;
+  if (!neutral) viewer.play({repetitions: options.loop ? Infinity : 1});
   if (options.pinSource) pinnedSource = viewer.src;
   if (window.Android) Android.onPlaybackStarted(viewer.src, options.requestId);
   return true;
@@ -171,6 +176,7 @@ window.pausePlayback = function() {
   queuedPreload = null;
   clearTimeout(releaseTimer);
   releaseTimer = null;
-  pinnedSource = null;
-  viewers.forEach(v => {v.cancelWait?.(); v.pause(); v.loadedSource = null; v.removeAttribute('src');});
+  // Pause invalidates callbacks, but retains the two bounded resident models.
+  // Only WebView destruction releases them; unsupported input cannot change character.
+  viewers.forEach(v => {v.cancelWait?.(); v.pause(); v.playRequest = null;});
 };

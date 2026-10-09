@@ -4,6 +4,8 @@ import com.example.apphear.domain.texttoasl.AslAnimationAsset
 import com.example.apphear.domain.texttoasl.AslAnimationCatalog
 import com.example.apphear.domain.texttoasl.AslPhrasePlanner
 import com.example.apphear.domain.texttoasl.OriginalWordBatchCatalog
+import com.example.apphear.domain.texttoasl.AslAvatarCatalogPolicy
+import com.example.apphear.domain.texttoasl.SignDictionaryMetadata
 import com.google.gson.JsonObject
 import com.google.gson.JsonParser
 import java.nio.ByteBuffer
@@ -56,6 +58,23 @@ class OriginalWordBatchTest {
             assertEquals(clip.get("animationName").asString,gltf.getAsJsonArray("animations")[0].asJsonObject.get("name").asString)
             assertTrue(clip.get("durationMs").asLong in 1..10_000)
         }
+    }
+
+    @Test fun actualHumanCatalogSupportsRequestedSequencesWithoutLegacyFallback() {
+        val selected = AslAvatarCatalogPolicy.originalHuman(merged)
+        assertEquals(204, selected.size)
+        val planner = AslPhrasePlanner(AslAnimationCatalog.fromAssets(selected), dictionarySequenceMode = true)
+        for (input in listOf("hello beautiful", "HELLO BEAUTIFUL", "hello, beautiful!")) {
+            val plan=planner.plan(input)
+            assertEquals(listOf("hello", "beautiful"), plan.queue.map { it.id })
+            assertTrue(plan.unsupportedTokens.isEmpty())
+            assertTrue(plan.queue.all { it.metadata.avatarProfile == SignDictionaryMetadata.AvatarProfile.ORIGINAL_HUMAN })
+            assertTrue(plan.queue.all { it.originalFallback() == null })
+        }
+        assertEquals(listOf("thank_you"), planner.plan("thank you").queue.map { it.id })
+        val partial=planner.plan("hello unknownword")
+        assertEquals(listOf("hello"), partial.queue.map { it.id })
+        assertEquals(listOf("unknownword"), partial.unsupportedTokens)
     }
 
     @Test fun approvedMeaningsStaySeparateAndLongestMatchingUsesExactClip() {

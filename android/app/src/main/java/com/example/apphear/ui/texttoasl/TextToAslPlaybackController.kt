@@ -17,11 +17,14 @@ import android.webkit.WebViewClient
 import androidx.webkit.WebViewAssetLoader
 import com.example.apphear.BuildConfig
 import com.example.apphear.domain.texttoasl.AslAnimationAsset
+import com.example.apphear.domain.texttoasl.AslAvatarCatalogPolicy
+import com.example.apphear.domain.texttoasl.SignDictionaryMetadata
 import org.json.JSONObject
 
 class TextToAslPlaybackController(
     context: Context,
     private val webView: WebView,
+    avatarProfile: SignDictionaryMetadata.AvatarProfile? = null,
 ) {
     interface ReadyCallback {
         fun onReady()
@@ -45,7 +48,7 @@ class TextToAslPlaybackController(
     private var playbackCallback: PlaybackCallback? = null
     private var requestId = 0L
     private var requestedAtMs = 0L
-    private val rejectedPilotPaths = mutableSetOf<String>()
+    private var lockedAvatarProfile = avatarProfile
     private var destroyed = false
     var isReady: Boolean = false
         private set
@@ -67,14 +70,12 @@ class TextToAslPlaybackController(
 
     fun play(asset: AslAnimationAsset?) {
         if (asset == null || destroyed) return
-        if (BuildConfig.ASL_ASSET_PILOT_ENABLED && asset.assetPath in rejectedPilotPaths) {
-            val fallback = asset.originalFallback()
-            if (fallback != null) {
-                play(fallback)
-            } else {
+        if (BuildConfig.ASL_ASSET_PILOT_ENABLED) {
+            if (lockedAvatarProfile == null) lockedAvatarProfile = asset.metadata.avatarProfile
+            if (!AslAvatarCatalogPolicy.permits(asset, requireNotNull(lockedAvatarProfile))) {
                 playbackCallback?.onFailed(asset)
+                return
             }
-            return
         }
         playingAsset = asset
         if (!isReady) {
@@ -88,13 +89,9 @@ class TextToAslPlaybackController(
             val options = JSONObject().apply {
                 put("requestId", requestId)
                 put("animationName", asset.replacement?.animationName ?: JSONObject.NULL)
-                put("loop", asset.type == AslAnimationAsset.Type.POSE)
-                put("pinSource", BuildConfig.ASL_NEW_IDLE_ENABLED &&
-                    asset.assetPath == (if (BuildConfig.ASL_ALPHABET_FALLBACK_ENABLED) {
-                        AslAlphabetPilotContract.ASSET
-                    } else {
-                        AslIdlePilotContract.ASSET
-                    }))
+                put("loop", asset.type == AslAnimationAsset.Type.POSE && asset.neutralFrameSeconds == null)
+                put("neutralFrame", asset.neutralFrameSeconds ?: JSONObject.NULL)
+                put("pinSource", asset.type == AslAnimationAsset.Type.POSE)
             }
             webView.evaluateJavascript("playSign(${JSONObject.quote(BASE_URL + asset.assetPath)}, $options)", null)
         } else {
@@ -103,14 +100,14 @@ class TextToAslPlaybackController(
     }
 
     fun preload(asset: AslAnimationAsset?) {
-        if (asset == null || !isReady) return
-        if (asset.assetPath in rejectedPilotPaths) return
-        val url = (BASE_URL + asset.assetPath).replace("'", "\\'")
-        webView.evaluateJavascript("preloadSign('$url')", null)
+        if (asset == null || !isReady || destroyed) return
+        if (BuildConfig.ASL_ASSET_PILOT_ENABLED && lockedAvatarProfile?.let {
+                AslAvatarCatalogPolicy.permits(asset, it) } != true) return
+        webView.evaluateJavascript("preloadSign(${JSONObject.quote(BASE_URL + asset.assetPath)})", null)
     }
 
     fun pause() {
-        if (!BuildConfig.ASL_ASSET_PILOT_ENABLED) return
+        if (!BuildConfig.ASL_ASSET_PILOT_ENABLED || destroyed) return
         requestId++
         pendingAsset = null
         playingAsset = null
@@ -171,6 +168,7 @@ class TextToAslPlaybackController(
             Log.d(TAG, "model-viewer ready")
             mainHandler.post {
                 if (destroyed) return@post
+                if (isReady) return@post
                 isReady = true
                 readyCallback?.onReady()
                 pendingAsset?.let { asset ->
@@ -211,21 +209,8 @@ class TextToAslPlaybackController(
                 val asset = playingAsset ?: return@post
                 if (token != requestId || src != BASE_URL + asset.assetPath) return@post
                 playingAsset = null
-                val replacement = asset.replacement
-                if (replacement != null) {
-                    rejectedPilotPaths.add(asset.assetPath)
-                    val fallback = asset.originalFallback()
-                    if (fallback != null) {
-                        Log.w(TAG, "Pilot ${asset.id} failed; retrying original asset")
-                        play(fallback)
-                    } else {
-                        Log.w(TAG, "New pilot word ${asset.id} failed; skipping")
-                        playbackCallback?.onFailed(asset)
-                    }
-                } else {
-                    Log.w(TAG, "Original ${asset.id} failed to load/play")
-                    playbackCallback?.onFailed(asset)
-                }
+                Log.w(TAG, "${asset.id} failed; retain selected character and report failure")
+                playbackCallback?.onFailed(asset)
             }
         }
 
@@ -238,6 +223,7 @@ class TextToAslPlaybackController(
         fun onAnimationFinished(src: String) {
             mainHandler.post {
                 if (destroyed) return@post
+                if (BuildConfig.ASL_ASSET_PILOT_ENABLED) return@post
                 val asset = playingAsset ?: return@post
                 val expectedUrl = BASE_URL + asset.assetPath
                 if (src == expectedUrl) {

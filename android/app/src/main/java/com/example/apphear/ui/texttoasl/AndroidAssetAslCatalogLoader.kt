@@ -6,6 +6,8 @@ import com.example.apphear.BuildConfig
 import com.example.apphear.domain.texttoasl.AslAnimationAsset
 import com.example.apphear.domain.texttoasl.AslAnimationCatalog
 import com.example.apphear.domain.texttoasl.OriginalWordBatchCatalog
+import com.example.apphear.domain.texttoasl.AslAvatarCatalogPolicy
+import com.example.apphear.domain.texttoasl.SignDictionaryMetadata
 import org.json.JSONObject
 import java.io.BufferedReader
 import java.io.InputStreamReader
@@ -48,12 +50,17 @@ class AndroidAssetAslCatalogLoader(
         } else {
             PilotCatalog(assets)
         }
-        return try {
-            AslAnimationCatalog.fromAssets(selected.assets, selected.letters)
-        } catch (exception: IllegalArgumentException) {
-            Log.w("TextToAslAssets", "Pilot aliases rejected; using original catalog", exception)
-            AslAnimationCatalog.fromAssets(assets)
-        }
+        if (!BuildConfig.ASL_ASSET_PILOT_ENABLED) return AslAnimationCatalog.fromAssets(selected.assets, selected.letters)
+        val compatible = if (useNewCharacter) AslAvatarCatalogPolicy.newHuman(selected.assets)
+            else AslAvatarCatalogPolicy.originalHuman(selected.assets)
+        val profile = if (useNewCharacter) SignDictionaryMetadata.AvatarProfile.NEW_HUMAN
+            else SignDictionaryMetadata.AvatarProfile.ORIGINAL_HUMAN
+        val letters = selected.letters.mapValues { (_, asset) -> asset.copy(
+            metadata = asset.metadata.copy(avatarProfile = profile,
+                source = "asl_animations/vnext/manifest.json")) }
+        // Catalog errors fail visibly; they must never silently change character.
+        val expanded = AslDictionaryExtensions(context).load(compatible, profile)
+        return AslAnimationCatalog.fromAssets(expanded, letters)
     }
 
     private data class PilotCatalog(
