@@ -1,4 +1,32 @@
+> **2026-10-09 current-state notice:** Read [team-current-state-2026-10-09.md](team-current-state-2026-10-09.md) and [TEAM_HANDOFF.md](../TEAM_HANDOFF.md) first. Older design/status/absolute-checkout references below are historical where they conflict with the verified October9 code and current-state inventory. Protection, parity and evaluation rules still apply. Do not treat the old 15-FPS target as a measured achieved cadence, or uninstall/clear app data by default during smoke checks; current updates use `adb install -r`.
+
 ﻿# Build Plan
+
+## Current execution override — 2026-09-15
+
+This override supersedes older “next step” text below without erasing historical plans.
+
+| Phase | Current state | Boundary |
+|---|---|---|
+| Phase 1 — Candidate01 perception | **FROZEN / COMPLETE** | No Candidate02 or perception tuning |
+| Phase 2 — recognition-v2 | **FROZEN / COMPLETE** | No V2.1/V3 or feature changes |
+| Phase 3 — 236-class recognition | **REOPEN NEXT — GENERALIZATION UNSOLVED** | `PHASE_3_RECOGNIZER_GENERALIZATION_REOPEN`; project lead must choose one new-information/diversity strategy |
+| Phase 4A — bounded phone validation | **COMPLETE** | Gate 5: `PHASE_4A_COMPLETE_RETURN_TO_PHASE_3`; Gate 4A-2 superseded until later post-improvement validation |
+| Phase 5 — automatic isolated-sign event segmentation/re-arm | **NOT STARTED** | Required future component, but not authorized yet |
+
+Gate 4A-1C validated that active-sign temporal isolation is required: the frozen pipeline improved
+from Top-1 `2/10→7/10` and expected-in-Top-5 `5/10→8/10` when idle/preparation/recovery context was
+removed. The future architectural sequence is rolling raw-v1 buffer → automatic sign-start → sign
+active → automatic sign-end → fixed controlled margins → frozen recognition-v2 → recognizer →
+gloss → re-arm. This remains isolated-sign recognition over a continuous camera feed; fluent ASL
+and coarticulation are later work.
+
+Do not implement Phase 5 or start Phase-3 training from this documentation update. The next
+primary boundary is `PHASE_3_RECOGNIZER_GENERALIZATION_REOPEN`, where the project lead selects one
+strategy that introduces new signer/information diversity rather than another same-data
+microtuning loop.
+
+---
 
 ## Core Principle
 
@@ -200,3 +228,15 @@ gates, Android deployment, and rollback sequence are in
 crop/fusion implementation because the existing slim ST-GCN failed at 0.1588 top-1 and the prepared
 full-capacity comparison has not been run. No production model, schema, or runtime change is
 authorized by this plan.
+
+## 2026-09-04 — Recognition-upgrade completed gates and next decision
+
+Historical plans above remain intact. [P5-B through P7F-A progress](recognition_upgrade/PROGRESS_THROUGH_P7FA_2026_09_04.md) supersedes their
+recognition-upgrade pending steps without retroactively altering outcomes.
+
+P5 research closed through D12; P6 compatibility/mobile-backend feasibility completed;
+P7A/B/C contracts and P7D/R1/R2 skeleton experiments completed; P7E completed below integrated
+screen; P7F-A supervision audit completed with geometry support and identity/missingness gaps.
+The next decision is `PROJECT_LEAD_FAMILY_A_SUPERVISION_CONTRACT_REVIEW`, not executed.
+Do not start training, teacher generation, annotation, calibration, another runtime experiment
+or production integration without a separately bounded project-lead instruction.

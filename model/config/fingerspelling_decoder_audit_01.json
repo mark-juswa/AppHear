@@ -1,0 +1,19 @@
+{
+  "schema_version": "apphear.fingerspelling.decoder_audit.v1",
+  "beam_width": 10,
+  "top_paths": 5,
+  "blank_index": 27,
+  "blank_penalty": 0.5,
+  "views": ["native", "phone"],
+  "minimum_subgroup_sequences": 10,
+  "token_pruning": "NONE_ALL_28_SYMBOLS",
+  "ranking": "SUM_CTC_ALIGNMENT_MASS_WITH_PREFIX_PRUNING",
+  "tie_break": "LEXICOGRAPHIC_TOKEN_IDS",
+  "language_prior": "NONE",
+  "test_access": "SEALED",
+  "configuration_selection": "FROZEN_BEFORE_DEV_RESULTS_NO_SWEEP",
+  "model_checkpoint": "runs/fingerspelling_residual_visual_01/best_candidates/epoch_035.keras",
+  "model_sha256": "f87be3236196c8ab8321a3b6f7bb9d6398d048e257630a38546e8a8d00143251",
+  "historical_evaluation": "runs/fingerspelling_residual_visual_01/final_evaluation.json",
+  "dataset": "datasets/fingerspelling/foundation_01"
+}

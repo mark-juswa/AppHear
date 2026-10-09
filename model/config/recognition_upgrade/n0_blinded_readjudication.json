@@ -1,0 +1,26 @@
+{
+  "protocol_version": "apphear.n0_blinded_readjudication.v1",
+  "source_run": "artifacts/recognition_upgrade/e2e_c0/n0_capture_06",
+  "trusted_gold_run": "F:/ASL DATASET/ASL CITIZEN/derived/apphear3/recognition_upgrade/e2e_all_hand_gold_v1/engineering_01",
+  "output_run": "artifacts/recognition_upgrade/perception_backend_replacement/n0_blinded_readjudication_01",
+  "candidate_count": 250,
+  "qc_repeat_count": 25,
+  "selection_seed": 20260821,
+  "qc_seed": 20260822,
+  "minimum_timestamp_spacing_ms": 1000,
+  "candidate_max_per_clip": 5,
+  "benchmark_first_pass_max_per_clip": 3,
+  "benchmark_fallback_max_per_clip": 4,
+  "new_zero_hand_target": 167,
+  "frozen_benchmark_target": 200,
+  "minimum_unique_clips": 50,
+  "qc_minimum_exact_agreement": 0.92,
+  "near_duplicate_dhash_hamming_max": 4,
+  "semantic_classes": [
+    "ZERO_HAND",
+    "VISIBLE_IDLE_HAND",
+    "VISIBLE_SIGNING_HAND",
+    "TRANSITION",
+    "UNCERTAIN"
+  ]
+}

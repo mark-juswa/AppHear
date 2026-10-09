@@ -79,3 +79,21 @@ Every change follows: **flag → offline eval → device smoke test → rollout 
 - A per-window/per-emission number is always labelled *diagnostic*, never headline.
 - Phase 0's isolated-classifier accuracy is explicitly labelled the *flattering regime whose
   job is to validate plumbing* — not the product.
+
+## 2026-09-04 — P5–P7 evidence and population-specific boundaries
+
+[Consolidated evidence](recognition_upgrade/PROGRESS_THROUGH_P7FA_2026_09_04.md) distinguishes offline recognition, semantic parity, runtime
+feasibility and supervision adequacy; none substitutes for end-to-end held-out product accuracy.
+The current governed recognition evidence concerns isolated/pause-separated signs, not proven
+continuous ASL or phrase recognition. D1 representation sufficiency is unproven; D11 confidence
+remains MODERATE with NLL/per-frame/Top5 and five-signer uncertainty caveats.
+
+For the Family-A supervision program, the specific current governance takes precedence over
+generic validation guidance above: ASL Citizen VAL is EVALUATION_ONLY, not training/threshold
+fitting. D10 canonical TEST is development-exposed SECONDARY_CONFIRMATION_ONLY and protected
+from further development. Protected replay and pristine data remain excluded.
+
+Teacher structural validity is not physical visibility; teacher slot names are not correct
+anatomical assignment labels; teacher scores are not calibrated Family-A targets. P7F-A
+geometry readiness is pseudo-supervision design support, not training or accuracy authorization.
+No thresholds, loss choices, calibration, protected-data access or new evaluation occurs here.

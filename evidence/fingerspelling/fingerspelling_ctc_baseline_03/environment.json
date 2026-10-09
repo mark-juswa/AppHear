@@ -1,0 +1,10 @@
+{
+  "tensorflow": "2.21.0",
+  "parameters": 154716,
+  "cpu_threads": 2,
+  "input_width": 255,
+  "same_layer_configuration_as_b2": true,
+  "fresh_initialization": true,
+  "resume_granularity": "COMMITTED_EPOCHS",
+  "bit_exact_continuation_claim": false
+}

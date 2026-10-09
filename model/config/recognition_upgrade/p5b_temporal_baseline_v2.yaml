@@ -1,0 +1,20 @@
+experiment: P5B_TEMPORAL_BASELINE_V1
+input_shape: [96, 238]
+classes: 236
+seed: 101
+model:
+  type: tcn
+  blocks: 4
+  channels: 64
+  dilations: [1, 2, 4, 8]
+  kernel: 3
+  dropout: 0.3
+train:
+  batch_size: 32
+  epochs: 40
+  optimizer: AdamW
+  learning_rate: 0.0005
+  weight_decay: 0.0001
+  early_stop_patience: 8
+  augmentation: false
+  warm_start: false

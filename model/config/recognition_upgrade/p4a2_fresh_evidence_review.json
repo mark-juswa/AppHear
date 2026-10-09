@@ -1,0 +1,28 @@
+{
+  "protocol_id": "P4A2_FRESH_HUMAN_TRUTH_V1_REPAIR",
+  "selection_seed": 20260824,
+  "phone_attempts_per_cohort": 8,
+  "phone_initial_frames_per_attempt": 16,
+  "phone_max_frames_per_attempt": 24,
+  "required_withheld_one_hand_attempts": 3,
+  "semantic_minimums": {
+    "visible_hand_observations": 120,
+    "one_hand_visible_observations": 70,
+    "zero_hand_frames": 100,
+    "rest_frames": 80,
+    "entry_or_leaving_frames": 25,
+    "complete_two_hand_frames": 30
+  },
+  "allowed_categorical_values": {
+    "truth": ["YES", "NO", "UNCERTAIN"],
+    "quality": ["CLEAR", "WEAK", "NOT_APPLICABLE", "UNCERTAIN"]
+  },
+  "forbidden_selection_inputs": [
+    "DWPose output",
+    "DWPose confidence",
+    "E2 prediction",
+    "MediaPipe output",
+    "recognition result",
+    "model-derived failure tag"
+  ]
+}

@@ -27,7 +27,7 @@
   <string name="text_to_asl_title">Text to ASL</string>
   <string name="text_to_asl_placeholder">Avatar playback is enabled for a verified starter ASL animation set. Speech input is still planned.</string>
   <string name="profile_title">Profile</string>
-  <string name="profile_placeholder">Guest profile and supported settings will be rebuilt here. Supabase auth remains deferred.</string>
+  <string name="profile_placeholder">Your profile and preferences.</string>
   <string name="settings_title">Settings</string>
   <string name="settings_placeholder">Only AppHear3-supported settings will be exposed here. Old AppHear2 runtime switches are excluded.</string>
   <string name="component_status_ready">Ready</string>
@@ -61,7 +61,7 @@
   <string name="profile_guest_meta">Guest mode</string>
   <string name="profile_guest_initial">A</string>
   <string name="profile_status_title">Local profile</string>
-  <string name="profile_status_body">Profile editing and sign-in are deferred until the AppHear3 account/data contract is documented.</string>
+  <string name="profile_status_body">Sign in to edit and save your profile. Guest mode stays available.</string>
   <string name="profile_open_settings">Review settings</string>
   <string name="profile_preferences_line_1">Preference</string>
   <string name="profile_preferences_line_2">Your Setting</string>
@@ -77,8 +77,8 @@
   <string name="profile_camera_body">Front/back camera selection remains owned by the recognition screen lifecycle.</string>
   <string name="profile_camera_value">Runtime</string>
   <string name="profile_auth_title">Account sync</string>
-  <string name="profile_auth_body">Supabase/Auth behavior from AppHear2 is not migrated in this phase.</string>
-  <string name="profile_auth_value">Deferred</string>
+  <string name="profile_auth_body">Sign in from Profile to save your account details.</string>
+  <string name="profile_auth_value">Account</string>
   <string name="profile_version_note">AppHear 2026</string>
   <string name="settings_intro">Only AppHear3-supported settings are exposed here. AppHear2 experimental runtime toggles are intentionally excluded.</string>
   <string name="settings_group_runtime">Runtime ownership</string>
@@ -100,6 +100,9 @@
   <string name="text_to_asl_stage_body">Local avatar playback includes an expanded set of everyday words and phrases.</string>
   <string name="text_to_asl_current_sign_placeholder">-</string>
   <string name="text_to_asl_signing_label">SIGNING</string>
+  <string name="text_to_asl_sign_label">SIGN</string>
+  <string name="text_to_asl_mode_talk">Talk</string>
+  <string name="text_to_asl_open_text_input">Open text input</string>
   <string name="text_to_asl_idle_text">Ready when you are</string>
   <string name="text_to_asl_mode_text">Text</string>
   <string name="text_to_asl_mode_speech">Speech</string>
@@ -139,4 +142,15 @@
     <string name="reply_speech_prompt">Speak your reply</string>
     <string name="reply_speech_cancelled">Reply speech cancelled.</string>
     <string name="reply_speech_empty">No speech was detected.</string>    <string name="recognition_hear_content_description">Hear recognized sentence</string>
+    <string name="context_supported_label">CONTEXT-SUPPORTED · ADVISORY</string>
+    <string name="recognized_label">RECOGNIZED</string>
+    <string name="context_possible_replies_label">POSSIBLE REPLIES · PREDICTIONS</string>
+    <string name="context_predicted_reply_accessibility">Predicted reply: %1$s</string>
+    <string name="recognition_speak_button">SPEAK</string>
+    <string name="recognition_speak_content_description">Speak a reply</string>
+    <string name="recognition_mode_title">Recognition mode</string>
+    <string name="recognition_mode_body">Only the selected mode recognizes signs. Fingerspell uses automatic held letters with confirmation.</string>
+    <string name="recognition_mode_word">WORD</string>
+    <string name="recognition_mode_fingerspell">FINGERSPELL · experimental</string>
+    <string name="recognition_mode_accessibility">Recognition mode: %1$s</string>
 </resources>

@@ -80,3 +80,14 @@ apphear-react/benchmark/device-results/**/*.json
 # Generated supplementary-dataset audit manifests and scratch configs
 classmate_supplementary_dataset_package/reports/audit_236/
 artifacts/tmp_*
+
+# Team handoff: never accidentally add private/generated research payloads.
+/runs/
+/phone_pull_*/
+/.codex_tmp/
+datasets/fingerspelling/**/videos/
+datasets/fingerspelling/**/raw/
+datasets/fingerspelling/**/features/
+datasets/fingerspelling/**/embeddings/
+datasets/fingerspelling/**/crops/
+datasets/fingerspelling/**/execution/

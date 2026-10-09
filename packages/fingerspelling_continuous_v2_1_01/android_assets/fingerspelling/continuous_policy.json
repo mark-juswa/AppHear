@@ -1,0 +1,15 @@
+{
+  "schema_version": "apphear.fingerspelling.held_letter_policy.v1",
+  "window_ms": 4000,
+  "minimum_span_ms": 1000,
+  "minimum_usable": 4,
+  "inference_interval_ms": 500,
+  "stable_decodes": 3,
+  "stable_span_ms": 1000,
+  "rearm_missing_ms": 800,
+  "rearm_missing_observations": 3,
+  "maximum_observations": 64,
+  "timing_status": "ENGINEERING_DEFAULTS_NOT_ACCURACY_CALIBRATED",
+  "capture": "AUTOMATIC_HELD_LETTER",
+  "confirmation": "REQUIRED"
+}

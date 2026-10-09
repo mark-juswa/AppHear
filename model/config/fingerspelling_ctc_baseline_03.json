@@ -1,0 +1,11 @@
+{
+  "schema_version": "apphear.fingerspelling.baseline3.v1",
+  "feature_adapter": "FingerspellingFeatureAdapter.v2",
+  "feature_width": 255,
+  "canonicalizer": "SigningHandCanonicalizer.v1",
+  "baseline2_policy": "model/config/fingerspelling_ctc_baseline_02.json",
+  "baseline2_policy_sha256": "b3dddb294823f04ef28d975d7e98791c35de50a290463b8ee81bf349b1a2f602",
+  "capacity": "UNCHANGED_64_CHANNELS",
+  "experimental_only": true,
+  "test_sealed": true
+}

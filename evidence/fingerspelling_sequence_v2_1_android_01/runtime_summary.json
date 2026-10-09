@@ -1,0 +1,103 @@
+{
+  "native": {
+    "timesteps": [
+      121,
+      181,
+      91,
+      181,
+      121,
+      331
+    ],
+    "model_last_invocation": {
+      "count": 6,
+      "p50_ms": 18.684167,
+      "p95_ms": 37.851822,
+      "max_ms": 45.00302
+    },
+    "model_all_invocations": {
+      "count": 18,
+      "p50_ms": 26.924219,
+      "p95_ms": 77.816666,
+      "max_ms": 108.593334
+    },
+    "beam": {
+      "count": 6,
+      "p50_ms": 105.586667,
+      "p95_ms": 191.963177,
+      "max_ms": 254.663594
+    },
+    "model_plus_both_decoders": {
+      "count": 6,
+      "p50_ms": 146.847343,
+      "p95_ms": 237.611874,
+      "max_ms": 274.96401
+    },
+    "scope": "SAVED_FIXTURES_CPU2; NOT_BUTTON_QUEUE_OR_UI_RENDER; SMALL_N_ORDER_STATISTICS"
+  },
+  "phone": {
+    "timesteps": [
+      25,
+      37,
+      19,
+      37,
+      25,
+      67
+    ],
+    "model_last_invocation": {
+      "count": 6,
+      "p50_ms": 7.458594,
+      "p95_ms": 10.42125,
+      "max_ms": 11.852812
+    },
+    "model_all_invocations": {
+      "count": 18,
+      "p50_ms": 9.641823,
+      "p95_ms": 14.293906,
+      "max_ms": 26.86151
+    },
+    "beam": {
+      "count": 6,
+      "p50_ms": 16.252291,
+      "p95_ms": 21.777083,
+      "max_ms": 38.86
+    },
+    "model_plus_both_decoders": {
+      "count": 6,
+      "p50_ms": 22.285209,
+      "p95_ms": 34.358281000000005,
+      "max_ms": 49.4425
+    },
+    "scope": "SAVED_FIXTURES_CPU2; NOT_BUTTON_QUEUE_OR_UI_RENDER; SMALL_N_ORDER_STATISTICS"
+  },
+  "synthetic_parity_only": {
+    "timesteps": [
+      10,
+      17
+    ],
+    "model_last_invocation": {
+      "count": 2,
+      "p50_ms": 4.158229,
+      "p95_ms": 4.158229,
+      "max_ms": 4.532344
+    },
+    "model_all_invocations": {
+      "count": 6,
+      "p50_ms": 4.904583,
+      "p95_ms": 6.140104,
+      "max_ms": 6.923437
+    },
+    "beam": {
+      "count": 2,
+      "p50_ms": 4.848698,
+      "p95_ms": 4.848698,
+      "max_ms": 5.331406
+    },
+    "model_plus_both_decoders": {
+      "count": 2,
+      "p50_ms": 9.421303,
+      "p95_ms": 9.421303,
+      "max_ms": 9.531458
+    },
+    "scope": "SAVED_FIXTURES_CPU2; NOT_BUTTON_QUEUE_OR_UI_RENDER; SMALL_N_ORDER_STATISTICS"
+  }
+}

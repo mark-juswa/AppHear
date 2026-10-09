@@ -1,0 +1,369 @@
+{
+  "status": "V2_1_ANDROID_NUMERICAL_PARITY_PASS",
+  "fixture_count": 14,
+  "observation_count": 1246,
+  "adapter_max_error": 0,
+  "keras_android_logit_max_error": 2.8133392e-05,
+  "tflite_android_logit_max_error": 1.3828278e-05,
+  "greedy_mismatches": 0,
+  "beam_mismatches": 0,
+  "masked_padding_cases": 14,
+  "padding_max_error": 4.7683716e-06,
+  "backend": "CPU_2_THREADS",
+  "model_manifest": {
+    "schema_version": "apphear.fingerspelling.android.geometry.v1",
+    "candidate_id": "SEQUENCE_V2_1_EPOCH034_GEOMETRY_ONLY",
+    "checkpoint_path": "runs\\fingerspelling_sequence_v2_1_01\\best_candidates\\epoch_034.keras",
+    "checkpoint_epoch": 34,
+    "checkpoint_sha256": "3f92287c5ee82b2e0de1d396c4d27fe3b0efaed8af23b79b878740a56f1af638",
+    "adapter": {
+      "schema_version": "FingerspellingFeatureAdapter.v1",
+      "feature_width": 405,
+      "config_sha256": "5ed7f766154b558ea2bebd095804ca788dc7ee5b91cc001ca96a40133edb9b67",
+      "implementation_sha256": "256d8e82301fa9e6dd039a1c6d94dc5cc717b22c27e7b8bd9661ba32ee4394cd",
+      "columns_sha256": "f3f5f93cd590111e60a1078c032ada7a756be72d633ff53900ae9a353f084fcb"
+    },
+    "packed_width": 405,
+    "blank_penalty": 0.5,
+    "blank_index": 27,
+    "beam_width": 10,
+    "decoder": "PREFIX_BEAM_TOP1",
+    "vocabulary": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F",
+      "G",
+      "H",
+      "I",
+      "J",
+      "K",
+      "L",
+      "M",
+      "N",
+      "O",
+      "P",
+      "Q",
+      "R",
+      "S",
+      "T",
+      "U",
+      "V",
+      "W",
+      "X",
+      "Y",
+      "Z",
+      "SPACE",
+      "BLANK"
+    ],
+    "models": {
+      "geometry_sequence.tflite": {
+        "sha256": "e78de274b967acf0ea9d30bd3f3ac4422a1ef8ebdd95c8676b57dd05fed75c4c",
+        "bytes": 1305012
+      }
+    },
+    "feature_config": {
+      "schema_version": "FingerspellingFeatureAdapter.v1",
+      "raw_schema": "apphear.perception_vnext.raw.v1",
+      "feature_width": 405,
+      "dtype": "float32",
+      "scale_mcp_indices": [
+        5,
+        9,
+        13,
+        17
+      ],
+      "minimum_scale_short_side_ratio": 1e-06,
+      "maximum_motion_gap_seconds": 1,
+      "phone_observations_per_second": 6.231166,
+      "reflection_policy": "USE_RELEASED_PIXELS_AS_IS",
+      "reflection_provenance": "STRONGLY_SUPPORTED_UNMIRRORED_NOT_FULLY_ATTRIBUTED",
+      "horizontal_augmentation": false,
+      "time_resampling": "NONE",
+      "hand_slot_identity": "CANDIDATE01_SLOTS_NOT_PHYSICAL_HAND_IDENTITIES",
+      "body_indices": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "target_order": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F",
+        "G",
+        "H",
+        "I",
+        "J",
+        "K",
+        "L",
+        "M",
+        "N",
+        "O",
+        "P",
+        "Q",
+        "R",
+        "S",
+        "T",
+        "U",
+        "V",
+        "W",
+        "X",
+        "Y",
+        "Z",
+        "SPACE"
+      ],
+      "ctc_blank_index": 27,
+      "encoder_time_stride_for_readiness": 1,
+      "train_sequences": 1024,
+      "dev_sequences": 256,
+      "batch_sequences": 16,
+      "selection_salt": "apphear-fsboard-foundation-01-v1",
+      "train_stratum_quota": {
+        "daun_v3": 512,
+        "dmk_v3": 512
+      },
+      "dev_test_phrase_policy": "EXCLUDE_DEV_NORMALIZED_PHRASES_PRESENT_IN_OFFICIAL_TEST_METADATA"
+    },
+    "session_limits": {
+      "maximum_frames": 512,
+      "maximum_seconds": 60
+    },
+    "encoder": "SYMMETRIC_MASKED_TCN_V2_1",
+    "causal": false,
+    "parameter_count": 292956,
+    "auxiliary_head_exported": false,
+    "visual_branch_enabled": false,
+    "quantized": false,
+    "training": false,
+    "test_accessed": false
+  },
+  "java_heap_before_bytes": 3314088,
+  "java_heap_after_bytes": 14281680,
+  "native_heap_before_bytes": 10648424,
+  "native_heap_after_bytes": 22166920,
+  "memory_scope": "SNAPSHOTS_NOT_PEAK_OR_ISOLATED_MODEL_BYTES",
+  "cases": [
+    {
+      "id": "fsboard-v13-train-669b5befb06efb652892-native",
+      "view": "native",
+      "timesteps": 121,
+      "model_ms": [
+        108.593334,
+        77.816666,
+        17.939062
+      ],
+      "greedy_ms": 2.361354,
+      "beam_ms": 254.663594,
+      "warm_model_plus_decoders_ms": 274.96401,
+      "greedyRaw": "LAT",
+      "beamRaw": "LAT"
+    },
+    {
+      "id": "fsboard-v13-train-669b5befb06efb652892-phone",
+      "view": "phone",
+      "timesteps": 25,
+      "model_ms": [
+        8.305417,
+        5.659218,
+        5.532761
+      ],
+      "greedy_ms": 0.500157,
+      "beam_ms": 16.252291,
+      "warm_model_plus_decoders_ms": 22.285209,
+      "greedyRaw": "RAS",
+      "beamRaw": "RAS"
+    },
+    {
+      "id": "fsboard-v13-train-0096a95955d86a2bf0e3-native",
+      "view": "native",
+      "timesteps": 181,
+      "model_ms": [
+        26.924219,
+        23.269323,
+        24.457604
+      ],
+      "greedy_ms": 4.276042,
+      "beam_ms": 123.64526,
+      "warm_model_plus_decoders_ms": 152.378906,
+      "greedyRaw": "RVEDOCAESRA WHLZOMLEONS",
+      "beamRaw": "RVEDOCAESRA WTHLZOOMLEONS"
+    },
+    {
+      "id": "fsboard-v13-train-0096a95955d86a2bf0e3-phone",
+      "view": "phone",
+      "timesteps": 37,
+      "model_ms": [
+        14.293906,
+        9.641823,
+        11.852812
+      ],
+      "greedy_ms": 0.728386,
+      "beam_ms": 21.777083,
+      "warm_model_plus_decoders_ms": 34.358281000000005,
+      "greedyRaw": "UVIED CAERA WTEL O MLES",
+      "beamRaw": "UVIED CAERA WTEL OMLES"
+    },
+    {
+      "id": "fsboard-v13-validation-025197d79ded9d0aeb8b-native",
+      "view": "native",
+      "timesteps": 91,
+      "model_ms": [
+        16.179219,
+        15.182656,
+        13.846302
+      ],
+      "greedy_ms": 1.71724,
+      "beam_ms": 60.714687,
+      "warm_model_plus_decoders_ms": 76.278229,
+      "greedyRaw": "CCISHANON",
+      "beamRaw": "CCOISHANON"
+    },
+    {
+      "id": "fsboard-v13-validation-025197d79ded9d0aeb8b-phone",
+      "view": "phone",
+      "timesteps": 19,
+      "model_ms": [
+        6.508072,
+        7.824844,
+        4.963646
+      ],
+      "greedy_ms": 0.399896,
+      "beam_ms": 9.962552,
+      "warm_model_plus_decoders_ms": 15.326094000000001,
+      "greedyRaw": "CISHANON",
+      "beamRaw": "CISHANON"
+    },
+    {
+      "id": "fsboard-v13-validation-061478bdc422a8ab10b1-native",
+      "view": "native",
+      "timesteps": 181,
+      "model_ms": [
+        32.446979,
+        31.418802,
+        37.851822
+      ],
+      "greedy_ms": 3.408854,
+      "beam_ms": 105.586667,
+      "warm_model_plus_decoders_ms": 146.847343,
+      "greedyRaw": "AONSWIOTNS",
+      "beamRaw": "AON SWIOTNS"
+    },
+    {
+      "id": "fsboard-v13-validation-061478bdc422a8ab10b1-phone",
+      "view": "phone",
+      "timesteps": 37,
+      "model_ms": [
+        26.86151,
+        13.575833,
+        8.625208
+      ],
+      "greedy_ms": 0.116771,
+      "beam_ms": 20.777292,
+      "warm_model_plus_decoders_ms": 29.519271,
+      "greedyRaw": "ARONTIOTN",
+      "beamRaw": "ARONTIOTN"
+    },
+    {
+      "id": "fsboard-v13-validation-07aa1066298e3ab95c1a-native",
+      "view": "native",
+      "timesteps": 121,
+      "model_ms": [
+        32.155417,
+        17.822709,
+        18.684167
+      ],
+      "greedy_ms": 0.256302,
+      "beam_ms": 70.129115,
+      "warm_model_plus_decoders_ms": 89.06958399999999,
+      "greedyRaw": "MOHAMA BNITZZ",
+      "beamRaw": "MOHAMA BNITZZ"
+    },
+    {
+      "id": "fsboard-v13-validation-07aa1066298e3ab95c1a-phone",
+      "view": "phone",
+      "timesteps": 25,
+      "model_ms": [
+        10.971511,
+        11.493073,
+        7.458594
+      ],
+      "greedy_ms": 0.085052,
+      "beam_ms": 14.377761,
+      "warm_model_plus_decoders_ms": 21.921407,
+      "greedyRaw": "MCHA MA CNIZ",
+      "beamRaw": "MCHA MA CNIZZ"
+    },
+    {
+      "id": "fsboard-v13-validation-2eb50b79c9d6c59bb4ca-native",
+      "view": "native",
+      "timesteps": 331,
+      "model_ms": [
+        59.891198,
+        36.676719,
+        45.00302
+      ],
+      "greedy_ms": 0.645677,
+      "beam_ms": 191.963177,
+      "warm_model_plus_decoders_ms": 237.611874,
+      "greedyRaw": "AASHITISTSIONORA",
+      "beamRaw": "ASHITRISTSI ONORA"
+    },
+    {
+      "id": "fsboard-v13-validation-2eb50b79c9d6c59bb4ca-phone",
+      "view": "phone",
+      "timesteps": 67,
+      "model_ms": [
+        11.155469,
+        11.339063,
+        10.42125
+      ],
+      "greedy_ms": 0.16125,
+      "beam_ms": 38.86,
+      "warm_model_plus_decoders_ms": 49.4425,
+      "greedyRaw": "ASHIOGTISF EOERUMEA",
+      "beamRaw": "ASHIOGTISF  ERMEA"
+    },
+    {
+      "id": "edge_missing_partial_duplicate_motion",
+      "view": "synthetic_parity_only",
+      "timesteps": 10,
+      "model_ms": [
+        6.140104,
+        5.569063,
+        4.158229
+      ],
+      "greedy_ms": 0.041823,
+      "beam_ms": 5.331406,
+      "warm_model_plus_decoders_ms": 9.531458,
+      "greedyRaw": "IJ",
+      "beamRaw": "J"
+    },
+    {
+      "id": "masked_padding",
+      "view": "synthetic_parity_only",
+      "timesteps": 17,
+      "model_ms": [
+        6.923437,
+        4.904583,
+        4.532344
+      ],
+      "greedy_ms": 0.040261,
+      "beam_ms": 4.848698,
+      "warm_model_plus_decoders_ms": 9.421303,
+      "greedyRaw": "IJ",
+      "beamRaw": "J"
+    }
+  ],
+  "training": false,
+  "test_accessed": false
+}

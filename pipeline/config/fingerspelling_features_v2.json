@@ -1,0 +1,17 @@
+{
+  "schema_version": "FingerspellingFeatureAdapter.v2",
+  "canonicalizer_version": "SigningHandCanonicalizer.v1",
+  "feature_width": 255,
+  "minimum_valid_joints": 5,
+  "maximum_association_gap_seconds": 1.0,
+  "maximum_association_distance_short_side": 0.25,
+  "association_margin_short_side": 0.03,
+  "duplicate_roi_iou": 0.6,
+  "duplicate_wrist_distance_short_side": 0.08,
+  "quality_weights": [0.5, 0.3, 0.2],
+  "tip_indices": [4, 8, 12, 16, 20],
+  "reflection_policy": "USE_RELEASED_PIXELS_AS_IS",
+  "horizontal_flip": false,
+  "target_order": ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","SPACE"],
+  "ctc_blank_index": 27
+}

@@ -10,6 +10,7 @@ data class RuntimeTiming(
     val poseNs: Long = 0L,
     val recogNs: Long = 0L,
     val wallNs: Long = 0L,
+    val interFrameNs: Long = 0L,
 )
 
 /**
@@ -27,6 +28,7 @@ class RuntimeProfiler(
     private val pose = ArrayList<Long>(window)
     private val recog = ArrayList<Long>(window)
     private val wall = ArrayList<Long>(window)
+    private val interFrame = ArrayList<Long>(window)
     private var announced = false
 
     fun record(
@@ -48,6 +50,7 @@ class RuntimeProfiler(
         pose.add(timing.poseNs)
         recog.add(timing.recogNs)
         wall.add(timing.wallNs)
+        if (timing.interFrameNs > 0L) interFrame.add(timing.interFrameNs)
         if (wall.size < window) return
 
         Log.i(
@@ -55,7 +58,8 @@ class RuntimeProfiler(
             ("mode=$mode frames=$processedFrames dropped=$droppedFrames camera_fps=%.1f " +
                 "processed_fps=%.1f low_fps=$lowFps pose_every=$poseEveryN " +
                 "conv_ms=${stats(conv)} rotate_ms=${stats(rotate)} hand_ms=${stats(hand)} " +
-                "pose_ms=${stats(pose)} recog_ms=${stats(recog)} wall_ms=${stats(wall)}")
+                "pose_ms=${stats(pose)} recog_ms=${stats(recog)} wall_ms=${stats(wall)} " +
+                "gap_ms=${stats(interFrame)}")
                 .format(cameraFps, processedFps),
         )
         conv.clear()
@@ -64,6 +68,7 @@ class RuntimeProfiler(
         pose.clear()
         recog.clear()
         wall.clear()
+        interFrame.clear()
     }
 
     private fun stats(values: List<Long>): String {

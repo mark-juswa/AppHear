@@ -1,0 +1,16 @@
+{
+  "schema_version": "apphear.fingerspelling.ctc_view_inventory.v1",
+  "adapter": {
+    "schema_version": "FingerspellingFeatureAdapter.v1",
+    "feature_width": 405,
+    "config_sha256": "5ed7f766154b558ea2bebd095804ca788dc7ee5b91cc001ca96a40133edb9b67",
+    "implementation_sha256": "256d8e82301fa9e6dd039a1c6d94dc5cc717b22c27e7b8bd9661ba32ee4394cd",
+    "columns_sha256": "f3f5f93cd590111e60a1078c032ada7a756be72d633ff53900ae9a353f084fcb"
+  },
+  "ready_to_train": false,
+  "native_eligible_ids": [],
+  "native_infeasible_retained_ids": [],
+  "phone_eligible_ids": [],
+  "phone_infeasible_retained_ids": [],
+  "rule": "A future loss loader must select a feasible view explicitly; inventory never drops the source"
+}

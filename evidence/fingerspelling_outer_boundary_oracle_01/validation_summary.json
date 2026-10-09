@@ -1,0 +1,22 @@
+{
+  "tests": 37,
+  "passed": true,
+  "ruff": "PASS",
+  "mypy": "PASS",
+  "new_code_config_test_files": [
+    "model/config/fingerspelling_outer_boundary_oracle_01.json",
+    "tools/fingerspelling/outer_boundary_oracle.py",
+    "tools/fingerspelling/outer_boundary_phase_control.py",
+    "tests/test_fingerspelling_outer_boundary_oracle.py"
+  ],
+  "documentation_files": [
+    "docs/apphear-fingerspelling-outer-boundary-oracle-01-2026-10-05.md",
+    "context/feature-schema.md",
+    "context/progress-tracker.md",
+    "memory.md"
+  ],
+  "protected_inventory_pass": true,
+  "saved_logit_reference_arrays_exact": 512,
+  "fresh_logit_parity_sequences_per_view": 2,
+  "test_accessed": false
+}

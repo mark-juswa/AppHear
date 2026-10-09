@@ -1,0 +1,8 @@
+{
+  "status": "RESIDUAL_TRAINING_COMPLETE",
+  "epochs": 39,
+  "best_epoch": 35,
+  "best_model_sha256": "f87be3236196c8ab8321a3b6f7bb9d6398d048e257630a38546e8a8d00143251",
+  "frozen_b2_unchanged": true,
+  "test_accessed": false
+}

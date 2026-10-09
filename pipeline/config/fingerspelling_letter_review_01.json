@@ -1,0 +1,14 @@
+{
+  "schema_version": "apphear.fingerspelling.letter_review_policy.v1",
+  "foundation_manifest": "datasets/fingerspelling/foundation_01/tranche_manifest.json",
+  "foundation_manifest_sha256": "6b4f152c6bd51eae7af697a58c88c6e20cb0b5e537e272a1a84a897aec54ae6e",
+  "review_sequence_count": 16,
+  "stratum_quota": {"DAUN": 8, "MacKenzie": 8},
+  "required_role": "TRAIN",
+  "maximum_transcript_length": 20,
+  "metadata_coverage_occurrences": 3,
+  "selection_salt": "apphear-letter-review-01-v1",
+  "label_source": "QUALIFIED_HUMAN_REVIEW_OF_EXISTING_RGB_ONLY",
+  "test_access": "SEALED",
+  "training_use": "REFUSED_UNTIL_REVIEWED_LABELS_AND_SEPARATE_SUPERVISION_GATE"
+}

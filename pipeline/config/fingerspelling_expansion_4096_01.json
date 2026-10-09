@@ -1,0 +1,25 @@
+{
+  "schema_version": "apphear.fsboard.expansion_selection.v1",
+  "foundation_path": "datasets/fingerspelling/foundation_01",
+  "foundation_manifest_sha256": "6b4f152c6bd51eae7af697a58c88c6e20cb0b5e537e272a1a84a897aec54ae6e",
+  "dev_phrase_policy_sha256": "e029b1e2fb698ce53d810adf0d475d28697bd8394450876e2308c759dabdbb28",
+  "selector_source_sha256": "a8a8a7574978d60076c3ac1bca1274f6d9bef287d49722d9c74cb49b15ea768e",
+  "foundation_runner_sha256": "214ee9754bb1f78b7fe3d8fd8d69e984b0c8a87b0a028905b6a568994dfaf6ca",
+  "output_path": "datasets/fingerspelling/train4096_plan_01",
+  "train_sequences": 4096,
+  "train_stratum_quota": {"daun_v3": 2048, "dmk_v3": 2048},
+  "dev_b_sequences": 256,
+  "train_signers": 117,
+  "dev_signers": 15,
+  "batch_sequences": 16,
+  "selection": "REUSE_FOUNDATION_SELECT_BALANCED_WITH_ALL_EXISTING_TRAIN_FORCED",
+  "salt": "USE_UNCHANGED_FOUNDATION_SELECTION_SALT",
+  "dev_b_usage": "FINAL_CONFIRMATION_ONLY",
+  "dev_b_forbidden_uses": ["CHECKPOINT_SELECTION", "HYPERPARAMETER_SELECTION", "DECODER_TUNING", "EARLY_STOPPING", "MODEL_SELECTION"],
+  "source_cache_roots": [
+    "datasets/fingerspelling/foundation_01/videos",
+    "datasets/fingerspelling/fsboard_candidate01_admission_20261002/videos"
+  ],
+  "test_metadata_scope": "EXISTING_HASH_PINNED_OVERLAP_AND_PROTECTED_COPY_POLICY_ONLY",
+  "test_payload_access": false
+}

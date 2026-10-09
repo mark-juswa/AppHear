@@ -96,9 +96,39 @@ puts one signer in two partitions.
 
 ---
 
+## Text-to-ASL offline asset preparation (2026-09-28 pilot)
+
+Local tools only: glTF Transform core/extensions/functions, Sharp, meshoptimizer and Khronos
+glTF Validator. These dependencies live in the generated/ignored
+`artifacts/text_to_asl_asset_optimization_20260928/tools/` package, never in Android or recognition.
+No matching installed library skill was found; use official package documentation and pinned local
+source before using APIs. Original `G:/3d Characters/` GLBs stay read-only; derivatives go to the
+user-authorized separate `optimized_apphear3_20260928/` folder. Preserve rigs, animation channels,
+duration and geometry initially. Texture variants and any geometry quantization must be measured
+and validated independently; no global optimize preset. Offline optimized candidates are not
+production approval. No app asset replacement occurs in the first preparation milestone.
+The repeatable `tools/text_to_asl_assets/Optimize-Characters.ps1` command writes separately to
+`G:/3d Characters/optimized_apphear3_batch/`. It reuses only the pilot's hash-pinned KTX2 textures,
+checks each decoded rig/animation/topology, and resumes checksum-matching outputs. Unknown textures,
+older generations, ambiguous duplicates and production-ineligible SORRY exports are excluded.
+
 ## Testing (pytest)
 
 - Every normalization stage has a unit test with a known input → expected normalized output.
 - The **skew test** is mandatory: same clip through `pipeline/features` (Python) and the
   `android/features` port (via a golden-vector fixture) must match within tolerance.
 - Eval-harness metrics have regression tests on a tiny fixture dataset.
+
+## Account restoration (2026-09-28)
+
+No new third-party SDK. ProfileAccounts uses platform HttpURLConnection, org.json, Android Keystore
+AES/GCM and existing coroutines. No matching installed Supabase skill/connector is available;
+use the official Auth REST OpenAPI specification and Android Keystore docs linked in
+docs/profile-local-edit-plan-2026-09-28.md. Password and refresh requests use Auth v1 endpoints;
+profile display data uses authenticated user_metadata (username/full_name/avatar_url). Never treat
+user_metadata as roles/authorization, embed service-role/secret keys, copy old plaintext-token code,
+or require the undocumented public users table. Avatar storage is the existing profile-images
+bucket, with authenticated uploads to UUID-scoped paths; live policy/public delivery is unverified
+until the existing project is reachable. Keep network, image decode and Keystore work on IO, serialize
+refresh and persist rotated refresh tokens even when the initiating screen is destroyed. No account
+or storage mutation is performed by tooling tests; live actions are initiated by the user in the app.

@@ -1,0 +1,15 @@
+capture_order,gloss,expected_hands,repetition_id,variant,condition,instruction,question
+1,HAVE,two,NATURAL,apphear_target,natural,"NATURAL: use the same phone setup and sign HAVE once normally.",Baseline under current capture conditions
+2,HAVE,two,CONTROLLED,apphear_target,controlled,"CONTROLLED: center your upper body; keep both hands fully visible at chest level; use the same HAVE variant once.",Does reliable two-hand visibility rescue HAVE
+3,TODAY,two,NATURAL,apphear_target,natural,"NATURAL: use the same phone setup and sign TODAY once normally.",Baseline under current capture conditions
+4,TODAY,two,CONTROLLED,apphear_target,controlled,"CONTROLLED: center and step back; keep both hands visible through the complete AppHear TODAY sequence; do not rush either part.",Does reliable two-hand visibility rescue TODAY
+5,KNOW,one,NATURAL,apphear_target,natural,"NATURAL: use the same phone setup and sign KNOW once normally using the RU-D1 target variant.",Baseline target-variant behavior
+6,KNOW,one,CONTROLLED,apphear_target,controlled,"CONTROLLED: center your face and signing hand; use exactly the same AppHear KNOW variant; keep the hand visible from rest through temple contact and return.",Does clean target-variant input still confuse KNOW
+7,WHO,one,NATURAL,apphear_target,natural,"NATURAL: use the same phone setup and sign WHO once normally using the RU-D1 target variant.",Baseline S5 and S6 behavior
+8,WHO,one,CONTROLLED,apphear_target,controlled,"CONTROLLED: begin fully at rest; center face and hand; perform the same WHO variant once with a clear natural approach and release; return fully to rest.",Can clean boundaries trigger S5 and does oracle S6 recover WHO
+9,NOW,two,NATURAL,apphear_target,natural,"NATURAL: use the same phone setup and sign NOW once normally using the RU-D1 target variant.",Baseline NOW/HAVE confusion
+10,NOW,two,CONTROLLED,apphear_target,controlled,"CONTROLLED: center and step back; keep both hands fully visible; use exactly the same NOW variant once from rest to full return.",Does clean target-variant input remove NOW confusion
+11,WE,one,NATURAL,apphear_target,natural,"NATURAL: use the same phone setup and sign WE once normally using the RU-D1 target variant.",Baseline COME confusion
+12,WE,one,CONTROLLED,apphear_target,controlled,"CONTROLLED: center your torso and signing hand; use exactly the same AppHear WE path once; keep the hand visible for the entire movement and return.",Does clean target-variant input remove WE confusion
+13,LEAVE,two,NATURAL,apphear_target,natural,"NATURAL: use the same phone setup and sign LEAVE once normally using the RU-D1 target variant.",Baseline mixed S5/S6 behavior
+14,LEAVE,two,CONTROLLED,apphear_target,controlled,"CONTROLLED: center and step back; keep both hands fully visible for the complete LEAVE movement; begin and finish at clear rest without changing the variant.",Do clean perception and boundaries resolve LEAVE

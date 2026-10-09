@@ -1,0 +1,41 @@
+{
+  "protocol_version": "apphear.negative_gold.external.open_images.v7.v1",
+  "dataset_name": "Open Images",
+  "dataset_version": "V7",
+  "dataset_split": "validation",
+  "output_run": "artifacts/recognition_upgrade/perception_backend_replacement/negative_gold_open_images_v7_01",
+  "metadata_cache": "artifacts/recognition_upgrade/perception_backend_replacement/open_images_v7_metadata_cache",
+  "seed_manifest": "artifacts/recognition_upgrade/perception_backend_replacement/negative_gold_v1_topup_01/NEGATIVE_GOLD_V1_SEED_MANIFEST.csv",
+  "canonical_candidate_count": 220,
+  "person_free_target": 143,
+  "people_present_target": 77,
+  "qc_repeat_count": 20,
+  "selection_seed": 20260825,
+  "qc_seed": 20260826,
+  "dhash_hamming_max": 4,
+  "maximum_download_attempts": 360,
+  "download_batch_size": 20,
+  "download_workers": 8,
+  "download_timeout_seconds": 30,
+  "minimum_width": 320,
+  "minimum_height": 240,
+  "allowed_image_license": "https://creativecommons.org/licenses/by/2.0/",
+  "annotation_license": "https://creativecommons.org/licenses/by/4.0/",
+  "image_download_url_template": "https://open-images-dataset.s3.amazonaws.com/validation/{image_id}.jpg",
+  "official_metadata_urls": {
+    "image_metadata": "https://storage.googleapis.com/openimages/2018_04/validation/validation-images-with-rotation.csv",
+    "human_image_labels": "https://storage.googleapis.com/openimages/v5/validation-annotations-human-imagelabels-boxable.csv",
+    "class_descriptions": "https://storage.googleapis.com/openimages/v7/oidv7-class-descriptions.csv"
+  },
+  "expected_metadata_sha256": {
+    "validation-images-with-rotation.csv": "ed93a0e121fe345effdfc7359b848dbc64a1ff6778c8c73563157cb500b33a17",
+    "validation-annotations-human-imagelabels-boxable.csv": "d5ff236d3cdbba36dac1ee6f7fdf9a26934205cbec5b933b0872722e2b6d3417",
+    "oidv7-class-descriptions.csv": "84a4373a0efb7fd6d93fe19b0e7ceb6c1b855c233d13b9b78a9a33655c9fdce3"
+  },
+  "semantic_classes": [
+    "ZERO_HAND",
+    "HAND_VISIBLE",
+    "UNCERTAIN"
+  ],
+  "review_question": "Is ANY part of a human hand visible anywhere in this image?"
+}

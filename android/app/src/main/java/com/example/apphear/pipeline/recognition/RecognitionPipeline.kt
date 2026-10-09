@@ -27,7 +27,9 @@ class RecognitionPipeline(
 ) {
     private val timeWindow = recognizer.timeWindow
     private val window = Array(timeWindow) { FloatArray(FEATURE_DIM) }
-    private val preOnset = ArrayDeque<FloatArray>()
+    private data class BufferedFeature(val frameId: Long, val values: FloatArray)
+    private val preOnset = ArrayDeque<BufferedFeature>()
+    private val windowSources = RuD1WindowSources(timeWindow)
     private var count = 0
     private var frameIndex = 0L
 
@@ -45,6 +47,11 @@ class RecognitionPipeline(
         null
     }
 
+    /** Populated only while RU-D1 is enabled; never read by recognition policy. */
+    var ruD1Enabled: Boolean = false
+    var lastRuD1Trace: RuD1PipelineTrace? = null
+        private set
+
     val isSigning: Boolean get() = detector.isSigning
     val poseCadenceEveryN: Int
         get() = if (runtime.enableRecognitionPoseCadence) runtime.recognitionPoseEveryN else 1
@@ -56,9 +63,14 @@ class RecognitionPipeline(
     fun processFrame(pose: FloatArray, hands: FloatArray, lowFps: Boolean = false): RecognitionState {
         frameIndex++
         session.update(pose)
-        val feature = if (runtime.enablePreOnsetBuffer || detector.isSigning) session.feature(pose, hands) else null
+        val feature = if (ruD1Enabled || runtime.enablePreOnsetBuffer || detector.isSigning) {
+            session.feature(pose, hands)
+        } else {
+            null
+        }
 
-        when (detector.update(pose, hands, lowFps)) {
+        val signingEvent = detector.update(pose, hands, lowFps)
+        when (signingEvent) {
             SigningEvent.ONSET -> {
                 RuntimeLog.i(TAG, "S5 ONSET (signing started; mirrored=${session.isMirrored}, low_fps=$lowFps)")
                 resetSign(clearPreOnset = false)
@@ -75,34 +87,36 @@ class RecognitionPipeline(
                         .format(snap.evidence, snap.margin),
                 )
                 resetSign(clearPreOnset = true)
-                return RecognitionState.Idle
+                return finishRuD1(RecognitionState.Idle, feature, signingEvent, null, null)
             }
             SigningEvent.NONE -> {}
         }
 
         if (!detector.isSigning) {
-            if (feature != null) pushPreOnset(feature)
-            return RecognitionState.Idle
+            if (feature != null) pushPreOnset(frameIndex, feature)
+            return finishRuD1(RecognitionState.Idle, feature, signingEvent, null, null)
         }
 
         if (awaitingRelease) {
             val feat = feature ?: session.feature(pose, hands)
-            return processPostCommitFrame(feat, lowFps)
+            val state = processPostCommitFrame(feat, lowFps)
+            return finishRuD1(state, feat, signingEvent, null, null)
         }
 
         if (count < timeWindow) {
             val feat = feature ?: session.feature(pose, hands)
             System.arraycopy(feat, 0, window[count], 0, FEATURE_DIM)
+            windowSources.set(count, frameIndex)
             count++
         } else {
-            return RecognitionState.Signing(lastCandidates)
+            return finishRuD1(RecognitionState.Signing(lastCandidates), feature, signingEvent, null, null)
         }
 
         val probs = recognizer.infer(window, count - 1)
         shadowRecognizer?.evaluateAndLog(window, count - 1, probs, vocab, frameIndex)
         val commit = confirmation.update(probs, lowFps)
         lastCandidates = confirmation.topCandidates.map { vocab.gloss(it) }
-        return if (commit != null) {
+        val state = if (commit != null) {
             val gloss = vocab.gloss(commit.classId)
             RuntimeLog.i(
                 TAG,
@@ -114,6 +128,7 @@ class RecognitionPipeline(
         } else {
             RecognitionState.Signing(lastCandidates)
         }
+        return finishRuD1(state, feature, signingEvent, probs, commit?.classId)
     }
 
     fun resetSession() {
@@ -121,9 +136,18 @@ class RecognitionPipeline(
         resetSign(clearPreOnset = true)
     }
 
-    private fun pushPreOnset(feature: FloatArray) {
+    /** Clean attempt boundary used only by the default-off RU-D1 controller. */
+    fun prepareRuD1Attempt() {
+        check(ruD1Enabled) { "RU-D1 must be enabled before preparing an attempt" }
+        session.reset()
+        detector.reset()
+        resetSign(clearPreOnset = true)
+        lastRuD1Trace = null
+    }
+
+    private fun pushPreOnset(sourceFrame: Long, feature: FloatArray) {
         if (!runtime.enablePreOnsetBuffer || runtime.preOnsetFrames <= 0) return
-        preOnset.addLast(feature.copyOf())
+        preOnset.addLast(BufferedFeature(sourceFrame, feature.copyOf()))
         while (preOnset.size > runtime.preOnsetFrames) preOnset.removeFirst()
     }
 
@@ -131,8 +155,9 @@ class RecognitionPipeline(
         if (!runtime.enablePreOnsetBuffer || preOnset.isEmpty()) return
         var seeded = 0
         while (preOnset.isNotEmpty() && count < timeWindow) {
-            val feat = preOnset.removeFirst()
-            System.arraycopy(feat, 0, window[count], 0, FEATURE_DIM)
+            val buffered = preOnset.removeFirst()
+            System.arraycopy(buffered.values, 0, window[count], 0, FEATURE_DIM)
+            windowSources.set(count, buffered.frameId)
             count++
             seeded++
         }
@@ -268,6 +293,36 @@ class RecognitionPipeline(
         count = 0
         confirmation.reset()
         for (t in 0 until timeWindow) java.util.Arrays.fill(window[t], 0f)
+        windowSources.clear()
+    }
+
+    private fun finishRuD1(
+        state: RecognitionState,
+        feature: FloatArray?,
+        signingEvent: SigningEvent,
+        probabilities: FloatArray?,
+        committedClass: Int?,
+    ): RecognitionState {
+        if (!ruD1Enabled || feature == null) {
+            lastRuD1Trace = null
+            return state
+        }
+        val didInfer = probabilities != null
+        lastRuD1Trace = RuD1PipelineTrace(
+            frameId = frameIndex,
+            feature = feature.copyOf(),
+            mirrored = session.isMirrored,
+            signingEvent = signingEvent,
+            signing = detector.isSigning,
+            s5 = detector.lastDiagnostics,
+            inferenceIndex = if (didInfer) count - 1 else null,
+            windowSourceFrames = if (didInfer) windowSources.copy() else LongArray(0),
+            windowSha256 = if (didInfer) ruD1WindowSha256(window) else null,
+            probabilities = probabilities?.copyOf(),
+            s7 = confirmation.lastSnapshot,
+            committedClass = committedClass,
+        )
+        return state
     }
 
     private fun top1Class(probs: FloatArray): Int {
@@ -305,7 +360,11 @@ class RecognitionPipeline(
                 recognizer = recognizer,
                 shadowRecognizer = shadowRecognizer,
                 session = SessionNormalizer(),
-                detector = SigningDetector(signingCfg, runtime),
+                detector = SigningDetector(
+                    signingCfg,
+                    runtime,
+                    allowOneShortOnsetGap = FeatureFlags.RU_D10_S5_ONE_SHORT_GAP,
+                ),
                 confirmation = Confirmation(recogCfg, manifest.numClasses),
                 vocab = vocab,
                 runtime = runtime,

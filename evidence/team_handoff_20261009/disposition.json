@@ -1,0 +1,32 @@
+{
+  "app_base": "34f24ab6d7aea8179decb1688a82fc5734f6d370",
+  "vocabulary_commit": "5cf2807",
+  "research_source_files": 234,
+  "imported_files": 345,
+  "imported_bytes": 58980384,
+  "training_histories": {
+    "fingerspelling_ctc_baseline_02": 79,
+    "fingerspelling_ctc_baseline_03": 64,
+    "fingerspelling_ctc_baseline_04": 55,
+    "fingerspelling_residual_visual_01": 39,
+    "fingerspelling_train4096_01": 50,
+    "fingerspelling_sequence_v2_01": 47,
+    "fingerspelling_sequence_v2_1_01": 49
+  },
+  "preserved_external": [
+    "F: research checkout including stale Android edits; never reset or merge wholesale",
+    "F: datasets/fingerspelling foundation RGB/raw/features and visual archives",
+    "I:/AppHearData/FSboard_TRAIN4096_01 expanded source/raw/features/receipts",
+    "F: runs optimizer checkpoints, alternate models and full per-epoch predictions",
+    "F: artifacts private APKs, raw phone diagnostics, logits and scratch outputs",
+    "Unreviewed phone_pull_* and .codex_tmp remain local"
+  ],
+  "not_claimed": [
+    "fresh TEST accuracy",
+    "all-26 isolated-letter accuracy",
+    "qualified live signer evaluation",
+    "linguistic correctness/licensing of every third-party animation",
+    "bit-exact training resume on a different PC",
+    "full external data transferred through GitHub"
+  ]
+}

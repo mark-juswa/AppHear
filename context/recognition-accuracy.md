@@ -1,4 +1,33 @@
+> **2026-10-09 current-state notice:** Read [team-current-state-2026-10-09.md](team-current-state-2026-10-09.md) and [TEAM_HANDOFF.md](../TEAM_HANDOFF.md) first. Older design/status/absolute-checkout references below are historical where they conflict with the verified October9 code and current-state inventory. Protection, parity and evaluation rules still apply. Do not treat the old 15-FPS target as a measured achieved cadence, or uninstall/clear app data by default during smoke checks; current updates use `adb install -r`.
+
 # Recognition Accuracy & Detection Quality
+
+## Current validated recognition state — 2026-09-15
+
+The strongest frozen control remains the ordinary recognition-v2 TCN. It is not production-ready:
+governed DEV Top-1 is `50.25%` dense and `39.95%` PHONE_01-sparse, and unseen-signer
+generalization remains the primary Phase-3 blocker.
+
+Gate 4A-1C isolated a separate live-input failure without retraining. On the same 10 retained
+Gate-4A1B attempts, blinded and pre-hashed oracle active-sign bounds changed Top-1 `2/10→7/10`,
+expected-in-Top-5 `5/10→8/10`, median expected-class probability `0.053839→0.585159`, and median
+rank `5→1`. HOME ×2, STREET attempt 1, and TABLE ×2 became correct; no correct attempt became
+wrong. Both AT attempts and STREET attempt 2 remained wrong.
+
+Locked interpretation:
+
+- excessive idle/preparation/recovery context is a major Phase-4 failure source;
+- automatic isolated-sign active-window extraction is required before recognition-v2;
+- this does not solve the independent Phase-3 signer/generalization problem;
+- complete body-group availability is a framing-quality signal, not a validated hard recognition
+  gate;
+- do not resume five-sign causal diagnostics, cadence/FPS tuning, threshold tuning, or same-data
+  sampler/loss/seed/LR/epoch loops.
+
+Gate 5 formally closed Phase 4A as `PHASE_4A_COMPLETE_RETURN_TO_PHASE_3`. Gate 4A-2 is superseded
+by a later governed phone validation after Phase-3 improvement. The next primary boundary is
+`PHASE_3_RECOGNIZER_GENERALIZATION_REOPEN` using genuinely new information/diversity. No
+particular implementation or training plan is authorized by this record.
 
 *Why on-device detection is hard even when the offline numbers look good â€” the verified root
 cause, the secondary contributors, and the real levers. This file exists because the build-plan

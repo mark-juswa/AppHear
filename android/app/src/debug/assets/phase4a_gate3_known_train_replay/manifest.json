@@ -1,0 +1,38 @@
+{
+  "milestone": "PHASE_4A_GATE_3_KNOWN_TRAIN_END_TO_END_REPLAY_01",
+  "raw_schema": "apphear.perception_vnext.raw.v1",
+  "feature_schema": "apphear.perception_vnext.recognition.v2",
+  "feature_shape": [96, 350],
+  "mask_shape": [96],
+  "output_count": 236,
+  "phone_completed_fps": 5.606840672873506,
+  "tolerances": {
+    "android_v2_max_abs": 1e-5,
+    "keras_vs_android_composed_max_abs": 1e-4,
+    "state_replay_max_abs": 1e-6
+  },
+  "frozen_hashes": {
+    "recognition_v2_kt": "0a5fd969c574f3077060e75bcf697390e322da7e87e870da50b547714ba39699",
+    "gate1_manifest": "01fd271c25df2d0b7a64e803fabe0b745d51be1ac8f7c6f646546e2a3aa055b3",
+    "gate2_manifest": "bfe8bec13a646eb6fa733c3bee6a421a44b5e58ed6dbb0dd59d88804e397d019",
+    "gate2_runtime_component": "e06300b044caff263421554f33132ad97a099fb26931480b0ce01cf6bcabbb9a",
+    "tflite_model": "1ccf0afa9af9aa602aa0de33c9635f5cffd7feec7d9b4e32382bc5e3fa02880c",
+    "vocabulary": "a7d7b08d1c9ff52455aaa93cefee40e744b86a11fa5047dce08d2dd23fc0539b"
+  },
+  "gate1_manifest_asset": "phase4a_v2_parity/manifest.json",
+  "gate2_manifest_asset": "phase4a_gate2_recognizer_parity/manifest.json",
+  "fixtures": [
+    {"fixture_id":"p4a_v2_01","sample_id":"asl:train:010997145882042814-seedCOME","split":"train","class_id":36,"canonical_gloss":"COME"},
+    {"fixture_id":"p4a_v2_02","sample_id":"e6:e6p_00795","split":"train","class_id":80,"canonical_gloss":"HELLO"},
+    {"fixture_id":"p4a_v2_03","sample_id":"asl:train:3317802933195262-AT","split":"train","class_id":8,"canonical_gloss":"AT"},
+    {"fixture_id":"p4a_v2_04","sample_id":"e6:e6p_00737","split":"train","class_id":80,"canonical_gloss":"HELLO"},
+    {"fixture_id":"p4a_v2_05","sample_id":"asl:train:4506537239301789-HOME","split":"train","class_id":83,"canonical_gloss":"HOME"},
+    {"fixture_id":"p4a_v2_06","sample_id":"asl:train:44175204654391864-STREET","split":"train","class_id":179,"canonical_gloss":"STREET"},
+    {"fixture_id":"p4a_v2_07","sample_id":"asl:train:072729520535459-TABLE","split":"train","class_id":183,"canonical_gloss":"TABLE"},
+    {"fixture_id":"p4a_v2_08","sample_id":"e6:e6p_01048","split":"train","class_id":173,"canonical_gloss":"SORRY"},
+    {"fixture_id":"p4a_v2_09","sample_id":"asl:train:5044184391977649-USE","split":"train","class_id":204,"canonical_gloss":"USE"},
+    {"fixture_id":"p4a_v2_10","sample_id":"asl:train:8411060739612117-DONT KNOW","split":"train","class_id":48,"canonical_gloss":"DONTKNOW"}
+  ],
+  "dev_accessed": false,
+  "protected_test_accessed": false
+}

@@ -1,0 +1,3029 @@
+{
+  "model_views": {
+    "boundary_reset_b2_native": {
+      "full": {
+        "sequences": 256,
+        "reference_characters": 3457,
+        "substitutions": 687,
+        "deletions": 854,
+        "insertions": 194,
+        "cer": 0.5018802429852474,
+        "exact_sequence_accuracy": 0.0,
+        "signers": {
+          "001e": {
+            "sequences": 18,
+            "reference_characters": 233,
+            "substitutions": 56,
+            "deletions": 53,
+            "insertions": 15,
+            "cer": 0.5321888412017167,
+            "exact_sequence_accuracy": 0.0
+          },
+          "1c15": {
+            "sequences": 17,
+            "reference_characters": 226,
+            "substitutions": 47,
+            "deletions": 50,
+            "insertions": 10,
+            "cer": 0.47345132743362833,
+            "exact_sequence_accuracy": 0.0
+          },
+          "28d4": {
+            "sequences": 17,
+            "reference_characters": 215,
+            "substitutions": 51,
+            "deletions": 19,
+            "insertions": 41,
+            "cer": 0.5162790697674419,
+            "exact_sequence_accuracy": 0.0
+          },
+          "2b19": {
+            "sequences": 17,
+            "reference_characters": 229,
+            "substitutions": 49,
+            "deletions": 82,
+            "insertions": 15,
+            "cer": 0.6375545851528385,
+            "exact_sequence_accuracy": 0.0
+          },
+          "4e6b": {
+            "sequences": 17,
+            "reference_characters": 225,
+            "substitutions": 43,
+            "deletions": 64,
+            "insertions": 6,
+            "cer": 0.5022222222222222,
+            "exact_sequence_accuracy": 0.0
+          },
+          "5ce0": {
+            "sequences": 17,
+            "reference_characters": 248,
+            "substitutions": 50,
+            "deletions": 69,
+            "insertions": 2,
+            "cer": 0.4879032258064516,
+            "exact_sequence_accuracy": 0.0
+          },
+          "661f": {
+            "sequences": 17,
+            "reference_characters": 236,
+            "substitutions": 35,
+            "deletions": 39,
+            "insertions": 14,
+            "cer": 0.3728813559322034,
+            "exact_sequence_accuracy": 0.0
+          },
+          "a459": {
+            "sequences": 17,
+            "reference_characters": 227,
+            "substitutions": 29,
+            "deletions": 47,
+            "insertions": 17,
+            "cer": 0.40969162995594716,
+            "exact_sequence_accuracy": 0.0
+          },
+          "aeed": {
+            "sequences": 17,
+            "reference_characters": 239,
+            "substitutions": 39,
+            "deletions": 59,
+            "insertions": 6,
+            "cer": 0.4351464435146444,
+            "exact_sequence_accuracy": 0.0
+          },
+          "c28d": {
+            "sequences": 17,
+            "reference_characters": 217,
+            "substitutions": 48,
+            "deletions": 107,
+            "insertions": 2,
+            "cer": 0.7235023041474654,
+            "exact_sequence_accuracy": 0.0
+          },
+          "c6e5": {
+            "sequences": 17,
+            "reference_characters": 252,
+            "substitutions": 57,
+            "deletions": 101,
+            "insertions": 9,
+            "cer": 0.6626984126984127,
+            "exact_sequence_accuracy": 0.0
+          },
+          "d516": {
+            "sequences": 17,
+            "reference_characters": 228,
+            "substitutions": 40,
+            "deletions": 52,
+            "insertions": 16,
+            "cer": 0.47368421052631576,
+            "exact_sequence_accuracy": 0.0
+          },
+          "d5fd": {
+            "sequences": 17,
+            "reference_characters": 227,
+            "substitutions": 53,
+            "deletions": 39,
+            "insertions": 12,
+            "cer": 0.4581497797356828,
+            "exact_sequence_accuracy": 0.0
+          },
+          "ebdb": {
+            "sequences": 17,
+            "reference_characters": 224,
+            "substitutions": 47,
+            "deletions": 46,
+            "insertions": 10,
+            "cer": 0.45982142857142855,
+            "exact_sequence_accuracy": 0.0
+          },
+          "f896": {
+            "sequences": 17,
+            "reference_characters": 231,
+            "substitutions": 43,
+            "deletions": 27,
+            "insertions": 19,
+            "cer": 0.3852813852813853,
+            "exact_sequence_accuracy": 0.0
+          }
+        },
+        "subgroups": {
+          "J": {
+            "sequences": 59,
+            "reference_characters": 750,
+            "substitutions": 162,
+            "deletions": 172,
+            "insertions": 53,
+            "cer": 0.516,
+            "exact_sequence_accuracy": 0.0,
+            "interpretation_sample_count_sufficient": true,
+            "reference_character_occurrences": 62,
+            "aligned_character_recall": 0.6129032258064516
+          },
+          "Z": {
+            "sequences": 52,
+            "reference_characters": 725,
+            "substitutions": 140,
+            "deletions": 189,
+            "insertions": 49,
+            "cer": 0.5213793103448275,
+            "exact_sequence_accuracy": 0.0,
+            "interpretation_sample_count_sufficient": true,
+            "reference_character_occurrences": 58,
+            "aligned_character_recall": 0.46551724137931033
+          },
+          "REPEATED_LETTERS": {
+            "sequences": 109,
+            "reference_characters": 1508,
+            "substitutions": 299,
+            "deletions": 358,
+            "insertions": 87,
+            "cer": 0.493368700265252,
+            "exact_sequence_accuracy": 0.0,
+            "interpretation_sample_count_sufficient": true
+          }
+        },
+        "correct_aligned_reference_characters": 1916,
+        "predicted_characters": 2797,
+        "predicted_reference_ratio": 0.8090830199595025,
+        "exact_sequences": 0,
+        "empty_predictions": 0,
+        "macro_signer_cer": 0.502030414796519
+      },
+      "oracle": {
+        "sequences": 256,
+        "reference_characters": 3457,
+        "substitutions": 669,
+        "deletions": 903,
+        "insertions": 188,
+        "cer": 0.5091119467746601,
+        "exact_sequence_accuracy": 0.0,
+        "signers": {
+          "001e": {
+            "sequences": 18,
+            "reference_characters": 233,
+            "substitutions": 59,
+            "deletions": 53,
+            "insertions": 12,
+            "cer": 0.5321888412017167,
+            "exact_sequence_accuracy": 0.0
+          },
+          "1c15": {
+            "sequences": 17,
+            "reference_characters": 226,
+            "substitutions": 47,
+            "deletions": 50,
+            "insertions": 11,
+            "cer": 0.4778761061946903,
+            "exact_sequence_accuracy": 0.0
+          },
+          "28d4": {
+            "sequences": 17,
+            "reference_characters": 215,
+            "substitutions": 51,
+            "deletions": 18,
+            "insertions": 43,
+            "cer": 0.5209302325581395,
+            "exact_sequence_accuracy": 0.0
+          },
+          "2b19": {
+            "sequences": 17,
+            "reference_characters": 229,
+            "substitutions": 49,
+            "deletions": 82,
+            "insertions": 15,
+            "cer": 0.6375545851528385,
+            "exact_sequence_accuracy": 0.0
+          },
+          "4e6b": {
+            "sequences": 17,
+            "reference_characters": 225,
+            "substitutions": 45,
+            "deletions": 63,
+            "insertions": 4,
+            "cer": 0.49777777777777776,
+            "exact_sequence_accuracy": 0.0
+          },
+          "5ce0": {
+            "sequences": 17,
+            "reference_characters": 248,
+            "substitutions": 39,
+            "deletions": 92,
+            "insertions": 0,
+            "cer": 0.5282258064516129,
+            "exact_sequence_accuracy": 0.0
+          },
+          "661f": {
+            "sequences": 17,
+            "reference_characters": 236,
+            "substitutions": 36,
+            "deletions": 40,
+            "insertions": 14,
+            "cer": 0.3813559322033898,
+            "exact_sequence_accuracy": 0.0
+          },
+          "a459": {
+            "sequences": 17,
+            "reference_characters": 227,
+            "substitutions": 26,
+            "deletions": 51,
+            "insertions": 20,
+            "cer": 0.42731277533039647,
+            "exact_sequence_accuracy": 0.0
+          },
+          "aeed": {
+            "sequences": 17,
+            "reference_characters": 239,
+            "substitutions": 32,
+            "deletions": 64,
+            "insertions": 5,
+            "cer": 0.4225941422594142,
+            "exact_sequence_accuracy": 0.0
+          },
+          "c28d": {
+            "sequences": 17,
+            "reference_characters": 217,
+            "substitutions": 45,
+            "deletions": 112,
+            "insertions": 4,
+            "cer": 0.7419354838709677,
+            "exact_sequence_accuracy": 0.0
+          },
+          "c6e5": {
+            "sequences": 17,
+            "reference_characters": 252,
+            "substitutions": 56,
+            "deletions": 102,
+            "insertions": 9,
+            "cer": 0.6626984126984127,
+            "exact_sequence_accuracy": 0.0
+          },
+          "d516": {
+            "sequences": 17,
+            "reference_characters": 228,
+            "substitutions": 40,
+            "deletions": 51,
+            "insertions": 14,
+            "cer": 0.4605263157894737,
+            "exact_sequence_accuracy": 0.0
+          },
+          "d5fd": {
+            "sequences": 17,
+            "reference_characters": 227,
+            "substitutions": 47,
+            "deletions": 51,
+            "insertions": 13,
+            "cer": 0.4889867841409692,
+            "exact_sequence_accuracy": 0.0
+          },
+          "ebdb": {
+            "sequences": 17,
+            "reference_characters": 224,
+            "substitutions": 52,
+            "deletions": 44,
+            "insertions": 12,
+            "cer": 0.48214285714285715,
+            "exact_sequence_accuracy": 0.0
+          },
+          "f896": {
+            "sequences": 17,
+            "reference_characters": 231,
+            "substitutions": 45,
+            "deletions": 30,
+            "insertions": 12,
+            "cer": 0.37662337662337664,
+            "exact_sequence_accuracy": 0.0
+          }
+        },
+        "subgroups": {
+          "J": {
+            "sequences": 59,
+            "reference_characters": 750,
+            "substitutions": 150,
+            "deletions": 183,
+            "insertions": 47,
+            "cer": 0.5066666666666667,
+            "exact_sequence_accuracy": 0.0,
+            "interpretation_sample_count_sufficient": true,
+            "reference_character_occurrences": 62,
+            "aligned_character_recall": 0.6129032258064516
+          },
+          "Z": {
+            "sequences": 52,
+            "reference_characters": 725,
+            "substitutions": 131,
+            "deletions": 198,
+            "insertions": 47,
+            "cer": 0.5186206896551724,
+            "exact_sequence_accuracy": 0.0,
+            "interpretation_sample_count_sufficient": true,
+            "reference_character_occurrences": 58,
+            "aligned_character_recall": 0.46551724137931033
+          },
+          "REPEATED_LETTERS": {
+            "sequences": 109,
+            "reference_characters": 1508,
+            "substitutions": 293,
+            "deletions": 387,
+            "insertions": 84,
+            "cer": 0.506631299734748,
+            "exact_sequence_accuracy": 0.0,
+            "interpretation_sample_count_sufficient": true
+          }
+        },
+        "correct_aligned_reference_characters": 1885,
+        "predicted_characters": 2742,
+        "predicted_reference_ratio": 0.7931732716227944,
+        "exact_sequences": 0,
+        "empty_predictions": 0,
+        "macro_signer_cer": 0.5092486286264023
+      },
+      "directions": {
+        "regress": 57,
+        "unchanged": 153,
+        "improve": 46
+      },
+      "signer_directions": {
+        "001e": {
+          "full_cer": 0.5321888412017167,
+          "oracle_cer": 0.5321888412017167,
+          "sequences": 18,
+          "direction": "unchanged"
+        },
+        "1c15": {
+          "full_cer": 0.47345132743362833,
+          "oracle_cer": 0.4778761061946903,
+          "sequences": 17,
+          "direction": "regress"
+        },
+        "28d4": {
+          "full_cer": 0.5162790697674419,
+          "oracle_cer": 0.5209302325581395,
+          "sequences": 17,
+          "direction": "regress"
+        },
+        "2b19": {
+          "full_cer": 0.6375545851528385,
+          "oracle_cer": 0.6375545851528385,
+          "sequences": 17,
+          "direction": "unchanged"
+        },
+        "4e6b": {
+          "full_cer": 0.5022222222222222,
+          "oracle_cer": 0.49777777777777776,
+          "sequences": 17,
+          "direction": "improve"
+        },
+        "5ce0": {
+          "full_cer": 0.4879032258064516,
+          "oracle_cer": 0.5282258064516129,
+          "sequences": 17,
+          "direction": "regress"
+        },
+        "661f": {
+          "full_cer": 0.3728813559322034,
+          "oracle_cer": 0.3813559322033898,
+          "sequences": 17,
+          "direction": "regress"
+        },
+        "a459": {
+          "full_cer": 0.40969162995594716,
+          "oracle_cer": 0.42731277533039647,
+          "sequences": 17,
+          "direction": "regress"
+        },
+        "aeed": {
+          "full_cer": 0.4351464435146444,
+          "oracle_cer": 0.4225941422594142,
+          "sequences": 17,
+          "direction": "improve"
+        },
+        "c28d": {
+          "full_cer": 0.7235023041474654,
+          "oracle_cer": 0.7419354838709677,
+          "sequences": 17,
+          "direction": "regress"
+        },
+        "c6e5": {
+          "full_cer": 0.6626984126984127,
+          "oracle_cer": 0.6626984126984127,
+          "sequences": 17,
+          "direction": "unchanged"
+        },
+        "d516": {
+          "full_cer": 0.47368421052631576,
+          "oracle_cer": 0.4605263157894737,
+          "sequences": 17,
+          "direction": "improve"
+        },
+        "d5fd": {
+          "full_cer": 0.4581497797356828,
+          "oracle_cer": 0.4889867841409692,
+          "sequences": 17,
+          "direction": "regress"
+        },
+        "ebdb": {
+          "full_cer": 0.45982142857142855,
+          "oracle_cer": 0.48214285714285715,
+          "sequences": 17,
+          "direction": "regress"
+        },
+        "f896": {
+          "full_cer": 0.3852813852813853,
+          "oracle_cer": 0.37662337662337664,
+          "sequences": 17,
+          "direction": "improve"
+        }
+      },
+      "pearson_correlations_noncausal": {
+        "before_removed_percent": 0.08602476389092867,
+        "after_removed_percent": -0.06020282638623391,
+        "full_duration_s": 0.1461879736967269,
+        "outside_missing_hand_fraction": 0.07904823746327666
+      },
+      "full_ctc_infeasible": 0,
+      "oracle_ctc_infeasible": 0,
+      "cer_delta_pp": 0.7231703789412736,
+      "signer_cluster_bootstrap_95pct_cer_delta_pp": [
+        -0.02883714810048811,
+        1.4973768476427365
+      ],
+      "bootstrap_seed": 20261005,
+      "bootstrap_draws": 2000,
+      "full_overlength_sequences": 47,
+      "oracle_overlength_sequences": 45
+    },
+    "boundary_reset_b2_phone": {
+      "full": {
+        "sequences": 256,
+        "reference_characters": 3457,
+        "substitutions": 937,
+        "deletions": 745,
+        "insertions": 140,
+        "cer": 0.5270465721724038,
+        "exact_sequence_accuracy": 0.0,
+        "signers": {
+          "001e": {
+            "sequences": 18,
+            "reference_characters": 233,
+            "substitutions": 70,
+            "deletions": 40,
+            "insertions": 11,
+            "cer": 0.51931330472103,
+            "exact_sequence_accuracy": 0.0
+          },
+          "1c15": {
+            "sequences": 17,
+            "reference_characters": 226,
+            "substitutions": 74,
+            "deletions": 40,
+            "insertions": 7,
+            "cer": 0.5353982300884956,
+            "exact_sequence_accuracy": 0.0
+          },
+          "28d4": {
+            "sequences": 17,
+            "reference_characters": 215,
+            "substitutions": 71,
+            "deletions": 10,
+            "insertions": 23,
+            "cer": 0.48372093023255813,
+            "exact_sequence_accuracy": 0.0
+          },
+          "2b19": {
+            "sequences": 17,
+            "reference_characters": 229,
+            "substitutions": 72,
+            "deletions": 57,
+            "insertions": 9,
+            "cer": 0.6026200873362445,
+            "exact_sequence_accuracy": 0.0
+          },
+          "4e6b": {
+            "sequences": 17,
+            "reference_characters": 225,
+            "substitutions": 58,
+            "deletions": 58,
+            "insertions": 7,
+            "cer": 0.5466666666666666,
+            "exact_sequence_accuracy": 0.0
+          },
+          "5ce0": {
+            "sequences": 17,
+            "reference_characters": 248,
+            "substitutions": 56,
+            "deletions": 84,
+            "insertions": 3,
+            "cer": 0.5766129032258065,
+            "exact_sequence_accuracy": 0.0
+          },
+          "661f": {
+            "sequences": 17,
+            "reference_characters": 236,
+            "substitutions": 42,
+            "deletions": 28,
+            "insertions": 15,
+            "cer": 0.3601694915254237,
+            "exact_sequence_accuracy": 0.0
+          },
+          "a459": {
+            "sequences": 17,
+            "reference_characters": 227,
+            "substitutions": 47,
+            "deletions": 39,
+            "insertions": 10,
+            "cer": 0.42290748898678415,
+            "exact_sequence_accuracy": 0.0
+          },
+          "aeed": {
+            "sequences": 17,
+            "reference_characters": 239,
+            "substitutions": 57,
+            "deletions": 64,
+            "insertions": 5,
+            "cer": 0.5271966527196653,
+            "exact_sequence_accuracy": 0.0
+          },
+          "c28d": {
+            "sequences": 17,
+            "reference_characters": 217,
+            "substitutions": 99,
+            "deletions": 53,
+            "insertions": 6,
+            "cer": 0.728110599078341,
+            "exact_sequence_accuracy": 0.0
+          },
+          "c6e5": {
+            "sequences": 17,
+            "reference_characters": 252,
+            "substitutions": 85,
+            "deletions": 69,
+            "insertions": 12,
+            "cer": 0.6587301587301587,
+            "exact_sequence_accuracy": 0.0
+          },
+          "d516": {
+            "sequences": 17,
+            "reference_characters": 228,
+            "substitutions": 44,
+            "deletions": 68,
+            "insertions": 7,
+            "cer": 0.5219298245614035,
+            "exact_sequence_accuracy": 0.0
+          },
+          "d5fd": {
+            "sequences": 17,
+            "reference_characters": 227,
+            "substitutions": 48,
+            "deletions": 48,
+            "insertions": 8,
+            "cer": 0.4581497797356828,
+            "exact_sequence_accuracy": 0.0
+          },
+          "ebdb": {
+            "sequences": 17,
+            "reference_characters": 224,
+            "substitutions": 53,
+            "deletions": 60,
+            "insertions": 3,
+            "cer": 0.5178571428571429,
+            "exact_sequence_accuracy": 0.0
+          },
+          "f896": {
+            "sequences": 17,
+            "reference_characters": 231,
+            "substitutions": 61,
+            "deletions": 27,
+            "insertions": 14,
+            "cer": 0.44155844155844154,
+            "exact_sequence_accuracy": 0.0
+          }
+        },
+        "subgroups": {
+          "J": {
+            "sequences": 59,
+            "reference_characters": 750,
+            "substitutions": 211,
+            "deletions": 154,
+            "insertions": 35,
+            "cer": 0.5333333333333333,
+            "exact_sequence_accuracy": 0.0,
+            "interpretation_sample_count_sufficient": true,
+            "reference_character_occurrences": 62,
+            "aligned_character_recall": 0.5483870967741935
+          },
+          "Z": {
+            "sequences": 52,
+            "reference_characters": 725,
+            "substitutions": 213,
+            "deletions": 159,
+            "insertions": 21,
+            "cer": 0.5420689655172414,
+            "exact_sequence_accuracy": 0.0,
+            "interpretation_sample_count_sufficient": true,
+            "reference_character_occurrences": 58,
+            "aligned_character_recall": 0.3103448275862069
+          },
+          "REPEATED_LETTERS": {
+            "sequences": 109,
+            "reference_characters": 1508,
+            "substitutions": 401,
+            "deletions": 329,
+            "insertions": 54,
+            "cer": 0.519893899204244,
+            "exact_sequence_accuracy": 0.0,
+            "interpretation_sample_count_sufficient": true
+          }
+        },
+        "correct_aligned_reference_characters": 1775,
+        "predicted_characters": 2852,
+        "predicted_reference_ratio": 0.8249927682962106,
+        "exact_sequences": 0,
+        "empty_predictions": 0,
+        "macro_signer_cer": 0.5267294468015896
+      },
+      "oracle": {
+        "sequences": 256,
+        "reference_characters": 3457,
+        "substitutions": 876,
+        "deletions": 872,
+        "insertions": 115,
+        "cer": 0.5389065663870408,
+        "exact_sequence_accuracy": 0.0,
+        "signers": {
+          "001e": {
+            "sequences": 18,
+            "reference_characters": 233,
+            "substitutions": 55,
+            "deletions": 47,
+            "insertions": 18,
+            "cer": 0.5150214592274678,
+            "exact_sequence_accuracy": 0.0
+          },
+          "1c15": {
+            "sequences": 17,
+            "reference_characters": 226,
+            "substitutions": 64,
+            "deletions": 47,
+            "insertions": 7,
+            "cer": 0.5221238938053098,
+            "exact_sequence_accuracy": 0.0
+          },
+          "28d4": {
+            "sequences": 17,
+            "reference_characters": 215,
+            "substitutions": 63,
+            "deletions": 12,
+            "insertions": 23,
+            "cer": 0.4558139534883721,
+            "exact_sequence_accuracy": 0.0
+          },
+          "2b19": {
+            "sequences": 17,
+            "reference_characters": 229,
+            "substitutions": 74,
+            "deletions": 58,
+            "insertions": 15,
+            "cer": 0.6419213973799127,
+            "exact_sequence_accuracy": 0.0
+          },
+          "4e6b": {
+            "sequences": 17,
+            "reference_characters": 225,
+            "substitutions": 53,
+            "deletions": 60,
+            "insertions": 7,
+            "cer": 0.5333333333333333,
+            "exact_sequence_accuracy": 0.0
+          },
+          "5ce0": {
+            "sequences": 17,
+            "reference_characters": 248,
+            "substitutions": 37,
+            "deletions": 113,
+            "insertions": 0,
+            "cer": 0.6048387096774194,
+            "exact_sequence_accuracy": 0.0
+          },
+          "661f": {
+            "sequences": 17,
+            "reference_characters": 236,
+            "substitutions": 39,
+            "deletions": 42,
+            "insertions": 11,
+            "cer": 0.3898305084745763,
+            "exact_sequence_accuracy": 0.0
+          },
+          "a459": {
+            "sequences": 17,
+            "reference_characters": 227,
+            "substitutions": 45,
+            "deletions": 60,
+            "insertions": 7,
+            "cer": 0.4933920704845815,
+            "exact_sequence_accuracy": 0.0
+          },
+          "aeed": {
+            "sequences": 17,
+            "reference_characters": 239,
+            "substitutions": 43,
+            "deletions": 81,
+            "insertions": 0,
+            "cer": 0.5188284518828452,
+            "exact_sequence_accuracy": 0.0
+          },
+          "c28d": {
+            "sequences": 17,
+            "reference_characters": 217,
+            "substitutions": 95,
+            "deletions": 53,
+            "insertions": 2,
+            "cer": 0.6912442396313364,
+            "exact_sequence_accuracy": 0.0
+          },
+          "c6e5": {
+            "sequences": 17,
+            "reference_characters": 252,
+            "substitutions": 82,
+            "deletions": 72,
+            "insertions": 10,
+            "cer": 0.6507936507936508,
+            "exact_sequence_accuracy": 0.0
+          },
+          "d516": {
+            "sequences": 17,
+            "reference_characters": 228,
+            "substitutions": 44,
+            "deletions": 70,
+            "insertions": 5,
+            "cer": 0.5219298245614035,
+            "exact_sequence_accuracy": 0.0
+          },
+          "d5fd": {
+            "sequences": 17,
+            "reference_characters": 227,
+            "substitutions": 54,
+            "deletions": 64,
+            "insertions": 0,
+            "cer": 0.5198237885462555,
+            "exact_sequence_accuracy": 0.0
+          },
+          "ebdb": {
+            "sequences": 17,
+            "reference_characters": 224,
+            "substitutions": 69,
+            "deletions": 54,
+            "insertions": 3,
+            "cer": 0.5625,
+            "exact_sequence_accuracy": 0.0
+          },
+          "f896": {
+            "sequences": 17,
+            "reference_characters": 231,
+            "substitutions": 59,
+            "deletions": 39,
+            "insertions": 7,
+            "cer": 0.45454545454545453,
+            "exact_sequence_accuracy": 0.0
+          }
+        },
+        "subgroups": {
+          "J": {
+            "sequences": 59,
+            "reference_characters": 750,
+            "substitutions": 185,
+            "deletions": 185,
+            "insertions": 34,
+            "cer": 0.5386666666666666,
+            "exact_sequence_accuracy": 0.0,
+            "interpretation_sample_count_sufficient": true,
+            "reference_character_occurrences": 62,
+            "aligned_character_recall": 0.43548387096774194
+          },
+          "Z": {
+            "sequences": 52,
+            "reference_characters": 725,
+            "substitutions": 200,
+            "deletions": 174,
+            "insertions": 20,
+            "cer": 0.543448275862069,
+            "exact_sequence_accuracy": 0.0,
+            "interpretation_sample_count_sufficient": true,
+            "reference_character_occurrences": 58,
+            "aligned_character_recall": 0.43103448275862066
+          },
+          "REPEATED_LETTERS": {
+            "sequences": 109,
+            "reference_characters": 1508,
+            "substitutions": 376,
+            "deletions": 376,
+            "insertions": 51,
+            "cer": 0.5324933687002652,
+            "exact_sequence_accuracy": 0.0,
+            "interpretation_sample_count_sufficient": true
+          }
+        },
+        "correct_aligned_reference_characters": 1709,
+        "predicted_characters": 2700,
+        "predicted_reference_ratio": 0.7810240092565809,
+        "exact_sequences": 0,
+        "empty_predictions": 0,
+        "macro_signer_cer": 0.5383960490554612
+      },
+      "directions": {
+        "unchanged": 63,
+        "regress": 100,
+        "improve": 93
+      },
+      "signer_directions": {
+        "001e": {
+          "full_cer": 0.51931330472103,
+          "oracle_cer": 0.5150214592274678,
+          "sequences": 18,
+          "direction": "improve"
+        },
+        "1c15": {
+          "full_cer": 0.5353982300884956,
+          "oracle_cer": 0.5221238938053098,
+          "sequences": 17,
+          "direction": "improve"
+        },
+        "28d4": {
+          "full_cer": 0.48372093023255813,
+          "oracle_cer": 0.4558139534883721,
+          "sequences": 17,
+          "direction": "improve"
+        },
+        "2b19": {
+          "full_cer": 0.6026200873362445,
+          "oracle_cer": 0.6419213973799127,
+          "sequences": 17,
+          "direction": "regress"
+        },
+        "4e6b": {
+          "full_cer": 0.5466666666666666,
+          "oracle_cer": 0.5333333333333333,
+          "sequences": 17,
+          "direction": "improve"
+        },
+        "5ce0": {
+          "full_cer": 0.5766129032258065,
+          "oracle_cer": 0.6048387096774194,
+          "sequences": 17,
+          "direction": "regress"
+        },
+        "661f": {
+          "full_cer": 0.3601694915254237,
+          "oracle_cer": 0.3898305084745763,
+          "sequences": 17,
+          "direction": "regress"
+        },
+        "a459": {
+          "full_cer": 0.42290748898678415,
+          "oracle_cer": 0.4933920704845815,
+          "sequences": 17,
+          "direction": "regress"
+        },
+        "aeed": {
+          "full_cer": 0.5271966527196653,
+          "oracle_cer": 0.5188284518828452,
+          "sequences": 17,
+          "direction": "improve"
+        },
+        "c28d": {
+          "full_cer": 0.728110599078341,
+          "oracle_cer": 0.6912442396313364,
+          "sequences": 17,
+          "direction": "improve"
+        },
+        "c6e5": {
+          "full_cer": 0.6587301587301587,
+          "oracle_cer": 0.6507936507936508,
+          "sequences": 17,
+          "direction": "improve"
+        },
+        "d516": {
+          "full_cer": 0.5219298245614035,
+          "oracle_cer": 0.5219298245614035,
+          "sequences": 17,
+          "direction": "unchanged"
+        },
+        "d5fd": {
+          "full_cer": 0.4581497797356828,
+          "oracle_cer": 0.5198237885462555,
+          "sequences": 17,
+          "direction": "regress"
+        },
+        "ebdb": {
+          "full_cer": 0.5178571428571429,
+          "oracle_cer": 0.5625,
+          "sequences": 17,
+          "direction": "regress"
+        },
+        "f896": {
+          "full_cer": 0.44155844155844154,
+          "oracle_cer": 0.45454545454545453,
+          "sequences": 17,
+          "direction": "regress"
+        }
+      },
+      "pearson_correlations_noncausal": {
+        "before_removed_percent": 0.006072933933643905,
+        "after_removed_percent": -0.06592802170758458,
+        "full_duration_s": 0.07870250272299818,
+        "outside_missing_hand_fraction": 0.11320070114166153
+      },
+      "full_ctc_infeasible": 2,
+      "oracle_ctc_infeasible": 21,
+      "cer_delta_pp": 1.1859994214637015,
+      "signer_cluster_bootstrap_95pct_cer_delta_pp": [
+        -0.34908863159216513,
+        2.7232297452085072
+      ],
+      "bootstrap_seed": 20261005,
+      "bootstrap_draws": 2000,
+      "full_overlength_sequences": 35,
+      "oracle_overlength_sequences": 36
+    },
+    "boundary_reset_residual_native": {
+      "full": {
+        "sequences": 256,
+        "reference_characters": 3457,
+        "substitutions": 679,
+        "deletions": 824,
+        "insertions": 209,
+        "cer": 0.49522707549898753,
+        "exact_sequence_accuracy": 0.0,
+        "signers": {
+          "001e": {
+            "sequences": 18,
+            "reference_characters": 233,
+            "substitutions": 61,
+            "deletions": 49,
+            "insertions": 9,
+            "cer": 0.5107296137339056,
+            "exact_sequence_accuracy": 0.0
+          },
+          "1c15": {
+            "sequences": 17,
+            "reference_characters": 226,
+            "substitutions": 56,
+            "deletions": 37,
+            "insertions": 10,
+            "cer": 0.4557522123893805,
+            "exact_sequence_accuracy": 0.0
+          },
+          "28d4": {
+            "sequences": 17,
+            "reference_characters": 215,
+            "substitutions": 48,
+            "deletions": 21,
+            "insertions": 41,
+            "cer": 0.5116279069767442,
+            "exact_sequence_accuracy": 0.0
+          },
+          "2b19": {
+            "sequences": 17,
+            "reference_characters": 229,
+            "substitutions": 48,
+            "deletions": 81,
+            "insertions": 14,
+            "cer": 0.6244541484716157,
+            "exact_sequence_accuracy": 0.0
+          },
+          "4e6b": {
+            "sequences": 17,
+            "reference_characters": 225,
+            "substitutions": 49,
+            "deletions": 61,
+            "insertions": 6,
+            "cer": 0.5155555555555555,
+            "exact_sequence_accuracy": 0.0
+          },
+          "5ce0": {
+            "sequences": 17,
+            "reference_characters": 248,
+            "substitutions": 50,
+            "deletions": 67,
+            "insertions": 3,
+            "cer": 0.4838709677419355,
+            "exact_sequence_accuracy": 0.0
+          },
+          "661f": {
+            "sequences": 17,
+            "reference_characters": 236,
+            "substitutions": 40,
+            "deletions": 28,
+            "insertions": 17,
+            "cer": 0.3601694915254237,
+            "exact_sequence_accuracy": 0.0
+          },
+          "a459": {
+            "sequences": 17,
+            "reference_characters": 227,
+            "substitutions": 33,
+            "deletions": 46,
+            "insertions": 18,
+            "cer": 0.42731277533039647,
+            "exact_sequence_accuracy": 0.0
+          },
+          "aeed": {
+            "sequences": 17,
+            "reference_characters": 239,
+            "substitutions": 38,
+            "deletions": 62,
+            "insertions": 7,
+            "cer": 0.4476987447698745,
+            "exact_sequence_accuracy": 0.0
+          },
+          "c28d": {
+            "sequences": 17,
+            "reference_characters": 217,
+            "substitutions": 42,
+            "deletions": 110,
+            "insertions": 3,
+            "cer": 0.7142857142857143,
+            "exact_sequence_accuracy": 0.0
+          },
+          "c6e5": {
+            "sequences": 17,
+            "reference_characters": 252,
+            "substitutions": 56,
+            "deletions": 98,
+            "insertions": 10,
+            "cer": 0.6507936507936508,
+            "exact_sequence_accuracy": 0.0
+          },
+          "d516": {
+            "sequences": 17,
+            "reference_characters": 228,
+            "substitutions": 36,
+            "deletions": 55,
+            "insertions": 14,
+            "cer": 0.4605263157894737,
+            "exact_sequence_accuracy": 0.0
+          },
+          "d5fd": {
+            "sequences": 17,
+            "reference_characters": 227,
+            "substitutions": 48,
+            "deletions": 39,
+            "insertions": 21,
+            "cer": 0.47577092511013214,
+            "exact_sequence_accuracy": 0.0
+          },
+          "ebdb": {
+            "sequences": 17,
+            "reference_characters": 224,
+            "substitutions": 38,
+            "deletions": 44,
+            "insertions": 11,
+            "cer": 0.41517857142857145,
+            "exact_sequence_accuracy": 0.0
+          },
+          "f896": {
+            "sequences": 17,
+            "reference_characters": 231,
+            "substitutions": 36,
+            "deletions": 26,
+            "insertions": 25,
+            "cer": 0.37662337662337664,
+            "exact_sequence_accuracy": 0.0
+          }
+        },
+        "subgroups": {
+          "J": {
+            "sequences": 59,
+            "reference_characters": 750,
+            "substitutions": 151,
+            "deletions": 176,
+            "insertions": 60,
+            "cer": 0.516,
+            "exact_sequence_accuracy": 0.0,
+            "interpretation_sample_count_sufficient": true,
+            "reference_character_occurrences": 62,
+            "aligned_character_recall": 0.6290322580645161
+          },
+          "Z": {
+            "sequences": 52,
+            "reference_characters": 725,
+            "substitutions": 135,
+            "deletions": 180,
+            "insertions": 47,
+            "cer": 0.4993103448275862,
+            "exact_sequence_accuracy": 0.0,
+            "interpretation_sample_count_sufficient": true,
+            "reference_character_occurrences": 58,
+            "aligned_character_recall": 0.5
+          },
+          "REPEATED_LETTERS": {
+            "sequences": 109,
+            "reference_characters": 1508,
+            "substitutions": 303,
+            "deletions": 348,
+            "insertions": 98,
+            "cer": 0.496684350132626,
+            "exact_sequence_accuracy": 0.0,
+            "interpretation_sample_count_sufficient": true
+          }
+        },
+        "correct_aligned_reference_characters": 1954,
+        "predicted_characters": 2842,
+        "predicted_reference_ratio": 0.8221000867804454,
+        "exact_sequences": 0,
+        "empty_predictions": 0,
+        "macro_signer_cer": 0.4953566647017167
+      },
+      "oracle": {
+        "sequences": 256,
+        "reference_characters": 3457,
+        "substitutions": 674,
+        "deletions": 863,
+        "insertions": 196,
+        "cer": 0.5013017066820943,
+        "exact_sequence_accuracy": 0.0,
+        "signers": {
+          "001e": {
+            "sequences": 18,
+            "reference_characters": 233,
+            "substitutions": 65,
+            "deletions": 49,
+            "insertions": 6,
+            "cer": 0.5150214592274678,
+            "exact_sequence_accuracy": 0.0
+          },
+          "1c15": {
+            "sequences": 17,
+            "reference_characters": 226,
+            "substitutions": 57,
+            "deletions": 36,
+            "insertions": 12,
+            "cer": 0.4646017699115044,
+            "exact_sequence_accuracy": 0.0
+          },
+          "28d4": {
+            "sequences": 17,
+            "reference_characters": 215,
+            "substitutions": 48,
+            "deletions": 21,
+            "insertions": 40,
+            "cer": 0.5069767441860465,
+            "exact_sequence_accuracy": 0.0
+          },
+          "2b19": {
+            "sequences": 17,
+            "reference_characters": 229,
+            "substitutions": 47,
+            "deletions": 82,
+            "insertions": 13,
+            "cer": 0.6200873362445415,
+            "exact_sequence_accuracy": 0.0
+          },
+          "4e6b": {
+            "sequences": 17,
+            "reference_characters": 225,
+            "substitutions": 48,
+            "deletions": 62,
+            "insertions": 4,
+            "cer": 0.5066666666666667,
+            "exact_sequence_accuracy": 0.0
+          },
+          "5ce0": {
+            "sequences": 17,
+            "reference_characters": 248,
+            "substitutions": 39,
+            "deletions": 88,
+            "insertions": 1,
+            "cer": 0.5161290322580645,
+            "exact_sequence_accuracy": 0.0
+          },
+          "661f": {
+            "sequences": 17,
+            "reference_characters": 236,
+            "substitutions": 38,
+            "deletions": 30,
+            "insertions": 20,
+            "cer": 0.3728813559322034,
+            "exact_sequence_accuracy": 0.0
+          },
+          "a459": {
+            "sequences": 17,
+            "reference_characters": 227,
+            "substitutions": 27,
+            "deletions": 51,
+            "insertions": 17,
+            "cer": 0.4185022026431718,
+            "exact_sequence_accuracy": 0.0
+          },
+          "aeed": {
+            "sequences": 17,
+            "reference_characters": 239,
+            "substitutions": 34,
+            "deletions": 60,
+            "insertions": 5,
+            "cer": 0.41422594142259417,
+            "exact_sequence_accuracy": 0.0
+          },
+          "c28d": {
+            "sequences": 17,
+            "reference_characters": 217,
+            "substitutions": 50,
+            "deletions": 109,
+            "insertions": 4,
+            "cer": 0.7511520737327189,
+            "exact_sequence_accuracy": 0.0
+          },
+          "c6e5": {
+            "sequences": 17,
+            "reference_characters": 252,
+            "substitutions": 56,
+            "deletions": 98,
+            "insertions": 10,
+            "cer": 0.6507936507936508,
+            "exact_sequence_accuracy": 0.0
+          },
+          "d516": {
+            "sequences": 17,
+            "reference_characters": 228,
+            "substitutions": 32,
+            "deletions": 53,
+            "insertions": 14,
+            "cer": 0.4342105263157895,
+            "exact_sequence_accuracy": 0.0
+          },
+          "d5fd": {
+            "sequences": 17,
+            "reference_characters": 227,
+            "substitutions": 50,
+            "deletions": 47,
+            "insertions": 17,
+            "cer": 0.5022026431718062,
+            "exact_sequence_accuracy": 0.0
+          },
+          "ebdb": {
+            "sequences": 17,
+            "reference_characters": 224,
+            "substitutions": 43,
+            "deletions": 43,
+            "insertions": 15,
+            "cer": 0.45089285714285715,
+            "exact_sequence_accuracy": 0.0
+          },
+          "f896": {
+            "sequences": 17,
+            "reference_characters": 231,
+            "substitutions": 40,
+            "deletions": 34,
+            "insertions": 18,
+            "cer": 0.39826839826839827,
+            "exact_sequence_accuracy": 0.0
+          }
+        },
+        "subgroups": {
+          "J": {
+            "sequences": 59,
+            "reference_characters": 750,
+            "substitutions": 141,
+            "deletions": 181,
+            "insertions": 55,
+            "cer": 0.5026666666666667,
+            "exact_sequence_accuracy": 0.0,
+            "interpretation_sample_count_sufficient": true,
+            "reference_character_occurrences": 62,
+            "aligned_character_recall": 0.6129032258064516
+          },
+          "Z": {
+            "sequences": 52,
+            "reference_characters": 725,
+            "substitutions": 132,
+            "deletions": 190,
+            "insertions": 42,
+            "cer": 0.5020689655172413,
+            "exact_sequence_accuracy": 0.0,
+            "interpretation_sample_count_sufficient": true,
+            "reference_character_occurrences": 58,
+            "aligned_character_recall": 0.4827586206896552
+          },
+          "REPEATED_LETTERS": {
+            "sequences": 109,
+            "reference_characters": 1508,
+            "substitutions": 297,
+            "deletions": 377,
+            "insertions": 82,
+            "cer": 0.5013262599469496,
+            "exact_sequence_accuracy": 0.0,
+            "interpretation_sample_count_sufficient": true
+          }
+        },
+        "correct_aligned_reference_characters": 1920,
+        "predicted_characters": 2790,
+        "predicted_reference_ratio": 0.8070581428984669,
+        "exact_sequences": 0,
+        "empty_predictions": 0,
+        "macro_signer_cer": 0.5015075105278322
+      },
+      "directions": {
+        "unchanged": 135,
+        "regress": 67,
+        "improve": 54
+      },
+      "signer_directions": {
+        "001e": {
+          "full_cer": 0.5107296137339056,
+          "oracle_cer": 0.5150214592274678,
+          "sequences": 18,
+          "direction": "regress"
+        },
+        "1c15": {
+          "full_cer": 0.4557522123893805,
+          "oracle_cer": 0.4646017699115044,
+          "sequences": 17,
+          "direction": "regress"
+        },
+        "28d4": {
+          "full_cer": 0.5116279069767442,
+          "oracle_cer": 0.5069767441860465,
+          "sequences": 17,
+          "direction": "improve"
+        },
+        "2b19": {
+          "full_cer": 0.6244541484716157,
+          "oracle_cer": 0.6200873362445415,
+          "sequences": 17,
+          "direction": "improve"
+        },
+        "4e6b": {
+          "full_cer": 0.5155555555555555,
+          "oracle_cer": 0.5066666666666667,
+          "sequences": 17,
+          "direction": "improve"
+        },
+        "5ce0": {
+          "full_cer": 0.4838709677419355,
+          "oracle_cer": 0.5161290322580645,
+          "sequences": 17,
+          "direction": "regress"
+        },
+        "661f": {
+          "full_cer": 0.3601694915254237,
+          "oracle_cer": 0.3728813559322034,
+          "sequences": 17,
+          "direction": "regress"
+        },
+        "a459": {
+          "full_cer": 0.42731277533039647,
+          "oracle_cer": 0.4185022026431718,
+          "sequences": 17,
+          "direction": "improve"
+        },
+        "aeed": {
+          "full_cer": 0.4476987447698745,
+          "oracle_cer": 0.41422594142259417,
+          "sequences": 17,
+          "direction": "improve"
+        },
+        "c28d": {
+          "full_cer": 0.7142857142857143,
+          "oracle_cer": 0.7511520737327189,
+          "sequences": 17,
+          "direction": "regress"
+        },
+        "c6e5": {
+          "full_cer": 0.6507936507936508,
+          "oracle_cer": 0.6507936507936508,
+          "sequences": 17,
+          "direction": "unchanged"
+        },
+        "d516": {
+          "full_cer": 0.4605263157894737,
+          "oracle_cer": 0.4342105263157895,
+          "sequences": 17,
+          "direction": "improve"
+        },
+        "d5fd": {
+          "full_cer": 0.47577092511013214,
+          "oracle_cer": 0.5022026431718062,
+          "sequences": 17,
+          "direction": "regress"
+        },
+        "ebdb": {
+          "full_cer": 0.41517857142857145,
+          "oracle_cer": 0.45089285714285715,
+          "sequences": 17,
+          "direction": "regress"
+        },
+        "f896": {
+          "full_cer": 0.37662337662337664,
+          "oracle_cer": 0.39826839826839827,
+          "sequences": 17,
+          "direction": "regress"
+        }
+      },
+      "pearson_correlations_noncausal": {
+        "before_removed_percent": 0.07670664644314175,
+        "after_removed_percent": -0.03117497192052745,
+        "full_duration_s": 0.12296495289330023,
+        "outside_missing_hand_fraction": 0.006766027020317327
+      },
+      "full_ctc_infeasible": 0,
+      "oracle_ctc_infeasible": 0,
+      "cer_delta_pp": 0.6074631183106749,
+      "signer_cluster_bootstrap_95pct_cer_delta_pp": [
+        -0.4371241321091792,
+        1.6227651289800753
+      ],
+      "bootstrap_seed": 20261005,
+      "bootstrap_draws": 2000,
+      "full_overlength_sequences": 52,
+      "oracle_overlength_sequences": 51
+    },
+    "boundary_reset_residual_phone": {
+      "full": {
+        "sequences": 256,
+        "reference_characters": 3457,
+        "substitutions": 920,
+        "deletions": 739,
+        "insertions": 144,
+        "cer": 0.5215504772924501,
+        "exact_sequence_accuracy": 0.0,
+        "signers": {
+          "001e": {
+            "sequences": 18,
+            "reference_characters": 233,
+            "substitutions": 76,
+            "deletions": 37,
+            "insertions": 9,
+            "cer": 0.5236051502145923,
+            "exact_sequence_accuracy": 0.0
+          },
+          "1c15": {
+            "sequences": 17,
+            "reference_characters": 226,
+            "substitutions": 73,
+            "deletions": 37,
+            "insertions": 9,
+            "cer": 0.5265486725663717,
+            "exact_sequence_accuracy": 0.0
+          },
+          "28d4": {
+            "sequences": 17,
+            "reference_characters": 215,
+            "substitutions": 63,
+            "deletions": 11,
+            "insertions": 24,
+            "cer": 0.4558139534883721,
+            "exact_sequence_accuracy": 0.0
+          },
+          "2b19": {
+            "sequences": 17,
+            "reference_characters": 229,
+            "substitutions": 72,
+            "deletions": 57,
+            "insertions": 9,
+            "cer": 0.6026200873362445,
+            "exact_sequence_accuracy": 0.0
+          },
+          "4e6b": {
+            "sequences": 17,
+            "reference_characters": 225,
+            "substitutions": 51,
+            "deletions": 63,
+            "insertions": 7,
+            "cer": 0.5377777777777778,
+            "exact_sequence_accuracy": 0.0
+          },
+          "5ce0": {
+            "sequences": 17,
+            "reference_characters": 248,
+            "substitutions": 64,
+            "deletions": 79,
+            "insertions": 3,
+            "cer": 0.5887096774193549,
+            "exact_sequence_accuracy": 0.0
+          },
+          "661f": {
+            "sequences": 17,
+            "reference_characters": 236,
+            "substitutions": 41,
+            "deletions": 30,
+            "insertions": 14,
+            "cer": 0.3601694915254237,
+            "exact_sequence_accuracy": 0.0
+          },
+          "a459": {
+            "sequences": 17,
+            "reference_characters": 227,
+            "substitutions": 50,
+            "deletions": 36,
+            "insertions": 11,
+            "cer": 0.42731277533039647,
+            "exact_sequence_accuracy": 0.0
+          },
+          "aeed": {
+            "sequences": 17,
+            "reference_characters": 239,
+            "substitutions": 59,
+            "deletions": 59,
+            "insertions": 8,
+            "cer": 0.5271966527196653,
+            "exact_sequence_accuracy": 0.0
+          },
+          "c28d": {
+            "sequences": 17,
+            "reference_characters": 217,
+            "substitutions": 92,
+            "deletions": 56,
+            "insertions": 5,
+            "cer": 0.7050691244239631,
+            "exact_sequence_accuracy": 0.0
+          },
+          "c6e5": {
+            "sequences": 17,
+            "reference_characters": 252,
+            "substitutions": 76,
+            "deletions": 70,
+            "insertions": 10,
+            "cer": 0.6190476190476191,
+            "exact_sequence_accuracy": 0.0
+          },
+          "d516": {
+            "sequences": 17,
+            "reference_characters": 228,
+            "substitutions": 42,
+            "deletions": 73,
+            "insertions": 6,
+            "cer": 0.5307017543859649,
+            "exact_sequence_accuracy": 0.0
+          },
+          "d5fd": {
+            "sequences": 17,
+            "reference_characters": 227,
+            "substitutions": 46,
+            "deletions": 48,
+            "insertions": 9,
+            "cer": 0.45374449339207046,
+            "exact_sequence_accuracy": 0.0
+          },
+          "ebdb": {
+            "sequences": 17,
+            "reference_characters": 224,
+            "substitutions": 56,
+            "deletions": 55,
+            "insertions": 3,
+            "cer": 0.5089285714285714,
+            "exact_sequence_accuracy": 0.0
+          },
+          "f896": {
+            "sequences": 17,
+            "reference_characters": 231,
+            "substitutions": 59,
+            "deletions": 28,
+            "insertions": 17,
+            "cer": 0.45021645021645024,
+            "exact_sequence_accuracy": 0.0
+          }
+        },
+        "subgroups": {
+          "J": {
+            "sequences": 59,
+            "reference_characters": 750,
+            "substitutions": 195,
+            "deletions": 166,
+            "insertions": 37,
+            "cer": 0.5306666666666666,
+            "exact_sequence_accuracy": 0.0,
+            "interpretation_sample_count_sufficient": true,
+            "reference_character_occurrences": 62,
+            "aligned_character_recall": 0.5806451612903226
+          },
+          "Z": {
+            "sequences": 52,
+            "reference_characters": 725,
+            "substitutions": 203,
+            "deletions": 153,
+            "insertions": 28,
+            "cer": 0.5296551724137931,
+            "exact_sequence_accuracy": 0.0,
+            "interpretation_sample_count_sufficient": true,
+            "reference_character_occurrences": 58,
+            "aligned_character_recall": 0.3275862068965517
+          },
+          "REPEATED_LETTERS": {
+            "sequences": 109,
+            "reference_characters": 1508,
+            "substitutions": 387,
+            "deletions": 328,
+            "insertions": 57,
+            "cer": 0.5119363395225465,
+            "exact_sequence_accuracy": 0.0,
+            "interpretation_sample_count_sufficient": true
+          }
+        },
+        "correct_aligned_reference_characters": 1798,
+        "predicted_characters": 2862,
+        "predicted_reference_ratio": 0.8278854498119756,
+        "exact_sequences": 0,
+        "empty_predictions": 0,
+        "macro_signer_cer": 0.5211641500848558
+      },
+      "oracle": {
+        "sequences": 256,
+        "reference_characters": 3457,
+        "substitutions": 843,
+        "deletions": 888,
+        "insertions": 122,
+        "cer": 0.5360138848712757,
+        "exact_sequence_accuracy": 0.0,
+        "signers": {
+          "001e": {
+            "sequences": 18,
+            "reference_characters": 233,
+            "substitutions": 64,
+            "deletions": 43,
+            "insertions": 12,
+            "cer": 0.5107296137339056,
+            "exact_sequence_accuracy": 0.0
+          },
+          "1c15": {
+            "sequences": 17,
+            "reference_characters": 226,
+            "substitutions": 58,
+            "deletions": 49,
+            "insertions": 9,
+            "cer": 0.5132743362831859,
+            "exact_sequence_accuracy": 0.0
+          },
+          "28d4": {
+            "sequences": 17,
+            "reference_characters": 215,
+            "substitutions": 49,
+            "deletions": 18,
+            "insertions": 28,
+            "cer": 0.4418604651162791,
+            "exact_sequence_accuracy": 0.0
+          },
+          "2b19": {
+            "sequences": 17,
+            "reference_characters": 229,
+            "substitutions": 71,
+            "deletions": 57,
+            "insertions": 15,
+            "cer": 0.6244541484716157,
+            "exact_sequence_accuracy": 0.0
+          },
+          "4e6b": {
+            "sequences": 17,
+            "reference_characters": 225,
+            "substitutions": 51,
+            "deletions": 65,
+            "insertions": 7,
+            "cer": 0.5466666666666666,
+            "exact_sequence_accuracy": 0.0
+          },
+          "5ce0": {
+            "sequences": 17,
+            "reference_characters": 248,
+            "substitutions": 37,
+            "deletions": 114,
+            "insertions": 0,
+            "cer": 0.6088709677419355,
+            "exact_sequence_accuracy": 0.0
+          },
+          "661f": {
+            "sequences": 17,
+            "reference_characters": 236,
+            "substitutions": 44,
+            "deletions": 41,
+            "insertions": 9,
+            "cer": 0.3983050847457627,
+            "exact_sequence_accuracy": 0.0
+          },
+          "a459": {
+            "sequences": 17,
+            "reference_characters": 227,
+            "substitutions": 48,
+            "deletions": 62,
+            "insertions": 7,
+            "cer": 0.5154185022026432,
+            "exact_sequence_accuracy": 0.0
+          },
+          "aeed": {
+            "sequences": 17,
+            "reference_characters": 239,
+            "substitutions": 43,
+            "deletions": 79,
+            "insertions": 1,
+            "cer": 0.5146443514644351,
+            "exact_sequence_accuracy": 0.0
+          },
+          "c28d": {
+            "sequences": 17,
+            "reference_characters": 217,
+            "substitutions": 90,
+            "deletions": 52,
+            "insertions": 3,
+            "cer": 0.6682027649769585,
+            "exact_sequence_accuracy": 0.0
+          },
+          "c6e5": {
+            "sequences": 17,
+            "reference_characters": 252,
+            "substitutions": 79,
+            "deletions": 68,
+            "insertions": 14,
+            "cer": 0.6388888888888888,
+            "exact_sequence_accuracy": 0.0
+          },
+          "d516": {
+            "sequences": 17,
+            "reference_characters": 228,
+            "substitutions": 41,
+            "deletions": 81,
+            "insertions": 3,
+            "cer": 0.5482456140350878,
+            "exact_sequence_accuracy": 0.0
+          },
+          "d5fd": {
+            "sequences": 17,
+            "reference_characters": 227,
+            "substitutions": 45,
+            "deletions": 67,
+            "insertions": 3,
+            "cer": 0.5066079295154186,
+            "exact_sequence_accuracy": 0.0
+          },
+          "ebdb": {
+            "sequences": 17,
+            "reference_characters": 224,
+            "substitutions": 68,
+            "deletions": 50,
+            "insertions": 2,
+            "cer": 0.5357142857142857,
+            "exact_sequence_accuracy": 0.0
+          },
+          "f896": {
+            "sequences": 17,
+            "reference_characters": 231,
+            "substitutions": 55,
+            "deletions": 42,
+            "insertions": 9,
+            "cer": 0.4588744588744589,
+            "exact_sequence_accuracy": 0.0
+          }
+        },
+        "subgroups": {
+          "J": {
+            "sequences": 59,
+            "reference_characters": 750,
+            "substitutions": 177,
+            "deletions": 194,
+            "insertions": 33,
+            "cer": 0.5386666666666666,
+            "exact_sequence_accuracy": 0.0,
+            "interpretation_sample_count_sufficient": true,
+            "reference_character_occurrences": 62,
+            "aligned_character_recall": 0.45161290322580644
+          },
+          "Z": {
+            "sequences": 52,
+            "reference_characters": 725,
+            "substitutions": 192,
+            "deletions": 182,
+            "insertions": 21,
+            "cer": 0.5448275862068965,
+            "exact_sequence_accuracy": 0.0,
+            "interpretation_sample_count_sufficient": true,
+            "reference_character_occurrences": 58,
+            "aligned_character_recall": 0.3793103448275862
+          },
+          "REPEATED_LETTERS": {
+            "sequences": 109,
+            "reference_characters": 1508,
+            "substitutions": 349,
+            "deletions": 388,
+            "insertions": 56,
+            "cer": 0.5258620689655172,
+            "exact_sequence_accuracy": 0.0,
+            "interpretation_sample_count_sufficient": true
+          }
+        },
+        "correct_aligned_reference_characters": 1726,
+        "predicted_characters": 2691,
+        "predicted_reference_ratio": 0.7784205958923922,
+        "exact_sequences": 0,
+        "empty_predictions": 0,
+        "macro_signer_cer": 0.5353838718954351
+      },
+      "directions": {
+        "improve": 85,
+        "regress": 99,
+        "unchanged": 72
+      },
+      "signer_directions": {
+        "001e": {
+          "full_cer": 0.5236051502145923,
+          "oracle_cer": 0.5107296137339056,
+          "sequences": 18,
+          "direction": "improve"
+        },
+        "1c15": {
+          "full_cer": 0.5265486725663717,
+          "oracle_cer": 0.5132743362831859,
+          "sequences": 17,
+          "direction": "improve"
+        },
+        "28d4": {
+          "full_cer": 0.4558139534883721,
+          "oracle_cer": 0.4418604651162791,
+          "sequences": 17,
+          "direction": "improve"
+        },
+        "2b19": {
+          "full_cer": 0.6026200873362445,
+          "oracle_cer": 0.6244541484716157,
+          "sequences": 17,
+          "direction": "regress"
+        },
+        "4e6b": {
+          "full_cer": 0.5377777777777778,
+          "oracle_cer": 0.5466666666666666,
+          "sequences": 17,
+          "direction": "regress"
+        },
+        "5ce0": {
+          "full_cer": 0.5887096774193549,
+          "oracle_cer": 0.6088709677419355,
+          "sequences": 17,
+          "direction": "regress"
+        },
+        "661f": {
+          "full_cer": 0.3601694915254237,
+          "oracle_cer": 0.3983050847457627,
+          "sequences": 17,
+          "direction": "regress"
+        },
+        "a459": {
+          "full_cer": 0.42731277533039647,
+          "oracle_cer": 0.5154185022026432,
+          "sequences": 17,
+          "direction": "regress"
+        },
+        "aeed": {
+          "full_cer": 0.5271966527196653,
+          "oracle_cer": 0.5146443514644351,
+          "sequences": 17,
+          "direction": "improve"
+        },
+        "c28d": {
+          "full_cer": 0.7050691244239631,
+          "oracle_cer": 0.6682027649769585,
+          "sequences": 17,
+          "direction": "improve"
+        },
+        "c6e5": {
+          "full_cer": 0.6190476190476191,
+          "oracle_cer": 0.6388888888888888,
+          "sequences": 17,
+          "direction": "regress"
+        },
+        "d516": {
+          "full_cer": 0.5307017543859649,
+          "oracle_cer": 0.5482456140350878,
+          "sequences": 17,
+          "direction": "regress"
+        },
+        "d5fd": {
+          "full_cer": 0.45374449339207046,
+          "oracle_cer": 0.5066079295154186,
+          "sequences": 17,
+          "direction": "regress"
+        },
+        "ebdb": {
+          "full_cer": 0.5089285714285714,
+          "oracle_cer": 0.5357142857142857,
+          "sequences": 17,
+          "direction": "regress"
+        },
+        "f896": {
+          "full_cer": 0.45021645021645024,
+          "oracle_cer": 0.4588744588744589,
+          "sequences": 17,
+          "direction": "regress"
+        }
+      },
+      "pearson_correlations_noncausal": {
+        "before_removed_percent": -0.013356931305284465,
+        "after_removed_percent": -0.09615686242868221,
+        "full_duration_s": 0.0213550491754539,
+        "outside_missing_hand_fraction": 0.09346129301881324
+      },
+      "full_ctc_infeasible": 2,
+      "oracle_ctc_infeasible": 21,
+      "cer_delta_pp": 1.4463407578825582,
+      "signer_cluster_bootstrap_95pct_cer_delta_pp": [
+        0.028758158132208247,
+        2.997685826799137
+      ],
+      "bootstrap_seed": 20261005,
+      "bootstrap_draws": 2000,
+      "full_overlength_sequences": 39,
+      "oracle_overlength_sequences": 35
+    },
+    "phase_locked_b2_phone": {
+      "full": {
+        "sequences": 256,
+        "reference_characters": 3457,
+        "substitutions": 937,
+        "deletions": 745,
+        "insertions": 140,
+        "cer": 0.5270465721724038,
+        "exact_sequence_accuracy": 0.0,
+        "signers": {
+          "001e": {
+            "sequences": 18,
+            "reference_characters": 233,
+            "substitutions": 70,
+            "deletions": 40,
+            "insertions": 11,
+            "cer": 0.51931330472103,
+            "exact_sequence_accuracy": 0.0
+          },
+          "1c15": {
+            "sequences": 17,
+            "reference_characters": 226,
+            "substitutions": 74,
+            "deletions": 40,
+            "insertions": 7,
+            "cer": 0.5353982300884956,
+            "exact_sequence_accuracy": 0.0
+          },
+          "28d4": {
+            "sequences": 17,
+            "reference_characters": 215,
+            "substitutions": 71,
+            "deletions": 10,
+            "insertions": 23,
+            "cer": 0.48372093023255813,
+            "exact_sequence_accuracy": 0.0
+          },
+          "2b19": {
+            "sequences": 17,
+            "reference_characters": 229,
+            "substitutions": 72,
+            "deletions": 57,
+            "insertions": 9,
+            "cer": 0.6026200873362445,
+            "exact_sequence_accuracy": 0.0
+          },
+          "4e6b": {
+            "sequences": 17,
+            "reference_characters": 225,
+            "substitutions": 58,
+            "deletions": 58,
+            "insertions": 7,
+            "cer": 0.5466666666666666,
+            "exact_sequence_accuracy": 0.0
+          },
+          "5ce0": {
+            "sequences": 17,
+            "reference_characters": 248,
+            "substitutions": 56,
+            "deletions": 84,
+            "insertions": 3,
+            "cer": 0.5766129032258065,
+            "exact_sequence_accuracy": 0.0
+          },
+          "661f": {
+            "sequences": 17,
+            "reference_characters": 236,
+            "substitutions": 42,
+            "deletions": 28,
+            "insertions": 15,
+            "cer": 0.3601694915254237,
+            "exact_sequence_accuracy": 0.0
+          },
+          "a459": {
+            "sequences": 17,
+            "reference_characters": 227,
+            "substitutions": 47,
+            "deletions": 39,
+            "insertions": 10,
+            "cer": 0.42290748898678415,
+            "exact_sequence_accuracy": 0.0
+          },
+          "aeed": {
+            "sequences": 17,
+            "reference_characters": 239,
+            "substitutions": 57,
+            "deletions": 64,
+            "insertions": 5,
+            "cer": 0.5271966527196653,
+            "exact_sequence_accuracy": 0.0
+          },
+          "c28d": {
+            "sequences": 17,
+            "reference_characters": 217,
+            "substitutions": 99,
+            "deletions": 53,
+            "insertions": 6,
+            "cer": 0.728110599078341,
+            "exact_sequence_accuracy": 0.0
+          },
+          "c6e5": {
+            "sequences": 17,
+            "reference_characters": 252,
+            "substitutions": 85,
+            "deletions": 69,
+            "insertions": 12,
+            "cer": 0.6587301587301587,
+            "exact_sequence_accuracy": 0.0
+          },
+          "d516": {
+            "sequences": 17,
+            "reference_characters": 228,
+            "substitutions": 44,
+            "deletions": 68,
+            "insertions": 7,
+            "cer": 0.5219298245614035,
+            "exact_sequence_accuracy": 0.0
+          },
+          "d5fd": {
+            "sequences": 17,
+            "reference_characters": 227,
+            "substitutions": 48,
+            "deletions": 48,
+            "insertions": 8,
+            "cer": 0.4581497797356828,
+            "exact_sequence_accuracy": 0.0
+          },
+          "ebdb": {
+            "sequences": 17,
+            "reference_characters": 224,
+            "substitutions": 53,
+            "deletions": 60,
+            "insertions": 3,
+            "cer": 0.5178571428571429,
+            "exact_sequence_accuracy": 0.0
+          },
+          "f896": {
+            "sequences": 17,
+            "reference_characters": 231,
+            "substitutions": 61,
+            "deletions": 27,
+            "insertions": 14,
+            "cer": 0.44155844155844154,
+            "exact_sequence_accuracy": 0.0
+          }
+        },
+        "subgroups": {
+          "J": {
+            "sequences": 59,
+            "reference_characters": 750,
+            "substitutions": 211,
+            "deletions": 154,
+            "insertions": 35,
+            "cer": 0.5333333333333333,
+            "exact_sequence_accuracy": 0.0,
+            "interpretation_sample_count_sufficient": true,
+            "reference_character_occurrences": 62,
+            "aligned_character_recall": 0.5483870967741935
+          },
+          "Z": {
+            "sequences": 52,
+            "reference_characters": 725,
+            "substitutions": 213,
+            "deletions": 159,
+            "insertions": 21,
+            "cer": 0.5420689655172414,
+            "exact_sequence_accuracy": 0.0,
+            "interpretation_sample_count_sufficient": true,
+            "reference_character_occurrences": 58,
+            "aligned_character_recall": 0.3103448275862069
+          },
+          "REPEATED_LETTERS": {
+            "sequences": 109,
+            "reference_characters": 1508,
+            "substitutions": 401,
+            "deletions": 329,
+            "insertions": 54,
+            "cer": 0.519893899204244,
+            "exact_sequence_accuracy": 0.0,
+            "interpretation_sample_count_sufficient": true
+          }
+        },
+        "correct_aligned_reference_characters": 1775,
+        "predicted_characters": 2852,
+        "predicted_reference_ratio": 0.8249927682962106,
+        "exact_sequences": 0,
+        "empty_predictions": 0,
+        "macro_signer_cer": 0.5267294468015896
+      },
+      "oracle": {
+        "sequences": 256,
+        "reference_characters": 3457,
+        "substitutions": 880,
+        "deletions": 884,
+        "insertions": 106,
+        "cer": 0.5409314434480764,
+        "exact_sequence_accuracy": 0.0,
+        "signers": {
+          "001e": {
+            "sequences": 18,
+            "reference_characters": 233,
+            "substitutions": 58,
+            "deletions": 50,
+            "insertions": 13,
+            "cer": 0.51931330472103,
+            "exact_sequence_accuracy": 0.0
+          },
+          "1c15": {
+            "sequences": 17,
+            "reference_characters": 226,
+            "substitutions": 68,
+            "deletions": 48,
+            "insertions": 4,
+            "cer": 0.5309734513274337,
+            "exact_sequence_accuracy": 0.0
+          },
+          "28d4": {
+            "sequences": 17,
+            "reference_characters": 215,
+            "substitutions": 74,
+            "deletions": 9,
+            "insertions": 17,
+            "cer": 0.46511627906976744,
+            "exact_sequence_accuracy": 0.0
+          },
+          "2b19": {
+            "sequences": 17,
+            "reference_characters": 229,
+            "substitutions": 81,
+            "deletions": 56,
+            "insertions": 8,
+            "cer": 0.6331877729257642,
+            "exact_sequence_accuracy": 0.0
+          },
+          "4e6b": {
+            "sequences": 17,
+            "reference_characters": 225,
+            "substitutions": 45,
+            "deletions": 64,
+            "insertions": 7,
+            "cer": 0.5155555555555555,
+            "exact_sequence_accuracy": 0.0
+          },
+          "5ce0": {
+            "sequences": 17,
+            "reference_characters": 248,
+            "substitutions": 38,
+            "deletions": 117,
+            "insertions": 0,
+            "cer": 0.625,
+            "exact_sequence_accuracy": 0.0
+          },
+          "661f": {
+            "sequences": 17,
+            "reference_characters": 236,
+            "substitutions": 43,
+            "deletions": 33,
+            "insertions": 12,
+            "cer": 0.3728813559322034,
+            "exact_sequence_accuracy": 0.0
+          },
+          "a459": {
+            "sequences": 17,
+            "reference_characters": 227,
+            "substitutions": 49,
+            "deletions": 56,
+            "insertions": 6,
+            "cer": 0.4889867841409692,
+            "exact_sequence_accuracy": 0.0
+          },
+          "aeed": {
+            "sequences": 17,
+            "reference_characters": 239,
+            "substitutions": 52,
+            "deletions": 80,
+            "insertions": 0,
+            "cer": 0.5523012552301255,
+            "exact_sequence_accuracy": 0.0
+          },
+          "c28d": {
+            "sequences": 17,
+            "reference_characters": 217,
+            "substitutions": 97,
+            "deletions": 52,
+            "insertions": 4,
+            "cer": 0.7050691244239631,
+            "exact_sequence_accuracy": 0.0
+          },
+          "c6e5": {
+            "sequences": 17,
+            "reference_characters": 252,
+            "substitutions": 84,
+            "deletions": 65,
+            "insertions": 14,
+            "cer": 0.6468253968253969,
+            "exact_sequence_accuracy": 0.0
+          },
+          "d516": {
+            "sequences": 17,
+            "reference_characters": 228,
+            "substitutions": 42,
+            "deletions": 74,
+            "insertions": 8,
+            "cer": 0.543859649122807,
+            "exact_sequence_accuracy": 0.0
+          },
+          "d5fd": {
+            "sequences": 17,
+            "reference_characters": 227,
+            "substitutions": 40,
+            "deletions": 71,
+            "insertions": 4,
+            "cer": 0.5066079295154186,
+            "exact_sequence_accuracy": 0.0
+          },
+          "ebdb": {
+            "sequences": 17,
+            "reference_characters": 224,
+            "substitutions": 55,
+            "deletions": 65,
+            "insertions": 4,
+            "cer": 0.5535714285714286,
+            "exact_sequence_accuracy": 0.0
+          },
+          "f896": {
+            "sequences": 17,
+            "reference_characters": 231,
+            "substitutions": 54,
+            "deletions": 44,
+            "insertions": 5,
+            "cer": 0.4458874458874459,
+            "exact_sequence_accuracy": 0.0
+          }
+        },
+        "subgroups": {
+          "J": {
+            "sequences": 59,
+            "reference_characters": 750,
+            "substitutions": 197,
+            "deletions": 173,
+            "insertions": 31,
+            "cer": 0.5346666666666666,
+            "exact_sequence_accuracy": 0.0,
+            "interpretation_sample_count_sufficient": true,
+            "reference_character_occurrences": 62,
+            "aligned_character_recall": 0.5483870967741935
+          },
+          "Z": {
+            "sequences": 52,
+            "reference_characters": 725,
+            "substitutions": 205,
+            "deletions": 182,
+            "insertions": 23,
+            "cer": 0.5655172413793104,
+            "exact_sequence_accuracy": 0.0,
+            "interpretation_sample_count_sufficient": true,
+            "reference_character_occurrences": 58,
+            "aligned_character_recall": 0.3103448275862069
+          },
+          "REPEATED_LETTERS": {
+            "sequences": 109,
+            "reference_characters": 1508,
+            "substitutions": 358,
+            "deletions": 392,
+            "insertions": 44,
+            "cer": 0.5265251989389921,
+            "exact_sequence_accuracy": 0.0,
+            "interpretation_sample_count_sufficient": true
+          }
+        },
+        "correct_aligned_reference_characters": 1693,
+        "predicted_characters": 2679,
+        "predicted_reference_ratio": 0.7749493780734741,
+        "exact_sequences": 0,
+        "empty_predictions": 0,
+        "macro_signer_cer": 0.5403424488832873
+      },
+      "directions": {
+        "regress": 87,
+        "unchanged": 104,
+        "improve": 65
+      },
+      "signer_directions": {
+        "001e": {
+          "full_cer": 0.51931330472103,
+          "oracle_cer": 0.51931330472103,
+          "sequences": 18,
+          "direction": "unchanged"
+        },
+        "1c15": {
+          "full_cer": 0.5353982300884956,
+          "oracle_cer": 0.5309734513274337,
+          "sequences": 17,
+          "direction": "improve"
+        },
+        "28d4": {
+          "full_cer": 0.48372093023255813,
+          "oracle_cer": 0.46511627906976744,
+          "sequences": 17,
+          "direction": "improve"
+        },
+        "2b19": {
+          "full_cer": 0.6026200873362445,
+          "oracle_cer": 0.6331877729257642,
+          "sequences": 17,
+          "direction": "regress"
+        },
+        "4e6b": {
+          "full_cer": 0.5466666666666666,
+          "oracle_cer": 0.5155555555555555,
+          "sequences": 17,
+          "direction": "improve"
+        },
+        "5ce0": {
+          "full_cer": 0.5766129032258065,
+          "oracle_cer": 0.625,
+          "sequences": 17,
+          "direction": "regress"
+        },
+        "661f": {
+          "full_cer": 0.3601694915254237,
+          "oracle_cer": 0.3728813559322034,
+          "sequences": 17,
+          "direction": "regress"
+        },
+        "a459": {
+          "full_cer": 0.42290748898678415,
+          "oracle_cer": 0.4889867841409692,
+          "sequences": 17,
+          "direction": "regress"
+        },
+        "aeed": {
+          "full_cer": 0.5271966527196653,
+          "oracle_cer": 0.5523012552301255,
+          "sequences": 17,
+          "direction": "regress"
+        },
+        "c28d": {
+          "full_cer": 0.728110599078341,
+          "oracle_cer": 0.7050691244239631,
+          "sequences": 17,
+          "direction": "improve"
+        },
+        "c6e5": {
+          "full_cer": 0.6587301587301587,
+          "oracle_cer": 0.6468253968253969,
+          "sequences": 17,
+          "direction": "improve"
+        },
+        "d516": {
+          "full_cer": 0.5219298245614035,
+          "oracle_cer": 0.543859649122807,
+          "sequences": 17,
+          "direction": "regress"
+        },
+        "d5fd": {
+          "full_cer": 0.4581497797356828,
+          "oracle_cer": 0.5066079295154186,
+          "sequences": 17,
+          "direction": "regress"
+        },
+        "ebdb": {
+          "full_cer": 0.5178571428571429,
+          "oracle_cer": 0.5535714285714286,
+          "sequences": 17,
+          "direction": "regress"
+        },
+        "f896": {
+          "full_cer": 0.44155844155844154,
+          "oracle_cer": 0.4458874458874459,
+          "sequences": 17,
+          "direction": "regress"
+        }
+      },
+      "pearson_correlations_noncausal": {
+        "before_removed_percent": -0.1651623600677911,
+        "after_removed_percent": -0.03898678495809884,
+        "full_duration_s": 0.20562928363476832,
+        "outside_missing_hand_fraction": 0.21934453782139746
+      },
+      "full_ctc_infeasible": 2,
+      "oracle_ctc_infeasible": 27,
+      "runtime_seconds": 8.01889519999986,
+      "cer_delta_pp": 1.3884871275672617,
+      "signer_cluster_bootstrap_95pct_cer_delta_pp": [
+        -0.02887711367865168,
+        2.752223004322682
+      ],
+      "bootstrap_seed": 20261005,
+      "bootstrap_draws": 2000,
+      "full_overlength_sequences": 35,
+      "oracle_overlength_sequences": 30
+    },
+    "phase_locked_residual_phone": {
+      "full": {
+        "sequences": 256,
+        "reference_characters": 3457,
+        "substitutions": 920,
+        "deletions": 739,
+        "insertions": 144,
+        "cer": 0.5215504772924501,
+        "exact_sequence_accuracy": 0.0,
+        "signers": {
+          "001e": {
+            "sequences": 18,
+            "reference_characters": 233,
+            "substitutions": 76,
+            "deletions": 37,
+            "insertions": 9,
+            "cer": 0.5236051502145923,
+            "exact_sequence_accuracy": 0.0
+          },
+          "1c15": {
+            "sequences": 17,
+            "reference_characters": 226,
+            "substitutions": 73,
+            "deletions": 37,
+            "insertions": 9,
+            "cer": 0.5265486725663717,
+            "exact_sequence_accuracy": 0.0
+          },
+          "28d4": {
+            "sequences": 17,
+            "reference_characters": 215,
+            "substitutions": 63,
+            "deletions": 11,
+            "insertions": 24,
+            "cer": 0.4558139534883721,
+            "exact_sequence_accuracy": 0.0
+          },
+          "2b19": {
+            "sequences": 17,
+            "reference_characters": 229,
+            "substitutions": 72,
+            "deletions": 57,
+            "insertions": 9,
+            "cer": 0.6026200873362445,
+            "exact_sequence_accuracy": 0.0
+          },
+          "4e6b": {
+            "sequences": 17,
+            "reference_characters": 225,
+            "substitutions": 51,
+            "deletions": 63,
+            "insertions": 7,
+            "cer": 0.5377777777777778,
+            "exact_sequence_accuracy": 0.0
+          },
+          "5ce0": {
+            "sequences": 17,
+            "reference_characters": 248,
+            "substitutions": 64,
+            "deletions": 79,
+            "insertions": 3,
+            "cer": 0.5887096774193549,
+            "exact_sequence_accuracy": 0.0
+          },
+          "661f": {
+            "sequences": 17,
+            "reference_characters": 236,
+            "substitutions": 41,
+            "deletions": 30,
+            "insertions": 14,
+            "cer": 0.3601694915254237,
+            "exact_sequence_accuracy": 0.0
+          },
+          "a459": {
+            "sequences": 17,
+            "reference_characters": 227,
+            "substitutions": 50,
+            "deletions": 36,
+            "insertions": 11,
+            "cer": 0.42731277533039647,
+            "exact_sequence_accuracy": 0.0
+          },
+          "aeed": {
+            "sequences": 17,
+            "reference_characters": 239,
+            "substitutions": 59,
+            "deletions": 59,
+            "insertions": 8,
+            "cer": 0.5271966527196653,
+            "exact_sequence_accuracy": 0.0
+          },
+          "c28d": {
+            "sequences": 17,
+            "reference_characters": 217,
+            "substitutions": 92,
+            "deletions": 56,
+            "insertions": 5,
+            "cer": 0.7050691244239631,
+            "exact_sequence_accuracy": 0.0
+          },
+          "c6e5": {
+            "sequences": 17,
+            "reference_characters": 252,
+            "substitutions": 76,
+            "deletions": 70,
+            "insertions": 10,
+            "cer": 0.6190476190476191,
+            "exact_sequence_accuracy": 0.0
+          },
+          "d516": {
+            "sequences": 17,
+            "reference_characters": 228,
+            "substitutions": 42,
+            "deletions": 73,
+            "insertions": 6,
+            "cer": 0.5307017543859649,
+            "exact_sequence_accuracy": 0.0
+          },
+          "d5fd": {
+            "sequences": 17,
+            "reference_characters": 227,
+            "substitutions": 46,
+            "deletions": 48,
+            "insertions": 9,
+            "cer": 0.45374449339207046,
+            "exact_sequence_accuracy": 0.0
+          },
+          "ebdb": {
+            "sequences": 17,
+            "reference_characters": 224,
+            "substitutions": 56,
+            "deletions": 55,
+            "insertions": 3,
+            "cer": 0.5089285714285714,
+            "exact_sequence_accuracy": 0.0
+          },
+          "f896": {
+            "sequences": 17,
+            "reference_characters": 231,
+            "substitutions": 59,
+            "deletions": 28,
+            "insertions": 17,
+            "cer": 0.45021645021645024,
+            "exact_sequence_accuracy": 0.0
+          }
+        },
+        "subgroups": {
+          "J": {
+            "sequences": 59,
+            "reference_characters": 750,
+            "substitutions": 195,
+            "deletions": 166,
+            "insertions": 37,
+            "cer": 0.5306666666666666,
+            "exact_sequence_accuracy": 0.0,
+            "interpretation_sample_count_sufficient": true,
+            "reference_character_occurrences": 62,
+            "aligned_character_recall": 0.5806451612903226
+          },
+          "Z": {
+            "sequences": 52,
+            "reference_characters": 725,
+            "substitutions": 203,
+            "deletions": 153,
+            "insertions": 28,
+            "cer": 0.5296551724137931,
+            "exact_sequence_accuracy": 0.0,
+            "interpretation_sample_count_sufficient": true,
+            "reference_character_occurrences": 58,
+            "aligned_character_recall": 0.3275862068965517
+          },
+          "REPEATED_LETTERS": {
+            "sequences": 109,
+            "reference_characters": 1508,
+            "substitutions": 387,
+            "deletions": 328,
+            "insertions": 57,
+            "cer": 0.5119363395225465,
+            "exact_sequence_accuracy": 0.0,
+            "interpretation_sample_count_sufficient": true
+          }
+        },
+        "correct_aligned_reference_characters": 1798,
+        "predicted_characters": 2862,
+        "predicted_reference_ratio": 0.8278854498119756,
+        "exact_sequences": 0,
+        "empty_predictions": 0,
+        "macro_signer_cer": 0.5211641500848558
+      },
+      "oracle": {
+        "sequences": 256,
+        "reference_characters": 3457,
+        "substitutions": 836,
+        "deletions": 893,
+        "insertions": 118,
+        "cer": 0.5342782759618167,
+        "exact_sequence_accuracy": 0.0,
+        "signers": {
+          "001e": {
+            "sequences": 18,
+            "reference_characters": 233,
+            "substitutions": 64,
+            "deletions": 43,
+            "insertions": 11,
+            "cer": 0.5064377682403434,
+            "exact_sequence_accuracy": 0.0
+          },
+          "1c15": {
+            "sequences": 17,
+            "reference_characters": 226,
+            "substitutions": 66,
+            "deletions": 47,
+            "insertions": 4,
+            "cer": 0.5176991150442478,
+            "exact_sequence_accuracy": 0.0
+          },
+          "28d4": {
+            "sequences": 17,
+            "reference_characters": 215,
+            "substitutions": 60,
+            "deletions": 14,
+            "insertions": 22,
+            "cer": 0.44651162790697674,
+            "exact_sequence_accuracy": 0.0
+          },
+          "2b19": {
+            "sequences": 17,
+            "reference_characters": 229,
+            "substitutions": 70,
+            "deletions": 61,
+            "insertions": 10,
+            "cer": 0.6157205240174672,
+            "exact_sequence_accuracy": 0.0
+          },
+          "4e6b": {
+            "sequences": 17,
+            "reference_characters": 225,
+            "substitutions": 40,
+            "deletions": 67,
+            "insertions": 7,
+            "cer": 0.5066666666666667,
+            "exact_sequence_accuracy": 0.0
+          },
+          "5ce0": {
+            "sequences": 17,
+            "reference_characters": 248,
+            "substitutions": 36,
+            "deletions": 123,
+            "insertions": 0,
+            "cer": 0.6411290322580645,
+            "exact_sequence_accuracy": 0.0
+          },
+          "661f": {
+            "sequences": 17,
+            "reference_characters": 236,
+            "substitutions": 44,
+            "deletions": 30,
+            "insertions": 14,
+            "cer": 0.3728813559322034,
+            "exact_sequence_accuracy": 0.0
+          },
+          "a459": {
+            "sequences": 17,
+            "reference_characters": 227,
+            "substitutions": 43,
+            "deletions": 59,
+            "insertions": 8,
+            "cer": 0.4845814977973568,
+            "exact_sequence_accuracy": 0.0
+          },
+          "aeed": {
+            "sequences": 17,
+            "reference_characters": 239,
+            "substitutions": 43,
+            "deletions": 82,
+            "insertions": 1,
+            "cer": 0.5271966527196653,
+            "exact_sequence_accuracy": 0.0
+          },
+          "c28d": {
+            "sequences": 17,
+            "reference_characters": 217,
+            "substitutions": 88,
+            "deletions": 56,
+            "insertions": 6,
+            "cer": 0.6912442396313364,
+            "exact_sequence_accuracy": 0.0
+          },
+          "c6e5": {
+            "sequences": 17,
+            "reference_characters": 252,
+            "substitutions": 80,
+            "deletions": 67,
+            "insertions": 10,
+            "cer": 0.623015873015873,
+            "exact_sequence_accuracy": 0.0
+          },
+          "d516": {
+            "sequences": 17,
+            "reference_characters": 228,
+            "substitutions": 50,
+            "deletions": 74,
+            "insertions": 6,
+            "cer": 0.5701754385964912,
+            "exact_sequence_accuracy": 0.0
+          },
+          "d5fd": {
+            "sequences": 17,
+            "reference_characters": 227,
+            "substitutions": 41,
+            "deletions": 66,
+            "insertions": 4,
+            "cer": 0.4889867841409692,
+            "exact_sequence_accuracy": 0.0
+          },
+          "ebdb": {
+            "sequences": 17,
+            "reference_characters": 224,
+            "substitutions": 56,
+            "deletions": 64,
+            "insertions": 6,
+            "cer": 0.5625,
+            "exact_sequence_accuracy": 0.0
+          },
+          "f896": {
+            "sequences": 17,
+            "reference_characters": 231,
+            "substitutions": 55,
+            "deletions": 40,
+            "insertions": 9,
+            "cer": 0.45021645021645024,
+            "exact_sequence_accuracy": 0.0
+          }
+        },
+        "subgroups": {
+          "J": {
+            "sequences": 59,
+            "reference_characters": 750,
+            "substitutions": 178,
+            "deletions": 185,
+            "insertions": 38,
+            "cer": 0.5346666666666666,
+            "exact_sequence_accuracy": 0.0,
+            "interpretation_sample_count_sufficient": true,
+            "reference_character_occurrences": 62,
+            "aligned_character_recall": 0.532258064516129
+          },
+          "Z": {
+            "sequences": 52,
+            "reference_characters": 725,
+            "substitutions": 196,
+            "deletions": 179,
+            "insertions": 19,
+            "cer": 0.543448275862069,
+            "exact_sequence_accuracy": 0.0,
+            "interpretation_sample_count_sufficient": true,
+            "reference_character_occurrences": 58,
+            "aligned_character_recall": 0.3103448275862069
+          },
+          "REPEATED_LETTERS": {
+            "sequences": 109,
+            "reference_characters": 1508,
+            "substitutions": 342,
+            "deletions": 399,
+            "insertions": 50,
+            "cer": 0.5245358090185677,
+            "exact_sequence_accuracy": 0.0,
+            "interpretation_sample_count_sufficient": true
+          }
+        },
+        "correct_aligned_reference_characters": 1728,
+        "predicted_characters": 2682,
+        "predicted_reference_ratio": 0.7758171825282036,
+        "exact_sequences": 0,
+        "empty_predictions": 0,
+        "macro_signer_cer": 0.5336642017456075
+      },
+      "directions": {
+        "unchanged": 108,
+        "regress": 86,
+        "improve": 62
+      },
+      "signer_directions": {
+        "001e": {
+          "full_cer": 0.5236051502145923,
+          "oracle_cer": 0.5064377682403434,
+          "sequences": 18,
+          "direction": "improve"
+        },
+        "1c15": {
+          "full_cer": 0.5265486725663717,
+          "oracle_cer": 0.5176991150442478,
+          "sequences": 17,
+          "direction": "improve"
+        },
+        "28d4": {
+          "full_cer": 0.4558139534883721,
+          "oracle_cer": 0.44651162790697674,
+          "sequences": 17,
+          "direction": "improve"
+        },
+        "2b19": {
+          "full_cer": 0.6026200873362445,
+          "oracle_cer": 0.6157205240174672,
+          "sequences": 17,
+          "direction": "regress"
+        },
+        "4e6b": {
+          "full_cer": 0.5377777777777778,
+          "oracle_cer": 0.5066666666666667,
+          "sequences": 17,
+          "direction": "improve"
+        },
+        "5ce0": {
+          "full_cer": 0.5887096774193549,
+          "oracle_cer": 0.6411290322580645,
+          "sequences": 17,
+          "direction": "regress"
+        },
+        "661f": {
+          "full_cer": 0.3601694915254237,
+          "oracle_cer": 0.3728813559322034,
+          "sequences": 17,
+          "direction": "regress"
+        },
+        "a459": {
+          "full_cer": 0.42731277533039647,
+          "oracle_cer": 0.4845814977973568,
+          "sequences": 17,
+          "direction": "regress"
+        },
+        "aeed": {
+          "full_cer": 0.5271966527196653,
+          "oracle_cer": 0.5271966527196653,
+          "sequences": 17,
+          "direction": "unchanged"
+        },
+        "c28d": {
+          "full_cer": 0.7050691244239631,
+          "oracle_cer": 0.6912442396313364,
+          "sequences": 17,
+          "direction": "improve"
+        },
+        "c6e5": {
+          "full_cer": 0.6190476190476191,
+          "oracle_cer": 0.623015873015873,
+          "sequences": 17,
+          "direction": "regress"
+        },
+        "d516": {
+          "full_cer": 0.5307017543859649,
+          "oracle_cer": 0.5701754385964912,
+          "sequences": 17,
+          "direction": "regress"
+        },
+        "d5fd": {
+          "full_cer": 0.45374449339207046,
+          "oracle_cer": 0.4889867841409692,
+          "sequences": 17,
+          "direction": "regress"
+        },
+        "ebdb": {
+          "full_cer": 0.5089285714285714,
+          "oracle_cer": 0.5625,
+          "sequences": 17,
+          "direction": "regress"
+        },
+        "f896": {
+          "full_cer": 0.45021645021645024,
+          "oracle_cer": 0.45021645021645024,
+          "sequences": 17,
+          "direction": "unchanged"
+        }
+      },
+      "pearson_correlations_noncausal": {
+        "before_removed_percent": -0.1602505933702136,
+        "after_removed_percent": 0.010153296309784092,
+        "full_duration_s": 0.11954751204323022,
+        "outside_missing_hand_fraction": 0.10015936171985153
+      },
+      "full_ctc_infeasible": 2,
+      "oracle_ctc_infeasible": 27,
+      "runtime_seconds": 7.333470900000066,
+      "cer_delta_pp": 1.2727798669366575,
+      "signer_cluster_bootstrap_95pct_cer_delta_pp": [
+        -0.14603873070753193,
+        2.6514571662312467
+      ],
+      "bootstrap_seed": 20261005,
+      "bootstrap_draws": 2000,
+      "full_overlength_sequences": 39,
+      "oracle_overlength_sequences": 32
+    }
+  },
+  "limitations": [
+    "Publisher windows are approximate whole-phrase annotations, not letter boundaries",
+    "Frozen model was trained on full clips",
+    "DEV-A is development-exposed, all DAUN; not TEST and not phone accuracy",
+    "Phone cadence view is a real-frame subsampling approximation"
+  ],
+  "window_summary": {
+    "usable": 256,
+    "invalid": 0,
+    "full_frames": 38777,
+    "oracle_frames": 30350,
+    "leading_frames_removed": 4165,
+    "trailing_frames_removed": 4262,
+    "outside_missing_hand_frames": 6579,
+    "full_duration_s": {
+      "min": 0.9991111111111112,
+      "median": 5.00225,
+      "mean": 5.085301412645963,
+      "p95": 7.999033333333333,
+      "max": 13.019455555555556
+    },
+    "oracle_duration_s": {
+      "min": 0.6661111111111111,
+      "median": 3.730116666666667,
+      "mean": 3.962962720490364,
+      "p95": 6.860283333333333,
+      "max": 11.884333333333334
+    },
+    "publisher_duration_s": {
+      "min": 0.6999999999999318,
+      "median": 3.7609999999999815,
+      "mean": 3.9978945312499987,
+      "p95": 6.887750000000008,
+      "max": 11.911000000000001
+    },
+    "before_removed_percent": {
+      "min": 0.47393364928909953,
+      "median": 9.95392550610589,
+      "mean": 11.75888271084742,
+      "p95": 27.59197324414716,
+      "max": 42.97520661157025
+    },
+    "after_removed_percent": {
+      "min": 0.5524861878453038,
+      "median": 11.049723756906078,
+      "mean": 11.696188215415209,
+      "p95": 24.913722640995367,
+      "max": 36.36363636363637
+    },
+    "outside_missing_hand_fraction": {
+      "min": 0.0,
+      "median": 1.0,
+      "mean": 0.7774924303859951,
+      "p95": 1.0,
+      "max": 1.0
+    },
+    "inside_missing_hand_fraction": {
+      "min": 0.0,
+      "median": 0.20973381457252427,
+      "mean": 0.24880471615574842,
+      "p95": 0.6949771287825475,
+      "max": 0.9411764705882353
+    },
+    "decoded_metadata_duration_difference_s": {
+      "min": -0.010450333333332562,
+      "median": -1.1111111426487241e-06,
+      "mean": -0.0009940717290372824,
+      "p95": -5.555555917524657e-07,
+      "max": -5.555554905001259e-07
+    }
+  }
+}

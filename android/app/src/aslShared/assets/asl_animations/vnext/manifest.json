@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "clips": [
+    {
+      "id": "a",
+      "sourceId": "A",
+      "asset": "asl_animations/vnext/shared-character.glb",
+      "fallbackAsset": "asl_animations/anim_a.glb",
+      "animationName": "SIGN_LETTER_A_FEMALEASL",
+      "durationMs": 1334,
+      "sha256": "0e331e75554ff409476931d74cdb157e09d3142d43fb71af13d2432ad2ed95ec",
+      "profile": "balanced-ktx2mixed-meshopt-shared-v1",
+      "rigProfile": "FemaleASL-full-rig-341-875-342"
+    },
+    {
+      "id": "b",
+      "sourceId": "B",
+      "asset": "asl_animations/vnext/shared-character.glb",
+      "fallbackAsset": "asl_animations/anim_b.glb",
+      "animationName": "SIGN_LETTER_B_FEMALEASL",
+      "durationMs": 1367,
+      "sha256": "0e331e75554ff409476931d74cdb157e09d3142d43fb71af13d2432ad2ed95ec",
+      "profile": "balanced-ktx2mixed-meshopt-shared-v1",
+      "rigProfile": "FemaleASL-full-rig-341-875-342"
+    },
+    {
+      "id": "all",
+      "sourceId": "ALL",
+      "asset": "asl_animations/vnext/shared-character.glb",
+      "fallbackAsset": "asl_animations/all.glb",
+      "animationName": "SIGN_ALL_FEMALEASL",
+      "durationMs": 2367,
+      "sha256": "0e331e75554ff409476931d74cdb157e09d3142d43fb71af13d2432ad2ed95ec",
+      "profile": "balanced-ktx2mixed-meshopt-shared-v1",
+      "rigProfile": "FemaleASL-full-rig-341-875-342"
+    },
+    {
+      "id": "brother",
+      "sourceId": "BROTHER",
+      "asset": "asl_animations/vnext/shared-character.glb",
+      "fallbackAsset": "asl_animations/brother.glb",
+      "animationName": "SIGN_BROTHER_FEMALEASL",
+      "durationMs": 1767,
+      "sha256": "0e331e75554ff409476931d74cdb157e09d3142d43fb71af13d2432ad2ed95ec",
+      "profile": "balanced-ktx2mixed-meshopt-shared-v1",
+      "rigProfile": "FemaleASL-full-rig-341-875-342"
+    },
+    {
+      "id": "child",
+      "sourceId": "CHILD",
+      "asset": "asl_animations/vnext/shared-character.glb",
+      "fallbackAsset": "asl_animations/child.glb",
+      "animationName": "SIGN_CHILD_FEMALEASL",
+      "durationMs": 2067,
+      "sha256": "0e331e75554ff409476931d74cdb157e09d3142d43fb71af13d2432ad2ed95ec",
+      "profile": "balanced-ktx2mixed-meshopt-shared-v1",
+      "rigProfile": "FemaleASL-full-rig-341-875-342"
+    },
+    {
+      "id": "city",
+      "sourceId": "CITY",
+      "asset": "asl_animations/vnext/shared-character.glb",
+      "fallbackAsset": "asl_animations/city.glb",
+      "animationName": "SIGN_CITY_FEMALEASL",
+      "durationMs": 2567,
+      "sha256": "0e331e75554ff409476931d74cdb157e09d3142d43fb71af13d2432ad2ed95ec",
+      "profile": "balanced-ktx2mixed-meshopt-shared-v1",
+      "rigProfile": "FemaleASL-full-rig-341-875-342"
+    },
+    {
+      "id": "family",
+      "sourceId": "FAMILY",
+      "asset": "asl_animations/vnext/shared-character.glb",
+      "fallbackAsset": "asl_animations/family.glb",
+      "animationName": "SIGN_FAMILY_FEMALEASL",
+      "durationMs": 2567,
+      "sha256": "0e331e75554ff409476931d74cdb157e09d3142d43fb71af13d2432ad2ed95ec",
+      "profile": "balanced-ktx2mixed-meshopt-shared-v1",
+      "rigProfile": "FemaleASL-full-rig-341-875-342"
+    }
+  ]
+}

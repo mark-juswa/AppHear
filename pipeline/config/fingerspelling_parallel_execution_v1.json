@@ -1,0 +1,15 @@
+{
+  "schema_version": "apphear.fingerspelling.parallel_execution.v1",
+  "workers": 2,
+  "maximum_workers": 2,
+  "worker_priority": "BELOW_NORMAL",
+  "minimum_logical_processors": 8,
+  "minimum_available_ram_gib": 4,
+  "batch_wave_count": 2,
+  "inflight_sequences_maximum": 2,
+  "candidate_threads": "UNCHANGED_FROZEN_DEFAULTS",
+  "validation": "FULL_RESUME_AND_FINAL_SCOPED_BATCH_ONLY_WHILE_WORKERS_IDLE",
+  "output_contract": "UNCHANGED_SOURCE_RAW_FEATURE_RECEIPTS",
+  "gate": "REAL_SERIAL_PARALLEL_BYTE_PARITY_AND_MEASURED_SPEEDUP",
+  "test_access": "SEALED"
+}

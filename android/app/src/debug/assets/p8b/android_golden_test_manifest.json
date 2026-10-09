@@ -1,0 +1,109 @@
+{
+  "schema": "P8A_ANDROID_GOLDEN_TEST_MANIFEST_V1",
+  "count": 6,
+  "byte_order": "LITTLE_ENDIAN",
+  "input_shape": [
+    1,
+    384,
+    384,
+    3
+  ],
+  "expected_coordinate_shape": [
+    50,
+    2
+  ],
+  "decoder": "P7C_NATIVE_HEATMAP_LOCAL3_V1",
+  "coordinate_tolerance_input_px": 1.0,
+  "fixtures": [
+    {
+      "fixture_id": "P8A_00",
+      "source": "ASL_CITIZEN",
+      "sample_id": "asl:train:6517293791661136-FIND",
+      "source_frame_index": 7,
+      "source_width": 640,
+      "source_height": 480,
+      "input_file": "p8b/golden/p8a_00_input_f32le.bin",
+      "input_bytes": 1769472,
+      "input_sha256": "0ac0add762e9dac0c5c7e2d1927e0983a0f8e926eeab8fea6e3a9fc2d1e944ba",
+      "expected_input_xy_file": "p8b/golden/p8a_00_expected_input_xy_f32le.bin",
+      "expected_input_xy_sha256": "bcb732eebb128b9417474b39d1ec33381018db153a6ab1c32cd7fe6e8b66aadb",
+      "expected_source_xy_file": "p8b/golden/p8a_00_expected_source_xy_f32le.bin",
+      "expected_source_xy_sha256": "6abfff787fa13671d54b1b47ba5c6e243f6aeda06c26e67007e288a411ac2506"
+    },
+    {
+      "fixture_id": "P8A_11",
+      "source": "ASL_CITIZEN",
+      "sample_id": "asl:train:7665641685445694-OFTEN",
+      "source_frame_index": 43,
+      "source_width": 640,
+      "source_height": 480,
+      "input_file": "p8b/golden/p8a_11_input_f32le.bin",
+      "input_bytes": 1769472,
+      "input_sha256": "5a7534af5a624d80d4fe9611c2f3118716dd11bec552da4faaf694cf29637d05",
+      "expected_input_xy_file": "p8b/golden/p8a_11_expected_input_xy_f32le.bin",
+      "expected_input_xy_sha256": "4ac66ce011316a74c6a2852fe1aca3c35c474bcabc14fa510a57adfee5d418b3",
+      "expected_source_xy_file": "p8b/golden/p8a_11_expected_source_xy_f32le.bin",
+      "expected_source_xy_sha256": "ca7bb8b61ad4d78473a08efe921e834ae68b2137591b98095511506732b653f1"
+    },
+    {
+      "fixture_id": "P8A_12",
+      "source": "APPHEAR_CAPTURE",
+      "sample_id": "e6:e6p_00543",
+      "source_frame_index": 9,
+      "source_width": 720,
+      "source_height": 1280,
+      "input_file": "p8b/golden/p8a_12_input_f32le.bin",
+      "input_bytes": 1769472,
+      "input_sha256": "cb757db09dab79486c0d1710e2764de0e050523b3b5515d3ecf03a0bf4ba66e9",
+      "expected_input_xy_file": "p8b/golden/p8a_12_expected_input_xy_f32le.bin",
+      "expected_input_xy_sha256": "15bb6f126c4b443789350c1f176fdeab0f3b4f52b884b087a91fdc7232b89ebc",
+      "expected_source_xy_file": "p8b/golden/p8a_12_expected_source_xy_f32le.bin",
+      "expected_source_xy_sha256": "04a67f0a9b6e059dfdf4ad2880f952246a378efddfd64237ade55509d5f8e8f3"
+    },
+    {
+      "fixture_id": "P8A_23",
+      "source": "APPHEAR_CAPTURE",
+      "sample_id": "e6:e6p_00410",
+      "source_frame_index": 76,
+      "source_width": 720,
+      "source_height": 1280,
+      "input_file": "p8b/golden/p8a_23_input_f32le.bin",
+      "input_bytes": 1769472,
+      "input_sha256": "23bc8c4735654c51085ffdbd530fd08d9677d75a797d8f82efd969fefd932700",
+      "expected_input_xy_file": "p8b/golden/p8a_23_expected_input_xy_f32le.bin",
+      "expected_input_xy_sha256": "5bc1a7c860635fabbfecc85449f6bd91ed88f5e27da261758adb07577bad403d",
+      "expected_source_xy_file": "p8b/golden/p8a_23_expected_source_xy_f32le.bin",
+      "expected_source_xy_sha256": "0b8b7bfd280e68dae369294bd769860b23d77ab7e98f4b5bec22346e11d19377"
+    },
+    {
+      "fixture_id": "P8A_24",
+      "source": "LOCAL",
+      "sample_id": "e6:e6p_01024",
+      "source_frame_index": 9,
+      "source_width": 720,
+      "source_height": 1280,
+      "input_file": "p8b/golden/p8a_24_input_f32le.bin",
+      "input_bytes": 1769472,
+      "input_sha256": "40513422d5c2fab45772a6800bfef9cea7b5c2b04823d00c4ed8c0f2bb3b3e3f",
+      "expected_input_xy_file": "p8b/golden/p8a_24_expected_input_xy_f32le.bin",
+      "expected_input_xy_sha256": "79be5f7e9d8c53537e2485d60b820059e29a8638c40f424bae47bedac5ac5923",
+      "expected_source_xy_file": "p8b/golden/p8a_24_expected_source_xy_f32le.bin",
+      "expected_source_xy_sha256": "4f415936bdf31cb069c068b92e0d966094ca9aa3a0e5e0fb994349e5cfc608ac"
+    },
+    {
+      "fixture_id": "P8A_35",
+      "source": "LOCAL",
+      "sample_id": "e6:e6p_00751",
+      "source_frame_index": 79,
+      "source_width": 720,
+      "source_height": 1280,
+      "input_file": "p8b/golden/p8a_35_input_f32le.bin",
+      "input_bytes": 1769472,
+      "input_sha256": "c5e40dc112424b9e243a3eb8f2b3741af4d4c2f2f76e30290b166cd0e8fa1fca",
+      "expected_input_xy_file": "p8b/golden/p8a_35_expected_input_xy_f32le.bin",
+      "expected_input_xy_sha256": "a2133e722dfbf5bf1d46ef52c797f248685677b9aeedfcc06bfc24bb6db6080f",
+      "expected_source_xy_file": "p8b/golden/p8a_35_expected_source_xy_f32le.bin",
+      "expected_source_xy_sha256": "c8d504005bac54cf2de477eb169214911c0f18909c6566e9baa1145fe6474b97"
+    }
+  ]
+}

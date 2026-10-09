@@ -1,0 +1,83 @@
+{
+  "status": "ENTRY_POINT_FORWARD_AND_CTC_CHECK_PASSED",
+  "no_optimizer_or_training": true,
+  "parameters": 193116,
+  "config": {
+    "schema_version": "apphear.fingerspelling.ctc_baseline.v1",
+    "adapter_version": "FingerspellingFeatureAdapter.v1",
+    "feature_width": 405,
+    "logits": 28,
+    "blank_index": 27,
+    "seed": 20261002,
+    "channels": 64,
+    "dilations": [
+      1,
+      2,
+      4,
+      8
+    ],
+    "kernel_size": 3,
+    "dropout": 0.1,
+    "batch_size": 8,
+    "epochs": 30,
+    "learning_rate": 0.001,
+    "gradient_clip_norm": 5.0,
+    "training_view": "native",
+    "dev_views": [
+      "native",
+      "phone"
+    ],
+    "temporal_stride": 1,
+    "checkpoint_selection": "minimum_NATIVE_DEV_CER_first_tie",
+    "checkpoint_keep": 3,
+    "cpu_threads": 2,
+    "augmentation": "NONE",
+    "language_model": "NONE",
+    "minimum_subgroup_sequences_to_interpret": 10
+  },
+  "adapter": {
+    "schema_version": "FingerspellingFeatureAdapter.v1",
+    "feature_width": 405,
+    "config_sha256": "5ed7f766154b558ea2bebd095804ca788dc7ee5b91cc001ca96a40133edb9b67",
+    "implementation_sha256": "256d8e82301fa9e6dd039a1c6d94dc5cc717b22c27e7b8bd9661ba32ee4394cd",
+    "columns_sha256": "f3f5f93cd590111e60a1078c032ada7a756be72d633ff53900ae9a353f084fcb"
+  },
+  "tensorflow": "2.21.0",
+  "checks": [
+    {
+      "role": "TRAIN",
+      "sample_ids": [
+        "fsboard-v13-train-0065ce1c797017ff6bea",
+        "fsboard-v13-train-00f567d1059800d6454f"
+      ],
+      "input_lengths": [
+        151,
+        181
+      ],
+      "target_lengths": [
+        11,
+        11
+      ],
+      "ctc_loss_finite": true,
+      "causality_pass": true
+    },
+    {
+      "role": "DEV",
+      "sample_ids": [
+        "fsboard-v13-validation-0996dc9c881463a3f8fd",
+        "fsboard-v13-validation-53c290002480a4432d3c"
+      ],
+      "input_lengths": [
+        151,
+        121
+      ],
+      "target_lengths": [
+        11,
+        10
+      ],
+      "ctc_loss_finite": true,
+      "causality_pass": true
+    }
+  ],
+  "scope": "Untrained model forward/loss/causality validation; no accuracy claim"
+}

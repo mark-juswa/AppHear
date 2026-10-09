@@ -1,0 +1,30 @@
+{
+  "scope": "offline fingerspelling foundation only",
+  "pytest": "69 passed, 5 subtests passed in 10.31s",
+  "ruff": "PASS new code",
+  "mypy": "PASS 5 sources; follow-imports silent, ignore-missing-imports",
+  "parity": true,
+  "adapter": {
+    "schema_version": "FingerspellingFeatureAdapter.v1",
+    "feature_width": 405,
+    "config_sha256": "5ed7f766154b558ea2bebd095804ca788dc7ee5b91cc001ca96a40133edb9b67",
+    "implementation_sha256": "256d8e82301fa9e6dd039a1c6d94dc5cc717b22c27e7b8bd9661ba32ee4394cd",
+    "columns_sha256": "f3f5f93cd590111e60a1078c032ada7a756be72d633ff53900ae9a353f084fcb"
+  },
+  "source_files": {
+    "pipeline/fingerspelling/adapter.py": "256d8e82301fa9e6dd039a1c6d94dc5cc717b22c27e7b8bd9661ba32ee4394cd",
+    "pipeline/fingerspelling/sequence_manifest.py": "a8a8a7574978d60076c3ac1bca1274f6d9bef287d49722d9c74cb49b15ea768e",
+    "pipeline/fingerspelling/sequence_package.py": "9bae1381eb6b37726d719cce59f2a8cf59e85385d4d9f96e9d4d7d51b71ca37d",
+    "pipeline/config/fingerspelling_features_v1.json": "5ed7f766154b558ea2bebd095804ca788dc7ee5b91cc001ca96a40133edb9b67",
+    "tools/fingerspelling/foundation.py": "aae14502e3a956f1661a9335f180e806aa979525cc494dd248c9108e6d0bde63",
+    "tools/fingerspelling/parity.py": "91dad0e84b3617e0a05dd475fee835692645f0b46c10141920d89b01ee38dbb2",
+    "tools/fingerspelling/FoundationParity.kt": "429862e2e397aece417ce092785efd50d0e196c6b1d63c7ddfc6045e91ade4dd",
+    "tests/test_fingerspelling_sequence_foundation.py": "79705a5d92484318634f748fe9e0e3256fc626ab093434a58b62c46d12f5e624"
+  },
+  "structural_errors": [],
+  "ready_to_train": false,
+  "no_new_rgb_acquisition": true,
+  "no_new_candidate01_inference": true,
+  "no_android_changes": true,
+  "no_training": true
+}

@@ -1,4 +1,41 @@
+> **2026-10-09 scope correction:** This directory is historical WORD recognition research, not the current fingerspelling execution plan. Read [current team state](../team-current-state-2026-10-09.md) and [handoff](../../TEAM_HANDOFF.md). Some stage/status entries below were superseded by later frozen S2-R2 integration. Never change the protected WORD path based solely on an old proposal.
+
 # AppHear Recognition Upgrade
+
+## Validated current state — 2026-09-15
+
+- Phase 1 Candidate01: **FROZEN / COMPLETE**.
+- Phase 2 recognition-v2: **FROZEN / COMPLETE**.
+- Phase 3 236-class recognition: **REOPEN NEXT — GENERALIZATION UNSOLVED**.
+- Phase 4A: **COMPLETE** — Gate 5 classification `PHASE_4A_COMPLETE_RETURN_TO_PHASE_3`.
+- Gate 4A-2: **SUPERSEDED BY LATER VALIDATION AFTER PHASE-3 IMPROVEMENT**. No Gate 4A-1D/1E or further five-sign causal diagnostics.
+- Phase 5 automatic isolated-sign segmentation/re-arm: **NOT STARTED**.
+
+Gate 4A-1C is a validated PASS with
+TEMPORAL_BOUNDARY_PRIMARY_EFFECT_SUPPORTED. Frozen oracle isolation improved Top-1 2/10→7/10,
+expected-in-Top-5 5/10→8/10, median expected-class probability 0.053839→0.585159, and median rank
+5→1. This locks automatic isolated-sign active-window extraction as required future architecture,
+but AT ×2 and one STREET attempt remained wrong, so it does not solve Phase-3 generalization.
+
+Current boundary: **PHASE_3_RECOGNIZER_GENERALIZATION_REOPEN**. The next Phase-3 effort must
+introduce new signer/information diversity. No training or exact implementation is authorized by
+this state record. Candidate02, V2.1/V3, FPS/threshold loops, more five-sign diagnostics and
+same-data sampler/loss/seed/LR/optimizer/epoch loops remain closed. Canonical Gate-5 decision:
+`artifacts/recognition_upgrade/perception_vnext/recognition_utility_236_01/phase4a_gate5_live_phone_failure_attribution_and_decision_01/PHASE4A_GATE5_FINAL_REPORT.md`.
+
+> **Historical pre-validation state — superseded by the validated state above:** Phase 1 Candidate 01 and Phase 2 recognition-v2
+> are frozen; Phase 3 is paused and not solved; Phase 4A bounded phone recognition validation is
+> active with Gates 0–3, Gate 4A-1, Gate 4A-1B and Gate 4A-1C complete; Phase 5 is not started. The ordinary V2 TCN checkpoint
+> `8107accbc621ae5652766fec80d314fe8dc9f94ba0d0548a6aef80ed91729340` is the active recognizer.
+> Gate 4A-1C used the same 10 retained live attempts and pre-inference oracle sign bounds. Rebuilding
+> frozen V2 from the trimmed raw-v1 sequences improved Top-1 `2/10→7/10`, expected-in-Top-5
+> `5/10→8/10`, median expected probability `0.053839→0.585159`, and median rank `5→1`.
+> Classification is `TEMPORAL_BOUNDARY_PRIMARY_EFFECT_SUPPORTED`: wide START→STOP windows are a
+> major Phase-4 contributor, but AT ×2 and one STREET attempt remained wrong, so Phase-3
+> generalization is still unresolved. The next boundary is project-lead review after Gate 4A-1C;
+> do not implement automatic segmentation, start Gate 4A-2, or modify Candidate 01 automatically.
+> Read [PHASE4A_PROJECT_STATE_HANDOFF.md](PHASE4A_PROJECT_STATE_HANDOFF.md) before acting on older
+> plans or status text in this historical index.
 
 **Purpose:** Source-of-truth index for the planned transition from the deployed landmark-only
 recognizer to an experimentally proven hybrid landmark + RGB recognizer.
@@ -615,3 +652,19 @@ reliable reviewed hand crops and the data/evaluation sufficiency decision is rev
 
 
 
+
+## 2026-09-04 — Current-state addendum through P7F-A (read before old execution orders)
+
+[Consolidated progress and source-of-truth entry points](PROGRESS_THROUGH_P7FA_2026_09_04.md)
+now provide the recognition-upgrade current-state routing. Earlier status/read-order/next-step
+sections are preserved as historical planning; do not restart old E/P5/P6 gates from them.
+
+Latest result: `P7FA_GEOMETRY_READY_IDENTITY_MISSINGNESS_GAPS`.
+Next: `PROJECT_LEAD_FAMILY_A_SUPERVISION_CONTRACT_REVIEW` — not executed.
+Read the P7F-A report, canonical state, decision, source index, matrices and integrity artifact
+under `artifacts/recognition_upgrade/p7fa_family_a_supervision_label_adequacy_audit_01/`,
+then P7B/P7C contracts for the unchanged interface. P5 closed at D12; exact DWPose mobile path
+closed after P6C-P1; P7D-R2 compute passed; P7E integrated runtime remains below screen and parked.
+
+This addendum authorizes no training, extraction, calibration, runtime tuning, Family-B switch or
+production integration. D10/replay/pristine stay protected and ASL Citizen VAL evaluation-only.

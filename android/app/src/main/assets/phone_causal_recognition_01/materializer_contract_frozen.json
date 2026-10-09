@@ -1,0 +1,35 @@
+{
+  "cal_supported": true,
+  "component_sha256": "dd95d64a7da7e8d5103d9ee533e7c115a2ab1533f1a205137ca3f12f8b19d24a",
+  "component_source": "F:\\ASL DATASET\\5. Apphear3\\pipeline\\perception_vnext\\recognition_window_materializer.py",
+  "config": {
+    "requested_post_context_ms": 250.0,
+    "requested_pre_context_ms": 250.0
+  },
+  "contract": {
+    "duplication": false,
+    "input": {
+      "logical_event": [
+        "logical ACTIVE start/end",
+        "terminal POST anchor",
+        "causal commit index/time"
+      ],
+      "timestamps": "strictly increasing genuine source observations"
+    },
+    "interpolation": false,
+    "output": "inclusive genuine-observation index interval plus censoring diagnostics",
+    "policy": {
+      "causal_cap": "selected_end_index <= commit_index",
+      "end": "first observed timestamp >= terminal_post + requested_post_context",
+      "start": "last observed timestamp <= logical_start - requested_pre_context"
+    },
+    "rgb_retention_required": false,
+    "schema": "apphear.recognition_window_materializer.v1",
+    "stale_carry": false
+  },
+  "dev_opened": false,
+  "logical_event_reference": "PHASE8A_CONFIG_01_DIAGNOSTIC_ONLY_NOT_PRODUCTION_APPROVED",
+  "milestone": "PHASE_8A_M_CAUSAL_SPARSE_RECOGNITION_WINDOW_MATERIALIZATION_01",
+  "phone_opened": false,
+  "schema": "apphear.recognition_window_materializer.v1"
+}

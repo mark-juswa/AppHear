@@ -1,0 +1,31 @@
+{
+  "schema_version": "apphear.fingerspelling.preflight.v1",
+  "python": "3.11.5 (tags/v3.11.5:cce6ba9, Aug 24 2023, 14:38:34) [MSC v.1936 64 bit (AMD64)]",
+  "packages": {
+    "numpy": "2.4.6",
+    "opencv-python": "4.13.0.92",
+    "onnxruntime": "1.22.1",
+    "tensorflow": "2.21.0",
+    "keras": "3.15.0"
+  },
+  "adapter": {
+    "schema_version": "FingerspellingFeatureAdapter.v1",
+    "feature_width": 405,
+    "config_sha256": "5ed7f766154b558ea2bebd095804ca788dc7ee5b91cc001ca96a40133edb9b67",
+    "implementation_sha256": "256d8e82301fa9e6dd039a1c6d94dc5cc717b22c27e7b8bd9661ba32ee4394cd",
+    "columns_sha256": "f3f5f93cd590111e60a1078c032ada7a756be72d633ff53900ae9a353f084fcb"
+  },
+  "manifest_sha256": "6b4f152c6bd51eae7af697a58c88c6e20cb0b5e537e272a1a84a897aec54ae6e",
+  "candidate01_assets": {
+    "dwpose_t_singlepass.onnx": "37b0f265200f8e249adba1cc9b62925f5e1252245580ed1f66f583d7bce239c0",
+    "hand_landmarks_detector.tflite": "6acda74af3fbf40e68265c20c7394b2bad81a16a481dcd79ad7a081887c3d6b9"
+  },
+  "destination": "F:\\ASL DATASET\\5. Apphear3\\datasets\\fingerspelling\\foundation_01",
+  "writable": true,
+  "structural_pass": true,
+  "pending_rgb_bytes": 8403978625,
+  "required_free_bytes_estimate_including_raw_features_and_reserve": 10184218846,
+  "free_destination_bytes": 13415034880,
+  "bulk_space_sufficient": true,
+  "complete_tranche_ready_to_train": false
+}

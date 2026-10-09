@@ -1,0 +1,114 @@
+{
+  "schema_version": "apphear.fingerspelling.sequence_encoder_v2_1.v1",
+  "adapter_version": "FingerspellingFeatureAdapter.v1",
+  "feature_width": 405,
+  "logits": 28,
+  "blank_index": 27,
+  "space_index": 26,
+  "seed": 20261007,
+  "channels": 64,
+  "kernel_size": 3,
+  "dilations": [
+    1,
+    2,
+    4,
+    8,
+    16,
+    32,
+    64,
+    128
+  ],
+  "padding": "same",
+  "temporal_stride": 1,
+  "dropout": 0.1,
+  "mask_each_convolution": true,
+  "cpu_threads": 2,
+  "batch_size": 8,
+  "learning_rate": 0.001,
+  "gradient_clip_norm": 5.0,
+  "checkpoint_keep": 3,
+  "maximum_epochs": 90,
+  "minimum_epochs": 30,
+  "patience": 15,
+  "minimum_improvement": 0.002,
+  "initialization": "WARMSTART_FROZEN_V2_EPOCH046_FRESH_ADAM",
+  "selection": "MEAN_UNCALIBRATED_NATIVE_PHONE_FULL_NOSPACE_DEV_A_GREEDY_CER_FIRST_TIE",
+  "final_decoder": {
+    "blank_index": 27,
+    "blank_penalty": 0.5,
+    "beam_width": 10,
+    "top_paths": 1
+  },
+  "temporal_views": [
+    "native",
+    "intermediate",
+    "phone"
+  ],
+  "intermediate_hz": 12.0,
+  "phone_hz": 6.231166,
+  "train_regimes": [
+    "native",
+    "intermediate",
+    "phone",
+    "phone_robust"
+  ],
+  "ctc_fallback": "NEAREST_DENSER_FEASIBLE_VIEW",
+  "robustness": {
+    "schema_version": "apphear.fingerspelling.raw_evidence_robustness.v1",
+    "profiles": {
+      "moderate": {
+        "maximum_removed_observed_slot_fraction": 0.2,
+        "span_observations": [
+          1,
+          3
+        ]
+      },
+      "heavy": {
+        "maximum_removed_observed_slot_fraction": 0.4,
+        "span_observations": [
+          1,
+          5
+        ]
+      },
+      "contiguous": {
+        "maximum_removed_observed_slot_fraction": 0.2,
+        "span_observations": [
+          2,
+          3
+        ]
+      }
+    },
+    "train_profile": "moderate",
+    "proposal_loss_probability": 0.5,
+    "single_slot_probability": 0.5,
+    "training_profile_rule": "FIXED_BUDGET_NO_DEV_FITTING",
+    "stress_views": [
+      "phone",
+      "stress_moderate",
+      "stress_heavy",
+      "stress_contiguous"
+    ],
+    "timestep_deletion": false
+  },
+  "minimum_subgroup_sequences_to_interpret": 10,
+  "length_strata_bounds": [
+    10,
+    20
+  ],
+  "dev_b_usage": "POST_LOCK_CONFIRMATION_ONLY",
+  "test_access": "SEALED",
+  "reflection_policy": "USE_RELEASED_PIXELS_AS_IS",
+  "smoke": {
+    "train_count": 6,
+    "maximum_updates": 1000,
+    "maximum_seconds": 600,
+    "check_interval": 25,
+    "overfit_mean_ctc_ceiling": 1.0
+  },
+  "auxiliary_block": 4,
+  "auxiliary_logits": 27,
+  "auxiliary_blank_index": 26,
+  "auxiliary_weight": 0.5,
+  "warmstart_model": "runs/fingerspelling_sequence_v2_01/best_candidates/epoch_046.keras",
+  "warmstart_sha256": "88a92131eb07ce97b18f2ad4b9ea8d927858c1582177b5a04105a361e071c96a"
+}

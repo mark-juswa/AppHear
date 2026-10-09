@@ -1,0 +1,20 @@
+{
+  "protocol_version": "apphear.negative_gold_v1.topup.v1",
+  "output_run": "artifacts/recognition_upgrade/perception_backend_replacement/negative_gold_v1_topup_01",
+  "n0_run": "artifacts/recognition_upgrade/perception_backend_replacement/n0_blinded_readjudication_01",
+  "n0_source_run": "artifacts/recognition_upgrade/e2e_c0/n0_capture_06",
+  "trusted_gold_run": "F:/ASL DATASET/ASL CITIZEN/derived/apphear3/recognition_upgrade/e2e_all_hand_gold_v1/engineering_01",
+  "asl_root": "F:/ASL DATASET/ASL CITIZEN/ASL_Citizen",
+  "queue_unique_candidates": 320,
+  "qc_repeat_count": 32,
+  "selection_seed": 20260823,
+  "qc_seed": 20260824,
+  "dhash_hamming_max": 4,
+  "semantic_classes": [
+    "ZERO_HAND",
+    "VISIBLE_IDLE_HAND",
+    "VISIBLE_SIGNING_HAND",
+    "TRANSITION",
+    "UNCERTAIN"
+  ]
+}

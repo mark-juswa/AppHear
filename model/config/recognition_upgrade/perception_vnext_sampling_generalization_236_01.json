@@ -1,0 +1,47 @@
+{
+  "milestone": "PERCEPTION_VNEXT_SAMPLING_GENERALIZATION_236_01",
+  "seed": 101,
+  "raw_schema": "apphear.perception_vnext.raw.v1",
+  "feature_schema": "apphear.perception_vnext.recognition.v1",
+  "input_shape": [96, 208],
+  "classes": 236,
+  "model": {
+    "family": "established_mask_aware_causal_tcn",
+    "blocks": 4,
+    "channels": 64,
+    "dilations": [1, 2, 4, 8],
+    "kernel": 3,
+    "dropout": 0.3
+  },
+  "training": {
+    "epochs": 40,
+    "batch_size": 32,
+    "learning_rate": 0.0005,
+    "weight_decay": 0.0001,
+    "early_stop_patience": 8,
+    "train_conditions": ["dense", "sparse"],
+    "condition_weighting": "one dense plus one PHONE_01-realistic sparse view per TRAIN clip",
+    "validation_conditions": ["dense", "sparse"],
+    "selection_metric": "combined signer-disjoint DEV val_loss"
+  },
+  "training_sampler": {
+    "schema": "apphear.perception_vnext.training_sampler.v1",
+    "type": "class_signer_clip_balanced",
+    "draws_per_epoch": 3926,
+    "views_per_draw": ["dense", "sparse"],
+    "class_policy": "deterministic shuffled quotas differing by at most one draw",
+    "signer_policy": "deterministic shuffled quotas within class differing by at most one draw",
+    "clip_policy": "uniform random within selected class+signer group",
+    "replacement": true
+  },
+  "governance": {
+    "train_manifest_sha256": "751a2426b63a5474786440a2343098d0750af819b93d6f8ed54f002095cbdb33",
+    "dev_manifest_sha256": "aa0e46c18c34e2eb6eb3584692e30594967cd81ec29300bcb5e4c76e27ec040b",
+    "protected_test_access": false
+  },
+  "runtime_scope": {
+    "phone_integration": false,
+    "automatic_gating": false,
+    "ui_connection": false
+  }
+}

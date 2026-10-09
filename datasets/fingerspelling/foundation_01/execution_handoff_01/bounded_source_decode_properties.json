@@ -1,0 +1,236 @@
+[
+  {
+    "sample_id": "fsboard-v13-train-54bc844f2a594aecad1e",
+    "decoded_frames": 91,
+    "container_frames": 91,
+    "encoded_width": 1836,
+    "encoded_height": 3264,
+    "fps": 30.02782798710893,
+    "orientation_clockwise": 270.0
+  },
+  {
+    "sample_id": "fsboard-v13-train-0065ce1c797017ff6bea",
+    "decoded_frames": 151,
+    "container_frames": 151,
+    "encoded_width": 1836,
+    "encoded_height": 3264,
+    "fps": 29.890401859847227,
+    "orientation_clockwise": 270.0
+  },
+  {
+    "sample_id": "fsboard-v13-train-fff7a01b87facb277b60",
+    "decoded_frames": 91,
+    "container_frames": 91,
+    "encoded_width": 1836,
+    "encoded_height": 3264,
+    "fps": 29.890401859847227,
+    "orientation_clockwise": 270.0
+  },
+  {
+    "sample_id": "fsboard-v13-train-693a8af4487e97b3c543",
+    "decoded_frames": 91,
+    "container_frames": 91,
+    "encoded_width": 1836,
+    "encoded_height": 3264,
+    "fps": 29.89029277158561,
+    "orientation_clockwise": 270.0
+  },
+  {
+    "sample_id": "fsboard-v13-train-889c0371298e59016a07",
+    "decoded_frames": 151,
+    "container_frames": 151,
+    "encoded_width": 1836,
+    "encoded_height": 3264,
+    "fps": 30.028039427544925,
+    "orientation_clockwise": 270.0
+  },
+  {
+    "sample_id": "fsboard-v13-train-51410696376d0685c6a9",
+    "decoded_frames": 121,
+    "container_frames": 121,
+    "encoded_width": 1836,
+    "encoded_height": 3264,
+    "fps": 30.028787928923595,
+    "orientation_clockwise": 270.0
+  },
+  {
+    "sample_id": "fsboard-v13-train-90a351540226094f394c",
+    "decoded_frames": 96,
+    "container_frames": 96,
+    "encoded_width": 1080,
+    "encoded_height": 1920,
+    "fps": 30.0,
+    "orientation_clockwise": 0.0
+  },
+  {
+    "sample_id": "fsboard-v13-train-c2ce6968b1d6cf8866f1",
+    "decoded_frames": 121,
+    "container_frames": 121,
+    "encoded_width": 1836,
+    "encoded_height": 3264,
+    "fps": 29.88482405275536,
+    "orientation_clockwise": 270.0
+  },
+  {
+    "sample_id": "fsboard-v13-train-252d14491782be2ba9cd",
+    "decoded_frames": 91,
+    "container_frames": 91,
+    "encoded_width": 1836,
+    "encoded_height": 3264,
+    "fps": 30.02782798710893,
+    "orientation_clockwise": 270.0
+  },
+  {
+    "sample_id": "fsboard-v13-train-2bcf61771cae0f943749",
+    "decoded_frames": 151,
+    "container_frames": 151,
+    "encoded_width": 1836,
+    "encoded_height": 3264,
+    "fps": 30.010202143775146,
+    "orientation_clockwise": 270.0
+  },
+  {
+    "sample_id": "fsboard-v13-validation-5b6c925f2eed9516a1a0",
+    "decoded_frames": 151,
+    "container_frames": 151,
+    "encoded_width": 1836,
+    "encoded_height": 3264,
+    "fps": 30.03447666195191,
+    "orientation_clockwise": 270.0
+  },
+  {
+    "sample_id": "fsboard-v13-validation-b156f0774589b73c3c34",
+    "decoded_frames": 151,
+    "container_frames": 151,
+    "encoded_width": 1836,
+    "encoded_height": 3264,
+    "fps": 30.048355963570515,
+    "orientation_clockwise": 270.0
+  },
+  {
+    "sample_id": "fsboard-v13-validation-e2cc18c603625fb8e5ba",
+    "decoded_frames": 181,
+    "container_frames": 181,
+    "encoded_width": 1836,
+    "encoded_height": 3264,
+    "fps": 30.07282830427278,
+    "orientation_clockwise": 270.0
+  },
+  {
+    "sample_id": "fsboard-v13-validation-0996dc9c881463a3f8fd",
+    "decoded_frames": 151,
+    "container_frames": 151,
+    "encoded_width": 1836,
+    "encoded_height": 3264,
+    "fps": 29.894741473179423,
+    "orientation_clockwise": 270.0
+  },
+  {
+    "sample_id": "fsboard-v13-validation-53c290002480a4432d3c",
+    "decoded_frames": 121,
+    "container_frames": 121,
+    "encoded_width": 1836,
+    "encoded_height": 3264,
+    "fps": 30.0283739180548,
+    "orientation_clockwise": 270.0
+  },
+  {
+    "sample_id": "fsboard-v13-validation-c359cb4c59b2fdb2aadf",
+    "decoded_frames": 61,
+    "container_frames": 61,
+    "encoded_width": 1836,
+    "encoded_height": 3264,
+    "fps": 29.409401366010446,
+    "orientation_clockwise": 270.0
+  },
+  {
+    "sample_id": "fsboard-v13-validation-5e236a532ef93d4b6331",
+    "decoded_frames": 121,
+    "container_frames": 121,
+    "encoded_width": 1836,
+    "encoded_height": 3264,
+    "fps": 30.07124316562655,
+    "orientation_clockwise": 270.0
+  },
+  {
+    "sample_id": "fsboard-v13-validation-5de2271303d00481632a",
+    "decoded_frames": 91,
+    "container_frames": 91,
+    "encoded_width": 1836,
+    "encoded_height": 3264,
+    "fps": 30.04787848770018,
+    "orientation_clockwise": 270.0
+  },
+  {
+    "sample_id": "fsboard-v13-validation-e765cf04193805feedb0",
+    "decoded_frames": 91,
+    "container_frames": 91,
+    "encoded_width": 1836,
+    "encoded_height": 3264,
+    "fps": 30.04666588401033,
+    "orientation_clockwise": 270.0
+  },
+  {
+    "sample_id": "fsboard-v13-validation-c23938a76dfc203058f3",
+    "decoded_frames": 151,
+    "container_frames": 151,
+    "encoded_width": 1836,
+    "encoded_height": 3264,
+    "fps": 29.98021173662417,
+    "orientation_clockwise": 270.0
+  },
+  {
+    "sample_id": "fsboard-v13-validation-f9577f8e5d774258c8bd",
+    "decoded_frames": 181,
+    "container_frames": 181,
+    "encoded_width": 1836,
+    "encoded_height": 3264,
+    "fps": 30.028258637502326,
+    "orientation_clockwise": 270.0
+  },
+  {
+    "sample_id": "fsboard-v13-validation-9d7b5203493d1b17fed2",
+    "decoded_frames": 91,
+    "container_frames": 91,
+    "encoded_width": 1836,
+    "encoded_height": 3264,
+    "fps": 30.02782798710893,
+    "orientation_clockwise": 270.0
+  },
+  {
+    "sample_id": "fsboard-v13-validation-d9a936d2ddb0e523b7d1",
+    "decoded_frames": 91,
+    "container_frames": 91,
+    "encoded_width": 1836,
+    "encoded_height": 3264,
+    "fps": 29.890401859847227,
+    "orientation_clockwise": 270.0
+  },
+  {
+    "sample_id": "fsboard-v13-validation-e41fe8fa73316e83b4fc",
+    "decoded_frames": 91,
+    "container_frames": 91,
+    "encoded_width": 1836,
+    "encoded_height": 3264,
+    "fps": 23.96011912772294,
+    "orientation_clockwise": 270.0
+  },
+  {
+    "sample_id": "fsboard-v13-validation-f8b014f50009a3f41e6b",
+    "decoded_frames": 165,
+    "container_frames": 165,
+    "encoded_width": 1080,
+    "encoded_height": 1920,
+    "fps": 30.0,
+    "orientation_clockwise": 0.0
+  },
+  {
+    "sample_id": "fsboard-v13-validation-a34b810e304848ec1bb1",
+    "decoded_frames": 181,
+    "container_frames": 181,
+    "encoded_width": 1836,
+    "encoded_height": 3264,
+    "fps": 30.028369343412837,
+    "orientation_clockwise": 270.0
+  }
+]

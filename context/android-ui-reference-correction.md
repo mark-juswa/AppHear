@@ -1,5 +1,16 @@
 # Android UI Reference Correction
 
+## 2026-09-28 Profile correction supersedes the deferred account placeholder
+
+User requested the established account flow after actual screenshot/XML/code inspection. Restore
+Your/Profile → user card → Preference/Your Setting, including character choice below the card.
+The old Edit→Settings placeholder is removed. The account pilot uses the reference Login/Register
+design and edits full name/username inline in the existing card, with email read-only. Guest
+preferences remain visible without sign-in. Default/release keep a usable guest card without a
+misleading Edit/Logout action. No placeholder “editing and sign-in deferred” copy remains visible.
+User passed guest/auth visual acceptance; backend became reachable on the final read-only check.
+Live signed-in saving/lifecycle/storage acceptance was explicitly deferred by the user.
+
 Last updated: 2026-07-22
 Status: Home/dashboard, Recognition, Text-to-ASL, and Settings/Profile UI corrected to AppHear2 XML/assets and build green; splash/loading corrected and build green
 

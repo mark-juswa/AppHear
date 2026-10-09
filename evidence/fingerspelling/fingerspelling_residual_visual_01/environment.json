@@ -1,0 +1,16 @@
+{
+  "tensorflow": "2.21.0",
+  "keras": "3.15.0",
+  "parameters": 203517,
+  "trainable_parameters": 10401,
+  "trainable_variables": [
+    "visual_projection/kernel",
+    "visual_projection/bias",
+    "learned_visual_gate/kernel",
+    "learned_visual_gate/bias",
+    "visual_delta/kernel",
+    "visual_delta/bias"
+  ],
+  "frozen_b2_sha256": "d99c6bbacd79676f8eb868b5f6487e906e4a0bfc2daa600bc1cc758b47a166eb",
+  "cpu_only": true
+}

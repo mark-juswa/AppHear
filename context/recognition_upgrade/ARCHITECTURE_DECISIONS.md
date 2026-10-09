@@ -401,3 +401,15 @@ v3.0 and all Android assets.
 
 Related files: `PHASE2_PREPARATION_RESULT.md`, `HYBRID_FUSION_DESIGN.md`,
 `EVALUATION_AND_ACCEPTANCE_GATES.md`, `EXPERIMENT_MATRIX.md`.
+
+## 2026-08-25 — P5-A freezes DWPose Representation V2 for offline recognition work
+
+Decision: retain the frozen DWPose-L perception backend and advance `DWPOSE_REPRESENTATION_V2_238` to P5-B. P5-A is classified `P5A_REPRESENTATION_READY`.
+
+The experimental contract is `[96,238]`: 21 left-hand, 21 right-hand, and 17 body landmarks each encode normalized XY, native score, and structural-validity mask; two final channels encode current-frame hand-geometry observation. It deliberately omits MediaPipe-compatible Z, face data, eligibility truth, temporal carry-forward, interpolation, and synthetic geometry. All blocks share one current-frame body-relative transform.
+
+Evidence: 458/458 preserved governed DWPose outputs converted without rerunning perception; 28/28 sequences produced `[96,238]`; normalization succeeded 100% with 0% fallback; no NaN/Inf, stale-hand, padding, determinism, or human-GT-leakage defect was found. The existing `[96,258]` S6 and Android S4 contract remain unchanged and incompatible. Full canonical migration will require DWPose extraction for 8,131 samples.
+
+Consequence: the only next allowed experiment is P5-B temporal recognition training/evaluation on the frozen V2 representation after project-lead review. Do not reopen P4 perception or begin Android work from this decision.
+
+Related package: `artifacts/recognition_upgrade/perception_backend_replacement/p5a_dwpose_representation_v2_01/`.

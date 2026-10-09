@@ -1,0 +1,332 @@
+{
+  "status": "FINGERSPELL_V2_1_ANDROID_PASS",
+  "candidate": {
+    "schema_version": "apphear.fingerspelling.android.geometry.v1",
+    "candidate_id": "SEQUENCE_V2_1_EPOCH034_GEOMETRY_ONLY",
+    "checkpoint_path": "runs\\fingerspelling_sequence_v2_1_01\\best_candidates\\epoch_034.keras",
+    "checkpoint_epoch": 34,
+    "checkpoint_sha256": "3f92287c5ee82b2e0de1d396c4d27fe3b0efaed8af23b79b878740a56f1af638",
+    "adapter": {
+      "schema_version": "FingerspellingFeatureAdapter.v1",
+      "feature_width": 405,
+      "config_sha256": "5ed7f766154b558ea2bebd095804ca788dc7ee5b91cc001ca96a40133edb9b67",
+      "implementation_sha256": "256d8e82301fa9e6dd039a1c6d94dc5cc717b22c27e7b8bd9661ba32ee4394cd",
+      "columns_sha256": "f3f5f93cd590111e60a1078c032ada7a756be72d633ff53900ae9a353f084fcb"
+    },
+    "packed_width": 405,
+    "blank_penalty": 0.5,
+    "blank_index": 27,
+    "beam_width": 10,
+    "decoder": "PREFIX_BEAM_TOP1",
+    "vocabulary": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F",
+      "G",
+      "H",
+      "I",
+      "J",
+      "K",
+      "L",
+      "M",
+      "N",
+      "O",
+      "P",
+      "Q",
+      "R",
+      "S",
+      "T",
+      "U",
+      "V",
+      "W",
+      "X",
+      "Y",
+      "Z",
+      "SPACE",
+      "BLANK"
+    ],
+    "models": {
+      "geometry_sequence.tflite": {
+        "sha256": "e78de274b967acf0ea9d30bd3f3ac4422a1ef8ebdd95c8676b57dd05fed75c4c",
+        "bytes": 1305012
+      }
+    },
+    "feature_config": {
+      "schema_version": "FingerspellingFeatureAdapter.v1",
+      "raw_schema": "apphear.perception_vnext.raw.v1",
+      "feature_width": 405,
+      "dtype": "float32",
+      "scale_mcp_indices": [
+        5,
+        9,
+        13,
+        17
+      ],
+      "minimum_scale_short_side_ratio": 1e-06,
+      "maximum_motion_gap_seconds": 1,
+      "phone_observations_per_second": 6.231166,
+      "reflection_policy": "USE_RELEASED_PIXELS_AS_IS",
+      "reflection_provenance": "STRONGLY_SUPPORTED_UNMIRRORED_NOT_FULLY_ATTRIBUTED",
+      "horizontal_augmentation": false,
+      "time_resampling": "NONE",
+      "hand_slot_identity": "CANDIDATE01_SLOTS_NOT_PHYSICAL_HAND_IDENTITIES",
+      "body_indices": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "target_order": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F",
+        "G",
+        "H",
+        "I",
+        "J",
+        "K",
+        "L",
+        "M",
+        "N",
+        "O",
+        "P",
+        "Q",
+        "R",
+        "S",
+        "T",
+        "U",
+        "V",
+        "W",
+        "X",
+        "Y",
+        "Z",
+        "SPACE"
+      ],
+      "ctc_blank_index": 27,
+      "encoder_time_stride_for_readiness": 1,
+      "train_sequences": 1024,
+      "dev_sequences": 256,
+      "batch_sequences": 16,
+      "selection_salt": "apphear-fsboard-foundation-01-v1",
+      "train_stratum_quota": {
+        "daun_v3": 512,
+        "dmk_v3": 512
+      },
+      "dev_test_phrase_policy": "EXCLUDE_DEV_NORMALIZED_PHRASES_PRESENT_IN_OFFICIAL_TEST_METADATA"
+    },
+    "session_limits": {
+      "maximum_frames": 512,
+      "maximum_seconds": 60
+    },
+    "encoder": "SYMMETRIC_MASKED_TCN_V2_1",
+    "causal": false,
+    "parameter_count": 292956,
+    "auxiliary_head_exported": false,
+    "visual_branch_enabled": false,
+    "quantized": false,
+    "training": false,
+    "test_accessed": false
+  },
+  "host_cases": 14,
+  "android_cases": 14,
+  "beam_cases": 523,
+  "protected_inventory": {
+    "files_checked": 1599,
+    "changed": [
+      "C:\\Users\\Gigabyte\\.codex\\worktrees\\fingerspell-oct04-integration\\5. Apphear3\\android\\app\\src\\androidTest\\java\\com\\example\\apphear\\fingerspelling\\Train4096ParityInstrumentedTest.kt",
+      "C:\\Users\\Gigabyte\\.codex\\worktrees\\fingerspell-oct04-integration\\5. Apphear3\\android\\app\\src\\main\\java\\com\\example\\apphear\\fingerspelling\\FingerspellModels.kt"
+    ],
+    "unexpected": [],
+    "allowed": [
+      "C:\\Users\\Gigabyte\\.codex\\worktrees\\fingerspell-oct04-integration\\5. Apphear3\\android\\app\\src\\androidTest\\java\\com\\example\\apphear\\fingerspelling\\Train4096ParityInstrumentedTest.kt",
+      "C:\\Users\\Gigabyte\\.codex\\worktrees\\fingerspell-oct04-integration\\5. Apphear3\\android\\app\\src\\main\\java\\com\\example\\apphear\\fingerspelling\\FingerspellModels.kt"
+    ],
+    "test_accessed": false
+  },
+  "unit_tests": {
+    "tests": 157,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "runtime": {
+    "native": {
+      "timesteps": [
+        121,
+        181,
+        91,
+        181,
+        121,
+        331
+      ],
+      "model_last_invocation": {
+        "count": 6,
+        "p50_ms": 18.684167,
+        "p95_ms": 37.851822,
+        "max_ms": 45.00302
+      },
+      "model_all_invocations": {
+        "count": 18,
+        "p50_ms": 26.924219,
+        "p95_ms": 77.816666,
+        "max_ms": 108.593334
+      },
+      "beam": {
+        "count": 6,
+        "p50_ms": 105.586667,
+        "p95_ms": 191.963177,
+        "max_ms": 254.663594
+      },
+      "model_plus_both_decoders": {
+        "count": 6,
+        "p50_ms": 146.847343,
+        "p95_ms": 237.611874,
+        "max_ms": 274.96401
+      },
+      "scope": "SAVED_FIXTURES_CPU2; NOT_BUTTON_QUEUE_OR_UI_RENDER; SMALL_N_ORDER_STATISTICS"
+    },
+    "phone": {
+      "timesteps": [
+        25,
+        37,
+        19,
+        37,
+        25,
+        67
+      ],
+      "model_last_invocation": {
+        "count": 6,
+        "p50_ms": 7.458594,
+        "p95_ms": 10.42125,
+        "max_ms": 11.852812
+      },
+      "model_all_invocations": {
+        "count": 18,
+        "p50_ms": 9.641823,
+        "p95_ms": 14.293906,
+        "max_ms": 26.86151
+      },
+      "beam": {
+        "count": 6,
+        "p50_ms": 16.252291,
+        "p95_ms": 21.777083,
+        "max_ms": 38.86
+      },
+      "model_plus_both_decoders": {
+        "count": 6,
+        "p50_ms": 22.285209,
+        "p95_ms": 34.358281000000005,
+        "max_ms": 49.4425
+      },
+      "scope": "SAVED_FIXTURES_CPU2; NOT_BUTTON_QUEUE_OR_UI_RENDER; SMALL_N_ORDER_STATISTICS"
+    },
+    "synthetic_parity_only": {
+      "timesteps": [
+        10,
+        17
+      ],
+      "model_last_invocation": {
+        "count": 2,
+        "p50_ms": 4.158229,
+        "p95_ms": 4.158229,
+        "max_ms": 4.532344
+      },
+      "model_all_invocations": {
+        "count": 6,
+        "p50_ms": 4.904583,
+        "p95_ms": 6.140104,
+        "max_ms": 6.923437
+      },
+      "beam": {
+        "count": 2,
+        "p50_ms": 4.848698,
+        "p95_ms": 4.848698,
+        "max_ms": 5.331406
+      },
+      "model_plus_both_decoders": {
+        "count": 2,
+        "p50_ms": 9.421303,
+        "p95_ms": 9.421303,
+        "max_ms": 9.531458
+      },
+      "scope": "SAVED_FIXTURES_CPU2; NOT_BUTTON_QUEUE_OR_UI_RENDER; SMALL_N_ORDER_STATISTICS"
+    }
+  },
+  "accuracy_claim": "NONE_NEW; EXISTING_OFFLINE_V2_1_REVIEW_ONLY",
+  "production_promoted": false,
+  "test_accessed": false,
+  "live_smoke": {
+    "sessions": [
+      {
+        "file": "session_1791452659976.json",
+        "observations": 71,
+        "greedyRaw": "AMSEY",
+        "beamRaw": "AMSEY",
+        "previewRaw": "AMSEY",
+        "cadence": 6.241355734010837,
+        "model_ms": 124.442344,
+        "beam_ms": 352.745209,
+        "finish_ms": 479.741354,
+        "observed_hand_frames": 21
+      },
+      {
+        "file": "session_1791452687577.json",
+        "observations": 50,
+        "greedyRaw": "ASEAY",
+        "beamRaw": "ASEEAY",
+        "previewRaw": "ASEEAY",
+        "cadence": 6.438451174647396,
+        "model_ms": 87.6475,
+        "beam_ms": 121.490625,
+        "finish_ms": 210.809479,
+        "observed_hand_frames": 19
+      },
+      {
+        "file": "session_1791452709363.json",
+        "observations": 42,
+        "greedyRaw": "AEAY",
+        "beamRaw": "AEAY",
+        "previewRaw": "AEAY",
+        "cadence": 5.793862326745568,
+        "model_ms": 74.51026,
+        "beam_ms": 90.415573,
+        "finish_ms": 166.675781,
+        "observed_hand_frames": 17
+      },
+      {
+        "file": "session_1791452721719.json",
+        "observations": 38,
+        "greedyRaw": "AMEMMEAYY",
+        "beamRaw": "AMEMEAY",
+        "previewRaw": "AMEMEAY",
+        "cadence": 5.8340251383413095,
+        "model_ms": 13.342031,
+        "beam_ms": 80.345886,
+        "finish_ms": 95.041771,
+        "observed_hand_frames": 16
+      }
+    ],
+    "accuracy_claim": "NONE_NONEXPERT_ENGINEERING_ONLY",
+    "test_accessed": false,
+    "expected_prompt": "AMY",
+    "supervisor_reply": "i tried to spell amy but it isnt accurate",
+    "controls_reply": "it works",
+    "signer_proficiency": "NOT_VERIFIED",
+    "signing_accuracy_claim": "NONE",
+    "no_training_recording": true,
+    "preview_text_scope": "RUNTIME_PREVIEW_DIAGNOSTICS_NOT_SEPARATE_HUMAN_TRANSCRIPTION"
+  },
+  "new_phone_accuracy_improvement_claim": "NONE; AMY_RETRIES_INACCURATE",
+  "no_input_guard_added": false,
+  "rollback": "F:\\ASL DATASET\\5. Apphear3\\artifacts\\fingerspelling_train4096_android_01\\private_apks\\app-debug.apk"
+}
