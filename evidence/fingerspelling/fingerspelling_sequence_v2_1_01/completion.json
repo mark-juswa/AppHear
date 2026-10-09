@@ -1,0 +1,17 @@
+{
+  "status": "V2_1_TRAINING_COMPLETE",
+  "epoch": 49,
+  "best_combined_cer": 0.41779651004086427,
+  "best_model_path": "F:\\ASL DATASET\\5. Apphear3\\runs\\fingerspelling_sequence_v2_1_01\\best_candidates\\epoch_034.keras",
+  "patience_anchor": 0.41779651004086427,
+  "non_improving_epochs": 15,
+  "best_model_sha256": "3f92287c5ee82b2e0de1d396c4d27fe3b0efaed8af23b79b878740a56f1af638",
+  "best_training_model_path": "F:\\ASL DATASET\\5. Apphear3\\runs\\fingerspelling_sequence_v2_1_01\\best_candidates\\epoch_034_training.keras",
+  "best_training_model_sha256": "7ae6d97cde09e7cb5cbfadbf361562fcd7f5469ec46975df5f13052e0e2aac31",
+  "best_epoch": 34,
+  "checkpoint": "F:\\ASL DATASET\\5. Apphear3\\runs\\fingerspelling_sequence_v2_1_01\\checkpoints\\ckpt-49",
+  "model_optimizer_sha256": "111cc64951beca7b9c64feb86afd0dd0ebf3e3e838ad172fe7adb512bb6b6e0f",
+  "optimizer_iterations": 25088,
+  "production_promoted": false,
+  "test_accessed": false
+}

@@ -1,0 +1,15 @@
+{
+  "schema_version": "apphear.fsboard.expansion_plan_identity.v1",
+  "selection_config_sha256": "61c563ee8aa09b5e6fcd889d819d4ad8174281e3930416a756d3f2ba24e430f4",
+  "manifest_sha256": {
+    "train4096_manifest.json": "4dd03d43b2f6e2e9a7b83fa21b0a5f65cd92f460e52e197f94f1929dfd11bbbb",
+    "train_additions/tranche_manifest.json": "8f219a84dee854422de5ed138512d6cd5fcc258a94fcf4cbc5f4c1b1a9bd5075",
+    "dev_b/tranche_manifest.json": "50bc3cf42bc549f41ecce7f74bda0acad4be59c0b490d0afd49ec83e94efa09e",
+    "dev_a_reference.json": "db46403dee9be51a8000420977772585b0061c53fe6faeb8c5c8f61f00ccdb4f",
+    "dev_b_policy.json": "e3c16ffccefbe8088e69d7f3bfdd6696dae6784972f73595d23c46e1c12dab58"
+  },
+  "batch_plan_sha256": "9559b504d6e12a25bfaae010b92b823865f6a6c80e21d3b0cc42353e5cd906c8",
+  "foundation_manifest_sha256": "6b4f152c6bd51eae7af697a58c88c6e20cb0b5e537e272a1a84a897aec54ae6e",
+  "dev_b_training_config_reference": false,
+  "test_payload_accessed": false
+}

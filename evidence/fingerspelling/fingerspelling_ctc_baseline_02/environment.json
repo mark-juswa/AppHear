@@ -1,0 +1,9 @@
+{
+  "tensorflow": "2.21.0",
+  "keras": "3.15.0",
+  "parameters": 193116,
+  "cpu_only": true,
+  "resume_granularity": "Committed epochs; interrupted epoch repeated",
+  "bit_exact_continuation_claim": false,
+  "fresh_initialization_not_baseline1_finetuning": true
+}

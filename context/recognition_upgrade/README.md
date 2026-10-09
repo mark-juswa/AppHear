@@ -1,3 +1,5 @@
+> **2026-10-09 scope correction:** This directory is historical WORD recognition research, not the current fingerspelling execution plan. Read [current team state](../team-current-state-2026-10-09.md) and [handoff](../../TEAM_HANDOFF.md). Some stage/status entries below were superseded by later frozen S2-R2 integration. Never change the protected WORD path based solely on an old proposal.
+
 # AppHear Recognition Upgrade
 
 ## Validated current state — 2026-09-15

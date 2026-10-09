@@ -1,0 +1,51 @@
+[
+  {
+    "alias": "hello",
+    "id": "hello",
+    "asset": "asl_animations\/original_words_v1\/hello.glb",
+    "firstPlaybackStartMs": 1209.474062,
+    "totalMs": 3322.466352
+  },
+  {
+    "alias": "father",
+    "id": "father",
+    "asset": "asl_animations\/original_words_v1\/father.glb",
+    "firstPlaybackStartMs": 482.686041,
+    "totalMs": 2701.677811
+  },
+  {
+    "alias": "dad",
+    "id": "dad",
+    "asset": "asl_animations\/dad.glb",
+    "firstPlaybackStartMs": 574.304791,
+    "totalMs": 3085.204582
+  },
+  {
+    "alias": "right",
+    "id": "right",
+    "asset": "asl_animations\/original_words_v1\/right.glb",
+    "firstPlaybackStartMs": 354.417291,
+    "totalMs": 2787.660624
+  },
+  {
+    "alias": "right direction",
+    "id": "right_direction",
+    "asset": "asl_animations\/original_words_v1\/right__direction.glb",
+    "firstPlaybackStartMs": 414.848542,
+    "totalMs": 2479.334478
+  },
+  {
+    "alias": "baby",
+    "id": "baby",
+    "asset": "asl_animations\/original_words_v1\/baby.glb",
+    "firstPlaybackStartMs": 377.672031,
+    "totalMs": 3723.385363
+  },
+  {
+    "alias": "what rhetorical",
+    "id": "what_rhetorical",
+    "asset": "asl_animations\/original_words_v1\/what__rhetorical_what.glb",
+    "firstPlaybackStartMs": 394.109063,
+    "totalMs": 2606.923176
+  }
+]

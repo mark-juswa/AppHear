@@ -1,0 +1,65 @@
+{
+  "schema_version": "apphear.fingerspelling.sequence_validation.v1",
+  "manifest_sha256": "50bc3cf42bc549f41ecce7f74bda0acad4be59c0b490d0afd49ec83e94efa09e",
+  "adapter": {
+    "schema_version": "FingerspellingFeatureAdapter.v1",
+    "feature_width": 405,
+    "config_sha256": "5ed7f766154b558ea2bebd095804ca788dc7ee5b91cc001ca96a40133edb9b67",
+    "implementation_sha256": "256d8e82301fa9e6dd039a1c6d94dc5cc717b22c27e7b8bd9661ba32ee4394cd",
+    "columns_sha256": "f3f5f93cd590111e60a1078c032ada7a756be72d633ff53900ae9a353f084fcb"
+  },
+  "structural_errors": [],
+  "structural_pass": true,
+  "validated_sequences": 0,
+  "selected_sequences": 256,
+  "statistics": {
+    "TRAIN": {
+      "sequences": 0,
+      "signers": 0,
+      "characters": {},
+      "native_frames": 0,
+      "phone_frames": 0,
+      "native_ctc_infeasible": 0,
+      "phone_ctc_infeasible": 0,
+      "j_sequences": 0,
+      "z_sequences": 0,
+      "repeat_sequences": 0,
+      "strata": {},
+      "lengths": [],
+      "temporal_lengths": [],
+      "missing_hand_fractions": []
+    },
+    "DEV": {
+      "sequences": 0,
+      "signers": 0,
+      "characters": {},
+      "native_frames": 0,
+      "phone_frames": 0,
+      "native_ctc_infeasible": 0,
+      "phone_ctc_infeasible": 0,
+      "j_sequences": 0,
+      "z_sequences": 0,
+      "repeat_sequences": 0,
+      "strata": {},
+      "lengths": [],
+      "temporal_lengths": [],
+      "missing_hand_fractions": []
+    }
+  },
+  "readiness_blockers": [
+    "KOTLIN_REFERENCE_PARITY_PENDING",
+    "PENDING_OR_FAILED_SEQUENCES=256",
+    "TRAIN_CHARACTER_COVERAGE_INCOMPLETE",
+    "TRAIN_TRANCHE_INCOMPLETE",
+    "TRAIN_NATIVE_CTC_ELIGIBLE_COVERAGE_INCOMPLETE",
+    "TRAIN_REPEATED_SEQUENCE_COVERAGE_INCOMPLETE",
+    "DEV_CHARACTER_COVERAGE_INCOMPLETE",
+    "DEV_TRANCHE_INCOMPLETE",
+    "DEV_NATIVE_CTC_ELIGIBLE_COVERAGE_INCOMPLETE",
+    "DEV_REPEATED_SEQUENCE_COVERAGE_INCOMPLETE",
+    "TRAIN_BOTH_STRATA_TRANCHE_INCOMPLETE"
+  ],
+  "ready_to_train": false,
+  "accuracy_claim": "NONE",
+  "test_payload_accessed": false
+}

@@ -1,0 +1,12 @@
+{
+  "completion_sha256": "720acd07be526ad0782e0fbedffb0e0e47f58f0ee45de6c8dd93c85fef72dbbf",
+  "selected_model_sha256": "88a92131eb07ce97b18f2ad4b9ea8d927858c1582177b5a04105a361e071c96a",
+  "configuration_sha256": "2016c4f2cb4ebf7036ab648bc4e7d43e133488c2915c599e16835b2481e880ee",
+  "reference_sha256": "b037e32789f523c043b46c32cdc2ea11f2f600fd35f30ecd672604b6f6947886",
+  "decoder": {
+    "blank_index": 27,
+    "blank_penalty": 0.5,
+    "beam_width": 10,
+    "top_paths": 1
+  }
+}

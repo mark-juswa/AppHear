@@ -1,0 +1,20 @@
+{
+  "schema_version": "apphear.fingerspelling.outer_boundary_oracle.v1",
+  "research_only": true,
+  "dataset": "datasets/fingerspelling/foundation_01",
+  "manifest_sha256": "6b4f152c6bd51eae7af697a58c88c6e20cb0b5e537e272a1a84a897aec54ae6e",
+  "official_role": "DEV",
+  "sequences": 256,
+  "window_rule": "annotationStartTimeS-clipStartTimeS <= timestamp_ms/1000 <= annotationEndTimeS-clipStartTimeS",
+  "endpoint_policy": "CLOSED_NO_PADDING_NO_CLAMPING",
+  "views": ["native", "phone"],
+  "cadence_policy": "TRIM_THEN_EXISTING_TEMPORAL_VIEW_FIRST_REAL_FRAME_PHASE",
+  "models": ["b2", "residual"],
+  "blank_index": 27,
+  "blank_penalty": 0.5,
+  "beam_width": 10,
+  "top_paths": 1,
+  "test_access": "SEALED",
+  "invalid_window_policy": "REPORT_AND_STOP_BEFORE_EVALUATION_NO_SILENT_EXCLUSION",
+  "parameter_search": false
+}

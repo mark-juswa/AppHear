@@ -1,0 +1,10 @@
+{
+  "tensorflow": "2.21.0",
+  "keras": "3.15.0",
+  "parameters": 193116,
+  "cpu_only": true,
+  "fresh_adam": true,
+  "initial_b2_checkpoint_sha256": "64f425358ef30e21a4aca18795226854f7aa44a34c3bc3e54a8c06366cb61397",
+  "resume_granularity": "Committed epoch; interrupted epoch repeats",
+  "test_accessed": false
+}

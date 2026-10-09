@@ -1,0 +1,32 @@
+{
+  "status": "ORIGINAL_WORD_BATCH_TECHNICAL_PASS",
+  "host_tests": 186,
+  "failures": 0,
+  "errors": 0,
+  "baseline": "34f24ab6d7aea8179decb1688a82fc5734f6d370",
+  "modified_existing_source_files": [
+    "android/app/src/androidTest/java/com/example/apphear/AslCharacterSettingsInstrumentedTest.kt",
+    "android/app/src/main/java/com/example/apphear/ui/texttoasl/AndroidAssetAslCatalogLoader.kt",
+    "android/app/build.gradle.kts"
+  ],
+  "unchanged_baseline_source_files": 667,
+  "all_baseline_main_assets_preserved": true,
+  "baseline_packaged_asset_count": 239,
+  "all203_new_apk_payload_hashes_match": true,
+  "stand_payload_excluded": true,
+  "replacements": 32,
+  "additions": 171,
+  "expanded_original_entries": 273,
+  "apk_bytes": 827340540,
+  "device_playback_verified": true,
+  "linguistic_accuracy_verified": false,
+  "device_sample_clips": 7,
+  "private_catalog_playback_tests_passed": 2,
+  "ownership_regression_passed_separately": true,
+  "combined_test_focus_timeout": true,
+  "private_apk_sha256": "152dacceb5eb07a561d79f93d4a9620523d9de47e0fe97393cef7dabd8589933",
+  "rollback_apk_sha256": "cd92a856a86a078f79e6b1a40182587e1737a213dba6c0d3baa754c25d36d4c0",
+  "manifest_sha256": "4c08af4d1257ebb0b85258cd52c99cd54f0c66233b095cab28174f8296d88717",
+  "human_linguistic_review_performed": false,
+  "installed_configuration": "private debug, OriginalWords enabled"
+}

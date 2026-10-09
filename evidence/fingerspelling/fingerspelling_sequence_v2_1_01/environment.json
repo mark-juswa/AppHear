@@ -1,0 +1,12 @@
+{
+  "tensorflow": "2.21.0",
+  "keras": "3.15.0",
+  "parameters": 294711,
+  "receptive_field": 1021,
+  "causal": false,
+  "cpu_threads": 2,
+  "initialization": "WARMSTART_FROZEN_V2_EPOCH046_FRESH_ADAM",
+  "resume_granularity": "Committed epoch; interrupted epoch repeats",
+  "accuracy_claim": "AWAIT_HELDOUT_EVALUATION",
+  "test_accessed": false
+}

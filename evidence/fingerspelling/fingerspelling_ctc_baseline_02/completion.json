@@ -1,0 +1,12 @@
+{
+  "status": "BASELINE2_TRAINING_COMPLETE",
+  "epochs": 79,
+  "maximum_epochs": 90,
+  "stop_reason": "FROZEN_EARLY_STOPPING",
+  "best_epoch": 76,
+  "best_model_path": "F:\\ASL DATASET\\5. Apphear3\\runs\\fingerspelling_ctc_baseline_02\\best_candidates\\epoch_076.keras",
+  "best_model_sha256": "64f425358ef30e21a4aca18795226854f7aa44a34c3bc3e54a8c06366cb61397",
+  "best_combined_dev_cer": 0.5662424067110211,
+  "test_accessed": false,
+  "production_promoted": false
+}

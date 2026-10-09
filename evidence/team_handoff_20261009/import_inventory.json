@@ -1,0 +1,2072 @@
+[
+  {
+    "path": "context/fingerspelling-android-v1.md",
+    "source_path": "context/fingerspelling-android-v1.md",
+    "bytes": 9657,
+    "sha256": "998cc810ff204e0437e4cae8306bf2c17497e20a9a7e25e716262324f9e162b0"
+  },
+  {
+    "path": "context/fingerspelling-continuous-v1.md",
+    "source_path": "context/fingerspelling-continuous-v1.md",
+    "bytes": 3435,
+    "sha256": "a4a42a897630dd3a9232bcb7ca791a5ad3ca90886e78e4dc8d4afe16bb7be9ae"
+  },
+  {
+    "path": "context/fingerspelling-dataset-v1.md",
+    "source_path": "context/fingerspelling-dataset-v1.md",
+    "bytes": 20945,
+    "sha256": "2adcd3879d09b7de44e80bfbc43ee14303a7763ceeb9a0cd589d3452e846d718"
+  },
+  {
+    "path": "context/fingerspelling-residual-visual-v1.md",
+    "source_path": "context/fingerspelling-residual-visual-v1.md",
+    "bytes": 5414,
+    "sha256": "7a31013eeba126e79d76ee014bde9c8ba091c4a81cfba1bb447aafdf3b36dd17"
+  },
+  {
+    "path": "context/fingerspelling-sequence-v1.md",
+    "source_path": "context/fingerspelling-sequence-v1.md",
+    "bytes": 10935,
+    "sha256": "637d7facef306c808815cf524ad78ba6f5d85f4414406acdf210c150955cf860"
+  },
+  {
+    "path": "context/fingerspelling-sequence-v2-1.md",
+    "source_path": "context/fingerspelling-sequence-v2-1.md",
+    "bytes": 4755,
+    "sha256": "a450e842b25a5d975644bab17de75b0918677ac7d534da3abb543ce2352ed2f5"
+  },
+  {
+    "path": "context/fingerspelling-sequence-v2.md",
+    "source_path": "context/fingerspelling-sequence-v2.md",
+    "bytes": 8385,
+    "sha256": "37632bc7d5312881cc63813fd1053bbdee7428af4d70ddf9aa9e9eda9e889b2a"
+  },
+  {
+    "path": "context/fingerspelling-single-letter-v1.md",
+    "source_path": "context/fingerspelling-single-letter-v1.md",
+    "bytes": 3189,
+    "sha256": "f2fda85486e302a732e58ad47c054b4821e9656be43eac9517ddf3649c2c095d"
+  },
+  {
+    "path": "context/fingerspelling-visual-v1.md",
+    "source_path": "context/fingerspelling-visual-v1.md",
+    "bytes": 5122,
+    "sha256": "c8723b72f918c187d0548f2ebe9ae1beb3e6747ddd460617bf9c22f9c9268598"
+  },
+  {
+    "path": "docs/apphear-fingerspelling-1k-optimization-01-2026-10-05.md",
+    "source_path": "docs/apphear-fingerspelling-1k-optimization-01-2026-10-05.md",
+    "bytes": 9027,
+    "sha256": "ae7b1b4b55520cdcbd5fefd281c162c81c9a6d596f2c10353be66c50ab2b6ae7"
+  },
+  {
+    "path": "docs/apphear-fingerspelling-android-beam-top1-2026-10-05.md",
+    "source_path": "docs/apphear-fingerspelling-android-beam-top1-2026-10-05.md",
+    "bytes": 11626,
+    "sha256": "dc431162ce4ae4787e5f283d284a5b64f666d78427813922cf0b2f8b154dae8a"
+  },
+  {
+    "path": "docs/apphear-fingerspelling-android-integration-01-2026-10-04.md",
+    "source_path": "docs/apphear-fingerspelling-android-integration-01-2026-10-04.md",
+    "bytes": 7538,
+    "sha256": "55413858ed0e3c98d0096fa6ffd66e17c01b1508eee351ed806aa38f7b058347"
+  },
+  {
+    "path": "docs/apphear-fingerspelling-android-integration-plan-2026-10-04.md",
+    "source_path": "docs/apphear-fingerspelling-android-integration-plan-2026-10-04.md",
+    "bytes": 3116,
+    "sha256": "3355a8ecdf2a01dc34ae8d37435fc32b2b82b37e36570bccc9460c0bc735a174"
+  },
+  {
+    "path": "docs/apphear-fingerspelling-android-oct04-integration-2026-10-04.md",
+    "source_path": "docs/apphear-fingerspelling-android-oct04-integration-2026-10-04.md",
+    "bytes": 11725,
+    "sha256": "6c3a746742b62cac8e5087afa33674e8376f7b0c01de0789788961c104b554d1"
+  },
+  {
+    "path": "docs/apphear-fingerspelling-balanced-power-check-2026-10-05.md",
+    "source_path": "docs/apphear-fingerspelling-balanced-power-check-2026-10-05.md",
+    "bytes": 5765,
+    "sha256": "9b4e7b6a6841e71ee74f1fdf29ee465445ee3cfff0737a6275c6fd8be446dbec"
+  },
+  {
+    "path": "docs/apphear-fingerspelling-baseline-execution-handoff-01-2026-10-02.md",
+    "source_path": "docs/apphear-fingerspelling-baseline-execution-handoff-01-2026-10-02.md",
+    "bytes": 16799,
+    "sha256": "f322443c82eda3ee47dc6be11153f5f83e38fa28690fa8a33429056cfc60f139"
+  },
+  {
+    "path": "docs/apphear-fingerspelling-baseline2-handoff-2026-10-04.md",
+    "source_path": "docs/apphear-fingerspelling-baseline2-handoff-2026-10-04.md",
+    "bytes": 14810,
+    "sha256": "9a6669a3b4312cda1e34bfc9fd51ee1e27438dcc9b3b471fb3c7fb9df07d5e06"
+  },
+  {
+    "path": "docs/apphear-fingerspelling-baseline2-plan-2026-10-04.md",
+    "source_path": "docs/apphear-fingerspelling-baseline2-plan-2026-10-04.md",
+    "bytes": 4371,
+    "sha256": "dbe451ac248b2a728a21f8a7360e15ec4480e1aee439492800af84271872c97a"
+  },
+  {
+    "path": "docs/apphear-fingerspelling-baseline2-results-review-2026-10-04.md",
+    "source_path": "docs/apphear-fingerspelling-baseline2-results-review-2026-10-04.md",
+    "bytes": 9095,
+    "sha256": "a63968bbf387325e41737faa7d619ab362207c318f5f43ad41a510012034fb43"
+  },
+  {
+    "path": "docs/apphear-fingerspelling-baseline3-handoff-2026-10-04.md",
+    "source_path": "docs/apphear-fingerspelling-baseline3-handoff-2026-10-04.md",
+    "bytes": 15374,
+    "sha256": "169623539355d362003b86a8e8e2869e8fabf419e929bdeb00027c8f1479f112"
+  },
+  {
+    "path": "docs/apphear-fingerspelling-baseline3-plan-2026-10-04.md",
+    "source_path": "docs/apphear-fingerspelling-baseline3-plan-2026-10-04.md",
+    "bytes": 4900,
+    "sha256": "ff3468dfe25a55a1a8312cfaacc237e94452f215db65100755b207bd01b4a9d8"
+  },
+  {
+    "path": "docs/apphear-fingerspelling-baseline3-results-review-2026-10-04.md",
+    "source_path": "docs/apphear-fingerspelling-baseline3-results-review-2026-10-04.md",
+    "bytes": 9354,
+    "sha256": "462a6fb8b95efc1330098bc9279e9ec985ace7fc8eadbfb654886721bd6a66bd"
+  },
+  {
+    "path": "docs/apphear-fingerspelling-baseline4-handoff-2026-10-04.md",
+    "source_path": "docs/apphear-fingerspelling-baseline4-handoff-2026-10-04.md",
+    "bytes": 12997,
+    "sha256": "9e9582060dbe670912c52745162801c512ae2fd5cfbaa2b3c8b83c645a552dfa"
+  },
+  {
+    "path": "docs/apphear-fingerspelling-baseline4-plan-2026-10-04.md",
+    "source_path": "docs/apphear-fingerspelling-baseline4-plan-2026-10-04.md",
+    "bytes": 3705,
+    "sha256": "fdc3df20fc73ec4b44f767da102e5711824fad8cacd258cfec838653a59a6dce"
+  },
+  {
+    "path": "docs/apphear-fingerspelling-baseline4-results-review-2026-10-04.md",
+    "source_path": "docs/apphear-fingerspelling-baseline4-results-review-2026-10-04.md",
+    "bytes": 9156,
+    "sha256": "dbdbf316307085855a5074084a0d7e6483ff69b9d381c6f535c75632b25174c8"
+  },
+  {
+    "path": "docs/apphear-fingerspelling-continuous-gate-2026-10-08.md",
+    "source_path": "docs/apphear-fingerspelling-continuous-gate-2026-10-08.md",
+    "bytes": 9994,
+    "sha256": "a1a8e5f52e507b0193170643c18cc42a6bbbe49749919a957db3e2a2e2ca18b9"
+  },
+  {
+    "path": "docs/apphear-fingerspelling-continuous-plan-2026-10-08.md",
+    "source_path": "docs/apphear-fingerspelling-continuous-plan-2026-10-08.md",
+    "bytes": 3811,
+    "sha256": "ee08606fd35c1492ec13ba769fa55e15414623b6e780fbd15b43bcf599bb500e"
+  },
+  {
+    "path": "docs/apphear-fingerspelling-current-sign-restored-2026-10-08.md",
+    "source_path": "docs/apphear-fingerspelling-current-sign-restored-2026-10-08.md",
+    "bytes": 2577,
+    "sha256": "47a6684222587aa9940e915e8cd0fb44ebf0dd5837df833393f9e0d10cebadbb"
+  },
+  {
+    "path": "docs/apphear-fingerspelling-decoder-audit-01-2026-10-05.md",
+    "source_path": "docs/apphear-fingerspelling-decoder-audit-01-2026-10-05.md",
+    "bytes": 13497,
+    "sha256": "917f878054d53d66d36ddee607717c2ee96a5ebb7ae1326e9d3f00d207c9c743"
+  },
+  {
+    "path": "docs/apphear-fingerspelling-external-preparation-01-2026-10-05.md",
+    "source_path": "docs/apphear-fingerspelling-external-preparation-01-2026-10-05.md",
+    "bytes": 8971,
+    "sha256": "94778c4ecb6267f8c675d178ac50b9a3ee2934a70ac4a1e104e5792bcb32544d"
+  },
+  {
+    "path": "docs/apphear-fingerspelling-first-baseline-review-01-2026-10-04.md",
+    "source_path": "docs/apphear-fingerspelling-first-baseline-review-01-2026-10-04.md",
+    "bytes": 6169,
+    "sha256": "a5066b945289681eba7681b9a0bbf87e207646fd3adcb632d6f0d83fb22d46cb"
+  },
+  {
+    "path": "docs/apphear-fingerspelling-letter-first-implementation-roadmap-2026-10-08.md",
+    "source_path": "docs/apphear-fingerspelling-letter-first-implementation-roadmap-2026-10-08.md",
+    "bytes": 15341,
+    "sha256": "7a1eb665786779e62ebc8a76e1f08f317f89c9c1c63eca604f34cc53f25782b3"
+  },
+  {
+    "path": "docs/apphear-fingerspelling-long-spelling-check-2026-10-08.md",
+    "source_path": "docs/apphear-fingerspelling-long-spelling-check-2026-10-08.md",
+    "bytes": 2540,
+    "sha256": "33d3efafca34effbac883c9ef470a53175dd4c3635f840897edd9aa1465b112d"
+  },
+  {
+    "path": "docs/apphear-fingerspelling-next-quality-decision-2026-10-05.md",
+    "source_path": "docs/apphear-fingerspelling-next-quality-decision-2026-10-05.md",
+    "bytes": 7732,
+    "sha256": "729c16fcca5970bdf2cca76ae726b2826f6c07846bada6d62205ff36a9771d43"
+  },
+  {
+    "path": "docs/apphear-fingerspelling-next-session-handoff-2026-10-05.md",
+    "source_path": "docs/apphear-fingerspelling-next-session-handoff-2026-10-05.md",
+    "bytes": 6549,
+    "sha256": "9f17ecde19ecc3ab1c4e26b4edd518ebb79361587ffc881bdbf4109b9550fbde"
+  },
+  {
+    "path": "docs/apphear-fingerspelling-outer-boundary-oracle-01-2026-10-05.md",
+    "source_path": "docs/apphear-fingerspelling-outer-boundary-oracle-01-2026-10-05.md",
+    "bytes": 16060,
+    "sha256": "493936fba54a01bbabb8bb3615273e0e9016d0da90f8d447fbcfcdca8c150810"
+  },
+  {
+    "path": "docs/apphear-fingerspelling-parallel-preparation-01-2026-10-05.md",
+    "source_path": "docs/apphear-fingerspelling-parallel-preparation-01-2026-10-05.md",
+    "bytes": 6893,
+    "sha256": "208edd367ad8d68900e634bf27e1cea359bf7c4b5f738354d24e90fe843104e3"
+  },
+  {
+    "path": "docs/apphear-fingerspelling-phone-smoke-2026-10-05.md",
+    "source_path": "docs/apphear-fingerspelling-phone-smoke-2026-10-05.md",
+    "bytes": 6417,
+    "sha256": "72299893d7e39b5ce435a1d1b3b58eaacaf752736f79d2792d61578a4c0a426d"
+  },
+  {
+    "path": "docs/apphear-fingerspelling-post-v2-1-roadmap-2026-10-08.md",
+    "source_path": "docs/apphear-fingerspelling-post-v2-1-roadmap-2026-10-08.md",
+    "bytes": 7321,
+    "sha256": "cd2007c3b345b00219e89350cbdd9a7f468ad6bc4be734eef77fe1231130ec96"
+  },
+  {
+    "path": "docs/apphear-fingerspelling-pre-v2-1-quality-decision-2026-10-08.md",
+    "source_path": "docs/apphear-fingerspelling-pre-v2-1-quality-decision-2026-10-08.md",
+    "bytes": 12916,
+    "sha256": "fc14bcf46da4edf6904876072deda266e914f057dced109a40b5b80641d56106"
+  },
+  {
+    "path": "docs/apphear-fingerspelling-quality-resolution-01-2026-10-05.md",
+    "source_path": "docs/apphear-fingerspelling-quality-resolution-01-2026-10-05.md",
+    "bytes": 12540,
+    "sha256": "8bde94ac9f11466044d0cced1613388a1668c87c3980ef10fcf6104b8c53699c"
+  },
+  {
+    "path": "docs/apphear-fingerspelling-recognized-ui-2026-10-08.md",
+    "source_path": "docs/apphear-fingerspelling-recognized-ui-2026-10-08.md",
+    "bytes": 1926,
+    "sha256": "ceb2b4aa0deef7cd0824aad4527f8a39f44604c8f0cfc70ab0bb428916e93155"
+  },
+  {
+    "path": "docs/apphear-fingerspelling-residual-visual-handoff-2026-10-04.md",
+    "source_path": "docs/apphear-fingerspelling-residual-visual-handoff-2026-10-04.md",
+    "bytes": 10877,
+    "sha256": "d1481e9622f9d7fb7ab0cf3b1a35e03c1951d16a7a9cc0e268b00e155ac8d264"
+  },
+  {
+    "path": "docs/apphear-fingerspelling-residual-visual-plan-2026-10-04.md",
+    "source_path": "docs/apphear-fingerspelling-residual-visual-plan-2026-10-04.md",
+    "bytes": 4054,
+    "sha256": "3d7e6fa8c4ba9b2be6b260df5281d4aaa522b6912a89c3aee92e807b9b11a400"
+  },
+  {
+    "path": "docs/apphear-fingerspelling-residual-visual-results-review-2026-10-04.md",
+    "source_path": "docs/apphear-fingerspelling-residual-visual-results-review-2026-10-04.md",
+    "bytes": 4987,
+    "sha256": "20499131f608a1cfc97a38ed6c5ac0b4d6b7c8c6851080e17b1969279faaa95a"
+  },
+  {
+    "path": "docs/apphear-fingerspelling-residual-visual-review-2026-10-04.md",
+    "source_path": "docs/apphear-fingerspelling-residual-visual-review-2026-10-04.md",
+    "bytes": 2713,
+    "sha256": "5591b40b10db2ededaa4c365e9cf39c744192a34de8ad5dafcf6bb66c4e04a1c"
+  },
+  {
+    "path": "docs/apphear-fingerspelling-sequence-v2-1-execution-2026-10-08.md",
+    "source_path": "docs/apphear-fingerspelling-sequence-v2-1-execution-2026-10-08.md",
+    "bytes": 9668,
+    "sha256": "86acbd868c4f5bfd2338fb82c65a74fc6779cbe9277a33eb38ca425760d2a4ee"
+  },
+  {
+    "path": "docs/apphear-fingerspelling-sequence-v2-1-result-review-2026-10-08.md",
+    "source_path": "docs/apphear-fingerspelling-sequence-v2-1-result-review-2026-10-08.md",
+    "bytes": 21175,
+    "sha256": "44df74a07d4b2b53de442b9758b136506d0e78bc37878d00a022c9340263d1ca"
+  },
+  {
+    "path": "docs/apphear-fingerspelling-sequence-v2-gate-2026-10-07.md",
+    "source_path": "docs/apphear-fingerspelling-sequence-v2-gate-2026-10-07.md",
+    "bytes": 19305,
+    "sha256": "139ed87ca6c0cdabe9665cab0faeeb7f49f10e067114eab6cf1e1f1491e9dadc"
+  },
+  {
+    "path": "docs/apphear-fingerspelling-sequence-v2-result-review-2026-10-07.md",
+    "source_path": "docs/apphear-fingerspelling-sequence-v2-result-review-2026-10-07.md",
+    "bytes": 14826,
+    "sha256": "b0e760628ce518cc8350c2d1eea6ce1aec62ccaa2fac6795ec27867fc035fa83"
+  },
+  {
+    "path": "docs/apphear-fingerspelling-single-letter-gate-2026-10-08.md",
+    "source_path": "docs/apphear-fingerspelling-single-letter-gate-2026-10-08.md",
+    "bytes": 11162,
+    "sha256": "3687712dfbccecc960846cb84c70ca942e43b7b8e86784f7dbfe8f0f73e1d021"
+  },
+  {
+    "path": "docs/apphear-fingerspelling-single-letter-plan-2026-10-08.md",
+    "source_path": "docs/apphear-fingerspelling-single-letter-plan-2026-10-08.md",
+    "bytes": 3160,
+    "sha256": "a693104db95f3cfb016e432dcf6dd693b6f4b462d3d362db1f86a8a58475097c"
+  },
+  {
+    "path": "docs/apphear-fingerspelling-speed-plan-01.md",
+    "source_path": "docs/apphear-fingerspelling-speed-plan-01.md",
+    "bytes": 2399,
+    "sha256": "bca1de6c0d84a0b2bd7d9c456f2c919f6d3e44db904cc2e5f3276babb4650246"
+  },
+  {
+    "path": "docs/apphear-fingerspelling-speed-validation-01-2026-10-03.md",
+    "source_path": "docs/apphear-fingerspelling-speed-validation-01-2026-10-03.md",
+    "bytes": 6938,
+    "sha256": "14f942cebc679c89b2f57fe437214540b59600648d10d07072fc86f3e0fd0d16"
+  },
+  {
+    "path": "docs/apphear-fingerspelling-three-worker-check-2026-10-05.md",
+    "source_path": "docs/apphear-fingerspelling-three-worker-check-2026-10-05.md",
+    "bytes": 4443,
+    "sha256": "197b20193388210b6797a3826bda36b8ea427f6ae084f9e6cfa7400366a421f8"
+  },
+  {
+    "path": "docs/apphear-fingerspelling-train4096-android-plan-2026-10-07.md",
+    "source_path": "docs/apphear-fingerspelling-train4096-android-plan-2026-10-07.md",
+    "bytes": 1947,
+    "sha256": "6116920f26af49d00e0c99baed1a57dd2ab75cb1f176b42405d9b836f1cee5cb"
+  },
+  {
+    "path": "docs/apphear-fingerspelling-train4096-epoch038-android-2026-10-07.md",
+    "source_path": "docs/apphear-fingerspelling-train4096-epoch038-android-2026-10-07.md",
+    "bytes": 14917,
+    "sha256": "afc47b86a6ba9ed61233d05ed6aa9fe0fabbc331c2e5201c3cf2e59d0cb103cd"
+  },
+  {
+    "path": "docs/apphear-fingerspelling-train4096-plan-01-2026-10-05.md",
+    "source_path": "docs/apphear-fingerspelling-train4096-plan-01-2026-10-05.md",
+    "bytes": 20316,
+    "sha256": "0cb5e2fa8da43f51af34c12989c9b6e11e5fee57f531addecb43d9c6da511ef8"
+  },
+  {
+    "path": "docs/apphear-fingerspelling-train4096-project-lead-handoff-2026-10-07.md",
+    "source_path": "docs/apphear-fingerspelling-train4096-project-lead-handoff-2026-10-07.md",
+    "bytes": 21470,
+    "sha256": "10dc5ef9ec64d44e6d062e2905c8831128132a1a3a72e40f149b2c15c2b7b54b"
+  },
+  {
+    "path": "docs/apphear-fingerspelling-training-foundation-01-2026-10-02.md",
+    "source_path": "docs/apphear-fingerspelling-training-foundation-01-2026-10-02.md",
+    "bytes": 17934,
+    "sha256": "8afc3991ced9ab3b4c661ac476332a09adc63e9562f53a9d7caef46d968a0d83"
+  },
+  {
+    "path": "docs/apphear-fingerspelling-tranche-completion-2026-10-03.md",
+    "source_path": "docs/apphear-fingerspelling-tranche-completion-2026-10-03.md",
+    "bytes": 2310,
+    "sha256": "920f3a53cfe593e40a57342d169f1f24a41996fe12390c23e61bb5edf96fdb5d"
+  },
+  {
+    "path": "docs/apphear-fingerspelling-v2-1-android-transfer-2026-10-08.md",
+    "source_path": "docs/apphear-fingerspelling-v2-1-android-transfer-2026-10-08.md",
+    "bytes": 14174,
+    "sha256": "d7f9fd34240e38df92889a97117bc7f6a89e66716de3441f147ebe3087279855"
+  },
+  {
+    "path": "docs/apphear-fingerspelling-visual-fusion-gate-2026-10-04.md",
+    "source_path": "docs/apphear-fingerspelling-visual-fusion-gate-2026-10-04.md",
+    "bytes": 12312,
+    "sha256": "90ea9b341229e46a8188c21b630de026721c6ef0c10c937eb7815e61f0ddf3ec"
+  },
+  {
+    "path": "docs/apphear-fingerspelling-visual-fusion-plan-2026-10-04.md",
+    "source_path": "docs/apphear-fingerspelling-visual-fusion-plan-2026-10-04.md",
+    "bytes": 5857,
+    "sha256": "23ef53adca99c9f80eee9b125a4903e8bb853be2a61415c9b7a5ae06f608527a"
+  },
+  {
+    "path": "docs/az-0-fingerspelling-audit-2026-10-01.md",
+    "source_path": "docs/az-0-fingerspelling-audit-2026-10-01.md",
+    "bytes": 35283,
+    "sha256": "0b96fcc88784efa563214b833334ca37d1cbad8d621bc42f7a77a24b2b646aec"
+  },
+  {
+    "path": "docs/az-1-fingerspelling-dataset-foundation-2026-10-01.md",
+    "source_path": "docs/az-1-fingerspelling-dataset-foundation-2026-10-01.md",
+    "bytes": 18965,
+    "sha256": "ee44fcd2aef404be78774545a3afbc77f2ea8fad3b7c90376b9a013aca098d67"
+  },
+  {
+    "path": "docs/fsboard-admission-download-prep-2026-10-02.md",
+    "source_path": "docs/fsboard-admission-download-prep-2026-10-02.md",
+    "bytes": 11453,
+    "sha256": "85b83f99b9e555b7dec60790e79ad3c2e459ffd8fd570b350948793f3d8b8105"
+  },
+  {
+    "path": "docs/fsboard-candidate01-training-admission-check-2026-10-02.md",
+    "source_path": "docs/fsboard-candidate01-training-admission-check-2026-10-02.md",
+    "bytes": 12613,
+    "sha256": "b13fb6bb592f55c3bd4d303e166a071ccd27c3a51fc596d2882c0e69acada2c7"
+  },
+  {
+    "path": "docs/fsboard-compatibility-gate-2026-10-02.md",
+    "source_path": "docs/fsboard-compatibility-gate-2026-10-02.md",
+    "bytes": 24977,
+    "sha256": "72f60ebc880a164c4f867de78fa3fe4279b08846c066bf164e8bfce3d3e3d6fd"
+  },
+  {
+    "path": "docs/fsboard-reflection-provenance-closure-2026-10-02.md",
+    "source_path": "docs/fsboard-reflection-provenance-closure-2026-10-02.md",
+    "bytes": 18581,
+    "sha256": "7f514f082a64273e290f2850a2591826ff90aabd97189c73a2417acc84784b14"
+  },
+  {
+    "path": "docs/fsboard-selected-download-verification-2026-10-02.md",
+    "source_path": "docs/fsboard-selected-download-verification-2026-10-02.md",
+    "bytes": 2744,
+    "sha256": "c028783177fec14f159e64d3262a6fb8a2b04b96755766ceba9204a840bfbcdf"
+  },
+  {
+    "path": "docs/fsboard-training-admission-closure-2026-10-02.md",
+    "source_path": "docs/fsboard-training-admission-closure-2026-10-02.md",
+    "bytes": 23519,
+    "sha256": "42d4e19e2a4767505d96e0be4d4f9c7ae9094a098e56fbf51993c18bb94ac6fc"
+  },
+  {
+    "path": "docs/fsboard-training-admission-closure-phone-followup-2026-10-02.md",
+    "source_path": "docs/fsboard-training-admission-closure-phone-followup-2026-10-02.md",
+    "bytes": 9337,
+    "sha256": "b559e80aa1d90f0d75feee7a9edd3b9f457c793390a00b2e12fcfe453ced663b"
+  },
+  {
+    "path": "model/config/fingerspelling_1k_optimization_01.json",
+    "source_path": "model/config/fingerspelling_1k_optimization_01.json",
+    "bytes": 1302,
+    "sha256": "a108af932b2004a71ea2836cc20d86420e7e718103b196cf57fe3e8b83be9e7e"
+  },
+  {
+    "path": "model/config/fingerspelling_ctc_baseline_01.json",
+    "source_path": "model/config/fingerspelling_ctc_baseline_01.json",
+    "bytes": 675,
+    "sha256": "6fc2d52944110dea3cbb2d75285b96f1c7699a898d1b899c974d9bedc794ed4c"
+  },
+  {
+    "path": "model/config/fingerspelling_ctc_baseline_02.json",
+    "source_path": "model/config/fingerspelling_ctc_baseline_02.json",
+    "bytes": 1263,
+    "sha256": "b3dddb294823f04ef28d975d7e98791c35de50a290463b8ee81bf349b1a2f602"
+  },
+  {
+    "path": "model/config/fingerspelling_ctc_baseline_03.json",
+    "source_path": "model/config/fingerspelling_ctc_baseline_03.json",
+    "bytes": 454,
+    "sha256": "2830998eb3dfbc7af64b9eb0578a2ef6d5c7c3070dc16dc1a25e6c8c0544680f"
+  },
+  {
+    "path": "model/config/fingerspelling_ctc_baseline_04.json",
+    "source_path": "model/config/fingerspelling_ctc_baseline_04.json",
+    "bytes": 850,
+    "sha256": "eb38927d42ca682f785138d07bbc27612fe52c9753e6258d0fa104ef4f547df6"
+  },
+  {
+    "path": "model/config/fingerspelling_decoder_audit_01.json",
+    "source_path": "model/config/fingerspelling_decoder_audit_01.json",
+    "bytes": 809,
+    "sha256": "a3f3789523f63b39247991f7d309149eafca4c2abe7e7238363e48ba7feca22e"
+  },
+  {
+    "path": "model/config/fingerspelling_outer_boundary_oracle_01.json",
+    "source_path": "model/config/fingerspelling_outer_boundary_oracle_01.json",
+    "bytes": 822,
+    "sha256": "6769d676ece30177da921998fbcc0610158ceca633c3a23045cbba27e1e94924"
+  },
+  {
+    "path": "model/config/fingerspelling_residual_visual_01.json",
+    "source_path": "model/config/fingerspelling_residual_visual_01.json",
+    "bytes": 1372,
+    "sha256": "2c8469d7d222b12c88fa8346e875af3cc183c3a56c6d2164e7c63bc79d1a06db"
+  },
+  {
+    "path": "model/config/fingerspelling_sequence_v2_01.json",
+    "source_path": "model/config/fingerspelling_sequence_v2_01.json",
+    "bytes": 2126,
+    "sha256": "2016c4f2cb4ebf7036ab648bc4e7d43e133488c2915c599e16835b2481e880ee"
+  },
+  {
+    "path": "model/config/fingerspelling_sequence_v2_1_01.json",
+    "source_path": "model/config/fingerspelling_sequence_v2_1_01.json",
+    "bytes": 2870,
+    "sha256": "3c75a8be613ca90d2a57f4253709d8ad54304c7fb32453d406c27266e061409e"
+  },
+  {
+    "path": "model/config/fingerspelling_train4096_01.json",
+    "source_path": "model/config/fingerspelling_train4096_01.json",
+    "bytes": 2118,
+    "sha256": "4ce562d357c25aa2226d785b42b1ca620f0b4dbe6f5b49b9d00a526084f010b1"
+  },
+  {
+    "path": "model/fingerspelling_1k_optimization.py",
+    "source_path": "model/fingerspelling_1k_optimization.py",
+    "bytes": 15451,
+    "sha256": "7bdc17361375e9eb2e47ee2703ebdda5351a9080e3a7c4eea7b9dc70ec594892"
+  },
+  {
+    "path": "model/fingerspelling_appearance.py",
+    "source_path": "model/fingerspelling_appearance.py",
+    "bytes": 2474,
+    "sha256": "d085fb58a7ed7fd01380aa42252365cbdd88b537c66593514b205b4fff78228b"
+  },
+  {
+    "path": "model/fingerspelling_baseline2.py",
+    "source_path": "model/fingerspelling_baseline2.py",
+    "bytes": 29724,
+    "sha256": "dc7991b51da066f94278ce44ef8fd627cdcb38edbf76478ea33f001fd5762837"
+  },
+  {
+    "path": "model/fingerspelling_baseline3.py",
+    "source_path": "model/fingerspelling_baseline3.py",
+    "bytes": 18706,
+    "sha256": "1dbf846cfcd3d05a491a0501e67cf68444d2437cbedc928c5117d21f030d61e1"
+  },
+  {
+    "path": "model/fingerspelling_baseline4.py",
+    "source_path": "model/fingerspelling_baseline4.py",
+    "bytes": 25926,
+    "sha256": "812719107c2c12f5df69b5fc1b6dfb30d3a762473f0fcb4f562e5f8fe585a0f3"
+  },
+  {
+    "path": "model/fingerspelling_capacity.py",
+    "source_path": "model/fingerspelling_capacity.py",
+    "bytes": 2929,
+    "sha256": "35f6be474ee592791659ed2f6fd6796b2f5c6682acdc302e3e5628bce55cfa4a"
+  },
+  {
+    "path": "model/fingerspelling_capacity_gate.py",
+    "source_path": "model/fingerspelling_capacity_gate.py",
+    "bytes": 11664,
+    "sha256": "b027250f8ce70fb3565f294af1f5bd83be9050f311b517452ec67db04d906550"
+  },
+  {
+    "path": "model/fingerspelling_ctc.py",
+    "source_path": "model/fingerspelling_ctc.py",
+    "bytes": 18580,
+    "sha256": "0dd521b47e29e1e7aff46f875b1523f420271269682301ed493db05ae2934229"
+  },
+  {
+    "path": "model/fingerspelling_ctc_fast.py",
+    "source_path": "model/fingerspelling_ctc_fast.py",
+    "bytes": 10793,
+    "sha256": "b98fc07c05082534ee6175bc372189da0f5d423657fd9eb958cb3bec09bb35f4"
+  },
+  {
+    "path": "model/fingerspelling_emission.py",
+    "source_path": "model/fingerspelling_emission.py",
+    "bytes": 8542,
+    "sha256": "7b2f84c10091c2739aea829937af384937096e9fe0df719dd4b9674d1edcd648"
+  },
+  {
+    "path": "model/fingerspelling_fast_execution.py",
+    "source_path": "model/fingerspelling_fast_execution.py",
+    "bytes": 8227,
+    "sha256": "39d8591243b272f2751e77f2f86eae92d8630765353ea24b72bd91edaf2eb1bb"
+  },
+  {
+    "path": "model/fingerspelling_metrics.py",
+    "source_path": "model/fingerspelling_metrics.py",
+    "bytes": 4238,
+    "sha256": "db9556f22638bcb9f9cd7c49c6514668405cec4b6a791b13225048095d567fb3"
+  },
+  {
+    "path": "model/fingerspelling_prefix_beam.py",
+    "source_path": "model/fingerspelling_prefix_beam.py",
+    "bytes": 4206,
+    "sha256": "f124abb36d1a37b6e727226229e38b1723b58cb30e8f749c9b8d8919c2febe82"
+  },
+  {
+    "path": "model/fingerspelling_residual_execution.py",
+    "source_path": "model/fingerspelling_residual_execution.py",
+    "bytes": 7118,
+    "sha256": "36561accde284f382329962f153af944837f34124a5cf9ab01b2a54b9ee1a705"
+  },
+  {
+    "path": "model/fingerspelling_residual_visual.py",
+    "source_path": "model/fingerspelling_residual_visual.py",
+    "bytes": 21925,
+    "sha256": "6842379febb2a319ffe9c5d7d2d0284f1497c09b290d36861be9495615792a64"
+  },
+  {
+    "path": "model/fingerspelling_sequence_v2.py",
+    "source_path": "model/fingerspelling_sequence_v2.py",
+    "bytes": 20523,
+    "sha256": "498f0a6490eade0b4b092a95ff5482a636e34e17dc663cad7fa3983eea63a8b1"
+  },
+  {
+    "path": "model/fingerspelling_sequence_v2_1.py",
+    "source_path": "model/fingerspelling_sequence_v2_1.py",
+    "bytes": 23294,
+    "sha256": "efe75929c10fe8275c5708f3a3151dbb7b18e9fa46ac57e722f868a841c9008b"
+  },
+  {
+    "path": "model/fingerspelling_sequence_v2_1_encoder.py",
+    "source_path": "model/fingerspelling_sequence_v2_1_encoder.py",
+    "bytes": 2424,
+    "sha256": "6d8464c88e936a475e81280a0a3744c79273028b12020ee19cd76288cec509a5"
+  },
+  {
+    "path": "model/fingerspelling_sequence_v2_1_execution.py",
+    "source_path": "model/fingerspelling_sequence_v2_1_execution.py",
+    "bytes": 3891,
+    "sha256": "3c0217bd31a6782d7a977ba51a5d4446afe6fe7cf11a8c51f1f1f37b6e83e941"
+  },
+  {
+    "path": "model/fingerspelling_sequence_v2_1_review.py",
+    "source_path": "model/fingerspelling_sequence_v2_1_review.py",
+    "bytes": 2863,
+    "sha256": "76b1d7b88cd8a1c5a227d23ac5abed31118e7ad543556fd62be7ed182135ef8a"
+  },
+  {
+    "path": "model/fingerspelling_sequence_v2_encoder.py",
+    "source_path": "model/fingerspelling_sequence_v2_encoder.py",
+    "bytes": 3150,
+    "sha256": "e8cd228003f0db3dbf5bcbae6b5e1e6bff3534163ecc484ac57a93b5d8c69a20"
+  },
+  {
+    "path": "model/fingerspelling_sequence_v2_execution.py",
+    "source_path": "model/fingerspelling_sequence_v2_execution.py",
+    "bytes": 5134,
+    "sha256": "9354dc3440c01d5a8e5a58ff4c831017a74d4a00985ea7cdd7b2bfd948a209ba"
+  },
+  {
+    "path": "model/fingerspelling_single_letter.py",
+    "source_path": "model/fingerspelling_single_letter.py",
+    "bytes": 2237,
+    "sha256": "8ab355988c921812b13cbe3f10e33331898d9c49cf62fb59ecdfbd4b12783e3d"
+  },
+  {
+    "path": "model/fingerspelling_temporal_execution.py",
+    "source_path": "model/fingerspelling_temporal_execution.py",
+    "bytes": 4867,
+    "sha256": "e181016c898a9586ef5c9f50f4958a180ccea69c10857e4771b5c74347879b3a"
+  },
+  {
+    "path": "model/fingerspelling_train4096.py",
+    "source_path": "model/fingerspelling_train4096.py",
+    "bytes": 28949,
+    "sha256": "491718960cdb6a8873548d04b8933e52e8295bb3322e5b67f5c2ccae956389c0"
+  },
+  {
+    "path": "model/fingerspelling_v2_execution.py",
+    "source_path": "model/fingerspelling_v2_execution.py",
+    "bytes": 5501,
+    "sha256": "a783113b216a39d23e3822a9a79934439a7f05a1050c0a5238237e39496de912"
+  },
+  {
+    "path": "model/fingerspelling_visual_execution.py",
+    "source_path": "model/fingerspelling_visual_execution.py",
+    "bytes": 8884,
+    "sha256": "192120079ee048da985121b3ed38457195c0f3d65539842bd6b639f4c9c731f8"
+  },
+  {
+    "path": "model/fingerspelling_visual_gate.py",
+    "source_path": "model/fingerspelling_visual_gate.py",
+    "bytes": 15121,
+    "sha256": "8a0474194b74c118b74fa630796b6e1f270e555e27d1018e2b7f7fd54ffd28f5"
+  },
+  {
+    "path": "pipeline/config/fingerspelling_balanced_execution_v1.json",
+    "source_path": "pipeline/config/fingerspelling_balanced_execution_v1.json",
+    "bytes": 644,
+    "sha256": "6b8555207fdae95e455535c8e680893ddc7577f712229e7920074215e18309c7"
+  },
+  {
+    "path": "pipeline/config/fingerspelling_dataset_v1.json",
+    "source_path": "pipeline/config/fingerspelling_dataset_v1.json",
+    "bytes": 2000,
+    "sha256": "961ba0906efafc1d6460062b1d41828b2476d570b3a73107cf70b00f2aa04dbb"
+  },
+  {
+    "path": "pipeline/config/fingerspelling_execution_v1.json",
+    "source_path": "pipeline/config/fingerspelling_execution_v1.json",
+    "bytes": 791,
+    "sha256": "11acd60e630a732f60ef7f30df1b3ac26178c24a100e59e9c077180705502279"
+  },
+  {
+    "path": "pipeline/config/fingerspelling_expansion_4096_01.json",
+    "source_path": "pipeline/config/fingerspelling_expansion_4096_01.json",
+    "bytes": 1357,
+    "sha256": "61c563ee8aa09b5e6fcd889d819d4ad8174281e3930416a756d3f2ba24e430f4"
+  },
+  {
+    "path": "pipeline/config/fingerspelling_features_v1.json",
+    "source_path": "pipeline/config/fingerspelling_features_v1.json",
+    "bytes": 1153,
+    "sha256": "5ed7f766154b558ea2bebd095804ca788dc7ee5b91cc001ca96a40133edb9b67"
+  },
+  {
+    "path": "pipeline/config/fingerspelling_features_v2.json",
+    "source_path": "pipeline/config/fingerspelling_features_v2.json",
+    "bytes": 691,
+    "sha256": "d525092a8d3608de65cf46bf062d154ca65b747e2ca222d4b5a092a709c1e02e"
+  },
+  {
+    "path": "pipeline/config/fingerspelling_letter_review_01.json",
+    "source_path": "pipeline/config/fingerspelling_letter_review_01.json",
+    "bytes": 665,
+    "sha256": "e60d1d3212165746332ce33d67e58fbed9b5412ee33ee3f49b0839240a014cbd"
+  },
+  {
+    "path": "pipeline/config/fingerspelling_parallel_execution_v1.json",
+    "source_path": "pipeline/config/fingerspelling_parallel_execution_v1.json",
+    "bytes": 563,
+    "sha256": "e72ecc8a22fa79a36ea1119a886add444275b6b1e47f21e317eaf785f4e7fb5d"
+  },
+  {
+    "path": "pipeline/config/fingerspelling_three_worker_execution_v1.json",
+    "source_path": "pipeline/config/fingerspelling_three_worker_execution_v1.json",
+    "bytes": 643,
+    "sha256": "bf0c776fba6d0ba7b13ddc48d5c2298c217082586e41b8e2193d5e6f2d97415e"
+  },
+  {
+    "path": "pipeline/config/fingerspelling_visual_v1.json",
+    "source_path": "pipeline/config/fingerspelling_visual_v1.json",
+    "bytes": 1366,
+    "sha256": "e0694f00021bf8d29cc36fb941b44cb0d11a36d4903b97608c8c2a59c433aba3"
+  },
+  {
+    "path": "pipeline/fingerspelling/__init__.py",
+    "source_path": "pipeline/fingerspelling/__init__.py",
+    "bytes": 90,
+    "sha256": "e7247db9eb2ea7e112cf978fd7860611ddd611e74ddcf989fe742d356f26b103"
+  },
+  {
+    "path": "pipeline/fingerspelling/adapter.py",
+    "source_path": "pipeline/fingerspelling/adapter.py",
+    "bytes": 8304,
+    "sha256": "256d8e82301fa9e6dd039a1c6d94dc5cc717b22c27e7b8bd9661ba32ee4394cd"
+  },
+  {
+    "path": "pipeline/fingerspelling/adapter_v2.py",
+    "source_path": "pipeline/fingerspelling/adapter_v2.py",
+    "bytes": 4712,
+    "sha256": "2ec4b2c49e970825b01e215e3519a24866fcf0695757ff2c79d4e4b134089325"
+  },
+  {
+    "path": "pipeline/fingerspelling/canonical_hand.py",
+    "source_path": "pipeline/fingerspelling/canonical_hand.py",
+    "bytes": 6077,
+    "sha256": "0eb72f6883978f0eaa204285ea9ceda6ef7732111728cf062f7cbbb2be73aeb4"
+  },
+  {
+    "path": "pipeline/fingerspelling/evidence_robustness.py",
+    "source_path": "pipeline/fingerspelling/evidence_robustness.py",
+    "bytes": 4256,
+    "sha256": "212839ee315bf25435d4e0aea4d8c195ff1003d1c6f05da5e224325e79cd6507"
+  },
+  {
+    "path": "pipeline/fingerspelling/expanded_training.py",
+    "source_path": "pipeline/fingerspelling/expanded_training.py",
+    "bytes": 12271,
+    "sha256": "4c1a25beb58366d19cea3f1c5a5b1b8ab168ab8dc91da853d1f1f2727390654e"
+  },
+  {
+    "path": "pipeline/fingerspelling/input_evidence.py",
+    "source_path": "pipeline/fingerspelling/input_evidence.py",
+    "bytes": 1982,
+    "sha256": "b4dd6521a4d7918dd9c4121e09d134772326e52b1392a153c8fb6882b7660831"
+  },
+  {
+    "path": "pipeline/fingerspelling/package_io.py",
+    "source_path": "pipeline/fingerspelling/package_io.py",
+    "bytes": 1450,
+    "sha256": "cf729a2671cec5626b62fd66b5db274b10b0ab51ec5efa5139eb06f388083461"
+  },
+  {
+    "path": "pipeline/fingerspelling/package_v2.py",
+    "source_path": "pipeline/fingerspelling/package_v2.py",
+    "bytes": 14065,
+    "sha256": "8d1f21dded7ab1a00a44d31719b393dcc63c96e09b8ebc13a68e24a02270aba9"
+  },
+  {
+    "path": "pipeline/fingerspelling/residual_visual_package.py",
+    "source_path": "pipeline/fingerspelling/residual_visual_package.py",
+    "bytes": 10412,
+    "sha256": "685e1b66c7471cba066afd0ba430599f32edf8c094e87ff56de372ab5f82cda4"
+  },
+  {
+    "path": "pipeline/fingerspelling/sequence_manifest.py",
+    "source_path": "pipeline/fingerspelling/sequence_manifest.py",
+    "bytes": 13349,
+    "sha256": "a8a8a7574978d60076c3ac1bca1274f6d9bef287d49722d9c74cb49b15ea768e"
+  },
+  {
+    "path": "pipeline/fingerspelling/sequence_package.py",
+    "source_path": "pipeline/fingerspelling/sequence_package.py",
+    "bytes": 23509,
+    "sha256": "2744a0ccbaef3372891fc8de3c283a0d76fc5a65791e6e66a0c1642d955138ee"
+  },
+  {
+    "path": "pipeline/fingerspelling/storage.py",
+    "source_path": "pipeline/fingerspelling/storage.py",
+    "bytes": 1836,
+    "sha256": "f103acf56eae0311cc6f667510599962fbb747db42a5f3bafefdd6e7eb8304f5"
+  },
+  {
+    "path": "pipeline/fingerspelling/temporal_views.py",
+    "source_path": "pipeline/fingerspelling/temporal_views.py",
+    "bytes": 1121,
+    "sha256": "5870084c69c1b86b364f73c919fab876a7cc950a1fc0bf6261fb7314ba3bedc2"
+  },
+  {
+    "path": "pipeline/fingerspelling/validate.py",
+    "source_path": "pipeline/fingerspelling/validate.py",
+    "bytes": 35591,
+    "sha256": "36611201761a46ada2e3701f1b43180288e042fb8321b0ec54d6e728ef662a1c"
+  },
+  {
+    "path": "pipeline/fingerspelling/visual_crop.py",
+    "source_path": "pipeline/fingerspelling/visual_crop.py",
+    "bytes": 3665,
+    "sha256": "1a2a71d488809a8c9da9ca04a7cd23133f234aa5f4e7efce0eafbbfd738ff4c1"
+  },
+  {
+    "path": "pipeline/fingerspelling/visual_package.py",
+    "source_path": "pipeline/fingerspelling/visual_package.py",
+    "bytes": 12845,
+    "sha256": "e9974e5f9b2dbe6bfafc0321d4bd95700cd4d720932d38ec2431f136d2c32009"
+  },
+  {
+    "path": "pipeline/fingerspelling/visual_quality.py",
+    "source_path": "pipeline/fingerspelling/visual_quality.py",
+    "bytes": 5421,
+    "sha256": "d29c82f7bbfbe78836ffdf117f9c081821be6277da98deda4ab20f28f06698cf"
+  },
+  {
+    "path": "tests/test_fingerspelling_1k_optimization.py",
+    "source_path": "tests/test_fingerspelling_1k_optimization.py",
+    "bytes": 2964,
+    "sha256": "d8e54b800043cac6160ca257c59e3e7e8f0d855907e12f27de05c86895cc1808"
+  },
+  {
+    "path": "tests/test_fingerspelling_balanced_preparation.py",
+    "source_path": "tests/test_fingerspelling_balanced_preparation.py",
+    "bytes": 4002,
+    "sha256": "5e5196f1f85f649895db89ef35d76c7b088dc07876a7ce192babd01c07a49f59"
+  },
+  {
+    "path": "tests/test_fingerspelling_baseline2.py",
+    "source_path": "tests/test_fingerspelling_baseline2.py",
+    "bytes": 7214,
+    "sha256": "ba2088450f760e67e3941f7af8683a7c975eff81007e3c553509011b9b3cf8e2"
+  },
+  {
+    "path": "tests/test_fingerspelling_canonical_v2.py",
+    "source_path": "tests/test_fingerspelling_canonical_v2.py",
+    "bytes": 8651,
+    "sha256": "d8628b2a13630b62fd7c5a61dc4858a08bcaf0a6f1bb3563569fbeca0b4985f1"
+  },
+  {
+    "path": "tests/test_fingerspelling_capacity.py",
+    "source_path": "tests/test_fingerspelling_capacity.py",
+    "bytes": 4338,
+    "sha256": "203cf544f589a907ea14c1068e8d9b7f0bcb79080a8199780c1d6a73a97eb4c7"
+  },
+  {
+    "path": "tests/test_fingerspelling_dataset.py",
+    "source_path": "tests/test_fingerspelling_dataset.py",
+    "bytes": 16152,
+    "sha256": "5d635da50d17c5e24c55f63f4a469b872197efea75dddddfef5fc37d1b206ea4"
+  },
+  {
+    "path": "tests/test_fingerspelling_execution_handoff.py",
+    "source_path": "tests/test_fingerspelling_execution_handoff.py",
+    "bytes": 8599,
+    "sha256": "c94c67a72022170fd17c1e9cd6e18df518b02e7f4aae83f7c08849d52a0b8cd2"
+  },
+  {
+    "path": "tests/test_fingerspelling_external_preparation.py",
+    "source_path": "tests/test_fingerspelling_external_preparation.py",
+    "bytes": 10720,
+    "sha256": "1899c952a410d47a4b93174f83852b242afc9e2cacf9ea0e1944c8614226a398"
+  },
+  {
+    "path": "tests/test_fingerspelling_fast_execution.py",
+    "source_path": "tests/test_fingerspelling_fast_execution.py",
+    "bytes": 3198,
+    "sha256": "0d580424bea5d7aee0cc88e48f52a7f2f451fc2a61a2db92e3bfcadff4b671dc"
+  },
+  {
+    "path": "tests/test_fingerspelling_letter_readiness.py",
+    "source_path": "tests/test_fingerspelling_letter_readiness.py",
+    "bytes": 6246,
+    "sha256": "71472a53982df0f5488280ad94586d4cdd37ff2b9feedfb46a18f8f6fe936799"
+  },
+  {
+    "path": "tests/test_fingerspelling_outer_boundary_oracle.py",
+    "source_path": "tests/test_fingerspelling_outer_boundary_oracle.py",
+    "bytes": 5511,
+    "sha256": "6f062a0fc7cf3b5cb1889d95cbcde7daca91f0e6df2bb61993abc690ff7684cd"
+  },
+  {
+    "path": "tests/test_fingerspelling_parallel_preparation.py",
+    "source_path": "tests/test_fingerspelling_parallel_preparation.py",
+    "bytes": 12045,
+    "sha256": "9dcfc43d346de8e83dc797b01c86d164dff746505aa14ec0877734b87dd207cc"
+  },
+  {
+    "path": "tests/test_fingerspelling_prefix_beam.py",
+    "source_path": "tests/test_fingerspelling_prefix_beam.py",
+    "bytes": 5152,
+    "sha256": "2c988842fba2a71b8e4f168255f76ab7cf603e76567f89081001f19ebd23ca05"
+  },
+  {
+    "path": "tests/test_fingerspelling_residual_visual.py",
+    "source_path": "tests/test_fingerspelling_residual_visual.py",
+    "bytes": 7720,
+    "sha256": "4dd6c9f3d3ee73c785ad646bbcb64a9b4d053ceba26a29ee923169017caa7029"
+  },
+  {
+    "path": "tests/test_fingerspelling_sequence_foundation.py",
+    "source_path": "tests/test_fingerspelling_sequence_foundation.py",
+    "bytes": 10695,
+    "sha256": "b9b3bf3825c8e21bc6dbc9eff3d71d71a2f046ed34395d1ea2ca3b0f2a7b7c83"
+  },
+  {
+    "path": "tests/test_fingerspelling_sequence_v2.py",
+    "source_path": "tests/test_fingerspelling_sequence_v2.py",
+    "bytes": 4862,
+    "sha256": "ae18362e7cc032c29323237f68580288320f7ba0d746793c7cb3d1da947139cc"
+  },
+  {
+    "path": "tests/test_fingerspelling_sequence_v2_1.py",
+    "source_path": "tests/test_fingerspelling_sequence_v2_1.py",
+    "bytes": 2036,
+    "sha256": "ac4664a991d58b5ad5408ece74301c3abc0eedf3452675268526d0463ac66961"
+  },
+  {
+    "path": "tests/test_fingerspelling_single_letter.py",
+    "source_path": "tests/test_fingerspelling_single_letter.py",
+    "bytes": 3659,
+    "sha256": "bc33a431a2ec508dfd88a8bf643aefcd77e89bf63d82fa5ede6ebe5283509e5b"
+  },
+  {
+    "path": "tests/test_fingerspelling_three_worker_preparation.py",
+    "source_path": "tests/test_fingerspelling_three_worker_preparation.py",
+    "bytes": 3478,
+    "sha256": "55c887fe3e8e299ddc42eb8c238a8211ce3819589194141acf8b89c02863b082"
+  },
+  {
+    "path": "tests/test_fingerspelling_train4096.py",
+    "source_path": "tests/test_fingerspelling_train4096.py",
+    "bytes": 12141,
+    "sha256": "4e1f8a3328236c5c90e52ad4569050511eb1b464e290f703c1433f38e3f9a49c"
+  },
+  {
+    "path": "tests/test_fingerspelling_visual.py",
+    "source_path": "tests/test_fingerspelling_visual.py",
+    "bytes": 6189,
+    "sha256": "289df45223266b1370035783be4056c78aabce1cb1d3fdb436849a3b7551f704"
+  },
+  {
+    "path": "tests/test_fsboard_admission_downloads.py",
+    "source_path": "tests/test_fsboard_admission_downloads.py",
+    "bytes": 6791,
+    "sha256": "a8a78fc1b2e1db895e198b751019f2ad49d0e71d71981f86691d01a2790a83b8"
+  },
+  {
+    "path": "tests/test_fsboard_expansion_plan.py",
+    "source_path": "tests/test_fsboard_expansion_plan.py",
+    "bytes": 2915,
+    "sha256": "e70e29e7a3f1f228318ac6dcafa235fce57740d8938d22bc0cc5b0a372ff5c0b"
+  },
+  {
+    "path": "tools/fingerspelling/android_beam_fixtures.py",
+    "source_path": "tools/fingerspelling/android_beam_fixtures.py",
+    "bytes": 4162,
+    "sha256": "fdd5dbaafa20cb9dd06f7a61616fbc3ad1f85f606d823a5fab5713de31163984"
+  },
+  {
+    "path": "tools/fingerspelling/android_evidence.py",
+    "source_path": "tools/fingerspelling/android_evidence.py",
+    "bytes": 3569,
+    "sha256": "581973a586d31761565f67d15761f65616da72cb9eedd56a7b34e02c298a836b"
+  },
+  {
+    "path": "tools/fingerspelling/android_export.py",
+    "source_path": "tools/fingerspelling/android_export.py",
+    "bytes": 9362,
+    "sha256": "8747f3e03920d112acadf26703ae8eeeb6039a4cb0532b57b962b6a37ef0b9be"
+  },
+  {
+    "path": "tools/fingerspelling/android_fallback_fixtures.py",
+    "source_path": "tools/fingerspelling/android_fallback_fixtures.py",
+    "bytes": 1344,
+    "sha256": "886cbf61ce55baaa8ba91cb402baa32590e291242f6c1e6c1a6fbd24eeb94d3a"
+  },
+  {
+    "path": "tools/fingerspelling/android_fixtures.py",
+    "source_path": "tools/fingerspelling/android_fixtures.py",
+    "bytes": 3841,
+    "sha256": "809baf706de5c508fb85ef023646fdf8cbf14c7463810a9ea992ffae4e31304c"
+  },
+  {
+    "path": "tools/fingerspelling/android_oct04_capture_diagnostics.py",
+    "source_path": "tools/fingerspelling/android_oct04_capture_diagnostics.py",
+    "bytes": 3877,
+    "sha256": "a495485faa31c569c863ff9e70fd499ccb883625e61d6445d7d62da41da850ca"
+  },
+  {
+    "path": "tools/fingerspelling/android_oct04_document.py",
+    "source_path": "tools/fingerspelling/android_oct04_document.py",
+    "bytes": 4200,
+    "sha256": "6fd597090b67703a73d853190c4e4c3d56c95084daba20f61a68dc7d804b998d"
+  },
+  {
+    "path": "tools/fingerspelling/android_oct04_evidence.py",
+    "source_path": "tools/fingerspelling/android_oct04_evidence.py",
+    "bytes": 3386,
+    "sha256": "f094f955322df6296845e895baf43ebc25ec9446a39fee22fe639cfe81b649f7"
+  },
+  {
+    "path": "tools/fingerspelling/android_oct04_finish_port.py",
+    "source_path": "tools/fingerspelling/android_oct04_finish_port.py",
+    "bytes": 2684,
+    "sha256": "d01aebd6b4329e320f8ad5f47bf1e1ce71b73ba6849d6f17a2eca94455455424"
+  },
+  {
+    "path": "tools/fingerspelling/android_oct04_handoff.py",
+    "source_path": "tools/fingerspelling/android_oct04_handoff.py",
+    "bytes": 2681,
+    "sha256": "ebd899b0cd9c8ace4443f500631b4ab67b0bf81bd9cef4a4929f36103175d018"
+  },
+  {
+    "path": "tools/fingerspelling/android_oct04_port.py",
+    "source_path": "tools/fingerspelling/android_oct04_port.py",
+    "bytes": 2106,
+    "sha256": "7a2ceb29637c7f300fa85fab8118fbc9c4684d6abdca1f9e33a4f6f19ef51f71"
+  },
+  {
+    "path": "tools/fingerspelling/android_oct04_safeguards.py",
+    "source_path": "tools/fingerspelling/android_oct04_safeguards.py",
+    "bytes": 4750,
+    "sha256": "12e4fe67e060cf97f1253f02fc0ea3d35776792d8da9fb2041508369750da476"
+  },
+  {
+    "path": "tools/fingerspelling/android_sequence_v2_1_evidence.py",
+    "source_path": "tools/fingerspelling/android_sequence_v2_1_evidence.py",
+    "bytes": 8243,
+    "sha256": "96a3c65efa8e5d0a9aa03281622e0a7be6e09c2281cf4885497e2277bcec76e0"
+  },
+  {
+    "path": "tools/fingerspelling/android_sequence_v2_1_export.py",
+    "source_path": "tools/fingerspelling/android_sequence_v2_1_export.py",
+    "bytes": 10427,
+    "sha256": "30f85fa56e5665c1950d16d4571340271cabfc8fd9323c3635c66b94e50e892f"
+  },
+  {
+    "path": "tools/fingerspelling/android_sequence_v2_1_port.py",
+    "source_path": "tools/fingerspelling/android_sequence_v2_1_port.py",
+    "bytes": 7371,
+    "sha256": "d39293b3d2e1bc04a0c557472e3b98b49dd88410d4fd04e0dc6c1f6fcd7f259c"
+  },
+  {
+    "path": "tools/fingerspelling/android_sequence_v2_1_report.py",
+    "source_path": "tools/fingerspelling/android_sequence_v2_1_report.py",
+    "bytes": 3721,
+    "sha256": "2bafc851087d05e737b9a2d25438751b355f7c04948c78c108a5cc7416eda6b6"
+  },
+  {
+    "path": "tools/fingerspelling/android_train4096_export.py",
+    "source_path": "tools/fingerspelling/android_train4096_export.py",
+    "bytes": 9652,
+    "sha256": "272bfd477d226cbd773fb6502726745f016ea1d943ee344e7dcedf9809ff0571"
+  },
+  {
+    "path": "tools/fingerspelling/balanced_preparation_smoke.py",
+    "source_path": "tools/fingerspelling/balanced_preparation_smoke.py",
+    "bytes": 7511,
+    "sha256": "5be5d8b7f458818b600ec8e117f07ccddca391b80bf44ef19946fd0ed1738c64"
+  },
+  {
+    "path": "tools/fingerspelling/baseline3_analysis.py",
+    "source_path": "tools/fingerspelling/baseline3_analysis.py",
+    "bytes": 8964,
+    "sha256": "68a6b0819c307f14fa9b07215c293beddfedf83d300728f3bbb8f35d0978e68a"
+  },
+  {
+    "path": "tools/fingerspelling/baseline4_evidence.py",
+    "source_path": "tools/fingerspelling/baseline4_evidence.py",
+    "bytes": 4539,
+    "sha256": "f72d9925526aa68f9c284d8d3c45c8d656aa7d8b8eb2478fa16701ca41042c11"
+  },
+  {
+    "path": "tools/fingerspelling/camera_input_port.py",
+    "source_path": "tools/fingerspelling/camera_input_port.py",
+    "bytes": 10484,
+    "sha256": "bf5e5dfb02e11ac2831f06978a885151519deddffda1f3cc9bb77312aecd8768"
+  },
+  {
+    "path": "tools/fingerspelling/camera_input_record.py",
+    "source_path": "tools/fingerspelling/camera_input_record.py",
+    "bytes": 5239,
+    "sha256": "8b71ea139f3c96f5831eebb88264eb0886edc9badd586c69c7752438b6cb78a5"
+  },
+  {
+    "path": "tools/fingerspelling/camera_input_report.py",
+    "source_path": "tools/fingerspelling/camera_input_report.py",
+    "bytes": 5302,
+    "sha256": "564aade2fe5099d28275651639628e91573aca4d8976d5a7f205e11bf90ed877"
+  },
+  {
+    "path": "tools/fingerspelling/camera_input_smoothing_port.py",
+    "source_path": "tools/fingerspelling/camera_input_smoothing_port.py",
+    "bytes": 2360,
+    "sha256": "cf138d3385c850f7e543b6749169cec94d08e675c71d33efd343930809a2cd75"
+  },
+  {
+    "path": "tools/fingerspelling/camera_input_test_repair.py",
+    "source_path": "tools/fingerspelling/camera_input_test_repair.py",
+    "bytes": 2249,
+    "sha256": "ef6abbe8331e91eb10021ef283fab6f2d370cec6655091338fc57885950bfa2e"
+  },
+  {
+    "path": "tools/fingerspelling/camera_input_timing_port.py",
+    "source_path": "tools/fingerspelling/camera_input_timing_port.py",
+    "bytes": 2496,
+    "sha256": "fb265b65f70877f2261f1fef2e7838cb4f5079a0f91897969cd09c52bc304414"
+  },
+  {
+    "path": "tools/fingerspelling/check_fast_execution.py",
+    "source_path": "tools/fingerspelling/check_fast_execution.py",
+    "bytes": 9217,
+    "sha256": "15c567d123b170af7157754d5c2296af9ac2c80970cbf0a0cffd0c3b81104410"
+  },
+  {
+    "path": "tools/fingerspelling/continuous_port.py",
+    "source_path": "tools/fingerspelling/continuous_port.py",
+    "bytes": 12985,
+    "sha256": "17a04c415b2a249235526341adeed6d8ae209e095acb731a6cfb9b8b8114a6fe"
+  },
+  {
+    "path": "tools/fingerspelling/continuous_preservation.py",
+    "source_path": "tools/fingerspelling/continuous_preservation.py",
+    "bytes": 3517,
+    "sha256": "0d1b45467fc4a9716efa8cda70132a34652cc5e2375b747b0c25415685055f7b"
+  },
+  {
+    "path": "tools/fingerspelling/continuous_record.py",
+    "source_path": "tools/fingerspelling/continuous_record.py",
+    "bytes": 6633,
+    "sha256": "9598967536bbdb6fc22682d46a0cfa0ce90ba57bf7736e01292f4872359ec335"
+  },
+  {
+    "path": "tools/fingerspelling/continuous_report.py",
+    "source_path": "tools/fingerspelling/continuous_report.py",
+    "bytes": 3841,
+    "sha256": "f9ef16d096d4d59e4d832bb9316c02df372017363b357b4ff28676a9b5609f1f"
+  },
+  {
+    "path": "tools/fingerspelling/continuous_stage.py",
+    "source_path": "tools/fingerspelling/continuous_stage.py",
+    "bytes": 2574,
+    "sha256": "c1d5fbc37b313b3e248b54fa1b00515359bc7d518082fda020a9b2fb1b5838c5"
+  },
+  {
+    "path": "tools/fingerspelling/continuous_ui_polish.py",
+    "source_path": "tools/fingerspelling/continuous_ui_polish.py",
+    "bytes": 5636,
+    "sha256": "edaacc8d4830fb01eb3d480266a529f10eb27f8e5a003fc6cbbb3f1e2e100a20"
+  },
+  {
+    "path": "tools/fingerspelling/current_sign_record.py",
+    "source_path": "tools/fingerspelling/current_sign_record.py",
+    "bytes": 3520,
+    "sha256": "22203032cd4f844a3b0967720a6d1861466961559a18f2012c7ad99b0070e86d"
+  },
+  {
+    "path": "tools/fingerspelling/current_sign_restore.py",
+    "source_path": "tools/fingerspelling/current_sign_restore.py",
+    "bytes": 6412,
+    "sha256": "05b2c03cf9f29ca0e2562ce044dc2c393006ff6be6b2eedb4963375833c2e565"
+  },
+  {
+    "path": "tools/fingerspelling/decoder_audit.py",
+    "source_path": "tools/fingerspelling/decoder_audit.py",
+    "bytes": 15175,
+    "sha256": "3aea4b5104ebafb5db47ddb8247fc846a3c904525c1c30c27c6c35d59e89075c"
+  },
+  {
+    "path": "tools/fingerspelling/foundation.py",
+    "source_path": "tools/fingerspelling/foundation.py",
+    "bytes": 16218,
+    "sha256": "214ee9754bb1f78b7fe3d8fd8d69e984b0c8a87b0a028905b6a568994dfaf6ca"
+  },
+  {
+    "path": "tools/fingerspelling/fsboard_expansion_plan.py",
+    "source_path": "tools/fingerspelling/fsboard_expansion_plan.py",
+    "bytes": 25138,
+    "sha256": "98203d917c222d7870b2d41b8d288b8a4953bab2a1d0dd2ddd1f2ba54b11c978"
+  },
+  {
+    "path": "tools/fingerspelling/letter_evidence_review.py",
+    "source_path": "tools/fingerspelling/letter_evidence_review.py",
+    "bytes": 10661,
+    "sha256": "6d6acfa4baf879bed690df7908c89b7e4001defb2453b62ec75c32f4d0148435"
+  },
+  {
+    "path": "tools/fingerspelling/long_spelling_check.py",
+    "source_path": "tools/fingerspelling/long_spelling_check.py",
+    "bytes": 4061,
+    "sha256": "0845d7584fdfdc5abebb49feab412ac5624bc3fd60f9fc8f4429525493ad72e1"
+  },
+  {
+    "path": "tools/fingerspelling/long_spelling_record.py",
+    "source_path": "tools/fingerspelling/long_spelling_record.py",
+    "bytes": 6180,
+    "sha256": "43f56a4bb7f60fb54ec1222f12e31660c9ef214e118d3e7d90d53ed5ff8486c4"
+  },
+  {
+    "path": "tools/fingerspelling/outer_boundary_oracle.py",
+    "source_path": "tools/fingerspelling/outer_boundary_oracle.py",
+    "bytes": 21112,
+    "sha256": "4726711a834d5089b503f3ea1b3bc8e72435803d9b76fdb2ba08e79cca142543"
+  },
+  {
+    "path": "tools/fingerspelling/outer_boundary_phase_control.py",
+    "source_path": "tools/fingerspelling/outer_boundary_phase_control.py",
+    "bytes": 7158,
+    "sha256": "3ebf68d9f3118de07d53ae0a0c965dfe40df2194765ae3b990c7caa9f03f6f1b"
+  },
+  {
+    "path": "tools/fingerspelling/parallel_preparation_smoke.py",
+    "source_path": "tools/fingerspelling/parallel_preparation_smoke.py",
+    "bytes": 6174,
+    "sha256": "88e23c70c4bacc932554b867be6784900ba749dd492bfc7665e4aecba7e55ab4"
+  },
+  {
+    "path": "tools/fingerspelling/parity.py",
+    "source_path": "tools/fingerspelling/parity.py",
+    "bytes": 9655,
+    "sha256": "91dad0e84b3617e0a05dd475fee835692645f0b46c10141920d89b01ee38dbb2"
+  },
+  {
+    "path": "tools/fingerspelling/parity_v2.py",
+    "source_path": "tools/fingerspelling/parity_v2.py",
+    "bytes": 7039,
+    "sha256": "93616e8ec0ce8251cfd9ebc3ba5ca74ad8abe60b6fa8f295faca448227de0b7e"
+  },
+  {
+    "path": "tools/fingerspelling/pre_v2_1_quality_audit.py",
+    "source_path": "tools/fingerspelling/pre_v2_1_quality_audit.py",
+    "bytes": 7000,
+    "sha256": "948a0617d7f0e84e864616218d8df384ee3bfd39b8084ff10de4b4274e3d94c5"
+  },
+  {
+    "path": "tools/fingerspelling/prepare_expansion.py",
+    "source_path": "tools/fingerspelling/prepare_expansion.py",
+    "bytes": 14213,
+    "sha256": "7f75dab951df64e24efd6ca4573c184c26da36352a87f83d019eea80080e5e72"
+  },
+  {
+    "path": "tools/fingerspelling/prepare_expansion_balanced.py",
+    "source_path": "tools/fingerspelling/prepare_expansion_balanced.py",
+    "bytes": 13737,
+    "sha256": "cdb3dbd92c6f67541d25152ab48a18bae81c06492adffa55a62da3d25f324c2b"
+  },
+  {
+    "path": "tools/fingerspelling/prepare_expansion_parallel.py",
+    "source_path": "tools/fingerspelling/prepare_expansion_parallel.py",
+    "bytes": 18059,
+    "sha256": "d76e7c49685b492ce469bf3468d4574b4ab4c42ec1ce15c8fda2fd0c488740e7"
+  },
+  {
+    "path": "tools/fingerspelling/prepare_expansion_three.py",
+    "source_path": "tools/fingerspelling/prepare_expansion_three.py",
+    "bytes": 13470,
+    "sha256": "eb40766b519fee9c01a6272fa4094574bff4931510990b206f27977e6bb9c5b1"
+  },
+  {
+    "path": "tools/fingerspelling/recognition_coordination_port.py",
+    "source_path": "tools/fingerspelling/recognition_coordination_port.py",
+    "bytes": 8469,
+    "sha256": "129726ebb78c48e231f7e7a89074086f08fd72646afd0df28a0146fefa0ae527"
+  },
+  {
+    "path": "tools/fingerspelling/residual_audit.py",
+    "source_path": "tools/fingerspelling/residual_audit.py",
+    "bytes": 9427,
+    "sha256": "65edf665bdf40f0a1bad2415135bc2920a74b1dc87275fd93a0ac3c7535c5488"
+  },
+  {
+    "path": "tools/fingerspelling/residual_lock.py",
+    "source_path": "tools/fingerspelling/residual_lock.py",
+    "bytes": 1448,
+    "sha256": "524737f51b116cbf2993b1c1db93d28cbb4751d28eda5f08b90fbbdd45d2c2eb"
+  },
+  {
+    "path": "tools/fingerspelling/residual_visual.py",
+    "source_path": "tools/fingerspelling/residual_visual.py",
+    "bytes": 9122,
+    "sha256": "030a6f7cde5d116051026a252f767a454c661e0ce1f67b753fabb915550e8e11"
+  },
+  {
+    "path": "tools/fingerspelling/sequence_v2_1_result_review.py",
+    "source_path": "tools/fingerspelling/sequence_v2_1_result_review.py",
+    "bytes": 16994,
+    "sha256": "875f3de79ad42b777279083cfa9584882ab118bec49c1f1039a66c41eea83908"
+  },
+  {
+    "path": "tools/fingerspelling/sequence_v2_1_smoke.py",
+    "source_path": "tools/fingerspelling/sequence_v2_1_smoke.py",
+    "bytes": 11723,
+    "sha256": "1aee18d3fb08f0ecfaed0d2130fc6e36143df033ae8b93048786825a060b6e1f"
+  },
+  {
+    "path": "tools/fingerspelling/sequence_v2_1_validate.py",
+    "source_path": "tools/fingerspelling/sequence_v2_1_validate.py",
+    "bytes": 3899,
+    "sha256": "b31b47d45caebe4b3c6c67908f199e72887f1785a3e5972a2927c8255447b87a"
+  },
+  {
+    "path": "tools/fingerspelling/sequence_v2_evidence.py",
+    "source_path": "tools/fingerspelling/sequence_v2_evidence.py",
+    "bytes": 4958,
+    "sha256": "2d365450075a4e1ae601eb81323f4a9a0019251fdb893ea03eaf4afa7dc86383"
+  },
+  {
+    "path": "tools/fingerspelling/sequence_v2_smoke.py",
+    "source_path": "tools/fingerspelling/sequence_v2_smoke.py",
+    "bytes": 13281,
+    "sha256": "d7825dc1ef77af479d0b02d0414f2e816e85438abc1b1e33735f84ce30192280"
+  },
+  {
+    "path": "tools/fingerspelling/sequence_v2_validate.py",
+    "source_path": "tools/fingerspelling/sequence_v2_validate.py",
+    "bytes": 9120,
+    "sha256": "5e702d1dd15d29c9e30eea1754c0424c8464f5049d59ef14a7c4fc5408541c60"
+  },
+  {
+    "path": "tools/fingerspelling/single_letter_evidence.py",
+    "source_path": "tools/fingerspelling/single_letter_evidence.py",
+    "bytes": 6773,
+    "sha256": "48e1f4755b5252f29d29e572e6de8a79708b333b328273b0b1eabdc7fdc19358"
+  },
+  {
+    "path": "tools/fingerspelling/single_letter_parity.py",
+    "source_path": "tools/fingerspelling/single_letter_parity.py",
+    "bytes": 2802,
+    "sha256": "091c1f078e3cebc6ba7112e5e44e6968401fe51b70fddfdb1ae08a4cb2965390"
+  },
+  {
+    "path": "tools/fingerspelling/single_letter_port.py",
+    "source_path": "tools/fingerspelling/single_letter_port.py",
+    "bytes": 12465,
+    "sha256": "ff7dce6079461be02ab8a6c59a0b50430149141b8aa04c3d83f86bb964083154"
+  },
+  {
+    "path": "tools/fingerspelling/single_letter_report.py",
+    "source_path": "tools/fingerspelling/single_letter_report.py",
+    "bytes": 6003,
+    "sha256": "b3e868b9ce5e1c52e03232d84fe42e4f946aa4f2e94a716dbfcf66d5d274ed1b"
+  },
+  {
+    "path": "tools/fingerspelling/three_worker_preparation_smoke.py",
+    "source_path": "tools/fingerspelling/three_worker_preparation_smoke.py",
+    "bytes": 6565,
+    "sha256": "0adb73289a281d860c979ed86a6d04148b37d00e3cc99f4c4cefb6d2874c86a5"
+  },
+  {
+    "path": "tools/fingerspelling/tranche.py",
+    "source_path": "tools/fingerspelling/tranche.py",
+    "bytes": 14707,
+    "sha256": "062a975438a4940ae8f59f988a4d6b737c266c1bddb49eb96a6a4d9f79b3e0ff"
+  },
+  {
+    "path": "tools/fingerspelling/visual_fusion.py",
+    "source_path": "tools/fingerspelling/visual_fusion.py",
+    "bytes": 8116,
+    "sha256": "4dc13cdb9b36d5ac934faf6bd8dbfdd36e2bdad0b4395c722543ea0bdb7e8554"
+  },
+  {
+    "path": "tools/fsboard_admission/prepare_manifest.py",
+    "source_path": "tools/fsboard_admission/prepare_manifest.py",
+    "bytes": 13919,
+    "sha256": "b6813fee1508a74b1b99bf0e0bea1c538a64c6fcad9f7799960d85e5ea79249f"
+  },
+  {
+    "path": "tools/fsboard_admission/selection_policy.json",
+    "source_path": "tools/fsboard_admission/selection_policy.json",
+    "bytes": 3081,
+    "sha256": "4d3e36180b6ece47fc8d5c1717e94909ce52104fa65c3e4c750d30e5e5e9eea5"
+  },
+  {
+    "path": "tools/fsboard_admission/verify_downloads.py",
+    "source_path": "tools/fsboard_admission/verify_downloads.py",
+    "bytes": 10688,
+    "sha256": "40e85622235caf24d9757b2a7936fcf3be72dd32ed906d61959451682a0df9b8"
+  },
+  {
+    "path": "datasets/fingerspelling/foundation_01/batch_plan.json",
+    "source_path": "datasets/fingerspelling/foundation_01/batch_plan.json",
+    "bytes": 136032,
+    "sha256": "14c7d3dff39a53fe4d6e7b1617fe8c6659bf4124ffb2a29f794a649d8d3202d6"
+  },
+  {
+    "path": "datasets/fingerspelling/foundation_01/ctc_views.json",
+    "source_path": "datasets/fingerspelling/foundation_01/ctc_views.json",
+    "bytes": 123623,
+    "sha256": "b1021913c3bcc118abb69e200884319615729846f51a3887f1cde36ff879a4d6"
+  },
+  {
+    "path": "datasets/fingerspelling/foundation_01/dev_phrase_policy.json",
+    "source_path": "datasets/fingerspelling/foundation_01/dev_phrase_policy.json",
+    "bytes": 52510,
+    "sha256": "e029b1e2fb698ce53d810adf0d475d28697bd8394450876e2308c759dabdbb28"
+  },
+  {
+    "path": "datasets/fingerspelling/foundation_01/engineering_checks.json",
+    "source_path": "datasets/fingerspelling/foundation_01/engineering_checks.json",
+    "bytes": 1771,
+    "sha256": "aa474ccde46f34780925df152e80e75507db9cb3dee1702455dc22087d4e81c3"
+  },
+  {
+    "path": "datasets/fingerspelling/foundation_01/feature_columns.json",
+    "source_path": "datasets/fingerspelling/foundation_01/feature_columns.json",
+    "bytes": 11867,
+    "sha256": "d4af74890958f0491b75a3a91d40be8df52df18d4606db6b813d6c73809e094b"
+  },
+  {
+    "path": "datasets/fingerspelling/foundation_01/preparation_estimate.json",
+    "source_path": "datasets/fingerspelling/foundation_01/preparation_estimate.json",
+    "bytes": 1190,
+    "sha256": "fc8b836f65bfa6d835170309001ff27107882ac0ef9fa8450596ca65b79c15da"
+  },
+  {
+    "path": "datasets/fingerspelling/foundation_01/preservation.json",
+    "source_path": "datasets/fingerspelling/foundation_01/preservation.json",
+    "bytes": 460,
+    "sha256": "929891ad87b44355e0ac6a33b7f60ad9f1f615fa17f700c6a92df6c0224d2133"
+  },
+  {
+    "path": "datasets/fingerspelling/foundation_01/tranche_manifest.json",
+    "source_path": "datasets/fingerspelling/foundation_01/tranche_manifest.json",
+    "bytes": 2962453,
+    "sha256": "6b4f152c6bd51eae7af697a58c88c6e20cb0b5e537e272a1a84a897aec54ae6e"
+  },
+  {
+    "path": "datasets/fingerspelling/foundation_01/validation.json",
+    "source_path": "datasets/fingerspelling/foundation_01/validation.json",
+    "bytes": 74121,
+    "sha256": "00c250b9c5df3f2a88f2e72e2e5ad9c8928825e8340fe997e4d65ab677c6a3a2"
+  },
+  {
+    "path": "datasets/fingerspelling/foundation_01/execution_handoff_01/bounded_batch_results.json",
+    "source_path": "datasets/fingerspelling/foundation_01/execution_handoff_01/bounded_batch_results.json",
+    "bytes": 23491,
+    "sha256": "855643403740b7346e67e3fe32466263ff3d61e239f2579a64e6f99d740bc53a"
+  },
+  {
+    "path": "datasets/fingerspelling/foundation_01/execution_handoff_01/bounded_source_decode_properties.json",
+    "source_path": "datasets/fingerspelling/foundation_01/execution_handoff_01/bounded_source_decode_properties.json",
+    "bytes": 6621,
+    "sha256": "7ef808570983fdb5f7fde6468890f8cd8d8dd124a05b06cdf1899158213b3e07"
+  },
+  {
+    "path": "datasets/fingerspelling/foundation_01/execution_handoff_01/dev-acquire.json",
+    "source_path": "datasets/fingerspelling/foundation_01/execution_handoff_01/dev-acquire.json",
+    "bytes": 2533,
+    "sha256": "11a80219faa36c7e20fb0be8cad836c32f90dbebf31b30d2686a979f08fa2b03"
+  },
+  {
+    "path": "datasets/fingerspelling/foundation_01/execution_handoff_01/dev-extract.json",
+    "source_path": "datasets/fingerspelling/foundation_01/execution_handoff_01/dev-extract.json",
+    "bytes": 32,
+    "sha256": "1f392ba4f604ca0d587354f474ff2f0c7916b015cf8d2d0eaf388d230ab36df9"
+  },
+  {
+    "path": "datasets/fingerspelling/foundation_01/execution_handoff_01/dev-resume.json",
+    "source_path": "datasets/fingerspelling/foundation_01/execution_handoff_01/dev-resume.json",
+    "bytes": 26,
+    "sha256": "0464e14496b41c9b01ac4491a08b0c6b8a4f65bb5c8bf8b9b70c9dbc6a89c435"
+  },
+  {
+    "path": "datasets/fingerspelling/foundation_01/execution_handoff_01/engineering_checks.json",
+    "source_path": "datasets/fingerspelling/foundation_01/execution_handoff_01/engineering_checks.json",
+    "bytes": 1842,
+    "sha256": "7691a607e7d06fa268391764fe4d4cb9df52a8399f833f5cc9bfb556343a06c6"
+  },
+  {
+    "path": "datasets/fingerspelling/foundation_01/execution_handoff_01/preflight-final.json",
+    "source_path": "datasets/fingerspelling/foundation_01/execution_handoff_01/preflight-final.json",
+    "bytes": 1420,
+    "sha256": "701255548319512d857491cafc88e712f52e5a0206a4e57946b817eb614b0e14"
+  },
+  {
+    "path": "datasets/fingerspelling/foundation_01/execution_handoff_01/preservation.json",
+    "source_path": "datasets/fingerspelling/foundation_01/execution_handoff_01/preservation.json",
+    "bytes": 460,
+    "sha256": "96eedbeb841adf0b3bafeac4fe5db12cbe641cb3aa3789ac8ed3177b6b8fce06"
+  },
+  {
+    "path": "datasets/fingerspelling/foundation_01/execution_handoff_01/preservation_before.json",
+    "source_path": "datasets/fingerspelling/foundation_01/execution_handoff_01/preservation_before.json",
+    "bytes": 234176,
+    "sha256": "d66da45c08a9e45be237670641b6da1919cbdd1a839bad48ac894f886dbd8323"
+  },
+  {
+    "path": "datasets/fingerspelling/foundation_01/execution_handoff_01/status-final.json",
+    "source_path": "datasets/fingerspelling/foundation_01/execution_handoff_01/status-final.json",
+    "bytes": 386,
+    "sha256": "35f0770480b6b6c44173068e2b4aacc0d314511954014f4b39345391287f8c75"
+  },
+  {
+    "path": "datasets/fingerspelling/foundation_01/execution_handoff_01/train-acquire.json",
+    "source_path": "datasets/fingerspelling/foundation_01/execution_handoff_01/train-acquire.json",
+    "bytes": 2783,
+    "sha256": "122e5700ec72bdc946d0e0e93a3f739491f02bd2b182a9a517cba93d254e6a43"
+  },
+  {
+    "path": "datasets/fingerspelling/foundation_01/execution_handoff_01/train-extract.json",
+    "source_path": "datasets/fingerspelling/foundation_01/execution_handoff_01/train-extract.json",
+    "bytes": 32,
+    "sha256": "1f392ba4f604ca0d587354f474ff2f0c7916b015cf8d2d0eaf388d230ab36df9"
+  },
+  {
+    "path": "datasets/fingerspelling/foundation_01/execution_handoff_01/train-resume.json",
+    "source_path": "datasets/fingerspelling/foundation_01/execution_handoff_01/train-resume.json",
+    "bytes": 26,
+    "sha256": "0464e14496b41c9b01ac4491a08b0c6b8a4f65bb5c8bf8b9b70c9dbc6a89c435"
+  },
+  {
+    "path": "datasets/fingerspelling/foundation_01/execution_handoff_01/training_entrypoint_check.json",
+    "source_path": "datasets/fingerspelling/foundation_01/execution_handoff_01/training_entrypoint_check.json",
+    "bytes": 2185,
+    "sha256": "d68d75f8d0946e0e804ff22d0c8572a3812b14fabf0b69d0c54d0dac68bb965c"
+  },
+  {
+    "path": "datasets/fingerspelling/foundation_01/recovery/1791020574053985700/recovery.json",
+    "source_path": "datasets/fingerspelling/foundation_01/recovery/1791020574053985700/recovery.json",
+    "bytes": 442,
+    "sha256": "8ee4f845e8965369e5f2200438b3db826012f037ca227e79944020d9e3df5292"
+  },
+  {
+    "path": "datasets/fingerspelling/train4096_plan_01/batch_plan.json",
+    "source_path": "datasets/fingerspelling/train4096_plan_01/batch_plan.json",
+    "bytes": 369501,
+    "sha256": "9559b504d6e12a25bfaae010b92b823865f6a6c80e21d3b0cc42353e5cd906c8"
+  },
+  {
+    "path": "datasets/fingerspelling/train4096_plan_01/cached_sources.json",
+    "source_path": "datasets/fingerspelling/train4096_plan_01/cached_sources.json",
+    "bytes": 388260,
+    "sha256": "a0a0e78838b93bffdebe8bbd7c88267c1e96672672a401455a0344fc2279b6a4"
+  },
+  {
+    "path": "datasets/fingerspelling/train4096_plan_01/coverage_and_workload.json",
+    "source_path": "datasets/fingerspelling/train4096_plan_01/coverage_and_workload.json",
+    "bytes": 10315,
+    "sha256": "2c1f46d3d3a22b64ab7a656c0a90797730a94378acbc250e36197a57db646888"
+  },
+  {
+    "path": "datasets/fingerspelling/train4096_plan_01/dev_a_reference.json",
+    "source_path": "datasets/fingerspelling/train4096_plan_01/dev_a_reference.json",
+    "bytes": 13418,
+    "sha256": "db46403dee9be51a8000420977772585b0061c53fe6faeb8c5c8f61f00ccdb4f"
+  },
+  {
+    "path": "datasets/fingerspelling/train4096_plan_01/dev_b_policy.json",
+    "source_path": "datasets/fingerspelling/train4096_plan_01/dev_b_policy.json",
+    "bytes": 13667,
+    "sha256": "e3c16ffccefbe8088e69d7f3bfdd6696dae6784972f73595d23c46e1c12dab58"
+  },
+  {
+    "path": "datasets/fingerspelling/train4096_plan_01/plan_identity.json",
+    "source_path": "datasets/fingerspelling/train4096_plan_01/plan_identity.json",
+    "bytes": 966,
+    "sha256": "cbbbe48a5eec1140258bba4cc0f21bff24ac722379f44e0e815fe8740defee89"
+  },
+  {
+    "path": "datasets/fingerspelling/train4096_plan_01/reuse_inventory.json",
+    "source_path": "datasets/fingerspelling/train4096_plan_01/reuse_inventory.json",
+    "bytes": 1026590,
+    "sha256": "fe4aa15891583e25ea63f3df6f8e3226312a17bf525a26c18d46c9f78b06c0ea"
+  },
+  {
+    "path": "datasets/fingerspelling/train4096_plan_01/train4096_manifest.json",
+    "source_path": "datasets/fingerspelling/train4096_plan_01/train4096_manifest.json",
+    "bytes": 9250607,
+    "sha256": "4dd03d43b2f6e2e9a7b83fa21b0a5f65cd92f460e52e197f94f1929dfd11bbbb"
+  },
+  {
+    "path": "datasets/fingerspelling/train4096_plan_01/dev_b/batch_plan.json",
+    "source_path": "datasets/fingerspelling/train4096_plan_01/dev_b/batch_plan.json",
+    "bytes": 28950,
+    "sha256": "dd39267ed39664c408ef84ce43e61f9a4a2012787d9ddba6224ce8a6615330e8"
+  },
+  {
+    "path": "datasets/fingerspelling/train4096_plan_01/dev_b/ctc_views.json",
+    "source_path": "datasets/fingerspelling/train4096_plan_01/dev_b/ctc_views.json",
+    "bytes": 735,
+    "sha256": "0b162334b18a4dbb0d64cac51a64ca16d0eac45491544c5f844a5601a28bd654"
+  },
+  {
+    "path": "datasets/fingerspelling/train4096_plan_01/dev_b/tranche_manifest.json",
+    "source_path": "datasets/fingerspelling/train4096_plan_01/dev_b/tranche_manifest.json",
+    "bytes": 589657,
+    "sha256": "50bc3cf42bc549f41ecce7f74bda0acad4be59c0b490d0afd49ec83e94efa09e"
+  },
+  {
+    "path": "datasets/fingerspelling/train4096_plan_01/dev_b/validation.json",
+    "source_path": "datasets/fingerspelling/train4096_plan_01/dev_b/validation.json",
+    "bytes": 2104,
+    "sha256": "6346fc5c2d0ad84d96bc9a85ed1954ac73d10f42f7c3bd486724a0ed8b0a1a9f"
+  },
+  {
+    "path": "datasets/fingerspelling/train4096_plan_01/train_additions/batch_plan.json",
+    "source_path": "datasets/fingerspelling/train4096_plan_01/train_additions/batch_plan.json",
+    "bytes": 339361,
+    "sha256": "66b0ea9df3eaefb7e74e1a2ce929cca9dd325768f3e40a5dbf328de43eeed01a"
+  },
+  {
+    "path": "datasets/fingerspelling/train4096_plan_01/train_additions/ctc_views.json",
+    "source_path": "datasets/fingerspelling/train4096_plan_01/train_additions/ctc_views.json",
+    "bytes": 735,
+    "sha256": "0b162334b18a4dbb0d64cac51a64ca16d0eac45491544c5f844a5601a28bd654"
+  },
+  {
+    "path": "datasets/fingerspelling/train4096_plan_01/train_additions/tranche_manifest.json",
+    "source_path": "datasets/fingerspelling/train4096_plan_01/train_additions/tranche_manifest.json",
+    "bytes": 6942042,
+    "sha256": "8f219a84dee854422de5ed138512d6cd5fcc258a94fcf4cbc5f4c1b1a9bd5075"
+  },
+  {
+    "path": "datasets/fingerspelling/train4096_plan_01/train_additions/validation.json",
+    "source_path": "datasets/fingerspelling/train4096_plan_01/train_additions/validation.json",
+    "bytes": 2106,
+    "sha256": "7352189ee92340f9f9791005b8f85aeff52af594bf8de569c0f7049f71562c8c"
+  },
+  {
+    "path": "evidence/fingerspelling/fingerspelling_ctc_baseline_02/final_evaluation.json",
+    "source_path": "runs/fingerspelling_ctc_baseline_02/final_evaluation.json",
+    "bytes": 838589,
+    "sha256": "8050b757554e6abc2acf4c288098dddc59580b454cd077377a9a07058549ed68"
+  },
+  {
+    "path": "evidence/fingerspelling/fingerspelling_ctc_baseline_02/completion.json",
+    "source_path": "runs/fingerspelling_ctc_baseline_02/completion.json",
+    "bytes": 481,
+    "sha256": "14c14200518511f6beb3de00ee032ff954862523c459eb2accbb30212e0778c2"
+  },
+  {
+    "path": "evidence/fingerspelling/fingerspelling_ctc_baseline_02/committed_epoch.json",
+    "source_path": "runs/fingerspelling_ctc_baseline_02/committed_epoch.json",
+    "bytes": 617,
+    "sha256": "4d91e6901c18c73f9bec2bf347a72277d1d5cac476fc4d9e79e90f8c3ab310a4"
+  },
+  {
+    "path": "evidence/fingerspelling/fingerspelling_ctc_baseline_02/environment.json",
+    "source_path": "runs/fingerspelling_ctc_baseline_02/environment.json",
+    "bytes": 273,
+    "sha256": "9c8270ca3022aec1a2c3484058fbfa0c57476fef4f1453734557b726e8f528d3"
+  },
+  {
+    "path": "evidence/fingerspelling/fingerspelling_ctc_baseline_02/run_identity.json",
+    "source_path": "runs/fingerspelling_ctc_baseline_02/run_identity.json",
+    "bytes": 65423,
+    "sha256": "94579ca3761ca1fda8a6aa7c95338fd9358d6f04d55d68860c01093f39f156df"
+  },
+  {
+    "path": "packages/research_checkpoints/fingerspelling_ctc_baseline_02/epoch_076.keras",
+    "source_path": "runs/fingerspelling_ctc_baseline_02/best_candidates/epoch_076.keras",
+    "bytes": 917887,
+    "sha256": "64f425358ef30e21a4aca18795226854f7aa44a34c3bc3e54a8c06366cb61397"
+  },
+  {
+    "path": "evidence/fingerspelling/fingerspelling_ctc_baseline_03/final_evaluation.json",
+    "source_path": "runs/fingerspelling_ctc_baseline_03/final_evaluation.json",
+    "bytes": 1053180,
+    "sha256": "506b0f3c97b5cdad0a91a647bf26c7663917e10569c530f39e8ca1df1bf65a19"
+  },
+  {
+    "path": "evidence/fingerspelling/fingerspelling_ctc_baseline_03/completion.json",
+    "source_path": "runs/fingerspelling_ctc_baseline_03/completion.json",
+    "bytes": 456,
+    "sha256": "c9346db121d8d2e6c1fc6343ddd1d689d82872506f220d1f269425b01825ae24"
+  },
+  {
+    "path": "evidence/fingerspelling/fingerspelling_ctc_baseline_03/committed_epoch.json",
+    "source_path": "runs/fingerspelling_ctc_baseline_03/committed_epoch.json",
+    "bytes": 616,
+    "sha256": "6d34cc01f569f4894e1b3ebb805c984e9fe9b10adaed738abae7879cdb5b8b10"
+  },
+  {
+    "path": "evidence/fingerspelling/fingerspelling_ctc_baseline_03/environment.json",
+    "source_path": "runs/fingerspelling_ctc_baseline_03/environment.json",
+    "bytes": 264,
+    "sha256": "5efe5cd7f95321a09af9c4c4ae52f69f7426f566cd9a55c51fbd20406a8a4629"
+  },
+  {
+    "path": "evidence/fingerspelling/fingerspelling_ctc_baseline_03/run_identity.json",
+    "source_path": "runs/fingerspelling_ctc_baseline_03/run_identity.json",
+    "bytes": 66211,
+    "sha256": "25bef53ecf19cd4f5f24f88dc07952e7be596a77d5c80e761fcc38db43a089de"
+  },
+  {
+    "path": "packages/research_checkpoints/fingerspelling_ctc_baseline_03/epoch_049.keras",
+    "source_path": "runs/fingerspelling_ctc_baseline_03/best_candidates/epoch_049.keras",
+    "bytes": 762782,
+    "sha256": "e8be293d74c64ebfdd628b00e822545b39004d57318cc098d667f6bea9c4a68e"
+  },
+  {
+    "path": "evidence/fingerspelling/fingerspelling_ctc_baseline_04/final_evaluation.json",
+    "source_path": "runs/fingerspelling_ctc_baseline_04/final_evaluation.json",
+    "bytes": 1127297,
+    "sha256": "4e3d767d376dd9f2376ee0edd4c81a0e3fb6f91546fd12f4eacbaee92ad3b840"
+  },
+  {
+    "path": "evidence/fingerspelling/fingerspelling_ctc_baseline_04/completion.json",
+    "source_path": "runs/fingerspelling_ctc_baseline_04/completion.json",
+    "bytes": 481,
+    "sha256": "52ea07f47cf69f9cbe7a8381c6c0d6c961544f3ad361505ddda5bdb29cca1cc7"
+  },
+  {
+    "path": "evidence/fingerspelling/fingerspelling_ctc_baseline_04/committed_epoch.json",
+    "source_path": "runs/fingerspelling_ctc_baseline_04/committed_epoch.json",
+    "bytes": 616,
+    "sha256": "706a691ce8b0ddae379b97703f06034b0e2cdb18526a3bfb7f140f473a4df959"
+  },
+  {
+    "path": "evidence/fingerspelling/fingerspelling_ctc_baseline_04/environment.json",
+    "source_path": "runs/fingerspelling_ctc_baseline_04/environment.json",
+    "bytes": 272,
+    "sha256": "aad8aa972d07c15354ee1294c1915a2d1acd3d50b106a0a64cbbb5c6d9e393d0"
+  },
+  {
+    "path": "evidence/fingerspelling/fingerspelling_ctc_baseline_04/run_identity.json",
+    "source_path": "runs/fingerspelling_ctc_baseline_04/run_identity.json",
+    "bytes": 66146,
+    "sha256": "f903a9e9efc5cfe31b210d2eff2043e364d459dd293d275d1e3436ee266d7a82"
+  },
+  {
+    "path": "packages/research_checkpoints/fingerspelling_ctc_baseline_04/epoch_040.keras",
+    "source_path": "runs/fingerspelling_ctc_baseline_04/best_candidates/epoch_040.keras",
+    "bytes": 2378448,
+    "sha256": "d4c703fdc513321154392e472bded5528041be42149eb26e4f45d32d6db9a522"
+  },
+  {
+    "path": "evidence/fingerspelling/fingerspelling_residual_visual_01/final_evaluation.json",
+    "source_path": "runs/fingerspelling_residual_visual_01/final_evaluation.json",
+    "bytes": 630046,
+    "sha256": "2574cfed2c267d165c9de84ff507807f798a8ba9472b9ab94a7d52589a4e4f72"
+  },
+  {
+    "path": "evidence/fingerspelling/fingerspelling_residual_visual_01/completion.json",
+    "source_path": "runs/fingerspelling_residual_visual_01/completion.json",
+    "bytes": 237,
+    "sha256": "dab15b2ead2125f0eb68cca30291488e472a77ea00da36261c0e3125f67c89b7"
+  },
+  {
+    "path": "evidence/fingerspelling/fingerspelling_residual_visual_01/committed_epoch.json",
+    "source_path": "runs/fingerspelling_residual_visual_01/committed_epoch.json",
+    "bytes": 589,
+    "sha256": "783d1d9eae034d8e16bb305dd1c979948c081d287f42529b8a64bee81aff7905"
+  },
+  {
+    "path": "evidence/fingerspelling/fingerspelling_residual_visual_01/environment.json",
+    "source_path": "runs/fingerspelling_residual_visual_01/environment.json",
+    "bytes": 444,
+    "sha256": "d5c9a8a075546f5c89500c7371b5f81df8ceeb7261dcb4ee963effabc3be44f1"
+  },
+  {
+    "path": "evidence/fingerspelling/fingerspelling_residual_visual_01/run_identity.json",
+    "source_path": "runs/fingerspelling_residual_visual_01/run_identity.json",
+    "bytes": 216334,
+    "sha256": "cee9e60d097911beed9aa03a2e5318b72ef7564edab484dd82f5481ba57a11e8"
+  },
+  {
+    "path": "packages/research_checkpoints/fingerspelling_residual_visual_01/epoch_035.keras",
+    "source_path": "runs/fingerspelling_residual_visual_01/best_candidates/epoch_035.keras",
+    "bytes": 988073,
+    "sha256": "f87be3236196c8ab8321a3b6f7bb9d6398d048e257630a38546e8a8d00143251"
+  },
+  {
+    "path": "evidence/fingerspelling/fingerspelling_train4096_01/final_evaluation.json",
+    "source_path": "runs/fingerspelling_train4096_01/final_evaluation.json",
+    "bytes": 1101416,
+    "sha256": "5e087986d8d3da524fc875a9cbf111475f54ffebd2ff9128a1947c0f9c4aa293"
+  },
+  {
+    "path": "evidence/fingerspelling/fingerspelling_train4096_01/completion.json",
+    "source_path": "runs/fingerspelling_train4096_01/completion.json",
+    "bytes": 715,
+    "sha256": "adc4ef766b7b14230e7a95ff2055c718220b9349358a014d40bfc5ce98239445"
+  },
+  {
+    "path": "evidence/fingerspelling/fingerspelling_train4096_01/confirmation_lock.json",
+    "source_path": "runs/fingerspelling_train4096_01/confirmation_lock.json",
+    "bytes": 505,
+    "sha256": "58d7006f95c4ca503c6ee09008fe1b8830ded5a1266d3bf1bd788775c719c1ac"
+  },
+  {
+    "path": "evidence/fingerspelling/fingerspelling_train4096_01/committed_epoch.json",
+    "source_path": "runs/fingerspelling_train4096_01/committed_epoch.json",
+    "bytes": 611,
+    "sha256": "eb88ab9f94486b817f0f074116031901f2df74320e1320363b2d5d72f28c1dc2"
+  },
+  {
+    "path": "evidence/fingerspelling/fingerspelling_train4096_01/environment.json",
+    "source_path": "runs/fingerspelling_train4096_01/environment.json",
+    "bytes": 324,
+    "sha256": "fade5bc0f5f975db7b82580394b1395a5ab500875e53f468292b8d09cf4c8ef2"
+  },
+  {
+    "path": "evidence/fingerspelling/fingerspelling_train4096_01/run_identity.json",
+    "source_path": "runs/fingerspelling_train4096_01/run_identity.json",
+    "bytes": 712257,
+    "sha256": "2bb49eeac88b1c063da68b4a15572b5faf47ebfcf2b206d2c9f557ea31c7a088"
+  },
+  {
+    "path": "packages/research_checkpoints/fingerspelling_train4096_01/epoch_038.keras",
+    "source_path": "runs/fingerspelling_train4096_01/best_candidates/epoch_038.keras",
+    "bytes": 916382,
+    "sha256": "b037e32789f523c043b46c32cdc2ea11f2f600fd35f30ecd672604b6f6947886"
+  },
+  {
+    "path": "evidence/fingerspelling/fingerspelling_sequence_v2_01/final_evaluation.json",
+    "source_path": "runs/fingerspelling_sequence_v2_01/final_evaluation.json",
+    "bytes": 5445682,
+    "sha256": "10b4d7abcf71f9f96019f88199fb240ff98017a12242eb4508b2ec9687cac6f2"
+  },
+  {
+    "path": "evidence/fingerspelling/fingerspelling_sequence_v2_01/completion.json",
+    "source_path": "runs/fingerspelling_sequence_v2_01/completion.json",
+    "bytes": 711,
+    "sha256": "720acd07be526ad0782e0fbedffb0e0e47f58f0ee45de6c8dd93c85fef72dbbf"
+  },
+  {
+    "path": "evidence/fingerspelling/fingerspelling_sequence_v2_01/confirmation_lock.json",
+    "source_path": "runs/fingerspelling_sequence_v2_01/confirmation_lock.json",
+    "bytes": 495,
+    "sha256": "eb1985aeb8351fcf40d871ae2f532a95fbced97afcb50610d4b820ee3107aeb0"
+  },
+  {
+    "path": "evidence/fingerspelling/fingerspelling_sequence_v2_01/committed_epoch.json",
+    "source_path": "runs/fingerspelling_sequence_v2_01/committed_epoch.json",
+    "bytes": 614,
+    "sha256": "dd98ab0b9b15115d7aa52ea25248eed9e87aa48662db41e78bb01c2701ce4069"
+  },
+  {
+    "path": "evidence/fingerspelling/fingerspelling_sequence_v2_01/environment.json",
+    "source_path": "runs/fingerspelling_sequence_v2_01/environment.json",
+    "bytes": 353,
+    "sha256": "4b7bdf0cb6a43d25bd4f4aeee0e0220676e6746a1fa2ab3b244e65dccac1a581"
+  },
+  {
+    "path": "evidence/fingerspelling/fingerspelling_sequence_v2_01/run_identity.json",
+    "source_path": "runs/fingerspelling_sequence_v2_01/run_identity.json",
+    "bytes": 713312,
+    "sha256": "846e656c68831964e00c52bc9444e14a57cd40ed4ae3b79cdf86bd33dc8d2c87"
+  },
+  {
+    "path": "packages/research_checkpoints/fingerspelling_sequence_v2_01/epoch_046.keras",
+    "source_path": "runs/fingerspelling_sequence_v2_01/best_candidates/epoch_046.keras",
+    "bytes": 1483827,
+    "sha256": "88a92131eb07ce97b18f2ad4b9ea8d927858c1582177b5a04105a361e071c96a"
+  },
+  {
+    "path": "evidence/fingerspelling/fingerspelling_sequence_v2_1_01/final_evaluation.json",
+    "source_path": "runs/fingerspelling_sequence_v2_1_01/final_evaluation.json",
+    "bytes": 6971216,
+    "sha256": "08f6aa833ab53a3f5218e2d03fb2590c87f0f1d4d29c011418c54dc95f7ae0ab"
+  },
+  {
+    "path": "evidence/fingerspelling/fingerspelling_sequence_v2_1_01/completion.json",
+    "source_path": "runs/fingerspelling_sequence_v2_1_01/completion.json",
+    "bytes": 966,
+    "sha256": "19822089b4a1a438902b5fd0aec845ff6a8e7158bec7852e418ff86a380d4f6d"
+  },
+  {
+    "path": "evidence/fingerspelling/fingerspelling_sequence_v2_1_01/confirmation_lock.json",
+    "source_path": "runs/fingerspelling_sequence_v2_1_01/confirmation_lock.json",
+    "bytes": 589,
+    "sha256": "d13926dd26420bfcd462c9f4734ba2dead47fbd5af8a2353b8ddf88520fc2891"
+  },
+  {
+    "path": "evidence/fingerspelling/fingerspelling_sequence_v2_1_01/committed_epoch.json",
+    "source_path": "runs/fingerspelling_sequence_v2_1_01/committed_epoch.json",
+    "bytes": 867,
+    "sha256": "ae83bcfa8d07787c788d9e7e89748d8bd3c205f6b8d14caa1440737bc3ec9872"
+  },
+  {
+    "path": "evidence/fingerspelling/fingerspelling_sequence_v2_1_01/environment.json",
+    "source_path": "runs/fingerspelling_sequence_v2_1_01/environment.json",
+    "bytes": 359,
+    "sha256": "d0d6fa6355f1895e8b8d128889367244354d96d0640b9985450b02fec78deda3"
+  },
+  {
+    "path": "evidence/fingerspelling/fingerspelling_sequence_v2_1_01/run_identity.json",
+    "source_path": "runs/fingerspelling_sequence_v2_1_01/run_identity.json",
+    "bytes": 714011,
+    "sha256": "5b267d9c0c61d547eac8fc423998443bbce5ae5b1b564fab6766ab098d5956cd"
+  },
+  {
+    "path": "packages/research_checkpoints/fingerspelling_sequence_v2_1_01/epoch_034.keras",
+    "source_path": "runs/fingerspelling_sequence_v2_1_01/best_candidates/epoch_034.keras",
+    "bytes": 1483836,
+    "sha256": "3f92287c5ee82b2e0de1d396c4d27fe3b0efaed8af23b79b878740a56f1af638"
+  },
+  {
+    "path": "evidence/fingerspelling_decoder_audit_01/comparison.json",
+    "source_path": "artifacts/fingerspelling_decoder_audit_01/comparison.json",
+    "bytes": 73562,
+    "sha256": "a3f3ec169d8b8fabc9e33013d3098ee16f7d2e99acc93672f11987a1fdc9829d"
+  },
+  {
+    "path": "evidence/fingerspelling_decoder_audit_01/decision.json",
+    "source_path": "artifacts/fingerspelling_decoder_audit_01/decision.json",
+    "bytes": 473,
+    "sha256": "1daf63eb92ecec21a42c2637cfebc19e80b0c2ff7b3d3cb67a269e1129c6846e"
+  },
+  {
+    "path": "evidence/fingerspelling_decoder_audit_01/validation.json",
+    "source_path": "artifacts/fingerspelling_decoder_audit_01/validation.json",
+    "bytes": 785,
+    "sha256": "42d8d8cfc3a9dcf1691f3eae179d151513f056e8174fa585fb479fd249629195"
+  },
+  {
+    "path": "evidence/fingerspelling_outer_boundary_oracle_01/analysis_summary.json",
+    "source_path": "artifacts/fingerspelling_outer_boundary_oracle_01/analysis_summary.json",
+    "bytes": 97484,
+    "sha256": "3a7601d3db141c0939cca084ac0d8951231fde382a2ad9068ca9b255c4c5b077"
+  },
+  {
+    "path": "evidence/fingerspelling_outer_boundary_oracle_01/decision.json",
+    "source_path": "artifacts/fingerspelling_outer_boundary_oracle_01/decision.json",
+    "bytes": 760,
+    "sha256": "080758145a1cd6d63db77b5aaec1c8bba9335c60a433f7b46fd1563fb6ac05ef"
+  },
+  {
+    "path": "evidence/fingerspelling_outer_boundary_oracle_01/validation_summary.json",
+    "source_path": "artifacts/fingerspelling_outer_boundary_oracle_01/validation_summary.json",
+    "bytes": 709,
+    "sha256": "ea732535d534d379c690019e35b863594360e718b0fd6b1a98e475d5e0e60f50"
+  },
+  {
+    "path": "evidence/fingerspelling_outer_boundary_oracle_01/metadata_verification.json",
+    "source_path": "artifacts/fingerspelling_outer_boundary_oracle_01/metadata_verification.json",
+    "bytes": 923,
+    "sha256": "1e0824ff52e1ecfc4567ea9f9da7b18a8f8f6ec705e167dfa16d937473ba12e3"
+  },
+  {
+    "path": "evidence/fingerspelling_sequence_v2_review_01/analysis.json",
+    "source_path": "artifacts/fingerspelling_sequence_v2_review_01/analysis.json",
+    "bytes": 814634,
+    "sha256": "238f73cbe09309b7f2368084bdda757c09c106f4b25139e57a43865228596d44"
+  },
+  {
+    "path": "evidence/fingerspelling_sequence_v2_1_review_01/analysis.json",
+    "source_path": "artifacts/fingerspelling_sequence_v2_1_review_01/analysis.json",
+    "bytes": 865917,
+    "sha256": "710700b22e1fdc7dc2339458d950052cdb9297a6d3531cea92cd1b8c01654ba2"
+  },
+  {
+    "path": "evidence/fingerspelling_sequence_v2_1_android_01/export_parity.json",
+    "source_path": "artifacts/fingerspelling_sequence_v2_1_android_01/export_parity.json",
+    "bytes": 12159,
+    "sha256": "8c423945421c9fb72fe227f2ef15ed945862a7790d1dd66de72c5de3a2760e23"
+  },
+  {
+    "path": "evidence/fingerspelling_sequence_v2_1_android_01/runtime_summary.json",
+    "source_path": "artifacts/fingerspelling_sequence_v2_1_android_01/runtime_summary.json",
+    "bytes": 2255,
+    "sha256": "6c11b92ccec7aff7c24bdc748cb327762b76d7a3f89434783377a4c71c84ba96"
+  },
+  {
+    "path": "evidence/fingerspelling_sequence_v2_1_android_01/engineering_decision.json",
+    "source_path": "artifacts/fingerspelling_sequence_v2_1_android_01/engineering_decision.json",
+    "bytes": 9430,
+    "sha256": "c4a87d411523b17c762a7bb35ef37b4850a2d914a59eeed1c42bd60be82b8316"
+  },
+  {
+    "path": "evidence/fingerspelling_sequence_v2_1_android_01/xiaomi_fingerspell_sequence_v2_1_parity.json",
+    "source_path": "artifacts/fingerspelling_sequence_v2_1_android_01/xiaomi_fingerspell_sequence_v2_1_parity.json",
+    "bytes": 9691,
+    "sha256": "2046c5795c1e9b5e682445e512d0227a5be5efd2184537251725a5d0cc58bf93"
+  },
+  {
+    "path": "evidence/text_to_asl_original_words_01/final_validation.json",
+    "source_path": "artifacts/text_to_asl_original_words_01/final_validation.json",
+    "bytes": 1414,
+    "sha256": "506f747b211847f527fa5ec999d98daf07ed0db4a1fb97dff425edd0efe5b367"
+  },
+  {
+    "path": "evidence/text_to_asl_original_words_01/import_receipt.json",
+    "source_path": "artifacts/text_to_asl_original_words_01/import_receipt.json",
+    "bytes": 222,
+    "sha256": "9e5e0411028c7caaccdd20d70c5cd8bdd5188d0183bfaaea2cbd0e85913fe71b"
+  },
+  {
+    "path": "evidence/text_to_asl_original_words_01/vocabulary.md",
+    "source_path": "artifacts/text_to_asl_original_words_01/vocabulary.md",
+    "bytes": 2883,
+    "sha256": "392784eb7358e76c294ca0759092744097e54d4e325691b147c98c7d5b1c4c73"
+  },
+  {
+    "path": "evidence/text_to_asl_original_words_01/report.md",
+    "source_path": "artifacts/text_to_asl_original_words_01/report.md",
+    "bytes": 6158,
+    "sha256": "761ed6a1c2f59efcded26464e341ed7dcaf3add38496a921db45ffe031770b09"
+  },
+  {
+    "path": "evidence/text_to_asl_original_words_01/device/original_word_batch_baby.png",
+    "source_path": "artifacts/text_to_asl_original_words_01/device/original_word_batch_baby.png",
+    "bytes": 557342,
+    "sha256": "c0173d36d8e362c4a430fe2f25ceb7554fcad93a5a2239619e58a4d95703f3b6"
+  },
+  {
+    "path": "evidence/text_to_asl_original_words_01/device/original_word_batch_catalog.json",
+    "source_path": "artifacts/text_to_asl_original_words_01/device/original_word_batch_catalog.json",
+    "bytes": 69,
+    "sha256": "e4b4caeb339cdd1ef923d3f6b06238230946eed7e67a63e1123bd6b32d452832"
+  },
+  {
+    "path": "evidence/text_to_asl_original_words_01/device/original_word_batch_dad.png",
+    "source_path": "artifacts/text_to_asl_original_words_01/device/original_word_batch_dad.png",
+    "bytes": 242235,
+    "sha256": "b39154b52291c55b8e4a34f3cd351296cd8ef82ff86179cdbcc451f04fda79b0"
+  },
+  {
+    "path": "evidence/text_to_asl_original_words_01/device/original_word_batch_father.png",
+    "source_path": "artifacts/text_to_asl_original_words_01/device/original_word_batch_father.png",
+    "bytes": 620896,
+    "sha256": "91a214c4fa1003dd6c3a7dbc21c0b253705906da95554d38d4cbbd8deedf2a50"
+  },
+  {
+    "path": "evidence/text_to_asl_original_words_01/device/original_word_batch_hello.png",
+    "source_path": "artifacts/text_to_asl_original_words_01/device/original_word_batch_hello.png",
+    "bytes": 601557,
+    "sha256": "3ce35706ae608a3ebbabb879175a416e3e0bc3616acd3cf768f6d2f429f6e7c1"
+  },
+  {
+    "path": "evidence/text_to_asl_original_words_01/device/original_word_batch_playback.json",
+    "source_path": "artifacts/text_to_asl_original_words_01/device/original_word_batch_playback.json",
+    "bytes": 1291,
+    "sha256": "249388407ad90ffc8363fdb31b76739892608beaa1221d8cb22f04bc1c893006"
+  },
+  {
+    "path": "evidence/text_to_asl_original_words_01/device/original_word_batch_right.png",
+    "source_path": "artifacts/text_to_asl_original_words_01/device/original_word_batch_right.png",
+    "bytes": 576413,
+    "sha256": "629067a5eedb968ce96e5f9b36abd6bd12f09c4d0edae395b4d36a5fbca3ce27"
+  },
+  {
+    "path": "evidence/text_to_asl_original_words_01/device/original_word_batch_right_direction.png",
+    "source_path": "artifacts/text_to_asl_original_words_01/device/original_word_batch_right_direction.png",
+    "bytes": 606873,
+    "sha256": "13da7e24fc322ee0e9f9d4e458f81153189d392bcbdadcb44952eabedeaf2f47"
+  },
+  {
+    "path": "evidence/text_to_asl_original_words_01/device/original_word_batch_what_rhetorical.png",
+    "source_path": "artifacts/text_to_asl_original_words_01/device/original_word_batch_what_rhetorical.png",
+    "bytes": 627504,
+    "sha256": "5de88f9b027c76ac03301946be00f8003fe7757790a60428bcd2e8f45fb5d427"
+  }
+]

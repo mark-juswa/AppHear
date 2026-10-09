@@ -1,3 +1,5 @@
+> **2026-10-09 current-state notice:** Read [team-current-state-2026-10-09.md](team-current-state-2026-10-09.md) and [TEAM_HANDOFF.md](../TEAM_HANDOFF.md) first. Older design/status/absolute-checkout references below are historical where they conflict with the verified October9 code and current-state inventory. Protection, parity and evaluation rules still apply. Do not treat the old 15-FPS target as a measured achieved cadence, or uninstall/clear app data by default during smoke checks; current updates use `adb install -r`.
+
 # Progress Tracker
 
 **CURRENT STATUS 2026-09-28 — `DIAGNOSTIC_TOOLING_READY_WAIT_FOR_AB_CAPTURE`:**

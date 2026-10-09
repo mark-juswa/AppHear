@@ -1,0 +1,28 @@
+{
+  "schema_version": "apphear.fingerspelling.dataset.v1",
+  "observation_receipt_version": "apphear.fingerspelling.observation_receipt.v1",
+  "class_order": ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "OTHER"],
+  "roles": ["TRAIN", "DEV", "PROTECTED_TEST"],
+  "raw_schema": "apphear.perception_vnext.raw.v1",
+  "image_semantics": "UPRIGHT_UNMIRRORED_SOURCE_RGB",
+  "candidate_id": "dwpose_t_256x192_plus_mp_hand_224",
+  "candidate01_body_available_minimum_valid_points": 6,
+  "candidate01_assets": {
+    "dwpose_t_singlepass.onnx": "37b0f265200f8e249adba1cc9b62925f5e1252245580ed1f66f583d7bce239c0",
+    "hand_landmarks_detector.tflite": "6acda74af3fbf40e68265c20c7394b2bad81a16a481dcd79ad7a081887c3d6b9"
+  },
+  "other_subtypes": ["idle", "word_sign", "transition", "non_letter_gesture", "partial_attempt", "occlusion", "perception_failure", "difficult_letter_like_negative"],
+  "quality_tags": ["good", "occluded", "perception_failure", "blurred", "out_of_frame", "partial", "uncertain"],
+  "coverage_gate": {
+    "signers_per_role": {"TRAIN": 6, "DEV": 2, "PROTECTED_TEST": 2},
+    "sessions_per_signer": 2,
+    "isolated_clips_per_letter_per_signer": 4,
+    "sequence_clips_per_signer": 7,
+    "repeated_sequences": ["LL", "MM", "EE"],
+    "transition_sequences": ["AM", "IJ", "AZ"],
+    "other_subtypes_per_role": ["idle", "word_sign", "non_letter_gesture", "partial_attempt", "difficult_letter_like_negative"],
+    "other_signers_per_subtype": {"TRAIN": 2, "DEV": 1, "PROTECTED_TEST": 1}
+  },
+  "denied_path_fragments": ["phone_pull", "phone_validation", "protected_replay", "pristine", "artifacts/recognition_upgrade", "asl_citizen", "asl citizen", "sem lex", "semlex", "local dataset", "e:/local", "e:/samples", "f:/asl dataset/new2"],
+  "readiness_approvals": ["identity_and_rights", "near_duplicate_review", "candidate01_extraction_review", "phone_cadence_and_raw_parity", "protected_test_integrity"]
+}

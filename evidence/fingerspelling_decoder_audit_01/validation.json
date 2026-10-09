@@ -1,0 +1,23 @@
+{
+  "schema_version": "apphear.fingerspelling.decoder_audit_validation.v1",
+  "status": "DECODER_AUDIT_VALID",
+  "protected_existing_files_checked": 1429,
+  "changed_protected_files": [],
+  "dev_sequences_per_view": 256,
+  "views": [
+    "native",
+    "phone"
+  ],
+  "historical_greedy_match_count": 512,
+  "logits_reuse_validated": true,
+  "decoder_tests": 14,
+  "existing_baseline2_tests": 12,
+  "focused_tests_passed": 26,
+  "ruff": "PASS",
+  "mypy_two_new_source_files": "PASS",
+  "black_in_memory_format_check": "PASS",
+  "formatter_workaround": "Black multi-file CLI stalled at Windows NamedTemporaryFile; pure in-memory formatting API succeeded. No pipeline/model change.",
+  "phone_logits_available": false,
+  "training": false,
+  "test_accessed": false
+}

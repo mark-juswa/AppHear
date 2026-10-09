@@ -1,0 +1,14 @@
+{
+  "existing_identities_checked": 2082,
+  "mismatches": [],
+  "append_only_preserved": {
+    "context/feature-schema.md": true,
+    "context/progress-tracker.md": true,
+    "memory.md": true
+  },
+  "unrelated_modified_report_unchanged": true,
+  "legacy_protected_paths_checked": 883,
+  "legacy_protected_mismatches": [],
+  "branch": "codex/current-working-text-to-asl-baseline-2026-09-29",
+  "head": "cc1f3949114d0ed1dab38d4428191151b37df358"
+}

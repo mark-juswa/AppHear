@@ -1,0 +1,16 @@
+{
+  "schema_version": "apphear.fingerspelling.tranche_status.v1",
+  "prepared_receipt_counts": {
+    "TRAIN": 22,
+    "DEV": 16
+  },
+  "target_counts": {
+    "TRAIN": 1024,
+    "DEV": 256
+  },
+  "pending": 1242,
+  "failures": {},
+  "package_disk_bytes": 139692225,
+  "free_destination_bytes": 13460774912,
+  "scope": "FAST_RECEIPT_INVENTORY_NOT_FRESH_HASH_VALIDATION"
+}
