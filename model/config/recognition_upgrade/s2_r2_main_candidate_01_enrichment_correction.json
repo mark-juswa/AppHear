@@ -1,0 +1,68 @@
+{
+  "schema": "apphear.s2_r2.main_candidate_config.v1",
+  "milestone": "S2_R2_CONTINUOUS_DOMAIN_CORRECTION_01",
+  "seed": 5103,
+  "feature_contract": {
+    "schema": "apphear.perception_vnext.segmentation_features.v1",
+    "width": 378,
+    "semantics_changed": false
+  },
+  "architecture": "UNCHANGED_PHASE7_CAUSAL_TCN_FROM_SCRATCH",
+  "cadence_views": [
+    {"view_id": "VIEW_A", "target_interval_ms": 133.308},
+    {"view_id": "VIEW_B", "target_interval_ms": 199.962},
+    {"view_id": "VIEW_C", "target_interval_ms": 266.616}
+  ],
+  "fit": {
+    "phase7_fit_views": 213,
+    "enrichment_clips": 16,
+    "enrichment_views_per_clip": 3,
+    "excluded_enrichment_sample_ids": ["asl:train:27973404455034934-DRINK 2"],
+    "p1_view_id": "VIEW_B",
+    "phone_attempts": [2, 3, 4, 6],
+    "normalization": "ALL_AND_ONLY_S2_R2_FIT_ROWS"
+  },
+  "internal_development": {
+    "phase7_cal_views": 54,
+    "phone_attempts": [1, 5],
+    "p1_split": "FROZEN_CLIP_GROUPED_ASSIGNMENTS_FROM_DATASET_DESIGN"
+  },
+  "training": {
+    "epochs": 30,
+    "batch_size": 8,
+    "learning_rate": 0.001,
+    "main_training_runs": 1,
+    "source_family_weight": {
+      "BASELINE_SIGN": 0.60,
+      "ENRICHMENT_SIGN": 0.10,
+      "PHONE_POSITIVE": 0.15,
+      "P1_NEGATIVE": 0.15
+    }
+  },
+  "checkpoint_gates": {
+    "minimum_phone_internal_active_recall": 0.70,
+    "maximum_p1_internal_active_false_rate": 0.10,
+    "maximum_p1_internal_event_rate": 0.10,
+    "minimum_cal_event_emission_rate": 0.90,
+    "minimum_cal_exactly_one_event_rate": 0.90,
+    "maximum_cal_severe_cut_rate": 0.20
+  },
+  "decoder": {
+    "identity": "PHASE8A_CONFIG_01_DIAGNOSTIC_REFERENCE",
+    "minimum_active_ms": 133.308,
+    "pre_gap_reset_ms": 133.308,
+    "post_confirm_ms": 266.616,
+    "pre_padding_ms": 250.0,
+    "post_padding_ms": 250.0,
+    "rearm_pre_stable_ms": 399.924
+  },
+  "governance": {
+    "protected_test_access": false,
+    "historical_dev_used_for_selection": false,
+    "e6_0F747C_S001_consumed": false,
+    "future_distinct_phone_validation_consumed": false,
+    "recognizer_training": false,
+    "admission": "PASS_THROUGH",
+    "rearm": "PRE_OR_POST_EXPERIMENTAL_UNCHANGED"
+  }
+}

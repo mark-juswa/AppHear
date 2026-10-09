@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="coordinationPanel" type="id" />
+    <item name="coordinationStatus" type="id" />
+    <item name="coordinationSpell" type="id" />
+    <item name="coordinationWord" type="id" />
+    <item name="coordinationFinish" type="id" />
+    <string name="recognition_mode_fingerspell_label">Fingerspell</string>
+    <string name="recognition_mode_word_label">Word</string>
+</resources>

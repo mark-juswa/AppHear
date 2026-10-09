@@ -1,0 +1,14 @@
+{
+  "decision": "OUTER_BOUNDARY_NOT_SUPPORTED",
+  "reason": "Both frozen references worsen overall. Fewer insertions are outweighed by more deletions and fewer correctly aligned characters. Phase-locked control agrees.",
+  "scope": "256 development-exposed DEV-A sequences,15 official DAUN signers; oracle diagnostic, not phone accuracy",
+  "training": false,
+  "word_changed": false,
+  "android_changed": false,
+  "candidate01_changed": false,
+  "test_payload_accessed": false,
+  "segmenter_implemented": false,
+  "protected_files_verified": 11506,
+  "paired_report_sha256": "21d5c8f6a0eca820df7acb4f2135d9758bc56b853b567933048b9e67a889e732",
+  "phase_control_report_sha256": "6ae81b9f7fb36e63af65df24f12c308fd8660ef0d50c9fb646c9f899b1f2ecf6"
+}

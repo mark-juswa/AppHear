@@ -1,0 +1,37 @@
+{
+  "schema_version": "apphear.fsboard.admission_selection.v1",
+  "dataset": "googleai/fsboard",
+  "dataset_version": 13,
+  "official_split": "train",
+  "purpose": "Metadata-only diagnostic selection; not training admission or an accuracy sample",
+  "filter": "Entire ASCII [A-Za-z ]+ with at least one letter; uppercase only, no stripping",
+  "ordering_salt": "apphear-fsboard-candidate01-admission-v1",
+  "tie_break": "SHA-256(salt + newline + Kaggle relative path), then relative path",
+  "duration_quantiles": {"lower": 0.25, "upper": 0.75},
+  "quantile_method": "Sorted durations, nearest index round((N-1)*q); Python ties-to-even",
+  "diversity": "One clip per official signer ID, full video, normalized phrase and source MD5 across all slots",
+  "metadata": [
+    {"stratum": "DAUN", "group": "daun_v3", "path": "datasets/fingerspelling/fsboard_gate_20261002/official/daun_v3/metadata/daun_v3-train.json", "sha256": "f85cbf264a4bab08924f5c19c565d3e9b32d4161fabe3004adeb40dd1ba56cdc"},
+    {"stratum": "MacKenzie", "group": "dmk_v3", "path": "datasets/fingerspelling/fsboard_gate_20261002/official/dmk_v3/metadata/dmk_v3-train.json", "sha256": "fcabb89d682fbc31af1427d120c7c228ac6a4cebe69cbf2b5b6d793a1782f4fc"}
+  ],
+  "previously_downloaded_clips_excluded": [
+    "d69c_366_20220627_093944_353000_356089.mp4",
+    "d8ef_947_20221017_065959_167389_169633.mp4",
+    "e96d_420_20221008_202204_286092_288844.mp4",
+    "a95b_201_20220620_171418_106956_112250.mp4"
+  ],
+  "slots": [
+    {"group": "daun_v3", "length_band": "shorter_DAUN", "min_chars": 3, "max_chars": 11, "duration_tail": "lower", "tag": "J"},
+    {"group": "daun_v3", "length_band": "shorter_DAUN", "min_chars": 3, "max_chars": 11, "duration_tail": "upper", "tag": "Z"},
+    {"group": "daun_v3", "length_band": "middle_DAUN", "min_chars": 12, "max_chars": 15, "duration_tail": "lower", "tag": "MM"},
+    {"group": "daun_v3", "length_band": "middle_DAUN", "min_chars": 12, "max_chars": 15, "duration_tail": "upper", "tag": "LL"},
+    {"group": "daun_v3", "length_band": "longer_DAUN", "min_chars": 16, "max_chars": 31, "duration_tail": "lower", "tag": "NO_J_Z_REPEAT"},
+    {"group": "daun_v3", "length_band": "longer_DAUN", "min_chars": 16, "max_chars": 31, "duration_tail": "upper", "tag": "EE"},
+    {"group": "dmk_v3", "length_band": "shorter_MacKenzie", "min_chars": 16, "max_chars": 25, "duration_tail": "lower", "tag": "NO_J_Z_REPEAT"},
+    {"group": "dmk_v3", "length_band": "shorter_MacKenzie", "min_chars": 16, "max_chars": 25, "duration_tail": "upper", "tag": "MM"},
+    {"group": "dmk_v3", "length_band": "middle_MacKenzie", "min_chars": 26, "max_chars": 32, "duration_tail": "lower", "tag": "J"},
+    {"group": "dmk_v3", "length_band": "middle_MacKenzie", "min_chars": 26, "max_chars": 32, "duration_tail": "upper", "tag": "LL"},
+    {"group": "dmk_v3", "length_band": "longer_MacKenzie", "min_chars": 33, "max_chars": 43, "duration_tail": "lower", "tag": "Z"},
+    {"group": "dmk_v3", "length_band": "longer_MacKenzie", "min_chars": 33, "max_chars": 43, "duration_tail": "upper", "tag": "EE"}
+  ]
+}

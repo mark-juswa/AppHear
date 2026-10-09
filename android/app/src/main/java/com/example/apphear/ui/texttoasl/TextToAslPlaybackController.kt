@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.pm.ApplicationInfo
 import android.os.Handler
 import android.os.Looper
+import android.os.SystemClock
 import android.util.Log
 import android.webkit.JavascriptInterface
 import android.webkit.WebChromeClient
@@ -14,7 +15,9 @@ import android.webkit.WebSettings
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import androidx.webkit.WebViewAssetLoader
+import com.example.apphear.BuildConfig
 import com.example.apphear.domain.texttoasl.AslAnimationAsset
+import org.json.JSONObject
 
 class TextToAslPlaybackController(
     context: Context,
@@ -26,6 +29,8 @@ class TextToAslPlaybackController(
 
     interface PlaybackCallback {
         fun onFinished(asset: AslAnimationAsset)
+        fun onStarted(asset: AslAnimationAsset) {}
+        fun onFailed(asset: AslAnimationAsset) {}
     }
 
     private val appContext = context.applicationContext
@@ -38,6 +43,10 @@ class TextToAslPlaybackController(
     private var playingAsset: AslAnimationAsset? = null
     private var readyCallback: ReadyCallback? = null
     private var playbackCallback: PlaybackCallback? = null
+    private var requestId = 0L
+    private var requestedAtMs = 0L
+    private val rejectedPilotPaths = mutableSetOf<String>()
+    private var destroyed = false
     var isReady: Boolean = false
         private set
 
@@ -58,22 +67,60 @@ class TextToAslPlaybackController(
 
     fun play(asset: AslAnimationAsset?) {
         if (asset == null) return
+        if (BuildConfig.ASL_ASSET_PILOT_ENABLED && asset.assetPath in rejectedPilotPaths) {
+            val fallback = asset.originalFallback()
+            if (fallback != null) {
+                play(fallback)
+            } else {
+                playbackCallback?.onFailed(asset)
+            }
+            return
+        }
         playingAsset = asset
         if (!isReady) {
             pendingAsset = asset
             return
         }
         val url = (BASE_URL + asset.assetPath).replace("'", "\\'")
-        webView.evaluateJavascript("playSign('$url')", null)
+        if (BuildConfig.ASL_ASSET_PILOT_ENABLED) {
+            requestId++
+            requestedAtMs = SystemClock.elapsedRealtime()
+            val options = JSONObject().apply {
+                put("requestId", requestId)
+                put("animationName", asset.replacement?.animationName ?: JSONObject.NULL)
+                put("loop", asset.type == AslAnimationAsset.Type.POSE)
+                put("pinSource", BuildConfig.ASL_NEW_IDLE_ENABLED &&
+                    asset.assetPath == (if (BuildConfig.ASL_ALPHABET_FALLBACK_ENABLED) {
+                        AslAlphabetPilotContract.ASSET
+                    } else {
+                        AslIdlePilotContract.ASSET
+                    }))
+            }
+            webView.evaluateJavascript("playSign(${JSONObject.quote(BASE_URL + asset.assetPath)}, $options)", null)
+        } else {
+            webView.evaluateJavascript("playSign('$url')", null)
+        }
     }
 
     fun preload(asset: AslAnimationAsset?) {
         if (asset == null || !isReady) return
+        if (asset.assetPath in rejectedPilotPaths) return
         val url = (BASE_URL + asset.assetPath).replace("'", "\\'")
         webView.evaluateJavascript("preloadSign('$url')", null)
     }
 
-    fun destroy() {
+    fun pause() {
+        if (!BuildConfig.ASL_ASSET_PILOT_ENABLED) return
+        requestId++
+        pendingAsset = null
+        playingAsset = null
+        webView.evaluateJavascript("pausePlayback()", null)
+    }
+
+    fun destroy(releaseWebView: Boolean = true) {
+        destroyed = true
+        requestId++
+        mainHandler.removeCallbacksAndMessages(null)
         readyCallback = null
         playbackCallback = null
         pendingAsset = null
@@ -83,7 +130,7 @@ class TextToAslPlaybackController(
         webView.stopLoading()
         webView.loadUrl("about:blank")
         webView.clearHistory()
-        webView.destroy()
+        if (releaseWebView) webView.destroy()
     }
 
     @SuppressLint("SetJavaScriptEnabled")
@@ -110,7 +157,8 @@ class TextToAslPlaybackController(
         }
         webView.addJavascriptInterface(JsBridge(), JS_BRIDGE_NAME)
         WebView.setWebContentsDebuggingEnabled(isAppDebuggable())
-        webView.loadUrl(BASE_URL + "model_viewer.html")
+        val page = if (BuildConfig.ASL_ASSET_PILOT_ENABLED) "model_viewer_pilot.html" else "model_viewer.html"
+        webView.loadUrl(BASE_URL + page)
     }
 
 
@@ -121,12 +169,57 @@ class TextToAslPlaybackController(
         @JavascriptInterface
         fun onViewerReady() {
             Log.d(TAG, "model-viewer ready")
-            isReady = true
             mainHandler.post {
+                if (destroyed) return@post
+                isReady = true
                 readyCallback?.onReady()
                 pendingAsset?.let { asset ->
                     pendingAsset = null
                     play(asset)
+                }
+            }
+        }
+
+        @JavascriptInterface
+        fun onPlaybackStarted(src: String, token: Long) {
+            mainHandler.post {
+                val asset = playingAsset ?: return@post
+                if (token != requestId || src != BASE_URL + asset.assetPath) return@post
+                Log.d(TAG, "Pilot started id=${asset.id} request=$token loadMs=${SystemClock.elapsedRealtime() - requestedAtMs}")
+                playbackCallback?.onStarted(asset)
+            }
+        }
+
+        @JavascriptInterface
+        fun onPilotFinished(src: String, token: Long) {
+            mainHandler.post {
+                val asset = playingAsset ?: return@post
+                if (token == requestId && src == BASE_URL + asset.assetPath) {
+                    Log.d(TAG, "Pilot finished id=${asset.id} request=$token")
+                    playbackCallback?.onFinished(asset)
+                }
+            }
+        }
+
+        @JavascriptInterface
+        fun onModelFailed(src: String, token: Long) {
+            mainHandler.post {
+                val asset = playingAsset ?: return@post
+                if (token != requestId || src != BASE_URL + asset.assetPath) return@post
+                val replacement = asset.replacement
+                if (replacement != null) {
+                    rejectedPilotPaths.add(asset.assetPath)
+                    val fallback = asset.originalFallback()
+                    if (fallback != null) {
+                        Log.w(TAG, "Pilot ${asset.id} failed; retrying original asset")
+                        play(fallback)
+                    } else {
+                        Log.w(TAG, "New pilot word ${asset.id} failed; skipping")
+                        playbackCallback?.onFailed(asset)
+                    }
+                } else {
+                    Log.w(TAG, "Original ${asset.id} failed to load/play")
+                    playbackCallback?.onFailed(asset)
                 }
             }
         }

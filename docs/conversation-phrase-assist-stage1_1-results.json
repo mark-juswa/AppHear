@@ -1,0 +1,1386 @@
+{
+  "model": "gemini-3.5-flash-lite",
+  "contract": "stage1_1",
+  "vocabularySize": 236,
+  "cases": [
+    {
+      "case": "how_are_you",
+      "turns": [
+        [
+          "HEARING",
+          "Hello, how are you?"
+        ]
+      ],
+      "httpStatus": 200,
+      "responseStatus": "completed",
+      "responseModel": "gemini-3.5-flash-lite",
+      "usage": {
+        "total_tokens": 941,
+        "total_input_tokens": 800,
+        "input_tokens_by_modality": [
+          {
+            "modality": "text",
+            "tokens": 800
+          }
+        ],
+        "total_cached_tokens": 0,
+        "total_output_tokens": 141,
+        "total_tool_use_tokens": 0,
+        "total_thought_tokens": 0,
+        "raw_prompt_token": 1013,
+        "model_invocation_token_counts": [
+          {
+            "prompt_tokens_details": [
+              {
+                "modality": "text",
+                "tokens": 1013
+              }
+            ],
+            "candidates_tokens_details": [
+              {
+                "modality": "text",
+                "tokens": 160
+              }
+            ]
+          }
+        ],
+        "non_grounding_model_invocation_token_counts": [
+          {
+            "prompt_tokens_details": [
+              {
+                "modality": "text",
+                "tokens": 1013
+              }
+            ],
+            "candidates_tokens_details": [
+              {
+                "modality": "text",
+                "tokens": 160
+              }
+            ]
+          }
+        ]
+      },
+      "rawStructuredOutput": "{\n  \"candidates\": [\n    {\n      \"naturalText\": \"Hello, I am doing well.\",\n      \"expectedConcepts\": [\n        \"HELLO\",\n        \"GOOD\"\n      ]\n    },\n    {\n      \"naturalText\": \"Hi! How are you today?\",\n      \"expectedConcepts\": [\n        \"HELLO\",\n        \"HOW1\",\n        \"TODAY\"\n      ]\n    },\n    {\n      \"naturalText\": \"Hello, I am fine, thank you.\",\n      \"expectedConcepts\": [\n        \"HELLO\",\n        \"GOOD\"\n      ]\n    }\n  ]\n}",
+      "rawCandidateCount": 3,
+      "parsedCandidates": [
+        {
+          "naturalText": "Hello, I am doing well.",
+          "expectedConcepts": [
+            "HELLO",
+            "GOOD"
+          ]
+        },
+        {
+          "naturalText": "Hi! How are you today?",
+          "expectedConcepts": [
+            "HELLO",
+            "HOW1",
+            "TODAY"
+          ]
+        },
+        {
+          "naturalText": "Hello, I am fine, thank you.",
+          "expectedConcepts": [
+            "HELLO",
+            "GOOD"
+          ]
+        }
+      ],
+      "accepted": [
+        {
+          "naturalText": "Hello, I am doing well.",
+          "expectedConcepts": [
+            "HELLO",
+            "GOOD"
+          ]
+        },
+        {
+          "naturalText": "Hi! How are you today?",
+          "expectedConcepts": [
+            "HELLO",
+            "HOW1",
+            "TODAY"
+          ]
+        }
+      ],
+      "rejected": [
+        {
+          "candidate": {
+            "naturalText": "Hello, I am fine, thank you.",
+            "expectedConcepts": [
+              "HELLO",
+              "GOOD"
+            ]
+          },
+          "reason": "duplicate_concept_sequence"
+        }
+      ],
+      "latencyMs": 24438
+    },
+    {
+      "case": "where_going",
+      "turns": [
+        [
+          "HEARING",
+          "Where are you going?"
+        ]
+      ],
+      "httpStatus": 200,
+      "responseStatus": "completed",
+      "responseModel": "gemini-3.5-flash-lite",
+      "usage": {
+        "total_tokens": 932,
+        "total_input_tokens": 799,
+        "input_tokens_by_modality": [
+          {
+            "modality": "text",
+            "tokens": 799
+          }
+        ],
+        "total_cached_tokens": 0,
+        "total_output_tokens": 133,
+        "total_tool_use_tokens": 0,
+        "total_thought_tokens": 0,
+        "raw_prompt_token": 1012,
+        "model_invocation_token_counts": [
+          {
+            "prompt_tokens_details": [
+              {
+                "modality": "text",
+                "tokens": 1012
+              }
+            ],
+            "candidates_tokens_details": [
+              {
+                "modality": "text",
+                "tokens": 152
+              }
+            ]
+          }
+        ],
+        "non_grounding_model_invocation_token_counts": [
+          {
+            "prompt_tokens_details": [
+              {
+                "modality": "text",
+                "tokens": 1012
+              }
+            ],
+            "candidates_tokens_details": [
+              {
+                "modality": "text",
+                "tokens": 152
+              }
+            ]
+          }
+        ]
+      },
+      "rawStructuredOutput": "{\n  \"candidates\": [\n    {\n      \"naturalText\": \"I'm going home.\",\n      \"expectedConcepts\": [\n        \"GO\",\n        \"HOME\"\n      ]\n    },\n    {\n      \"naturalText\": \"I'm going to work.\",\n      \"expectedConcepts\": [\n        \"GO\",\n        \"WORK\"\n      ]\n    },\n    {\n      \"naturalText\": \"I'm going to the store.\",\n      \"expectedConcepts\": [\n        \"GO\",\n        \"SHOP1\"\n      ]\n    }\n  ]\n}",
+      "rawCandidateCount": 3,
+      "parsedCandidates": [
+        {
+          "naturalText": "I'm going home.",
+          "expectedConcepts": [
+            "GO",
+            "HOME"
+          ]
+        },
+        {
+          "naturalText": "I'm going to work.",
+          "expectedConcepts": [
+            "GO",
+            "WORK"
+          ]
+        },
+        {
+          "naturalText": "I'm going to the store.",
+          "expectedConcepts": [
+            "GO",
+            "SHOP1"
+          ]
+        }
+      ],
+      "accepted": [
+        {
+          "naturalText": "I'm going home.",
+          "expectedConcepts": [
+            "GO",
+            "HOME"
+          ]
+        },
+        {
+          "naturalText": "I'm going to work.",
+          "expectedConcepts": [
+            "GO",
+            "WORK"
+          ]
+        },
+        {
+          "naturalText": "I'm going to the store.",
+          "expectedConcepts": [
+            "GO",
+            "SHOP1"
+          ]
+        }
+      ],
+      "rejected": [],
+      "latencyMs": 7926
+    },
+    {
+      "case": "are_you_tired",
+      "turns": [
+        [
+          "HEARING",
+          "Are you tired?"
+        ]
+      ],
+      "httpStatus": 200,
+      "responseStatus": "completed",
+      "responseModel": "gemini-3.5-flash-lite",
+      "usage": {
+        "total_tokens": 984,
+        "total_input_tokens": 798,
+        "input_tokens_by_modality": [
+          {
+            "modality": "text",
+            "tokens": 798
+          }
+        ],
+        "total_cached_tokens": 0,
+        "total_output_tokens": 186,
+        "total_tool_use_tokens": 0,
+        "total_thought_tokens": 0,
+        "raw_prompt_token": 1011,
+        "model_invocation_token_counts": [
+          {
+            "prompt_tokens_details": [
+              {
+                "modality": "text",
+                "tokens": 1011
+              }
+            ],
+            "candidates_tokens_details": [
+              {
+                "modality": "text",
+                "tokens": 204
+              }
+            ]
+          }
+        ],
+        "non_grounding_model_invocation_token_counts": [
+          {
+            "prompt_tokens_details": [
+              {
+                "modality": "text",
+                "tokens": 1011
+              }
+            ],
+            "candidates_tokens_details": [
+              {
+                "modality": "text",
+                "tokens": 204
+              }
+            ]
+          }
+        ]
+      },
+      "rawStructuredOutput": "{\n  \"candidates\": [\n    {\n      \"naturalText\": \"Yes, I am very tired.\",\n      \"expectedConcepts\": [\n        \"YES\",\n        \"TIRED\",\n        \"VERY\"\n      ]\n    },\n    {\n      \"naturalText\": \"No, I am not tired.\",\n      \"expectedConcepts\": [\n        \"NO\",\n        \"TIRED\"\n      ]\n    },\n    {\n      \"naturalText\": \"Yes, I need sleep.\",\n      \"expectedConcepts\": [\n        \"YES\",\n        \"NEED\",\n        \"SLEEP\"\n      ]\n    },\n    {\n      \"naturalText\": \"I am a little tired.\",\n      \"expectedConcepts\": [\n        \"TIRED\",\n        \"FEW\"\n      ]\n    }\n  ]\n}",
+      "rawCandidateCount": 4,
+      "parsedCandidates": [
+        {
+          "naturalText": "Yes, I am very tired.",
+          "expectedConcepts": [
+            "YES",
+            "TIRED",
+            "VERY"
+          ]
+        },
+        {
+          "naturalText": "No, I am not tired.",
+          "expectedConcepts": [
+            "NO",
+            "TIRED"
+          ]
+        },
+        {
+          "naturalText": "Yes, I need sleep.",
+          "expectedConcepts": [
+            "YES",
+            "NEED",
+            "SLEEP"
+          ]
+        },
+        {
+          "naturalText": "I am a little tired.",
+          "expectedConcepts": [
+            "TIRED",
+            "FEW"
+          ]
+        }
+      ],
+      "accepted": [
+        {
+          "naturalText": "Yes, I am very tired.",
+          "expectedConcepts": [
+            "YES",
+            "TIRED",
+            "VERY"
+          ]
+        },
+        {
+          "naturalText": "No, I am not tired.",
+          "expectedConcepts": [
+            "NO",
+            "TIRED"
+          ]
+        },
+        {
+          "naturalText": "Yes, I need sleep.",
+          "expectedConcepts": [
+            "YES",
+            "NEED",
+            "SLEEP"
+          ]
+        },
+        {
+          "naturalText": "I am a little tired.",
+          "expectedConcepts": [
+            "TIRED",
+            "FEW"
+          ]
+        }
+      ],
+      "rejected": [],
+      "latencyMs": 17853
+    },
+    {
+      "case": "feeling_okay",
+      "turns": [
+        [
+          "HEARING",
+          "Are you feeling okay?"
+        ]
+      ],
+      "httpStatus": 200,
+      "responseStatus": "completed",
+      "responseModel": "gemini-3.5-flash-lite",
+      "usage": {
+        "total_tokens": 947,
+        "total_input_tokens": 799,
+        "input_tokens_by_modality": [
+          {
+            "modality": "text",
+            "tokens": 799
+          }
+        ],
+        "total_cached_tokens": 0,
+        "total_output_tokens": 148,
+        "total_tool_use_tokens": 0,
+        "total_thought_tokens": 0,
+        "raw_prompt_token": 1012,
+        "model_invocation_token_counts": [
+          {
+            "prompt_tokens_details": [
+              {
+                "modality": "text",
+                "tokens": 1012
+              }
+            ],
+            "candidates_tokens_details": [
+              {
+                "modality": "text",
+                "tokens": 166
+              }
+            ]
+          }
+        ],
+        "non_grounding_model_invocation_token_counts": [
+          {
+            "prompt_tokens_details": [
+              {
+                "modality": "text",
+                "tokens": 1012
+              }
+            ],
+            "candidates_tokens_details": [
+              {
+                "modality": "text",
+                "tokens": 166
+              }
+            ]
+          }
+        ]
+      },
+      "rawStructuredOutput": "{\n  \"candidates\": [\n    {\n      \"naturalText\": \"No, I'm feeling sick.\",\n      \"expectedConcepts\": [\n        \"NO\",\n        \"FEEL\",\n        \"SICK\"\n      ]\n    },\n    {\n      \"naturalText\": \"Yes, I'm feeling good.\",\n      \"expectedConcepts\": [\n        \"YES\",\n        \"FEEL\",\n        \"GOOD\"\n      ]\n    },\n    {\n      \"naturalText\": \"No, I'm tired.\",\n      \"expectedConcepts\": [\n        \"NO\",\n        \"TIRED\"\n      ]\n    }\n  ]\n}",
+      "rawCandidateCount": 3,
+      "parsedCandidates": [
+        {
+          "naturalText": "No, I'm feeling sick.",
+          "expectedConcepts": [
+            "NO",
+            "FEEL",
+            "SICK"
+          ]
+        },
+        {
+          "naturalText": "Yes, I'm feeling good.",
+          "expectedConcepts": [
+            "YES",
+            "FEEL",
+            "GOOD"
+          ]
+        },
+        {
+          "naturalText": "No, I'm tired.",
+          "expectedConcepts": [
+            "NO",
+            "TIRED"
+          ]
+        }
+      ],
+      "accepted": [
+        {
+          "naturalText": "No, I'm feeling sick.",
+          "expectedConcepts": [
+            "NO",
+            "FEEL",
+            "SICK"
+          ]
+        },
+        {
+          "naturalText": "Yes, I'm feeling good.",
+          "expectedConcepts": [
+            "YES",
+            "FEEL",
+            "GOOD"
+          ]
+        },
+        {
+          "naturalText": "No, I'm tired.",
+          "expectedConcepts": [
+            "NO",
+            "TIRED"
+          ]
+        }
+      ],
+      "rejected": [],
+      "latencyMs": 2189
+    },
+    {
+      "case": "want_go_home",
+      "turns": [
+        [
+          "HEARING",
+          "Do you want to go home?"
+        ]
+      ],
+      "httpStatus": 200,
+      "responseStatus": "completed",
+      "responseModel": "gemini-3.5-flash-lite",
+      "usage": {
+        "total_tokens": 938,
+        "total_input_tokens": 801,
+        "input_tokens_by_modality": [
+          {
+            "modality": "text",
+            "tokens": 801
+          }
+        ],
+        "total_cached_tokens": 0,
+        "total_output_tokens": 137,
+        "total_tool_use_tokens": 0,
+        "total_thought_tokens": 0,
+        "raw_prompt_token": 1014,
+        "model_invocation_token_counts": [
+          {
+            "prompt_tokens_details": [
+              {
+                "modality": "text",
+                "tokens": 1014
+              }
+            ],
+            "candidates_tokens_details": [
+              {
+                "modality": "text",
+                "tokens": 156
+              }
+            ]
+          }
+        ],
+        "non_grounding_model_invocation_token_counts": [
+          {
+            "prompt_tokens_details": [
+              {
+                "modality": "text",
+                "tokens": 1014
+              }
+            ],
+            "candidates_tokens_details": [
+              {
+                "modality": "text",
+                "tokens": 156
+              }
+            ]
+          }
+        ]
+      },
+      "rawStructuredOutput": "{\n  \"candidates\": [\n    {\n      \"naturalText\": \"Yes, I want to go home now.\",\n      \"expectedConcepts\": [\"YES\", \"WANT2\", \"GO\", \"HOME\", \"NOW\"]\n    },\n    {\n      \"naturalText\": \"No, I want to stay here.\",\n      \"expectedConcepts\": [\"NO\", \"WANT2\", \"STAY\", \"HERE\"]\n    },\n    {\n      \"naturalText\": \"I am tired, I need sleep.\",\n      \"expectedConcepts\": [\"TIRED\", \"NEED\", \"SLEEP\"]\n    }\n  ]\n}",
+      "rawCandidateCount": 3,
+      "parsedCandidates": [
+        {
+          "naturalText": "Yes, I want to go home now.",
+          "expectedConcepts": [
+            "YES",
+            "WANT2",
+            "GO",
+            "HOME",
+            "NOW"
+          ]
+        },
+        {
+          "naturalText": "No, I want to stay here.",
+          "expectedConcepts": [
+            "NO",
+            "WANT2",
+            "STAY",
+            "HERE"
+          ]
+        },
+        {
+          "naturalText": "I am tired, I need sleep.",
+          "expectedConcepts": [
+            "TIRED",
+            "NEED",
+            "SLEEP"
+          ]
+        }
+      ],
+      "accepted": [
+        {
+          "naturalText": "Yes, I want to go home now.",
+          "expectedConcepts": [
+            "YES",
+            "WANT2",
+            "GO",
+            "HOME",
+            "NOW"
+          ]
+        },
+        {
+          "naturalText": "No, I want to stay here.",
+          "expectedConcepts": [
+            "NO",
+            "WANT2",
+            "STAY",
+            "HERE"
+          ]
+        },
+        {
+          "naturalText": "I am tired, I need sleep.",
+          "expectedConcepts": [
+            "TIRED",
+            "NEED",
+            "SLEEP"
+          ]
+        }
+      ],
+      "rejected": [],
+      "latencyMs": 1778
+    },
+    {
+      "case": "went_school",
+      "turns": [
+        [
+          "HEARING",
+          "Did you go to school?"
+        ]
+      ],
+      "httpStatus": 200,
+      "responseStatus": "completed",
+      "responseModel": "gemini-3.5-flash-lite",
+      "usage": {
+        "total_tokens": 981,
+        "total_input_tokens": 800,
+        "input_tokens_by_modality": [
+          {
+            "modality": "text",
+            "tokens": 800
+          }
+        ],
+        "total_cached_tokens": 0,
+        "total_output_tokens": 181,
+        "total_tool_use_tokens": 0,
+        "total_thought_tokens": 0,
+        "raw_prompt_token": 1013,
+        "model_invocation_token_counts": [
+          {
+            "prompt_tokens_details": [
+              {
+                "modality": "text",
+                "tokens": 1013
+              }
+            ],
+            "candidates_tokens_details": [
+              {
+                "modality": "text",
+                "tokens": 200
+              }
+            ]
+          }
+        ],
+        "non_grounding_model_invocation_token_counts": [
+          {
+            "prompt_tokens_details": [
+              {
+                "modality": "text",
+                "tokens": 1013
+              }
+            ],
+            "candidates_tokens_details": [
+              {
+                "modality": "text",
+                "tokens": 200
+              }
+            ]
+          }
+        ]
+      },
+      "rawStructuredOutput": "{\n  \"candidates\": [\n    {\n      \"naturalText\": \"Yes, I go to school.\",\n      \"expectedConcepts\": [\n        \"YES\",\n        \"GO\",\n        \"SCHOOL\"\n      ]\n    },\n    {\n      \"naturalText\": \"No, I am not in school.\",\n      \"expectedConcepts\": [\n        \"NO\",\n        \"SCHOOL\"\n      ]\n    },\n    {\n      \"naturalText\": \"I went to school yesterday.\",\n      \"expectedConcepts\": [\n        \"YESTERDAY\",\n        \"SCHOOL\"\n      ]\n    },\n    {\n      \"naturalText\": \"I am a student at that school.\",\n      \"expectedConcepts\": [\n        \"STUDENT\",\n        \"SCHOOL\"\n      ]\n    }\n  ]\n}",
+      "rawCandidateCount": 4,
+      "parsedCandidates": [
+        {
+          "naturalText": "Yes, I go to school.",
+          "expectedConcepts": [
+            "YES",
+            "GO",
+            "SCHOOL"
+          ]
+        },
+        {
+          "naturalText": "No, I am not in school.",
+          "expectedConcepts": [
+            "NO",
+            "SCHOOL"
+          ]
+        },
+        {
+          "naturalText": "I went to school yesterday.",
+          "expectedConcepts": [
+            "YESTERDAY",
+            "SCHOOL"
+          ]
+        },
+        {
+          "naturalText": "I am a student at that school.",
+          "expectedConcepts": [
+            "STUDENT",
+            "SCHOOL"
+          ]
+        }
+      ],
+      "accepted": [
+        {
+          "naturalText": "Yes, I go to school.",
+          "expectedConcepts": [
+            "YES",
+            "GO",
+            "SCHOOL"
+          ]
+        },
+        {
+          "naturalText": "No, I am not in school.",
+          "expectedConcepts": [
+            "NO",
+            "SCHOOL"
+          ]
+        },
+        {
+          "naturalText": "I went to school yesterday.",
+          "expectedConcepts": [
+            "YESTERDAY",
+            "SCHOOL"
+          ]
+        },
+        {
+          "naturalText": "I am a student at that school.",
+          "expectedConcepts": [
+            "STUDENT",
+            "SCHOOL"
+          ]
+        }
+      ],
+      "rejected": [],
+      "latencyMs": 2474
+    },
+    {
+      "case": "where_family",
+      "turns": [
+        [
+          "HEARING",
+          "Where is your family?"
+        ]
+      ],
+      "httpStatus": 200,
+      "responseStatus": "completed",
+      "responseModel": "gemini-3.5-flash-lite",
+      "usage": {
+        "total_tokens": 947,
+        "total_input_tokens": 799,
+        "input_tokens_by_modality": [
+          {
+            "modality": "text",
+            "tokens": 799
+          }
+        ],
+        "total_cached_tokens": 0,
+        "total_output_tokens": 148,
+        "total_tool_use_tokens": 0,
+        "total_thought_tokens": 0,
+        "raw_prompt_token": 1012,
+        "model_invocation_token_counts": [
+          {
+            "prompt_tokens_details": [
+              {
+                "modality": "text",
+                "tokens": 1012
+              }
+            ],
+            "candidates_tokens_details": [
+              {
+                "modality": "text",
+                "tokens": 166
+              }
+            ]
+          }
+        ],
+        "non_grounding_model_invocation_token_counts": [
+          {
+            "prompt_tokens_details": [
+              {
+                "modality": "text",
+                "tokens": 1012
+              }
+            ],
+            "candidates_tokens_details": [
+              {
+                "modality": "text",
+                "tokens": 166
+              }
+            ]
+          }
+        ]
+      },
+      "rawStructuredOutput": "{\n  \"candidates\": [\n    {\n      \"naturalText\": \"My family lives in another city.\",\n      \"expectedConcepts\": [\"FAMILY\", \"LIVE2\", \"CITY2\"]\n    },\n    {\n      \"naturalText\": \"My parents are at home.\",\n      \"expectedConcepts\": [\"FAMILY\", \"HOUSE\"]\n    },\n    {\n      \"naturalText\": \"They live far away.\",\n      \"expectedConcepts\": [\"THEY1\", \"LIVE2\", \"OUT\"]\n    },\n    {\n      \"naturalText\": \"My family is here with me.\",\n      \"expectedConcepts\": [\"FAMILY\", \"HERE\"]\n    }\n  ]\n}",
+      "rawCandidateCount": 4,
+      "parsedCandidates": [
+        {
+          "naturalText": "My family lives in another city.",
+          "expectedConcepts": [
+            "FAMILY",
+            "LIVE2",
+            "CITY2"
+          ]
+        },
+        {
+          "naturalText": "My parents are at home.",
+          "expectedConcepts": [
+            "FAMILY",
+            "HOUSE"
+          ]
+        },
+        {
+          "naturalText": "They live far away.",
+          "expectedConcepts": [
+            "THEY1",
+            "LIVE2",
+            "OUT"
+          ]
+        },
+        {
+          "naturalText": "My family is here with me.",
+          "expectedConcepts": [
+            "FAMILY",
+            "HERE"
+          ]
+        }
+      ],
+      "accepted": [
+        {
+          "naturalText": "My family lives in another city.",
+          "expectedConcepts": [
+            "FAMILY",
+            "LIVE2",
+            "CITY2"
+          ]
+        },
+        {
+          "naturalText": "My parents are at home.",
+          "expectedConcepts": [
+            "FAMILY",
+            "HOUSE"
+          ]
+        },
+        {
+          "naturalText": "My family is here with me.",
+          "expectedConcepts": [
+            "FAMILY",
+            "HERE"
+          ]
+        }
+      ],
+      "rejected": [
+        {
+          "candidate": {
+            "naturalText": "They live far away.",
+            "expectedConcepts": [
+              "THEY1",
+              "LIVE2",
+              "OUT"
+            ]
+          },
+          "reason": "unsupported_concepts:OUT"
+        }
+      ],
+      "latencyMs": 23126
+    },
+    {
+      "case": "want_to_do",
+      "turns": [
+        [
+          "HEARING",
+          "What do you want to do?"
+        ]
+      ],
+      "httpStatus": 200,
+      "responseStatus": "completed",
+      "responseModel": "gemini-3.5-flash-lite",
+      "usage": {
+        "total_tokens": 1014,
+        "total_input_tokens": 801,
+        "input_tokens_by_modality": [
+          {
+            "modality": "text",
+            "tokens": 801
+          }
+        ],
+        "total_cached_tokens": 0,
+        "total_output_tokens": 213,
+        "total_tool_use_tokens": 0,
+        "total_thought_tokens": 0,
+        "raw_prompt_token": 1014,
+        "model_invocation_token_counts": [
+          {
+            "prompt_tokens_details": [
+              {
+                "modality": "text",
+                "tokens": 1014
+              }
+            ],
+            "candidates_tokens_details": [
+              {
+                "modality": "text",
+                "tokens": 231
+              }
+            ]
+          }
+        ],
+        "non_grounding_model_invocation_token_counts": [
+          {
+            "prompt_tokens_details": [
+              {
+                "modality": "text",
+                "tokens": 1014
+              }
+            ],
+            "candidates_tokens_details": [
+              {
+                "modality": "text",
+                "tokens": 231
+              }
+            ]
+          }
+        ]
+      },
+      "rawStructuredOutput": "{\n  \"candidates\": [\n    {\n      \"naturalText\": \"I want to watch a movie.\",\n      \"expectedConcepts\": [\n        \"WANT2\",\n        \"WATCH\",\n        \"MOVIE1\"\n      ]\n    },\n    {\n      \"naturalText\": \"Let's go eat at a restaurant.\",\n      \"expectedConcepts\": [\n        \"GO\",\n        \"EAT1\",\n        \"RESTAURANT\"\n      ]\n    },\n    {\n      \"naturalText\": \"I want to go home and sleep.\",\n      \"expectedConcepts\": [\n        \"WANT2\",\n        \"GO\",\n        \"HOME\",\n        \"SLEEP\"\n      ]\n    },\n    {\n      \"naturalText\": \"I need to clean my house.\",\n      \"expectedConcepts\": [\n        \"NEED\",\n        \"CLEAN\",\n        \"HOUSE\"\n      ]\n    }\n  ]\n}",
+      "rawCandidateCount": 4,
+      "parsedCandidates": [
+        {
+          "naturalText": "I want to watch a movie.",
+          "expectedConcepts": [
+            "WANT2",
+            "WATCH",
+            "MOVIE1"
+          ]
+        },
+        {
+          "naturalText": "Let's go eat at a restaurant.",
+          "expectedConcepts": [
+            "GO",
+            "EAT1",
+            "RESTAURANT"
+          ]
+        },
+        {
+          "naturalText": "I want to go home and sleep.",
+          "expectedConcepts": [
+            "WANT2",
+            "GO",
+            "HOME",
+            "SLEEP"
+          ]
+        },
+        {
+          "naturalText": "I need to clean my house.",
+          "expectedConcepts": [
+            "NEED",
+            "CLEAN",
+            "HOUSE"
+          ]
+        }
+      ],
+      "accepted": [
+        {
+          "naturalText": "I want to watch a movie.",
+          "expectedConcepts": [
+            "WANT2",
+            "WATCH",
+            "MOVIE1"
+          ]
+        },
+        {
+          "naturalText": "Let's go eat at a restaurant.",
+          "expectedConcepts": [
+            "GO",
+            "EAT1",
+            "RESTAURANT"
+          ]
+        },
+        {
+          "naturalText": "I want to go home and sleep.",
+          "expectedConcepts": [
+            "WANT2",
+            "GO",
+            "HOME",
+            "SLEEP"
+          ]
+        },
+        {
+          "naturalText": "I need to clean my house.",
+          "expectedConcepts": [
+            "NEED",
+            "CLEAN",
+            "HOUSE"
+          ]
+        }
+      ],
+      "rejected": [],
+      "latencyMs": 14714
+    },
+    {
+      "case": "multi_greeting_going",
+      "turns": [
+        [
+          "HEARING",
+          "Hello, how are you?"
+        ],
+        [
+          "DEAF",
+          "GOOD"
+        ],
+        [
+          "HEARING",
+          "That's good. Where are you going?"
+        ]
+      ],
+      "httpStatus": 200,
+      "responseStatus": "completed",
+      "responseModel": "gemini-3.5-flash-lite",
+      "usage": {
+        "total_tokens": 996,
+        "total_input_tokens": 819,
+        "input_tokens_by_modality": [
+          {
+            "modality": "text",
+            "tokens": 819
+          }
+        ],
+        "total_cached_tokens": 0,
+        "total_output_tokens": 177,
+        "total_tool_use_tokens": 0,
+        "total_thought_tokens": 0,
+        "raw_prompt_token": 1032,
+        "model_invocation_token_counts": [
+          {
+            "prompt_tokens_details": [
+              {
+                "modality": "text",
+                "tokens": 1032
+              }
+            ],
+            "candidates_tokens_details": [
+              {
+                "modality": "text",
+                "tokens": 195
+              }
+            ]
+          }
+        ],
+        "non_grounding_model_invocation_token_counts": [
+          {
+            "prompt_tokens_details": [
+              {
+                "modality": "text",
+                "tokens": 1032
+              }
+            ],
+            "candidates_tokens_details": [
+              {
+                "modality": "text",
+                "tokens": 195
+              }
+            ]
+          }
+        ]
+      },
+      "rawStructuredOutput": "{\n  \"candidates\": [\n    {\n      \"naturalText\": \"I'm going home.\",\n      \"expectedConcepts\": [\n        \"GO\",\n        \"HOME\"\n      ]\n    },\n    {\n      \"naturalText\": \"I'm going to the store.\",\n      \"expectedConcepts\": [\n        \"GO\",\n        \"SHOP1\"\n      ]\n    },\n    {\n      \"naturalText\": \"I'm going to work.\",\n      \"expectedConcepts\": [\n        \"GO\",\n        \"WORK\"\n      ]\n    },\n    {\n      \"naturalText\": \"I'm going to the hospital.\",\n      \"expectedConcepts\": [\n        \"GO\",\n        \"HOSPITAL1\"\n      ]\n    }\n  ]\n}",
+      "rawCandidateCount": 4,
+      "parsedCandidates": [
+        {
+          "naturalText": "I'm going home.",
+          "expectedConcepts": [
+            "GO",
+            "HOME"
+          ]
+        },
+        {
+          "naturalText": "I'm going to the store.",
+          "expectedConcepts": [
+            "GO",
+            "SHOP1"
+          ]
+        },
+        {
+          "naturalText": "I'm going to work.",
+          "expectedConcepts": [
+            "GO",
+            "WORK"
+          ]
+        },
+        {
+          "naturalText": "I'm going to the hospital.",
+          "expectedConcepts": [
+            "GO",
+            "HOSPITAL1"
+          ]
+        }
+      ],
+      "accepted": [
+        {
+          "naturalText": "I'm going home.",
+          "expectedConcepts": [
+            "GO",
+            "HOME"
+          ]
+        },
+        {
+          "naturalText": "I'm going to the store.",
+          "expectedConcepts": [
+            "GO",
+            "SHOP1"
+          ]
+        },
+        {
+          "naturalText": "I'm going to work.",
+          "expectedConcepts": [
+            "GO",
+            "WORK"
+          ]
+        },
+        {
+          "naturalText": "I'm going to the hospital.",
+          "expectedConcepts": [
+            "GO",
+            "HOSPITAL1"
+          ]
+        }
+      ],
+      "rejected": [],
+      "latencyMs": 18655
+    },
+    {
+      "case": "multi_home_tired",
+      "turns": [
+        [
+          "HEARING",
+          "Where are you going?"
+        ],
+        [
+          "DEAF",
+          "GO HOME"
+        ],
+        [
+          "HEARING",
+          "Are you tired after the trip?"
+        ]
+      ],
+      "httpStatus": 200,
+      "responseStatus": "completed",
+      "responseModel": "gemini-3.5-flash-lite",
+      "usage": {
+        "total_tokens": 1006,
+        "total_input_tokens": 816,
+        "input_tokens_by_modality": [
+          {
+            "modality": "text",
+            "tokens": 816
+          }
+        ],
+        "total_cached_tokens": 0,
+        "total_output_tokens": 190,
+        "total_tool_use_tokens": 0,
+        "total_thought_tokens": 0,
+        "raw_prompt_token": 1029,
+        "model_invocation_token_counts": [
+          {
+            "prompt_tokens_details": [
+              {
+                "modality": "text",
+                "tokens": 1029
+              }
+            ],
+            "candidates_tokens_details": [
+              {
+                "modality": "text",
+                "tokens": 209
+              }
+            ]
+          }
+        ],
+        "non_grounding_model_invocation_token_counts": [
+          {
+            "prompt_tokens_details": [
+              {
+                "modality": "text",
+                "tokens": 1029
+              }
+            ],
+            "candidates_tokens_details": [
+              {
+                "modality": "text",
+                "tokens": 209
+              }
+            ]
+          }
+        ]
+      },
+      "rawStructuredOutput": "{\n  \"candidates\": [\n    {\n      \"naturalText\": \"Yes, I am very tired.\",\n      \"expectedConcepts\": [\n        \"YES\",\n        \"TIRED\",\n        \"VERY\"\n      ]\n    },\n    {\n      \"naturalText\": \"Yes, long trip.\",\n      \"expectedConcepts\": [\n        \"YES\",\n        \"TIRED\"\n      ]\n    },\n    {\n      \"naturalText\": \"No, not tired, just ready for home.\",\n      \"expectedConcepts\": [\n        \"NO\",\n        \"READY\",\n        \"HOME\"\n      ]\n    },\n    {\n      \"naturalText\": \"Yes, I need sleep.\",\n      \"expectedConcepts\": [\n        \"YES\",\n        \"NEED\",\n        \"SLEEP\"\n      ]\n    }\n  ]\n}",
+      "rawCandidateCount": 4,
+      "parsedCandidates": [
+        {
+          "naturalText": "Yes, I am very tired.",
+          "expectedConcepts": [
+            "YES",
+            "TIRED",
+            "VERY"
+          ]
+        },
+        {
+          "naturalText": "Yes, long trip.",
+          "expectedConcepts": [
+            "YES",
+            "TIRED"
+          ]
+        },
+        {
+          "naturalText": "No, not tired, just ready for home.",
+          "expectedConcepts": [
+            "NO",
+            "READY",
+            "HOME"
+          ]
+        },
+        {
+          "naturalText": "Yes, I need sleep.",
+          "expectedConcepts": [
+            "YES",
+            "NEED",
+            "SLEEP"
+          ]
+        }
+      ],
+      "accepted": [
+        {
+          "naturalText": "Yes, I am very tired.",
+          "expectedConcepts": [
+            "YES",
+            "TIRED",
+            "VERY"
+          ]
+        },
+        {
+          "naturalText": "Yes, long trip.",
+          "expectedConcepts": [
+            "YES",
+            "TIRED"
+          ]
+        },
+        {
+          "naturalText": "No, not tired, just ready for home.",
+          "expectedConcepts": [
+            "NO",
+            "READY",
+            "HOME"
+          ]
+        },
+        {
+          "naturalText": "Yes, I need sleep.",
+          "expectedConcepts": [
+            "YES",
+            "NEED",
+            "SLEEP"
+          ]
+        }
+      ],
+      "rejected": [],
+      "latencyMs": 2481
+    },
+    {
+      "case": "multi_family",
+      "turns": [
+        [
+          "HEARING",
+          "Did you go to school?"
+        ],
+        [
+          "DEAF",
+          "YES"
+        ],
+        [
+          "HEARING",
+          "How is your family?"
+        ]
+      ],
+      "httpStatus": 200,
+      "responseStatus": "completed",
+      "responseModel": "gemini-3.5-flash-lite",
+      "usage": {
+        "total_tokens": 1003,
+        "total_input_tokens": 814,
+        "input_tokens_by_modality": [
+          {
+            "modality": "text",
+            "tokens": 814
+          }
+        ],
+        "total_cached_tokens": 0,
+        "total_output_tokens": 189,
+        "total_tool_use_tokens": 0,
+        "total_thought_tokens": 0,
+        "raw_prompt_token": 1027,
+        "model_invocation_token_counts": [
+          {
+            "prompt_tokens_details": [
+              {
+                "modality": "text",
+                "tokens": 1027
+              }
+            ],
+            "candidates_tokens_details": [
+              {
+                "modality": "text",
+                "tokens": 208
+              }
+            ]
+          }
+        ],
+        "non_grounding_model_invocation_token_counts": [
+          {
+            "prompt_tokens_details": [
+              {
+                "modality": "text",
+                "tokens": 1027
+              }
+            ],
+            "candidates_tokens_details": [
+              {
+                "modality": "text",
+                "tokens": 208
+              }
+            ]
+          }
+        ]
+      },
+      "rawStructuredOutput": "{\n  \"candidates\": [\n    {\n      \"naturalText\": \"My family is good.\",\n      \"expectedConcepts\": [\n        \"FAMILY\",\n        \"GOOD\"\n      ]\n    },\n    {\n      \"naturalText\": \"Everyone in my family is doing well.\",\n      \"expectedConcepts\": [\n        \"ALL\",\n        \"FAMILY\",\n        \"GOOD\"\n      ]\n    },\n    {\n      \"naturalText\": \"My parents and sister are fine.\",\n      \"expectedConcepts\": [\n        \"FAMILY\",\n        \"SISTER\",\n        \"GOOD\"\n      ]\n    },\n    {\n      \"naturalText\": \"They are all very busy.\",\n      \"expectedConcepts\": [\n        \"THEY1\",\n        \"ALL\",\n        \"BUSY\"\n      ]\n    }\n  ]\n}",
+      "rawCandidateCount": 4,
+      "parsedCandidates": [
+        {
+          "naturalText": "My family is good.",
+          "expectedConcepts": [
+            "FAMILY",
+            "GOOD"
+          ]
+        },
+        {
+          "naturalText": "Everyone in my family is doing well.",
+          "expectedConcepts": [
+            "ALL",
+            "FAMILY",
+            "GOOD"
+          ]
+        },
+        {
+          "naturalText": "My parents and sister are fine.",
+          "expectedConcepts": [
+            "FAMILY",
+            "SISTER",
+            "GOOD"
+          ]
+        },
+        {
+          "naturalText": "They are all very busy.",
+          "expectedConcepts": [
+            "THEY1",
+            "ALL",
+            "BUSY"
+          ]
+        }
+      ],
+      "accepted": [
+        {
+          "naturalText": "My family is good.",
+          "expectedConcepts": [
+            "FAMILY",
+            "GOOD"
+          ]
+        },
+        {
+          "naturalText": "Everyone in my family is doing well.",
+          "expectedConcepts": [
+            "ALL",
+            "FAMILY",
+            "GOOD"
+          ]
+        },
+        {
+          "naturalText": "My parents and sister are fine.",
+          "expectedConcepts": [
+            "FAMILY",
+            "SISTER",
+            "GOOD"
+          ]
+        },
+        {
+          "naturalText": "They are all very busy.",
+          "expectedConcepts": [
+            "THEY1",
+            "ALL",
+            "BUSY"
+          ]
+        }
+      ],
+      "rejected": [],
+      "latencyMs": 2892
+    }
+  ]
+}

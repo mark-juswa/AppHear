@@ -1,0 +1,21 @@
+capture_order,gloss,expected_hands,repetition_id,variant,role,reason
+1,GOOD,two,R1,apphear_target_two_hand,strong-control,Known healthy control and two-hand target variant observed in shakedown
+2,HAVE,two,R1,apphear_target,weak,Zero historical recall and two-hand production
+3,KNOW,one,R1,apphear_target,weak,Zero historical recall with Top-K rescue potential
+4,NOW,two,R1,apphear_target,confused,Known NOW/TODAY confusion pair
+5,TABLE,two,R1,apphear_target,strong-control,Strong historical control with two-hand contact
+6,LEAVE,two,R1,apphear_target,weak,Zero historical recall and two-hand production
+7,HELLO,one,R1,apphear_target,confused,Known runtime and classifier confusion
+8,TODAY,two,R1,apphear_target,confused,Known TODAY/NOW confusion pair
+9,WHO,one,R1,apphear_target,weak,Zero historical recall
+10,WE,one,R1,apphear_target,strong-control,Strong historical control
+11,TODAY,two,R2,apphear_target,confused,Second natural attempt separated from NOW
+12,WE,one,R2,apphear_target,strong-control,Second strong-control attempt
+13,LEAVE,two,R2,apphear_target,weak,Second two-hand weak-class attempt
+14,GOOD,two,R2,apphear_target_two_hand,strong-control,Second observed target-variant control
+15,WHO,one,R2,apphear_target,weak,Second one-hand weak-class attempt
+16,NOW,two,R2,apphear_target,confused,Second confusion-pair attempt
+17,HELLO,one,R2,apphear_target,confused,Second runtime-confusion attempt
+18,HAVE,two,R2,apphear_target,weak,Second two-hand weak-class attempt
+19,TABLE,two,R2,apphear_target,strong-control,Second two-hand control attempt
+20,KNOW,one,R2,apphear_target,weak,Second one-hand weak-class attempt

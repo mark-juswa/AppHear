@@ -1,0 +1,30 @@
+# Runtime and parity assets are byte-identity contracts. Never line-ending convert them.
+android/app/src/main/assets/** -text -diff
+android/app/src/debug/assets/** -text -diff
+android/app/src/main/jniLibs/** -text -diff
+android/app/src/debug/jniLibs/** -text -diff
+
+# Frozen baseline model and parity fixtures retain exact bytes.
+packages/fingerspelling_continuous_v2_1_01/android_assets/** -text -diff
+packages/fingerspelling_continuous_v2_1_01/parity_assets/** -text -diff
+android/app/src/test/resources/fingerspell_beam/** -text -diff
+android/app/src/aslOriginalWords/assets/** -text -diff
+
+# Research source/metadata hashes are frozen across platform checkouts.
+model/fingerspelling*.py -text whitespace=cr-at-eol
+model/config/fingerspelling*.json -text whitespace=cr-at-eol
+pipeline/fingerspelling/** -text whitespace=cr-at-eol
+pipeline/config/fingerspelling*.json -text whitespace=cr-at-eol
+tools/fingerspelling/** -text whitespace=cr-at-eol
+tools/fsboard_admission/** -text whitespace=cr-at-eol
+tests/test_fingerspelling*.py -text whitespace=cr-at-eol
+tests/test_fsboard*.py -text whitespace=cr-at-eol
+datasets/fingerspelling/** -text whitespace=cr-at-eol
+evidence/** -text whitespace=cr-at-eol
+packages/research_checkpoints/** -text -diff
+
+# Keep provenance-hashed research documents exact; CRLF is intentional.
+context/fingerspelling*.md -text whitespace=cr-at-eol
+docs/*fingerspell*.md -text whitespace=cr-at-eol
+docs/*fsboard*.md -text whitespace=cr-at-eol
+docs/az-*.md -text whitespace=cr-at-eol

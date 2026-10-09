@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/recognitionModeRow"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/space_12"
+    android:background="@drawable/bg_setting_row"
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="?attr/selectableItemBackground"
+    android:minHeight="@dimen/touch_target_min"
+    android:orientation="vertical"
+    android:padding="@dimen/space_16"
+    android:visibility="gone">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/inter_semibold"
+        android:text="@string/recognition_mode_title"
+        android:textColor="@color/color_text_primary"
+        android:textSize="15sp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_4"
+        android:fontFamily="@font/inter_regular"
+        android:text="@string/recognition_mode_body"
+        android:textColor="@color/color_text_secondary"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/recognitionModeValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_8"
+        android:background="@drawable/bg_setting_value_pill"
+        android:fontFamily="@font/inter_semibold"
+        android:paddingHorizontal="@dimen/space_12"
+        android:paddingVertical="@dimen/space_8"
+        android:text="@string/recognition_mode_word"
+        android:textColor="@color/color_text_primary"
+        android:textSize="13sp" />
+</LinearLayout>

@@ -1,0 +1,29 @@
+# Fingerspelling visual fusion — one information gate
+
+Authorized offline fingerspelling augmentation, separate from the protected WORD roadmap. Architect workflow: inspect → freeze plan/config → implement crop/appearance package → one bounded ablation → conditional fusion handoff. User delegates these choices; no additional approval is required for the specified bounded work. All operational contracts and prior baseline decisions reviewed.
+
+## Evidence and terminology
+
+Fine-handshape information loss is a plausible hypothesis, not a proven explanation of B1–B4. B4's small-subset fit improved but full-tranche discrimination did not. A crop-quality failure, unsuitable pretrained embedding or insufficient short-probe optimization can also yield a negative visual gate.
+
+“Visual evidence” means current-frame RGB sampled at Candidate01 ROI; “valid” means a present finite in-source proposal, not correct letter or accepted landmark refinement. “Gate” means fixed sequence-level ablation, not frame-label accuracy. “Phone view” means existing real-observation sparse approximation, not actual device fusion throughput.
+
+## Decisions frozen before implementation/training
+
+- All 1,280 governed RGB sources remain present (8,631,742,503bytes); no reacquisition. Native sequences total217,221 observations. New package is separate; geometry archives untouched. Disk currently has about4.24GB free.
+- `HandCropExtractor.v1`: two Candidate01 slots retained; no dominant-hand/anatomical inference or temporal association. Square ROI center, side×1.10,128×128 RGB, zero-border bilinear sampler shared with frozen Candidate01 arithmetic. Same pinned upright decoder/orientation; no flips. Proposal-present, finite positive side≥8pixels and ≥50% source intersection define crop validity. Landmark refiner rejection does not by itself invalidate an appearance proposal. Invalid crops/embeddings zero + explicit masks; no carry. Audit refined-joint containment, borders and proposal/refinement disagreement.
+- `HandAppearanceEncoder.v1`: already cached official Keras MobileNetV3Small ImageNet no-top weights (MD5 matches installed Keras release). Width1,128input, average pooled576embedding, disabled model preprocessing, external RGB/127.5−1 normalization. Frozen inference BatchNorm, no DEV fitting. Copy existing4.33MB weights into the new governed package; no download. Installed Keras3.15 source and [official documentation](https://keras.io/api/applications/mobilenet/) govern API semantics.
+- Precompute float32 embeddings at each real raw frame, two slots, with masks, expanded ROIs and per-crop SHA. Maximum dense embeddings about1.00GB; missing zeros compress. Decode sources once per package generation; do not store all crops. Keep bounded QA images separately. All timestamps/frame IDs/source dimensions must match existing raw evidence before embedding admission.
+- Fusion: independent geometry405→64 projection; shared appearance576→32 projection per slot with mask after bias/nonlinearity; concatenate geometry64, appearance64 and two validity flags →64 fused channels. Four B2-scale double-convolution causal blocks, kernel3/dilations1/2/4/8, LayerNorm/dropout0.1, stride1,28CTC logits. New compound input contract does not redefine adapter405. No new temporal width/depth.
+- One gate: exact historical64 TRAIN diagnostic IDs,32per stratum/42signers, plus fixed B2 diagnostic DEV IDs (one metadata-selected clip per DEV signer plus the two sparse-infeasible cases). No invented letter labels: the tranche has **zero one-character TRAIN transcripts**. Three input ablations share the same model/projections/seed/optimizer/data/views: geometry, appearance, combined. All fit64 TRAIN only,60subset epochs/480updates per arm, no checkpoint selection/calibration. Evaluate fixed native/sparse TRAIN+diagnostic DEV at0/30/60; final60 decides. This is one information gate, not an architecture sweep.
+- Gate pass requires combined vs geometry: TRAIN mean CER≥5points better with both views improving; diagnostic DEV mean CER≥3points better, each view no worse than2points; mean DEV aligned correct/reference fraction≥3points higher; mean correct/predicted precision not lower and neither view loses >2points. A precision guard separates discrimination from mere output length. Appearance-only is explanatory, not required to beat geometry. Fixed before results; no extensions/alternate encoders if it fails.
+- A negative/inconclusive gate stops full fusion. Review crop quality first; it cannot prove that hand RGB contains no information or that all visual encoders fail. This frozen general-image encoder has never been hand-trained.
+
+## Conditional continuation
+
+Appearance-only keeps common real-dt/dt-valid columns0:2 while masking all
+hand/body geometry. This clarification was frozen before gate training.
+
+If the gate passes, use exactly one full fusion baseline on1,024TRAIN/256DEV with original cadence/loss/selection/stopping/calibration. Frozen visual encoder + trainable projections/TCN is the first practical CPU experiment; no fine-tuning sweep. It trades some task-specific capacity for cached, reproducible iteration. Short smoke must verify masks, real-frame alignment, CTC lengths, finite gradients, checkpoints/resume and both DEV views. Bulk embedding generation/full training are user-run only with exact resumable commands. No full job is launched here.
+
+Future Android needs current CameraX RGB available until ROI crops are consumed, the same normalized ROI sampler and this visual encoder. No second Candidate01/camera. Added CPU cost could reduce delivered cadence: mobile feasibility is **unmeasured**, not inherited from the geometry-only6.23Hz profile. Offline success must precede export/parity/device measurements. No production connection or WORD/Context Assist change.

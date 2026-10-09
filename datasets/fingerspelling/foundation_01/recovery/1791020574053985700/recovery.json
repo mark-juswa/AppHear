@@ -1,0 +1,9 @@
+{
+  "reason": "Interrupted acquisition; restart only this missing source",
+  "files": [
+    {
+      "original": "F:\\ASL DATASET\\5. Apphear3\\datasets\\fingerspelling\\foundation_01\\videos\\ebdb_199_20220906_161846_556333_559100.mp4.download",
+      "preserved": "F:\\ASL DATASET\\5. Apphear3\\datasets\\fingerspelling\\foundation_01\\recovery\\1791020574053985700\\ebdb_199_20220906_161846_556333_559100.mp4.download"
+    }
+  ]
+}

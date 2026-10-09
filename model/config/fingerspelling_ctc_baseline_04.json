@@ -1,0 +1,20 @@
+{
+  "schema_version": "apphear.fingerspelling.baseline4.v1",
+  "baseline2_policy_sha256": "b3dddb294823f04ef28d975d7e98791c35de50a290463b8ee81bf349b1a2f602",
+  "adapter_version": "FingerspellingFeatureAdapter.v1",
+  "feature_width": 405,
+  "encoder_version": "fingerspelling.causal_tcn_width128.v1",
+  "candidate_channels": 128,
+  "control_channels": 64,
+  "candidate_parameters": 558236,
+  "control_parameters": 193116,
+  "receptive_field_observations": 61,
+  "diagnostic_manifest": "artifacts/fingerspelling_baseline3/diagnostic_manifest.json",
+  "diagnostic_manifest_sha256": "fff5c54beac8ad14940eb48d7626f75eec1d45c76ca4d5b7612020a3b6015dd9",
+  "fit_epochs": 60,
+  "fit_evaluate_every": 15,
+  "fit_decision_epochs": [45, 60],
+  "fit_minimum_combined_cer_improvement": 0.05,
+  "training_policy": "UNCHANGED_BASELINE2",
+  "test_access": "SEALED"
+}

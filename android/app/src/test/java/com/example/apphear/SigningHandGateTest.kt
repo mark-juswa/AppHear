@@ -84,4 +84,47 @@ class SigningHandGateTest {
         assertFalse(LandmarkAdapter.handsPresent(FloatArray(2 * 21 * 3) { Float.NaN }))
         assertTrue(LandmarkAdapter.handsPresent(FloatArray(2 * 21 * 3) { 0f }))
     }
+
+    @Test
+    fun defaultDetectorStillResetsAcrossOneNonCandidateFrame() {
+        val d = SigningDetector(cfg())
+        d.update(pose(0.20f), handsPresent())
+        d.update(pose(0.23f), handsPresent()) // candidate 1
+        d.update(pose(0.245f), handsPresent()) // above theta_off, below theta_on
+        val event = d.update(pose(0.275f), handsPresent()) // candidate 1 after reset
+        assertEquals(SigningEvent.NONE, event)
+        assertFalse(d.isSigning)
+    }
+
+    @Test
+    fun experimentalDetectorBridgesExactlyOneHandsPresentNonRestGap() {
+        val d = SigningDetector(cfg(), allowOneShortOnsetGap = true)
+        d.update(pose(0.20f), handsPresent())
+        d.update(pose(0.23f), handsPresent()) // candidate 1
+        d.update(pose(0.245f), handsPresent()) // permitted interruption
+        assertTrue(d.lastDiagnostics.onsetGapBridgedThisFrame)
+        val event = d.update(pose(0.275f), handsPresent()) // candidate 2
+        assertEquals(SigningEvent.ONSET, event)
+        assertTrue(d.isSigning)
+    }
+
+    @Test
+    fun experimentalDetectorDoesNotBridgeMissingHandsOrClearRest() {
+        val missingHands = SigningDetector(cfg(), allowOneShortOnsetGap = true)
+        missingHands.update(pose(0.20f), handsPresent())
+        missingHands.update(pose(0.23f), handsPresent())
+        missingHands.update(pose(0.245f), handsAbsent())
+        assertFalse(missingHands.lastDiagnostics.onsetGapBridgedThisFrame)
+        assertEquals(
+            SigningEvent.NONE,
+            missingHands.update(pose(0.275f), handsPresent()),
+        )
+
+        val clearRest = SigningDetector(cfg(), allowOneShortOnsetGap = true)
+        clearRest.update(pose(0.20f), handsPresent())
+        clearRest.update(pose(0.23f), handsPresent())
+        clearRest.update(pose(0.235f), handsPresent()) // below theta_off
+        assertFalse(clearRest.lastDiagnostics.onsetGapBridgedThisFrame)
+        assertEquals(SigningEvent.NONE, clearRest.update(pose(0.265f), handsPresent()))
+    }
 }

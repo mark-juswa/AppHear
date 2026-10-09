@@ -1,0 +1,24 @@
+{
+  "status": "TEAM_HANDOFF_PREPUBLISH_PASS",
+  "reviewed_application_baseline": "34f24ab6d7aea8179decb1688a82fc5734f6d370",
+  "original_vocabulary_commit": "5cf2807",
+  "imported_index_hashes_verified": 345,
+  "shared_state_hashes_verified": 581,
+  "android_tests": 186,
+  "android_errors": 0,
+  "android_failures": 0,
+  "focused_decoder_tests": 53,
+  "fingerspelling_android_changes_this_handoff": [],
+  "secret_scan_text_files": 1878,
+  "prohibited_files": [],
+  "credential_pattern_or_known_value_matches": [],
+  "files_over_100MB": [],
+  "main_modified": false,
+  "training_started": false,
+  "test_payload_accessed": false,
+  "limitations": [
+    "pattern/known-value text scan is not exhaustive history/binary secret analysis",
+    "build reused installed SDK/Gradle cache; independent teammate build not yet measured",
+    "real service credentials/bulk data/optimizer checkpoints are external"
+  ]
+}

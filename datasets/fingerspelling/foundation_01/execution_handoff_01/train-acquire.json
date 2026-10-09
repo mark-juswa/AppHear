@@ -1,0 +1,72 @@
+[
+  {
+    "sample_id": "fsboard-v13-train-5480a01c45123004b9fa",
+    "sha256": "ed26bd8bfb0af14849b0f48721209447738ec81af964b880ccc51a119e94aa01",
+    "disposition": "REUSE_EXISTING_IMMUTABLE_SOURCE"
+  },
+  {
+    "sample_id": "fsboard-v13-train-f43dec271f094f4067d1",
+    "sha256": "1563f356dfac970b31789165ea0013cc30f14c95da492de2173eeaa0493bcfab",
+    "disposition": "REUSE_EXISTING_IMMUTABLE_SOURCE"
+  },
+  {
+    "sample_id": "fsboard-v13-train-ce37a2d1f523004df68d",
+    "sha256": "ffeb3b715bd84b0435578bc72a631a613f9fb8682a7d8d459f0ff224585ac836",
+    "disposition": "REUSE_EXISTING_IMMUTABLE_SOURCE"
+  },
+  {
+    "sample_id": "fsboard-v13-train-3d03f9377e4301a7325d",
+    "sha256": "6f9325104323e9b190fe1b75c5f38bd3efcf64c0fd5d3780d8719607c2836487",
+    "disposition": "REUSE_EXISTING_IMMUTABLE_SOURCE"
+  },
+  {
+    "sample_id": "fsboard-v13-train-9a346736c619270c02b0",
+    "sha256": "9c9aa7b276b97bd5d1bb7c7d5946fe79351a7343ecec4c76521831c49b8ac547",
+    "disposition": "REUSE_EXISTING_IMMUTABLE_SOURCE"
+  },
+  {
+    "sample_id": "fsboard-v13-train-00f567d1059800d6454f",
+    "sha256": "7e087576f93d9dc956684ddf9d2a0025b8092fee72daac6f362ce067e167f4fa",
+    "disposition": "REUSE_EXISTING_IMMUTABLE_SOURCE"
+  },
+  {
+    "sample_id": "fsboard-v13-train-54bc844f2a594aecad1e",
+    "sha256": "08e30e7599948174a3fcf9cbea55fda9e0aaa8bfbc76ab63336e62dcec19223e"
+  },
+  {
+    "sample_id": "fsboard-v13-train-0065ce1c797017ff6bea",
+    "sha256": "26ee87f5a4a93c584895e572c26d8027898cfb13658dc85b69a06c3f174b4dd6"
+  },
+  {
+    "sample_id": "fsboard-v13-train-fff7a01b87facb277b60",
+    "sha256": "b8ab2de81845c710a26a3c8f20e94053ea1354f874d4449a43ffe9cf8e662c8e"
+  },
+  {
+    "sample_id": "fsboard-v13-train-693a8af4487e97b3c543",
+    "sha256": "11d0aa1264448ec03696d23c64357e3995be232bd9ef1cafa9ece2cf45250689"
+  },
+  {
+    "sample_id": "fsboard-v13-train-889c0371298e59016a07",
+    "sha256": "69a1d31382707e249a335fa42b8a48f72c94e041cfd854a84abe11a4dde0c24d"
+  },
+  {
+    "sample_id": "fsboard-v13-train-51410696376d0685c6a9",
+    "sha256": "92ff04a7eb95776b3a83c9bbdb0dc39ae8c4e5daf87c9bdac5c37928ffccdd38"
+  },
+  {
+    "sample_id": "fsboard-v13-train-90a351540226094f394c",
+    "sha256": "24b197bd54def40559a195e4e94fbcf8d3ac1dd4fb36d8b39b09fd6e9aaa26b3"
+  },
+  {
+    "sample_id": "fsboard-v13-train-c2ce6968b1d6cf8866f1",
+    "sha256": "d280a957485e61e7eaab8290423717f2169b9a40973e2e2c41ea2a844e01f32b"
+  },
+  {
+    "sample_id": "fsboard-v13-train-252d14491782be2ba9cd",
+    "sha256": "5b0ac35d03bdc071019bfba3e41e4db61913f389a068c502d2d7b60107bde8df"
+  },
+  {
+    "sample_id": "fsboard-v13-train-2bcf61771cae0f943749",
+    "sha256": "79a4bcb268e258b8f339f232ec751c447e245d169c91ae5d8b531cbe91ac3feb"
+  }
+]

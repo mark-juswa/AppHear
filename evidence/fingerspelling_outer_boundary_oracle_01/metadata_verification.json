@@ -1,0 +1,14 @@
+{
+  "official_dev_metadata_path": "F:\\ASL DATASET\\5. Apphear3\\datasets\\fingerspelling\\fsboard_gate_20261002\\official\\daun_v3\\metadata\\daun_v3-validation.json",
+  "sha256": "d306aac4c80e7052492ebffdd01f2e8242d09755ff7243824e866360fb609648",
+  "all_256_manifest_and_receipt_metadata_exact_match": true,
+  "test_metadata_accessed": false,
+  "test_payload_accessed": false,
+  "timing_source_path": "F:\\ASL DATASET\\5. Apphear3\\datasets\\fingerspelling\\fsboard_candidate01_admission_20261002\\reflection_provenance_closure_01\\public_sources\\rth_clip_video.py",
+  "timing_source_sha256": "90d8fc92ae5c8caed866123e3d73fa4b036993cd23045d237cb690de48cf0405",
+  "source_semantics": "annotation/clip times relative to original first packet as zero; fullVideoFirstPtsTimeS required only for absolute PTS, cancels for clip-relative annotation times",
+  "original_first_pts_range_s": [
+    0.0,
+    0.085
+  ]
+}

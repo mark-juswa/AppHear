@@ -1,0 +1,12 @@
+{
+  "completion_sha256": "adc4ef766b7b14230e7a95ff2055c718220b9349358a014d40bfc5ce98239445",
+  "selected_checkpoint_sha256": "b037e32789f523c043b46c32cdc2ea11f2f600fd35f30ecd672604b6f6947886",
+  "decoder": {
+    "beam_width": 10,
+    "blank_penalty": 0.5,
+    "blank_index": 27,
+    "top_paths": 1
+  },
+  "dev_b_manifest_sha256": "50bc3cf42bc549f41ecce7f74bda0acad4be59c0b490d0afd49ec83e94efa09e",
+  "dev_b_lineage_sha256": "c076a578f2edfca80bb742f437a11ba884ad743be8c3569e3c6c38d54f5ed4fc"
+}

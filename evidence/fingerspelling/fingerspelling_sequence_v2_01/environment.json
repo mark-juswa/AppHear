@@ -1,0 +1,12 @@
+{
+  "tensorflow": "2.21.0",
+  "keras": "3.15.0",
+  "parameters": 292956,
+  "receptive_field": 1021,
+  "causal": false,
+  "cpu_threads": 2,
+  "initialization": "FROM_SCRATCH_ONE_ENCODER_NO_SWEEP",
+  "resume_granularity": "Committed epoch; interrupted epoch repeats",
+  "accuracy_claim": "AWAIT_HELDOUT_EVALUATION",
+  "test_accessed": false
+}

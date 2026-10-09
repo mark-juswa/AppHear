@@ -1,0 +1,12 @@
+{
+  "epoch": 64,
+  "best_combined_cer": 0.5702921608330922,
+  "best_model_path": "F:\\ASL DATASET\\5. Apphear3\\runs\\fingerspelling_ctc_baseline_03\\best_candidates\\epoch_049.keras",
+  "patience_anchor": 0.5702921608330922,
+  "non_improving_epochs": 15,
+  "best_model_sha256": "e8be293d74c64ebfdd628b00e822545b39004d57318cc098d667f6bea9c4a68e",
+  "best_epoch": 49,
+  "checkpoint": "F:\\ASL DATASET\\5. Apphear3\\runs\\fingerspelling_ctc_baseline_03\\checkpoints\\ckpt-64",
+  "model_optimizer_sha256": "54e000af4711f092c84832218d2cb9e71f1bf4a61a0bb0239d26b48b8a2e7094",
+  "optimizer_iterations": 8192
+}

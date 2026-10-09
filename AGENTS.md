@@ -1,3 +1,5 @@
+> **Team continuation state — 2026-10-09:** Read [TEAM_HANDOFF.md](TEAM_HANDOFF.md) and [current state](context/team-current-state-2026-10-09.md) before older history below. The shared branch is `codex/team-handoff-2026-10-09`; October9 baseline refs remain frozen. Repository-root paths are portable; old F:/C:/I: paths document the original machine. WORD and fingerspelling remain experimental; engineering passes are not reliable cross-signer live accuracy.
+
 ﻿# AppHear 3 â€” Agent Operating Guide
 
 AppHear 3 is a **re-architecture** (not a retrain) of a real-time, on-device ASL

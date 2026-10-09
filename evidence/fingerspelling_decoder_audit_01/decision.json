@@ -1,0 +1,14 @@
+{
+  "schema_version": "apphear.fingerspelling.decoder_audit.v1",
+  "beam_top1": "USE_BEAM_TOP1",
+  "scope": "RECOMMENDATION_FOR_SUBSEQUENT_EXPERIMENTAL_DECODER_CHANGE_ONLY",
+  "topn_suggestions": "NOT_SUPPORTED",
+  "application_decoder_changed": false,
+  "greedy_preserved": true,
+  "beam_width": 10,
+  "blank_penalty": 0.5,
+  "balanced_greedy_cer": 0.5377494937807348,
+  "balanced_beam_cer": 0.5083887763957188,
+  "training": false,
+  "test_accessed": false
+}

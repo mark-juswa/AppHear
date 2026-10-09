@@ -1,0 +1,11 @@
+gloss,expected_hands,role,reason
+HAVE,two,weak,zero recall and frequent two-hand production
+LEAVE,two,weak,zero recall and frequent two-hand production
+KNOW,one,weak,zero recall with high Top-5 rescue
+WHO,one,weak,zero recall
+NOW,two,confused,confused with TODAY
+TODAY,two,confused,confused with NOW
+HELLO,one,confused,known runtime and classifier confusion
+GOOD,one,confused,known runtime control for HELLO-like errors
+TABLE,variant-dependent,strong-control,Phase-1 F1 1.0
+WE,one,strong-control,Phase-1 F1 1.0

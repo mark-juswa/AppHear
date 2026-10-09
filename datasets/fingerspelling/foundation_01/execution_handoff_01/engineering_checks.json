@@ -1,0 +1,39 @@
+{
+  "pytest": {
+    "passed": 83,
+    "subtests_passed": 5,
+    "seconds": 18.19
+  },
+  "ruff": "PASS",
+  "mypy": "PASS_6_FILES",
+  "powershell_parser_errors": 0,
+  "model_check": "FORWARD_CTC_PADDING_CAUSALITY_PASS_NO_OPTIMIZER",
+  "real_bulk_execution": false,
+  "actual_training": false,
+  "review": {
+    "plan_alignment": "PASS",
+    "system_integrity": "PASS",
+    "offline_handoff_readiness": "PASS",
+    "production_rollout": "NOT_IN_SCOPE",
+    "critical": [],
+    "important": [],
+    "future_evidence": [
+      "complete tranche materialization",
+      "optimizer/epoch/checkpoint resume",
+      "trained DEV results",
+      "installed Android parity and deployment gates"
+    ],
+    "recommendation": "HAND_OFF_SERIAL_DATA_PREPARATION_ONLY"
+  },
+  "source_sha256": {
+    "tools/fingerspelling/tranche.py": "062a975438a4940ae8f59f988a4d6b737c266c1bddb49eb96a6a4d9f79b3e0ff",
+    "tools/fingerspelling/foundation.py": "214ee9754bb1f78b7fe3d8fd8d69e984b0c8a87b0a028905b6a568994dfaf6ca",
+    "pipeline/fingerspelling/package_io.py": "cf729a2671cec5626b62fd66b5db274b10b0ab51ec5efa5139eb06f388083461",
+    "pipeline/fingerspelling/sequence_package.py": "5b92261ee1b04e7c82028fc3021c391dc85d1aab034dc162a2262b242b08a233",
+    "model/fingerspelling_ctc.py": "0dd521b47e29e1e7aff46f875b1523f420271269682301ed493db05ae2934229",
+    "model/fingerspelling_metrics.py": "db9556f22638bcb9f9cd7c49c6514668405cec4b6a791b13225048095d567fb3",
+    "pipeline/config/fingerspelling_execution_v1.json": "11acd60e630a732f60ef7f30df1b3ac26178c24a100e59e9c077180705502279",
+    "model/config/fingerspelling_ctc_baseline_01.json": "6fc2d52944110dea3cbb2d75285b96f1c7699a898d1b899c974d9bedc794ed4c",
+    "tools/fingerspelling/USER_RUN_01.ps1": "a724f1798dd72b8b2332038e42146e33818096be7982cfbd76d6c765fcbd859f"
+  }
+}

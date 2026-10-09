@@ -1,0 +1,69 @@
+{
+  "schema": "apphear.s2_r2.continuous_domain_correction_config.v1",
+  "milestone": "S2_R2_CONTINUOUS_DOMAIN_CORRECTION_01",
+  "seed": 5103,
+  "feature_contract": {
+    "schema": "apphear.perception_vnext.segmentation_features.v1",
+    "width": 378,
+    "semantics_changed": false
+  },
+  "cadence_views": [
+    {"view_id": "VIEW_A", "target_interval_ms": 133.308},
+    {"view_id": "VIEW_B", "target_interval_ms": 199.962},
+    {"view_id": "VIEW_C", "target_interval_ms": 266.616}
+  ],
+  "governance": {
+    "p1_participants": {
+      "P01": "FIT_DEVELOPMENT_ONLY_ENRICHMENT_NO_INDEPENDENCE_CLAIM",
+      "P02": "FIT_DEVELOPMENT_ONLY_ENRICHMENT_NO_INDEPENDENCE_CLAIM"
+    },
+    "phone_design_signer": "phone_design:session_20260921T102840Z:S001",
+    "phone_design_role": "FIT_DEVELOPMENT_ONLY_HARD_POSITIVE_NO_INDEPENDENCE_CLAIM",
+    "e6_signer": "0F747C-S001",
+    "e6_role": "UNTOUCHED_NEGATIVE_AND_ACQUISITION_VALIDATION",
+    "future_positive_validation": "ONE_DISTINCT_UNTOUCHED_PHONE_SIGNER_SESSION_POST_FREEZE",
+    "protected_test_access": false
+  },
+  "learnability": {
+    "purpose": "BOUNDED_TRAINING_FIT_SANITY_NOT_GENERALIZATION",
+    "baseline_fit_clips_per_source": 2,
+    "p1_interval_ids": [
+      "p1_2::002",
+      "p1_4::001",
+      "p1_10::001",
+      "P2_2::001",
+      "P2_11::001",
+      "P2_15::001"
+    ],
+    "p1_view": {"view_id": "VIEW_B", "target_interval_ms": 199.962},
+    "phone_attempt_ids": [
+      "attempt_001",
+      "attempt_002",
+      "attempt_003",
+      "attempt_004",
+      "attempt_005"
+    ],
+    "epochs": 20,
+    "batch_size": 8,
+    "learning_rate": 0.001,
+    "gates": {
+      "minimum_phone_active_recall": 0.8,
+      "maximum_p1_active_false_rate": 0.1,
+      "minimum_baseline_active_recall": 0.7,
+      "minimum_baseline_post_recall": 0.7,
+      "require_finite_decreasing_loss": true
+    }
+  },
+  "candidate": {
+    "architecture": "UNCHANGED_PHASE7_CAUSAL_TCN",
+    "input_projection_channels": 64,
+    "channels": 64,
+    "kernel_size": 3,
+    "dilations": [1, 2, 4, 8],
+    "dropout": 0.2,
+    "output_classes": 3,
+    "parameter_limit": 200000,
+    "main_training_runs": 1,
+    "normalization": "CANDIDATE_FIT_ONLY"
+  }
+}

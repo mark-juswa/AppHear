@@ -1,0 +1,686 @@
+{
+  "schemaVersion": 3,
+  "clips": [
+    {
+      "id": "a",
+      "sourceId": "A",
+      "asset": "asl_animations/vnext/shared-alphabet.glb",
+      "fallbackAsset": "asl_animations/anim_a.glb",
+      "animationName": "SIGN_LETTER_A_FEMALEASL",
+      "durationMs": 1334,
+      "sha256": "645da29f5e8a24dc7da2f4b6e23ca2e87fb91254958f5053ba0281080ec0a524",
+      "profile": "balanced-ktx2mixed-meshopt-shared-alphabet-v1",
+      "rigProfile": "FemaleASL-full-rig-341-875-342"
+    },
+    {
+      "id": "b",
+      "sourceId": "B",
+      "asset": "asl_animations/vnext/shared-alphabet.glb",
+      "fallbackAsset": "asl_animations/anim_b.glb",
+      "animationName": "SIGN_LETTER_B_FEMALEASL",
+      "durationMs": 1367,
+      "sha256": "645da29f5e8a24dc7da2f4b6e23ca2e87fb91254958f5053ba0281080ec0a524",
+      "profile": "balanced-ktx2mixed-meshopt-shared-alphabet-v1",
+      "rigProfile": "FemaleASL-full-rig-341-875-342"
+    },
+    {
+      "id": "all",
+      "sourceId": "ALL",
+      "asset": "asl_animations/vnext/shared-alphabet.glb",
+      "fallbackAsset": "asl_animations/all.glb",
+      "animationName": "SIGN_ALL_FEMALEASL",
+      "durationMs": 2367,
+      "sha256": "645da29f5e8a24dc7da2f4b6e23ca2e87fb91254958f5053ba0281080ec0a524",
+      "profile": "balanced-ktx2mixed-meshopt-shared-alphabet-v1",
+      "rigProfile": "FemaleASL-full-rig-341-875-342"
+    },
+    {
+      "id": "brother",
+      "sourceId": "BROTHER",
+      "asset": "asl_animations/vnext/shared-alphabet.glb",
+      "fallbackAsset": "asl_animations/brother.glb",
+      "animationName": "SIGN_BROTHER_FEMALEASL",
+      "durationMs": 1767,
+      "sha256": "645da29f5e8a24dc7da2f4b6e23ca2e87fb91254958f5053ba0281080ec0a524",
+      "profile": "balanced-ktx2mixed-meshopt-shared-alphabet-v1",
+      "rigProfile": "FemaleASL-full-rig-341-875-342"
+    },
+    {
+      "id": "child",
+      "sourceId": "CHILD",
+      "asset": "asl_animations/vnext/shared-alphabet.glb",
+      "fallbackAsset": "asl_animations/child.glb",
+      "animationName": "SIGN_CHILD_FEMALEASL",
+      "durationMs": 2067,
+      "sha256": "645da29f5e8a24dc7da2f4b6e23ca2e87fb91254958f5053ba0281080ec0a524",
+      "profile": "balanced-ktx2mixed-meshopt-shared-alphabet-v1",
+      "rigProfile": "FemaleASL-full-rig-341-875-342"
+    },
+    {
+      "id": "city",
+      "sourceId": "CITY",
+      "asset": "asl_animations/vnext/shared-alphabet.glb",
+      "fallbackAsset": "asl_animations/city.glb",
+      "animationName": "SIGN_CITY_FEMALEASL",
+      "durationMs": 2567,
+      "sha256": "645da29f5e8a24dc7da2f4b6e23ca2e87fb91254958f5053ba0281080ec0a524",
+      "profile": "balanced-ktx2mixed-meshopt-shared-alphabet-v1",
+      "rigProfile": "FemaleASL-full-rig-341-875-342"
+    },
+    {
+      "id": "family",
+      "sourceId": "FAMILY",
+      "asset": "asl_animations/vnext/shared-alphabet.glb",
+      "fallbackAsset": "asl_animations/family.glb",
+      "animationName": "SIGN_FAMILY_FEMALEASL",
+      "durationMs": 2567,
+      "sha256": "645da29f5e8a24dc7da2f4b6e23ca2e87fb91254958f5053ba0281080ec0a524",
+      "profile": "balanced-ktx2mixed-meshopt-shared-alphabet-v1",
+      "rigProfile": "FemaleASL-full-rig-341-875-342"
+    }
+  ],
+  "newClips": [
+    {
+      "id": "afternoon",
+      "sourceId": "AFTERNOON",
+      "displayText": "Afternoon",
+      "aliases": [
+        "afternoon"
+      ],
+      "type": "word",
+      "asset": "asl_animations/vnext/shared-alphabet.glb",
+      "animationName": "SIGN_AFTERNOON_FEMALEASL",
+      "durationMs": 2367,
+      "profile": "balanced-ktx2mixed-meshopt-shared-alphabet-v1",
+      "rigProfile": "FemaleASL-full-rig-341-875-342",
+      "sha256": "645da29f5e8a24dc7da2f4b6e23ca2e87fb91254958f5053ba0281080ec0a524"
+    },
+    {
+      "id": "any",
+      "sourceId": "ANY",
+      "displayText": "Any",
+      "aliases": [
+        "any"
+      ],
+      "type": "word",
+      "asset": "asl_animations/vnext/shared-alphabet.glb",
+      "animationName": "SIGN_ANY_FEMALEASL",
+      "durationMs": 2934,
+      "profile": "balanced-ktx2mixed-meshopt-shared-alphabet-v1",
+      "rigProfile": "FemaleASL-full-rig-341-875-342",
+      "sha256": "645da29f5e8a24dc7da2f4b6e23ca2e87fb91254958f5053ba0281080ec0a524"
+    },
+    {
+      "id": "ask",
+      "sourceId": "ASK",
+      "displayText": "Ask",
+      "aliases": [
+        "ask"
+      ],
+      "type": "word",
+      "asset": "asl_animations/vnext/shared-alphabet.glb",
+      "animationName": "SIGN_ASK_FEMALEASL",
+      "durationMs": 2600,
+      "profile": "balanced-ktx2mixed-meshopt-shared-alphabet-v1",
+      "rigProfile": "FemaleASL-full-rig-341-875-342",
+      "sha256": "645da29f5e8a24dc7da2f4b6e23ca2e87fb91254958f5053ba0281080ec0a524"
+    },
+    {
+      "id": "baby",
+      "sourceId": "BABY",
+      "displayText": "Baby",
+      "aliases": [
+        "baby"
+      ],
+      "type": "word",
+      "asset": "asl_animations/vnext/shared-alphabet.glb",
+      "animationName": "SIGN_BABY_FEMALEASL",
+      "durationMs": 3334,
+      "profile": "balanced-ktx2mixed-meshopt-shared-alphabet-v1",
+      "rigProfile": "FemaleASL-full-rig-341-875-342",
+      "sha256": "645da29f5e8a24dc7da2f4b6e23ca2e87fb91254958f5053ba0281080ec0a524"
+    },
+    {
+      "id": "bag",
+      "sourceId": "BAG",
+      "displayText": "Bag",
+      "aliases": [
+        "bag"
+      ],
+      "type": "word",
+      "asset": "asl_animations/vnext/shared-alphabet.glb",
+      "animationName": "SIGN_BAG_FEMALEASL",
+      "durationMs": 2434,
+      "profile": "balanced-ktx2mixed-meshopt-shared-alphabet-v1",
+      "rigProfile": "FemaleASL-full-rig-341-875-342",
+      "sha256": "645da29f5e8a24dc7da2f4b6e23ca2e87fb91254958f5053ba0281080ec0a524"
+    },
+    {
+      "id": "be",
+      "sourceId": "BE",
+      "displayText": "Be",
+      "aliases": [
+        "be"
+      ],
+      "type": "word",
+      "asset": "asl_animations/vnext/shared-alphabet.glb",
+      "animationName": "SIGN_BE_FEMALEASL",
+      "durationMs": 2067,
+      "profile": "balanced-ktx2mixed-meshopt-shared-alphabet-v1",
+      "rigProfile": "FemaleASL-full-rig-341-875-342",
+      "sha256": "645da29f5e8a24dc7da2f4b6e23ca2e87fb91254958f5053ba0281080ec0a524"
+    },
+    {
+      "id": "beautiful",
+      "sourceId": "BEAUTIFUL",
+      "displayText": "Beautiful",
+      "aliases": [
+        "beautiful"
+      ],
+      "type": "word",
+      "asset": "asl_animations/vnext/shared-alphabet.glb",
+      "animationName": "SIGN_BEAUTIFUL_FEMALEASL",
+      "durationMs": 2600,
+      "profile": "balanced-ktx2mixed-meshopt-shared-alphabet-v1",
+      "rigProfile": "FemaleASL-full-rig-341-875-342",
+      "sha256": "645da29f5e8a24dc7da2f4b6e23ca2e87fb91254958f5053ba0281080ec0a524"
+    },
+    {
+      "id": "become",
+      "sourceId": "BECOME",
+      "displayText": "Become",
+      "aliases": [
+        "become"
+      ],
+      "type": "word",
+      "asset": "asl_animations/vnext/shared-alphabet.glb",
+      "animationName": "SIGN_BECOME_FEMALEASL",
+      "durationMs": 2600,
+      "profile": "balanced-ktx2mixed-meshopt-shared-alphabet-v1",
+      "rigProfile": "FemaleASL-full-rig-341-875-342",
+      "sha256": "645da29f5e8a24dc7da2f4b6e23ca2e87fb91254958f5053ba0281080ec0a524"
+    },
+    {
+      "id": "begin",
+      "sourceId": "BEGIN",
+      "displayText": "Begin",
+      "aliases": [
+        "begin"
+      ],
+      "type": "word",
+      "asset": "asl_animations/vnext/shared-alphabet.glb",
+      "animationName": "SIGN_BEGIN_FEMALEASL",
+      "durationMs": 2201,
+      "profile": "balanced-ktx2mixed-meshopt-shared-alphabet-v1",
+      "rigProfile": "FemaleASL-full-rig-341-875-342",
+      "sha256": "645da29f5e8a24dc7da2f4b6e23ca2e87fb91254958f5053ba0281080ec0a524"
+    },
+    {
+      "id": "big_horizontally",
+      "sourceId": "BIG_AS_IN_LARGE_OR_BIG_HORIZONTALLY",
+      "displayText": "Big Horizontally",
+      "aliases": [
+        "big horizontally"
+      ],
+      "type": "word",
+      "asset": "asl_animations/vnext/shared-alphabet.glb",
+      "animationName": "SIGN_BIG_AS_IN_LARGE_OR_BIG_HORIZONTALLY_FEMALEASL",
+      "durationMs": 2234,
+      "profile": "balanced-ktx2mixed-meshopt-shared-alphabet-v1",
+      "rigProfile": "FemaleASL-full-rig-341-875-342",
+      "sha256": "645da29f5e8a24dc7da2f4b6e23ca2e87fb91254958f5053ba0281080ec0a524"
+    },
+    {
+      "id": "boss",
+      "sourceId": "BOSS",
+      "displayText": "Boss",
+      "aliases": [
+        "boss"
+      ],
+      "type": "word",
+      "asset": "asl_animations/vnext/shared-alphabet.glb",
+      "animationName": "SIGN_BOSS_FEMALEASL",
+      "durationMs": 2134,
+      "profile": "balanced-ktx2mixed-meshopt-shared-alphabet-v1",
+      "rigProfile": "FemaleASL-full-rig-341-875-342",
+      "sha256": "645da29f5e8a24dc7da2f4b6e23ca2e87fb91254958f5053ba0281080ec0a524"
+    },
+    {
+      "id": "busy",
+      "sourceId": "BUSY",
+      "displayText": "Busy",
+      "aliases": [
+        "busy"
+      ],
+      "type": "word",
+      "asset": "asl_animations/vnext/shared-alphabet.glb",
+      "animationName": "SIGN_BUSY_FEMALEASL",
+      "durationMs": 2367,
+      "profile": "balanced-ktx2mixed-meshopt-shared-alphabet-v1",
+      "rigProfile": "FemaleASL-full-rig-341-875-342",
+      "sha256": "645da29f5e8a24dc7da2f4b6e23ca2e87fb91254958f5053ba0281080ec0a524"
+    },
+    {
+      "id": "bye",
+      "sourceId": "BYE",
+      "displayText": "Bye",
+      "aliases": [
+        "bye"
+      ],
+      "type": "word",
+      "asset": "asl_animations/vnext/shared-alphabet.glb",
+      "animationName": "SIGN_BYE_FEMALEASL",
+      "durationMs": 2401,
+      "profile": "balanced-ktx2mixed-meshopt-shared-alphabet-v1",
+      "rigProfile": "FemaleASL-full-rig-341-875-342",
+      "sha256": "645da29f5e8a24dc7da2f4b6e23ca2e87fb91254958f5053ba0281080ec0a524"
+    },
+    {
+      "id": "call_by_phone",
+      "sourceId": "CALL_CALL_BY_PHONE",
+      "displayText": "Call by Phone",
+      "aliases": [
+        "call by phone"
+      ],
+      "type": "word",
+      "asset": "asl_animations/vnext/shared-alphabet.glb",
+      "animationName": "SIGN_CALL_CALL_BY_PHONE_FEMALEASL",
+      "durationMs": 2401,
+      "profile": "balanced-ktx2mixed-meshopt-shared-alphabet-v1",
+      "rigProfile": "FemaleASL-full-rig-341-875-342",
+      "sha256": "645da29f5e8a24dc7da2f4b6e23ca2e87fb91254958f5053ba0281080ec0a524"
+    },
+    {
+      "id": "call_someones_name",
+      "sourceId": "CALL_TO_CALL_SOMEONE_S_NAME",
+      "displayText": "Call Someone's Name",
+      "aliases": [
+        "call someones name"
+      ],
+      "type": "word",
+      "asset": "asl_animations/vnext/shared-alphabet.glb",
+      "animationName": "SIGN_CALL_TO_CALL_SOMEONE_S_NAME_FEMALEASL",
+      "durationMs": 2300,
+      "profile": "balanced-ktx2mixed-meshopt-shared-alphabet-v1",
+      "rigProfile": "FemaleASL-full-rig-341-875-342",
+      "sha256": "645da29f5e8a24dc7da2f4b6e23ca2e87fb91254958f5053ba0281080ec0a524"
+    },
+    {
+      "id": "car",
+      "sourceId": "CAR",
+      "displayText": "Car",
+      "aliases": [
+        "car"
+      ],
+      "type": "word",
+      "asset": "asl_animations/vnext/shared-alphabet.glb",
+      "animationName": "SIGN_CAR_FEMALEASL",
+      "durationMs": 2300,
+      "profile": "balanced-ktx2mixed-meshopt-shared-alphabet-v1",
+      "rigProfile": "FemaleASL-full-rig-341-875-342",
+      "sha256": "645da29f5e8a24dc7da2f4b6e23ca2e87fb91254958f5053ba0281080ec0a524"
+    },
+    {
+      "id": "cold",
+      "sourceId": "COLD",
+      "displayText": "Cold",
+      "aliases": [
+        "cold"
+      ],
+      "type": "word",
+      "asset": "asl_animations/vnext/shared-alphabet.glb",
+      "animationName": "SIGN_COLD_FEMALEASL",
+      "durationMs": 2000,
+      "profile": "balanced-ktx2mixed-meshopt-shared-alphabet-v1",
+      "rigProfile": "FemaleASL-full-rig-341-875-342",
+      "sha256": "645da29f5e8a24dc7da2f4b6e23ca2e87fb91254958f5053ba0281080ec0a524"
+    },
+    {
+      "id": "come",
+      "sourceId": "COME",
+      "displayText": "Come",
+      "aliases": [
+        "come"
+      ],
+      "type": "word",
+      "asset": "asl_animations/vnext/shared-alphabet.glb",
+      "animationName": "SIGN_COME_FEMALEASL",
+      "durationMs": 2334,
+      "profile": "balanced-ktx2mixed-meshopt-shared-alphabet-v1",
+      "rigProfile": "FemaleASL-full-rig-341-875-342",
+      "sha256": "645da29f5e8a24dc7da2f4b6e23ca2e87fb91254958f5053ba0281080ec0a524"
+    },
+    {
+      "id": "fast",
+      "sourceId": "FAST",
+      "displayText": "Fast",
+      "aliases": [
+        "fast"
+      ],
+      "type": "word",
+      "asset": "asl_animations/vnext/shared-alphabet.glb",
+      "animationName": "SIGN_FAST_FEMALEASL",
+      "durationMs": 1701,
+      "profile": "balanced-ktx2mixed-meshopt-shared-alphabet-v1",
+      "rigProfile": "FemaleASL-full-rig-341-875-342",
+      "sha256": "645da29f5e8a24dc7da2f4b6e23ca2e87fb91254958f5053ba0281080ec0a524"
+    },
+    {
+      "id": "pay_me",
+      "sourceId": "PAY_TO_PAY_ME",
+      "displayText": "Pay Me",
+      "aliases": [
+        "pay me"
+      ],
+      "type": "word",
+      "asset": "asl_animations/vnext/shared-alphabet.glb",
+      "animationName": "SIGN_PAY_TO_PAY_ME_FEMALEASL",
+      "durationMs": 2734,
+      "profile": "balanced-ktx2mixed-meshopt-shared-alphabet-v1",
+      "rigProfile": "FemaleASL-full-rig-341-875-342",
+      "sha256": "645da29f5e8a24dc7da2f4b6e23ca2e87fb91254958f5053ba0281080ec0a524"
+    }
+  ],
+  "idle": {
+    "id": "idle",
+    "sourceId": "IDLE",
+    "type": "pose",
+    "asset": "asl_animations/vnext/shared-alphabet.glb",
+    "profile": "balanced-ktx2mixed-meshopt-shared-alphabet-v1",
+    "sha256": "645da29f5e8a24dc7da2f4b6e23ca2e87fb91254958f5053ba0281080ec0a524",
+    "rigProfile": "FemaleASL-full-rig-341-875-342",
+    "animationName": "IDLE_NEUTRAL_FEMALEASL",
+    "durationMs": 6000,
+    "fallbackAsset": "asl_animations/asl_idle.glb"
+  },
+  "letters": [
+    {
+      "id": "letter_c",
+      "sourceId": "C",
+      "displayText": "C",
+      "type": "letter",
+      "asset": "asl_animations/vnext/shared-alphabet.glb",
+      "animationName": "SIGN_LETTER_C_FEMALEASL",
+      "durationMs": 1400,
+      "profile": "balanced-ktx2mixed-meshopt-shared-alphabet-v1",
+      "rigProfile": "FemaleASL-full-rig-341-875-342",
+      "sha256": "645da29f5e8a24dc7da2f4b6e23ca2e87fb91254958f5053ba0281080ec0a524"
+    },
+    {
+      "id": "letter_d",
+      "sourceId": "D",
+      "displayText": "D",
+      "type": "letter",
+      "asset": "asl_animations/vnext/shared-alphabet.glb",
+      "animationName": "SIGN_LETTER_D_FEMALEASL",
+      "durationMs": 1334,
+      "profile": "balanced-ktx2mixed-meshopt-shared-alphabet-v1",
+      "rigProfile": "FemaleASL-full-rig-341-875-342",
+      "sha256": "645da29f5e8a24dc7da2f4b6e23ca2e87fb91254958f5053ba0281080ec0a524"
+    },
+    {
+      "id": "letter_e",
+      "sourceId": "E",
+      "displayText": "E",
+      "type": "letter",
+      "asset": "asl_animations/vnext/shared-alphabet.glb",
+      "animationName": "SIGN_LETTER_E_FEMALEASL",
+      "durationMs": 1400,
+      "profile": "balanced-ktx2mixed-meshopt-shared-alphabet-v1",
+      "rigProfile": "FemaleASL-full-rig-341-875-342",
+      "sha256": "645da29f5e8a24dc7da2f4b6e23ca2e87fb91254958f5053ba0281080ec0a524"
+    },
+    {
+      "id": "letter_f",
+      "sourceId": "F",
+      "displayText": "F",
+      "type": "letter",
+      "asset": "asl_animations/vnext/shared-alphabet.glb",
+      "animationName": "SIGN_LETTER_F_FEMALEASL",
+      "durationMs": 1367,
+      "profile": "balanced-ktx2mixed-meshopt-shared-alphabet-v1",
+      "rigProfile": "FemaleASL-full-rig-341-875-342",
+      "sha256": "645da29f5e8a24dc7da2f4b6e23ca2e87fb91254958f5053ba0281080ec0a524"
+    },
+    {
+      "id": "letter_g",
+      "sourceId": "G",
+      "displayText": "G",
+      "type": "letter",
+      "asset": "asl_animations/vnext/shared-alphabet.glb",
+      "animationName": "SIGN_LETTER_G_FEMALEASL",
+      "durationMs": 1400,
+      "profile": "balanced-ktx2mixed-meshopt-shared-alphabet-v1",
+      "rigProfile": "FemaleASL-full-rig-341-875-342",
+      "sha256": "645da29f5e8a24dc7da2f4b6e23ca2e87fb91254958f5053ba0281080ec0a524"
+    },
+    {
+      "id": "letter_h",
+      "sourceId": "H",
+      "displayText": "H",
+      "type": "letter",
+      "asset": "asl_animations/vnext/shared-alphabet.glb",
+      "animationName": "SIGN_LETTER_H_FEMALEASL",
+      "durationMs": 1400,
+      "profile": "balanced-ktx2mixed-meshopt-shared-alphabet-v1",
+      "rigProfile": "FemaleASL-full-rig-341-875-342",
+      "sha256": "645da29f5e8a24dc7da2f4b6e23ca2e87fb91254958f5053ba0281080ec0a524"
+    },
+    {
+      "id": "letter_i",
+      "sourceId": "I",
+      "displayText": "I",
+      "type": "letter",
+      "asset": "asl_animations/vnext/shared-alphabet.glb",
+      "animationName": "SIGN_LETTER_I_FEMALEASL",
+      "durationMs": 1367,
+      "profile": "balanced-ktx2mixed-meshopt-shared-alphabet-v1",
+      "rigProfile": "FemaleASL-full-rig-341-875-342",
+      "sha256": "645da29f5e8a24dc7da2f4b6e23ca2e87fb91254958f5053ba0281080ec0a524"
+    },
+    {
+      "id": "letter_j",
+      "sourceId": "J",
+      "displayText": "J",
+      "type": "letter",
+      "asset": "asl_animations/vnext/shared-alphabet.glb",
+      "animationName": "SIGN_LETTER_J_FEMALEASL",
+      "durationMs": 2734,
+      "profile": "balanced-ktx2mixed-meshopt-shared-alphabet-v1",
+      "rigProfile": "FemaleASL-full-rig-341-875-342",
+      "sha256": "645da29f5e8a24dc7da2f4b6e23ca2e87fb91254958f5053ba0281080ec0a524"
+    },
+    {
+      "id": "letter_k",
+      "sourceId": "K",
+      "displayText": "K",
+      "type": "letter",
+      "asset": "asl_animations/vnext/shared-alphabet.glb",
+      "animationName": "SIGN_LETTER_K_FEMALEASL",
+      "durationMs": 1400,
+      "profile": "balanced-ktx2mixed-meshopt-shared-alphabet-v1",
+      "rigProfile": "FemaleASL-full-rig-341-875-342",
+      "sha256": "645da29f5e8a24dc7da2f4b6e23ca2e87fb91254958f5053ba0281080ec0a524"
+    },
+    {
+      "id": "letter_l",
+      "sourceId": "L",
+      "displayText": "L",
+      "type": "letter",
+      "asset": "asl_animations/vnext/shared-alphabet.glb",
+      "animationName": "SIGN_LETTER_L_FEMALEASL",
+      "durationMs": 1334,
+      "profile": "balanced-ktx2mixed-meshopt-shared-alphabet-v1",
+      "rigProfile": "FemaleASL-full-rig-341-875-342",
+      "sha256": "645da29f5e8a24dc7da2f4b6e23ca2e87fb91254958f5053ba0281080ec0a524"
+    },
+    {
+      "id": "letter_m",
+      "sourceId": "M",
+      "displayText": "M",
+      "type": "letter",
+      "asset": "asl_animations/vnext/shared-alphabet.glb",
+      "animationName": "SIGN_LETTER_M_FEMALEASL",
+      "durationMs": 1400,
+      "profile": "balanced-ktx2mixed-meshopt-shared-alphabet-v1",
+      "rigProfile": "FemaleASL-full-rig-341-875-342",
+      "sha256": "645da29f5e8a24dc7da2f4b6e23ca2e87fb91254958f5053ba0281080ec0a524"
+    },
+    {
+      "id": "letter_n",
+      "sourceId": "N",
+      "displayText": "N",
+      "type": "letter",
+      "asset": "asl_animations/vnext/shared-alphabet.glb",
+      "animationName": "SIGN_LETTER_N_FEMALEASL",
+      "durationMs": 1334,
+      "profile": "balanced-ktx2mixed-meshopt-shared-alphabet-v1",
+      "rigProfile": "FemaleASL-full-rig-341-875-342",
+      "sha256": "645da29f5e8a24dc7da2f4b6e23ca2e87fb91254958f5053ba0281080ec0a524"
+    },
+    {
+      "id": "letter_o",
+      "sourceId": "O",
+      "displayText": "O",
+      "type": "letter",
+      "asset": "asl_animations/vnext/shared-alphabet.glb",
+      "animationName": "SIGN_LETTER_O_FEMALEASL",
+      "durationMs": 1400,
+      "profile": "balanced-ktx2mixed-meshopt-shared-alphabet-v1",
+      "rigProfile": "FemaleASL-full-rig-341-875-342",
+      "sha256": "645da29f5e8a24dc7da2f4b6e23ca2e87fb91254958f5053ba0281080ec0a524"
+    },
+    {
+      "id": "letter_p",
+      "sourceId": "P",
+      "displayText": "P",
+      "type": "letter",
+      "asset": "asl_animations/vnext/shared-alphabet.glb",
+      "animationName": "SIGN_LETTER_P_FEMALEASL",
+      "durationMs": 1334,
+      "profile": "balanced-ktx2mixed-meshopt-shared-alphabet-v1",
+      "rigProfile": "FemaleASL-full-rig-341-875-342",
+      "sha256": "645da29f5e8a24dc7da2f4b6e23ca2e87fb91254958f5053ba0281080ec0a524"
+    },
+    {
+      "id": "letter_q",
+      "sourceId": "Q",
+      "displayText": "Q",
+      "type": "letter",
+      "asset": "asl_animations/vnext/shared-alphabet.glb",
+      "animationName": "SIGN_LETTER_Q_FEMALEASL",
+      "durationMs": 1334,
+      "profile": "balanced-ktx2mixed-meshopt-shared-alphabet-v1",
+      "rigProfile": "FemaleASL-full-rig-341-875-342",
+      "sha256": "645da29f5e8a24dc7da2f4b6e23ca2e87fb91254958f5053ba0281080ec0a524"
+    },
+    {
+      "id": "letter_r",
+      "sourceId": "R",
+      "displayText": "R",
+      "type": "letter",
+      "asset": "asl_animations/vnext/shared-alphabet.glb",
+      "animationName": "SIGN_LETTER_R_FEMALEASL",
+      "durationMs": 1334,
+      "profile": "balanced-ktx2mixed-meshopt-shared-alphabet-v1",
+      "rigProfile": "FemaleASL-full-rig-341-875-342",
+      "sha256": "645da29f5e8a24dc7da2f4b6e23ca2e87fb91254958f5053ba0281080ec0a524"
+    },
+    {
+      "id": "letter_s",
+      "sourceId": "S",
+      "displayText": "S",
+      "type": "letter",
+      "asset": "asl_animations/vnext/shared-alphabet.glb",
+      "animationName": "SIGN_LETTER_S_FEMALEASL",
+      "durationMs": 1367,
+      "profile": "balanced-ktx2mixed-meshopt-shared-alphabet-v1",
+      "rigProfile": "FemaleASL-full-rig-341-875-342",
+      "sha256": "645da29f5e8a24dc7da2f4b6e23ca2e87fb91254958f5053ba0281080ec0a524"
+    },
+    {
+      "id": "letter_t",
+      "sourceId": "T",
+      "displayText": "T",
+      "type": "letter",
+      "asset": "asl_animations/vnext/shared-alphabet.glb",
+      "animationName": "SIGN_LETTER_T_FEMALEASL",
+      "durationMs": 1334,
+      "profile": "balanced-ktx2mixed-meshopt-shared-alphabet-v1",
+      "rigProfile": "FemaleASL-full-rig-341-875-342",
+      "sha256": "645da29f5e8a24dc7da2f4b6e23ca2e87fb91254958f5053ba0281080ec0a524"
+    },
+    {
+      "id": "letter_u",
+      "sourceId": "U",
+      "displayText": "U",
+      "type": "letter",
+      "asset": "asl_animations/vnext/shared-alphabet.glb",
+      "animationName": "SIGN_LETTER_U_FEMALEASL",
+      "durationMs": 1367,
+      "profile": "balanced-ktx2mixed-meshopt-shared-alphabet-v1",
+      "rigProfile": "FemaleASL-full-rig-341-875-342",
+      "sha256": "645da29f5e8a24dc7da2f4b6e23ca2e87fb91254958f5053ba0281080ec0a524"
+    },
+    {
+      "id": "letter_v",
+      "sourceId": "V",
+      "displayText": "V",
+      "type": "letter",
+      "asset": "asl_animations/vnext/shared-alphabet.glb",
+      "animationName": "SIGN_LETTER_V_FEMALEASL",
+      "durationMs": 1334,
+      "profile": "balanced-ktx2mixed-meshopt-shared-alphabet-v1",
+      "rigProfile": "FemaleASL-full-rig-341-875-342",
+      "sha256": "645da29f5e8a24dc7da2f4b6e23ca2e87fb91254958f5053ba0281080ec0a524"
+    },
+    {
+      "id": "letter_w",
+      "sourceId": "W",
+      "displayText": "W",
+      "type": "letter",
+      "asset": "asl_animations/vnext/shared-alphabet.glb",
+      "animationName": "SIGN_LETTER_W_FEMALEASL",
+      "durationMs": 1400,
+      "profile": "balanced-ktx2mixed-meshopt-shared-alphabet-v1",
+      "rigProfile": "FemaleASL-full-rig-341-875-342",
+      "sha256": "645da29f5e8a24dc7da2f4b6e23ca2e87fb91254958f5053ba0281080ec0a524"
+    },
+    {
+      "id": "letter_x",
+      "sourceId": "X",
+      "displayText": "X",
+      "type": "letter",
+      "asset": "asl_animations/vnext/shared-alphabet.glb",
+      "animationName": "SIGN_LETTER_X_FEMALEASL",
+      "durationMs": 1400,
+      "profile": "balanced-ktx2mixed-meshopt-shared-alphabet-v1",
+      "rigProfile": "FemaleASL-full-rig-341-875-342",
+      "sha256": "645da29f5e8a24dc7da2f4b6e23ca2e87fb91254958f5053ba0281080ec0a524"
+    },
+    {
+      "id": "letter_y",
+      "sourceId": "Y",
+      "displayText": "Y",
+      "type": "letter",
+      "asset": "asl_animations/vnext/shared-alphabet.glb",
+      "animationName": "SIGN_LETTER_Y_FEMALEASL",
+      "durationMs": 1367,
+      "profile": "balanced-ktx2mixed-meshopt-shared-alphabet-v1",
+      "rigProfile": "FemaleASL-full-rig-341-875-342",
+      "sha256": "645da29f5e8a24dc7da2f4b6e23ca2e87fb91254958f5053ba0281080ec0a524"
+    },
+    {
+      "id": "letter_z",
+      "sourceId": "Z",
+      "displayText": "Z",
+      "type": "letter",
+      "asset": "asl_animations/vnext/shared-alphabet.glb",
+      "animationName": "SIGN_LETTER_Z_FEMALEASL",
+      "durationMs": 2834,
+      "profile": "balanced-ktx2mixed-meshopt-shared-alphabet-v1",
+      "rigProfile": "FemaleASL-full-rig-341-875-342",
+      "sha256": "645da29f5e8a24dc7da2f4b6e23ca2e87fb91254958f5053ba0281080ec0a524"
+    }
+  ]
+}

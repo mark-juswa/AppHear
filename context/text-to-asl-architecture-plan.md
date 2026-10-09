@@ -430,3 +430,45 @@ Phase T2/T3 implementation after gates:
   unchanged. This rollout does not alter the recognition vocabulary or S0-S8 runtime.
 - Remaining gate: physical-device playback smoke for representative short/long phrases and
   navigation away/back through the WebView lifecycle.
+
+## 2026-09-28 flagged character replacement pilot
+
+Current debug-only `aslAssetPilot=true` scope replaces A, B, ALL, BROTHER, CHILD, CITY and FAMILY
+with optimized GLBs and local decoders. It defaults OFF; release/default exclude pilot payload.
+Original manifest/aliases and all 102 GLBs remain intact for fallback. Runtime metadata hash
+validation is on an IO dispatcher; the pilot player uses bounded active/next residency, one-shot
+signs, cancellation and load-error fallback. New vocabulary/semantic near-matches are not included.
+See `docs/text-to-asl-app-pilot-expanded-2026-09-28.md`. Actual WebView/device rendering and
+performance are explicitly deferred by the user.
+
+
+### Shared character experiment (2026-09-28, user approved)
+
+See docs/text-to-asl-shared-character-plan-2026-09-28.md and results report. Seven exact
+replacement IDs now have an optional one-GLB/named-animation derivative behind a second
+default-off debug flag. Separate phone-tested pilot and all102 originals remain rollback.
+No external animation loader or feature rewrite; raw channels and resources preserved.
+Physical user feedback favors shared smoothness/controls, with slower initial load retained
+as a measured tradeoff. Broader performance/semantic/F22 gates remain pending.
+
+### Twenty-word expansion (2026-09-28, user approved)
+
+The separate `aslMoreWords` debug flag selects a 27-clip shared GLB and schema-2 manifest:
+the seven tested replacements plus 20 new Text-to-ASL entries. Four use explicit meaning
+phrases rather than broad word aliases. Original catalog, seven-clip rollback, player,
+recognition and release/default behavior are preserved. The builder and runtime loader verify
+the approved source/alias mapping and bundle identity; new entries have no original GLB
+fallback, so load failure is surfaced and playback advances. Offline and APK validation passed;
+phone rendering, first load, memory, frame pacing and semantic review are deferred at the
+user's request. See docs/text-to-asl-more-words-plan-2026-09-28.md and results report.
+
+### New-character idle follow-up (2026-09-28, approved)
+
+Separate default-off aslNewIdle debug property selects a 28-animation derivative of
+shared-words: 27 exact signs plus IDLE_NEUTRAL_FEMALEASL. Existing idle POSE metadata is
+overridden for New only, retaining the Original fallback and unchanged catalog counts.
+Initial/completion/Clear/resume use existing Fragment/controller hooks and named-clip
+looping; no UI/queue rewrite. Full neutral TRS resets prevent residual finger/face/hair
+poses. Missing/malformed override falls back. Warm idle/sign changes reuse one model;
+initial cold shared loading moves to New idle. See docs/text-to-asl-new-idle-plan-2026-09-28.md
+and results. Original/prior bundles remain rollback; no recognition contract change.

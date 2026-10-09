@@ -1,0 +1,14 @@
+{
+  "snapshot_entries": 1770,
+  "unchanged_snapshot_entries": 1767,
+  "append_only_original_prefix_preserved": {
+    "context/feature-schema.md": true,
+    "context/progress-tracker.md": true,
+    "memory.md": true
+  },
+  "protected_files_checked": 883,
+  "protected_mismatches": [],
+  "original_12_feature_arrays_and_receipts_unchanged": true,
+  "frozen_contract_and_tranche_unchanged": true,
+  "no_reset_merge_branch_switch_or_discard": true
+}

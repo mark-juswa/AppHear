@@ -1,0 +1,24 @@
+{
+  "protocol_version": "apphear.negative_gold.item_level_audit.v1",
+  "confirmation_run": "artifacts/recognition_upgrade/perception_backend_replacement/negative_gold_external_confirmation_01",
+  "seed_manifest": "artifacts/recognition_upgrade/perception_backend_replacement/negative_gold_v1_topup_01/NEGATIVE_GOLD_V1_SEED_MANIFEST.csv",
+  "output_run": "artifacts/recognition_upgrade/perception_backend_replacement/negative_gold_item_level_audit_01",
+  "eligible_pool_count": 158,
+  "initial_audit_count": 40,
+  "random_seed": 20260822,
+  "presentation_seed": 20260823,
+  "dhash_hamming_max": 4,
+  "semantic_classes": [
+    "NO_HUMAN_HAND_VISIBLE",
+    "HUMAN_HAND_VISIBLE",
+    "UNCERTAIN"
+  ],
+  "review_question": "Is an actual human hand visible anywhere in this image?",
+  "expected_hashes": {
+    "finalization/dual_pass_comparison.csv": "5cec6cbff0a06550cd78213c3dcf7d43157d0b3acb2586a53882e74581130556",
+    "finalization/hidden_repeat_qc.csv": "311fb2d2836420940edaf4f6c204549ff77edb457c03e4ec5b0f4f9cc70c062d",
+    "finalization/negative_gold_external_confirmation_result.json": "92726fae479a40cb105828f27b617cdce08c6b47fc963c441cdbc345e3fafd50",
+    "OPEN_IMAGES_SOURCE_LICENSE_MANIFEST.csv": "80aee65f5444a2bc2b798279fd976579e86771b5970250fe77244da331e80165",
+    "NEGATIVE_GOLD_V1_SEED_MANIFEST.csv": "b6b6b95ee6f1c500f6038776cb46dc4d6b53694dd3197ffa9e5282bec3ba851c"
+  }
+}

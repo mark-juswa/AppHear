@@ -1,0 +1,1600 @@
+[
+  {
+    "source": "runs/fingerspelling_sequence_v2_01/epochs/epoch_001.json",
+    "source_sha256": "14f61c3bd1931b0a155a163e6487e6945160dbefec2d2e7a194a065cff671e05",
+    "metrics": {
+      "epoch": 1,
+      "train_mean_ctc": 77.33692742139101,
+      "combined_raw_greedy_selection_cer": 0.944605148973098,
+      "evaluation_cohort": "DEV_A",
+      "requested_regimes": {
+        "native": 1039,
+        "phone": 1010,
+        "phone_robust": 1022,
+        "intermediate": 1025
+      },
+      "actual_regimes": {
+        "native": 1047,
+        "phone": 989,
+        "phone_robust": 1005,
+        "intermediate": 1038,
+        "native_robust": 5,
+        "intermediate_robust": 12
+      },
+      "all_training_sources_retained": true,
+      "cache_bytes_features_only": 1932970428,
+      "train_seconds": 241.39729009999792,
+      "evaluation_seconds": {
+        "native": 32.33563079999658,
+        "phone": 6.406101600001421
+      },
+      "dev_b_inference": false,
+      "test_accessed": false,
+      "smoke_only": false
+    }
+  },
+  {
+    "source": "runs/fingerspelling_sequence_v2_01/epochs/epoch_002.json",
+    "source_sha256": "01648ef53a099e9d5796315eecee676bdbdd960ab2303423bd15f2641f05fd67",
+    "metrics": {
+      "epoch": 2,
+      "train_mean_ctc": 51.41383554041386,
+      "combined_raw_greedy_selection_cer": 0.7755279143766272,
+      "evaluation_cohort": "DEV_A",
+      "requested_regimes": {
+        "intermediate": 1039,
+        "phone_robust": 1010,
+        "phone": 1025,
+        "native": 1022
+      },
+      "actual_regimes": {
+        "intermediate": 1045,
+        "phone_robust": 989,
+        "phone": 1012,
+        "native": 1029,
+        "intermediate_robust": 17,
+        "native_robust": 4
+      },
+      "all_training_sources_retained": true,
+      "cache_bytes_features_only": 1932970428,
+      "train_seconds": 106.25658470000053,
+      "evaluation_seconds": {
+        "native": 29.5271694999974,
+        "phone": 6.391282599997794
+      },
+      "dev_b_inference": false,
+      "test_accessed": false,
+      "smoke_only": false
+    }
+  },
+  {
+    "source": "runs/fingerspelling_sequence_v2_01/epochs/epoch_003.json",
+    "source_sha256": "f5529b9d44bcd8ebd7b4623778e57f002a216ad8209b4abb7a13f4936c208720",
+    "metrics": {
+      "epoch": 3,
+      "train_mean_ctc": 45.049926694482565,
+      "combined_raw_greedy_selection_cer": 0.739224761353775,
+      "evaluation_cohort": "DEV_A",
+      "requested_regimes": {
+        "phone_robust": 1025,
+        "intermediate": 1022,
+        "native": 1010,
+        "phone": 1039
+      },
+      "actual_regimes": {
+        "phone_robust": 1012,
+        "intermediate": 1031,
+        "native": 1018,
+        "phone": 1022,
+        "native_robust": 4,
+        "intermediate_robust": 9
+      },
+      "all_training_sources_retained": true,
+      "cache_bytes_features_only": 1932970428,
+      "train_seconds": 108.67564589999893,
+      "evaluation_seconds": {
+        "native": 28.166120600002614,
+        "phone": 6.109756699999707
+      },
+      "dev_b_inference": false,
+      "test_accessed": false,
+      "smoke_only": false
+    }
+  },
+  {
+    "source": "runs/fingerspelling_sequence_v2_01/epochs/epoch_004.json",
+    "source_sha256": "b30ec8cac4810f7dd2552f4d565426b91063149d99120a41acea33c4155b9ede",
+    "metrics": {
+      "epoch": 4,
+      "train_mean_ctc": 42.382425386458635,
+      "combined_raw_greedy_selection_cer": 0.7567254845241539,
+      "evaluation_cohort": "DEV_A",
+      "requested_regimes": {
+        "phone": 1022,
+        "native": 1025,
+        "intermediate": 1010,
+        "phone_robust": 1039
+      },
+      "actual_regimes": {
+        "phone": 1005,
+        "native": 1034,
+        "intermediate": 1018,
+        "phone_robust": 1022,
+        "intermediate_robust": 14,
+        "native_robust": 3
+      },
+      "all_training_sources_retained": true,
+      "cache_bytes_features_only": 1932970428,
+      "train_seconds": 104.12660060000053,
+      "evaluation_seconds": {
+        "native": 28.40761669999847,
+        "phone": 6.33343479999894
+      },
+      "dev_b_inference": false,
+      "test_accessed": false,
+      "smoke_only": false
+    }
+  },
+  {
+    "source": "runs/fingerspelling_sequence_v2_01/epochs/epoch_005.json",
+    "source_sha256": "c7a8437ef924b464ed6e9f25895a317c028be4382e848ad1ff8a09807a8126a1",
+    "metrics": {
+      "epoch": 5,
+      "train_mean_ctc": 40.847506292164326,
+      "combined_raw_greedy_selection_cer": 0.6567833381544692,
+      "evaluation_cohort": "DEV_A",
+      "requested_regimes": {
+        "phone_robust": 1022,
+        "intermediate": 1025,
+        "native": 1039,
+        "phone": 1010
+      },
+      "actual_regimes": {
+        "phone_robust": 1005,
+        "intermediate": 1038,
+        "native": 1047,
+        "phone": 989,
+        "intermediate_robust": 12,
+        "native_robust": 5
+      },
+      "all_training_sources_retained": true,
+      "cache_bytes_features_only": 1932970428,
+      "train_seconds": 101.98578900000211,
+      "evaluation_seconds": {
+        "native": 28.382544000000053,
+        "phone": 6.105768599998555
+      },
+      "dev_b_inference": false,
+      "test_accessed": false,
+      "smoke_only": false
+    }
+  },
+  {
+    "source": "runs/fingerspelling_sequence_v2_01/epochs/epoch_006.json",
+    "source_sha256": "d0ab63259474e5dabf02a9e26d084afecad4a09d181e70b93dba8916f1095237",
+    "metrics": {
+      "epoch": 6,
+      "train_mean_ctc": 39.64055537432432,
+      "combined_raw_greedy_selection_cer": 0.6259762800115707,
+      "evaluation_cohort": "DEV_A",
+      "requested_regimes": {
+        "phone": 1025,
+        "native": 1022,
+        "phone_robust": 1010,
+        "intermediate": 1039
+      },
+      "actual_regimes": {
+        "phone": 1012,
+        "native": 1029,
+        "phone_robust": 989,
+        "intermediate": 1045,
+        "intermediate_robust": 17,
+        "native_robust": 4
+      },
+      "all_training_sources_retained": true,
+      "cache_bytes_features_only": 1932970428,
+      "train_seconds": 95.04801100000259,
+      "evaluation_seconds": {
+        "native": 28.1814329000008,
+        "phone": 6.480478299999959
+      },
+      "dev_b_inference": false,
+      "test_accessed": false,
+      "smoke_only": false
+    }
+  },
+  {
+    "source": "runs/fingerspelling_sequence_v2_01/epochs/epoch_007.json",
+    "source_sha256": "f839c115de0eaaa6abc406225dce8bda2c593eb512031c1deee92277a82e0117",
+    "metrics": {
+      "epoch": 7,
+      "train_mean_ctc": 38.31855499371886,
+      "combined_raw_greedy_selection_cer": 0.6314723748915244,
+      "evaluation_cohort": "DEV_A",
+      "requested_regimes": {
+        "phone_robust": 1025,
+        "native": 1010,
+        "phone": 1039,
+        "intermediate": 1022
+      },
+      "actual_regimes": {
+        "phone_robust": 1012,
+        "native": 1018,
+        "phone": 1022,
+        "intermediate": 1031,
+        "intermediate_robust": 9,
+        "native_robust": 4
+      },
+      "all_training_sources_retained": true,
+      "cache_bytes_features_only": 1932970428,
+      "train_seconds": 99.16623080000136,
+      "evaluation_seconds": {
+        "native": 28.47754619999978,
+        "phone": 6.140371500001493
+      },
+      "dev_b_inference": false,
+      "test_accessed": false,
+      "smoke_only": false
+    }
+  },
+  {
+    "source": "runs/fingerspelling_sequence_v2_01/epochs/epoch_008.json",
+    "source_sha256": "1ed906a31876497955a70115cfb0270bbd95b0604ee4a2db0d4b445ecca0f14e",
+    "metrics": {
+      "epoch": 8,
+      "train_mean_ctc": 37.622092232108116,
+      "combined_raw_greedy_selection_cer": 0.593867515186578,
+      "evaluation_cohort": "DEV_A",
+      "requested_regimes": {
+        "phone_robust": 1039,
+        "intermediate": 1010,
+        "native": 1025,
+        "phone": 1022
+      },
+      "actual_regimes": {
+        "phone_robust": 1022,
+        "intermediate": 1018,
+        "native": 1034,
+        "phone": 1005,
+        "intermediate_robust": 14,
+        "native_robust": 3
+      },
+      "all_training_sources_retained": true,
+      "cache_bytes_features_only": 1932970428,
+      "train_seconds": 98.8510090000018,
+      "evaluation_seconds": {
+        "native": 28.098484199999803,
+        "phone": 6.255856299998413
+      },
+      "dev_b_inference": false,
+      "test_accessed": false,
+      "smoke_only": false
+    }
+  },
+  {
+    "source": "runs/fingerspelling_sequence_v2_01/epochs/epoch_009.json",
+    "source_sha256": "1672960e801c3079f6278e6bc308a775422056acbc8137c71e230ae6ecb317fc",
+    "metrics": {
+      "epoch": 9,
+      "train_mean_ctc": 37.10575968399644,
+      "combined_raw_greedy_selection_cer": 0.6028348278854498,
+      "evaluation_cohort": "DEV_A",
+      "requested_regimes": {
+        "phone": 1010,
+        "native": 1039,
+        "intermediate": 1025,
+        "phone_robust": 1022
+      },
+      "actual_regimes": {
+        "phone": 989,
+        "native": 1047,
+        "intermediate": 1038,
+        "phone_robust": 1005,
+        "intermediate_robust": 12,
+        "native_robust": 5
+      },
+      "all_training_sources_retained": true,
+      "cache_bytes_features_only": 1932970428,
+      "train_seconds": 99.22817880000002,
+      "evaluation_seconds": {
+        "native": 29.652394699998695,
+        "phone": 6.223663700002362
+      },
+      "dev_b_inference": false,
+      "test_accessed": false,
+      "smoke_only": false
+    }
+  },
+  {
+    "source": "runs/fingerspelling_sequence_v2_01/epochs/epoch_010.json",
+    "source_sha256": "00bd3119d76ef9814121ee34489ebee03ab06c994a18b41742e37ac5317df60b",
+    "metrics": {
+      "epoch": 10,
+      "train_mean_ctc": 36.43314852192998,
+      "combined_raw_greedy_selection_cer": 0.5948799537170958,
+      "evaluation_cohort": "DEV_A",
+      "requested_regimes": {
+        "native": 1022,
+        "phone": 1025,
+        "phone_robust": 1010,
+        "intermediate": 1039
+      },
+      "actual_regimes": {
+        "native": 1029,
+        "phone": 1012,
+        "phone_robust": 989,
+        "intermediate": 1045,
+        "intermediate_robust": 17,
+        "native_robust": 4
+      },
+      "all_training_sources_retained": true,
+      "cache_bytes_features_only": 1932970428,
+      "train_seconds": 95.20960639999976,
+      "evaluation_seconds": {
+        "native": 28.60383659999934,
+        "phone": 6.507533100000728
+      },
+      "dev_b_inference": false,
+      "test_accessed": false,
+      "smoke_only": false
+    }
+  },
+  {
+    "source": "runs/fingerspelling_sequence_v2_01/epochs/epoch_011.json",
+    "source_sha256": "5a64a6346b7ffc08075bf0c683b214853bd2455c8b6eba8428b28a036496a01a",
+    "metrics": {
+      "epoch": 11,
+      "train_mean_ctc": 35.86409055814147,
+      "combined_raw_greedy_selection_cer": 0.5671102111657507,
+      "evaluation_cohort": "DEV_A",
+      "requested_regimes": {
+        "intermediate": 1022,
+        "phone": 1039,
+        "native": 1010,
+        "phone_robust": 1025
+      },
+      "actual_regimes": {
+        "intermediate": 1031,
+        "phone": 1022,
+        "native": 1018,
+        "phone_robust": 1012,
+        "intermediate_robust": 9,
+        "native_robust": 4
+      },
+      "all_training_sources_retained": true,
+      "cache_bytes_features_only": 1932970428,
+      "train_seconds": 100.36713889999737,
+      "evaluation_seconds": {
+        "native": 29.259986600001866,
+        "phone": 6.399443900001643
+      },
+      "dev_b_inference": false,
+      "test_accessed": false,
+      "smoke_only": false
+    }
+  },
+  {
+    "source": "runs/fingerspelling_sequence_v2_01/epochs/epoch_012.json",
+    "source_sha256": "c819e55eb8352902f9cc6eef7d6d8ce62d020cae4a9fa747094ac9cf809ec4c6",
+    "metrics": {
+      "epoch": 12,
+      "train_mean_ctc": 35.34883774071932,
+      "combined_raw_greedy_selection_cer": 0.6016777552791437,
+      "evaluation_cohort": "DEV_A",
+      "requested_regimes": {
+        "phone_robust": 1039,
+        "phone": 1022,
+        "intermediate": 1010,
+        "native": 1025
+      },
+      "actual_regimes": {
+        "phone_robust": 1022,
+        "phone": 1005,
+        "intermediate": 1018,
+        "native": 1034,
+        "native_robust": 3,
+        "intermediate_robust": 14
+      },
+      "all_training_sources_retained": true,
+      "cache_bytes_features_only": 1932970428,
+      "train_seconds": 101.3466757999995,
+      "evaluation_seconds": {
+        "native": 28.93543259999933,
+        "phone": 6.132592999998451
+      },
+      "dev_b_inference": false,
+      "test_accessed": false,
+      "smoke_only": false
+    }
+  },
+  {
+    "source": "runs/fingerspelling_sequence_v2_01/epochs/epoch_013.json",
+    "source_sha256": "5cc2fdcf65ca7f9f58336154115640ab76dd473b1fa5cd972cec0f2de6554381",
+    "metrics": {
+      "epoch": 13,
+      "train_mean_ctc": 35.02183461561799,
+      "combined_raw_greedy_selection_cer": 0.5562626554816315,
+      "evaluation_cohort": "DEV_A",
+      "requested_regimes": {
+        "phone_robust": 1022,
+        "phone": 1010,
+        "intermediate": 1025,
+        "native": 1039
+      },
+      "actual_regimes": {
+        "phone_robust": 1005,
+        "phone": 989,
+        "intermediate": 1038,
+        "native": 1047,
+        "intermediate_robust": 12,
+        "native_robust": 5
+      },
+      "all_training_sources_retained": true,
+      "cache_bytes_features_only": 1932970428,
+      "train_seconds": 100.31113349999941,
+      "evaluation_seconds": {
+        "native": 28.96189680000316,
+        "phone": 6.295689099999436
+      },
+      "dev_b_inference": false,
+      "test_accessed": false,
+      "smoke_only": false
+    }
+  },
+  {
+    "source": "runs/fingerspelling_sequence_v2_01/epochs/epoch_014.json",
+    "source_sha256": "ef7544dc70907637ae02fe13e731f621ba7f2b46ce9c6953b1121d49f771a946",
+    "metrics": {
+      "epoch": 14,
+      "train_mean_ctc": 34.69157147780061,
+      "combined_raw_greedy_selection_cer": 0.5325426670523575,
+      "evaluation_cohort": "DEV_A",
+      "requested_regimes": {
+        "phone": 1025,
+        "intermediate": 1039,
+        "native": 1022,
+        "phone_robust": 1010
+      },
+      "actual_regimes": {
+        "phone": 1012,
+        "intermediate": 1045,
+        "native": 1029,
+        "native_robust": 4,
+        "phone_robust": 989,
+        "intermediate_robust": 17
+      },
+      "all_training_sources_retained": true,
+      "cache_bytes_features_only": 1932970428,
+      "train_seconds": 97.56076620000022,
+      "evaluation_seconds": {
+        "native": 28.760680700001103,
+        "phone": 6.291911300002539
+      },
+      "dev_b_inference": false,
+      "test_accessed": false,
+      "smoke_only": false
+    }
+  },
+  {
+    "source": "runs/fingerspelling_sequence_v2_01/epochs/epoch_015.json",
+    "source_sha256": "64684a2d49ec97d9b763d4023a94447dcedd8bdccdd5d3bd056f9c62d305f8f0",
+    "metrics": {
+      "epoch": 15,
+      "train_mean_ctc": 34.15288772433996,
+      "combined_raw_greedy_selection_cer": 0.5138848712756725,
+      "evaluation_cohort": "DEV_A",
+      "requested_regimes": {
+        "phone_robust": 1025,
+        "native": 1010,
+        "intermediate": 1022,
+        "phone": 1039
+      },
+      "actual_regimes": {
+        "phone_robust": 1012,
+        "native": 1018,
+        "intermediate": 1031,
+        "phone": 1022,
+        "native_robust": 4,
+        "intermediate_robust": 9
+      },
+      "all_training_sources_retained": true,
+      "cache_bytes_features_only": 1932970428,
+      "train_seconds": 101.45049999999901,
+      "evaluation_seconds": {
+        "native": 30.361491200001183,
+        "phone": 6.670532099997217
+      },
+      "dev_b_inference": false,
+      "test_accessed": false,
+      "smoke_only": false
+    }
+  },
+  {
+    "source": "runs/fingerspelling_sequence_v2_01/epochs/epoch_016.json",
+    "source_sha256": "3259c798604a3a5dffc77d13bf3a151115ab0fa03d5d45df08b75148ea634ed4",
+    "metrics": {
+      "epoch": 16,
+      "train_mean_ctc": 33.91867559030652,
+      "combined_raw_greedy_selection_cer": 0.5099797512293897,
+      "evaluation_cohort": "DEV_A",
+      "requested_regimes": {
+        "phone": 1022,
+        "native": 1025,
+        "intermediate": 1010,
+        "phone_robust": 1039
+      },
+      "actual_regimes": {
+        "phone": 1005,
+        "native": 1034,
+        "intermediate": 1018,
+        "phone_robust": 1022,
+        "intermediate_robust": 14,
+        "native_robust": 3
+      },
+      "all_training_sources_retained": true,
+      "cache_bytes_features_only": 1932970428,
+      "train_seconds": 102.69811210000262,
+      "evaluation_seconds": {
+        "native": 29.3495683000001,
+        "phone": 6.403325100000075
+      },
+      "dev_b_inference": false,
+      "test_accessed": false,
+      "smoke_only": false
+    }
+  },
+  {
+    "source": "runs/fingerspelling_sequence_v2_01/epochs/epoch_017.json",
+    "source_sha256": "9d6f9e186aa5e7953f1183ac7515e324c82cb92baf26d2dd2d0d0c5414177b77",
+    "metrics": {
+      "epoch": 17,
+      "train_mean_ctc": 33.7199607565999,
+      "combined_raw_greedy_selection_cer": 0.544113393115418,
+      "evaluation_cohort": "DEV_A",
+      "requested_regimes": {
+        "native": 1039,
+        "phone": 1010,
+        "phone_robust": 1022,
+        "intermediate": 1025
+      },
+      "actual_regimes": {
+        "native": 1047,
+        "phone": 989,
+        "phone_robust": 1005,
+        "intermediate": 1038,
+        "intermediate_robust": 12,
+        "native_robust": 5
+      },
+      "all_training_sources_retained": true,
+      "cache_bytes_features_only": 1932970428,
+      "train_seconds": 102.68540900000153,
+      "evaluation_seconds": {
+        "native": 30.609201100000064,
+        "phone": 6.639289800001279
+      },
+      "dev_b_inference": false,
+      "test_accessed": false,
+      "smoke_only": false
+    }
+  },
+  {
+    "source": "runs/fingerspelling_sequence_v2_01/epochs/epoch_018.json",
+    "source_sha256": "a22a68b9bfd05d23db997d638f9f23e084535fde557b6ea8e85c3b8a27206716",
+    "metrics": {
+      "epoch": 18,
+      "train_mean_ctc": 33.41319954767823,
+      "combined_raw_greedy_selection_cer": 0.5412207115996529,
+      "evaluation_cohort": "DEV_A",
+      "requested_regimes": {
+        "phone_robust": 1010,
+        "phone": 1025,
+        "native": 1022,
+        "intermediate": 1039
+      },
+      "actual_regimes": {
+        "phone_robust": 989,
+        "phone": 1012,
+        "native": 1029,
+        "intermediate": 1045,
+        "intermediate_robust": 17,
+        "native_robust": 4
+      },
+      "all_training_sources_retained": true,
+      "cache_bytes_features_only": 1932970428,
+      "train_seconds": 96.95731650000016,
+      "evaluation_seconds": {
+        "native": 30.781434600001376,
+        "phone": 6.582382800002961
+      },
+      "dev_b_inference": false,
+      "test_accessed": false,
+      "smoke_only": false
+    }
+  },
+  {
+    "source": "runs/fingerspelling_sequence_v2_01/epochs/epoch_019.json",
+    "source_sha256": "9c7fcbf8d38b4bbf6ff6952ecbb962e7cbdd491fd91c211999f582025278dd1c",
+    "metrics": {
+      "epoch": 19,
+      "train_mean_ctc": 33.02968912944198,
+      "combined_raw_greedy_selection_cer": 0.5393404686144055,
+      "evaluation_cohort": "DEV_A",
+      "requested_regimes": {
+        "phone_robust": 1025,
+        "intermediate": 1022,
+        "native": 1010,
+        "phone": 1039
+      },
+      "actual_regimes": {
+        "phone_robust": 1012,
+        "intermediate": 1031,
+        "native": 1018,
+        "phone": 1022,
+        "intermediate_robust": 9,
+        "native_robust": 4
+      },
+      "all_training_sources_retained": true,
+      "cache_bytes_features_only": 1932970428,
+      "train_seconds": 100.13954639999793,
+      "evaluation_seconds": {
+        "native": 30.263952600002085,
+        "phone": 6.538763699998526
+      },
+      "dev_b_inference": false,
+      "test_accessed": false,
+      "smoke_only": false
+    }
+  },
+  {
+    "source": "runs/fingerspelling_sequence_v2_01/epochs/epoch_020.json",
+    "source_sha256": "f61284099b032ce4a5bfd754cdeb09acd8df155cbaa16bcbd20b86d9839eaf4e",
+    "metrics": {
+      "epoch": 20,
+      "train_mean_ctc": 32.902739722281694,
+      "combined_raw_greedy_selection_cer": 0.5133063349725195,
+      "evaluation_cohort": "DEV_A",
+      "requested_regimes": {
+        "phone_robust": 1039,
+        "intermediate": 1010,
+        "native": 1025,
+        "phone": 1022
+      },
+      "actual_regimes": {
+        "phone_robust": 1022,
+        "intermediate": 1018,
+        "native": 1034,
+        "phone": 1005,
+        "intermediate_robust": 14,
+        "native_robust": 3
+      },
+      "all_training_sources_retained": true,
+      "cache_bytes_features_only": 1932970428,
+      "train_seconds": 102.48024349999832,
+      "evaluation_seconds": {
+        "native": 29.0299629000001,
+        "phone": 6.297302499999205
+      },
+      "dev_b_inference": false,
+      "test_accessed": false,
+      "smoke_only": false
+    }
+  },
+  {
+    "source": "runs/fingerspelling_sequence_v2_01/epochs/epoch_021.json",
+    "source_sha256": "eff936aa47ca55c1b50316266b44f49b791aaa5a2c114a868affe2666af9ce55",
+    "metrics": {
+      "epoch": 21,
+      "train_mean_ctc": 32.74566233716905,
+      "combined_raw_greedy_selection_cer": 0.5318194966734162,
+      "evaluation_cohort": "DEV_A",
+      "requested_regimes": {
+        "intermediate": 1025,
+        "native": 1039,
+        "phone": 1010,
+        "phone_robust": 1022
+      },
+      "actual_regimes": {
+        "intermediate": 1038,
+        "native": 1047,
+        "phone": 989,
+        "phone_robust": 1005,
+        "intermediate_robust": 12,
+        "native_robust": 5
+      },
+      "all_training_sources_retained": true,
+      "cache_bytes_features_only": 1932970428,
+      "train_seconds": 103.29017509999903,
+      "evaluation_seconds": {
+        "native": 31.001821700003347,
+        "phone": 6.48440760000085
+      },
+      "dev_b_inference": false,
+      "test_accessed": false,
+      "smoke_only": false
+    }
+  },
+  {
+    "source": "runs/fingerspelling_sequence_v2_01/epochs/epoch_022.json",
+    "source_sha256": "db588cab59f78e9d00dff0e7920d16b0d0aab970d72fbc5cbac874d99df0a738",
+    "metrics": {
+      "epoch": 22,
+      "train_mean_ctc": 32.450460001826286,
+      "combined_raw_greedy_selection_cer": 0.49580561180214056,
+      "evaluation_cohort": "DEV_A",
+      "requested_regimes": {
+        "phone_robust": 1010,
+        "phone": 1025,
+        "intermediate": 1039,
+        "native": 1022
+      },
+      "actual_regimes": {
+        "phone_robust": 989,
+        "phone": 1012,
+        "intermediate": 1045,
+        "native": 1029,
+        "intermediate_robust": 17,
+        "native_robust": 4
+      },
+      "all_training_sources_retained": true,
+      "cache_bytes_features_only": 1932970428,
+      "train_seconds": 97.83241009999983,
+      "evaluation_seconds": {
+        "native": 28.662081200000102,
+        "phone": 6.389009300000907
+      },
+      "dev_b_inference": false,
+      "test_accessed": false,
+      "smoke_only": false
+    }
+  },
+  {
+    "source": "runs/fingerspelling_sequence_v2_01/epochs/epoch_023.json",
+    "source_sha256": "a0db77ae9ee85fb94ea27e1ec1ae01ae6badd200052508de708dae3f1e22b2e5",
+    "metrics": {
+      "epoch": 23,
+      "train_mean_ctc": 32.17086976580322,
+      "combined_raw_greedy_selection_cer": 0.49710731848423495,
+      "evaluation_cohort": "DEV_A",
+      "requested_regimes": {
+        "native": 1010,
+        "phone_robust": 1025,
+        "intermediate": 1022,
+        "phone": 1039
+      },
+      "actual_regimes": {
+        "native": 1018,
+        "phone_robust": 1012,
+        "intermediate": 1031,
+        "phone": 1022,
+        "intermediate_robust": 9,
+        "native_robust": 4
+      },
+      "all_training_sources_retained": true,
+      "cache_bytes_features_only": 1932970428,
+      "train_seconds": 101.06214689999979,
+      "evaluation_seconds": {
+        "native": 29.813272100000177,
+        "phone": 6.495011299997714
+      },
+      "dev_b_inference": false,
+      "test_accessed": false,
+      "smoke_only": false
+    }
+  },
+  {
+    "source": "runs/fingerspelling_sequence_v2_01/epochs/epoch_024.json",
+    "source_sha256": "7539c36a6cc2ce16ef42278ab8c1a7693ac4778366be5807e4be7a9f46caead3",
+    "metrics": {
+      "epoch": 24,
+      "train_mean_ctc": 32.08191719651222,
+      "combined_raw_greedy_selection_cer": 0.5406421752964998,
+      "evaluation_cohort": "DEV_A",
+      "requested_regimes": {
+        "native": 1025,
+        "phone_robust": 1039,
+        "intermediate": 1010,
+        "phone": 1022
+      },
+      "actual_regimes": {
+        "native": 1034,
+        "phone_robust": 1022,
+        "intermediate": 1018,
+        "phone": 1005,
+        "intermediate_robust": 14,
+        "native_robust": 3
+      },
+      "all_training_sources_retained": true,
+      "cache_bytes_features_only": 1932970428,
+      "train_seconds": 103.9671636000021,
+      "evaluation_seconds": {
+        "native": 29.30089759999828,
+        "phone": 6.693967499999417
+      },
+      "dev_b_inference": false,
+      "test_accessed": false,
+      "smoke_only": false
+    }
+  },
+  {
+    "source": "runs/fingerspelling_sequence_v2_01/epochs/epoch_025.json",
+    "source_sha256": "642d81ffccb0e2fcc44450386d16d7814e9b350e54b34e6fa8eb907c01769cac",
+    "metrics": {
+      "epoch": 25,
+      "train_mean_ctc": 31.935400281101465,
+      "combined_raw_greedy_selection_cer": 0.5127277986693666,
+      "evaluation_cohort": "DEV_A",
+      "requested_regimes": {
+        "phone_robust": 1022,
+        "native": 1039,
+        "phone": 1010,
+        "intermediate": 1025
+      },
+      "actual_regimes": {
+        "phone_robust": 1005,
+        "native": 1047,
+        "phone": 989,
+        "intermediate": 1038,
+        "intermediate_robust": 12,
+        "native_robust": 5
+      },
+      "all_training_sources_retained": true,
+      "cache_bytes_features_only": 1932970428,
+      "train_seconds": 103.95831290000206,
+      "evaluation_seconds": {
+        "native": 29.80313380000007,
+        "phone": 6.5780882999970345
+      },
+      "dev_b_inference": false,
+      "test_accessed": false,
+      "smoke_only": false
+    }
+  },
+  {
+    "source": "runs/fingerspelling_sequence_v2_01/epochs/epoch_026.json",
+    "source_sha256": "ae81b1af8b901adff0e3f59bace433f60e93bc0719f7634e54f6865bad2637dd",
+    "metrics": {
+      "epoch": 26,
+      "train_mean_ctc": 31.726118467748165,
+      "combined_raw_greedy_selection_cer": 0.5193809661556262,
+      "evaluation_cohort": "DEV_A",
+      "requested_regimes": {
+        "intermediate": 1039,
+        "phone_robust": 1010,
+        "native": 1022,
+        "phone": 1025
+      },
+      "actual_regimes": {
+        "intermediate": 1045,
+        "phone_robust": 989,
+        "native": 1029,
+        "phone": 1012,
+        "native_robust": 4,
+        "intermediate_robust": 17
+      },
+      "all_training_sources_retained": true,
+      "cache_bytes_features_only": 1932970428,
+      "train_seconds": 100.00397689999954,
+      "evaluation_seconds": {
+        "native": 28.742894900002284,
+        "phone": 6.275996100001066
+      },
+      "dev_b_inference": false,
+      "test_accessed": false,
+      "smoke_only": false
+    }
+  },
+  {
+    "source": "runs/fingerspelling_sequence_v2_01/epochs/epoch_027.json",
+    "source_sha256": "318bf329e87409f0d81de6928c91184c3bfde45ef44956c25ed770dd62ca6031",
+    "metrics": {
+      "epoch": 27,
+      "train_mean_ctc": 31.49733387120068,
+      "combined_raw_greedy_selection_cer": 0.4888631761643043,
+      "evaluation_cohort": "DEV_A",
+      "requested_regimes": {
+        "native": 1010,
+        "phone": 1039,
+        "intermediate": 1022,
+        "phone_robust": 1025
+      },
+      "actual_regimes": {
+        "native": 1018,
+        "phone": 1022,
+        "intermediate": 1031,
+        "phone_robust": 1012,
+        "native_robust": 4,
+        "intermediate_robust": 9
+      },
+      "all_training_sources_retained": true,
+      "cache_bytes_features_only": 1932970428,
+      "train_seconds": 101.35322960000121,
+      "evaluation_seconds": {
+        "native": 28.706180799999856,
+        "phone": 6.266714099998353
+      },
+      "dev_b_inference": false,
+      "test_accessed": false,
+      "smoke_only": false
+    }
+  },
+  {
+    "source": "runs/fingerspelling_sequence_v2_01/epochs/epoch_028.json",
+    "source_sha256": "0d4386a6d04ce6ed6a21ebc56a3960ba30896e4babe9c488b63f249589f3c99c",
+    "metrics": {
+      "epoch": 28,
+      "train_mean_ctc": 31.24858970195055,
+      "combined_raw_greedy_selection_cer": 0.49276829621058726,
+      "evaluation_cohort": "DEV_A",
+      "requested_regimes": {
+        "intermediate": 1010,
+        "native": 1025,
+        "phone": 1022,
+        "phone_robust": 1039
+      },
+      "actual_regimes": {
+        "intermediate": 1018,
+        "native": 1034,
+        "phone": 1005,
+        "phone_robust": 1022,
+        "intermediate_robust": 14,
+        "native_robust": 3
+      },
+      "all_training_sources_retained": true,
+      "cache_bytes_features_only": 1932970428,
+      "train_seconds": 102.29086319999988,
+      "evaluation_seconds": {
+        "native": 28.793689999998605,
+        "phone": 6.483359099998779
+      },
+      "dev_b_inference": false,
+      "test_accessed": false,
+      "smoke_only": false
+    }
+  },
+  {
+    "source": "runs/fingerspelling_sequence_v2_01/epochs/epoch_029.json",
+    "source_sha256": "fbe31733fa3e58dc17993b6cbf35ae21b00280018b9cbfa8db90ee35b0b72a40",
+    "metrics": {
+      "epoch": 29,
+      "train_mean_ctc": 31.141948457807302,
+      "combined_raw_greedy_selection_cer": 0.48669366502748046,
+      "evaluation_cohort": "DEV_A",
+      "requested_regimes": {
+        "native": 1039,
+        "intermediate": 1025,
+        "phone": 1010,
+        "phone_robust": 1022
+      },
+      "actual_regimes": {
+        "native": 1047,
+        "intermediate": 1038,
+        "phone": 989,
+        "phone_robust": 1005,
+        "intermediate_robust": 12,
+        "native_robust": 5
+      },
+      "all_training_sources_retained": true,
+      "cache_bytes_features_only": 1932970428,
+      "train_seconds": 104.73412920000192,
+      "evaluation_seconds": {
+        "native": 28.7370090000004,
+        "phone": 6.203231899999082
+      },
+      "dev_b_inference": false,
+      "test_accessed": false,
+      "smoke_only": false
+    }
+  },
+  {
+    "source": "runs/fingerspelling_sequence_v2_01/epochs/epoch_030.json",
+    "source_sha256": "68d0ea8e19168906125ef2699df632f2132b2dd4f5b27ee18e4c25842b715226",
+    "metrics": {
+      "epoch": 30,
+      "train_mean_ctc": 31.18006030470133,
+      "combined_raw_greedy_selection_cer": 0.49146658952849287,
+      "evaluation_cohort": "DEV_A",
+      "requested_regimes": {
+        "native": 1022,
+        "intermediate": 1039,
+        "phone": 1025,
+        "phone_robust": 1010
+      },
+      "actual_regimes": {
+        "native": 1029,
+        "intermediate": 1045,
+        "phone": 1012,
+        "phone_robust": 989,
+        "intermediate_robust": 17,
+        "native_robust": 4
+      },
+      "all_training_sources_retained": true,
+      "cache_bytes_features_only": 1932970428,
+      "train_seconds": 98.31002630000148,
+      "evaluation_seconds": {
+        "native": 29.114920599997276,
+        "phone": 6.160803200000373
+      },
+      "dev_b_inference": false,
+      "test_accessed": false,
+      "smoke_only": false
+    }
+  },
+  {
+    "source": "runs/fingerspelling_sequence_v2_01/epochs/epoch_031.json",
+    "source_sha256": "6d0f770e3e2b45d1fd8b5ba151930e7a876f4b47d704686d95c7c560724e3dc8",
+    "metrics": {
+      "epoch": 31,
+      "train_mean_ctc": 30.807714076712728,
+      "combined_raw_greedy_selection_cer": 0.4781602545559734,
+      "evaluation_cohort": "DEV_A",
+      "requested_regimes": {
+        "phone": 1039,
+        "intermediate": 1022,
+        "native": 1010,
+        "phone_robust": 1025
+      },
+      "actual_regimes": {
+        "phone": 1022,
+        "intermediate": 1031,
+        "native": 1018,
+        "phone_robust": 1012,
+        "intermediate_robust": 9,
+        "native_robust": 4
+      },
+      "all_training_sources_retained": true,
+      "cache_bytes_features_only": 1932970428,
+      "train_seconds": 102.49772909999956,
+      "evaluation_seconds": {
+        "native": 29.42577259999962,
+        "phone": 7.64113400000133
+      },
+      "dev_b_inference": false,
+      "test_accessed": false,
+      "smoke_only": false
+    }
+  },
+  {
+    "source": "runs/fingerspelling_sequence_v2_01/epochs/epoch_032.json",
+    "source_sha256": "7ae9b118f6a66109758fc386cade2d31fa45466e5aa954c32ed0cdc0fae563fe",
+    "metrics": {
+      "epoch": 32,
+      "train_mean_ctc": 30.67984137684107,
+      "combined_raw_greedy_selection_cer": 0.4673126988718542,
+      "evaluation_cohort": "DEV_A",
+      "requested_regimes": {
+        "native": 1025,
+        "intermediate": 1010,
+        "phone_robust": 1039,
+        "phone": 1022
+      },
+      "actual_regimes": {
+        "native": 1034,
+        "intermediate": 1018,
+        "phone_robust": 1022,
+        "phone": 1005,
+        "intermediate_robust": 14,
+        "native_robust": 3
+      },
+      "all_training_sources_retained": true,
+      "cache_bytes_features_only": 1932970428,
+      "train_seconds": 101.7277860000031,
+      "evaluation_seconds": {
+        "native": 31.636072699999204,
+        "phone": 6.745362400000886
+      },
+      "dev_b_inference": false,
+      "test_accessed": false,
+      "smoke_only": false
+    }
+  },
+  {
+    "source": "runs/fingerspelling_sequence_v2_01/epochs/epoch_033.json",
+    "source_sha256": "7baa8abfec709a1fa4177cabd04cf2099390c6c1c54ea231737e92e3e49fcb7f",
+    "metrics": {
+      "epoch": 33,
+      "train_mean_ctc": 30.66091350093484,
+      "combined_raw_greedy_selection_cer": 0.46904830778131323,
+      "evaluation_cohort": "DEV_A",
+      "requested_regimes": {
+        "phone": 1010,
+        "native": 1039,
+        "intermediate": 1025,
+        "phone_robust": 1022
+      },
+      "actual_regimes": {
+        "phone": 989,
+        "native": 1047,
+        "intermediate": 1038,
+        "phone_robust": 1005,
+        "intermediate_robust": 12,
+        "native_robust": 5
+      },
+      "all_training_sources_retained": true,
+      "cache_bytes_features_only": 1932970428,
+      "train_seconds": 103.00225689999934,
+      "evaluation_seconds": {
+        "native": 27.632415500000207,
+        "phone": 6.090273800000432
+      },
+      "dev_b_inference": false,
+      "test_accessed": false,
+      "smoke_only": false
+    }
+  },
+  {
+    "source": "runs/fingerspelling_sequence_v2_01/epochs/epoch_034.json",
+    "source_sha256": "be11c63f6d06ea71ba4081a5a6bc0c41ff7885d6e35d3c407c841c1cce9d4f1d",
+    "metrics": {
+      "epoch": 34,
+      "train_mean_ctc": 30.733243940398097,
+      "combined_raw_greedy_selection_cer": 0.4781602545559734,
+      "evaluation_cohort": "DEV_A",
+      "requested_regimes": {
+        "phone": 1025,
+        "phone_robust": 1010,
+        "intermediate": 1039,
+        "native": 1022
+      },
+      "actual_regimes": {
+        "phone": 1012,
+        "phone_robust": 989,
+        "intermediate": 1045,
+        "native": 1029,
+        "intermediate_robust": 17,
+        "native_robust": 4
+      },
+      "all_training_sources_retained": true,
+      "cache_bytes_features_only": 1932970428,
+      "train_seconds": 96.19454359999872,
+      "evaluation_seconds": {
+        "native": 29.585005699998874,
+        "phone": 6.332260200000746
+      },
+      "dev_b_inference": false,
+      "test_accessed": false,
+      "smoke_only": false
+    }
+  },
+  {
+    "source": "runs/fingerspelling_sequence_v2_01/epochs/epoch_035.json",
+    "source_sha256": "0a32f7f6deb25abc18170436a792fb07e76e054d56f92bb96cbd0c9f752e03db",
+    "metrics": {
+      "epoch": 35,
+      "train_mean_ctc": 30.427226155996323,
+      "combined_raw_greedy_selection_cer": 0.5,
+      "evaluation_cohort": "DEV_A",
+      "requested_regimes": {
+        "phone": 1039,
+        "intermediate": 1022,
+        "native": 1010,
+        "phone_robust": 1025
+      },
+      "actual_regimes": {
+        "phone": 1022,
+        "intermediate": 1031,
+        "native": 1018,
+        "phone_robust": 1012,
+        "intermediate_robust": 9,
+        "native_robust": 4
+      },
+      "all_training_sources_retained": true,
+      "cache_bytes_features_only": 1932970428,
+      "train_seconds": 98.50048489999972,
+      "evaluation_seconds": {
+        "native": 28.470653100001073,
+        "phone": 6.223823899999843
+      },
+      "dev_b_inference": false,
+      "test_accessed": false,
+      "smoke_only": false
+    }
+  },
+  {
+    "source": "runs/fingerspelling_sequence_v2_01/epochs/epoch_036.json",
+    "source_sha256": "4874b6db1f98c60d9e39fa5be55de68f0d7590f82eb4ddaee414e26a05a4e512",
+    "metrics": {
+      "epoch": 36,
+      "train_mean_ctc": 30.17087558284402,
+      "combined_raw_greedy_selection_cer": 0.49247902805901067,
+      "evaluation_cohort": "DEV_A",
+      "requested_regimes": {
+        "intermediate": 1010,
+        "phone": 1022,
+        "phone_robust": 1039,
+        "native": 1025
+      },
+      "actual_regimes": {
+        "intermediate": 1018,
+        "phone": 1005,
+        "phone_robust": 1022,
+        "native": 1034,
+        "intermediate_robust": 14,
+        "native_robust": 3
+      },
+      "all_training_sources_retained": true,
+      "cache_bytes_features_only": 1932970428,
+      "train_seconds": 104.89191330000176,
+      "evaluation_seconds": {
+        "native": 28.857374399998662,
+        "phone": 6.869740999998612
+      },
+      "dev_b_inference": false,
+      "test_accessed": false,
+      "smoke_only": false
+    }
+  },
+  {
+    "source": "runs/fingerspelling_sequence_v2_01/epochs/epoch_037.json",
+    "source_sha256": "a9bb4f11366c7ea1fa978d1eafb4cf154c4aac9173a2dffcc1714c8dbc6ba11c",
+    "metrics": {
+      "epoch": 37,
+      "train_mean_ctc": 30.208297388628125,
+      "combined_raw_greedy_selection_cer": 0.46977147816025455,
+      "evaluation_cohort": "DEV_A",
+      "requested_regimes": {
+        "phone": 1010,
+        "intermediate": 1025,
+        "phone_robust": 1022,
+        "native": 1039
+      },
+      "actual_regimes": {
+        "phone": 989,
+        "intermediate": 1038,
+        "phone_robust": 1005,
+        "native": 1047,
+        "native_robust": 5,
+        "intermediate_robust": 12
+      },
+      "all_training_sources_retained": true,
+      "cache_bytes_features_only": 1932970428,
+      "train_seconds": 101.22486840000056,
+      "evaluation_seconds": {
+        "native": 28.209280099999887,
+        "phone": 6.364611499997409
+      },
+      "dev_b_inference": false,
+      "test_accessed": false,
+      "smoke_only": false
+    }
+  },
+  {
+    "source": "runs/fingerspelling_sequence_v2_01/epochs/epoch_038.json",
+    "source_sha256": "88d4f5deec0687bea98ada4a1b4b9f0878f2d38b7b18e3a772af36fb66ebc82e",
+    "metrics": {
+      "epoch": 38,
+      "train_mean_ctc": 30.099388230592012,
+      "combined_raw_greedy_selection_cer": 0.4903095169221868,
+      "evaluation_cohort": "DEV_A",
+      "requested_regimes": {
+        "phone": 1025,
+        "native": 1022,
+        "intermediate": 1039,
+        "phone_robust": 1010
+      },
+      "actual_regimes": {
+        "phone": 1012,
+        "native": 1029,
+        "intermediate": 1045,
+        "phone_robust": 989,
+        "intermediate_robust": 17,
+        "native_robust": 4
+      },
+      "all_training_sources_retained": true,
+      "cache_bytes_features_only": 1932970428,
+      "train_seconds": 97.67855390000113,
+      "evaluation_seconds": {
+        "native": 28.967743600001995,
+        "phone": 6.085975100002543
+      },
+      "dev_b_inference": false,
+      "test_accessed": false,
+      "smoke_only": false
+    }
+  },
+  {
+    "source": "runs/fingerspelling_sequence_v2_01/epochs/epoch_039.json",
+    "source_sha256": "e80f14ef5fd1246b8d8a45835293709383ed03eea5d526abac1123153944a02c",
+    "metrics": {
+      "epoch": 39,
+      "train_mean_ctc": 29.91229446232319,
+      "combined_raw_greedy_selection_cer": 0.49638414810529363,
+      "evaluation_cohort": "DEV_A",
+      "requested_regimes": {
+        "phone_robust": 1025,
+        "intermediate": 1022,
+        "native": 1010,
+        "phone": 1039
+      },
+      "actual_regimes": {
+        "phone_robust": 1012,
+        "intermediate": 1031,
+        "native": 1018,
+        "phone": 1022,
+        "intermediate_robust": 9,
+        "native_robust": 4
+      },
+      "all_training_sources_retained": true,
+      "cache_bytes_features_only": 1932970428,
+      "train_seconds": 103.03452689999904,
+      "evaluation_seconds": {
+        "native": 28.523278200002096,
+        "phone": 6.491071700002067
+      },
+      "dev_b_inference": false,
+      "test_accessed": false,
+      "smoke_only": false
+    }
+  },
+  {
+    "source": "runs/fingerspelling_sequence_v2_01/epochs/epoch_040.json",
+    "source_sha256": "0cde495d9880a6fdea576af38aa526b6cfa35059b83eb5356df2d14ccf30ddf3",
+    "metrics": {
+      "epoch": 40,
+      "train_mean_ctc": 29.847566224634647,
+      "combined_raw_greedy_selection_cer": 0.48032976569279723,
+      "evaluation_cohort": "DEV_A",
+      "requested_regimes": {
+        "native": 1025,
+        "phone": 1022,
+        "intermediate": 1010,
+        "phone_robust": 1039
+      },
+      "actual_regimes": {
+        "native": 1034,
+        "phone": 1005,
+        "intermediate": 1018,
+        "phone_robust": 1022,
+        "intermediate_robust": 14,
+        "native_robust": 3
+      },
+      "all_training_sources_retained": true,
+      "cache_bytes_features_only": 1932970428,
+      "train_seconds": 102.61793339999713,
+      "evaluation_seconds": {
+        "native": 30.314099899998837,
+        "phone": 6.418491500000528
+      },
+      "dev_b_inference": false,
+      "test_accessed": false,
+      "smoke_only": false
+    }
+  },
+  {
+    "source": "runs/fingerspelling_sequence_v2_01/epochs/epoch_041.json",
+    "source_sha256": "9bd5f15accff36bdd4231a1348d3c2606b7184b1c96b4c760784a3205d7b1607",
+    "metrics": {
+      "epoch": 41,
+      "train_mean_ctc": 29.70227872952819,
+      "combined_raw_greedy_selection_cer": 0.4699161122360428,
+      "evaluation_cohort": "DEV_A",
+      "requested_regimes": {
+        "intermediate": 1025,
+        "phone": 1010,
+        "native": 1039,
+        "phone_robust": 1022
+      },
+      "actual_regimes": {
+        "intermediate": 1038,
+        "phone": 989,
+        "native": 1047,
+        "phone_robust": 1005,
+        "intermediate_robust": 12,
+        "native_robust": 5
+      },
+      "all_training_sources_retained": true,
+      "cache_bytes_features_only": 1932970428,
+      "train_seconds": 101.82744580000144,
+      "evaluation_seconds": {
+        "native": 28.506260800000746,
+        "phone": 5.9172402000003785
+      },
+      "dev_b_inference": false,
+      "test_accessed": false,
+      "smoke_only": false
+    }
+  },
+  {
+    "source": "runs/fingerspelling_sequence_v2_01/epochs/epoch_042.json",
+    "source_sha256": "5cca240465be1812341be3761cd0e848e4eb9fd2ffdfff2a20d59f789c6e1b0d",
+    "metrics": {
+      "epoch": 42,
+      "train_mean_ctc": 29.752340411767364,
+      "combined_raw_greedy_selection_cer": 0.47685854787387905,
+      "evaluation_cohort": "DEV_A",
+      "requested_regimes": {
+        "phone_robust": 1010,
+        "native": 1022,
+        "phone": 1025,
+        "intermediate": 1039
+      },
+      "actual_regimes": {
+        "phone_robust": 989,
+        "native": 1029,
+        "phone": 1012,
+        "intermediate": 1045,
+        "intermediate_robust": 17,
+        "native_robust": 4
+      },
+      "all_training_sources_retained": true,
+      "cache_bytes_features_only": 1932970428,
+      "train_seconds": 95.44491030000063,
+      "evaluation_seconds": {
+        "native": 26.697086799998942,
+        "phone": 5.934713900001952
+      },
+      "dev_b_inference": false,
+      "test_accessed": false,
+      "smoke_only": false
+    }
+  },
+  {
+    "source": "runs/fingerspelling_sequence_v2_01/epochs/epoch_043.json",
+    "source_sha256": "b4e5f7ae760953977abc4c5b45e67d9d7181f8aef9a4ebff4be75c1835d7d361",
+    "metrics": {
+      "epoch": 43,
+      "train_mean_ctc": 29.498817009851336,
+      "combined_raw_greedy_selection_cer": 0.48061903384437377,
+      "evaluation_cohort": "DEV_A",
+      "requested_regimes": {
+        "phone": 1039,
+        "intermediate": 1022,
+        "native": 1010,
+        "phone_robust": 1025
+      },
+      "actual_regimes": {
+        "phone": 1022,
+        "intermediate": 1031,
+        "native": 1018,
+        "phone_robust": 1012,
+        "intermediate_robust": 9,
+        "native_robust": 4
+      },
+      "all_training_sources_retained": true,
+      "cache_bytes_features_only": 1932970428,
+      "train_seconds": 99.58912229999987,
+      "evaluation_seconds": {
+        "native": 26.321441099997173,
+        "phone": 6.025280500001827
+      },
+      "dev_b_inference": false,
+      "test_accessed": false,
+      "smoke_only": false
+    }
+  },
+  {
+    "source": "runs/fingerspelling_sequence_v2_01/epochs/epoch_044.json",
+    "source_sha256": "bb5084339a931df4d0348b12ae1a3f556cd35f7150efdddfbe8737390c8d0883",
+    "metrics": {
+      "epoch": 44,
+      "train_mean_ctc": 29.346879206597805,
+      "combined_raw_greedy_selection_cer": 0.5036158518947064,
+      "evaluation_cohort": "DEV_A",
+      "requested_regimes": {
+        "intermediate": 1010,
+        "native": 1025,
+        "phone_robust": 1039,
+        "phone": 1022
+      },
+      "actual_regimes": {
+        "intermediate": 1018,
+        "native": 1034,
+        "phone_robust": 1022,
+        "phone": 1005,
+        "native_robust": 3,
+        "intermediate_robust": 14
+      },
+      "all_training_sources_retained": true,
+      "cache_bytes_features_only": 1932970428,
+      "train_seconds": 101.94683960000111,
+      "evaluation_seconds": {
+        "native": 27.029120499999408,
+        "phone": 5.973598100001254
+      },
+      "dev_b_inference": false,
+      "test_accessed": false,
+      "smoke_only": false
+    }
+  },
+  {
+    "source": "runs/fingerspelling_sequence_v2_01/epochs/epoch_045.json",
+    "source_sha256": "fc02847ec84154d812988f0b732742c170799ab9af7598eb7ed0190779f02b06",
+    "metrics": {
+      "epoch": 45,
+      "train_mean_ctc": 29.33950698003173,
+      "combined_raw_greedy_selection_cer": 0.4693375759328898,
+      "evaluation_cohort": "DEV_A",
+      "requested_regimes": {
+        "phone": 1010,
+        "intermediate": 1025,
+        "phone_robust": 1022,
+        "native": 1039
+      },
+      "actual_regimes": {
+        "phone": 989,
+        "intermediate": 1038,
+        "phone_robust": 1005,
+        "native": 1047,
+        "intermediate_robust": 12,
+        "native_robust": 5
+      },
+      "all_training_sources_retained": true,
+      "cache_bytes_features_only": 1932970428,
+      "train_seconds": 100.32047559999774,
+      "evaluation_seconds": {
+        "native": 26.8194153000004,
+        "phone": 5.946184799999173
+      },
+      "dev_b_inference": false,
+      "test_accessed": false,
+      "smoke_only": false
+    }
+  },
+  {
+    "source": "runs/fingerspelling_sequence_v2_01/epochs/epoch_046.json",
+    "source_sha256": "12b4e18a9bad823c8e366fb5be71508e68d7ce0e94ab093fdc4a4a724a456282",
+    "metrics": {
+      "epoch": 46,
+      "train_mean_ctc": 29.370966598391533,
+      "combined_raw_greedy_selection_cer": 0.467168064796066,
+      "evaluation_cohort": "DEV_A",
+      "requested_regimes": {
+        "phone": 1025,
+        "intermediate": 1039,
+        "phone_robust": 1010,
+        "native": 1022
+      },
+      "actual_regimes": {
+        "phone": 1012,
+        "intermediate": 1045,
+        "phone_robust": 989,
+        "native": 1029,
+        "native_robust": 4,
+        "intermediate_robust": 17
+      },
+      "all_training_sources_retained": true,
+      "cache_bytes_features_only": 1932970428,
+      "train_seconds": 95.82261389999985,
+      "evaluation_seconds": {
+        "native": 27.055275099999562,
+        "phone": 5.934473900000739
+      },
+      "dev_b_inference": false,
+      "test_accessed": false,
+      "smoke_only": false
+    }
+  },
+  {
+    "source": "runs/fingerspelling_sequence_v2_01/epochs/epoch_047.json",
+    "source_sha256": "c9c1ec3431d620137126d70dea978acbb56435f29540da4d15b1e863607bd323",
+    "metrics": {
+      "epoch": 47,
+      "train_mean_ctc": 29.250498924404383,
+      "combined_raw_greedy_selection_cer": 0.480763667920162,
+      "evaluation_cohort": "DEV_A",
+      "requested_regimes": {
+        "intermediate": 1022,
+        "native": 1010,
+        "phone_robust": 1025,
+        "phone": 1039
+      },
+      "actual_regimes": {
+        "intermediate": 1031,
+        "native": 1018,
+        "phone_robust": 1012,
+        "phone": 1022,
+        "native_robust": 4,
+        "intermediate_robust": 9
+      },
+      "all_training_sources_retained": true,
+      "cache_bytes_features_only": 1932970428,
+      "train_seconds": 97.67832420000195,
+      "evaluation_seconds": {
+        "native": 26.66157540000131,
+        "phone": 5.816322800001217
+      },
+      "dev_b_inference": false,
+      "test_accessed": false,
+      "smoke_only": false
+    }
+  }
+]

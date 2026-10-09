@@ -3,6 +3,7 @@ package com.example.apphear.domain.texttoasl
 class AslPhrasePlanner(
     private val catalog: AslAnimationCatalog,
     private val normalizer: AslTextNormalizer = AslTextNormalizer(),
+    private val completeWordFallback: Boolean = false,
 ) {
     fun plan(input: String?): TextToAslPlan {
         val requestedText = input?.trim().orEmpty()
@@ -18,16 +19,21 @@ class AslPhrasePlanner(
                 continue
             }
 
-            val first = remaining.first()
-            if (first.isLetter()) {
-                val letter = catalog.findByAlias(first.toString())
-                if (letter != null) {
-                    queue += letter
-                } else {
-                    unsupported += first.toString()
+            if (completeWordFallback) {
+                val token = remaining.substringBefore(' ')
+                val letters = token.map { catalog.findLetter(it) }
+                if (token.isNotEmpty() && token.all { it in 'a'..'z' } && letters.all { it != null }) {
+                    queue += letters.filterNotNull()
+                } else if (token.isNotEmpty()) {
+                    unsupported += token
                 }
-                remaining = consume(remaining, 1)
+                remaining = consume(remaining, token.length)
             } else {
+                val first = remaining.first()
+                if (first.isLetter()) {
+                    val letter = catalog.findByAlias(first.toString())
+                    if (letter != null) queue += letter else unsupported += first.toString()
+                }
                 remaining = consume(remaining, 1)
             }
         }

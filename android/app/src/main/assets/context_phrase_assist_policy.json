@@ -1,0 +1,7 @@
+{
+  "maximum_changed_events": 1,
+  "maximum_contradicting_top1": 0.60,
+  "maximum_changed_score_gap": 0.08,
+  "minimum_changed_score_ratio": 0.75,
+  "minimum_winner_lead": 0.02
+}

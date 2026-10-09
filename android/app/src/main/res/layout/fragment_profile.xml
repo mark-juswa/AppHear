@@ -164,12 +164,12 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:fontFamily="@font/inter_regular"
-                    android:text="@string/profile_status_body"
+                    android:text="@string/profile_account_guest_body"
                     android:textColor="#B05A32"
                     android:textSize="12sp" />
 
                 <FrameLayout
-                    android:id="@+id/profile_open_settings_button"
+                    android:id="@+id/profile_edit_button"
                     android:layout_width="match_parent"
                     android:layout_height="52dp"
                     android:layout_marginTop="12dp"
@@ -182,12 +182,30 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:fontFamily="@font/inter_black"
+                        android:id="@+id/profile_edit_label"
                         android:text="@string/profile_edit_profile"
                         android:textAllCaps="true"
                         android:textColor="#FFFFFF"
                         android:textSize="14sp" />
                 </FrameLayout>
+
+                <TextView
+                    android:id="@+id/profile_cancel_edit"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:gravity="center"
+                    android:text="@string/profile_cancel_edit"
+                    android:textColor="@color/color_brand_primary_dark"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:visibility="gone" />
             </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/profile_preferences"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -219,11 +237,15 @@
                 android:orientation="vertical"
                 android:padding="14dp">
 
+                <include layout="@layout/row_setting_recognition_mode" />
+                <include layout="@layout/row_setting_asl_character" />
                 <include layout="@layout/row_setting_account_type" />
                 <include layout="@layout/row_setting_voice" />
                 <include layout="@layout/row_setting_accessibility" />
                 <include layout="@layout/row_setting_privacy" />
                 <include layout="@layout/row_setting_about" />
+            </LinearLayout>
+
             </LinearLayout>
 
             <TextView
@@ -251,11 +273,18 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:fontFamily="@font/inter_black"
+                    android:id="@+id/profile_logout_label"
                     android:text="@string/profile_logout"
                     android:textColor="#FFFFFF"
                     android:textSize="14sp" />
             </FrameLayout>
         </LinearLayout>
     </ScrollView>
+    <include
+        android:id="@+id/profile_auth"
+        layout="@layout/profile_auth_panel"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone" />
 </androidx.constraintlayout.widget.ConstraintLayout>
 
