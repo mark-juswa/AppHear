@@ -4,9 +4,24 @@ class AslPhrasePlanner(
     private val catalog: AslAnimationCatalog,
     private val normalizer: AslTextNormalizer = AslTextNormalizer(),
     private val completeWordFallback: Boolean = false,
+    private val strictPhraseMode: Boolean = false,
 ) {
     fun plan(input: String?): TextToAslPlan {
         val requestedText = input?.trim().orEmpty()
+        if (strictPhraseMode) {
+            val normalized = normalizer.normalize(input, preserveUnknownCharacters = true)
+            val dictionaryMatch = catalog.findByAlias(normalized)?.takeIf { asset ->
+                asset.type != AslAnimationAsset.Type.POSE && asset.aliases.any { alias ->
+                    normalizer.normalize(alias, preserveUnknownCharacters = true) == normalized
+                }
+            }
+            val match = dictionaryMatch ?: if (completeWordFallback && normalized.length == 1 &&
+                normalized[0] in 'a'..'z') catalog.findLetter(normalized[0]) else null
+            // A dictionary clip does not establish English-to-ASL sentence translation.
+            // Never perform a recognized fragment of an unsupported complete input.
+            return TextToAslPlan(requestedText, normalized, match?.let { listOf(it) }.orEmpty(),
+                if (match == null && requestedText.isNotBlank()) listOf(requestedText) else emptyList())
+        }
         var remaining = normalizer.normalize(input)
         val queue = mutableListOf<AslAnimationAsset>()
         val unsupported = mutableListOf<String>()

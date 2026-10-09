@@ -57,7 +57,7 @@ class TextToAslPlaybackController(
     fun setReadyCallback(callback: ReadyCallback?) {
         readyCallback = callback
         if (isReady && callback != null) {
-            mainHandler.post { callback.onReady() }
+            mainHandler.post { if (!destroyed) callback.onReady() }
         }
     }
 
@@ -66,7 +66,7 @@ class TextToAslPlaybackController(
     }
 
     fun play(asset: AslAnimationAsset?) {
-        if (asset == null) return
+        if (asset == null || destroyed) return
         if (BuildConfig.ASL_ASSET_PILOT_ENABLED && asset.assetPath in rejectedPilotPaths) {
             val fallback = asset.originalFallback()
             if (fallback != null) {
@@ -183,6 +183,7 @@ class TextToAslPlaybackController(
         @JavascriptInterface
         fun onPlaybackStarted(src: String, token: Long) {
             mainHandler.post {
+                if (destroyed) return@post
                 val asset = playingAsset ?: return@post
                 if (token != requestId || src != BASE_URL + asset.assetPath) return@post
                 Log.d(TAG, "Pilot started id=${asset.id} request=$token loadMs=${SystemClock.elapsedRealtime() - requestedAtMs}")
@@ -193,8 +194,10 @@ class TextToAslPlaybackController(
         @JavascriptInterface
         fun onPilotFinished(src: String, token: Long) {
             mainHandler.post {
+                if (destroyed) return@post
                 val asset = playingAsset ?: return@post
                 if (token == requestId && src == BASE_URL + asset.assetPath) {
+                    playingAsset = null
                     Log.d(TAG, "Pilot finished id=${asset.id} request=$token")
                     playbackCallback?.onFinished(asset)
                 }
@@ -204,8 +207,10 @@ class TextToAslPlaybackController(
         @JavascriptInterface
         fun onModelFailed(src: String, token: Long) {
             mainHandler.post {
+                if (destroyed) return@post
                 val asset = playingAsset ?: return@post
                 if (token != requestId || src != BASE_URL + asset.assetPath) return@post
+                playingAsset = null
                 val replacement = asset.replacement
                 if (replacement != null) {
                     rejectedPilotPaths.add(asset.assetPath)
@@ -232,6 +237,7 @@ class TextToAslPlaybackController(
         @JavascriptInterface
         fun onAnimationFinished(src: String) {
             mainHandler.post {
+                if (destroyed) return@post
                 val asset = playingAsset ?: return@post
                 val expectedUrl = BASE_URL + asset.assetPath
                 if (src == expectedUrl) {

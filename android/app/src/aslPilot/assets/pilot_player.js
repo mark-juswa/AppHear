@@ -8,10 +8,13 @@ let releaseTimer = null;
 let completionFrame = null;
 let pinnedSource = null;
 const LOAD_TIMEOUT_MS = 20_000;
-const FADE_MS = 280;
+const FADE_MS = 0;
 
 function finishSign(viewer) {
-  if (viewer.playLoop || viewer !== viewers[activeIndex] || viewer.playRequest !== lastRequest) return;
+  if (viewer.playLoop || viewer !== viewers[activeIndex] || viewer.playRequest == null ||
+      viewer.playRequest !== lastRequest) return;
+  // Late/early mixer events cannot finish the current named clip.
+  if (!(viewer.duration > 0) || viewer.currentTime + 0.001 < viewer.duration) return;
   const token = viewer.playRequest;
   viewer.playRequest = null;
   cancelAnimationFrame(completionFrame);
@@ -80,7 +83,8 @@ function waitForModel(viewer, url) {
 
 async function replay(viewer, options) {
   const animations = viewer.availableAnimations || [];
-  const name = options.animationName || animations[0];
+  // Shared bundles supply a name; unnamed legacy files must have one action.
+  const name = options.animationName || (animations.length === 1 ? animations[0] : null);
   if (!name || !animations.includes(name)) throw new Error('Expected animation missing');
   viewer.pause();
   viewer.animationName = name;

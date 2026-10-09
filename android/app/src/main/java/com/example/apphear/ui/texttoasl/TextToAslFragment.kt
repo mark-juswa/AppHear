@@ -79,9 +79,10 @@ class TextToAslFragment : Fragment(R.layout.fragment_text_to_asl) {
     private val playHandler = Handler(Looper.getMainLooper())
     private val advanceRunnable = Runnable {
         if (BuildConfig.ASL_ASSET_PILOT_ENABLED) {
-            Log.w("TextToAslPlayback", "Pilot watchdog advance id=${currentQueue.getOrNull(currentIndex)?.id}")
+            failPlayback("Playback stopped responding. Tap Repeat to retry.")
+        } else {
+            advancePlayback()
         }
-        advancePlayback()
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -113,7 +114,8 @@ class TextToAslFragment : Fragment(R.layout.fragment_text_to_asl) {
                 if (binding !== fragmentBinding) return@launch
                 animationCatalog = catalog
                 phrasePlanner = AslPhrasePlanner(catalog,
-                    completeWordFallback = BuildConfig.ASL_ALPHABET_FALLBACK_ENABLED)
+                    completeWordFallback = BuildConfig.ASL_ALPHABET_FALLBACK_ENABLED,
+                    strictPhraseMode = BuildConfig.ASL_ASSET_PILOT_ENABLED)
                 idleAsset = catalog.findByAlias("idle")
                 Log.d("TextToAslAssets", "Character=${choice.preferenceValue} entries=${catalog.getAssets().size}")
                 avatarController = TextToAslPlaybackController(requireContext(), fragmentBinding.avatarWebView).also { controller ->
@@ -164,8 +166,7 @@ class TextToAslFragment : Fragment(R.layout.fragment_text_to_asl) {
 
                             override fun onFailed(asset: AslAnimationAsset) {
                                 if (currentQueue.getOrNull(currentIndex)?.id == asset.id) {
-                                    Toast.makeText(requireContext(), "Unable to play ${asset.displayText}", Toast.LENGTH_SHORT).show()
-                                    advancePlayback()
+                                    failPlayback("Unable to play " + asset.displayText + ". Tap Repeat to retry.")
                                 }
                             }
 
@@ -377,6 +378,13 @@ class TextToAslFragment : Fragment(R.layout.fragment_text_to_asl) {
         if (!BuildConfig.ASL_ASSET_PILOT_ENABLED) {
             playHandler.postDelayed(advanceRunnable, PLAYBACK_SAFETY_TIMEOUT_MS)
         }
+    }
+
+    private fun failPlayback(message: String) {
+        playHandler.removeCallbacks(advanceRunnable)
+        avatarController?.pause()
+        binding?.currentProgressText?.text = message
+        // Keep the plan for the existing Repeat action; failure never means success.
     }
 
     private fun advancePlayback() {

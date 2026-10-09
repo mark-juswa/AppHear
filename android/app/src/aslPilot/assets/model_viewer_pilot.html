@@ -20,7 +20,7 @@
       height: 100%;
       background-color: #0D2020;
       opacity: 0;
-      transition: opacity 280ms ease;
+      transition: none;
       pointer-events: none;
     }
     model-viewer.active {
@@ -43,8 +43,8 @@
   </style>
 </head>
 <body>
-<model-viewer id="viewerA" class="active" camera-controls animation-crossfade-duration="250" exposure="1.0" shadow-intensity="0.35" camera-orbit="0deg 75deg 3m" camera-target="0m 1.5m 0m" field-of-view="45deg" min-camera-orbit="auto auto auto" max-camera-orbit="auto auto auto" interaction-prompt="none"></model-viewer>
-<model-viewer id="viewerB" camera-controls animation-crossfade-duration="250" exposure="1.0" shadow-intensity="0.35" camera-orbit="0deg 75deg 3m" camera-target="0m 1.5m 0m" field-of-view="45deg" min-camera-orbit="auto auto auto" max-camera-orbit="auto auto auto" interaction-prompt="none"></model-viewer>
+<model-viewer id="viewerA" class="active" camera-controls animation-crossfade-duration="0" exposure="1.0" shadow-intensity="0.35" camera-orbit="0deg 75deg 3m" camera-target="0m 1.5m 0m" field-of-view="45deg" min-camera-orbit="auto auto auto" max-camera-orbit="auto auto auto" interaction-prompt="none"></model-viewer>
+<model-viewer id="viewerB" camera-controls animation-crossfade-duration="0" exposure="1.0" shadow-intensity="0.35" camera-orbit="0deg 75deg 3m" camera-target="0m 1.5m 0m" field-of-view="45deg" min-camera-orbit="auto auto auto" max-camera-orbit="auto auto auto" interaction-prompt="none"></model-viewer>
 <div id="fallback">Avatar viewer is loading.</div>
 <script src="pilot_player.js"></script>
 </body>
