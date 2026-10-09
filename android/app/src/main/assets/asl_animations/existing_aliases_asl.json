@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "language": "ASL",
+  "aliases": [
+    {
+      "signId": "bye",
+      "english": ["goodbye"],
+      "gloss": ["BYE"],
+      "asset": "asl_animations/original_words_v1/bye.glb",
+      "sha256": "12ceb5ed534b4eccc9dd4fc3336885cb55a4f1967ac08d22df10adb5a99ad5ba",
+      "reference": "https://www.lifeprint.com/asl101/pages-signs/b/bye.htm",
+      "license": "Existing AppHear clip retained; motion provenance unresolved. Reference link only, no reference media copied.",
+      "status": "UNREVIEWED_PREVIEW_ALIAS",
+      "technicalPlaybackStatus": "Requires device playback evaluation",
+      "linguisticValidationStatus": "UNREVIEWED"
+    }
+  ]
+}

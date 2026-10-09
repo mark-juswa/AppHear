@@ -24,7 +24,7 @@ import com.example.apphear.TextToAslArgument
 import com.example.apphear.databinding.FragmentTextToAslBinding
 import com.example.apphear.contextassist.ConversationPhraseAssist
 import com.example.apphear.contextassist.ConversationSource
-import com.example.apphear.data.settings.AslCharacterSettings
+import com.example.apphear.domain.texttoasl.AslSingleAvatarPolicy
 import com.example.apphear.domain.texttoasl.AslCharacterChoice
 import com.example.apphear.domain.texttoasl.AslAnimationAsset
 import com.example.apphear.domain.texttoasl.AslAnimationCatalog
@@ -106,7 +106,8 @@ class TextToAslFragment : Fragment(R.layout.fragment_text_to_asl) {
     }
 
     private fun setupTextToAslEngine(fragmentBinding: FragmentTextToAslBinding) {
-        val choice = AslCharacterSettings(requireContext()).current()
+        // Keep existing settings/storage intact; this module uses one human avatar only.
+        val choice = AslSingleAvatarPolicy.choice
         if (activeCharacter != null && activeCharacter != choice) {
             resetQueueForCharacterChange(fragmentBinding)
         }
@@ -114,6 +115,9 @@ class TextToAslFragment : Fragment(R.layout.fragment_text_to_asl) {
         engineJob?.cancel()
         engineJob = viewLifecycleOwner.lifecycleScope.launch {
             try {
+                require(BuildConfig.ASL_ASSET_PILOT_ENABLED && BuildConfig.ASL_ORIGINAL_WORDS_ENABLED) {
+                    "Single human avatar requires the existing OriginalWords build configuration"
+                }
                 val appContext = requireContext().applicationContext
                 val (catalog, grammar) = withContext(Dispatchers.IO) {
                     AndroidAssetAslCatalogLoader(appContext, choice == AslCharacterChoice.NEW).load() to
@@ -489,22 +493,7 @@ class TextToAslFragment : Fragment(R.layout.fragment_text_to_asl) {
     override fun onStart() {
         super.onStart()
         val fragmentBinding = binding ?: return
-        val settings = AslCharacterSettings(requireContext())
-        if (settings.selectionAvailable && activeCharacter != settings.current()) {
-            playHandler.removeCallbacks(advanceRunnable)
-            engineJob?.cancel()
-            avatarController?.destroy(releaseWebView = false)
-            avatarController = null
-            avatarReady = false
-            animationCatalog = null
-            phrasePlanner = null
-            translationPlanner = null
-            idleAsset = null
-            resetQueueForCharacterChange(fragmentBinding)
-            fragmentBinding.currentProgressText.setText(R.string.asl_character_loading)
-            setupTextToAslEngine(fragmentBinding)
-            return
-        }
+        // Returning from settings must not recreate the resident engine or change its rig.
         if (resumeColdIdle && BuildConfig.ASL_ALPHABET_FALLBACK_ENABLED &&
             activeCharacter == AslCharacterChoice.NEW && idleAsset != null) {
             resumeColdIdle = false

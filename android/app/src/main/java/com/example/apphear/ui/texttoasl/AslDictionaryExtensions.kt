@@ -6,6 +6,7 @@ import com.example.apphear.domain.texttoasl.AslAnimationAsset
 import com.example.apphear.domain.texttoasl.AslAnimationCatalog
 import com.example.apphear.domain.texttoasl.AslTextNormalizer
 import com.example.apphear.domain.texttoasl.SignDictionaryMetadata
+import com.example.apphear.domain.texttoasl.ExistingAslAlias
 import org.json.JSONObject
 import java.nio.ByteBuffer
 import java.nio.ByteOrder
@@ -91,7 +92,43 @@ class AslDictionaryExtensions(private val context: Context) {
                 Log.w("TextToAslAssets", "Dictionary addition $index rejected: ${error.message}")
             }
         }
+        return applyExistingAliases(result, profile)
+    }
+
+    private fun applyExistingAliases(base: List<AslAnimationAsset>, profile: SignDictionaryMetadata.AvatarProfile): List<AslAnimationAsset> {
+        if (profile != SignDictionaryMetadata.AvatarProfile.ORIGINAL_HUMAN) return base
+        var result = base
+        try {
+            val root = JSONObject(context.assets.open(ALIASES_PATH).bufferedReader().use { it.readText() })
+            require(root.getInt("schemaVersion") == 1 && root.getString("language") == "ASL")
+            val entries = root.getJSONArray("aliases")
+            for (index in 0 until entries.length()) {
+                try {
+                    val entry = entries.getJSONObject(index)
+                    require(entry.getString("status") == "UNREVIEWED_PREVIEW_ALIAS")
+                    val forms = entry.getJSONArray("english")
+                    val alias = ExistingAslAlias(entry.getString("signId"), (0 until forms.length()).map { forms.getString(it) },
+                        entry.getString("asset"), entry.getString("sha256"), entry.getString("reference"))
+                    val target = requireNotNull(result.find { it.id == alias.signId })
+                    require(target.assetPath == alias.assetPath) // Open only a previously accepted catalog path.
+                    val digest = MessageDigest.getInstance("SHA-256")
+                    context.assets.open(target.assetPath).use { input ->
+                        val bytes = ByteArray(64 * 1024)
+                        while (true) { val n = input.read(bytes); if (n < 0) break; digest.update(bytes, 0, n) }
+                    }
+                    result = alias.apply(result, digest.digest().joinToString("") { "%02x".format(it) })
+                } catch (error: Exception) {
+                    Log.w("TextToAslAssets", "Existing alias $index rejected: ${error.message}")
+                }
+            }
+        } catch (error: Exception) {
+            Log.w("TextToAslAssets", "Existing aliases unavailable; base dictionary retained", error)
+        }
         return result
     }
-    companion object { const val PATH = "asl_animations/dictionary_extensions_asl.json" }
+
+    companion object {
+        const val PATH = "asl_animations/dictionary_extensions_asl.json"
+        const val ALIASES_PATH = "asl_animations/existing_aliases_asl.json"
+    }
 }

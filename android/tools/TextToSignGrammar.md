@@ -1,5 +1,7 @@
 # Reviewed ASL phrases and vocabulary workflow
 
+Current avatar continuation: [single resident human avatar and vocabulary batches](TextToSignSingleAvatar.md). Alternate stored character choices are retained but no longer change active Text-to-Sign playback. The existing 203 motions now share one resident GLB; no new sign correctness is asserted.
+
 The 2026-10-10 [everyday expression milestone](TextToSignEveryday.md) adds ten small offline English meaning records. These contain no executable gloss or motion sequences. Known incomplete everyday expressions now stop signing instead of using the generic individual-word preview; other dictionary sequences retain the behavior described below. The larger research inventories and datasets remain outside the APK.
 
 The installed player remains the existing offline GLB/model-viewer engine. ASL is the target; FSL data is rejected. The current assets have no recorded qualified ASL review, so the shipped reviewed phrase registry is empty. This is a safe, data-driven grammar integration, not a general English-to-ASL translator or a completed new signing corpus.

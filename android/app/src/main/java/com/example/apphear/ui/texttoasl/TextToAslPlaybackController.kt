@@ -18,6 +18,7 @@ import androidx.webkit.WebViewAssetLoader
 import com.example.apphear.BuildConfig
 import com.example.apphear.domain.texttoasl.AslAnimationAsset
 import com.example.apphear.domain.texttoasl.AslAvatarCatalogPolicy
+import com.example.apphear.domain.texttoasl.AslSingleAvatarPolicy
 import com.example.apphear.domain.texttoasl.SignDictionaryMetadata
 import org.json.JSONObject
 
@@ -48,7 +49,7 @@ class TextToAslPlaybackController(
     private var playbackCallback: PlaybackCallback? = null
     private var requestId = 0L
     private var requestedAtMs = 0L
-    private var lockedAvatarProfile = avatarProfile
+    private var lockedAvatarProfile = avatarProfile ?: AslSingleAvatarPolicy.profile
     private var destroyed = false
     var isReady: Boolean = false
         private set
@@ -70,12 +71,9 @@ class TextToAslPlaybackController(
 
     fun play(asset: AslAnimationAsset?) {
         if (asset == null || destroyed) return
-        if (BuildConfig.ASL_ASSET_PILOT_ENABLED) {
-            if (lockedAvatarProfile == null) lockedAvatarProfile = asset.metadata.avatarProfile
-            if (!AslAvatarCatalogPolicy.permits(asset, requireNotNull(lockedAvatarProfile))) {
-                playbackCallback?.onFailed(asset)
-                return
-            }
+        if (!AslSingleAvatarPolicy.permits(asset) || !AslAvatarCatalogPolicy.permits(asset, lockedAvatarProfile)) {
+            playbackCallback?.onFailed(asset)
+            return
         }
         playingAsset = asset
         if (!isReady) {
@@ -101,8 +99,7 @@ class TextToAslPlaybackController(
 
     fun preload(asset: AslAnimationAsset?) {
         if (asset == null || !isReady || destroyed) return
-        if (BuildConfig.ASL_ASSET_PILOT_ENABLED && lockedAvatarProfile?.let {
-                AslAvatarCatalogPolicy.permits(asset, it) } != true) return
+        if (!AslSingleAvatarPolicy.permits(asset) || !AslAvatarCatalogPolicy.permits(asset, lockedAvatarProfile)) return
         webView.evaluateJavascript("preloadSign(${JSONObject.quote(BASE_URL + asset.assetPath)})", null)
     }
 

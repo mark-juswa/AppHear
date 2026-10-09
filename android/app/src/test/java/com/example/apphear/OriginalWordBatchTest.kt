@@ -10,6 +10,9 @@ import com.example.apphear.domain.texttoasl.AslTranslationPlanner
 import com.example.apphear.domain.texttoasl.TextToAslPlan
 import com.example.apphear.domain.texttoasl.AslGrammarRegistry
 import com.example.apphear.domain.texttoasl.EverydayAslExpression
+import com.example.apphear.domain.texttoasl.ExistingAslAlias
+import com.example.apphear.domain.texttoasl.AslSingleAvatarPolicy
+import com.example.apphear.domain.texttoasl.AslResidentAvatarBundle
 import com.google.gson.Gson
 import com.google.gson.JsonObject
 import com.google.gson.JsonParser
@@ -80,6 +83,86 @@ class OriginalWordBatchTest {
         val partial=planner.plan("hello unknownword")
         assertEquals(listOf("hello"), partial.queue.map { it.id })
         assertEquals(listOf("unknownword"), partial.unsupportedTokens)
+    }
+
+    @Test fun residentAvatarCopiesAll203MotionsWithoutChangingSkeletonOrKeyframes() {
+        val bundleBytes = Files.readAllBytes(assetRoot.resolve(AslResidentAvatarBundle.PATH))
+        assertEquals(AslResidentAvatarBundle.SHA256, hash(bundleBytes))
+        fun json(bytes: ByteArray) = JsonParser.parseString(String(bytes,20,
+            ByteBuffer.wrap(bytes).order(ByteOrder.LITTLE_ENDIAN).getInt(12))).asJsonObject
+        val bundle = json(bundleBytes)
+        val named = bundle.getAsJsonArray("animations").associateBy { it.asJsonObject.get("name").asString }
+        assertEquals(203,named.size)
+        fun accessorBytes(bytes: ByteArray, document: JsonObject, index: Int): ByteArray {
+            val accessor = document.getAsJsonArray("accessors")[index].asJsonObject
+            val view = document.getAsJsonArray("bufferViews")[accessor.get("bufferView").asInt].asJsonObject
+            val binStart = 28 + ByteBuffer.wrap(bytes).order(ByteOrder.LITTLE_ENDIAN).getInt(12)
+            val start = binStart + (view.get("byteOffset")?.asInt ?: 0)
+            return bytes.copyOfRange(start,start+view.get("byteLength").asInt)
+        }
+        for (entry in (root.getAsJsonArray("replacements") + root.getAsJsonArray("newClips"))) {
+            val clip=entry.asJsonObject
+            val bytes=Files.readAllBytes(assetRoot.resolve(clip.get("asset").asString))
+            val source=json(bytes)
+            for (key in listOf("nodes","skins","meshes","materials","textures","images","samplers","scenes","scene"))
+                assertEquals(key,source.get(key),bundle.get(key))
+            val before=source.getAsJsonArray("animations")[0].asJsonObject
+            val after=named.getValue(clip.get("animationName").asString).asJsonObject
+            assertEquals(before.get("channels"),after.get("channels"))
+            val beforeSamplers=before.getAsJsonArray("samplers")
+            val afterSamplers=after.getAsJsonArray("samplers")
+            assertEquals(beforeSamplers.size(),afterSamplers.size())
+            for (i in 0 until beforeSamplers.size()) {
+                val a=beforeSamplers[i].asJsonObject; val b=afterSamplers[i].asJsonObject
+                assertEquals(a.get("interpolation"),b.get("interpolation"))
+                for (key in listOf("input","output")) {
+                    val oldIndex=a.get(key).asInt; val newIndex=b.get(key).asInt
+                    val old=source.getAsJsonArray("accessors")[oldIndex].asJsonObject.deepCopy()
+                    val new=bundle.getAsJsonArray("accessors")[newIndex].asJsonObject.deepCopy()
+                    old.remove("bufferView"); new.remove("bufferView")
+                    assertEquals(old,new)
+                    assertArrayEquals(accessorBytes(bytes,source,oldIndex),accessorBytes(bundleBytes,bundle,newIndex))
+                }
+            }
+        }
+        val registry=JsonParser.parseString(String(Files.readAllBytes(assetRoot.resolve(AslResidentAvatarBundle.MANIFEST))))
+            .asJsonObject.getAsJsonArray("animations").map { e -> val c=e.asJsonObject
+                AslResidentAvatarBundle.Motion(c.get("id").asString,c.get("animationName").asString,
+                    c.get("durationMs").asLong,c.get("sourceAsset").asString) }
+        val human=AslAvatarCatalogPolicy.originalHuman(merged)
+        val resident=AslResidentAvatarBundle.map(human,registry)
+        assertEquals(1,resident.map { it.assetPath }.distinct().size)
+        assertEquals(human.map { it.metadata },resident.map { it.metadata })
+        assertEquals(human.map { it.replacement!!.animationName },resident.map { it.replacement!!.animationName })
+        assertTrue(resident.all { it.originalFallback()==null })
+        assertEquals(0.0,resident.single { it.id=="idle" }.neutralFrameSeconds)
+        assertThrows(IllegalArgumentException::class.java) { AslResidentAvatarBundle.map(human,registry.dropLast(1)) }
+    }
+
+    @Test fun goodbyeUsesRealByeMotionAndNameNeverUsesCallingOrLegacyPhrases() {
+        val human = AslAvatarCatalogPolicy.originalHuman(merged)
+        val entries = JsonParser.parseString(String(Files.readAllBytes(Path.of(
+            "src/main/assets/asl_animations/existing_aliases_asl.json")))).asJsonObject.getAsJsonArray("aliases")
+        var selected = human
+        for (entry in entries) {
+            val e = entry.asJsonObject
+            val alias = ExistingAslAlias(e.get("signId").asString, e.getAsJsonArray("english").map { it.asString },
+                e.get("asset").asString, e.get("sha256").asString, e.get("reference").asString)
+            selected = alias.apply(selected, hash(Files.readAllBytes(assetRoot.resolve(alias.assetPath))))
+        }
+        assertEquals(human.size, selected.size)
+        val planner = AslPhrasePlanner(AslAnimationCatalog.fromAssets(selected), dictionarySequenceMode = true)
+        for (text in listOf("bye", "goodbye", "GOODBYE!")) {
+            val queue = planner.plan(text).queue
+            assertEquals(listOf("bye"), queue.map { it.id })
+            assertEquals("SIGN_BYE",queue.single().replacement!!.animationName)
+            assertTrue(AslSingleAvatarPolicy.permits(queue.single()))
+            assertNull(queue.single().originalFallback())
+        }
+        assertTrue(planner.plan("name").queue.isEmpty())
+        assertEquals(listOf("name"),planner.plan("name").unsupportedTokens)
+        assertEquals(listOf("hello","beautiful","bye"),planner.plan("hello beautiful goodbye").queue.map { it.id })
+        assertTrue(planner.plan("name").queue.none { it.id == "call__to_call_someone_s_name" })
     }
 
     @Test fun everydayExpressionsUseActualSelectedHumanCatalogWithoutInventedAssets() {

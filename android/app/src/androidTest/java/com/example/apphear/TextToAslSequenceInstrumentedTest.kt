@@ -22,7 +22,8 @@ class TextToAslSequenceInstrumentedTest {
         val context = i.targetContext
         val prefs = context.getSharedPreferences("text_to_asl", Context.MODE_PRIVATE)
         val previous = prefs.getString("character", null)
-        AslCharacterSettings(context).select(AslCharacterChoice.ORIGINAL)
+        // A saved alternate choice must no longer switch the active Text-to-Sign avatar.
+        AslCharacterSettings(context).select(AslCharacterChoice.NEW)
         val activity = i.startActivitySync(Intent(context, MainActivity::class.java)
             .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)) as MainActivity
         try {
@@ -61,6 +62,11 @@ class TextToAslSequenceInstrumentedTest {
             awaitStatus("Repeat complete") { it.contains("Complete") }
             submit("hello unknownword")
             awaitStatus("Individual unknown reported") { it.contains("Complete") && it.contains("unknownword") }
+            submit("goodbye")
+            awaitStatus("Existing BYE clip completes for alternative input") { it.contains("Complete") }
+            submit("NAME")
+            awaitStatus("Missing NAME keeps the same avatar") { it.contains("name") && it.contains("Unsupported") }
+            i.runOnMainSync { assertSame(originalView, activity.findViewById(R.id.avatarWebView)) }
             submit("What is your name?")
             awaitStatus("Incomplete name question stops signing") {
                 it.contains("Unavailable") && it.contains("NAME")
