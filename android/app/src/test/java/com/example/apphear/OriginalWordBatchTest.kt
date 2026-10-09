@@ -8,6 +8,8 @@ import com.example.apphear.domain.texttoasl.AslAvatarCatalogPolicy
 import com.example.apphear.domain.texttoasl.SignDictionaryMetadata
 import com.example.apphear.domain.texttoasl.AslTranslationPlanner
 import com.example.apphear.domain.texttoasl.TextToAslPlan
+import com.example.apphear.domain.texttoasl.AslGrammarRegistry
+import com.example.apphear.domain.texttoasl.EverydayAslExpression
 import com.google.gson.Gson
 import com.google.gson.JsonObject
 import com.google.gson.JsonParser
@@ -78,6 +80,32 @@ class OriginalWordBatchTest {
         val partial=planner.plan("hello unknownword")
         assertEquals(listOf("hello"), partial.queue.map { it.id })
         assertEquals(listOf("unknownword"), partial.unsupportedTokens)
+    }
+
+    @Test fun everydayExpressionsUseActualSelectedHumanCatalogWithoutInventedAssets() {
+        val entries = JsonParser.parseString(String(Files.readAllBytes(Path.of("src/main/assets/asl_animations/everyday_asl.json"))))
+            .asJsonObject.getAsJsonArray("expressions").map { Gson().fromJson(it, EverydayAslExpression::class.java) }
+        val catalog = AslAnimationCatalog.fromAssets(AslAvatarCatalogPolicy.originalHuman(merged))
+        val planner = AslTranslationPlanner(catalog, AslGrammarRegistry(everydayExpressions = entries))
+        for (entry in entries) for (input in entry.english) {
+            val plan = planner.plan(input)
+            assertEquals(input, entry.id, plan.ruleId)
+            assertNotEquals(TextToAslPlan.Mode.VALIDATED_PHRASE, plan.mode)
+            if (entry.previewSignId == null) assertTrue(input, plan.queue.isEmpty())
+            else assertEquals(listOf(entry.previewSignId), plan.queue.map { it.id })
+            for (asset in plan.queue) {
+                assertTrue(Files.exists(assetRoot.resolve(asset.assetPath)))
+                assertNull(asset.originalFallback())
+                assertEquals(SignDictionaryMetadata.AvatarProfile.ORIGINAL_HUMAN, asset.metadata.avatarProfile)
+            }
+            println("APPHEAR_EVERYDAY_RESULT=" + Gson().toJson(mapOf("input" to input, "id" to plan.ruleId,
+                "mode" to plan.mode.name, "assetIds" to plan.queue.map { it.id },
+                "missingCompatibleSigns" to plan.unsupportedTokens, "notice" to plan.translationNotice,
+                "linguisticallyValidated" to false)))
+        }
+        assertEquals(listOf("hello", "beautiful"),planner.plan("HELLO BEAUTIFUL").queue.map { it.id })
+        assertTrue(planner.plan("It's hot today!").queue.isEmpty())
+        assertTrue(planner.plan("My name is Nicole").queue.isEmpty())
     }
 
     @Test fun requestedExpressionsExposeRealAssetsAndUnvalidatedSentenceLimits() {

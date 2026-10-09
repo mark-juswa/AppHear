@@ -7,6 +7,7 @@ import com.example.apphear.domain.texttoasl.AslInputAnalysis
 import com.example.apphear.domain.texttoasl.ReviewedAslPhrase
 import com.example.apphear.domain.texttoasl.SignDictionaryMetadata
 import com.example.apphear.domain.texttoasl.AslTextNormalizer
+import com.example.apphear.domain.texttoasl.EverydayAslExpression
 import org.json.JSONArray
 import org.json.JSONObject
 
@@ -51,12 +52,38 @@ class AndroidAslGrammarLoader(private val context: Context) {
         require(aliases.groupBy { it.first }.values.none { forms -> forms.map { it.second }.distinct().size > 1 }) {
             "Ambiguous grammar alias"
         }
-        AslGrammarRegistry(root.getBoolean("enabled"), phrases, strings(root.getJSONArray("blockedLiteralExpressions")))
+        AslGrammarRegistry(root.getBoolean("enabled"), phrases, strings(root.getJSONArray("blockedLiteralExpressions")),
+            loadEverydayExpressions())
     } catch (error: Exception) {
         Log.w("TextToAslGrammar", "Grammar unavailable; labeled dictionary previews only", error)
-        AslGrammarRegistry(enabled = false)
+        AslGrammarRegistry(enabled = false, meaningRegistryUnavailable = true)
+    }
+
+    private fun loadEverydayExpressions(): List<EverydayAslExpression> {
+        val root = JSONObject(context.assets.open(EVERYDAY_PATH).bufferedReader().use { it.readText() })
+        require(root.getInt("schemaVersion") == 1 && root.getString("language") == "ASL")
+        val entries = root.getJSONArray("expressions")
+        val result = (0 until entries.length()).map { index ->
+            val entry = entries.getJSONObject(index)
+            require(entry.getString("status") == "CANDIDATE")
+            // This inventory never supplies glosses, signing order, or synthesized face movements.
+            require(entry.getJSONArray("gloss").length() == 0 && entry.getJSONArray("signIds").length() == 0)
+            val requirements = entry.getJSONArray("requiredSigns")
+            EverydayAslExpression(entry.getString("id"), strings(entry.getJSONArray("english")),
+                entry.getString("meaning"), (0 until requirements.length()).map {
+                    val requirement = requirements.getJSONObject(it)
+                    EverydayAslExpression.RequiredSign(requirement.getString("concept"), strings(requirement.getJSONArray("aliases")))
+                }, strings(entry.getJSONArray("references")), entry.getString("nonManualReview"),
+                if (entry.isNull("previewSignId")) null else entry.getString("previewSignId"),
+                strings(entry.getJSONArray("namePrefixes")))
+        }
+        EverydayAslExpression.validate(result, AslTextNormalizer())
+        return result
     }
 
     private fun strings(array: JSONArray): List<String> = (0 until array.length()).map { array.getString(it) }
-    companion object { const val PATH = "asl_animations/grammar_asl.json" }
+    companion object {
+        const val PATH = "asl_animations/grammar_asl.json"
+        const val EVERYDAY_PATH = "asl_animations/everyday_asl.json"
+    }
 }

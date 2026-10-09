@@ -62,8 +62,13 @@ class TextToAslSequenceInstrumentedTest {
             submit("hello unknownword")
             awaitStatus("Individual unknown reported") { it.contains("Complete") && it.contains("unknownword") }
             submit("What is your name?")
-            awaitStatus("Question is explicitly an unvalidated individual-sign preview") {
-                it.contains("Complete") && it.contains("not validated") && it.contains("name")
+            awaitStatus("Incomplete name question stops signing") {
+                it.contains("Unavailable") && it.contains("NAME")
+            }
+            for (text in listOf("It is hot today.", "IT IS HOT TODAY", "It's hot today!", "Today is hot.")) {
+                submit(text)
+                awaitStatus("Weather expression requires reviewed phrase motion") { it.contains("phrase order") }
+                i.runOnMainSync { assertSame(originalView, activity.findViewById(R.id.avatarWebView)) }
             }
             submit("I am not a student")
             awaitStatus("Missing negation stops incomplete meaning") { it.contains("preserve negation") }

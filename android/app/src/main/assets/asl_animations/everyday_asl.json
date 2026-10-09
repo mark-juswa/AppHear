@@ -1,0 +1,331 @@
+{
+  "schemaVersion": 1,
+  "language": "ASL",
+  "expressions": [
+    {
+      "id": "everyday_hello",
+      "english": [
+        "Hello",
+        "Hi",
+        "Hey"
+      ],
+      "meaning": "A greeting to another person",
+      "requiredSigns": [
+        {
+          "concept": "HELLO",
+          "aliases": [
+            "hello"
+          ]
+        }
+      ],
+      "references": [
+        "https://www.lifeprint.com/asl101/lessons/lesson02.htm"
+      ],
+      "nonManualReview": "Greeting expression and movement require review",
+      "previewSignId": "hello",
+      "namePrefixes": [],
+      "status": "CANDIDATE",
+      "gloss": [],
+      "signIds": [],
+      "license": "Reference links only; no external media or curriculum licensed or bundled",
+      "verification": "No qualified ASL review of AppHear motion"
+    },
+    {
+      "id": "everyday_how_are_you",
+      "english": [
+        "How are you",
+        "How are you doing"
+      ],
+      "meaning": "A social greeting asking about the addressee; concerned enquiry needs a separate reviewed interpretation",
+      "requiredSigns": [
+        {
+          "concept": "HOW",
+          "aliases": [
+            "how"
+          ]
+        },
+        {
+          "concept": "YOU",
+          "aliases": [
+            "you"
+          ]
+        }
+      ],
+      "references": [
+        "https://www.lifeprint.com/asl101/lessons/lesson02.htm"
+      ],
+      "nonManualReview": "Greeting and concerned enquiry have different facial requirements; no generic WH overlay",
+      "previewSignId": null,
+      "namePrefixes": [],
+      "status": "CANDIDATE",
+      "gloss": [],
+      "signIds": [],
+      "license": "Reference links only; no external media or curriculum licensed or bundled",
+      "verification": "No qualified ASL review of AppHear motion"
+    },
+    {
+      "id": "everyday_your_name",
+      "english": [
+        "What is your name",
+        "Whats your name",
+        "What is your name please"
+      ],
+      "meaning": "Ask the addressee for their name",
+      "requiredSigns": [
+        {
+          "concept": "YOUR",
+          "aliases": [
+            "your"
+          ]
+        },
+        {
+          "concept": "NAME",
+          "aliases": [
+            "name"
+          ]
+        }
+      ],
+      "references": [
+        "https://www.lifeprint.com/asl101/topics/signingnotes.htm"
+      ],
+      "nonManualReview": "Name question facial grammar and indexing require reviewed motion",
+      "previewSignId": null,
+      "namePrefixes": [],
+      "status": "CANDIDATE",
+      "gloss": [],
+      "signIds": [],
+      "license": "Reference links only; no external media or curriculum licensed or bundled",
+      "verification": "No qualified ASL review of AppHear motion"
+    },
+    {
+      "id": "everyday_my_name",
+      "english": [
+        "My name is",
+        "My name"
+      ],
+      "meaning": "Introduce the speakers name; the actual name is a parameter, never a guessed name sign",
+      "requiredSigns": [
+        {
+          "concept": "MY",
+          "aliases": [
+            "my"
+          ]
+        },
+        {
+          "concept": "NAME",
+          "aliases": [
+            "name"
+          ]
+        },
+        {
+          "concept": "NAME FINGERSPELLING",
+          "aliases": [
+            "fingerspelling sequence"
+          ]
+        }
+      ],
+      "references": [
+        "https://www.lifeprint.com/asl101/topics/signingnotes.htm"
+      ],
+      "nonManualReview": "Name handshapes, spelling transitions and referent require review",
+      "previewSignId": null,
+      "namePrefixes": [
+        "my name"
+      ],
+      "status": "CANDIDATE",
+      "gloss": [],
+      "signIds": [],
+      "license": "Reference links only; no external media or curriculum licensed or bundled",
+      "verification": "No qualified ASL review of AppHear motion"
+    },
+    {
+      "id": "everyday_hot_today",
+      "english": [
+        "It is hot today",
+        "Its hot today",
+        "Today is hot"
+      ],
+      "meaning": "Describe todays weather as hot",
+      "requiredSigns": [
+        {
+          "concept": "TODAY",
+          "aliases": [
+            "today"
+          ]
+        },
+        {
+          "concept": "HOT",
+          "aliases": [
+            "hot"
+          ]
+        }
+      ],
+      "references": [
+        "https://www.lifeprint.com/asl101/pages-signs/h/hot.htm"
+      ],
+      "nonManualReview": "Weather sense, sentence order and facial expression require review; lexical reference only",
+      "previewSignId": null,
+      "namePrefixes": [],
+      "status": "CANDIDATE",
+      "gloss": [],
+      "signIds": [],
+      "license": "Reference links only; no external media or curriculum licensed or bundled",
+      "verification": "No qualified ASL review of AppHear motion"
+    },
+    {
+      "id": "everyday_raining",
+      "english": [
+        "It is raining",
+        "Its raining",
+        "It is rainy",
+        "Its rainy"
+      ],
+      "meaning": "Describe current rain",
+      "requiredSigns": [
+        {
+          "concept": "RAIN",
+          "aliases": [
+            "rain",
+            "raining"
+          ]
+        }
+      ],
+      "references": [
+        "https://www.lifeprint.com/asl101/pages-signs/r/rain.htm"
+      ],
+      "nonManualReview": "Rain intensity and current-weather phrase require review; lexical reference only",
+      "previewSignId": null,
+      "namePrefixes": [],
+      "status": "CANDIDATE",
+      "gloss": [],
+      "signIds": [],
+      "license": "Reference links only; no external media or curriculum licensed or bundled",
+      "verification": "No qualified ASL review of AppHear motion"
+    },
+    {
+      "id": "everyday_hungry",
+      "english": [
+        "I am hungry",
+        "Im hungry",
+        "I feel hungry"
+      ],
+      "meaning": "State that the speaker is hungry",
+      "requiredSigns": [
+        {
+          "concept": "ME",
+          "aliases": [
+            "me"
+          ]
+        },
+        {
+          "concept": "HUNGRY",
+          "aliases": [
+            "hungry"
+          ]
+        }
+      ],
+      "references": [
+        "https://www.lifeprint.com/asl101/lessons/lesson07.htm"
+      ],
+      "nonManualReview": "Speaker indexing and expression require review",
+      "previewSignId": null,
+      "namePrefixes": [],
+      "status": "CANDIDATE",
+      "gloss": [],
+      "signIds": [],
+      "license": "Reference links only; no external media or curriculum licensed or bundled",
+      "verification": "No qualified ASL review of AppHear motion"
+    },
+    {
+      "id": "everyday_tired",
+      "english": [
+        "I am tired",
+        "Im tired",
+        "I feel tired"
+      ],
+      "meaning": "State that the speaker feels tired",
+      "requiredSigns": [
+        {
+          "concept": "ME",
+          "aliases": [
+            "me"
+          ]
+        },
+        {
+          "concept": "TIRED",
+          "aliases": [
+            "tired"
+          ]
+        }
+      ],
+      "references": [
+        "https://www.lifeprint.com/asl101/pages-signs/t/tired.htm"
+      ],
+      "nonManualReview": "Sentence interpretation and tired expression require review; lexical reference only",
+      "previewSignId": null,
+      "namePrefixes": [],
+      "status": "CANDIDATE",
+      "gloss": [],
+      "signIds": [],
+      "license": "Reference links only; no external media or curriculum licensed or bundled",
+      "verification": "No qualified ASL review of AppHear motion"
+    },
+    {
+      "id": "everyday_thank_you",
+      "english": [
+        "Thank you",
+        "Thanks"
+      ],
+      "meaning": "Express gratitude",
+      "requiredSigns": [
+        {
+          "concept": "THANK YOU",
+          "aliases": [
+            "thank you"
+          ]
+        }
+      ],
+      "references": [
+        "https://www.lifeprint.com/asl101/pages-signs/t/thankyou.htm"
+      ],
+      "nonManualReview": "Movement and appropriate gratitude expression require review",
+      "previewSignId": "thank_you",
+      "namePrefixes": [],
+      "status": "CANDIDATE",
+      "gloss": [],
+      "signIds": [],
+      "license": "Reference links only; no external media or curriculum licensed or bundled",
+      "verification": "No qualified ASL review of AppHear motion"
+    },
+    {
+      "id": "everyday_help_me",
+      "english": [
+        "Can you help me",
+        "Could you help me",
+        "Will you help me",
+        "Please help me"
+      ],
+      "meaning": "Request help from the addressee, not merely ask whether they have the ability",
+      "requiredSigns": [
+        {
+          "concept": "YOU-HELP-ME",
+          "aliases": [
+            "you help me",
+            "help me"
+          ]
+        }
+      ],
+      "references": [
+        "https://www.lifeprint.com/asl101/pages-signs/h/help.htm"
+      ],
+      "nonManualReview": "Directional help toward speaker and request/question facial grammar require reviewed motion",
+      "previewSignId": null,
+      "namePrefixes": [],
+      "status": "CANDIDATE",
+      "gloss": [],
+      "signIds": [],
+      "license": "Reference links only; no external media or curriculum licensed or bundled",
+      "verification": "No qualified ASL review of AppHear motion"
+    }
+  ]
+}

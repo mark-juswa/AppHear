@@ -27,4 +27,6 @@ data class ReviewedAslPhrase(
 }
 
 data class AslGrammarRegistry(val enabled: Boolean = true, val phrases: List<ReviewedAslPhrase> = emptyList(),
-    val blockedLiteralExpressions: List<String> = emptyList())
+    val blockedLiteralExpressions: List<String> = emptyList(),
+    val everydayExpressions: List<EverydayAslExpression> = emptyList(),
+    val meaningRegistryUnavailable: Boolean = false)
