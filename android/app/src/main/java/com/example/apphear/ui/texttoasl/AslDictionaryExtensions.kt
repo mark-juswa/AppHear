@@ -15,7 +15,7 @@ import java.security.MessageDigest
 class AslDictionaryExtensions(private val context: Context) {
     fun load(base: List<AslAnimationAsset>, profile: SignDictionaryMetadata.AvatarProfile): List<AslAnimationAsset> {
         val root = JSONObject(context.assets.open(PATH).bufferedReader().use { it.readText() })
-        require(root.getInt("schemaVersion") == 1 && root.getString("signLanguage") == "ASL")
+        require(root.getInt("schemaVersion") in 1..2 && root.getString("signLanguage") == "ASL")
         val result = base.toMutableList()
         val entries = root.getJSONArray("entries")
         for (index in 0 until entries.length()) {
@@ -25,11 +25,18 @@ class AslDictionaryExtensions(private val context: Context) {
                 require(entry.getString("signLanguage") == "ASL") // FSL needs its own catalog.
                 require(entry.getString("format") == "glb") // SiGML needs a separate engine adapter.
                 require(entry.getString("validationStatus") == "reviewed")
+                require(entry.getString("status") == "LINGUISTICALLY_VALIDATED")
                 val source = entry.getString("source").also { require(it.isNotBlank()) }
                 val license = entry.getString("license").also { require(it.isNotBlank()) }
                 val evidence = entry.getString("reviewEvidence").also { require(it.isNotBlank()) }
-                require(entry.getString("reviewer").isNotBlank())
-                require(entry.getString("reviewedOn").matches(Regex("\\d{4}-\\d{2}-\\d{2}")))
+                val reviewer = entry.getString("reviewer").also { require(it.isNotBlank()) }
+                val reviewedOn = entry.getString("reviewedOn").also { java.time.LocalDate.parse(it) }
+                val playbackEvidence = entry.getString("playbackEvidence").also { require(it.isNotBlank()) }
+                val meaning = entry.getString("meaning").also { require(it.isNotBlank()) }
+                fun strings(key: String): List<String> = entry.optJSONArray(key)?.let { values ->
+                    (0 until values.length()).map { values.getString(it) }
+                }.orEmpty()
+                val gloss = strings("gloss").also { require(it.isNotEmpty() && it.all(String::isNotBlank)) }
                 val id = entry.getString("id").also { require(it.matches(Regex("[a-z][a-z0-9_]*"))) }
                 val path = entry.getString("asset").also {
                     require(it.matches(Regex("asl_animations/(?:[a-zA-Z0-9_-]+/)*[a-zA-Z0-9_-]+\\.glb")))
@@ -72,7 +79,12 @@ class AslDictionaryExtensions(private val context: Context) {
                     AslAnimationAsset.Replacement(null, animation, duration),
                     SignDictionaryMetadata(SignDictionaryMetadata.Language.ASL,
                         SignDictionaryMetadata.ValidationStatus.REVIEWED, profile,
-                        entry.optString("category").takeIf { it.isNotBlank() }, source, license, evidence))
+                        entry.optString("category").takeIf { it.isNotBlank() }, source, license, evidence,
+                        status = SignDictionaryMetadata.Status.LINGUISTICALLY_VALIDATED,
+                        gloss = gloss, meaning = meaning, usageNotes = entry.optString("usageNotes").takeIf { it.isNotBlank() },
+                        lexicalVariant = entry.optString("lexicalVariant").takeIf { it.isNotBlank() },
+                        references = strings("references"), embeddedNonManualMarkers = strings("embeddedNonManualMarkers").toSet(),
+                        reviewer = reviewer, reviewedOn = reviewedOn, playbackEvidence = playbackEvidence))
                 AslAnimationCatalog.fromAssets(result + asset) // Reject ID/alias collisions atomically.
                 result += asset
             } catch (error: Exception) {

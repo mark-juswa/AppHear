@@ -1,0 +1,7 @@
+{
+  "schemaVersion": 1,
+  "language": "ASL",
+  "enabled": true,
+  "phrases": [],
+  "blockedLiteralExpressions": ["break a leg", "piece of cake", "under the weather"]
+}

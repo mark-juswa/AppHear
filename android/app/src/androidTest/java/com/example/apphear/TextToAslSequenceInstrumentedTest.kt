@@ -61,6 +61,12 @@ class TextToAslSequenceInstrumentedTest {
             awaitStatus("Repeat complete") { it.contains("Complete") }
             submit("hello unknownword")
             awaitStatus("Individual unknown reported") { it.contains("Complete") && it.contains("unknownword") }
+            submit("What is your name?")
+            awaitStatus("Question is explicitly an unvalidated individual-sign preview") {
+                it.contains("Complete") && it.contains("not validated") && it.contains("name")
+            }
+            submit("I am not a student")
+            awaitStatus("Missing negation stops incomplete meaning") { it.contains("preserve negation") }
             submit("hello beautiful")
             submit("beautiful") // Supersede an active request through the same existing input/button.
             awaitStatus("Replacement request complete") { it.contains("Complete") && !it.contains("Unsupported") }

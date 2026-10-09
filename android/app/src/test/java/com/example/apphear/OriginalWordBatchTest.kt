@@ -6,6 +6,9 @@ import com.example.apphear.domain.texttoasl.AslPhrasePlanner
 import com.example.apphear.domain.texttoasl.OriginalWordBatchCatalog
 import com.example.apphear.domain.texttoasl.AslAvatarCatalogPolicy
 import com.example.apphear.domain.texttoasl.SignDictionaryMetadata
+import com.example.apphear.domain.texttoasl.AslTranslationPlanner
+import com.example.apphear.domain.texttoasl.TextToAslPlan
+import com.google.gson.Gson
 import com.google.gson.JsonObject
 import com.google.gson.JsonParser
 import java.nio.ByteBuffer
@@ -75,6 +78,32 @@ class OriginalWordBatchTest {
         val partial=planner.plan("hello unknownword")
         assertEquals(listOf("hello"), partial.queue.map { it.id })
         assertEquals(listOf("unknownword"), partial.unsupportedTokens)
+    }
+
+    @Test fun requestedExpressionsExposeRealAssetsAndUnvalidatedSentenceLimits() {
+        val catalog = AslAnimationCatalog.fromAssets(AslAvatarCatalogPolicy.originalHuman(merged))
+        val planner = AslTranslationPlanner(catalog)
+        val expressions = listOf("Hello", "Beautiful", "Hello beautiful", "What is your name?", "How are you?",
+            "Where are you going?", "Thank you", "Good morning", "I need help", "I am hungry", "I am a student",
+            "Can you help me?", "What time is it?", "Nice to meet you", "See you tomorrow")
+        for (text in expressions) {
+            val plan = planner.plan(text)
+            assertNotEquals(text,TextToAslPlan.Mode.VALIDATED_PHRASE,plan.mode)
+            assertTrue(text,plan.queue.all { Files.exists(assetRoot.resolve(it.assetPath)) })
+            assertTrue(text,plan.queue.all { !it.metadata.isLinguisticallyValidated })
+            if (text.contains('?')) assertTrue(text,plan.translationNotice!!.contains("not validated"))
+            println("APPHEAR_EXPRESSION_RESULT=" + Gson().toJson(mapOf("input" to text,
+                "mode" to plan.mode.name, "intent" to plan.analysis?.intent?.name,
+                "assetIds" to plan.queue.map { it.id }, "unsupportedWords" to plan.unsupportedTokens,
+                "notice" to plan.translationNotice, "linguisticallyValidated" to false)))
+        }
+        assertEquals(listOf("hello"),planner.plan("Hi!").queue.map { it.id })
+        assertEquals(listOf("hello","beautiful"),planner.plan("HELLO,   BEAUTIFUL!").queue.map { it.id })
+        assertEquals(listOf("good","morning"),planner.plan("Good morning").queue.map { it.id })
+        assertEquals(listOf("i_me","need","help"),planner.plan("I need help").queue.map { it.id })
+        val nameQuestion = planner.plan("What is your name?")
+        assertTrue(nameQuestion.unsupportedTokens.contains("name"))
+        assertTrue(planner.plan("I am not a student").queue.isEmpty())
     }
 
     @Test fun approvedMeaningsStaySeparateAndLongestMatchingUsesExactClip() {

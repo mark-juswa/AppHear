@@ -20,7 +20,7 @@ Each clip finishes through the player's actual animation timeline/finished event
 
 The optional bundled manifest is `app/src/main/assets/asl_animations/dictionary_extensions_asl.json`. It intentionally has zero new entries: no licensed, independently reviewed new assets were supplied. Add only a genuinely compatible GLB and a documented review record; never label repository previews reviewed simply because they render.
 
-Each entry requires these fields:
+Schema 2 entries require these fields (old review labels alone are no longer sufficient):
 
 | Field | Meaning |
 | --- | --- |
@@ -39,11 +39,16 @@ Each entry requires these fields:
 | `source` | Authoritative provenance/reference and asset provider |
 | `license` | Actual license/permission permitting bundled redistribution |
 | `reviewer`, `reviewedOn`, `reviewEvidence` | Qualified reviewer, date (`YYYY-MM-DD`), and evidence location/results |
+| `status` | `LINGUISTICALLY_VALIDATED` for active new imports; earlier stages stay in the offline review inventory |
+| `playbackEvidence` | Recorded actual engine/device playback for this asset/version |
+| `gloss`, `meaning` | Reviewed gloss labels and the specific sense/usage covered by review |
+| `usageNotes`, `lexicalVariant`, `references` | Optional context/variant and additional authoritative sources |
+| `embeddedNonManualMarkers` | Names of reviewed facial/head/body features actually encoded in the clip, not requested generated overlays |
 | `category` | Optional vocabulary category |
 
 The loader checks schema/language/profile, required review/license records, secure paths, file hash, GLB header and expected action, durations, ID collisions and normalized alias collisions. Invalid additions are skipped with a diagnostic. A developer-supplied profile/review declaration is not an independent proof: inspect skeleton, mesh, handshape, movement, wrist orientation, face/body tracks and compatibility before authoring it. The loader is not a motion retargeter or linguistic validator.
 
-Keep root `schemaVersion: 1`, `signLanguage: "ASL"`, and the `entries` array. Add exact phrase aliases only for reviewed phrase assets; do not alias an unrelated single-word clip to a whole sentence. The current adapter does not accept SiGML. A future CWASA adapter needs its own licensed engine assets and reviewed ASL dictionary.
+Keep root `schemaVersion: 2`, `signLanguage: "ASL"`, and the `entries` array. Add exact phrase aliases only for reviewed phrase assets; do not alias an unrelated single-word clip to a whole sentence. The current adapter does not accept SiGML. A future CWASA adapter needs its own licensed engine assets and reviewed ASL dictionary. See `TextToSignGrammar.md` for the separate reviewed English-meaning registry and the validation checklist. The five dictionary lifecycle statuses do not imply that current mapped previews have passed playback or linguistic review.
 
 ## Checks and building
 
