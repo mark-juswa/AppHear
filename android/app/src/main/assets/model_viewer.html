@@ -1,158 +1,142 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<script type="module" src="vendor/model-viewer/model-viewer-4.3.1.min.js"></script>
-<style>
-html,body { margin:0; width:100%; height:100%; background:#0D2020; overflow:hidden; }
-model-viewer { width:100%; height:100%; }
-#status { position:absolute; bottom:20px; left:16px; right:16px; text-align:center;
- color:white; background:#0D2020CC; padding:8px; border-radius:8px; font:14px sans-serif; }
-</style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script type="module" src="vendor/model-viewer/model-viewer-4.3.1.min.js"></script>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      background: #0D2020;
+      overflow: hidden;
+    }
+    model-viewer {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #0D2020;
+      opacity: 0;
+      transition: opacity 280ms ease;
+      pointer-events: none;
+    }
+    model-viewer.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    #fallback {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      color: rgba(255, 255, 255, 0.72);
+      font: 600 14px sans-serif;
+      text-align: center;
+    }
+    model-viewer.defined ~ #fallback {
+      display: none;
+    }
+  </style>
 </head>
 <body>
-<model-viewer id="viewer" camera-controls animation-crossfade-duration="0" exposure="1"
- shadow-intensity="0.35" camera-orbit="0deg 75deg 3m" camera-target="0m 1.5m 0m"
- field-of-view="45deg" interaction-prompt="none"></model-viewer>
-<div id="status" role="status">Loading ASL preview viewer…</div>
+<model-viewer id="viewerA" class="active" camera-controls autoplay animation-crossfade-duration="250" exposure="1.0" shadow-intensity="0.35" camera-orbit="0deg 75deg 3m" camera-target="0m 1.5m 0m" field-of-view="45deg" min-camera-orbit="auto auto auto" max-camera-orbit="auto auto auto" interaction-prompt="none"></model-viewer>
+<model-viewer id="viewerB" camera-controls autoplay animation-crossfade-duration="250" exposure="1.0" shadow-intensity="0.35" camera-orbit="0deg 75deg 3m" camera-target="0m 1.5m 0m" field-of-view="45deg" min-camera-orbit="auto auto auto" max-camera-orbit="auto auto auto" interaction-prompt="none"></model-viewer>
+<div id="fallback">Avatar viewer is loading.</div>
 <script>
-'use strict';
-const viewer = document.getElementById('viewer');
-const status = document.getElementById('status');
-let request = null, generation = 0, speed = 1;
-const LOAD_TIMEOUT_MS = 20000;
-function bridge(method, ...args) {
-  if (window.Android && typeof window.Android[method] === 'function') window.Android[method](...args);
-}
-function cancelCurrent() {
-  if (request) {
-    clearTimeout(request.timer);
-    clearTimeout(request.poll);
-    request.cleanup();
-  }
-  request = null;
-  if (typeof viewer.pause === 'function') viewer.pause();
-}
-function fail(token, message) {
-  if (token !== -1 && token !== generation) return;
-  cancelCurrent();
-  status.textContent = message;
-  status.hidden = false;
-  bridge('onPlaybackError', token, message);
-}
-function armPlaybackTimer() {
-  if (!request) return;
-  clearTimeout(request.timer);
-  clearTimeout(request.poll);
-  if (request.loop || request.paused || !request.started) return;
-  monitorEnd(request);
-  if (!request) return;
-  const remaining = Math.max(0, viewer.duration - viewer.currentTime);
-  request.timer = setTimeout(() => fail(generation, 'Playback stopped responding. Tap Repeat to retry.'),
-    remaining / speed * 1000 + 5000);
-}
-window.playSign = async function(url, token, animationName, loop) {
-  cancelCurrent();
-  generation = token;
-  status.textContent = 'Loading sign preview…';
-  status.hidden = false;
-  const r = { token, url, loop, paused:false, started:false, timer:null, poll:null, cleanup:() => {} };
-  request = r;
-  try {
-    await customElements.whenDefined('model-viewer');
-    if (request !== r) return;
-    const loaded = new Promise((resolve, reject) => {
+  const viewers = [document.getElementById('viewerA'), document.getElementById('viewerB')];
+  let activeIndex = 0;
+  let pendingPlayUrl = null;
+  let queuedPreloadUrl = null;
+  const loadedUrls = new Set();
+
+  customElements.whenDefined('model-viewer').then(() => {
+    viewers.forEach((viewer) => viewer.classList.add('defined'));
+    if (window.Android) Android.onViewerReady();
+  });
+
+  viewers.forEach((viewer) => {
+    viewer.addEventListener('load', () => {
+      loadedUrls.add(viewer.src);
+      const anims = JSON.stringify(viewer.availableAnimations || []);
+      if (window.Android) Android.onModelLoaded(viewer.src, anims);
+    });
+    viewer.addEventListener('finished', () => {
+      if (viewer.classList.contains('active') && window.Android) {
+        Android.onAnimationFinished(viewer.src);
+      }
+    });
+  });
+
+  window.playSign = function(url) {
+    const active = viewers[activeIndex];
+    if (active.src === url) {
+      replayViewer(active);
+      return;
+    }
+
+    const nextIndex = 1 - activeIndex;
+    const next = viewers[nextIndex];
+    pendingPlayUrl = url;
+    if (next.src !== url) {
+      next.src = url;
+    }
+
+    waitForModel(next, url).then(() => {
+      if (pendingPlayUrl !== url) return;
+      replayViewer(next);
+      next.classList.add('active');
+      active.classList.remove('active');
+      activeIndex = nextIndex;
+      pendingPlayUrl = null;
+
+      if (queuedPreloadUrl) {
+        const preloadUrl = queuedPreloadUrl;
+        queuedPreloadUrl = null;
+        window.preloadSign(preloadUrl);
+      }
+    });
+  };
+
+  window.preloadSign = function(url) {
+    if (pendingPlayUrl) {
+      queuedPreloadUrl = url;
+      return;
+    }
+    const next = viewers[1 - activeIndex];
+    if (next.src !== url) {
+      next.src = url;
+    }
+  };
+
+  function waitForModel(viewer, url) {
+    if (viewer.src === url && loadedUrls.has(url)) {
+      return Promise.resolve();
+    }
+    return new Promise((resolve) => {
       const onLoad = () => {
-        if (request === r && viewer.src === url && viewer.loaded) resolve();
-      };
-      const onError = () => reject(new Error('Sign preview could not load. Tap Repeat to retry.'));
-      r.cleanup = () => {
-        viewer.removeEventListener('load', onLoad);
-        viewer.removeEventListener('error', onError);
+        if (viewer.src === url) {
+          viewer.removeEventListener('load', onLoad);
+          resolve();
+        }
       };
       viewer.addEventListener('load', onLoad);
-      viewer.addEventListener('error', onError);
-      r.timer = setTimeout(() => reject(new Error('Sign preview load timed out. Tap Repeat to retry.')), LOAD_TIMEOUT_MS);
-      if (viewer.src === url && viewer.loaded) resolve();
-      else viewer.src = url;
     });
-    await loaded;
-    r.cleanup();
-    clearTimeout(r.timer);
-    if (request !== r) return;
-    const names = viewer.availableAnimations || [];
-    // Name is pinned by the dictionary; do not silently select a different animation.
-    if (!names.includes(animationName)) throw new Error('The requested sign animation is missing.');
-    viewer.animationName = animationName;
-    await viewer.updateComplete;
-    if (request !== r) return;
-    viewer.timeScale = speed;
-    viewer.currentTime = 0;
-    viewer.play({repetitions: loop ? Infinity : 1});
-    if (r.paused) viewer.pause();
-    if (!(viewer.duration > 0) || !Number.isFinite(viewer.duration)) throw new Error('Invalid sign duration.');
-    r.started = true;
-    status.hidden = true;
-    bridge('onPlaybackStarted', token);
-    armPlaybackTimer();
-  } catch (error) {
-    if (request === r) fail(token, error.message || 'Sign preview failed.');
   }
-};
-function completeAtEnd(r) {
-  if (request !== r || !r || !r.started || r.loop || r.paused || viewer.src !== r.url) return false;
-  if (!(viewer.duration > 0) || viewer.currentTime + 0.001 < viewer.duration) return false;
-  clearTimeout(r.timer);
-  clearTimeout(r.poll);
-  viewer.pause();
-  request = null;
-  bridge('onPlaybackFinished', r.token);
-  return true;
-}
-function monitorEnd(r) {
-  if (completeAtEnd(r)) return;
-  // The bundled renderer can omit its finished event after model replacement.
-  // Observe its actual animation timeline; elapsed wall time never marks success.
-  r.poll = setTimeout(() => {
-    if (request === r && !r.paused) monitorEnd(r);
-  }, 100);
-}
-viewer.addEventListener('finished', () => completeAtEnd(request));
-viewer.addEventListener('error', () => {
-  if (request && request.started) fail(request.token, 'The avatar renderer failed. Tap Repeat to retry.');
-});
-window.stopSign = token => { cancelCurrent(); generation = token; status.hidden = true; };
-window.pauseSign = paused => {
-  if (!request) return;
-  request.paused = paused;
-  if (request.started) {
-    if (paused) viewer.pause();
-    else viewer.play({repetitions: request.loop ? Infinity : 1});
+
+  function replayViewer(viewer) {
+    try {
+      viewer.currentTime = 0;
+      if (viewer.availableAnimations && viewer.availableAnimations.length > 0) {
+        viewer.animationName = viewer.availableAnimations[0];
+      }
+      viewer.play();
+    } catch (error) {
+      console.warn('Unable to replay sign animation', error);
+    }
   }
-  armPlaybackTimer();
-};
-window.setSignSpeed = value => {
-  speed = Math.min(1.5, Math.max(0.5, Number(value) || 1));
-  viewer.timeScale = speed;
-  armPlaybackTimer();
-};
-viewer.addEventListener('webglcontextlost', () => fail(generation, 'Graphics context lost. Reopen the signing screen.'));
-let engineFailed = false;
-const readyTimeout = setTimeout(() => {
-  engineFailed = true;
-  fail(-1, 'Avatar viewer unavailable. Reopen the signing screen.');
-}, LOAD_TIMEOUT_MS);
-customElements.whenDefined('model-viewer').then(() => {
-  clearTimeout(readyTimeout);
-  if (engineFailed) return;
-  try {
-    const gl = document.createElement('canvas').getContext('webgl2');
-    if (!gl) { fail(-1, 'WebGL 2 graphics unavailable on this device.'); return; }
-    gl.getExtension?.('WEBGL_lose_context')?.loseContext();
-    bridge('onViewerReady');
-  } catch (error) { fail(-1, 'Avatar graphics could not initialize.'); }
-});
 </script>
 </body>
 </html>
-

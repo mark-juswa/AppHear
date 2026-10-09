@@ -1,54 +1,65 @@
 package com.example.apphear.domain.texttoasl
 
-/**
- * Phrase mode intentionally requires a whole-input dictionary match. Concatenating
- * English words or partial fingerspelling is not an ASL translation.
- */
 class AslPhrasePlanner(
     private val catalog: AslAnimationCatalog,
     private val normalizer: AslTextNormalizer = AslTextNormalizer(),
-    private val strictPhraseMode: Boolean = true,
 ) {
     fun plan(input: String?): TextToAslPlan {
-        if (!strictPhraseMode) return legacyPlan(input)
-        val requested = input?.trim().orEmpty()
-        val normalized = normalizer.normalize(input)
-        if (normalized.isEmpty()) {
-            return TextToAslPlan(requested, normalized, emptyList(),
-                if (requested.isBlank()) emptyList() else listOf(requested))
-        }
-        val asset = catalog.findByAlias(normalized)
-        val usable = asset?.takeIf {
-            it.type != AslAnimationAsset.Type.POSE && it.type != AslAnimationAsset.Type.LETTER &&
-                it.aliases.any { alias -> normalizer.normalize(alias) == normalized }
-        }
-        return TextToAslPlan(requested, normalized,
-            usable?.let { listOf(it) }.orEmpty(),
-            if (usable == null) listOf(requested) else emptyList())
-    }
-
-    // Rollback only; the redesigned UI never uses character-fragment fallback.
-    private fun legacyPlan(input: String?): TextToAslPlan {
+        val requestedText = input?.trim().orEmpty()
         var remaining = normalizer.normalize(input)
         val queue = mutableListOf<AslAnimationAsset>()
         val unsupported = mutableListOf<String>()
+
         while (remaining.isNotEmpty()) {
-            val alias = catalog.getAliasesLongestFirst().firstOrNull {
-                remaining == it || remaining.startsWith("$it ")
+            val match = findLongestMatch(remaining)
+            if (match != null) {
+                queue += match.asset
+                remaining = consume(remaining, match.alias.length)
+                continue
             }
-            if (alias != null) {
-                catalog.findByAlias(alias)?.let { queue += it }
-                remaining = remaining.substring(alias.length).trim()
-            } else {
-                val letter = remaining.first()
-                if (letter.isLetter()) {
-                    val asset = catalog.findByAlias(letter.toString())
-                    if (asset == null) unsupported += letter.toString() else queue += asset
+
+            val first = remaining.first()
+            if (first.isLetter()) {
+                val letter = catalog.findByAlias(first.toString())
+                if (letter != null) {
+                    queue += letter
+                } else {
+                    unsupported += first.toString()
                 }
-                remaining = remaining.substring(1).trim()
+                remaining = consume(remaining, 1)
+            } else {
+                remaining = consume(remaining, 1)
             }
         }
-        return TextToAslPlan(input?.trim().orEmpty(), normalizer.normalize(input), queue, unsupported)
+
+        return TextToAslPlan(
+            requestedText = requestedText,
+            normalizedText = normalizer.normalize(input),
+            queue = queue,
+            unsupportedTokens = unsupported,
+        )
     }
+
+    private fun findLongestMatch(text: String): Match? {
+        for (alias in catalog.getAliasesLongestFirst()) {
+            if (text == alias || text.startsWith("$alias ")) {
+                val asset = catalog.findByAlias(alias)
+                if (asset != null) return Match(alias, asset)
+            }
+        }
+        return null
+    }
+
+    private fun consume(text: String, count: Int): String {
+        return text
+            .substring(minOf(count, text.length))
+            .trim()
+            .replace(Regex("^\\s+"), "")
+    }
+
+    private data class Match(
+        val alias: String,
+        val asset: AslAnimationAsset,
+    )
 }
 

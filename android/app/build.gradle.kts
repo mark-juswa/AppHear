@@ -32,8 +32,6 @@ android {
         .map { it.equals("true", ignoreCase = true) }
         .getOrElse(false)
 
-    val textToAslRedesign = providers.gradleProperty("textToAslRedesign")
-        .map { it.equals("true", ignoreCase = true) }.getOrElse(true)
     namespace = "com.example.apphear"
     compileSdk = 36
 
@@ -43,7 +41,6 @@ android {
         targetSdk = 36
         versionCode = 1
         versionName = "1.0"
-        buildConfigField("boolean", "TEXT_TO_ASL_REDESIGN_ENABLED", textToAslRedesign.toString())
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         buildConfigField("String", "ELEVENLABS_API_KEY", "\"$elevenLabsApiKey\"")
@@ -55,8 +52,6 @@ android {
 
     buildTypes {
         debug {
-            applicationIdSuffix = ".redesign"
-            versionNameSuffix = "-asl-preview"
             buildConfigField("boolean", "PHASE1_SHADOW_ENABLED", phase1ShadowDebug.toString())
         }
         release {

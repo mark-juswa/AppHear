@@ -65,9 +65,6 @@ class TextToAslAssetManifestTest {
 
             assertTrue("Text-to-ASL GLB has no animation: $assetPath", (json.getAsJsonArray("animations")?.size() ?: 0) > 0)
             assertTrue("Text-to-ASL GLB has no avatar nodes: $assetPath", (json.getAsJsonArray("nodes")?.size() ?: 0) > 0)
-            assertEquals(clip.get("animationName").asString,
-                json.getAsJsonArray("animations")[0].asJsonObject.get("name").asString)
-            assertEquals("unreviewed", clip.getAsJsonObject("validation").get("status").asString)
         }
     }
 
@@ -76,7 +73,7 @@ class TextToAslAssetManifestTest {
         val viewerHtml = String(Files.readAllBytes(assetsDir.resolve("model_viewer.html")))
 
         assertTrue(viewerHtml.contains("vendor/model-viewer/model-viewer-4.3.1.min.js"))
-        assertTrue(viewerHtml.contains("onPlaybackFinished"))
+        assertTrue(viewerHtml.contains("onAnimationFinished"))
         assertFalse("Viewer must not depend on AppHear2's runtime CDN script", viewerHtml.contains("unpkg.com"))
         assertFalse("Viewer must not depend on a runtime Google CDN script", viewerHtml.contains("ajax.googleapis.com"))
     }

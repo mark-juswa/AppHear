@@ -48,18 +48,18 @@ class TextToAslPlannerTest {
     private val catalog = AslAnimationCatalog.fromAssets(
         listOf(hello, niceToMeetYou, meet, letterA, letterB),
     )
-    private val planner = AslPhrasePlanner(catalog, strictPhraseMode = false)
+    private val planner = AslPhrasePlanner(catalog)
 
     @Test
-    fun normalizerPreservesUnknownContent() {
+    fun normalizerMatchesAppHear2ReferenceRules() {
         val normalizer = AslTextNormalizer()
 
         assertEquals("", normalizer.normalize(null))
         assertEquals("", normalizer.normalize("   "))
-        assertEquals("hey", normalizer.normalize("HEY"))
-        assertEquals("hi", normalizer.normalize("hi"))
+        assertEquals("hello", normalizer.normalize("HEY"))
+        assertEquals("hello", normalizer.normalize("hi"))
         assertEquals("dont", normalizer.normalize("Don't"))
-        assertEquals("nice, to meet you", normalizer.normalize("Nice, to   meet you!"))
+        assertEquals("nice to meet you", normalizer.normalize("Nice, to   meet you!"))
     }
 
     @Test

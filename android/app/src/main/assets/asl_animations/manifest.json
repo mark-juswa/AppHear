@@ -1,5 +1,5 @@
 {
-  "version": 3,
+  "version": 2,
   "source": "AppHear3 starter set plus NEW BATCH GLB (2026-08-02)",
   "clips": [
     {
@@ -11,20 +11,7 @@
         "idle",
         "rest",
         "stand"
-      ],
-      "animationName": "mixamo.com",
-      "validation": {
-        "status": "unreviewed",
-        "reviewer": null,
-        "reviewedAt": null,
-        "evidence": null
-      },
-      "provenance": {
-        "source": "Existing upstream AppHear GLB",
-        "upstreamRevision": "1e215aebd69a173dd198aa5598a89600072d22fe",
-        "signReference": null,
-        "licenseStatus": "not-documented"
-      }
+      ]
     },
     {
       "id": "hello",
@@ -35,20 +22,7 @@
         "hello",
         "hi",
         "hey"
-      ],
-      "animationName": "hello",
-      "validation": {
-        "status": "unreviewed",
-        "reviewer": null,
-        "reviewedAt": null,
-        "evidence": null
-      },
-      "provenance": {
-        "source": "Existing upstream AppHear GLB",
-        "upstreamRevision": "1e215aebd69a173dd198aa5598a89600072d22fe",
-        "signReference": null,
-        "licenseStatus": "not-documented"
-      }
+      ]
     },
     {
       "id": "thank_you",
@@ -59,20 +33,7 @@
         "thank you",
         "thanks",
         "thank"
-      ],
-      "animationName": "thank-you",
-      "validation": {
-        "status": "unreviewed",
-        "reviewer": null,
-        "reviewedAt": null,
-        "evidence": null
-      },
-      "provenance": {
-        "source": "Existing upstream AppHear GLB",
-        "upstreamRevision": "1e215aebd69a173dd198aa5598a89600072d22fe",
-        "signReference": null,
-        "licenseStatus": "not-documented"
-      }
+      ]
     },
     {
       "id": "good",
@@ -81,20 +42,7 @@
       "type": "word",
       "aliases": [
         "good"
-      ],
-      "animationName": "SIGN_GOOD",
-      "validation": {
-        "status": "unreviewed",
-        "reviewer": null,
-        "reviewedAt": null,
-        "evidence": null
-      },
-      "provenance": {
-        "source": "Existing upstream AppHear GLB",
-        "upstreamRevision": "1e215aebd69a173dd198aa5598a89600072d22fe",
-        "signReference": null,
-        "licenseStatus": "not-documented"
-      }
+      ]
     },
     {
       "id": "a",
@@ -103,20 +51,7 @@
       "type": "letter",
       "aliases": [
         "a"
-      ],
-      "animationName": "asl1",
-      "validation": {
-        "status": "unreviewed",
-        "reviewer": null,
-        "reviewedAt": null,
-        "evidence": null
-      },
-      "provenance": {
-        "source": "Existing upstream AppHear GLB",
-        "upstreamRevision": "1e215aebd69a173dd198aa5598a89600072d22fe",
-        "signReference": null,
-        "licenseStatus": "not-documented"
-      }
+      ]
     },
     {
       "id": "b",
@@ -125,20 +60,7 @@
       "type": "letter",
       "aliases": [
         "b"
-      ],
-      "animationName": "asl1",
-      "validation": {
-        "status": "unreviewed",
-        "reviewer": null,
-        "reviewedAt": null,
-        "evidence": null
-      },
-      "provenance": {
-        "source": "Existing upstream AppHear GLB",
-        "upstreamRevision": "1e215aebd69a173dd198aa5598a89600072d22fe",
-        "signReference": null,
-        "licenseStatus": "not-documented"
-      }
+      ]
     },
     {
       "id": "possessive_adjective",
@@ -152,20 +74,7 @@
         "its",
         "belongs to",
         "possessive adjective"
-      ],
-      "animationName": "possessive-adjective-his-her-hers-its-belongs-to",
-      "validation": {
-        "status": "unreviewed",
-        "reviewer": null,
-        "reviewedAt": null,
-        "evidence": null
-      },
-      "provenance": {
-        "source": "Existing upstream AppHear GLB",
-        "upstreamRevision": "1e215aebd69a173dd198aa5598a89600072d22fe",
-        "signReference": null,
-        "licenseStatus": "not-documented"
-      }
+      ]
     },
     {
       "id": "again",
@@ -174,20 +83,7 @@
       "type": "word",
       "aliases": [
         "again"
-      ],
-      "animationName": "again",
-      "validation": {
-        "status": "unreviewed",
-        "reviewer": null,
-        "reviewedAt": null,
-        "evidence": null
-      },
-      "provenance": {
-        "source": "Existing upstream AppHear GLB",
-        "upstreamRevision": "1e215aebd69a173dd198aa5598a89600072d22fe",
-        "signReference": null,
-        "licenseStatus": "not-documented"
-      }
+      ]
     },
     {
       "id": "all",
@@ -196,20 +92,7 @@
       "type": "word",
       "aliases": [
         "all"
-      ],
-      "animationName": "A-L-L_HOW_SIGN",
-      "validation": {
-        "status": "unreviewed",
-        "reviewer": null,
-        "reviewedAt": null,
-        "evidence": null
-      },
-      "provenance": {
-        "source": "Existing upstream AppHear GLB",
-        "upstreamRevision": "1e215aebd69a173dd198aa5598a89600072d22fe",
-        "signReference": null,
-        "licenseStatus": "not-documented"
-      }
+      ]
     },
     {
       "id": "best",
@@ -218,20 +101,7 @@
       "type": "word",
       "aliases": [
         "best"
-      ],
-      "animationName": "best_N0sg_yIVULo",
-      "validation": {
-        "status": "unreviewed",
-        "reviewer": null,
-        "reviewedAt": null,
-        "evidence": null
-      },
-      "provenance": {
-        "source": "Existing upstream AppHear GLB",
-        "upstreamRevision": "1e215aebd69a173dd198aa5598a89600072d22fe",
-        "signReference": null,
-        "licenseStatus": "not-documented"
-      }
+      ]
     },
     {
       "id": "better",
@@ -240,20 +110,7 @@
       "type": "word",
       "aliases": [
         "better"
-      ],
-      "animationName": "BETTER_sQ_ABcs0n0A",
-      "validation": {
-        "status": "unreviewed",
-        "reviewer": null,
-        "reviewedAt": null,
-        "evidence": null
-      },
-      "provenance": {
-        "source": "Existing upstream AppHear GLB",
-        "upstreamRevision": "1e215aebd69a173dd198aa5598a89600072d22fe",
-        "signReference": null,
-        "licenseStatus": "not-documented"
-      }
+      ]
     },
     {
       "id": "brother_you_how_many",
@@ -262,20 +119,7 @@
       "type": "phrase",
       "aliases": [
         "brother you how many"
-      ],
-      "animationName": "brother-you-how-many",
-      "validation": {
-        "status": "unreviewed",
-        "reviewer": null,
-        "reviewedAt": null,
-        "evidence": null
-      },
-      "provenance": {
-        "source": "Existing upstream AppHear GLB",
-        "upstreamRevision": "1e215aebd69a173dd198aa5598a89600072d22fe",
-        "signReference": null,
-        "licenseStatus": "not-documented"
-      }
+      ]
     },
     {
       "id": "brother",
@@ -284,20 +128,7 @@
       "type": "word",
       "aliases": [
         "brother"
-      ],
-      "animationName": "BROTHER_G0fzmn3pQng",
-      "validation": {
-        "status": "unreviewed",
-        "reviewer": null,
-        "reviewedAt": null,
-        "evidence": null
-      },
-      "provenance": {
-        "source": "Existing upstream AppHear GLB",
-        "upstreamRevision": "1e215aebd69a173dd198aa5598a89600072d22fe",
-        "signReference": null,
-        "licenseStatus": "not-documented"
-      }
+      ]
     },
     {
       "id": "child",
@@ -306,20 +137,7 @@
       "type": "word",
       "aliases": [
         "child"
-      ],
-      "animationName": "CHILD_32hgy9NSs7k",
-      "validation": {
-        "status": "unreviewed",
-        "reviewer": null,
-        "reviewedAt": null,
-        "evidence": null
-      },
-      "provenance": {
-        "source": "Existing upstream AppHear GLB",
-        "upstreamRevision": "1e215aebd69a173dd198aa5598a89600072d22fe",
-        "signReference": null,
-        "licenseStatus": "not-documented"
-      }
+      ]
     },
     {
       "id": "children",
@@ -328,20 +146,7 @@
       "type": "word",
       "aliases": [
         "children"
-      ],
-      "animationName": "CHILDREN_YOU",
-      "validation": {
-        "status": "unreviewed",
-        "reviewer": null,
-        "reviewedAt": null,
-        "evidence": null
-      },
-      "provenance": {
-        "source": "Existing upstream AppHear GLB",
-        "upstreamRevision": "1e215aebd69a173dd198aa5598a89600072d22fe",
-        "signReference": null,
-        "licenseStatus": "not-documented"
-      }
+      ]
     },
     {
       "id": "city_you_live",
@@ -350,20 +155,7 @@
       "type": "phrase",
       "aliases": [
         "city you live"
-      ],
-      "animationName": "CITY_YOU_LIVE",
-      "validation": {
-        "status": "unreviewed",
-        "reviewer": null,
-        "reviewedAt": null,
-        "evidence": null
-      },
-      "provenance": {
-        "source": "Existing upstream AppHear GLB",
-        "upstreamRevision": "1e215aebd69a173dd198aa5598a89600072d22fe",
-        "signReference": null,
-        "licenseStatus": "not-documented"
-      }
+      ]
     },
     {
       "id": "city",
@@ -372,20 +164,7 @@
       "type": "word",
       "aliases": [
         "city"
-      ],
-      "animationName": "city_e7Tz3OSQBQQ",
-      "validation": {
-        "status": "unreviewed",
-        "reviewer": null,
-        "reviewedAt": null,
-        "evidence": null
-      },
-      "provenance": {
-        "source": "Existing upstream AppHear GLB",
-        "upstreamRevision": "1e215aebd69a173dd198aa5598a89600072d22fe",
-        "signReference": null,
-        "licenseStatus": "not-documented"
-      }
+      ]
     },
     {
       "id": "class",
@@ -394,20 +173,7 @@
       "type": "word",
       "aliases": [
         "class"
-      ],
-      "animationName": "CLASS_zYsmQgZRW0g",
-      "validation": {
-        "status": "unreviewed",
-        "reviewer": null,
-        "reviewedAt": null,
-        "evidence": null
-      },
-      "provenance": {
-        "source": "Existing upstream AppHear GLB",
-        "upstreamRevision": "1e215aebd69a173dd198aa5598a89600072d22fe",
-        "signReference": null,
-        "licenseStatus": "not-documented"
-      }
+      ]
     },
     {
       "id": "come_to_here",
@@ -416,20 +182,7 @@
       "type": "phrase",
       "aliases": [
         "come to here"
-      ],
-      "animationName": "come_to_here_utAS6HfhNuQ",
-      "validation": {
-        "status": "unreviewed",
-        "reviewer": null,
-        "reviewedAt": null,
-        "evidence": null
-      },
-      "provenance": {
-        "source": "Existing upstream AppHear GLB",
-        "upstreamRevision": "1e215aebd69a173dd198aa5598a89600072d22fe",
-        "signReference": null,
-        "licenseStatus": "not-documented"
-      }
+      ]
     },
     {
       "id": "critical_must",
@@ -439,20 +192,7 @@
       "aliases": [
         "critical",
         "must"
-      ],
-      "animationName": "critical-must_Ti9-UQ7u0fY",
-      "validation": {
-        "status": "unreviewed",
-        "reviewer": null,
-        "reviewedAt": null,
-        "evidence": null
-      },
-      "provenance": {
-        "source": "Existing upstream AppHear GLB",
-        "upstreamRevision": "1e215aebd69a173dd198aa5598a89600072d22fe",
-        "signReference": null,
-        "licenseStatus": "not-documented"
-      }
+      ]
     },
     {
       "id": "dad",
@@ -461,20 +201,7 @@
       "type": "word",
       "aliases": [
         "dad"
-      ],
-      "animationName": "DAD_1Vllc4F5ic0",
-      "validation": {
-        "status": "unreviewed",
-        "reviewer": null,
-        "reviewedAt": null,
-        "evidence": null
-      },
-      "provenance": {
-        "source": "Existing upstream AppHear GLB",
-        "upstreamRevision": "1e215aebd69a173dd198aa5598a89600072d22fe",
-        "signReference": null,
-        "licenseStatus": "not-documented"
-      }
+      ]
     },
     {
       "id": "divorce",
@@ -483,20 +210,7 @@
       "type": "word",
       "aliases": [
         "divorce"
-      ],
-      "animationName": "DIVORCE_JCTgLJFs4c8",
-      "validation": {
-        "status": "unreviewed",
-        "reviewer": null,
-        "reviewedAt": null,
-        "evidence": null
-      },
-      "provenance": {
-        "source": "Existing upstream AppHear GLB",
-        "upstreamRevision": "1e215aebd69a173dd198aa5598a89600072d22fe",
-        "signReference": null,
-        "licenseStatus": "not-documented"
-      }
+      ]
     },
     {
       "id": "dont",
@@ -505,20 +219,7 @@
       "type": "word",
       "aliases": [
         "dont"
-      ],
-      "animationName": "DONT",
-      "validation": {
-        "status": "unreviewed",
-        "reviewer": null,
-        "reviewedAt": null,
-        "evidence": null
-      },
-      "provenance": {
-        "source": "Existing upstream AppHear GLB",
-        "upstreamRevision": "1e215aebd69a173dd198aa5598a89600072d22fe",
-        "signReference": null,
-        "licenseStatus": "not-documented"
-      }
+      ]
     },
     {
       "id": "entire_whole",
@@ -528,20 +229,7 @@
       "aliases": [
         "entire",
         "whole"
-      ],
-      "animationName": "entire_all_whole_mvYXfbKFrDQ",
-      "validation": {
-        "status": "unreviewed",
-        "reviewer": null,
-        "reviewedAt": null,
-        "evidence": null
-      },
-      "provenance": {
-        "source": "Existing upstream AppHear GLB",
-        "upstreamRevision": "1e215aebd69a173dd198aa5598a89600072d22fe",
-        "signReference": null,
-        "licenseStatus": "not-documented"
-      }
+      ]
     },
     {
       "id": "family",
@@ -550,20 +238,7 @@
       "type": "word",
       "aliases": [
         "family"
-      ],
-      "animationName": "FAMILY_initialized_version_SxrxUgeTt00",
-      "validation": {
-        "status": "unreviewed",
-        "reviewer": null,
-        "reviewedAt": null,
-        "evidence": null
-      },
-      "provenance": {
-        "source": "Existing upstream AppHear GLB",
-        "upstreamRevision": "1e215aebd69a173dd198aa5598a89600072d22fe",
-        "signReference": null,
-        "licenseStatus": "not-documented"
-      }
+      ]
     },
     {
       "id": "fine",
@@ -572,20 +247,7 @@
       "type": "word",
       "aliases": [
         "fine"
-      ],
-      "animationName": "F-I-N-E_HOW_SIGN",
-      "validation": {
-        "status": "unreviewed",
-        "reviewer": null,
-        "reviewedAt": null,
-        "evidence": null
-      },
-      "provenance": {
-        "source": "Existing upstream AppHear GLB",
-        "upstreamRevision": "1e215aebd69a173dd198aa5598a89600072d22fe",
-        "signReference": null,
-        "licenseStatus": "not-documented"
-      }
+      ]
     },
     {
       "id": "fingerspell",
@@ -594,20 +256,7 @@
       "type": "word",
       "aliases": [
         "fingerspell"
-      ],
-      "animationName": "FINGERSPELL",
-      "validation": {
-        "status": "unreviewed",
-        "reviewer": null,
-        "reviewedAt": null,
-        "evidence": null
-      },
-      "provenance": {
-        "source": "Existing upstream AppHear GLB",
-        "upstreamRevision": "1e215aebd69a173dd198aa5598a89600072d22fe",
-        "signReference": null,
-        "licenseStatus": "not-documented"
-      }
+      ]
     },
     {
       "id": "from",
@@ -616,20 +265,7 @@
       "type": "word",
       "aliases": [
         "from"
-      ],
-      "animationName": "FROM_7OEW40vhX68",
-      "validation": {
-        "status": "unreviewed",
-        "reviewer": null,
-        "reviewedAt": null,
-        "evidence": null
-      },
-      "provenance": {
-        "source": "Existing upstream AppHear GLB",
-        "upstreamRevision": "1e215aebd69a173dd198aa5598a89600072d22fe",
-        "signReference": null,
-        "licenseStatus": "not-documented"
-      }
+      ]
     },
     {
       "id": "girl",
@@ -638,20 +274,7 @@
       "type": "word",
       "aliases": [
         "girl"
-      ],
-      "animationName": "girl",
-      "validation": {
-        "status": "unreviewed",
-        "reviewer": null,
-        "reviewedAt": null,
-        "evidence": null
-      },
-      "provenance": {
-        "source": "Existing upstream AppHear GLB",
-        "upstreamRevision": "1e215aebd69a173dd198aa5598a89600072d22fe",
-        "signReference": null,
-        "licenseStatus": "not-documented"
-      }
+      ]
     },
     {
       "id": "go_to",
@@ -660,20 +283,7 @@
       "type": "word",
       "aliases": [
         "go to"
-      ],
-      "animationName": "GO-to_ZEyH-t5ALCs",
-      "validation": {
-        "status": "unreviewed",
-        "reviewer": null,
-        "reviewedAt": null,
-        "evidence": null
-      },
-      "provenance": {
-        "source": "Existing upstream AppHear GLB",
-        "upstreamRevision": "1e215aebd69a173dd198aa5598a89600072d22fe",
-        "signReference": null,
-        "licenseStatus": "not-documented"
-      }
+      ]
     },
     {
       "id": "well",
@@ -682,20 +292,7 @@
       "type": "word",
       "aliases": [
         "well"
-      ],
-      "animationName": "GOOD-well_tTDXplV6TKA",
-      "validation": {
-        "status": "unreviewed",
-        "reviewer": null,
-        "reviewedAt": null,
-        "evidence": null
-      },
-      "provenance": {
-        "source": "Existing upstream AppHear GLB",
-        "upstreamRevision": "1e215aebd69a173dd198aa5598a89600072d22fe",
-        "signReference": null,
-        "licenseStatus": "not-documented"
-      }
+      ]
     },
     {
       "id": "grandma",
@@ -704,20 +301,7 @@
       "type": "word",
       "aliases": [
         "grandma"
-      ],
-      "animationName": "GRANDMA_r8yvyGMnrYk",
-      "validation": {
-        "status": "unreviewed",
-        "reviewer": null,
-        "reviewedAt": null,
-        "evidence": null
-      },
-      "provenance": {
-        "source": "Existing upstream AppHear GLB",
-        "upstreamRevision": "1e215aebd69a173dd198aa5598a89600072d22fe",
-        "signReference": null,
-        "licenseStatus": "not-documented"
-      }
+      ]
     },
     {
       "id": "grandpa",
@@ -726,20 +310,7 @@
       "type": "word",
       "aliases": [
         "grandpa"
-      ],
-      "animationName": "GRANDPA_D8OW3lFL_54",
-      "validation": {
-        "status": "unreviewed",
-        "reviewer": null,
-        "reviewedAt": null,
-        "evidence": null
-      },
-      "provenance": {
-        "source": "Existing upstream AppHear GLB",
-        "upstreamRevision": "1e215aebd69a173dd198aa5598a89600072d22fe",
-        "signReference": null,
-        "licenseStatus": "not-documented"
-      }
+      ]
     },
     {
       "id": "grow_up_raised",
@@ -749,20 +320,7 @@
       "aliases": [
         "grow up",
         "raised"
-      ],
-      "animationName": "GROW-UP-RAISED_hNj04ToIMkg",
-      "validation": {
-        "status": "unreviewed",
-        "reviewer": null,
-        "reviewedAt": null,
-        "evidence": null
-      },
-      "provenance": {
-        "source": "Existing upstream AppHear GLB",
-        "upstreamRevision": "1e215aebd69a173dd198aa5598a89600072d22fe",
-        "signReference": null,
-        "licenseStatus": "not-documented"
-      }
+      ]
     },
     {
       "id": "have",
@@ -771,20 +329,7 @@
       "type": "word",
       "aliases": [
         "have"
-      ],
-      "animationName": "HAVE-1h_version_iQX1LQyIQAI",
-      "validation": {
-        "status": "unreviewed",
-        "reviewer": null,
-        "reviewedAt": null,
-        "evidence": null
-      },
-      "provenance": {
-        "source": "Existing upstream AppHear GLB",
-        "upstreamRevision": "1e215aebd69a173dd198aa5598a89600072d22fe",
-        "signReference": null,
-        "licenseStatus": "not-documented"
-      }
+      ]
     },
     {
       "id": "he_she",
@@ -794,20 +339,7 @@
       "aliases": [
         "he",
         "she"
-      ],
-      "animationName": "he-she",
-      "validation": {
-        "status": "unreviewed",
-        "reviewer": null,
-        "reviewedAt": null,
-        "evidence": null
-      },
-      "provenance": {
-        "source": "Existing upstream AppHear GLB",
-        "upstreamRevision": "1e215aebd69a173dd198aa5598a89600072d22fe",
-        "signReference": null,
-        "licenseStatus": "not-documented"
-      }
+      ]
     },
     {
       "id": "here",
@@ -816,20 +348,7 @@
       "type": "word",
       "aliases": [
         "here"
-      ],
-      "animationName": "HERE_2dALbgMQWmk",
-      "validation": {
-        "status": "unreviewed",
-        "reviewer": null,
-        "reviewedAt": null,
-        "evidence": null
-      },
-      "provenance": {
-        "source": "Existing upstream AppHear GLB",
-        "upstreamRevision": "1e215aebd69a173dd198aa5598a89600072d22fe",
-        "signReference": null,
-        "licenseStatus": "not-documented"
-      }
+      ]
     },
     {
       "id": "hey_name_you",
@@ -838,20 +357,7 @@
       "type": "phrase",
       "aliases": [
         "hey name you"
-      ],
-      "animationName": "HEY,_NAME_YOU",
-      "validation": {
-        "status": "unreviewed",
-        "reviewer": null,
-        "reviewedAt": null,
-        "evidence": null
-      },
-      "provenance": {
-        "source": "Existing upstream AppHear GLB",
-        "upstreamRevision": "1e215aebd69a173dd198aa5598a89600072d22fe",
-        "signReference": null,
-        "licenseStatus": "not-documented"
-      }
+      ]
     },
     {
       "id": "house",
@@ -860,20 +366,7 @@
       "type": "word",
       "aliases": [
         "house"
-      ],
-      "animationName": "house_lBSZYk72vmY",
-      "validation": {
-        "status": "unreviewed",
-        "reviewer": null,
-        "reviewedAt": null,
-        "evidence": null
-      },
-      "provenance": {
-        "source": "Existing upstream AppHear GLB",
-        "upstreamRevision": "1e215aebd69a173dd198aa5598a89600072d22fe",
-        "signReference": null,
-        "licenseStatus": "not-documented"
-      }
+      ]
     },
     {
       "id": "how_are_you",
@@ -882,20 +375,7 @@
       "type": "phrase",
       "aliases": [
         "how are you"
-      ],
-      "animationName": "how-are-you",
-      "validation": {
-        "status": "unreviewed",
-        "reviewer": null,
-        "reviewedAt": null,
-        "evidence": null
-      },
-      "provenance": {
-        "source": "Existing upstream AppHear GLB",
-        "upstreamRevision": "1e215aebd69a173dd198aa5598a89600072d22fe",
-        "signReference": null,
-        "licenseStatus": "not-documented"
-      }
+      ]
     },
     {
       "id": "husband",
@@ -904,20 +384,7 @@
       "type": "word",
       "aliases": [
         "husband"
-      ],
-      "animationName": "husband_MeIk9lFGPTo",
-      "validation": {
-        "status": "unreviewed",
-        "reviewer": null,
-        "reviewedAt": null,
-        "evidence": null
-      },
-      "provenance": {
-        "source": "Existing upstream AppHear GLB",
-        "upstreamRevision": "1e215aebd69a173dd198aa5598a89600072d22fe",
-        "signReference": null,
-        "licenseStatus": "not-documented"
-      }
+      ]
     },
     {
       "id": "i_love_you",
@@ -926,20 +393,7 @@
       "type": "phrase",
       "aliases": [
         "i love you"
-      ],
-      "animationName": "i-love-you",
-      "validation": {
-        "status": "unreviewed",
-        "reviewer": null,
-        "reviewedAt": null,
-        "evidence": null
-      },
-      "provenance": {
-        "source": "Existing upstream AppHear GLB",
-        "upstreamRevision": "1e215aebd69a173dd198aa5598a89600072d22fe",
-        "signReference": null,
-        "licenseStatus": "not-documented"
-      }
+      ]
     },
     {
       "id": "i_me",
@@ -949,20 +403,7 @@
       "aliases": [
         "i",
         "me"
-      ],
-      "animationName": "i-me",
-      "validation": {
-        "status": "unreviewed",
-        "reviewer": null,
-        "reviewedAt": null,
-        "evidence": null
-      },
-      "provenance": {
-        "source": "Existing upstream AppHear GLB",
-        "upstreamRevision": "1e215aebd69a173dd198aa5598a89600072d22fe",
-        "signReference": null,
-        "licenseStatus": "not-documented"
-      }
+      ]
     },
     {
       "id": "lady_woman",
@@ -972,20 +413,7 @@
       "aliases": [
         "lady",
         "woman"
-      ],
-      "animationName": "lady-woman",
-      "validation": {
-        "status": "unreviewed",
-        "reviewer": null,
-        "reviewedAt": null,
-        "evidence": null
-      },
-      "provenance": {
-        "source": "Existing upstream AppHear GLB",
-        "upstreamRevision": "1e215aebd69a173dd198aa5598a89600072d22fe",
-        "signReference": null,
-        "licenseStatus": "not-documented"
-      }
+      ]
     },
     {
       "id": "large",
@@ -994,20 +422,7 @@
       "type": "word",
       "aliases": [
         "large"
-      ],
-      "animationName": "large_(non_inflected_version)_z9WFeko-7jw",
-      "validation": {
-        "status": "unreviewed",
-        "reviewer": null,
-        "reviewedAt": null,
-        "evidence": null
-      },
-      "provenance": {
-        "source": "Existing upstream AppHear GLB",
-        "upstreamRevision": "1e215aebd69a173dd198aa5598a89600072d22fe",
-        "signReference": null,
-        "licenseStatus": "not-documented"
-      }
+      ]
     },
     {
       "id": "like_affection_for",
@@ -1018,20 +433,7 @@
         "like",
         "affection",
         "for"
-      ],
-      "animationName": "LIKE-affection-for_qK3SqANZheA",
-      "validation": {
-        "status": "unreviewed",
-        "reviewer": null,
-        "reviewedAt": null,
-        "evidence": null
-      },
-      "provenance": {
-        "source": "Existing upstream AppHear GLB",
-        "upstreamRevision": "1e215aebd69a173dd198aa5598a89600072d22fe",
-        "signReference": null,
-        "licenseStatus": "not-documented"
-      }
+      ]
     },
     {
       "id": "little_small",
@@ -1041,20 +443,7 @@
       "aliases": [
         "little",
         "small"
-      ],
-      "animationName": "little_small_N4z_rvn3CVE",
-      "validation": {
-        "status": "unreviewed",
-        "reviewer": null,
-        "reviewedAt": null,
-        "evidence": null
-      },
-      "provenance": {
-        "source": "Existing upstream AppHear GLB",
-        "upstreamRevision": "1e215aebd69a173dd198aa5598a89600072d22fe",
-        "signReference": null,
-        "licenseStatus": "not-documented"
-      }
+      ]
     },
     {
       "id": "live",
@@ -1063,20 +452,7 @@
       "type": "word",
       "aliases": [
         "live"
-      ],
-      "animationName": "LIVE-version_X6XrQSCYbwo",
-      "validation": {
-        "status": "unreviewed",
-        "reviewer": null,
-        "reviewedAt": null,
-        "evidence": null
-      },
-      "provenance": {
-        "source": "Existing upstream AppHear GLB",
-        "upstreamRevision": "1e215aebd69a173dd198aa5598a89600072d22fe",
-        "signReference": null,
-        "licenseStatus": "not-documented"
-      }
+      ]
     },
     {
       "id": "male_boy",
@@ -1089,20 +465,7 @@
         "dude",
         "guy",
         "fellow"
-      ],
-      "animationName": "MALE,_boy,_dude,_guy,_fellow_5H6OSAy-Mzs",
-      "validation": {
-        "status": "unreviewed",
-        "reviewer": null,
-        "reviewedAt": null,
-        "evidence": null
-      },
-      "provenance": {
-        "source": "Existing upstream AppHear GLB",
-        "upstreamRevision": "1e215aebd69a173dd198aa5598a89600072d22fe",
-        "signReference": null,
-        "licenseStatus": "not-documented"
-      }
+      ]
     },
     {
       "id": "man",
@@ -1111,20 +474,7 @@
       "type": "word",
       "aliases": [
         "man"
-      ],
-      "animationName": "man_lyAWyqDxUqg",
-      "validation": {
-        "status": "unreviewed",
-        "reviewer": null,
-        "reviewedAt": null,
-        "evidence": null
-      },
-      "provenance": {
-        "source": "Existing upstream AppHear GLB",
-        "upstreamRevision": "1e215aebd69a173dd198aa5598a89600072d22fe",
-        "signReference": null,
-        "licenseStatus": "not-documented"
-      }
+      ]
     },
     {
       "id": "marriage",
@@ -1135,20 +485,7 @@
         "marriage",
         "marry",
         "married"
-      ],
-      "animationName": "MARRIAGE-marry-married_0zRYKjeOM-4",
-      "validation": {
-        "status": "unreviewed",
-        "reviewer": null,
-        "reviewedAt": null,
-        "evidence": null
-      },
-      "provenance": {
-        "source": "Existing upstream AppHear GLB",
-        "upstreamRevision": "1e215aebd69a173dd198aa5598a89600072d22fe",
-        "signReference": null,
-        "licenseStatus": "not-documented"
-      }
+      ]
     },
     {
       "id": "mom",
@@ -1157,20 +494,7 @@
       "type": "word",
       "aliases": [
         "mom"
-      ],
-      "animationName": "MOM_DHl2-NT3mIM",
-      "validation": {
-        "status": "unreviewed",
-        "reviewer": null,
-        "reviewedAt": null,
-        "evidence": null
-      },
-      "provenance": {
-        "source": "Existing upstream AppHear GLB",
-        "upstreamRevision": "1e215aebd69a173dd198aa5598a89600072d22fe",
-        "signReference": null,
-        "licenseStatus": "not-documented"
-      }
+      ]
     },
     {
       "id": "more",
@@ -1179,20 +503,7 @@
       "type": "word",
       "aliases": [
         "more"
-      ],
-      "animationName": "MORE_nJwr-yWRdNQ",
-      "validation": {
-        "status": "unreviewed",
-        "reviewer": null,
-        "reviewedAt": null,
-        "evidence": null
-      },
-      "provenance": {
-        "source": "Existing upstream AppHear GLB",
-        "upstreamRevision": "1e215aebd69a173dd198aa5598a89600072d22fe",
-        "signReference": null,
-        "licenseStatus": "not-documented"
-      }
+      ]
     },
     {
       "id": "morning",
@@ -1201,20 +512,7 @@
       "type": "word",
       "aliases": [
         "morning"
-      ],
-      "animationName": "morning",
-      "validation": {
-        "status": "unreviewed",
-        "reviewer": null,
-        "reviewedAt": null,
-        "evidence": null
-      },
-      "provenance": {
-        "source": "Existing upstream AppHear GLB",
-        "upstreamRevision": "1e215aebd69a173dd198aa5598a89600072d22fe",
-        "signReference": null,
-        "licenseStatus": "not-documented"
-      }
+      ]
     },
     {
       "id": "my_mine",
@@ -1224,20 +522,7 @@
       "aliases": [
         "my",
         "mine"
-      ],
-      "animationName": "POSSESSIVES-MY-MINE",
-      "validation": {
-        "status": "unreviewed",
-        "reviewer": null,
-        "reviewedAt": null,
-        "evidence": null
-      },
-      "provenance": {
-        "source": "Existing upstream AppHear GLB",
-        "upstreamRevision": "1e215aebd69a173dd198aa5598a89600072d22fe",
-        "signReference": null,
-        "licenseStatus": "not-documented"
-      }
+      ]
     },
     {
       "id": "my_name",
@@ -1246,20 +531,7 @@
       "type": "phrase",
       "aliases": [
         "my name"
-      ],
-      "animationName": "my-name",
-      "validation": {
-        "status": "unreviewed",
-        "reviewer": null,
-        "reviewedAt": null,
-        "evidence": null
-      },
-      "provenance": {
-        "source": "Existing upstream AppHear GLB",
-        "upstreamRevision": "1e215aebd69a173dd198aa5598a89600072d22fe",
-        "signReference": null,
-        "licenseStatus": "not-documented"
-      }
+      ]
     },
     {
       "id": "need",
@@ -1268,20 +540,7 @@
       "type": "word",
       "aliases": [
         "need"
-      ],
-      "animationName": "NEED-1-movement_kgmz82HWI-I",
-      "validation": {
-        "status": "unreviewed",
-        "reviewer": null,
-        "reviewedAt": null,
-        "evidence": null
-      },
-      "provenance": {
-        "source": "Existing upstream AppHear GLB",
-        "upstreamRevision": "1e215aebd69a173dd198aa5598a89600072d22fe",
-        "signReference": null,
-        "licenseStatus": "not-documented"
-      }
+      ]
     },
     {
       "id": "negative_minus",
@@ -1291,20 +550,7 @@
       "aliases": [
         "negative",
         "minus"
-      ],
-      "animationName": "negative-minus",
-      "validation": {
-        "status": "unreviewed",
-        "reviewer": null,
-        "reviewedAt": null,
-        "evidence": null
-      },
-      "provenance": {
-        "source": "Existing upstream AppHear GLB",
-        "upstreamRevision": "1e215aebd69a173dd198aa5598a89600072d22fe",
-        "signReference": null,
-        "licenseStatus": "not-documented"
-      }
+      ]
     },
     {
       "id": "nice_to_meet_you",
@@ -1313,20 +559,7 @@
       "type": "phrase",
       "aliases": [
         "nice to meet you"
-      ],
-      "animationName": "nice-to-meet-you",
-      "validation": {
-        "status": "unreviewed",
-        "reviewer": null,
-        "reviewedAt": null,
-        "evidence": null
-      },
-      "provenance": {
-        "source": "Existing upstream AppHear GLB",
-        "upstreamRevision": "1e215aebd69a173dd198aa5598a89600072d22fe",
-        "signReference": null,
-        "licenseStatus": "not-documented"
-      }
+      ]
     },
     {
       "id": "no",
@@ -1335,20 +568,7 @@
       "type": "word",
       "aliases": [
         "no"
-      ],
-      "animationName": "NO_QJXKaOSyl4o",
-      "validation": {
-        "status": "unreviewed",
-        "reviewer": null,
-        "reviewedAt": null,
-        "evidence": null
-      },
-      "provenance": {
-        "source": "Existing upstream AppHear GLB",
-        "upstreamRevision": "1e215aebd69a173dd198aa5598a89600072d22fe",
-        "signReference": null,
-        "licenseStatus": "not-documented"
-      }
+      ]
     },
     {
       "id": "none_of_your_business",
@@ -1357,20 +577,7 @@
       "type": "phrase",
       "aliases": [
         "none of your business"
-      ],
-      "animationName": "NYB!-None_of_your_business!_liDRahbOmNs",
-      "validation": {
-        "status": "unreviewed",
-        "reviewer": null,
-        "reviewedAt": null,
-        "evidence": null
-      },
-      "provenance": {
-        "source": "Existing upstream AppHear GLB",
-        "upstreamRevision": "1e215aebd69a173dd198aa5598a89600072d22fe",
-        "signReference": null,
-        "licenseStatus": "not-documented"
-      }
+      ]
     },
     {
       "id": "our",
@@ -1379,20 +586,7 @@
       "type": "word",
       "aliases": [
         "our"
-      ],
-      "animationName": "POSSESSIVES-OUR",
-      "validation": {
-        "status": "unreviewed",
-        "reviewer": null,
-        "reviewedAt": null,
-        "evidence": null
-      },
-      "provenance": {
-        "source": "Existing upstream AppHear GLB",
-        "upstreamRevision": "1e215aebd69a173dd198aa5598a89600072d22fe",
-        "signReference": null,
-        "licenseStatus": "not-documented"
-      }
+      ]
     },
     {
       "id": "parents",
@@ -1401,20 +595,7 @@
       "type": "word",
       "aliases": [
         "parents"
-      ],
-      "animationName": "PARENTS_jlqHVbCS4H0",
-      "validation": {
-        "status": "unreviewed",
-        "reviewer": null,
-        "reviewedAt": null,
-        "evidence": null
-      },
-      "provenance": {
-        "source": "Existing upstream AppHear GLB",
-        "upstreamRevision": "1e215aebd69a173dd198aa5598a89600072d22fe",
-        "signReference": null,
-        "licenseStatus": "not-documented"
-      }
+      ]
     },
     {
       "id": "prefer_favorite",
@@ -1424,20 +605,7 @@
       "aliases": [
         "prefer",
         "favorite"
-      ],
-      "animationName": "prefer,_favorite_wOqbSro7riQ",
-      "validation": {
-        "status": "unreviewed",
-        "reviewer": null,
-        "reviewedAt": null,
-        "evidence": null
-      },
-      "provenance": {
-        "source": "Existing upstream AppHear GLB",
-        "upstreamRevision": "1e215aebd69a173dd198aa5598a89600072d22fe",
-        "signReference": null,
-        "licenseStatus": "not-documented"
-      }
+      ]
     },
     {
       "id": "request",
@@ -1446,20 +614,7 @@
       "type": "word",
       "aliases": [
         "request"
-      ],
-      "animationName": "prefer,_favorite_wOqbSro7riQ",
-      "validation": {
-        "status": "unreviewed",
-        "reviewer": null,
-        "reviewedAt": null,
-        "evidence": null
-      },
-      "provenance": {
-        "source": "Existing upstream AppHear GLB",
-        "upstreamRevision": "1e215aebd69a173dd198aa5598a89600072d22fe",
-        "signReference": null,
-        "licenseStatus": "not-documented"
-      }
+      ]
     },
     {
       "id": "school",
@@ -1468,20 +623,7 @@
       "type": "word",
       "aliases": [
         "school"
-      ],
-      "animationName": "SCHOOL_vuE3RN10AGA",
-      "validation": {
-        "status": "unreviewed",
-        "reviewer": null,
-        "reviewedAt": null,
-        "evidence": null
-      },
-      "provenance": {
-        "source": "Existing upstream AppHear GLB",
-        "upstreamRevision": "1e215aebd69a173dd198aa5598a89600072d22fe",
-        "signReference": null,
-        "licenseStatus": "not-documented"
-      }
+      ]
     },
     {
       "id": "see_you_tomorrow",
@@ -1490,20 +632,7 @@
       "type": "phrase",
       "aliases": [
         "see you tomorrow"
-      ],
-      "animationName": "see-you-tomorrow",
-      "validation": {
-        "status": "unreviewed",
-        "reviewer": null,
-        "reviewedAt": null,
-        "evidence": null
-      },
-      "provenance": {
-        "source": "Existing upstream AppHear GLB",
-        "upstreamRevision": "1e215aebd69a173dd198aa5598a89600072d22fe",
-        "signReference": null,
-        "licenseStatus": "not-documented"
-      }
+      ]
     },
     {
       "id": "single_alone",
@@ -1515,20 +644,7 @@
         "alone",
         "something",
         "someone"
-      ],
-      "animationName": "SINGLE-alone-something-someone_QVPcK3bcFo0",
-      "validation": {
-        "status": "unreviewed",
-        "reviewer": null,
-        "reviewedAt": null,
-        "evidence": null
-      },
-      "provenance": {
-        "source": "Existing upstream AppHear GLB",
-        "upstreamRevision": "1e215aebd69a173dd198aa5598a89600072d22fe",
-        "signReference": null,
-        "licenseStatus": "not-documented"
-      }
+      ]
     },
     {
       "id": "sister_you_how_many",
@@ -1537,20 +653,7 @@
       "type": "phrase",
       "aliases": [
         "sister you how many"
-      ],
-      "animationName": "SISTER_YOU_HOW-MANY",
-      "validation": {
-        "status": "unreviewed",
-        "reviewer": null,
-        "reviewedAt": null,
-        "evidence": null
-      },
-      "provenance": {
-        "source": "Existing upstream AppHear GLB",
-        "upstreamRevision": "1e215aebd69a173dd198aa5598a89600072d22fe",
-        "signReference": null,
-        "licenseStatus": "not-documented"
-      }
+      ]
     },
     {
       "id": "sister",
@@ -1559,20 +662,7 @@
       "type": "word",
       "aliases": [
         "sister"
-      ],
-      "animationName": "SISTER_0z2_gcB5OJ8",
-      "validation": {
-        "status": "unreviewed",
-        "reviewer": null,
-        "reviewedAt": null,
-        "evidence": null
-      },
-      "provenance": {
-        "source": "Existing upstream AppHear GLB",
-        "upstreamRevision": "1e215aebd69a173dd198aa5598a89600072d22fe",
-        "signReference": null,
-        "licenseStatus": "not-documented"
-      }
+      ]
     },
     {
       "id": "so_so",
@@ -1581,20 +671,7 @@
       "type": "word",
       "aliases": [
         "so so"
-      ],
-      "animationName": "SO-SO_fhhBx_WQGAo",
-      "validation": {
-        "status": "unreviewed",
-        "reviewer": null,
-        "reviewedAt": null,
-        "evidence": null
-      },
-      "provenance": {
-        "source": "Existing upstream AppHear GLB",
-        "upstreamRevision": "1e215aebd69a173dd198aa5598a89600072d22fe",
-        "signReference": null,
-        "licenseStatus": "not-documented"
-      }
+      ]
     },
     {
       "id": "them",
@@ -1603,20 +680,7 @@
       "type": "word",
       "aliases": [
         "them"
-      ],
-      "animationName": "they-them",
-      "validation": {
-        "status": "unreviewed",
-        "reviewer": null,
-        "reviewedAt": null,
-        "evidence": null
-      },
-      "provenance": {
-        "source": "Existing upstream AppHear GLB",
-        "upstreamRevision": "1e215aebd69a173dd198aa5598a89600072d22fe",
-        "signReference": null,
-        "licenseStatus": "not-documented"
-      }
+      ]
     },
     {
       "id": "they",
@@ -1625,20 +689,7 @@
       "type": "word",
       "aliases": [
         "they"
-      ],
-      "animationName": "THEY",
-      "validation": {
-        "status": "unreviewed",
-        "reviewer": null,
-        "reviewedAt": null,
-        "evidence": null
-      },
-      "provenance": {
-        "source": "Existing upstream AppHear GLB",
-        "upstreamRevision": "1e215aebd69a173dd198aa5598a89600072d22fe",
-        "signReference": null,
-        "licenseStatus": "not-documented"
-      }
+      ]
     },
     {
       "id": "think",
@@ -1647,20 +698,7 @@
       "type": "word",
       "aliases": [
         "think"
-      ],
-      "animationName": "think_Y5q-PccHNHo",
-      "validation": {
-        "status": "unreviewed",
-        "reviewer": null,
-        "reviewedAt": null,
-        "evidence": null
-      },
-      "provenance": {
-        "source": "Existing upstream AppHear GLB",
-        "upstreamRevision": "1e215aebd69a173dd198aa5598a89600072d22fe",
-        "signReference": null,
-        "licenseStatus": "not-documented"
-      }
+      ]
     },
     {
       "id": "this_theirs",
@@ -1670,20 +708,7 @@
       "aliases": [
         "this",
         "theirs"
-      ],
-      "animationName": "THIS_HIS-HERS-theirs",
-      "validation": {
-        "status": "unreviewed",
-        "reviewer": null,
-        "reviewedAt": null,
-        "evidence": null
-      },
-      "provenance": {
-        "source": "Existing upstream AppHear GLB",
-        "upstreamRevision": "1e215aebd69a173dd198aa5598a89600072d22fe",
-        "signReference": null,
-        "licenseStatus": "not-documented"
-      }
+      ]
     },
     {
       "id": "us",
@@ -1692,20 +717,7 @@
       "type": "word",
       "aliases": [
         "us"
-      ],
-      "animationName": "we-us",
-      "validation": {
-        "status": "unreviewed",
-        "reviewer": null,
-        "reviewedAt": null,
-        "evidence": null
-      },
-      "provenance": {
-        "source": "Existing upstream AppHear GLB",
-        "upstreamRevision": "1e215aebd69a173dd198aa5598a89600072d22fe",
-        "signReference": null,
-        "licenseStatus": "not-documented"
-      }
+      ]
     },
     {
       "id": "we",
@@ -1714,20 +726,7 @@
       "type": "word",
       "aliases": [
         "we"
-      ],
-      "animationName": "we",
-      "validation": {
-        "status": "unreviewed",
-        "reviewer": null,
-        "reviewedAt": null,
-        "evidence": null
-      },
-      "provenance": {
-        "source": "Existing upstream AppHear GLB",
-        "upstreamRevision": "1e215aebd69a173dd198aa5598a89600072d22fe",
-        "signReference": null,
-        "licenseStatus": "not-documented"
-      }
+      ]
     },
     {
       "id": "what",
@@ -1736,20 +735,7 @@
       "type": "word",
       "aliases": [
         "what"
-      ],
-      "animationName": "what",
-      "validation": {
-        "status": "unreviewed",
-        "reviewer": null,
-        "reviewedAt": null,
-        "evidence": null
-      },
-      "provenance": {
-        "source": "Existing upstream AppHear GLB",
-        "upstreamRevision": "1e215aebd69a173dd198aa5598a89600072d22fe",
-        "signReference": null,
-        "licenseStatus": "not-documented"
-      }
+      ]
     },
     {
       "id": "who_is_he_she",
@@ -1758,20 +744,7 @@
       "type": "phrase",
       "aliases": [
         "who is he she"
-      ],
-      "animationName": "HE-SHE_WHO",
-      "validation": {
-        "status": "unreviewed",
-        "reviewer": null,
-        "reviewedAt": null,
-        "evidence": null
-      },
-      "provenance": {
-        "source": "Existing upstream AppHear GLB",
-        "upstreamRevision": "1e215aebd69a173dd198aa5598a89600072d22fe",
-        "signReference": null,
-        "licenseStatus": "not-documented"
-      }
+      ]
     },
     {
       "id": "work_labor_employment",
@@ -1780,20 +753,7 @@
       "type": "phrase",
       "aliases": [
         "work labor employment"
-      ],
-      "animationName": "WORK_-_labor_-_employment",
-      "validation": {
-        "status": "unreviewed",
-        "reviewer": null,
-        "reviewedAt": null,
-        "evidence": null
-      },
-      "provenance": {
-        "source": "Existing upstream AppHear GLB",
-        "upstreamRevision": "1e215aebd69a173dd198aa5598a89600072d22fe",
-        "signReference": null,
-        "licenseStatus": "not-documented"
-      }
+      ]
     },
     {
       "id": "you_all",
@@ -1802,20 +762,7 @@
       "type": "phrase",
       "aliases": [
         "you all"
-      ],
-      "animationName": "you-all",
-      "validation": {
-        "status": "unreviewed",
-        "reviewer": null,
-        "reviewedAt": null,
-        "evidence": null
-      },
-      "provenance": {
-        "source": "Existing upstream AppHear GLB",
-        "upstreamRevision": "1e215aebd69a173dd198aa5598a89600072d22fe",
-        "signReference": null,
-        "licenseStatus": "not-documented"
-      }
+      ]
     },
     {
       "id": "you_children_how_many",
@@ -1824,20 +771,7 @@
       "type": "phrase",
       "aliases": [
         "you children how many"
-      ],
-      "animationName": "YOU_CHILDREN_HOW-MANY",
-      "validation": {
-        "status": "unreviewed",
-        "reviewer": null,
-        "reviewedAt": null,
-        "evidence": null
-      },
-      "provenance": {
-        "source": "Existing upstream AppHear GLB",
-        "upstreamRevision": "1e215aebd69a173dd198aa5598a89600072d22fe",
-        "signReference": null,
-        "licenseStatus": "not-documented"
-      }
+      ]
     },
     {
       "id": "you_from_where",
@@ -1846,20 +780,7 @@
       "type": "phrase",
       "aliases": [
         "you from where"
-      ],
-      "animationName": "YOU_FROM_WHERE",
-      "validation": {
-        "status": "unreviewed",
-        "reviewer": null,
-        "reviewedAt": null,
-        "evidence": null
-      },
-      "provenance": {
-        "source": "Existing upstream AppHear GLB",
-        "upstreamRevision": "1e215aebd69a173dd198aa5598a89600072d22fe",
-        "signReference": null,
-        "licenseStatus": "not-documented"
-      }
+      ]
     },
     {
       "id": "you_go_to_school",
@@ -1868,20 +789,7 @@
       "type": "phrase",
       "aliases": [
         "you go to school"
-      ],
-      "animationName": "YOU_GO-to_SCHOOL_YOU",
-      "validation": {
-        "status": "unreviewed",
-        "reviewer": null,
-        "reviewedAt": null,
-        "evidence": null
-      },
-      "provenance": {
-        "source": "Existing upstream AppHear GLB",
-        "upstreamRevision": "1e215aebd69a173dd198aa5598a89600072d22fe",
-        "signReference": null,
-        "licenseStatus": "not-documented"
-      }
+      ]
     },
     {
       "id": "you_house_bathroom_how_many",
@@ -1890,20 +798,7 @@
       "type": "phrase",
       "aliases": [
         "you house bathroom how many"
-      ],
-      "animationName": "YOUR_HOUSE_BATHROOM_how-MANY",
-      "validation": {
-        "status": "unreviewed",
-        "reviewer": null,
-        "reviewedAt": null,
-        "evidence": null
-      },
-      "provenance": {
-        "source": "Existing upstream AppHear GLB",
-        "upstreamRevision": "1e215aebd69a173dd198aa5598a89600072d22fe",
-        "signReference": null,
-        "licenseStatus": "not-documented"
-      }
+      ]
     },
     {
       "id": "you_like_learn_sign",
@@ -1912,20 +807,7 @@
       "type": "phrase",
       "aliases": [
         "you like learn sign"
-      ],
-      "animationName": "YOU_LIKE_LEARN_SIGN",
-      "validation": {
-        "status": "unreviewed",
-        "reviewer": null,
-        "reviewedAt": null,
-        "evidence": null
-      },
-      "provenance": {
-        "source": "Existing upstream AppHear GLB",
-        "upstreamRevision": "1e215aebd69a173dd198aa5598a89600072d22fe",
-        "signReference": null,
-        "licenseStatus": "not-documented"
-      }
+      ]
     },
     {
       "id": "you_like_your_work",
@@ -1934,20 +816,7 @@
       "type": "phrase",
       "aliases": [
         "you like your work"
-      ],
-      "animationName": "YOU_LIKE_YOUR_WORK",
-      "validation": {
-        "status": "unreviewed",
-        "reviewer": null,
-        "reviewedAt": null,
-        "evidence": null
-      },
-      "provenance": {
-        "source": "Existing upstream AppHear GLB",
-        "upstreamRevision": "1e215aebd69a173dd198aa5598a89600072d22fe",
-        "signReference": null,
-        "licenseStatus": "not-documented"
-      }
+      ]
     },
     {
       "id": "you_live_here",
@@ -1956,20 +825,7 @@
       "type": "phrase",
       "aliases": [
         "you live here"
-      ],
-      "animationName": "YOU_LIVE_HERE",
-      "validation": {
-        "status": "unreviewed",
-        "reviewer": null,
-        "reviewedAt": null,
-        "evidence": null
-      },
-      "provenance": {
-        "source": "Existing upstream AppHear GLB",
-        "upstreamRevision": "1e215aebd69a173dd198aa5598a89600072d22fe",
-        "signReference": null,
-        "licenseStatus": "not-documented"
-      }
+      ]
     },
     {
       "id": "you_live_where",
@@ -1978,20 +834,7 @@
       "type": "phrase",
       "aliases": [
         "you live where"
-      ],
-      "animationName": "YOU_LIVE_WHERE",
-      "validation": {
-        "status": "unreviewed",
-        "reviewer": null,
-        "reviewedAt": null,
-        "evidence": null
-      },
-      "provenance": {
-        "source": "Existing upstream AppHear GLB",
-        "upstreamRevision": "1e215aebd69a173dd198aa5598a89600072d22fe",
-        "signReference": null,
-        "licenseStatus": "not-documented"
-      }
+      ]
     },
     {
       "id": "you_married",
@@ -2000,20 +843,7 @@
       "type": "phrase",
       "aliases": [
         "you married"
-      ],
-      "animationName": "YOU_MARRIED",
-      "validation": {
-        "status": "unreviewed",
-        "reviewer": null,
-        "reviewedAt": null,
-        "evidence": null
-      },
-      "provenance": {
-        "source": "Existing upstream AppHear GLB",
-        "upstreamRevision": "1e215aebd69a173dd198aa5598a89600072d22fe",
-        "signReference": null,
-        "licenseStatus": "not-documented"
-      }
+      ]
     },
     {
       "id": "you_need_bathroom",
@@ -2022,20 +852,7 @@
       "type": "phrase",
       "aliases": [
         "you need bathroom"
-      ],
-      "animationName": "YOU_NEED_BATHROOM",
-      "validation": {
-        "status": "unreviewed",
-        "reviewer": null,
-        "reviewedAt": null,
-        "evidence": null
-      },
-      "provenance": {
-        "source": "Existing upstream AppHear GLB",
-        "upstreamRevision": "1e215aebd69a173dd198aa5598a89600072d22fe",
-        "signReference": null,
-        "licenseStatus": "not-documented"
-      }
+      ]
     },
     {
       "id": "you_think_i_sign_bad",
@@ -2044,20 +861,7 @@
       "type": "phrase",
       "aliases": [
         "you think i sign bad"
-      ],
-      "animationName": "YOU_THINK_I_SIGN_BAD",
-      "validation": {
-        "status": "unreviewed",
-        "reviewer": null,
-        "reviewedAt": null,
-        "evidence": null
-      },
-      "provenance": {
-        "source": "Existing upstream AppHear GLB",
-        "upstreamRevision": "1e215aebd69a173dd198aa5598a89600072d22fe",
-        "signReference": null,
-        "licenseStatus": "not-documented"
-      }
+      ]
     },
     {
       "id": "you_think_i_sign_good",
@@ -2066,20 +870,7 @@
       "type": "phrase",
       "aliases": [
         "you think i sign good"
-      ],
-      "animationName": "YOU_THINK_I_SIGN_GOOD",
-      "validation": {
-        "status": "unreviewed",
-        "reviewer": null,
-        "reviewedAt": null,
-        "evidence": null
-      },
-      "provenance": {
-        "source": "Existing upstream AppHear GLB",
-        "upstreamRevision": "1e215aebd69a173dd198aa5598a89600072d22fe",
-        "signReference": null,
-        "licenseStatus": "not-documented"
-      }
+      ]
     },
     {
       "id": "you_want_more_children",
@@ -2088,20 +879,7 @@
       "type": "phrase",
       "aliases": [
         "you want more children"
-      ],
-      "animationName": "WANT_MORE_CHILDREN_YOU",
-      "validation": {
-        "status": "unreviewed",
-        "reviewer": null,
-        "reviewedAt": null,
-        "evidence": null
-      },
-      "provenance": {
-        "source": "Existing upstream AppHear GLB",
-        "upstreamRevision": "1e215aebd69a173dd198aa5598a89600072d22fe",
-        "signReference": null,
-        "licenseStatus": "not-documented"
-      }
+      ]
     },
     {
       "id": "you_work_where",
@@ -2110,20 +888,7 @@
       "type": "phrase",
       "aliases": [
         "you work where"
-      ],
-      "animationName": "YOU_WORK_WHERE",
-      "validation": {
-        "status": "unreviewed",
-        "reviewer": null,
-        "reviewedAt": null,
-        "evidence": null
-      },
-      "provenance": {
-        "source": "Existing upstream AppHear GLB",
-        "upstreamRevision": "1e215aebd69a173dd198aa5598a89600072d22fe",
-        "signReference": null,
-        "licenseStatus": "not-documented"
-      }
+      ]
     },
     {
       "id": "you",
@@ -2132,20 +897,7 @@
       "type": "word",
       "aliases": [
         "you"
-      ],
-      "animationName": "you",
-      "validation": {
-        "status": "unreviewed",
-        "reviewer": null,
-        "reviewedAt": null,
-        "evidence": null
-      },
-      "provenance": {
-        "source": "Existing upstream AppHear GLB",
-        "upstreamRevision": "1e215aebd69a173dd198aa5598a89600072d22fe",
-        "signReference": null,
-        "licenseStatus": "not-documented"
-      }
+      ]
     },
     {
       "id": "your_yours",
@@ -2156,20 +908,7 @@
         "your",
         "yours",
         "belongs to you"
-      ],
-      "animationName": "YOUR-belongs_to_you-yours",
-      "validation": {
-        "status": "unreviewed",
-        "reviewer": null,
-        "reviewedAt": null,
-        "evidence": null
-      },
-      "provenance": {
-        "source": "Existing upstream AppHear GLB",
-        "upstreamRevision": "1e215aebd69a173dd198aa5598a89600072d22fe",
-        "signReference": null,
-        "licenseStatus": "not-documented"
-      }
+      ]
     },
     {
       "id": "your_dad_deaf",
@@ -2178,20 +917,7 @@
       "type": "phrase",
       "aliases": [
         "your dad deaf"
-      ],
-      "animationName": "YOUR_DAD_DEAF",
-      "validation": {
-        "status": "unreviewed",
-        "reviewer": null,
-        "reviewedAt": null,
-        "evidence": null
-      },
-      "provenance": {
-        "source": "Existing upstream AppHear GLB",
-        "upstreamRevision": "1e215aebd69a173dd198aa5598a89600072d22fe",
-        "signReference": null,
-        "licenseStatus": "not-documented"
-      }
+      ]
     },
     {
       "id": "your_dad_name",
@@ -2200,20 +926,7 @@
       "type": "phrase",
       "aliases": [
         "your dad name"
-      ],
-      "animationName": "your-dad-name",
-      "validation": {
-        "status": "unreviewed",
-        "reviewer": null,
-        "reviewedAt": null,
-        "evidence": null
-      },
-      "provenance": {
-        "source": "Existing upstream AppHear GLB",
-        "upstreamRevision": "1e215aebd69a173dd198aa5598a89600072d22fe",
-        "signReference": null,
-        "licenseStatus": "not-documented"
-      }
+      ]
     },
     {
       "id": "your_house_big",
@@ -2222,20 +935,7 @@
       "type": "phrase",
       "aliases": [
         "your house big"
-      ],
-      "animationName": "YOUR_HOUSE_BIG",
-      "validation": {
-        "status": "unreviewed",
-        "reviewer": null,
-        "reviewedAt": null,
-        "evidence": null
-      },
-      "provenance": {
-        "source": "Existing upstream AppHear GLB",
-        "upstreamRevision": "1e215aebd69a173dd198aa5598a89600072d22fe",
-        "signReference": null,
-        "licenseStatus": "not-documented"
-      }
+      ]
     },
     {
       "id": "your_house_small",
@@ -2244,20 +944,7 @@
       "type": "phrase",
       "aliases": [
         "your house small"
-      ],
-      "animationName": "YOUR_HOUSE_SMALL",
-      "validation": {
-        "status": "unreviewed",
-        "reviewer": null,
-        "reviewedAt": null,
-        "evidence": null
-      },
-      "provenance": {
-        "source": "Existing upstream AppHear GLB",
-        "upstreamRevision": "1e215aebd69a173dd198aa5598a89600072d22fe",
-        "signReference": null,
-        "licenseStatus": "not-documented"
-      }
+      ]
     },
     {
       "id": "your_mom_name_what",
@@ -2266,23 +953,7 @@
       "type": "phrase",
       "aliases": [
         "your mom name what"
-      ],
-      "animationName": "YOUR_MOM_NAME_WHAT",
-      "validation": {
-        "status": "unreviewed",
-        "reviewer": null,
-        "reviewedAt": null,
-        "evidence": null
-      },
-      "provenance": {
-        "source": "Existing upstream AppHear GLB",
-        "upstreamRevision": "1e215aebd69a173dd198aa5598a89600072d22fe",
-        "signReference": null,
-        "licenseStatus": "not-documented"
-      }
+      ]
     }
-  ],
-  "language": "ase",
-  "languageName": "American Sign Language",
-  "releaseStatus": "unreviewed-preview"
+  ]
 }

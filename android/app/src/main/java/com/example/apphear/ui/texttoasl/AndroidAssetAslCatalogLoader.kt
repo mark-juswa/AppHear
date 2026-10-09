@@ -14,7 +14,6 @@ class AndroidAssetAslCatalogLoader(
     fun load(): AslAnimationCatalog {
         val manifest = readAssetText(MANIFEST_PATH)
         val root = JSONObject(manifest)
-        require(root.getString("language") == "ase") { "Expected an ASL dictionary" }
         val clips = root.getJSONArray("clips")
         val assets = buildList {
             for (index in 0 until clips.length()) {
@@ -28,9 +27,6 @@ class AndroidAssetAslCatalogLoader(
                         displayText = clip.getString("displayText"),
                         assetPath = assetPath,
                         type = parseType(clip.getString("type")),
-                        animationName = clip.getString("animationName"),
-                        language = root.getString("language"),
-                        validationStatus = clip.getJSONObject("validation").getString("status"),
                         aliases = buildList {
                             for (aliasIndex in 0 until aliases.length()) {
                                 add(aliases.getString(aliasIndex))
@@ -61,7 +57,7 @@ class AndroidAssetAslCatalogLoader(
             "word" -> AslAnimationAsset.Type.WORD
             "letter" -> AslAnimationAsset.Type.LETTER
             "pose" -> AslAnimationAsset.Type.POSE
-            else -> throw IllegalArgumentException("Unknown ASL clip type")
+            else -> AslAnimationAsset.Type.PHRASE
         }
     }
 
