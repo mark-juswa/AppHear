@@ -1,3 +1,17 @@
+
+## Team handoff published — 2026-10-09 (Asia/Manila)
+
+Shared branch: `codex/team-handoff-2026-10-09`; PR: https://github.com/mark-juswa/AppHear/pull/1 (open/mergeable when checked).
+First handoff commit042dc8b; vocabulary commit5cf2807. Main stays1e215ae, frozen October9
+app baseline34f24ab unchanged. Start with TEAM_HANDOFF.md and context/team-current-state-2026-10-09.md,
+not older local paths/plans. No force push, training, TEST access or recognition change.
+186 JVM +53 focused decoder tests passed;581 contract hashes +345 imported Git-blob hashes verified.
+No known-key/credential-pattern matches in1878text files; private APKs/config/bulk data/optimizer states excluded.
+Research and current app source are now published together; original F: Android edits were NOT merged.
+Next: groupmates clone the shared branch, run hash checker/fake build, review PR before merging main,
+and review Original mappings/mixed-avatar appearance. Qualified-signer accuracy and private service/data
+provisioning remain open; no automatic new experiment is authorized. See docs/team-external-artifacts.md.
+
 > **2026-10-09 current-state notice:** Read [team-current-state-2026-10-09.md](team-current-state-2026-10-09.md) and [TEAM_HANDOFF.md](../TEAM_HANDOFF.md) first. Older design/status/absolute-checkout references below are historical where they conflict with the verified October9 code and current-state inventory. Protection, parity and evaluation rules still apply. Do not treat the old 15-FPS target as a measured achieved cadence, or uninstall/clear app data by default during smoke checks; current updates use `adb install -r`.
 
 # Progress Tracker

@@ -52,3 +52,7 @@ matches in1878text files; no prohibited private/generated files or individual fi
 This is a bounded source audit, not an exhaustive binary/history secret guarantee. See
 [evidence/team_handoff_20261009/validation.json](evidence/team_handoff_20261009/validation.json).
 No new training, TEST payload access or Android recognition changes were performed in this handoff.
+
+## Shared GitHub review
+
+[Pull request #1](https://github.com/mark-juswa/AppHear/pull/1) is the review/merge point. Main and frozen refs are unchanged.
