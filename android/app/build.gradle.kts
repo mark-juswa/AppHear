@@ -4,6 +4,8 @@ plugins {
 }
 
 android {
+    val aslOriginalWords = providers.gradleProperty("aslOriginalWords")
+        .map { it.equals("true", ignoreCase = true) }.getOrElse(false)
     val profileAccounts = providers.gradleProperty("profileAccounts")
         .map { it.equals("true", ignoreCase = true) }.getOrElse(false)
     val aslAssetPilot = providers.gradleProperty("aslAssetPilot")
@@ -139,6 +141,7 @@ android {
 
     buildTypes {
         debug {
+            buildConfigField("boolean", "ASL_ORIGINAL_WORDS_ENABLED", aslOriginalWords.toString())
             buildConfigField("boolean", "RECOGNITION_REAR_CAMERA_ENABLED", recognitionRearCamera.toString())
             buildConfigField("boolean", "RECOGNITION_COORDINATION_ENABLED", (recognitionCoordination && fingerspellDebug && fingerspellContinuous && contextPhraseAssistDebug).toString())
             buildConfigField("boolean", "FINGERSPELL_CONTINUOUS_ENABLED", (fingerspellDebug && fingerspellContinuous).toString())
@@ -174,6 +177,7 @@ android {
             )
         }
         release {
+            buildConfigField("boolean", "ASL_ORIGINAL_WORDS_ENABLED", "false")
             buildConfigField("boolean", "RECOGNITION_REAR_CAMERA_ENABLED", "false")
             buildConfigField("boolean", "RECOGNITION_COORDINATION_ENABLED", "false")
             buildConfigField("boolean", "FINGERSPELL_CONTINUOUS_ENABLED", "false")
@@ -221,6 +225,9 @@ android {
     buildFeatures {
         buildConfig = true
         viewBinding = true
+    }
+    if (aslOriginalWords) {
+        sourceSets.getByName("debug").assets.srcDir("src/aslOriginalWords/assets")
     }
     if (fingerspellDebug) {
         val fingerspellArtifacts = providers.gradleProperty("fingerspellArtifactDir")

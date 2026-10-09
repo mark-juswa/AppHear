@@ -19,7 +19,7 @@ import org.junit.runner.RunWith
 class AslCharacterSettingsInstrumentedTest {
     @Test
     fun selectedCatalogPreservesOriginalAndAddsOnlyApprovedNewEntries() {
-        assumeTrue(BuildConfig.ASL_CHARACTER_SELECTION_ENABLED)
+        assumeTrue(BuildConfig.ASL_CHARACTER_SELECTION_ENABLED && !BuildConfig.ASL_ORIGINAL_WORDS_ENABLED)
         val context = InstrumentationRegistry.getInstrumentation().targetContext
         val original = AndroidAssetAslCatalogLoader(context, false).load()
         val expanded = AndroidAssetAslCatalogLoader(context, true).load()

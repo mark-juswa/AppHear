@@ -1,5 +1,6 @@
 param(
     [ValidateSet('fake','private')][string]$Configuration = 'fake',
+    [switch]$OriginalWords,
     [string[]]$Tasks = @('testDebugUnitTest','assembleDebug','assembleDebugAndroidTest')
 )
 $ErrorActionPreference = 'Stop'
@@ -19,6 +20,7 @@ $options = @('--console=plain','--no-daemon','--max-workers=2','-Pandroid.useAnd
     '-PcontextPhraseAssist=true',"-PcontextPhraseAssistProvider=$(if ($Configuration -eq 'private') {'gemini'} else {'fake'})",
     '-PaslAssetPilot=true','-PaslSharedCharacter=true','-PaslMoreWords=true',
     '-PaslCharacterSelection=true','-PaslNewIdle=true','-PaslAlphabetFallback=true')
+if ($OriginalWords) { $options += '-PaslOriginalWords=true' }
 if ($Configuration -eq 'fake') {
     # Explicit Gradle properties override both local files and inherited environment.
     foreach ($credentialName in @('SUPABASE_URL','SUPABASE_ANON_KEY','APPHEAR_SUPABASE_URL',

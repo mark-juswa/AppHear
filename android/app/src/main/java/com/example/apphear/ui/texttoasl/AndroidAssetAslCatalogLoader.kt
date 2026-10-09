@@ -5,6 +5,7 @@ import android.util.Log
 import com.example.apphear.BuildConfig
 import com.example.apphear.domain.texttoasl.AslAnimationAsset
 import com.example.apphear.domain.texttoasl.AslAnimationCatalog
+import com.example.apphear.domain.texttoasl.OriginalWordBatchCatalog
 import org.json.JSONObject
 import java.io.BufferedReader
 import java.io.InputStreamReader
@@ -40,7 +41,9 @@ class AndroidAssetAslCatalogLoader(
                 )
             }
         }
-        val selected = if (BuildConfig.ASL_ASSET_PILOT_ENABLED && useNewCharacter) {
+        val selected = if (BuildConfig.ASL_ORIGINAL_WORDS_ENABLED && !useNewCharacter) {
+            PilotCatalog(applyOriginalWordBatch(assets))
+        } else if (BuildConfig.ASL_ASSET_PILOT_ENABLED && useNewCharacter) {
             applyPilot(assets)
         } else {
             PilotCatalog(assets)
@@ -227,6 +230,59 @@ class AndroidAssetAslCatalogLoader(
         } catch (exception: Exception) {
             Log.w("TextToAslAssets", "Alphabet manifest rejected; using original catalog", exception)
             PilotCatalog(assets)
+        }
+    }
+
+    private fun applyOriginalWordBatch(base: List<AslAnimationAsset>): List<AslAnimationAsset> {
+        return try {
+            val bytes = context.assets.open(OriginalWordBatchCatalog.MANIFEST).use { it.readBytes() }
+            fun hash(bytes: ByteArray) = MessageDigest.getInstance("SHA-256").digest(bytes)
+                .joinToString("") { "%02x".format(it) }
+            require(hash(bytes) == OriginalWordBatchCatalog.MANIFEST_SHA256)
+            val root = JSONObject(String(bytes, Charsets.UTF_8))
+            require(root.getInt("schemaVersion") == 1 && root.getString("packageId") == "original-word-batch-v1")
+            require(root.getBoolean("standExcluded"))
+            fun verify(clip: JSONObject) {
+                val path = clip.getString("asset")
+                OriginalWordBatchCatalog.validatePath(path)
+                val digest = MessageDigest.getInstance("SHA-256")
+                var total = 0L
+                context.assets.open(path).use { input ->
+                    val buffer = ByteArray(64 * 1024)
+                    while (true) {
+                        val count = input.read(buffer)
+                        if (count < 0) break
+                        digest.update(buffer, 0, count)
+                        total += count
+                    }
+                }
+                require(total == clip.getLong("bytes"))
+                require(digest.digest().joinToString("") { "%02x".format(it) } == clip.getString("sha256"))
+            }
+            val rawOverrides = root.getJSONArray("replacements")
+            val rawAdditions = root.getJSONArray("newClips")
+            require(rawOverrides.length() == OriginalWordBatchCatalog.REPLACEMENTS)
+            require(rawAdditions.length() == OriginalWordBatchCatalog.ADDITIONS)
+            val overrides = (0 until rawOverrides.length()).map { index ->
+                val clip = rawOverrides.getJSONObject(index)
+                verify(clip)
+                OriginalWordBatchCatalog.Override(clip.getString("id"), clip.getString("asset"),
+                    clip.getString("fallbackAsset"), clip.getString("animationName"), clip.getLong("durationMs"))
+            }
+            val additions = (0 until rawAdditions.length()).map { index ->
+                val clip = rawAdditions.getJSONObject(index)
+                verify(clip)
+                require(clip.getString("type") == "word")
+                val aliases = clip.getJSONArray("aliases")
+                AslAnimationAsset(clip.getString("id"), clip.getString("displayText"),
+                    clip.getString("asset"), AslAnimationAsset.Type.WORD,
+                    (0 until aliases.length()).map { aliases.getString(it) },
+                    AslAnimationAsset.Replacement(null, clip.getString("animationName"), clip.getLong("durationMs")))
+            }
+            OriginalWordBatchCatalog.merge(base, overrides, additions)
+        } catch (exception: Exception) {
+            Log.w("TextToAslAssets", "Original word batch rejected; using frozen Original catalog", exception)
+            base
         }
     }
 

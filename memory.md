@@ -1275,3 +1275,7 @@ Runtime model/policy and parity fixtures are now bundled byte-exact under
 uses these files without the previous machine-local research-folder dependency.
 No application source, model behavior or WORD behavior changed in this preservation.
 Recognition remains experimental; this baseline does not certify A–Z accuracy.
+
+## Original word batch delivery — 2026-10-09
+
+273-entry Original catalog installed as flagged private debug extension: 32 ZIP replacements, 171 additions, STAND excluded/idle retained. 186 host tests and 2 device playback/catalog tests passed; ownership regression passed separately after combined window-focus timeout. Recognition and New Character remain untouched. Authoritative app checkout: C:/Users/Gigabyte/.codex/worktrees/fingerspell-continuous-oct05/5. Apphear3; branch codex/original-character-word-batch-2026-10-09. Frozen baseline remains 34f24ab6d7aea8179decb1688a82fc5734f6d370. See context/text-to-asl-original-words-v1.md. Mixed avatars and all-clips ASL correctness remain review limitations; no baseline commit/push performed. Next: supervisor reviews actual Original playback and appearance; do not change recognition.
