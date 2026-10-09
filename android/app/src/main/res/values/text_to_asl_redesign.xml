@@ -1,0 +1,7 @@
+<resources>
+<string name="asl_preview_notice">American Sign Language (ASL) preview. Existing avatar clips have not been linguistically validated. Enter one supported word or phrase.</string>
+<string name="asl_pause">Pause</string>
+<string name="asl_resume">Resume</string>
+<string name="asl_speed_normal">Speed 1x</string>
+<string name="asl_no_phrase">No complete phrase match. Nothing was signed. Try: hello, thank you, how are you, nice to meet you, or I love you.</string>
+</resources>

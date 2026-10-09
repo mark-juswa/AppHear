@@ -5,18 +5,15 @@ import java.util.Locale
 class AslTextNormalizer {
     fun normalize(input: String?): String {
         if (input.isNullOrBlank()) return ""
-
-        val normalized = input
-            .lowercase(Locale.US)
-            .replace(Regex("['?]"), "")
-            .replace(Regex("[^a-z0-9\\s]"), " ")
-            .replace(Regex("\\s+"), " ")
+        // Keep digits, non-Latin text and internal punctuation so they cannot be
+        // silently erased into an unrelated supported phrase.
+        return input.lowercase(Locale.US)
+            .replace('’', '\'')
+            .replace(Regex("\\bdon't\\b"), "dont")
             .trim()
-
-        return when (normalized) {
-            "hi", "hey" -> "hello"
-            else -> normalized
-        }
+            .trimEnd('.', '!', '?')
+            .trim()
+            .replace(Regex("\\s+"), " ")
     }
 }
 

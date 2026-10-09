@@ -80,3 +80,6 @@ apphear-react/benchmark/device-results/**/*.json
 # Generated supplementary-dataset audit manifests and scratch configs
 classmate_supplementary_dataset_package/reports/audit_236/
 artifacts/tmp_*
+
+# Kotlin generated state
+**/.kotlin/

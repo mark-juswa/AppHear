@@ -65,7 +65,7 @@
         android:layout_marginTop="60dp"
         android:fontFamily="@font/inter_semibold"
         android:letterSpacing="0.05"
-        android:text="ASL TRANSLATOR"
+        android:text="ASL PHRASE PREVIEW"
         android:textColor="#FFFFFF"
         android:textSize="11sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -231,6 +231,21 @@
                 </FrameLayout>
             </LinearLayout>
 
+            <TextView
+                android:id="@+id/preview_status"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginTop="10dp" android:text="@string/asl_preview_notice"
+                android:textColor="#685239" android:textSize="13sp" />
+            <LinearLayout android:id="@+id/playback_controls"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <Button android:id="@+id/pause_button"
+                    android:layout_width="0dp" android:layout_height="48dp"
+                    android:layout_weight="1" android:enabled="false" android:text="@string/asl_pause" />
+                <Button android:id="@+id/speed_button"
+                    android:layout_width="0dp" android:layout_height="48dp"
+                    android:layout_weight="1" android:text="@string/asl_speed_normal" />
+            </LinearLayout>
             <ScrollView
                 android:id="@+id/expandableContent"
                 android:layout_width="match_parent"

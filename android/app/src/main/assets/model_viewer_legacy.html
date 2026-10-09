@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script type="module" src="vendor/model-viewer/model-viewer-4.3.1.min.js"></script>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      background: #0D2020;
+      overflow: hidden;
+    }
+    model-viewer {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #0D2020;
+      opacity: 0;
+      transition: opacity 280ms ease;
+      pointer-events: none;
+    }
+    model-viewer.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    #fallback {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      color: rgba(255, 255, 255, 0.72);
+      font: 600 14px sans-serif;
+      text-align: center;
+    }
+    model-viewer.defined ~ #fallback {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+<model-viewer id="viewerA" class="active" camera-controls autoplay animation-crossfade-duration="250" exposure="1.0" shadow-intensity="0.35" camera-orbit="0deg 75deg 3m" camera-target="0m 1.5m 0m" field-of-view="45deg" min-camera-orbit="auto auto auto" max-camera-orbit="auto auto auto" interaction-prompt="none"></model-viewer>
+<model-viewer id="viewerB" camera-controls autoplay animation-crossfade-duration="250" exposure="1.0" shadow-intensity="0.35" camera-orbit="0deg 75deg 3m" camera-target="0m 1.5m 0m" field-of-view="45deg" min-camera-orbit="auto auto auto" max-camera-orbit="auto auto auto" interaction-prompt="none"></model-viewer>
+<div id="fallback">Avatar viewer is loading.</div>
+<script>
+  const viewers = [document.getElementById('viewerA'), document.getElementById('viewerB')];
+  let activeIndex = 0;
+  let pendingPlayUrl = null;
+  let queuedPreloadUrl = null;
+  const loadedUrls = new Set();
+
+  customElements.whenDefined('model-viewer').then(() => {
+    viewers.forEach((viewer) => viewer.classList.add('defined'));
+    if (window.Android) Android.onViewerReady();
+  });
+
+  viewers.forEach((viewer) => {
+    viewer.addEventListener('load', () => {
+      loadedUrls.add(viewer.src);
+      const anims = JSON.stringify(viewer.availableAnimations || []);
+      if (window.Android) Android.onModelLoaded(viewer.src, anims);
+    });
+    viewer.addEventListener('finished', () => {
+      if (viewer.classList.contains('active') && window.Android) {
+        Android.onAnimationFinished(viewer.src);
+      }
+    });
+  });
+
+  window.playSign = function(url) {
+    const active = viewers[activeIndex];
+    if (active.src === url) {
+      replayViewer(active);
+      return;
+    }
+
+    const nextIndex = 1 - activeIndex;
+    const next = viewers[nextIndex];
+    pendingPlayUrl = url;
+    if (next.src !== url) {
+      next.src = url;
+    }
+
+    waitForModel(next, url).then(() => {
+      if (pendingPlayUrl !== url) return;
+      replayViewer(next);
+      next.classList.add('active');
+      active.classList.remove('active');
+      activeIndex = nextIndex;
+      pendingPlayUrl = null;
+
+      if (queuedPreloadUrl) {
+        const preloadUrl = queuedPreloadUrl;
+        queuedPreloadUrl = null;
+        window.preloadSign(preloadUrl);
+      }
+    });
+  };
+
+  window.preloadSign = function(url) {
+    if (pendingPlayUrl) {
+      queuedPreloadUrl = url;
+      return;
+    }
+    const next = viewers[1 - activeIndex];
+    if (next.src !== url) {
+      next.src = url;
+    }
+  };
+
+  function waitForModel(viewer, url) {
+    if (viewer.src === url && loadedUrls.has(url)) {
+      return Promise.resolve();
+    }
+    return new Promise((resolve) => {
+      const onLoad = () => {
+        if (viewer.src === url) {
+          viewer.removeEventListener('load', onLoad);
+          resolve();
+        }
+      };
+      viewer.addEventListener('load', onLoad);
+    });
+  }
+
+  function replayViewer(viewer) {
+    try {
+      viewer.currentTime = 0;
+      if (viewer.availableAnimations && viewer.availableAnimations.length > 0) {
+        viewer.animationName = viewer.availableAnimations[0];
+      }
+      viewer.play();
+    } catch (error) {
+      console.warn('Unable to replay sign animation', error);
+    }
+  }
+</script>
+</body>
+</html>

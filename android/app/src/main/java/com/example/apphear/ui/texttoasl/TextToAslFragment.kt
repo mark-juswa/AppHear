@@ -14,6 +14,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.example.apphear.BuildConfig
 import com.example.apphear.R
 import com.example.apphear.RecognitionActivity
 import com.example.apphear.TextToAslArgument
@@ -34,6 +35,9 @@ class TextToAslFragment : Fragment(R.layout.fragment_text_to_asl) {
     private var currentQueue: List<AslAnimationAsset> = emptyList()
     private var currentIndex: Int = 0
     private var lastInputText: String = ""
+    private var playbackPaused = false
+    private val playbackSpeeds = listOf(0.5, 0.75, 1.0, 1.25, 1.5)
+    private var speedIndex = 2
     private var speechPlayer: AppHearSpeechPlayer? = null
     private var avatarReady: Boolean = false
     private var pendingAutoSubmitText: String? = null
@@ -78,7 +82,7 @@ class TextToAslFragment : Fragment(R.layout.fragment_text_to_asl) {
         try {
             val catalog = AndroidAssetAslCatalogLoader(requireContext()).load()
             animationCatalog = catalog
-            phrasePlanner = AslPhrasePlanner(catalog)
+            phrasePlanner = AslPhrasePlanner(catalog, strictPhraseMode = BuildConfig.TEXT_TO_ASL_REDESIGN_ENABLED)
             idleAsset = catalog.findByAlias("idle")
             avatarController = TextToAslPlaybackController(requireContext(), fragmentBinding.avatarWebView).also { controller ->
                 controller.setReadyCallback(
@@ -94,6 +98,18 @@ class TextToAslFragment : Fragment(R.layout.fragment_text_to_asl) {
                 )
                 controller.setPlaybackCallback(
                     object : TextToAslPlaybackController.PlaybackCallback {
+                        override fun onStarted(asset: AslAnimationAsset) {
+                            if (asset.type != AslAnimationAsset.Type.POSE) {
+                                binding?.pauseButton?.isEnabled = true
+                                binding?.currentProgressText?.text = if (playbackPaused) "Paused" else (currentIndex + 1).toString() + " / " + currentQueue.size
+                            }
+                        }
+                        override fun onError(message: String) {
+                            playHandler.removeCallbacks(advanceRunnable)
+                            binding?.pauseButton?.isEnabled = false
+                            binding?.previewStatus?.text = message
+                            binding?.currentProgressText?.text = "Playback failed"
+                        }
                         override fun onFinished(asset: AslAnimationAsset) {
                             if (currentQueue.getOrNull(currentIndex)?.id == asset.id) {
                                 advancePlayback()
@@ -112,6 +128,20 @@ class TextToAslFragment : Fragment(R.layout.fragment_text_to_asl) {
     }
 
     private fun setupListeners(fragmentBinding: FragmentTextToAslBinding) {
+        fragmentBinding.playbackControls.isVisible = BuildConfig.TEXT_TO_ASL_REDESIGN_ENABLED
+        fragmentBinding.previewStatus.isVisible = BuildConfig.TEXT_TO_ASL_REDESIGN_ENABLED
+        fragmentBinding.pauseButton.setOnClickListener {
+            playbackPaused = !playbackPaused
+            avatarController?.setPaused(playbackPaused)
+            fragmentBinding.pauseButton.setText(if (playbackPaused) R.string.asl_resume else R.string.asl_pause)
+            fragmentBinding.currentProgressText.text = if (playbackPaused) "Paused" else (currentIndex + 1).toString() + " / " + currentQueue.size
+        }
+        fragmentBinding.speedButton.setOnClickListener {
+            speedIndex = (speedIndex + 1) % playbackSpeeds.size
+            val speed = playbackSpeeds[speedIndex]
+            avatarController?.setSpeed(speed)
+            fragmentBinding.speedButton.text = "Speed " + speed + "x"
+        }
         fragmentBinding.btnBack.setOnClickListener { findNavController().navigate(R.id.homeFragment) }
         fragmentBinding.btnSpeak.setOnClickListener { speakCurrentText() }
         fragmentBinding.dragHandleWrapper.setOnClickListener {
@@ -205,6 +235,11 @@ class TextToAslFragment : Fragment(R.layout.fragment_text_to_asl) {
         }
 
         playHandler.removeCallbacks(advanceRunnable)
+        avatarController?.stop()
+        playbackPaused = false
+        fragmentBinding.pauseButton.setText(R.string.asl_pause)
+        fragmentBinding.pauseButton.isEnabled = false
+        fragmentBinding.previewStatus.setText(R.string.asl_preview_notice)
         val plan = planner.plan(requestedText)
         lastInputText = requestedText
         currentQueue = plan.queue
@@ -212,7 +247,8 @@ class TextToAslFragment : Fragment(R.layout.fragment_text_to_asl) {
         fragmentBinding.signedText.text = requestedText
 
         if (plan.unsupportedTokens.isNotEmpty()) {
-            fragmentBinding.currentProgressText.text = "Unsupported: ${plan.unsupportedTokens.joinToString(", ")}"
+            fragmentBinding.previewStatus.setText(R.string.asl_no_phrase)
+            fragmentBinding.currentProgressText.text = "Unsupported input"
         }
 
         if (currentQueue.isEmpty()) {
@@ -238,6 +274,9 @@ class TextToAslFragment : Fragment(R.layout.fragment_text_to_asl) {
             return
         }
         playHandler.removeCallbacks(advanceRunnable)
+        avatarController?.stop()
+        playbackPaused = false
+        fragmentBinding.pauseButton.setText(R.string.asl_pause)
         currentIndex = 0
         playCurrentAsset()
     }
@@ -245,6 +284,11 @@ class TextToAslFragment : Fragment(R.layout.fragment_text_to_asl) {
     private fun clearPlayback() {
         val fragmentBinding = binding ?: return
         playHandler.removeCallbacks(advanceRunnable)
+        avatarController?.stop()
+        playbackPaused = false
+        fragmentBinding.pauseButton.isEnabled = false
+        fragmentBinding.pauseButton.setText(R.string.asl_pause)
+        fragmentBinding.previewStatus.setText(R.string.asl_preview_notice)
         currentQueue = emptyList()
         currentIndex = 0
         lastInputText = ""
@@ -262,10 +306,13 @@ class TextToAslFragment : Fragment(R.layout.fragment_text_to_asl) {
         currentQueue.getOrNull(currentIndex + 1)?.let { avatarController?.preload(it) }
 
         fragmentBinding.currentSignText.text = asset.displayText.uppercase(Locale.US)
-        fragmentBinding.currentProgressText.text = "${currentIndex + 1} / ${currentQueue.size}"
+        fragmentBinding.currentProgressText.text = "Loading"
+        fragmentBinding.pauseButton.isEnabled = false
 
         playHandler.removeCallbacks(advanceRunnable)
-        playHandler.postDelayed(advanceRunnable, PLAYBACK_SAFETY_TIMEOUT_MS)
+        if (!BuildConfig.TEXT_TO_ASL_REDESIGN_ENABLED) {
+            playHandler.postDelayed(advanceRunnable, PLAYBACK_SAFETY_TIMEOUT_MS)
+        }
     }
 
     private fun advancePlayback() {
@@ -281,6 +328,7 @@ class TextToAslFragment : Fragment(R.layout.fragment_text_to_asl) {
     private fun showIdleAvatar() {
         playHandler.removeCallbacks(advanceRunnable)
         avatarController?.play(idleAsset)
+        binding?.pauseButton?.isEnabled = false
         binding?.currentSignText?.setText(R.string.text_to_asl_current_sign_placeholder)
         if (currentQueue.isNotEmpty()) {
             binding?.currentProgressText?.text = "Complete"
@@ -310,6 +358,15 @@ class TextToAslFragment : Fragment(R.layout.fragment_text_to_asl) {
                 requireContext().theme,
             ),
         )
+    }
+
+    override fun onStop() {
+        if (BuildConfig.TEXT_TO_ASL_REDESIGN_ENABLED && currentQueue.isNotEmpty()) {
+            playbackPaused = true
+            avatarController?.setPaused(true)
+            binding?.pauseButton?.setText(R.string.asl_resume)
+        }
+        super.onStop()
     }
 
     override fun onDestroyView() {

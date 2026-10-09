@@ -165,3 +165,7 @@ active-versus-shadow agreement, ensemble latency, processed FPS, crashes, and an
 - What materially new ROI detector/data strategy, if any, should reopen Phase 2 after shadow work?
 
 No secrets or credentials are stored in this handoff.
+
+
+# Memory - Text-to-Sign preview (2026-10-09)
+User approved labeled unreviewed clips. Development-only clone and local branch; no push. See TEXT-TO-SIGN-PREVIEW.md. Existing historical memory preserved. Next session: obtain qualified ASL review and documented media rights for five phrases; physical phone testing remains open.

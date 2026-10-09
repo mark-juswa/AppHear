@@ -1850,3 +1850,14 @@ Added `F:\ASL DATASET\5. Apphear3\pipeline\rgb\e4_z_signing_gate.py` and ran it 
 - Threshold diagnosis: I320 can reach 85.84% availability only with 85.71% no-hand FPR; allowing one no-hand false-positive frame still gives only 75.22% availability. This is not a minor threshold issue.
 - Decision: C0-B0 promotion no-go. Do not run QAT/INT8, frozen P0/N0/P1, Android, or a generic hyperparameter sweep. Next is one explicit architecture/data decision using this result and the independent hard-negative inventory.
 - Detailed source: `context/recognition_upgrade/C0B_STAGE2_DEVELOPMENT_RESULT.md`.
+
+
+## 2026-10-09 - Text-to-Sign preview development clone
+- [x] Android assets cloned; original recognition pipeline preserved.
+- [x] User approved explicitly labeled unreviewed ASL clips.
+- [x] Whole-input dictionary, single named-clip playback, pause/repeat/speed and error handling.
+- [x] Debug build and 41 JVM tests passed; Node playback control regression checks passed.
+- [x] API36 emulator native hello/replay completion verified.
+- [ ] Qualified ASL review of at least five phrases; rights documentation.
+- [ ] Physical-device smoke, offline and performance testing.
+Decision: preview clips now; reviewed video/validated-clip hybrid for production. Full handoff: TEXT-TO-SIGN-PREVIEW.md. Recognition feature-schema unchanged.
