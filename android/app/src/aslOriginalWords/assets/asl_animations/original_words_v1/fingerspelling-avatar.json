@@ -5,7 +5,7 @@
   "language": "ASL",
   "avatarProfile": "ORIGINAL_HUMAN",
   "asset": "asl_animations/original_words_v1/fingerspelling-avatar.glb",
-  "sha256": "54b4e4882ff8d1d3d104f9835b74fce7d5ac6db67a5ef73835e83196a3816c86",
+  "sha256": "bcd0e4b634b267baf3979f3193958520469ba91f69cd265406b76e9873d07d11",
   "sourceSha256": "645da29f5e8a24dc7da2f4b6e23ca2e87fb91254958f5053ba0281080ec0a524",
   "status": "UNREVIEWED_RETARGETED_PREVIEW",
   "source": "Existing AppHear FemaleASL alphabet; motion rights/provenance unresolved",
@@ -456,5 +456,42 @@
       "sourceDurationMs": 2800
     }
   ],
-  "nameLexicalStatus": "MISSING; use N-A-M-E fallback; external SiGML has no joint-space motion"
+  "nameLexicalStatus": "MISSING; use N-A-M-E fallback; external SiGML has no joint-space motion",
+  "loveCorrection": {
+    "animationName": "SIGN_LOVE",
+    "status": "UNREVIEWED_CONTACT_CORRECTION",
+    "sourceBundleSha256": "54b4e4882ff8d1d3d104f9835b74fce7d5ac6db67a5ef73835e83196a3816c86",
+    "correctedNodes": [
+      "RightArm",
+      "RightForeArm",
+      "RightHand",
+      "LeftArm",
+      "LeftForeArm",
+      "LeftHand"
+    ],
+    "samples": 521,
+    "durationSeconds": 2.1666667461395264,
+    "approachReleaseSeconds": 0.3,
+    "crossingXYHeldBetweenSeconds": [
+      0.3,
+      1.8666667461395263
+    ],
+    "reference": "https://www.lifeprint.com/asl101/pages-signs/l/love.htm",
+    "method": "LOVE-only actual torso front surface and two-bone arm IK; unchanged finger tracks and wrist world orientation",
+    "beforeDepthMeters": {
+      "hand": 0.2680458237234982,
+      "forearm": 0.23160976742409622
+    },
+    "afterDepthMeters": {
+      "hand": 0.0,
+      "forearm": 0.0019162973119051518
+    },
+    "wristXYErrorMeters": 0.2030548582617156,
+    "wristOrientationMatrixError": 3.2307490016592055e-14,
+    "nearestHandSurfaceGapRangeMeters": [
+      0.007377154883539072,
+      0.14973125401049048
+    ],
+    "limitations": "Front-surface proxy, not all-mesh closed-volume or arm-arm collision; requires device and qualified ASL review"
+  }
 }

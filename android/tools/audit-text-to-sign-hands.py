@@ -92,12 +92,17 @@ def main():
     before,after=Model(sys.argv[1]),Model(sys.argv[2]);out=Path(sys.argv[3]);out.mkdir(parents=True,exist_ok=True)
     for key in ['nodes','skins','meshes','materials','textures','images','scenes']:
         assert before.g[key]==after.g[key],key+' changed'
-    assert before.g['animations'][:203]==after.g['animations'][:203], 'Word actions changed'
+    if '--love-corrected' in sys.argv[4:]:
+        assert [a for a in before.g['animations'][:203] if a['name']!='SIGN_LOVE']==[a for a in after.g['animations'][:203] if a['name']!='SIGN_LOVE']
+        assert before.g['animations'][203:]==after.g['animations'][203:], 'Alphabet actions changed'
+        assert before.binary[:before.g['buffers'][0]['byteLength']]==after.binary[:before.g['buffers'][0]['byteLength']], 'Preserved source bytes changed'
+    else:
+        assert before.g['animations'][:203]==after.g['animations'][:203], 'Word actions changed'
     first_letter_accessor=before.g['animations'][203]['samplers'][0]['input']
     original_end=before.g['bufferViews'][before.g['accessors'][first_letter_accessor]['bufferView']]['byteOffset']
     assert before.binary[:original_end]==after.binary[:original_end], 'Original mesh/word bytes changed'
     names=[f'SIGN_LETTER_{c}_WOLF3D_PREVIEW' for c in 'ABCDEFGHIJKLMNOPQRSTUVWXYZ']
-    names += [n for n in ['SIGN_HELLO','SIGN_BEAUTIFUL','SIGN_THANKS','SIGN_HELP','SIGN_YES','SIGN_NO'] if n in after.animations]
+    names += [n for n in ['SIGN_LOVE','SIGN_HELLO','SIGN_BEAUTIFUL','SIGN_THANKS','SIGN_HELP','SIGN_YES','SIGN_NO'] if n in after.animations]
     report=dict(bindMatrixError=after.bind_error,weightSumError=after.weight_error,actions=[],qualifiedASLValidation=False,renderer='CPU glTF skinning, not Android/WebGL')
     assert after.bind_error<1e-5 and after.weight_error<1e-5
     for side in ['Right','Left']:

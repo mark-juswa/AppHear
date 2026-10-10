@@ -1,0 +1,60 @@
+'use strict';
+// Exercises the real pilot player with deterministic event ordering. Not sign validation.
+const fs=require('node:fs'),vm=require('node:vm'),assert=require('node:assert/strict');
+function setup(){
+ const calls=[],frames=new Map(),timers=new Map();let next=0;
+ const makeViewer=()=>({src:'',loaded:false,loadedSource:null,availableAnimations:[],duration:2,currentTime:0,
+  updateComplete:Promise.resolve(),playRequest:null,events:new Map(),classList:{add(){},remove(){}},
+  addEventListener(n,f){if(!this.events.has(n))this.events.set(n,new Set());this.events.get(n).add(f)},
+  removeEventListener(n,f){this.events.get(n)?.delete(f)},emit(n){for(const f of [...(this.events.get(n)||[])])f()},
+  pause(){this.paused=true},play(opts){this.paused=false;this.options=opts},
+  removeAttribute(n){if(n==='src')this.src=''},
+  load(names=['hello']){this.loaded=true;this.availableAnimations=names;this.emit('load')}
+ });
+ const viewers=[makeViewer(),makeViewer()];
+ const Android=new Proxy({}, {get:(_,n)=>(...args)=>calls.push([n,...args])});const window={Android};
+ const context={window,Android,document:{getElementById:id=>viewers[id==='viewerA'?0:1]},console,
+  customElements:{whenDefined:()=>Promise.resolve(),get:()=>({})},
+  setTimeout:(f,ms)=>{const id=++next;timers.set(id,{f,ms});return id},clearTimeout:id=>timers.delete(id),
+  requestAnimationFrame:f=>{const id=++next;frames.set(id,f);return id},cancelAnimationFrame:id=>frames.delete(id)};
+ vm.runInNewContext(fs.readFileSync(process.argv[2] || 'app/src/aslPilot/assets/pilot_player.js','utf8'),context);
+ return {window,viewers,calls,frames,timers};
+}
+const flush=async()=>{for(let i=0;i<8;i++)await Promise.resolve()};
+async function start(s,url,token,name='hello'){
+ const p=s.window.playSign(url,{requestId:token,animationName:name,loop:false});await flush();
+ const v=s.viewers.find(x=>x.src===url);v.load(['hello']);await p;return v;
+}
+(async()=>{
+ let s=setup();await flush();let v=await start(s,'hello.glb',1);
+ assert.equal(v.options.repetitions,1);
+ v.emit('finished');assert.equal(s.calls.filter(c=>c[0]==='onPilotFinished').length,0,'early event must not finish');
+ v.currentTime=2;v.emit('finished');v.emit('finished');assert.equal(s.calls.filter(c=>c[0]==='onPilotFinished').length,1,'no duplicate finish');
+ s=setup();await flush();v=await start(s,'first.glb',2);s.window.pausePlayback();v.currentTime=2;v.emit('finished');
+ assert.equal(s.calls.filter(c=>c[0]==='onPilotFinished').length,0,'canceled clip cannot finish');
+ s=setup();await flush();v=await start(s,'named.glb',3,'missing');
+ assert.equal(s.calls.filter(c=>c[0]==='onModelFailed').length,1,'wrong named clip fails');
+ s=setup();await flush();const p=s.window.playSign('ambiguous.glb',{requestId:4,loop:false});await flush();
+ s.viewers.find(x=>x.src==='ambiguous.glb').load(['hello','other']);await p;
+ assert.equal(s.calls.filter(c=>c[0]==='onModelFailed').length,1,'ambiguous unnamed animation fails');
+ s=setup();await flush();v=await start(s,'timeline.glb',5);v.currentTime=2;
+ for(const [id,f] of [...s.frames]){s.frames.delete(id);f()}
+ assert.equal(s.calls.filter(c=>c[0]==='onPilotFinished').length,1,'timeline ends without mixer event');
+ s=setup();await flush();
+ const bundle=fs.readFileSync('app/src/aslOriginalWords/assets/asl_animations/original_words_v1/fingerspelling-avatar.glb');
+ const gltf=JSON.parse(bundle.subarray(20,20+bundle.readUInt32LE(12)).toString());
+ const names=gltf.animations.map(a=>a.name);assert.equal(names.length,229);
+ const first=s.window.playSign('resident.glb',{requestId:10,animationName:'SIGN_HELLO',neutralFrame:0,pinSource:true});await flush();
+ v=s.viewers.find(x=>x.src==='resident.glb');let loads=0;const originalLoad=v.load;
+ v.load=function(n){loads++;originalLoad.call(this,n)};v.load(names);await first;
+ const resident=v;
+ for(const [index,name] of ['SIGN_LOVE','SIGN_HELLO','SIGN_BEAUTIFUL','SIGN_LETTER_N_WOLF3D_PREVIEW','SIGN_LETTER_A_WOLF3D_PREVIEW','SIGN_LETTER_N_WOLF3D_PREVIEW','SIGN_LETTER_N_WOLF3D_PREVIEW','SIGN_LETTER_A_WOLF3D_PREVIEW','SIGN_LETTER_J_WOLF3D_PREVIEW','SIGN_LETTER_Z_WOLF3D_PREVIEW','SIGN_LETTER_Z_WOLF3D_PREVIEW'].entries()){
+   await s.window.playSign('resident.glb',{requestId:11+index,animationName:name,loop:false});
+   assert.equal(s.viewers.filter(x=>x.src==='resident.glb').length,1);
+   assert.equal(resident.animationName,name);assert.equal(loads,1,'resident model must not load again');
+   resident.currentTime=2;resident.emit('finished');
+ }
+ assert.equal(s.calls.filter(c=>c[0]==='onPilotFinished').length,11);
+ console.log('PASS: one resident viewer, one model load, eleven mixed/repeated word and letter clips and completion callbacks.');
+ console.log('PASS: early/duplicate/stale completion, named clip identity, ambiguous clip rejection and timeline completion.');
+})().catch(e=>{console.error(e);process.exitCode=1});

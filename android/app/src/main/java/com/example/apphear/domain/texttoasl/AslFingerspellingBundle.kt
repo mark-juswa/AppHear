@@ -4,7 +4,7 @@ package com.example.apphear.domain.texttoasl
 object AslFingerspellingBundle {
     const val PATH = "asl_animations/original_words_v1/fingerspelling-avatar.glb"
     const val MANIFEST = "asl_animations/original_words_v1/fingerspelling-avatar.json"
-    const val SHA256 = "54b4e4882ff8d1d3d104f9835b74fce7d5ac6db67a5ef73835e83196a3816c86"
+    const val SHA256 = "bcd0e4b634b267baf3979f3193958520469ba91f69cd265406b76e9873d07d11"
     data class Letter(val character: Char, val animationName: String, val durationMs: Long)
 
     fun letters(entries: List<Letter>): Map<Char, AslAnimationAsset> {

@@ -43,8 +43,9 @@
   </style>
 </head>
 <body>
-<model-viewer id="viewerA" class="active" camera-controls animation-crossfade-duration="0" exposure="1.0" shadow-intensity="0.35" camera-orbit="0deg 75deg 3m" camera-target="0m 1.5m 0m" field-of-view="45deg" min-camera-orbit="auto auto auto" max-camera-orbit="auto auto auto" interaction-prompt="none"></model-viewer>
-<model-viewer id="viewerB" camera-controls animation-crossfade-duration="0" exposure="1.0" shadow-intensity="0.35" camera-orbit="0deg 75deg 3m" camera-target="0m 1.5m 0m" field-of-view="45deg" min-camera-orbit="auto auto auto" max-camera-orbit="auto auto auto" interaction-prompt="none"></model-viewer>
+<!-- Same camera on both bounded viewers. Keep handshape crossfading disabled. -->
+<model-viewer id="viewerA" class="active" camera-controls animation-crossfade-duration="0" exposure="1.0" shadow-intensity="0.35" camera-orbit="0deg 85deg 2.6m" camera-target="0m 1.3m 0m" field-of-view="45deg" min-camera-orbit="auto auto auto" max-camera-orbit="auto auto auto" interaction-prompt="none"></model-viewer>
+<model-viewer id="viewerB" camera-controls animation-crossfade-duration="0" exposure="1.0" shadow-intensity="0.35" camera-orbit="0deg 85deg 2.6m" camera-target="0m 1.3m 0m" field-of-view="45deg" min-camera-orbit="auto auto auto" max-camera-orbit="auto auto auto" interaction-prompt="none"></model-viewer>
 <div id="fallback">Avatar viewer is loading.</div>
 <script src="pilot_player.js"></script>
 </body>

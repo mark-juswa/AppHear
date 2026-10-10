@@ -15,7 +15,7 @@
 const models=[document.querySelector('#before'),document.querySelector('#after')];
 const action=document.querySelector('#action');
 for(const c of 'ABCDEFGHIJKLMNOPQRSTUVWXYZ')action.add(new Option('Letter '+c,'SIGN_LETTER_'+c+'_WOLF3D_PREVIEW'));
-for(const c of ['HELLO','BEAUTIFUL','THANKS','HELP','YES','NO'])action.add(new Option(c,'SIGN_'+c));
+for(const c of ['LOVE','HELLO','BEAUTIFUL','THANKS','HELP','YES','NO'])action.add(new Option(c,'SIGN_'+c));
 let loaded=0;models.forEach(m=>m.addEventListener('load',()=>{m.pause();if(++loaded===2)document.querySelector('#status').textContent='Both real GLBs loaded';}));
 document.querySelector('#sample').onclick=async()=>{for(const m of models){m.pause();m.animationName=action.value;await m.updateComplete;m.currentTime=Number(document.querySelector('#time').value);}document.querySelector('#status').textContent='Pose '+action.value;};
 document.querySelector('#play').onclick=async()=>{for(const m of models){m.animationName=action.value;await m.updateComplete;m.currentTime=0;m.play({repetitions:1});}};
