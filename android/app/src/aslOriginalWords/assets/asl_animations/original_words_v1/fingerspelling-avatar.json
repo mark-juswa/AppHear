@@ -5,7 +5,7 @@
   "language": "ASL",
   "avatarProfile": "ORIGINAL_HUMAN",
   "asset": "asl_animations/original_words_v1/fingerspelling-avatar.glb",
-  "sha256": "bcd0e4b634b267baf3979f3193958520469ba91f69cd265406b76e9873d07d11",
+  "sha256": "9e38ec284ff4e25da46e580f2b3b7b1c772bc5c6ba1da1a905ac712c897c3c68",
   "sourceSha256": "645da29f5e8a24dc7da2f4b6e23ca2e87fb91254958f5053ba0281080ec0a524",
   "status": "UNREVIEWED_RETARGETED_PREVIEW",
   "source": "Existing AppHear FemaleASL alphabet; motion rights/provenance unresolved",
@@ -15,157 +15,157 @@
       "letter": "a",
       "id": "letter_a",
       "animationName": "SIGN_LETTER_A_WOLF3D_PREVIEW",
-      "durationMs": 1800
+      "durationMs": 980
     },
     {
       "letter": "b",
       "id": "letter_b",
       "animationName": "SIGN_LETTER_B_WOLF3D_PREVIEW",
-      "durationMs": 1833
+      "durationMs": 1013
     },
     {
       "letter": "c",
       "id": "letter_c",
       "animationName": "SIGN_LETTER_C_WOLF3D_PREVIEW",
-      "durationMs": 1867
+      "durationMs": 1047
     },
     {
       "letter": "d",
       "id": "letter_d",
       "animationName": "SIGN_LETTER_D_WOLF3D_PREVIEW",
-      "durationMs": 1800
+      "durationMs": 980
     },
     {
       "letter": "e",
       "id": "letter_e",
       "animationName": "SIGN_LETTER_E_WOLF3D_PREVIEW",
-      "durationMs": 1867
+      "durationMs": 1047
     },
     {
       "letter": "f",
       "id": "letter_f",
       "animationName": "SIGN_LETTER_F_WOLF3D_PREVIEW",
-      "durationMs": 1833
+      "durationMs": 1013
     },
     {
       "letter": "g",
       "id": "letter_g",
       "animationName": "SIGN_LETTER_G_WOLF3D_PREVIEW",
-      "durationMs": 1867
+      "durationMs": 1047
     },
     {
       "letter": "h",
       "id": "letter_h",
       "animationName": "SIGN_LETTER_H_WOLF3D_PREVIEW",
-      "durationMs": 1867
+      "durationMs": 1047
     },
     {
       "letter": "i",
       "id": "letter_i",
       "animationName": "SIGN_LETTER_I_WOLF3D_PREVIEW",
-      "durationMs": 1833
+      "durationMs": 1013
     },
     {
       "letter": "j",
       "id": "letter_j",
       "animationName": "SIGN_LETTER_J_WOLF3D_PREVIEW",
-      "durationMs": 3200
+      "durationMs": 2380
     },
     {
       "letter": "k",
       "id": "letter_k",
       "animationName": "SIGN_LETTER_K_WOLF3D_PREVIEW",
-      "durationMs": 1867
+      "durationMs": 1047
     },
     {
       "letter": "l",
       "id": "letter_l",
       "animationName": "SIGN_LETTER_L_WOLF3D_PREVIEW",
-      "durationMs": 1800
+      "durationMs": 980
     },
     {
       "letter": "m",
       "id": "letter_m",
       "animationName": "SIGN_LETTER_M_WOLF3D_PREVIEW",
-      "durationMs": 1867
+      "durationMs": 1047
     },
     {
       "letter": "n",
       "id": "letter_n",
       "animationName": "SIGN_LETTER_N_WOLF3D_PREVIEW",
-      "durationMs": 1800
+      "durationMs": 980
     },
     {
       "letter": "o",
       "id": "letter_o",
       "animationName": "SIGN_LETTER_O_WOLF3D_PREVIEW",
-      "durationMs": 1867
+      "durationMs": 1047
     },
     {
       "letter": "p",
       "id": "letter_p",
       "animationName": "SIGN_LETTER_P_WOLF3D_PREVIEW",
-      "durationMs": 1800
+      "durationMs": 980
     },
     {
       "letter": "q",
       "id": "letter_q",
       "animationName": "SIGN_LETTER_Q_WOLF3D_PREVIEW",
-      "durationMs": 1800
+      "durationMs": 980
     },
     {
       "letter": "r",
       "id": "letter_r",
       "animationName": "SIGN_LETTER_R_WOLF3D_PREVIEW",
-      "durationMs": 1800
+      "durationMs": 980
     },
     {
       "letter": "s",
       "id": "letter_s",
       "animationName": "SIGN_LETTER_S_WOLF3D_PREVIEW",
-      "durationMs": 1833
+      "durationMs": 1013
     },
     {
       "letter": "t",
       "id": "letter_t",
       "animationName": "SIGN_LETTER_T_WOLF3D_PREVIEW",
-      "durationMs": 1800
+      "durationMs": 980
     },
     {
       "letter": "u",
       "id": "letter_u",
       "animationName": "SIGN_LETTER_U_WOLF3D_PREVIEW",
-      "durationMs": 1833
+      "durationMs": 1013
     },
     {
       "letter": "v",
       "id": "letter_v",
       "animationName": "SIGN_LETTER_V_WOLF3D_PREVIEW",
-      "durationMs": 1800
+      "durationMs": 980
     },
     {
       "letter": "w",
       "id": "letter_w",
       "animationName": "SIGN_LETTER_W_WOLF3D_PREVIEW",
-      "durationMs": 1867
+      "durationMs": 1047
     },
     {
       "letter": "x",
       "id": "letter_x",
       "animationName": "SIGN_LETTER_X_WOLF3D_PREVIEW",
-      "durationMs": 1867
+      "durationMs": 1047
     },
     {
       "letter": "y",
       "id": "letter_y",
       "animationName": "SIGN_LETTER_Y_WOLF3D_PREVIEW",
-      "durationMs": 1833
+      "durationMs": 1013
     },
     {
       "letter": "z",
       "id": "letter_z",
       "animationName": "SIGN_LETTER_Z_WOLF3D_PREVIEW",
-      "durationMs": 3300
+      "durationMs": 2480
     }
   ],
   "audit": [
@@ -493,5 +493,194 @@
       0.14973125401049048
     ],
     "limitations": "Front-surface proxy, not all-mesh closed-volume or arm-arm collision; requires device and qualified ASL review"
+  },
+  "signingPosture": {
+    "status": "UNREVIEWED_SIGNING_WINDOW",
+    "sourceSha256": "bcd0e4b634b267baf3979f3193958520469ba91f69cd265406b76e9873d07d11",
+    "method": "Remove per-letter rest/raising/lowering; preserve signing-span poses; append held release for transitions",
+    "letters": [
+      {
+        "letter": "a",
+        "sourceStartSeconds": 0.5,
+        "sourceEndSeconds": 1.3000000715255737,
+        "holdSeconds": 0.18,
+        "durationSeconds": 0.9800000715255737
+      },
+      {
+        "letter": "b",
+        "sourceStartSeconds": 0.5,
+        "sourceEndSeconds": 1.3333333730697632,
+        "holdSeconds": 0.18,
+        "durationSeconds": 1.0133333730697631
+      },
+      {
+        "letter": "c",
+        "sourceStartSeconds": 0.5,
+        "sourceEndSeconds": 1.3666666746139526,
+        "holdSeconds": 0.18,
+        "durationSeconds": 1.0466666746139526
+      },
+      {
+        "letter": "d",
+        "sourceStartSeconds": 0.5,
+        "sourceEndSeconds": 1.3000000715255737,
+        "holdSeconds": 0.18,
+        "durationSeconds": 0.9800000715255737
+      },
+      {
+        "letter": "e",
+        "sourceStartSeconds": 0.5,
+        "sourceEndSeconds": 1.3666666746139526,
+        "holdSeconds": 0.18,
+        "durationSeconds": 1.0466666746139526
+      },
+      {
+        "letter": "f",
+        "sourceStartSeconds": 0.5,
+        "sourceEndSeconds": 1.3333333730697632,
+        "holdSeconds": 0.18,
+        "durationSeconds": 1.0133333730697631
+      },
+      {
+        "letter": "g",
+        "sourceStartSeconds": 0.5,
+        "sourceEndSeconds": 1.3666666746139526,
+        "holdSeconds": 0.18,
+        "durationSeconds": 1.0466666746139526
+      },
+      {
+        "letter": "h",
+        "sourceStartSeconds": 0.5,
+        "sourceEndSeconds": 1.3666666746139526,
+        "holdSeconds": 0.18,
+        "durationSeconds": 1.0466666746139526
+      },
+      {
+        "letter": "i",
+        "sourceStartSeconds": 0.5,
+        "sourceEndSeconds": 1.3333333730697632,
+        "holdSeconds": 0.18,
+        "durationSeconds": 1.0133333730697631
+      },
+      {
+        "letter": "j",
+        "sourceStartSeconds": 0.5,
+        "sourceEndSeconds": 2.700000047683716,
+        "holdSeconds": 0.18,
+        "durationSeconds": 2.380000047683716
+      },
+      {
+        "letter": "k",
+        "sourceStartSeconds": 0.5,
+        "sourceEndSeconds": 1.3666666746139526,
+        "holdSeconds": 0.18,
+        "durationSeconds": 1.0466666746139526
+      },
+      {
+        "letter": "l",
+        "sourceStartSeconds": 0.5,
+        "sourceEndSeconds": 1.3000000715255737,
+        "holdSeconds": 0.18,
+        "durationSeconds": 0.9800000715255737
+      },
+      {
+        "letter": "m",
+        "sourceStartSeconds": 0.5,
+        "sourceEndSeconds": 1.3666666746139526,
+        "holdSeconds": 0.18,
+        "durationSeconds": 1.0466666746139526
+      },
+      {
+        "letter": "n",
+        "sourceStartSeconds": 0.5,
+        "sourceEndSeconds": 1.3000000715255737,
+        "holdSeconds": 0.18,
+        "durationSeconds": 0.9800000715255737
+      },
+      {
+        "letter": "o",
+        "sourceStartSeconds": 0.5,
+        "sourceEndSeconds": 1.3666666746139526,
+        "holdSeconds": 0.18,
+        "durationSeconds": 1.0466666746139526
+      },
+      {
+        "letter": "p",
+        "sourceStartSeconds": 0.5,
+        "sourceEndSeconds": 1.3000000715255737,
+        "holdSeconds": 0.18,
+        "durationSeconds": 0.9800000715255737
+      },
+      {
+        "letter": "q",
+        "sourceStartSeconds": 0.5,
+        "sourceEndSeconds": 1.3000000715255737,
+        "holdSeconds": 0.18,
+        "durationSeconds": 0.9800000715255737
+      },
+      {
+        "letter": "r",
+        "sourceStartSeconds": 0.5,
+        "sourceEndSeconds": 1.3000000715255737,
+        "holdSeconds": 0.18,
+        "durationSeconds": 0.9800000715255737
+      },
+      {
+        "letter": "s",
+        "sourceStartSeconds": 0.5,
+        "sourceEndSeconds": 1.3333333730697632,
+        "holdSeconds": 0.18,
+        "durationSeconds": 1.0133333730697631
+      },
+      {
+        "letter": "t",
+        "sourceStartSeconds": 0.5,
+        "sourceEndSeconds": 1.3000000715255737,
+        "holdSeconds": 0.18,
+        "durationSeconds": 0.9800000715255737
+      },
+      {
+        "letter": "u",
+        "sourceStartSeconds": 0.5,
+        "sourceEndSeconds": 1.3333333730697632,
+        "holdSeconds": 0.18,
+        "durationSeconds": 1.0133333730697631
+      },
+      {
+        "letter": "v",
+        "sourceStartSeconds": 0.5,
+        "sourceEndSeconds": 1.3000000715255737,
+        "holdSeconds": 0.18,
+        "durationSeconds": 0.9800000715255737
+      },
+      {
+        "letter": "w",
+        "sourceStartSeconds": 0.5,
+        "sourceEndSeconds": 1.3666666746139526,
+        "holdSeconds": 0.18,
+        "durationSeconds": 1.0466666746139526
+      },
+      {
+        "letter": "x",
+        "sourceStartSeconds": 0.5,
+        "sourceEndSeconds": 1.3666666746139526,
+        "holdSeconds": 0.18,
+        "durationSeconds": 1.0466666746139526
+      },
+      {
+        "letter": "y",
+        "sourceStartSeconds": 0.5,
+        "sourceEndSeconds": 1.3333333730697632,
+        "holdSeconds": 0.18,
+        "durationSeconds": 1.0133333730697631
+      },
+      {
+        "letter": "z",
+        "sourceStartSeconds": 0.5,
+        "sourceEndSeconds": 2.799999952316284,
+        "holdSeconds": 0.18,
+        "durationSeconds": 2.4799999523162843
+      }
+    ]
   }
 }

@@ -43,17 +43,26 @@ async function start(s,url,token,name='hello'){
  s=setup();await flush();
  const bundle=fs.readFileSync('app/src/aslOriginalWords/assets/asl_animations/original_words_v1/fingerspelling-avatar.glb');
  const gltf=JSON.parse(bundle.subarray(20,20+bundle.readUInt32LE(12)).toString());
- const names=gltf.animations.map(a=>a.name);assert.equal(names.length,229);
+ const names=gltf.animations.map(a=>a.name);assert.equal(names.length,230);
  const first=s.window.playSign('resident.glb',{requestId:10,animationName:'SIGN_HELLO',neutralFrame:0,pinSource:true});await flush();
  v=s.viewers.find(x=>x.src==='resident.glb');let loads=0;const originalLoad=v.load;
  v.load=function(n){loads++;originalLoad.call(this,n)};v.load(names);await first;
  const resident=v;
  for(const [index,name] of ['SIGN_LOVE','SIGN_HELLO','SIGN_BEAUTIFUL','SIGN_LETTER_N_WOLF3D_PREVIEW','SIGN_LETTER_A_WOLF3D_PREVIEW','SIGN_LETTER_N_WOLF3D_PREVIEW','SIGN_LETTER_N_WOLF3D_PREVIEW','SIGN_LETTER_A_WOLF3D_PREVIEW','SIGN_LETTER_J_WOLF3D_PREVIEW','SIGN_LETTER_Z_WOLF3D_PREVIEW','SIGN_LETTER_Z_WOLF3D_PREVIEW'].entries()){
-   await s.window.playSign('resident.glb',{requestId:11+index,animationName:name,loop:false});
+   const fingerspelling=name.startsWith('SIGN_LETTER_');
+   await s.window.playSign('resident.glb',{requestId:11+index,animationName:name,loop:false,fingerspelling});
    assert.equal(s.viewers.filter(x=>x.src==='resident.glb').length,1);
    assert.equal(resident.animationName,name);assert.equal(loads,1,'resident model must not load again');
+   assert.equal(resident.animationCrossfadeDuration,fingerspelling?120:0);
    resident.currentTime=2;resident.emit('finished');
  }
+ assert.equal(s.calls.filter(c=>c[0]==='onPilotFinished').length,11);
+ await s.window.playSign('resident.glb',{requestId:99,animationName:'SIGN_HELLO',neutralFrame:0,pinSource:true});
+ assert.equal(resident.animationName,'SIGN_RELAXED_NEUTRAL');
+ assert.equal(resident.animationCrossfadeDuration,220);
+ assert.equal(resident.options.repetitions,Infinity);
+ assert.equal(resident.playRequest,null,'idle must not advance the queue');
+ assert.equal(loads,1);
  assert.equal(s.calls.filter(c=>c[0]==='onPilotFinished').length,11);
  console.log('PASS: one resident viewer, one model load, eleven mixed/repeated word and letter clips and completion callbacks.');
  console.log('PASS: early/duplicate/stale completion, named clip identity, ambiguous clip rejection and timeline completion.');

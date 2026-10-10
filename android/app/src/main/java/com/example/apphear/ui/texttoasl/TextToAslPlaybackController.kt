@@ -90,6 +90,9 @@ class TextToAslPlaybackController(
                 put("loop", asset.type == AslAnimationAsset.Type.POSE && asset.neutralFrameSeconds == null)
                 put("neutralFrame", asset.neutralFrameSeconds ?: JSONObject.NULL)
                 put("pinSource", asset.type == AslAnimationAsset.Type.POSE)
+                // Alphabet clips hold a raised signing posture; the WebView
+                // blends only these transitions, never full lexical actions.
+                put("fingerspelling", asset.type == AslAnimationAsset.Type.LETTER)
             }
             webView.evaluateJavascript("playSign(${JSONObject.quote(BASE_URL + asset.assetPath)}, $options)", null)
         } else {

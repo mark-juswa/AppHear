@@ -88,18 +88,30 @@ function waitForModel(viewer, url) {
 async function replay(viewer, options) {
   const animations = viewer.availableAnimations || [];
   // Shared bundles supply a name; unnamed legacy files must have one action.
-  const name = options.animationName || (animations.length === 1 ? animations[0] : null);
+  const neutral = options.neutralFrame != null;
+  const relaxed = neutral && animations.includes('SIGN_RELAXED_NEUTRAL');
+  const name = relaxed ? 'SIGN_RELAXED_NEUTRAL' : options.animationName || (animations.length === 1 ? animations[0] : null);
   if (!name || !animations.includes(name)) throw new Error('Expected animation missing');
-  viewer.pause();
+  // Only alphabet/neutral transitions blend. Lexical signs retain their full
+  // body motion and zero crossfade. No separate idle action runs over letters.
+  const blend = options.fingerspelling ? 120 : relaxed && viewer.lastSigningLetter ? 220 : 0;
+  viewer.animationCrossfadeDuration = blend;
+  if (blend && viewer.animationName && viewer.duration > 0) {
+    // Model-viewer stops all actions when animationName changes while paused.
+    // Resume the completed outgoing action so its public mixer can crossfade.
+    const held = viewer.currentTime;
+    viewer.play({repetitions: 1});
+    viewer.currentTime = Math.min(held, viewer.duration - 0.0001);
+  } else viewer.pause();
   viewer.animationName = name;
   // Lit's animationName update otherwise replaces explicit loop settings with Infinity.
   await viewer.updateComplete;
   if (lastRequest !== options.requestId) return false;
-  const neutral = options.neutralFrame != null;
   viewer.currentTime = neutral ? options.neutralFrame : 0;
   viewer.playLoop = Boolean(options.loop) || neutral;
   viewer.playRequest = neutral ? null : options.requestId;
-  if (!neutral) viewer.play({repetitions: options.loop ? Infinity : 1});
+  if (!neutral || relaxed) viewer.play({repetitions: options.loop || relaxed ? Infinity : 1});
+  viewer.lastSigningLetter = Boolean(options.fingerspelling);
   if (options.pinSource) pinnedSource = viewer.src;
   if (window.Android) Android.onPlaybackStarted(viewer.src, options.requestId);
   return true;

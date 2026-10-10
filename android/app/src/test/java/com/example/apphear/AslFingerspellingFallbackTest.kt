@@ -80,7 +80,7 @@ class AslFingerspellingFallbackTest {
         val g=document(bytes)
         val old=document(Files.readAllBytes(assetRoot.resolve(AslResidentAvatarBundle.PATH)))
         for (key in listOf("nodes","skins","meshes","materials","textures","images","scenes")) assertEquals(old.get(key),g.get(key))
-        assertEquals(229,g.getAsJsonArray("animations").size())
+        assertEquals(230,g.getAsJsonArray("animations").size())
         // LOVE alone has an explicitly audited six-bone contact correction.
         // AslLoveContactTest verifies its scope and preserved finger channels.
         assertEquals(old.getAsJsonArray("animations").filter { it.asJsonObject.get("name").asString!="SIGN_LOVE" },
