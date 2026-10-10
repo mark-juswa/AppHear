@@ -1,0 +1,27 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>Text-to-Sign hand inspection — development only</title>
+<script>self.ModelViewerElement={meshoptDecoderLocation:'/assets/vendor/asl-decoders/meshopt_decoder.js',ktx2TranscoderLocation:'/assets/vendor/asl-decoders/basis/'};</script>
+<script type="module" src="/assets/vendor/model-viewer/model-viewer-4.3.1.min.js"></script>
+<style>body{margin:0;background:#f5f5f5;color:#222;font:16px system-ui}header{padding:12px}main{display:flex}article{width:50%;text-align:center}model-viewer{width:100%;height:660px;background:#dce2e4}button,input,select{font:inherit;margin:4px;padding:5px}video{width:380px}</style></head>
+<body><header><strong>Development-only hand inspection</strong>
+<label>Action <select id="action"></select></label><label>Time (s) <input id="time" type="number" value="0.9" step="0.05"></label>
+<button id="sample">Sample pose</button><button id="play">Play once</button>
+<button id="right">Right hand</button><button id="left">Left hand</button><button id="body">Upper body</button>
+<label>View <select id="view"><option value="0">Front</option><option value="75">Side</option><option value="180">Back</option></select></label>
+<span>For bone overlays run tools/audit-text-to-sign-hands.py.</span><span id="status">Loading</span></header>
+<main><article><h3>Before correction — selected human</h3><model-viewer id="before" src="/before.glb" camera-controls animation-crossfade-duration="0" shadow-intensity="0" camera-orbit="0deg 90deg 0.55m" camera-target="-0.16m 1.35m 0.25m" field-of-view="35deg"></model-viewer></article>
+<article><h3>After correction — same human</h3><model-viewer id="after" src="/after.glb" camera-controls animation-crossfade-duration="0" shadow-intensity="0" camera-orbit="0deg 90deg 0.55m" camera-target="-0.16m 1.35m 0.25m" field-of-view="35deg"></model-viewer></article></main>
+<details><summary>User-provided recording</summary><video src="/recording.mp4" controls></video></details>
+<script>
+const models=[document.querySelector('#before'),document.querySelector('#after')];
+const action=document.querySelector('#action');
+for(const c of 'ABCDEFGHIJKLMNOPQRSTUVWXYZ')action.add(new Option('Letter '+c,'SIGN_LETTER_'+c+'_WOLF3D_PREVIEW'));
+for(const c of ['HELLO','BEAUTIFUL','THANKS','HELP','YES','NO'])action.add(new Option(c,'SIGN_'+c));
+let loaded=0;models.forEach(m=>m.addEventListener('load',()=>{m.pause();if(++loaded===2)document.querySelector('#status').textContent='Both real GLBs loaded';}));
+document.querySelector('#sample').onclick=async()=>{for(const m of models){m.pause();m.animationName=action.value;await m.updateComplete;m.currentTime=Number(document.querySelector('#time').value);}document.querySelector('#status').textContent='Pose '+action.value;};
+document.querySelector('#play').onclick=async()=>{for(const m of models){m.animationName=action.value;await m.updateComplete;m.currentTime=0;m.play({repetitions:1});}};
+function camera(target,distance){for(const m of models){m.cameraTarget=target;m.cameraOrbit=document.querySelector('#view').value+'deg 90deg '+distance+'m';}}
+document.querySelector('#right').onclick=()=>camera('-0.16m 1.35m 0.25m',.55);
+document.querySelector('#left').onclick=()=>camera('0.16m 1.35m 0.25m',.55);
+document.querySelector('#body').onclick=()=>camera('0m 1.23m 0m',1.7);
+document.querySelector('#view').onchange=()=>{for(const m of models)m.cameraOrbit=document.querySelector('#view').value+'deg 90deg 0.55m';};
+</script></body></html>

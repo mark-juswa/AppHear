@@ -1,9 +1,11 @@
 {
   "schemaVersion": 1,
+  "retargetVersion": 2,
+  "distalCalibration": "segment-axis-and-palm-normal",
   "language": "ASL",
   "avatarProfile": "ORIGINAL_HUMAN",
   "asset": "asl_animations/original_words_v1/fingerspelling-avatar.glb",
-  "sha256": "6d74df5b6a0065a5f55e83d4b7863324f5c213852a9d649cd1b40fe7730ae600",
+  "sha256": "54b4e4882ff8d1d3d104f9835b74fce7d5ac6db67a5ef73835e83196a3816c86",
   "sourceSha256": "645da29f5e8a24dc7da2f4b6e23ca2e87fb91254958f5053ba0281080ec0a524",
   "status": "UNREVIEWED_RETARGETED_PREVIEW",
   "source": "Existing AppHear FemaleASL alphabet; motion rights/provenance unresolved",
@@ -174,7 +176,7 @@
         0.3639802784425744,
         0.32118670293959356
       ],
-      "rotationFrameError": 0.0002424317205511617,
+      "rotationFrameError": 9.225953334635051e-14,
       "sourceSamples": 40,
       "sourceDurationMs": 1300
     },
@@ -185,7 +187,7 @@
         0.3518610411874866,
         0.31026333463821193
       ],
-      "rotationFrameError": 0.00021706053874062659,
+      "rotationFrameError": 8.37108160567368e-14,
       "sourceSamples": 41,
       "sourceDurationMs": 1333
     },
@@ -196,7 +198,7 @@
         0.3144975927648198,
         0.30537063099909895
       ],
-      "rotationFrameError": 0.0002282916051904449,
+      "rotationFrameError": 9.392486788328824e-14,
       "sourceSamples": 42,
       "sourceDurationMs": 1367
     },
@@ -207,7 +209,7 @@
         0.33997427862054963,
         0.2942063393543841
       ],
-      "rotationFrameError": 0.0002537969171654275,
+      "rotationFrameError": 9.336975637097567e-14,
       "sourceSamples": 40,
       "sourceDurationMs": 1300
     },
@@ -218,7 +220,7 @@
         0.3202278479726587,
         0.3097798750140949
       ],
-      "rotationFrameError": 0.00023293538010615844,
+      "rotationFrameError": 1.1146639167236572e-13,
       "sourceSamples": 42,
       "sourceDurationMs": 1367
     },
@@ -229,7 +231,7 @@
         0.3429916589629217,
         0.3250902104553975
       ],
-      "rotationFrameError": 0.00021911268970158798,
+      "rotationFrameError": 9.592326932761353e-14,
       "sourceSamples": 41,
       "sourceDurationMs": 1333
     },
@@ -240,7 +242,7 @@
         0.3083391194100026,
         0.28643511052755494
       ],
-      "rotationFrameError": 0.0002488768471294589,
+      "rotationFrameError": 8.482103908136196e-14,
       "sourceSamples": 42,
       "sourceDurationMs": 1367
     },
@@ -251,7 +253,7 @@
         0.3285585042928697,
         0.2848564699663531
       ],
-      "rotationFrameError": 0.00024282539289165184,
+      "rotationFrameError": 8.848477506262498e-14,
       "sourceSamples": 42,
       "sourceDurationMs": 1367
     },
@@ -262,7 +264,7 @@
         0.3406548761091043,
         0.3030910432406668
       ],
-      "rotationFrameError": 0.00023641568608451236,
+      "rotationFrameError": 9.681144774731365e-14,
       "sourceSamples": 41,
       "sourceDurationMs": 1333
     },
@@ -273,7 +275,7 @@
         0.4034598481561932,
         0.35229533347089936
       ],
-      "rotationFrameError": 0.0002669398402431189,
+      "rotationFrameError": 1.0025313912365164e-13,
       "sourceSamples": 82,
       "sourceDurationMs": 2700
     },
@@ -284,7 +286,7 @@
         0.29970753206653156,
         0.2939534741552456
       ],
-      "rotationFrameError": 0.00024113886029775156,
+      "rotationFrameError": 8.637535131583718e-14,
       "sourceSamples": 42,
       "sourceDurationMs": 1367
     },
@@ -295,7 +297,7 @@
         0.3280405897324826,
         0.3106524465219749
       ],
-      "rotationFrameError": 0.0002600957006759774,
+      "rotationFrameError": 8.693046282814976e-14,
       "sourceSamples": 40,
       "sourceDurationMs": 1300
     },
@@ -306,7 +308,7 @@
         0.33920873928827266,
         0.3287617685293627
       ],
-      "rotationFrameError": 0.0002239869827876939,
+      "rotationFrameError": 1.0014211682118912e-13,
       "sourceSamples": 42,
       "sourceDurationMs": 1367
     },
@@ -317,7 +319,7 @@
         0.3429673645580139,
         0.3220791036384199
       ],
-      "rotationFrameError": 0.000256447761526557,
+      "rotationFrameError": 8.870681966755001e-14,
       "sourceSamples": 40,
       "sourceDurationMs": 1300
     },
@@ -328,7 +330,7 @@
         0.3249159275943446,
         0.31521630524925004
       ],
-      "rotationFrameError": 0.00024068145820832498,
+      "rotationFrameError": 9.625633623500107e-14,
       "sourceSamples": 42,
       "sourceDurationMs": 1367
     },
@@ -339,7 +341,7 @@
         0.3228311975591108,
         0.3230594133862471
       ],
-      "rotationFrameError": 0.00026289205685897654,
+      "rotationFrameError": 9.847678228425139e-14,
       "sourceSamples": 40,
       "sourceDurationMs": 1300
     },
@@ -350,7 +352,7 @@
         0.3311810741311557,
         0.32398322921189543
       ],
-      "rotationFrameError": 0.0002624598494956887,
+      "rotationFrameError": 1.0114131754335176e-13,
       "sourceSamples": 40,
       "sourceDurationMs": 1300
     },
@@ -361,7 +363,7 @@
         0.3048943735324109,
         0.2907223161134755
       ],
-      "rotationFrameError": 0.0002340992320043478,
+      "rotationFrameError": 1.0136336214827679e-13,
       "sourceSamples": 40,
       "sourceDurationMs": 1300
     },
@@ -372,7 +374,7 @@
         0.3164804841874326,
         0.3035579531296924
       ],
-      "rotationFrameError": 0.00024218099688325112,
+      "rotationFrameError": 9.71445146547012e-14,
       "sourceSamples": 41,
       "sourceDurationMs": 1333
     },
@@ -383,7 +385,7 @@
         0.3224224359859488,
         0.3106707800239957
       ],
-      "rotationFrameError": 0.0002456708880887726,
+      "rotationFrameError": 1.0014211682118912e-13,
       "sourceSamples": 40,
       "sourceDurationMs": 1300
     },
@@ -394,7 +396,7 @@
         0.3187779226677484,
         0.3065577571741119
       ],
-      "rotationFrameError": 0.000231760676602355,
+      "rotationFrameError": 8.859579736508749e-14,
       "sourceSamples": 41,
       "sourceDurationMs": 1333
     },
@@ -405,7 +407,7 @@
         0.3161595583659452,
         0.31201187450033785
       ],
-      "rotationFrameError": 0.00023730146440631428,
+      "rotationFrameError": 8.670841822322473e-14,
       "sourceSamples": 40,
       "sourceDurationMs": 1300
     },
@@ -416,7 +418,7 @@
         0.31264657772009985,
         0.28346349125679243
       ],
-      "rotationFrameError": 0.000222524106969324,
+      "rotationFrameError": 9.137135492665038e-14,
       "sourceSamples": 42,
       "sourceDurationMs": 1367
     },
@@ -427,7 +429,7 @@
         0.301236839534074,
         0.29434387097346654
       ],
-      "rotationFrameError": 0.00024434238284698484,
+      "rotationFrameError": 9.880984919163893e-14,
       "sourceSamples": 42,
       "sourceDurationMs": 1367
     },
@@ -438,7 +440,7 @@
         0.3220615798795313,
         0.28793855123318546
       ],
-      "rotationFrameError": 0.0002289325082627594,
+      "rotationFrameError": 8.237854842718662e-14,
       "sourceSamples": 41,
       "sourceDurationMs": 1333
     },
@@ -449,7 +451,7 @@
         0.34373361268746916,
         0.3188534147760863
       ],
-      "rotationFrameError": 0.000261031619589569,
+      "rotationFrameError": 9.348077867343818e-14,
       "sourceSamples": 85,
       "sourceDurationMs": 2800
     }

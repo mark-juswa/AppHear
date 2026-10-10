@@ -61,7 +61,9 @@ def world(nodes, parents, order, overrides=None):
     return result
 
 def orient(matrix):
-    return matrix[:3,:3]/np.linalg.norm(matrix[:3,:3],axis=0)
+    # Strip scale/shear without carrying a non-orthogonal frame down the chain.
+    u,_,v=np.linalg.svd(matrix[:3,:3])
+    return u@np.diag([1,1,np.linalg.det(u@v)])@v
 
 def sample(channel,t):
     times=channel['times']; j=max(0,min(len(times)-1,bisect.bisect_right(times,t)-1))
@@ -108,13 +110,17 @@ def main():
                     pair(side+'Hand'+finger+str(j),src,side+'Hand'+finger+str(j+1),finger.lower()+f'_{j+1:02d}_'+letter)
                 else:
                     t=ti[side+'Hand'+finger+'3']; s=si[src]
-                    # Source phalanges point +X on left and -X on right; target points +Y.
-                    y_s=np.array([1 if letter=='l' else -1,0,0]); y_t=nodes[ti[side+'Hand'+finger+'4']].get('translation')
-                    # Use the preceding segment's dorsal axis for consistent distal twist.
+                    # No source tip exists. Continue the preceding anatomical segment;
+                    # calibrate roll against the SAME palm normal as joints 1 and 2.
+                    # Arbitrary source-Y/target-Z axes previously twisted distal skin.
                     parent_t=ti[side+'Hand'+finger+'2']; parent_s=si[finger.lower()+'_02_'+letter]
-                    z_s=orient(sw[s]).T@(orient(sw[parent_s])@np.array([0,1,0]))
-                    z_t=orient(tw[t]).T@(orient(tw[parent_t])@np.array([0,0,1]))
-                    conversions[t]=frame(y_s,z_s)@frame(np.array(y_t),z_t).T; mapping[t]=s
+                    palm_s=np.cross(sw[si['index_01_'+letter]][:3,3]-sw[si['pinky_01_'+letter]][:3,3],
+                                    sw[si['middle_01_'+letter]][:3,3]-sw[si['hand_'+letter]][:3,3])
+                    palm_t=np.cross(tw[ti[side+'HandIndex1']][:3,3]-tw[ti[side+'HandPinky1']][:3,3],
+                                    tw[ti[side+'HandMiddle1']][:3,3]-tw[ti[side+'Hand']][:3,3])
+                    fs=frame(sw[s][:3,3]-sw[parent_s][:3,3],palm_s)
+                    ft=frame(tw[ti[side+'Hand'+finger+'4']][:3,3]-tw[t][:3,3],palm_t)
+                    conversions[t]=(orient(sw[s]).T@fs)@(orient(tw[t]).T@ft).T; mapping[t]=s
     binary=bytearray(bin_data[:gltf['buffers'][0]['byteLength']])
     def accessor(values,kind):
         values=np.asarray(values,dtype='<f4'); flat=values.flatten();
@@ -171,7 +177,7 @@ def main():
     encoded=json.dumps(gltf,separators=(',',':')).encode();encoded+=b' '*(-len(encoded)%4);binary+=b'\0'*(-len(binary)%4)
     payload=struct.pack('<III',0x46546c67,2,12+8+len(encoded)+8+len(binary))+struct.pack('<II',len(encoded),0x4e4f534a)+encoded+struct.pack('<II',len(binary),0x004e4942)+binary
     output=target.with_name('fingerspelling-avatar.glb');output.write_bytes(payload)
-    manifest=dict(schemaVersion=1,language='ASL',avatarProfile='ORIGINAL_HUMAN',asset='asl_animations/original_words_v1/fingerspelling-avatar.glb',
+    manifest=dict(schemaVersion=1,retargetVersion=2,distalCalibration='segment-axis-and-palm-normal',language='ASL',avatarProfile='ORIGINAL_HUMAN',asset='asl_animations/original_words_v1/fingerspelling-avatar.glb',
                   sha256=hashlib.sha256(payload).hexdigest(),sourceSha256=source['sourceSha256'],status='UNREVIEWED_RETARGETED_PREVIEW',
                   source='Existing AppHear FemaleASL alphabet; motion rights/provenance unresolved',
                   reference='https://www.lifeprint.com/asl101/fingerspelling/fingerspelling.htm',letters=entries,audit=audit,
