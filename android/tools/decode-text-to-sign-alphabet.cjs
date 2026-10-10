@@ -37,4 +37,3 @@ const decoder = require(path.join(android, 'app/src/aslPilot/assets/vendor/asl-d
   fs.writeFileSync(process.argv[2], JSON.stringify({sourceSha256: require('crypto').createHash('sha256').update(bytes).digest('hex'), nodes: gltf.nodes, animations}));
   process.stdout.write('Decoded 26 existing alphabet clips; no motion generated.\n');
 })();
-
