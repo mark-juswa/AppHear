@@ -56,11 +56,11 @@ class AslFingerspellingPlaybackInstrumentedTest {
                 assertTrue(activity.findViewById<View>(R.id.sign_it_button).performClick())
                 assertSame(viewer, activity.findViewById(R.id.avatarWebView))
             }
-            for (text in listOf("NICOLE", "NAME", "ANNA", "JAZZ", "HELLO NICOLE", "LOVE", "HELP")) {
+            for (text in listOf("NICOLE", "NAME", "YOU", "YOU ALL", "ALL OF YOU", "MOM", "DAD", "OKAY", "ANNA", "JAZZ", "HELLO NICOLE", "LOVE", "HELP")) {
                 val start = SystemClock.uptimeMillis()
                 submit(text)
                 val result = await("$text completes") { it.contains("Complete") }
-                if (text !in listOf("LOVE", "HELP")) assertTrue(result.contains("fingerspelling"))
+                if (text in listOf("NICOLE", "ANNA", "JAZZ", "HELLO NICOLE")) assertTrue(result.contains("fingerspelling"))
                 evidence.put(JSONObject().put("input", text).put("status", result)
                     .put("elapsedMs", SystemClock.uptimeMillis() - start))
             }

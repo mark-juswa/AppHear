@@ -5,7 +5,7 @@
   "language": "ASL",
   "avatarProfile": "ORIGINAL_HUMAN",
   "asset": "asl_animations/original_words_v1/fingerspelling-avatar.glb",
-  "sha256": "c72575fb30912ada5b0dd02a1e47a6218255521476071b38a606bbe3cec6fd42",
+  "sha256": "e83e16d0d0ca1e19777b913304566d8dfcfdd39ed5acaa020846963d6a9d8170",
   "sourceSha256": "645da29f5e8a24dc7da2f4b6e23ca2e87fb91254958f5053ba0281080ec0a524",
   "status": "UNREVIEWED_RETARGETED_PREVIEW",
   "source": "Existing AppHear FemaleASL alphabet; motion rights/provenance unresolved",
@@ -456,7 +456,7 @@
       "sourceDurationMs": 2800
     }
   ],
-  "nameLexicalStatus": "MISSING; use N-A-M-E fallback; external SiGML has no joint-space motion",
+  "nameLexicalStatus": "NAME reuses existing CALL_TO_CALL_SOMEONES_NAME form as unreviewed noun/verb preview alias; qualified ASL review pending",
   "loveCorrection": {
     "animationName": "SIGN_LOVE",
     "status": "UNREVIEWED_CONTACT_CORRECTION",
@@ -802,5 +802,59 @@
     ],
     "method": "Bind-relative negative local-X finger-flexion reflection; exact source times/endpoints, 180ms correction envelope; thumbs and all non-profile channels unchanged",
     "qualifiedASLValidation": false
+  },
+  "wordAdditions": [
+    {
+      "id": "you",
+      "english": [
+        "you"
+      ],
+      "animationName": "SIGN_YOU_HUMAN_RETARGETED_PREVIEW",
+      "durationMs": 2692,
+      "sourceAsset": "asl_animations/you.glb",
+      "sourceSha256": "30776015bef1cbcf450647bbdf042740452d78b7f6e07d1ebc1a5968ebe33f26",
+      "reference": "https://www.lifeprint.com/asl101/pages-signs/y/you.htm",
+      "meaning": "Second-person singular addressee",
+      "status": "UNREVIEWED_RETARGETED_PREVIEW",
+      "license": "Existing AppHear motion/rig provenance unresolved; reference link only, no reference media copied"
+    },
+    {
+      "id": "you_all",
+      "english": [
+        "you all",
+        "all of you"
+      ],
+      "animationName": "SIGN_YOU_ALL_HUMAN_RETARGETED_PREVIEW",
+      "durationMs": 3192,
+      "sourceAsset": "asl_animations/you-all.glb",
+      "sourceSha256": "d1ccd66a763c1d3a3c8bda0b16b8646786d890f32b56be26b5778614a30e6e2e",
+      "reference": "https://www.lifeprint.com/asl101/pages-signs/y/you.htm",
+      "meaning": "Plural addressees",
+      "status": "UNREVIEWED_RETARGETED_PREVIEW",
+      "license": "Existing AppHear motion/rig provenance unresolved; reference link only, no reference media copied"
+    },
+    {
+      "id": "name",
+      "english": [
+        "name"
+      ],
+      "animationName": "SIGN_CALL__TO_CALL_SOMEONE_S_NAME",
+      "durationMs": 2267,
+      "sourceAsset": "asl_animations/original_words_v1/call__to_call_someone_s_name.glb",
+      "sourceSha256": "7a40c3c63303088bd4568652ffcf587fd2c41a22886c83c64579d482823daf6d",
+      "reference": "https://www.lifeprint.com/asl101/pages-signs/n/name.htm",
+      "meaning": "NAME noun / NAMED verb form; unreviewed movement variant",
+      "status": "UNREVIEWED_NATIVE_VARIANT_PREVIEW",
+      "variantOf": "call_someones_name",
+      "license": "Existing AppHear human motion retained; provenance unresolved. Reference link only, no reference media copied"
+    }
+  ],
+  "vocabularyExpansion": {
+    "version": 1,
+    "preservedActions": 230,
+    "lastSourceFrames": 68,
+    "anatomicalFrameError": 1.0769163338864018e-13,
+    "qualifiedAslValidation": false,
+    "sourceGeometryUnchanged": true
   }
 }

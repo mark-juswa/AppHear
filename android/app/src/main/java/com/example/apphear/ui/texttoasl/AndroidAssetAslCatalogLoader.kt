@@ -10,6 +10,7 @@ import com.example.apphear.domain.texttoasl.AslAvatarCatalogPolicy
 import com.example.apphear.domain.texttoasl.SignDictionaryMetadata
 import com.example.apphear.domain.texttoasl.AslResidentAvatarBundle
 import com.example.apphear.domain.texttoasl.AslFingerspellingBundle
+import com.example.apphear.domain.texttoasl.AslVocabularyExpansion
 import org.json.JSONObject
 import java.io.BufferedReader
 import java.io.InputStreamReader
@@ -84,7 +85,20 @@ class AndroidAssetAslCatalogLoader(
                 require(character.length == 1)
                 AslFingerspellingBundle.Letter(character.single(), e.getString("animationName"), e.getLong("durationMs"))
             })
-            return AslAnimationCatalog.fromAssets(resident.map { it.copy(assetPath = AslFingerspellingBundle.PATH) }, alphabet)
+            val words = root.optJSONArray("wordAdditions")
+            val additions = if (words == null) emptyList() else (0 until words.length()).map { index ->
+                val entry = words.getJSONObject(index)
+                require(entry.getString("status") in setOf("UNREVIEWED_RETARGETED_PREVIEW", "UNREVIEWED_NATIVE_VARIANT_PREVIEW"))
+                val forms = entry.getJSONArray("english")
+                validateAssetExists(entry.getString("sourceAsset"))
+                AslVocabularyExpansion.Word(entry.getString("id"),
+                    (0 until forms.length()).map(forms::getString), entry.getString("animationName"),
+                    entry.getLong("durationMs"), entry.getString("sourceAsset"), entry.getString("sourceSha256"),
+                    entry.getString("reference"), entry.getString("meaning"), entry.getString("license"),
+                    entry.optString("variantOf").takeIf { it.isNotBlank() })
+            }
+            val unified = AslVocabularyExpansion.merge(resident.map { it.copy(assetPath = AslFingerspellingBundle.PATH) }, additions)
+            return AslAnimationCatalog.fromAssets(unified, alphabet)
         }
         return AslAnimationCatalog.fromAssets(resident, letters)
     }
