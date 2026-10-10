@@ -81,10 +81,10 @@ class AslFingerspellingFallbackTest {
         val old=document(Files.readAllBytes(assetRoot.resolve(AslResidentAvatarBundle.PATH)))
         for (key in listOf("nodes","skins","meshes","materials","textures","images","scenes")) assertEquals(old.get(key),g.get(key))
         assertEquals(230,g.getAsJsonArray("animations").size())
-        // LOVE alone has an explicitly audited six-bone contact correction.
-        // AslLoveContactTest verifies its scope and preserved finger channels.
-        assertEquals(old.getAsJsonArray("animations").filter { it.asJsonObject.get("name").asString!="SIGN_LOVE" },
-            g.getAsJsonArray("animations").take(203).filter { it.asJsonObject.get("name").asString!="SIGN_LOVE" })
+        // Explicitly profiled native finger fixes are separately scope-tested.
+        val corrected=setOf("SIGN_LOVE","SIGN_HUSBAND","SIGN_WIFE")
+        assertEquals(old.getAsJsonArray("animations").filter { it.asJsonObject.get("name").asString !in corrected },
+            g.getAsJsonArray("animations").take(203).filter { it.asJsonObject.get("name").asString !in corrected })
         val names=g.getAsJsonArray("animations").map { it.asJsonObject.get("name").asString }
         for ((character,asset) in letters) {
             assertTrue(names.contains(asset.replacement!!.animationName))

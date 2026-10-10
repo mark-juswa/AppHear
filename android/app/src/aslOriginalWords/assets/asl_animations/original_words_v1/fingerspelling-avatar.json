@@ -5,7 +5,7 @@
   "language": "ASL",
   "avatarProfile": "ORIGINAL_HUMAN",
   "asset": "asl_animations/original_words_v1/fingerspelling-avatar.glb",
-  "sha256": "9e38ec284ff4e25da46e580f2b3b7b1c772bc5c6ba1da1a905ac712c897c3c68",
+  "sha256": "c72575fb30912ada5b0dd02a1e47a6218255521476071b38a606bbe3cec6fd42",
   "sourceSha256": "645da29f5e8a24dc7da2f4b6e23ca2e87fb91254958f5053ba0281080ec0a524",
   "status": "UNREVIEWED_RETARGETED_PREVIEW",
   "source": "Existing AppHear FemaleASL alphabet; motion rights/provenance unresolved",
@@ -682,5 +682,125 @@
         "durationSeconds": 2.4799999523162843
       }
     ]
+  },
+  "wordFingerCorrection": {
+    "status": "UNREVIEWED_FLEXION_AXIS_CORRECTION",
+    "sourceSha256": "9e38ec284ff4e25da46e580f2b3b7b1c772bc5c6ba1da1a905ac712c897c3c68",
+    "profiles": [
+      {
+        "animationName": "SIGN_LOVE",
+        "sides": [
+          "Left",
+          "Right"
+        ],
+        "fingers": [
+          "Index",
+          "Middle",
+          "Ring",
+          "Pinky"
+        ],
+        "joints": [
+          1,
+          2,
+          3
+        ],
+        "reference": "https://www.lifeprint.com/asl101/pages-signs/l/love.htm",
+        "reason": "Closing fingers extend backward instead of folding into the crossed-hand fist.",
+        "correctedNodes": [
+          "LeftHandIndex1",
+          "LeftHandIndex2",
+          "LeftHandIndex3",
+          "LeftHandMiddle1",
+          "LeftHandMiddle2",
+          "LeftHandMiddle3",
+          "LeftHandRing1",
+          "LeftHandRing2",
+          "LeftHandRing3",
+          "LeftHandPinky1",
+          "LeftHandPinky2",
+          "LeftHandPinky3",
+          "RightHandIndex1",
+          "RightHandIndex2",
+          "RightHandIndex3",
+          "RightHandMiddle1",
+          "RightHandMiddle2",
+          "RightHandMiddle3",
+          "RightHandRing1",
+          "RightHandRing2",
+          "RightHandRing3",
+          "RightHandPinky1",
+          "RightHandPinky2",
+          "RightHandPinky3"
+        ]
+      },
+      {
+        "animationName": "SIGN_HUSBAND",
+        "sides": [
+          "Left"
+        ],
+        "fingers": [
+          "Index",
+          "Middle",
+          "Ring",
+          "Pinky"
+        ],
+        "joints": [
+          1,
+          2,
+          3
+        ],
+        "reference": "https://www.lifeprint.com/asl101/pages-signs/h/husband.htm",
+        "reason": "Supporting hand fingers reverse-bend rather than forming the source cupped/clasping hand.",
+        "correctedNodes": [
+          "LeftHandIndex1",
+          "LeftHandIndex2",
+          "LeftHandIndex3",
+          "LeftHandMiddle1",
+          "LeftHandMiddle2",
+          "LeftHandMiddle3",
+          "LeftHandRing1",
+          "LeftHandRing2",
+          "LeftHandRing3",
+          "LeftHandPinky1",
+          "LeftHandPinky2",
+          "LeftHandPinky3"
+        ]
+      },
+      {
+        "animationName": "SIGN_WIFE",
+        "sides": [
+          "Left"
+        ],
+        "fingers": [
+          "Index",
+          "Middle",
+          "Ring",
+          "Pinky"
+        ],
+        "joints": [
+          1,
+          2,
+          3
+        ],
+        "reference": "https://www.lifeprint.com/asl101/pages-signs/w/wife.htm",
+        "reason": "Supporting hand fingers reverse-bend rather than forming the source cupped/clasping hand.",
+        "correctedNodes": [
+          "LeftHandIndex1",
+          "LeftHandIndex2",
+          "LeftHandIndex3",
+          "LeftHandMiddle1",
+          "LeftHandMiddle2",
+          "LeftHandMiddle3",
+          "LeftHandRing1",
+          "LeftHandRing2",
+          "LeftHandRing3",
+          "LeftHandPinky1",
+          "LeftHandPinky2",
+          "LeftHandPinky3"
+        ]
+      }
+    ],
+    "method": "Bind-relative negative local-X finger-flexion reflection; exact source times/endpoints, 180ms correction envelope; thumbs and all non-profile channels unchanged",
+    "qualifiedASLValidation": false
   }
 }

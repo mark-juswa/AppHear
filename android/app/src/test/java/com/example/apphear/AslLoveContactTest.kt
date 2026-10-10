@@ -18,7 +18,7 @@ class AslLoveContactTest {
         return JsonParser.parseString(String(b, 20, ByteBuffer.wrap(b).order(ByteOrder.LITTLE_ENDIAN).getInt(12))).asJsonObject
     }
 
-    @Test fun correctionChangesOnlySixLoveArmRotationsAndPreservesAllFingerTracks() {
+    @Test fun correctionChangesOnlyAuditedLoveArmAndFingerRotations() {
         val old = document(AslResidentAvatarBundle.PATH)
         val new = document(AslFingerspellingBundle.PATH)
         fun love(g: JsonObject) = g.getAsJsonArray("animations").single {
@@ -39,7 +39,11 @@ class AslLoveContactTest {
                 assertTrue(y.asJsonObject.get("sampler").asInt >= originalSamplers.size())
             }
         }
-        assertEquals(setOf("LeftArm", "LeftForeArm", "LeftHand", "RightArm", "RightForeArm", "RightHand"), changed)
+        val arms=setOf("LeftArm", "LeftForeArm", "LeftHand", "RightArm", "RightForeArm", "RightHand")
+        val fingers=listOf("Left","Right").flatMap { side -> listOf("Index","Middle","Ring","Pinky").flatMap { f ->
+            (1..3).map { j -> side+"Hand"+f+j }
+        } }.toSet()
+        assertEquals(arms+fingers, changed)
         for (key in listOf("nodes", "skins", "meshes", "materials", "textures", "images", "scenes")) {
             assertEquals(key, old.get(key), new.get(key))
         }
@@ -63,10 +67,11 @@ class AslLoveContactTest {
             return (0 until accessor.get("count").asInt * width).map { bb.getFloat(offset + it * 4) }
         }
         val a = g.getAsJsonArray("animations").single { it.asJsonObject.get("name").asString == "SIGN_LOVE" }.asJsonObject
-        val samplers = a.getAsJsonArray("samplers").toList().takeLast(6)
         val original = document(AslResidentAvatarBundle.PATH).getAsJsonArray("animations").single {
             it.asJsonObject.get("name").asString == "SIGN_LOVE"
         }.asJsonObject
+        // Finger corrections append after the six preserved contact tracks.
+        val samplers = a.getAsJsonArray("samplers").toList().drop(original.getAsJsonArray("samplers").size()).take(6)
         for (sampler in samplers) {
             val s = sampler.asJsonObject
             val times = values(s.get("input").asInt)
