@@ -9,6 +9,7 @@ import com.example.apphear.domain.texttoasl.OriginalWordBatchCatalog
 import com.example.apphear.domain.texttoasl.AslAvatarCatalogPolicy
 import com.example.apphear.domain.texttoasl.SignDictionaryMetadata
 import com.example.apphear.domain.texttoasl.AslResidentAvatarBundle
+import com.example.apphear.domain.texttoasl.AslFingerspellingBundle
 import org.json.JSONObject
 import java.io.BufferedReader
 import java.io.InputStreamReader
@@ -62,6 +63,29 @@ class AndroidAssetAslCatalogLoader(
         // Catalog errors fail visibly; they must never silently change character.
         val expanded = AslDictionaryExtensions(context).load(compatible, profile)
         val resident = if (profile == SignDictionaryMetadata.AvatarProfile.ORIGINAL_HUMAN) loadResidentBundle(expanded) else expanded
+        if (profile == SignDictionaryMetadata.AvatarProfile.ORIGINAL_HUMAN && BuildConfig.ASL_ALPHABET_FALLBACK_ENABLED) {
+            // Fail visibly on corrupt alphabet data. Never load a second character to spell.
+            val root = JSONObject(readAssetText(AslFingerspellingBundle.MANIFEST))
+            require(root.getInt("schemaVersion") == 1 && root.getString("language") == "ASL" &&
+                root.getString("avatarProfile") == "ORIGINAL_HUMAN" &&
+                root.getString("asset") == AslFingerspellingBundle.PATH &&
+                root.getString("status") == "UNREVIEWED_RETARGETED_PREVIEW" &&
+                root.getString("sha256") == AslFingerspellingBundle.SHA256)
+            val digest = MessageDigest.getInstance("SHA-256")
+            context.assets.open(AslFingerspellingBundle.PATH).use { input ->
+                val buffer = ByteArray(64 * 1024)
+                while (true) { val count = input.read(buffer); if (count < 0) break; digest.update(buffer, 0, count) }
+            }
+            require(digest.digest().joinToString("") { "%02x".format(it) } == AslFingerspellingBundle.SHA256)
+            val raw = root.getJSONArray("letters")
+            val alphabet = AslFingerspellingBundle.letters((0 until raw.length()).map { index ->
+                val e = raw.getJSONObject(index)
+                val character = e.getString("letter")
+                require(character.length == 1)
+                AslFingerspellingBundle.Letter(character.single(), e.getString("animationName"), e.getLong("durationMs"))
+            })
+            return AslAnimationCatalog.fromAssets(resident.map { it.copy(assetPath = AslFingerspellingBundle.PATH) }, alphabet)
+        }
         return AslAnimationCatalog.fromAssets(resident, letters)
     }
 

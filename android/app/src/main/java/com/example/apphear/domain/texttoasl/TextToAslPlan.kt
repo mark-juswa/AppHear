@@ -11,8 +11,9 @@ data class TextToAslPlan(
     val nonManualMarkers: List<ReviewedAslPhrase.NonManualMarker> = emptyList(),
     val translationNotice: String? = null,
     val ruleId: String? = null,
+    val fingerspelledWords: List<String> = emptyList(),
 ) {
-    enum class Mode { LEGACY, DICTIONARY_ENTRY, WORD_SEQUENCE, VALIDATED_PHRASE, BLOCKED_MEANING }
+    enum class Mode { LEGACY, DICTIONARY_ENTRY, WORD_SEQUENCE, MIXED_FINGERSPELLING, VALIDATED_PHRASE, BLOCKED_MEANING }
     val isPlayable: Boolean
         get() = queue.isNotEmpty()
 }

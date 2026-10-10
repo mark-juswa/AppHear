@@ -3,7 +3,7 @@ package com.example.apphear.domain.texttoasl
 class AslTranslationPlanner(
     private val catalog: AslAnimationCatalog,
     private val registry: AslGrammarRegistry = AslGrammarRegistry(),
-    private val wordPlanner: AslPhrasePlanner = AslPhrasePlanner(catalog, dictionarySequenceMode = true),
+    private val wordPlanner: AslPhrasePlanner = AslPhrasePlanner(catalog, completeWordFallback = true, dictionarySequenceMode = true),
     private val normalizer: AslTextNormalizer = AslTextNormalizer(),
 ) {
     private val assets = catalog.getAssets().associateBy { it.id }
@@ -33,7 +33,14 @@ class AslTranslationPlanner(
                     analysis, phrase.gloss, phrase.nonManualMarkers, ruleId = phrase.id)
             }
         }
-        val fallback = wordPlanner.plan(text)
+        val namePrefix = registry.everydayExpressions.flatMap { it.namePrefixes }.map { normalizer.normalizeSequence(it) }
+            .filter { normalized == it || normalized.startsWith("$it ") }.maxByOrNull { it.length }
+        // A person's name can also be a dictionary word (Hope, Rose). Never substitute its lexical sign.
+        val fallback = wordPlanner.plan(text, forceSpellingFromToken = namePrefix?.split(' ')?.size)
+        val spellingAvailable = ('a'..'z').all { catalog.findLetter(it)?.let { letter ->
+            AslSingleAvatarPolicy.permits(letter) && letter.replacement != null } == true }
+        val mixedNotice = "English word-sign/fingerspelling preview; not a validated ASL sentence" +
+            if (fallback.fingerspelledWords.isEmpty()) "" else "; fingerspelling: ${fallback.fingerspelledWords.joinToString(", ")}"
         if (registry.meaningRegistryUnavailable && normalized.contains(' ')) {
             return fallback.copy(queue = emptyList(), mode = TextToAslPlan.Mode.BLOCKED_MEANING, analysis = analysis,
                 translationNotice = "ASL expression dictionary unavailable; sentence playback stopped")
@@ -62,6 +69,8 @@ class AslTranslationPlanner(
             } }.map { it.concept }
             val reason = if (missing.isEmpty()) "phrase order and non-manual features need ASL review"
                 else "missing compatible signs: ${missing.joinToString(", ")}; ASL review also required"
+            if (spellingAvailable && fallback.isPlayable) return fallback.copy(analysis = analysis,
+                ruleId = everyday.id, translationNotice = "$mixedNotice; phrase grammar/non-manual features await review")
             return fallback.copy(queue = emptyList(), unsupportedTokens = missing,
                 mode = TextToAslPlan.Mode.BLOCKED_MEANING, analysis = analysis, ruleId = everyday.id,
                 translationNotice = "ASL expression unavailable: $reason")
@@ -81,7 +90,8 @@ class AslTranslationPlanner(
                 "ASL sentence not validated; individual sign preview"
             else -> null
         }
-        return fallback.copy(analysis = analysis, translationNotice = notice)
+        return fallback.copy(analysis = analysis,
+            translationNotice = if (fallback.fingerspelledWords.isNotEmpty()) mixedNotice else notice)
     }
 
     private fun validatedQueue(phrase: ReviewedAslPhrase, analysis: AslInputAnalysis): List<AslAnimationAsset>? {

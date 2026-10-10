@@ -3,9 +3,9 @@ package com.example.apphear.domain.texttoasl
 import java.util.Locale
 
 class AslTextNormalizer {
-    fun normalizeSequence(input: String?): String = input.orEmpty().lowercase(Locale.US)
+    fun normalizeSequence(input: String?, preserveSymbols: Boolean = false): String = input.orEmpty().lowercase(Locale.US)
         .replace('\u2019', '\'').replace("'", "")
-        .replace(Regex("[\\p{P}\\p{S}]+"), " ")
+        .replace(Regex(if (preserveSymbols) "[\\p{P}]+" else "[\\p{P}\\p{S}]+"), " ")
         .replace(Regex("\\s+"), " ").trim()
 
     fun normalize(input: String?, preserveUnknownCharacters: Boolean = false): String {

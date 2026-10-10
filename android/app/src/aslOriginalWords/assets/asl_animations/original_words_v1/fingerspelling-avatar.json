@@ -1,0 +1,458 @@
+{
+  "schemaVersion": 1,
+  "language": "ASL",
+  "avatarProfile": "ORIGINAL_HUMAN",
+  "asset": "asl_animations/original_words_v1/fingerspelling-avatar.glb",
+  "sha256": "6d74df5b6a0065a5f55e83d4b7863324f5c213852a9d649cd1b40fe7730ae600",
+  "sourceSha256": "645da29f5e8a24dc7da2f4b6e23ca2e87fb91254958f5053ba0281080ec0a524",
+  "status": "UNREVIEWED_RETARGETED_PREVIEW",
+  "source": "Existing AppHear FemaleASL alphabet; motion rights/provenance unresolved",
+  "reference": "https://www.lifeprint.com/asl101/fingerspelling/fingerspelling.htm",
+  "letters": [
+    {
+      "letter": "a",
+      "id": "letter_a",
+      "animationName": "SIGN_LETTER_A_WOLF3D_PREVIEW",
+      "durationMs": 1800
+    },
+    {
+      "letter": "b",
+      "id": "letter_b",
+      "animationName": "SIGN_LETTER_B_WOLF3D_PREVIEW",
+      "durationMs": 1833
+    },
+    {
+      "letter": "c",
+      "id": "letter_c",
+      "animationName": "SIGN_LETTER_C_WOLF3D_PREVIEW",
+      "durationMs": 1867
+    },
+    {
+      "letter": "d",
+      "id": "letter_d",
+      "animationName": "SIGN_LETTER_D_WOLF3D_PREVIEW",
+      "durationMs": 1800
+    },
+    {
+      "letter": "e",
+      "id": "letter_e",
+      "animationName": "SIGN_LETTER_E_WOLF3D_PREVIEW",
+      "durationMs": 1867
+    },
+    {
+      "letter": "f",
+      "id": "letter_f",
+      "animationName": "SIGN_LETTER_F_WOLF3D_PREVIEW",
+      "durationMs": 1833
+    },
+    {
+      "letter": "g",
+      "id": "letter_g",
+      "animationName": "SIGN_LETTER_G_WOLF3D_PREVIEW",
+      "durationMs": 1867
+    },
+    {
+      "letter": "h",
+      "id": "letter_h",
+      "animationName": "SIGN_LETTER_H_WOLF3D_PREVIEW",
+      "durationMs": 1867
+    },
+    {
+      "letter": "i",
+      "id": "letter_i",
+      "animationName": "SIGN_LETTER_I_WOLF3D_PREVIEW",
+      "durationMs": 1833
+    },
+    {
+      "letter": "j",
+      "id": "letter_j",
+      "animationName": "SIGN_LETTER_J_WOLF3D_PREVIEW",
+      "durationMs": 3200
+    },
+    {
+      "letter": "k",
+      "id": "letter_k",
+      "animationName": "SIGN_LETTER_K_WOLF3D_PREVIEW",
+      "durationMs": 1867
+    },
+    {
+      "letter": "l",
+      "id": "letter_l",
+      "animationName": "SIGN_LETTER_L_WOLF3D_PREVIEW",
+      "durationMs": 1800
+    },
+    {
+      "letter": "m",
+      "id": "letter_m",
+      "animationName": "SIGN_LETTER_M_WOLF3D_PREVIEW",
+      "durationMs": 1867
+    },
+    {
+      "letter": "n",
+      "id": "letter_n",
+      "animationName": "SIGN_LETTER_N_WOLF3D_PREVIEW",
+      "durationMs": 1800
+    },
+    {
+      "letter": "o",
+      "id": "letter_o",
+      "animationName": "SIGN_LETTER_O_WOLF3D_PREVIEW",
+      "durationMs": 1867
+    },
+    {
+      "letter": "p",
+      "id": "letter_p",
+      "animationName": "SIGN_LETTER_P_WOLF3D_PREVIEW",
+      "durationMs": 1800
+    },
+    {
+      "letter": "q",
+      "id": "letter_q",
+      "animationName": "SIGN_LETTER_Q_WOLF3D_PREVIEW",
+      "durationMs": 1800
+    },
+    {
+      "letter": "r",
+      "id": "letter_r",
+      "animationName": "SIGN_LETTER_R_WOLF3D_PREVIEW",
+      "durationMs": 1800
+    },
+    {
+      "letter": "s",
+      "id": "letter_s",
+      "animationName": "SIGN_LETTER_S_WOLF3D_PREVIEW",
+      "durationMs": 1833
+    },
+    {
+      "letter": "t",
+      "id": "letter_t",
+      "animationName": "SIGN_LETTER_T_WOLF3D_PREVIEW",
+      "durationMs": 1800
+    },
+    {
+      "letter": "u",
+      "id": "letter_u",
+      "animationName": "SIGN_LETTER_U_WOLF3D_PREVIEW",
+      "durationMs": 1833
+    },
+    {
+      "letter": "v",
+      "id": "letter_v",
+      "animationName": "SIGN_LETTER_V_WOLF3D_PREVIEW",
+      "durationMs": 1800
+    },
+    {
+      "letter": "w",
+      "id": "letter_w",
+      "animationName": "SIGN_LETTER_W_WOLF3D_PREVIEW",
+      "durationMs": 1867
+    },
+    {
+      "letter": "x",
+      "id": "letter_x",
+      "animationName": "SIGN_LETTER_X_WOLF3D_PREVIEW",
+      "durationMs": 1867
+    },
+    {
+      "letter": "y",
+      "id": "letter_y",
+      "animationName": "SIGN_LETTER_Y_WOLF3D_PREVIEW",
+      "durationMs": 1833
+    },
+    {
+      "letter": "z",
+      "id": "letter_z",
+      "animationName": "SIGN_LETTER_Z_WOLF3D_PREVIEW",
+      "durationMs": 3300
+    }
+  ],
+  "audit": [
+    {
+      "letter": "A",
+      "sourceHandMotionSpan": [
+        0.1761417149310292,
+        0.3639802784425744,
+        0.32118670293959356
+      ],
+      "rotationFrameError": 0.0002424317205511617,
+      "sourceSamples": 40,
+      "sourceDurationMs": 1300
+    },
+    {
+      "letter": "B",
+      "sourceHandMotionSpan": [
+        0.19935739076372613,
+        0.3518610411874866,
+        0.31026333463821193
+      ],
+      "rotationFrameError": 0.00021706053874062659,
+      "sourceSamples": 41,
+      "sourceDurationMs": 1333
+    },
+    {
+      "letter": "C",
+      "sourceHandMotionSpan": [
+        0.18300553502691275,
+        0.3144975927648198,
+        0.30537063099909895
+      ],
+      "rotationFrameError": 0.0002282916051904449,
+      "sourceSamples": 42,
+      "sourceDurationMs": 1367
+    },
+    {
+      "letter": "D",
+      "sourceHandMotionSpan": [
+        0.177904145865283,
+        0.33997427862054963,
+        0.2942063393543841
+      ],
+      "rotationFrameError": 0.0002537969171654275,
+      "sourceSamples": 40,
+      "sourceDurationMs": 1300
+    },
+    {
+      "letter": "E",
+      "sourceHandMotionSpan": [
+        0.1932740200135017,
+        0.3202278479726587,
+        0.3097798750140949
+      ],
+      "rotationFrameError": 0.00023293538010615844,
+      "sourceSamples": 42,
+      "sourceDurationMs": 1367
+    },
+    {
+      "letter": "F",
+      "sourceHandMotionSpan": [
+        0.1835063082223589,
+        0.3429916589629217,
+        0.3250902104553975
+      ],
+      "rotationFrameError": 0.00021911268970158798,
+      "sourceSamples": 41,
+      "sourceDurationMs": 1333
+    },
+    {
+      "letter": "G",
+      "sourceHandMotionSpan": [
+        0.19126430399599834,
+        0.3083391194100026,
+        0.28643511052755494
+      ],
+      "rotationFrameError": 0.0002488768471294589,
+      "sourceSamples": 42,
+      "sourceDurationMs": 1367
+    },
+    {
+      "letter": "H",
+      "sourceHandMotionSpan": [
+        0.18491442152848492,
+        0.3285585042928697,
+        0.2848564699663531
+      ],
+      "rotationFrameError": 0.00024282539289165184,
+      "sourceSamples": 42,
+      "sourceDurationMs": 1367
+    },
+    {
+      "letter": "I",
+      "sourceHandMotionSpan": [
+        0.17255766426907992,
+        0.3406548761091043,
+        0.3030910432406668
+      ],
+      "rotationFrameError": 0.00023641568608451236,
+      "sourceSamples": 41,
+      "sourceDurationMs": 1333
+    },
+    {
+      "letter": "J",
+      "sourceHandMotionSpan": [
+        0.1846900389729601,
+        0.4034598481561932,
+        0.35229533347089936
+      ],
+      "rotationFrameError": 0.0002669398402431189,
+      "sourceSamples": 82,
+      "sourceDurationMs": 2700
+    },
+    {
+      "letter": "K",
+      "sourceHandMotionSpan": [
+        0.19474803956660153,
+        0.29970753206653156,
+        0.2939534741552456
+      ],
+      "rotationFrameError": 0.00024113886029775156,
+      "sourceSamples": 42,
+      "sourceDurationMs": 1367
+    },
+    {
+      "letter": "L",
+      "sourceHandMotionSpan": [
+        0.16185227060953739,
+        0.3280405897324826,
+        0.3106524465219749
+      ],
+      "rotationFrameError": 0.0002600957006759774,
+      "sourceSamples": 40,
+      "sourceDurationMs": 1300
+    },
+    {
+      "letter": "M",
+      "sourceHandMotionSpan": [
+        0.182722938639261,
+        0.33920873928827266,
+        0.3287617685293627
+      ],
+      "rotationFrameError": 0.0002239869827876939,
+      "sourceSamples": 42,
+      "sourceDurationMs": 1367
+    },
+    {
+      "letter": "N",
+      "sourceHandMotionSpan": [
+        0.1720884680025674,
+        0.3429673645580139,
+        0.3220791036384199
+      ],
+      "rotationFrameError": 0.000256447761526557,
+      "sourceSamples": 40,
+      "sourceDurationMs": 1300
+    },
+    {
+      "letter": "O",
+      "sourceHandMotionSpan": [
+        0.17195474004093747,
+        0.3249159275943446,
+        0.31521630524925004
+      ],
+      "rotationFrameError": 0.00024068145820832498,
+      "sourceSamples": 42,
+      "sourceDurationMs": 1367
+    },
+    {
+      "letter": "P",
+      "sourceHandMotionSpan": [
+        0.17969920589772814,
+        0.3228311975591108,
+        0.3230594133862471
+      ],
+      "rotationFrameError": 0.00026289205685897654,
+      "sourceSamples": 40,
+      "sourceDurationMs": 1300
+    },
+    {
+      "letter": "Q",
+      "sourceHandMotionSpan": [
+        0.1743525969285443,
+        0.3311810741311557,
+        0.32398322921189543
+      ],
+      "rotationFrameError": 0.0002624598494956887,
+      "sourceSamples": 40,
+      "sourceDurationMs": 1300
+    },
+    {
+      "letter": "R",
+      "sourceHandMotionSpan": [
+        0.19808144050763754,
+        0.3048943735324109,
+        0.2907223161134755
+      ],
+      "rotationFrameError": 0.0002340992320043478,
+      "sourceSamples": 40,
+      "sourceDurationMs": 1300
+    },
+    {
+      "letter": "S",
+      "sourceHandMotionSpan": [
+        0.18354155434234498,
+        0.3164804841874326,
+        0.3035579531296924
+      ],
+      "rotationFrameError": 0.00024218099688325112,
+      "sourceSamples": 41,
+      "sourceDurationMs": 1333
+    },
+    {
+      "letter": "T",
+      "sourceHandMotionSpan": [
+        0.18282033870930578,
+        0.3224224359859488,
+        0.3106707800239957
+      ],
+      "rotationFrameError": 0.0002456708880887726,
+      "sourceSamples": 40,
+      "sourceDurationMs": 1300
+    },
+    {
+      "letter": "U",
+      "sourceHandMotionSpan": [
+        0.20044077062017246,
+        0.3187779226677484,
+        0.3065577571741119
+      ],
+      "rotationFrameError": 0.000231760676602355,
+      "sourceSamples": 41,
+      "sourceDurationMs": 1333
+    },
+    {
+      "letter": "V",
+      "sourceHandMotionSpan": [
+        0.19509158322418294,
+        0.3161595583659452,
+        0.31201187450033785
+      ],
+      "rotationFrameError": 0.00023730146440631428,
+      "sourceSamples": 40,
+      "sourceDurationMs": 1300
+    },
+    {
+      "letter": "W",
+      "sourceHandMotionSpan": [
+        0.20362450757566164,
+        0.31264657772009985,
+        0.28346349125679243
+      ],
+      "rotationFrameError": 0.000222524106969324,
+      "sourceSamples": 42,
+      "sourceDurationMs": 1367
+    },
+    {
+      "letter": "X",
+      "sourceHandMotionSpan": [
+        0.19596769681045034,
+        0.301236839534074,
+        0.29434387097346654
+      ],
+      "rotationFrameError": 0.00024434238284698484,
+      "sourceSamples": 42,
+      "sourceDurationMs": 1367
+    },
+    {
+      "letter": "Y",
+      "sourceHandMotionSpan": [
+        0.19705119359774825,
+        0.3220615798795313,
+        0.28793855123318546
+      ],
+      "rotationFrameError": 0.0002289325082627594,
+      "sourceSamples": 41,
+      "sourceDurationMs": 1333
+    },
+    {
+      "letter": "Z",
+      "sourceHandMotionSpan": [
+        0.18316323934743953,
+        0.34373361268746916,
+        0.3188534147760863
+      ],
+      "rotationFrameError": 0.000261031619589569,
+      "sourceSamples": 85,
+      "sourceDurationMs": 2800
+    }
+  ],
+  "nameLexicalStatus": "MISSING; use N-A-M-E fallback; external SiGML has no joint-space motion"
+}

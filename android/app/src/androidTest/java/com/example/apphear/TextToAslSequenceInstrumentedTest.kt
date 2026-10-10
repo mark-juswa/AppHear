@@ -61,23 +61,27 @@ class TextToAslSequenceInstrumentedTest {
             i.runOnMainSync { assertTrue(activity.findViewById<View>(R.id.replay_button).performClick()) }
             awaitStatus("Repeat complete") { it.contains("Complete") }
             submit("hello unknownword")
-            awaitStatus("Individual unknown reported") { it.contains("Complete") && it.contains("unknownword") }
+            awaitStatus("Individual unknown reported") { it.contains("Complete") && it.contains("fingerspelling: unknownword") }
             submit("goodbye")
             awaitStatus("Existing BYE clip completes for alternative input") { it.contains("Complete") }
+            for (word in listOf("NAME", "NICOLE", "ACTION", "ANNA", "JAZZ", "HELLO NICOLE", "THANK YOU NICOLE")) {
+                submit(word)
+                awaitStatus("Word spelling completes") { it.contains("Complete") && it.contains("fingerspelling") }
+            }
             submit("NAME")
-            awaitStatus("Missing NAME keeps the same avatar") { it.contains("name") && it.contains("Unsupported") }
+            awaitStatus("Missing NAME keeps the same avatar") { it.contains("Complete") && it.contains("fingerspelling: name") }
             i.runOnMainSync { assertSame(originalView, activity.findViewById(R.id.avatarWebView)) }
             submit("What is your name?")
             awaitStatus("Incomplete name question stops signing") {
-                it.contains("Unavailable") && it.contains("NAME")
+                it.contains("Complete") && it.contains("not a validated ASL sentence")
             }
             for (text in listOf("It is hot today.", "IT IS HOT TODAY", "It's hot today!", "Today is hot.")) {
                 submit(text)
-                awaitStatus("Weather expression requires reviewed phrase motion") { it.contains("phrase order") }
+                awaitStatus("Weather expression requires reviewed phrase motion") { it.contains("phrase grammar/non-manual") }
                 i.runOnMainSync { assertSame(originalView, activity.findViewById(R.id.avatarWebView)) }
             }
             submit("I am not a student")
-            awaitStatus("Missing negation stops incomplete meaning") { it.contains("preserve negation") }
+            awaitStatus("Missing negation stops incomplete meaning") { it.contains("Complete") && it.contains("fingerspelling") }
             submit("hello beautiful")
             submit("beautiful") // Supersede an active request through the same existing input/button.
             awaitStatus("Replacement request complete") { it.contains("Complete") && !it.contains("Unsupported") }

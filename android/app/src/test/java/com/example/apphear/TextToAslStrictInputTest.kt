@@ -47,13 +47,15 @@ class TextToAslStrictInputTest {
         assertEquals(listOf("hello", "hello", "beautiful"), planner.plan("hello hello beautiful").queue.map { it.id })
         assertEquals(planner.plan("HELLO BEAUTIFUL"), planner.plan("HELLO BEAUTIFUL"))
     }
-    @Test fun noUnknownWordIsAutomaticallyFingerspelled() {
+    @Test fun enabledFallbackSpellsOnlyCompleteWordsWithAvailableLetters() {
         val letters = mapOf('c' to asset("letter_c", AslAnimationAsset.Type.LETTER))
         val withAlphabet = AslAnimationCatalog.fromAssets(catalog.getAssets(), letters)
         val sequence = AslPhrasePlanner(withAlphabet, completeWordFallback = true, dictionarySequenceMode = true)
         assertEquals(listOf("letter_c"), sequence.plan("C").queue.map { it.id })
-        assertTrue(sequence.plan("cab").queue.isEmpty())
-        assertEquals(listOf("cab"), sequence.plan("cab").unsupportedTokens)
+        assertEquals(listOf("letter_c", "a", "b"), sequence.plan("cab").queue.map { it.id })
+        assertTrue(sequence.plan("cab").unsupportedTokens.isEmpty())
+        assertEquals(listOf("cad"),sequence.plan("cad").unsupportedTokens)
+        assertTrue(sequence.plan("cad").queue.isEmpty())
     }
     @Test fun punctuationOnlyAndEmptyInputNeverSelectThePose() {
         assertTrue(planner.plan(" ").queue.isEmpty())

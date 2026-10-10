@@ -329,6 +329,7 @@ class TextToAslFragment : Fragment(R.layout.fragment_text_to_asl) {
         playbackDescription = when (plan.mode) {
             TextToAslPlan.Mode.VALIDATED_PHRASE -> "Reviewed ASL phrase"
             TextToAslPlan.Mode.WORD_SEQUENCE -> "ASL word sequence"
+            TextToAslPlan.Mode.MIXED_FINGERSPELLING -> "Word signs + fingerspelling"
             TextToAslPlan.Mode.BLOCKED_MEANING -> "No signing output"
             else -> "ASL dictionary preview"
         }

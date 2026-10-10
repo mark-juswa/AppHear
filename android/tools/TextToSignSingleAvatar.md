@@ -1,5 +1,7 @@
 # Single resident avatar and incremental vocabulary — 2026-10-10
 
+Current continuation: [single-human fingerspelling milestone](TextToSignFingerspelling.md) adds a 229-action bundle and A-Z fallback. The 203-action milestone below remains the rollback/history reference.
+
 Scope: Text-to-Sign and its avatar only. Existing development clone/branch retained; checkpoint `91b86fa` precedes this work. No new clone, push, navigation, layout, recognition, model, camera, dependency or database changes.
 
 ## What changed
