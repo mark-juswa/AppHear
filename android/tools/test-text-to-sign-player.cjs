@@ -8,6 +8,8 @@ function setup(){
   addEventListener(n,f){if(!this.events.has(n))this.events.set(n,new Set());this.events.get(n).add(f)},
   removeEventListener(n,f){this.events.get(n)?.delete(f)},emit(n){for(const f of [...(this.events.get(n)||[])])f()},
   plays:0,pause(){this.paused=true},play(opts){this.plays++;this.paused=false;this.options=opts},
+  appendAnimation(name,options){this.appended={name,options}},
+  detachAnimation(name,options){this.detached={name,options}},
   removeAttribute(n){if(n==='src')this.src=''},
   load(names=['hello']){this.loaded=true;this.availableAnimations=names;this.emit('load')}
  }};

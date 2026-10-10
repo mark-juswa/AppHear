@@ -3,11 +3,14 @@
 const fs=require('node:fs'),vm=require('node:vm'),assert=require('node:assert/strict');
 function setup(){
  const calls=[],frames=new Map(),timers=new Map();let next=0;
- const makeViewer=()=>({src:'',loaded:false,loadedSource:null,availableAnimations:[],duration:2,currentTime:0,
+ const makeViewer=()=>({src:'',loaded:false,loadedSource:null,availableAnimations:[],duration:2,_time:0,operations:[],
+  get currentTime(){return this._time},set currentTime(time){this._time=time;this.operations.push(['seek',time])},
   updateComplete:Promise.resolve(),playRequest:null,events:new Map(),classList:{add(){},remove(){}},
   addEventListener(n,f){if(!this.events.has(n))this.events.set(n,new Set());this.events.get(n).add(f)},
   removeEventListener(n,f){this.events.get(n)?.delete(f)},emit(n){for(const f of [...(this.events.get(n)||[])])f()},
   pause(){this.paused=true},play(opts){this.paused=false;this.options=opts},
+  appendAnimation(name,options){this.operations.push(['append',name,options]);this.appended={name,options}},
+  detachAnimation(name,options){this.operations.push(['detach',name,options]);this.detached={name,options}},
   removeAttribute(n){if(n==='src')this.src=''},
   load(names=['hello']){this.loaded=true;this.availableAnimations=names;this.emit('load')}
  });
@@ -50,16 +53,25 @@ async function start(s,url,token,name='hello'){
  const resident=v;
  for(const [index,name] of ['SIGN_LOVE','SIGN_HELLO','SIGN_BEAUTIFUL','SIGN_LETTER_N_WOLF3D_PREVIEW','SIGN_LETTER_A_WOLF3D_PREVIEW','SIGN_LETTER_N_WOLF3D_PREVIEW','SIGN_LETTER_N_WOLF3D_PREVIEW','SIGN_LETTER_A_WOLF3D_PREVIEW','SIGN_LETTER_J_WOLF3D_PREVIEW','SIGN_LETTER_Z_WOLF3D_PREVIEW','SIGN_LETTER_Z_WOLF3D_PREVIEW'].entries()){
    const fingerspelling=name.startsWith('SIGN_LETTER_');
+   const previous=resident.animationName;resident.operations=[];
    await s.window.playSign('resident.glb',{requestId:11+index,animationName:name,loop:false,fingerspelling});
    assert.equal(s.viewers.filter(x=>x.src==='resident.glb').length,1);
    assert.equal(resident.animationName,name);assert.equal(loads,1,'resident model must not load again');
-   assert.equal(resident.animationCrossfadeDuration,fingerspelling?120:0);
+   assert.equal(resident.animationCrossfadeDuration,0,'never schedule a built-in fade before a mixer seek');
+   if(fingerspelling&&previous!==name){
+     const seek=resident.operations.findIndex(o=>o[0]==='seek');
+     const append=resident.operations.findIndex(o=>o[0]==='append');
+     assert.ok(seek>=0&&append>seek,'seek must happen before scheduling outgoing pose fade');
+     assert.equal(resident.detached.options.fade,.12);
+     assert.equal(resident.appended.options.timeScale,1,'cached letters must not be frozen');
+   }else assert.equal(resident.operations.filter(o=>o[0]==='append').length,0,'lexical/same-letter actions cannot inherit a pose overlay');
    resident.currentTime=2;resident.emit('finished');
  }
  assert.equal(s.calls.filter(c=>c[0]==='onPilotFinished').length,11);
  await s.window.playSign('resident.glb',{requestId:99,animationName:'SIGN_HELLO',neutralFrame:0,pinSource:true});
  assert.equal(resident.animationName,'SIGN_RELAXED_NEUTRAL');
- assert.equal(resident.animationCrossfadeDuration,220);
+ assert.equal(resident.animationCrossfadeDuration,0);
+ assert.equal(resident.detached.options.fade,.22);
  assert.equal(resident.options.repetitions,Infinity);
  assert.equal(resident.playRequest,null,'idle must not advance the queue');
  assert.equal(loads,1);

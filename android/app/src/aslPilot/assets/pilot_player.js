@@ -92,17 +92,21 @@ async function replay(viewer, options) {
   const relaxed = neutral && animations.includes('SIGN_RELAXED_NEUTRAL');
   const name = relaxed ? 'SIGN_RELAXED_NEUTRAL' : options.animationName || (animations.length === 1 ? animations[0] : null);
   if (!name || !animations.includes(name)) throw new Error('Expected animation missing');
-  // Only alphabet/neutral transitions blend. Lexical signs retain their full
-  // body motion and zero crossfade. No separate idle action runs over letters.
-  const blend = options.fingerspelling ? 120 : relaxed && viewer.lastSigningLetter ? 220 : 0;
-  viewer.animationCrossfadeDuration = blend;
-  if (blend && viewer.animationName && viewer.duration > 0) {
-    // Model-viewer stops all actions when animationName changes while paused.
-    // Resume the completed outgoing action so its public mixer can crossfade.
-    const held = viewer.currentTime;
-    viewer.play({repetitions: 1});
-    viewer.currentTime = Math.min(held, viewer.duration - 0.0001);
-  } else viewer.pause();
+  const previous = viewer.animationName;
+  const held = viewer.currentTime;
+  const previousDuration = viewer.duration;
+  const transition = options.fingerspelling ? 0.12 : relaxed && viewer.lastSigningLetter ? 0.22 : 0;
+  // In bundled model-viewer 4.3.1, currentTime resets the entire mixer clock.
+  // Scheduling a crossfade BEFORE that seek leaves the new letter at weight 0
+  // and old idle/letters at weight 1. Clear cached actions while paused, seek,
+  // then schedule a bounded outgoing-pose fade using the public append API.
+  viewer.pause();
+  viewer.animationCrossfadeDuration = 0;
+  if (viewer.animationName === name) {
+    // A repeated letter must reset cached actions too; Lit skips equal names.
+    viewer.animationName = undefined;
+    await viewer.updateComplete;
+  }
   viewer.animationName = name;
   // Lit's animationName update otherwise replaces explicit loop settings with Infinity.
   await viewer.updateComplete;
@@ -110,7 +114,16 @@ async function replay(viewer, options) {
   viewer.currentTime = neutral ? options.neutralFrame : 0;
   viewer.playLoop = Boolean(options.loop) || neutral;
   viewer.playRequest = neutral ? null : options.requestId;
-  if (!neutral || relaxed) viewer.play({repetitions: options.loop || relaxed ? Infinity : 1});
+  if (!neutral || relaxed) {
+    viewer.play({repetitions: options.loop || relaxed ? Infinity : 1});
+    if (transition && previous && previous !== name && animations.includes(previous)) {
+      // Clamp the outgoing clip at its own endpoint. Do not freeze its cached
+      // timeScale: that would prevent that letter moving on a later request.
+      viewer.appendAnimation(previous, {time: Math.min(held, previousDuration - 0.0001),
+        timeScale: 1, repetitions: 1, weight: 1, fade: false});
+      viewer.detachAnimation(previous, {fade: transition});
+    }
+  }
   viewer.lastSigningLetter = Boolean(options.fingerspelling);
   if (options.pinSource) pinnedSource = viewer.src;
   if (window.Android) Android.onPlaybackStarted(viewer.src, options.requestId);
