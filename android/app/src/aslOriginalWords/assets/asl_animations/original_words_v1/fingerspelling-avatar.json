@@ -5,7 +5,7 @@
   "language": "ASL",
   "avatarProfile": "ORIGINAL_HUMAN",
   "asset": "asl_animations/original_words_v1/fingerspelling-avatar.glb",
-  "sha256": "c04f873aa44d7c31fdf688d423d18100843535067acab0223418ea9340fa34b5",
+  "sha256": "82fab0b6693c5bdaef8433e25d4f417a51f0ede522ab9e9154e4f8cff7fddeb8",
   "sourceSha256": "645da29f5e8a24dc7da2f4b6e23ca2e87fb91254958f5053ba0281080ec0a524",
   "status": "UNREVIEWED_RETARGETED_PREVIEW",
   "source": "Existing AppHear FemaleASL alphabet; motion rights/provenance unresolved",
@@ -1147,5 +1147,151 @@
     "surfaceSamples": 641,
     "limitations": "Front-surface torso proxy only; not full mesh or arm-arm collision. Low-poly mesh and thumb articulation remain. Requires Android visual testing and qualified ASL review.",
     "surfaceGatePassed": true
+  },
+  "pointingCorrection": {
+    "sourceSha256": "c04f873aa44d7c31fdf688d423d18100843535067acab0223418ea9340fa34b5",
+    "sha256": "82fab0b6693c5bdaef8433e25d4f417a51f0ede522ab9e9154e4f8cff7fddeb8",
+    "qualifiedASLValidation": false,
+    "status": "UNREVIEWED_POINTING_PREVIEW",
+    "unchangedActions": 230,
+    "profiles": [
+      {
+        "animationName": "SIGN_I",
+        "changedNodes": [
+          "RightArm",
+          "RightForeArm",
+          "RightHand",
+          "RightHandIndex1",
+          "RightHandIndex2",
+          "RightHandIndex3",
+          "RightHandMiddle1",
+          "RightHandMiddle2",
+          "RightHandMiddle3",
+          "RightHandPinky1",
+          "RightHandPinky2",
+          "RightHandPinky3",
+          "RightHandRing1",
+          "RightHandRing2",
+          "RightHandRing3",
+          "RightHandThumb1",
+          "RightHandThumb2",
+          "RightHandThumb3"
+        ],
+        "desiredIndexDirection": [
+          0.7996402428178934,
+          -0.029986509105670998,
+          -0.59973018211342
+        ],
+        "wristTargetMeters": [
+          -0.19458346324361603,
+          1.2987838618674337,
+          0.24963043159581028
+        ],
+        "chestTipTargetMeters": [
+          -0.01,
+          1.3,
+          0.17455745465778913
+        ],
+        "frontTorsoDepthMeters": {
+          "hand": 0.0,
+          "forearm": 0.0
+        },
+        "heldDirectionCosine": 0.9999999999795659,
+        "heldTipMeters": [
+          -0.010002070303895608,
+          1.3000000525709456,
+          0.17455881005179508
+        ],
+        "technicallyPassed": true
+      },
+      {
+        "animationName": "SIGN_YOU_HUMAN_RETARGETED_PREVIEW",
+        "changedNodes": [
+          "LeftArm",
+          "LeftForeArm",
+          "LeftHand",
+          "LeftShoulder",
+          "RightArm",
+          "RightForeArm",
+          "RightHand",
+          "RightHandIndex1",
+          "RightHandIndex2",
+          "RightHandIndex3",
+          "RightHandMiddle1",
+          "RightHandMiddle2",
+          "RightHandMiddle3",
+          "RightHandPinky1",
+          "RightHandPinky2",
+          "RightHandPinky3",
+          "RightHandRing1",
+          "RightHandRing2",
+          "RightHandRing3",
+          "RightHandThumb1",
+          "RightHandThumb2",
+          "RightHandThumb3"
+        ],
+        "desiredIndexDirection": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "wristTargetMeters": [
+          -0.12,
+          1.25,
+          0.38
+        ],
+        "chestTipTargetMeters": null,
+        "frontTorsoDepthMeters": {
+          "hand": 0.0,
+          "forearm": 0.0
+        },
+        "heldDirectionCosine": 0.9999999999999996,
+        "heldTipMeters": [
+          -0.11300569871651349,
+          1.3006916808156357,
+          0.5725875752328276
+        ],
+        "technicallyPassed": true
+      }
+    ],
+    "transitionSeconds": 0.35,
+    "surfaceSamples": 401,
+    "references": [
+      "https://www.lifeprint.com/asl101/pages-signs/m/me.htm",
+      "https://www.lifeprint.com/asl101/pages-signs/y/you.htm"
+    ],
+    "limitations": "Front torso proxy only; requires Android inspection and qualified ASL review. Thumb reuses existing YES. No imported images or motion data.",
+    "preservedAnimationHashes": {
+      "SIGN_HELP": "119b7cb3bca86105cf1693e8ca2e776300986b9a72a34a3a868e1fe61dae09a6",
+      "SIGN_LETTER__MAIL": "b76f2891edebdad851e9c89a39b2ea1a14ad3ede0cd8435c53b6d3b9ea33e68f",
+      "SIGN_LOVE": "d03b630f05d02a6c9e33ebe500856fdfad300c9a35e74576280a701ade38f984",
+      "SIGN_YES": "bc01a054bf47054f16216029f93bcaa40983985a0b69d732ff6077b1429d3b90",
+      "SIGN_LETTER_A_WOLF3D_PREVIEW": "9cee97c81bc84ebe46b524afe2b136af3d157145f78812415ef8fe3fdf101a72",
+      "SIGN_LETTER_B_WOLF3D_PREVIEW": "7d0617158a11066ccecfbfc4bcc3a78de79fb11922aadd16c795b926807e7257",
+      "SIGN_LETTER_C_WOLF3D_PREVIEW": "5513582bd4e537fc649a27cbf5975fd51f9888ee7d45e7c49946246535d58933",
+      "SIGN_LETTER_D_WOLF3D_PREVIEW": "da2ee4dcf5dc18751b47f3cd05132bc4ecb851050f57356a6a7f6181a1128136",
+      "SIGN_LETTER_E_WOLF3D_PREVIEW": "25f30e5316a5afa2a7c85117a8cc15277618b932249358d95011eeb98faa496e",
+      "SIGN_LETTER_F_WOLF3D_PREVIEW": "10dc50c15059b0423284a455af1e0246e191bece17868fc3a82396feedce2810",
+      "SIGN_LETTER_G_WOLF3D_PREVIEW": "0ace3d9fdacf1461690189c4a8d238d31788295c5c465ca2a1094e351abd5f3d",
+      "SIGN_LETTER_H_WOLF3D_PREVIEW": "742a56a6c63f77b454de85e1f83bef64d2613183ea54a16584d20819c2a27d6c",
+      "SIGN_LETTER_I_WOLF3D_PREVIEW": "3421a84b573b7005bbd6ef7bab5dd429e698970e4089b47f48f590289257e5e3",
+      "SIGN_LETTER_J_WOLF3D_PREVIEW": "26b7d6a7fc49d93d1f27ea1e1e2b935d29f6bbd5d7813762fdf189d83bbc8b1c",
+      "SIGN_LETTER_K_WOLF3D_PREVIEW": "e9df8553bfda7db671568a5c02d8d0e94bc3ef141ec75a9c42f1c3d0a8c31f17",
+      "SIGN_LETTER_L_WOLF3D_PREVIEW": "c77f1489be71b3fb0cea2426530cc644c5de91758aa6f6a7ffb1bf978e3f87fe",
+      "SIGN_LETTER_M_WOLF3D_PREVIEW": "f558daca79a44211ed31c1f1fc8c1ffa1020b997b5158dad22fcc107cbbdccec",
+      "SIGN_LETTER_N_WOLF3D_PREVIEW": "102448d9b5fd61db73a16992b1911d1eca8a9db54f319b1f8b8cbe346b3f4110",
+      "SIGN_LETTER_O_WOLF3D_PREVIEW": "76999b47d0aa4d00f9cf6eaccc4dc964f14677ae09565a3bb525679753c71dc8",
+      "SIGN_LETTER_P_WOLF3D_PREVIEW": "d841ff4945f544210f5eaa658197c8786022f550bcee2207d3e3169cb5ba6b31",
+      "SIGN_LETTER_Q_WOLF3D_PREVIEW": "6a3ad40dd1c9fe3e574d126448ee5a94e0310a386142d6d9a13710b9a3fceece",
+      "SIGN_LETTER_R_WOLF3D_PREVIEW": "bfb28d0d68415a700df1e80e7fe38327d3a9e2d2f28713d0fa6cf050a47c7cc8",
+      "SIGN_LETTER_S_WOLF3D_PREVIEW": "245ce827f03d790d94f00da60d77fd3c79d08f4830ed61ad8273a0448395c6ef",
+      "SIGN_LETTER_T_WOLF3D_PREVIEW": "ccfb18665efbf26d5929f724c322031d7577936200faddb2b3d54b779bd6f34e",
+      "SIGN_LETTER_U_WOLF3D_PREVIEW": "ceb8c50f6a80923e844e1d113413f88cc6e7f1642c0ccde1ba41715a233ba967",
+      "SIGN_LETTER_V_WOLF3D_PREVIEW": "b01fa8b8a544340c7e59a96eb3372008e9a6bdfc2f30097e401492b958e197b5",
+      "SIGN_LETTER_W_WOLF3D_PREVIEW": "f6352b482c45e7d8ba1e79b7d1f50d04aa7d75c09c1a5f5c559f6124ce9d347f",
+      "SIGN_LETTER_X_WOLF3D_PREVIEW": "9cd7c1543bdc09c4ff5922a16905a1f16f9df2930512aaa0ef89edd717f00806",
+      "SIGN_LETTER_Y_WOLF3D_PREVIEW": "418672ce4a0671e5ff525245d41ffc279f9c438beccea5d7ca77c8df9555d506",
+      "SIGN_LETTER_Z_WOLF3D_PREVIEW": "aa033de20a9360221e2c22d6509d5f3fa883c39402560b91d5ef4d2b66e6ea9f"
+    }
   }
 }

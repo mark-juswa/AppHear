@@ -70,7 +70,8 @@ class AslFingerspellingPlaybackInstrumentedTest {
             }
             for (text in listOf("NICOLE", "NAME", "YOU", "ANNA", "JAZZ", "ACTION", "HELLO NICOLE",
                     "ME", "YES", "LOVE", "HELP", "COOK", "BECOME", "MONEY", "NEW", "SOME", "DAY",
-                    "HELLO LOVE", "MY NAME", "YOUR NAME", "I LOVE YOU")) {
+                    "HELLO LOVE", "MY NAME", "YOUR NAME", "I LOVE YOU", "I", "ME YOU", "YOU ME",
+                    "YOU NICOLE", "ME NICOLE")) {
                 val start = SystemClock.uptimeMillis()
                 submit(text)
                 val result = await("$text completes") { it.contains("Complete") }

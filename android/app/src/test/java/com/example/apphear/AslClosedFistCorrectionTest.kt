@@ -21,7 +21,13 @@ class AslClosedFistCorrectionTest {
         }
         val original=doc(AslResidentAvatarBundle.PATH)
         val current=doc(AslFingerspellingBundle.PATH)
-        val metadata=JsonParser.parseString(String(Files.readAllBytes(root.resolve(AslFingerspellingBundle.MANIFEST)))).asJsonObject.getAsJsonObject("closedFistCorrection")
+        val registry=JsonParser.parseString(String(Files.readAllBytes(root.resolve(AslFingerspellingBundle.MANIFEST)))).asJsonObject
+        val metadata=registry.getAsJsonObject("closedFistCorrection")
+        // The later, separately tested pointing repair deliberately extends ME's
+        // index and adjusts its right arm. Keep the older donor provenance check.
+        val pointingNodes=registry.getAsJsonObject("pointingCorrection").getAsJsonArray("profiles")
+            .single {it.asJsonObject.get("animationName").asString=="SIGN_I"}.asJsonObject
+            .getAsJsonArray("changedNodes").map {it.asString}.toSet()
         assertFalse(metadata.get("qualifiedASLValidation").asBoolean)
         assertEquals("SIGN_YES",metadata.get("donorAnimation").asString)
         val profiles=metadata.getAsJsonArray("profiles").associate { it.asJsonObject.get("animationName").asString to it.asJsonObject.getAsJsonArray("correctedNodes").map { n->n.asString }.toSet() }
@@ -43,7 +49,10 @@ class AslClosedFistCorrectionTest {
                     val ns=b.getAsJsonArray("samplers")[nc.asJsonObject.get("sampler").asInt].asJsonObject
                     assertEquals("Original source times: $bone",os.get("input"),ns.get("input"))
                 }else if(name=="SIGN_I") {
-                    assertTrue("ME index and body stay original: $bone",oc==nc)
+                    if(oc!=nc) {
+                        assertTrue("Only audited ME bones change: $bone",bone in pointingNodes)
+                        assertEquals("Only audited pointer rotations: $bone","rotation",target.get("path").asString)
+                    }
                 }
             }
         }
