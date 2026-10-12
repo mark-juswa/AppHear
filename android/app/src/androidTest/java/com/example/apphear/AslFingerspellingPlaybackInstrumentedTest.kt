@@ -56,7 +56,15 @@ class AslFingerspellingPlaybackInstrumentedTest {
             var viewer: View? = null
             i.runOnMainSync { viewer = activity.findViewById(R.id.avatarWebView) }
             fun submit(text: String) = i.runOnMainSync {
-                activity.findViewById<EditText>(R.id.input_text).setText(text)
+                // The collapsed/Text/Talk controls are part of normal input.
+                // A hidden Sign It in Talk mode replays the previous plan.
+                val textMode=activity.findViewById<View>(R.id.mode_text_button)
+                val shortcut=activity.findViewById<View>(R.id.mode_text_shortcut)
+                if(textMode.isShown) assertTrue(textMode.performClick())
+                else if(shortcut.isShown) assertTrue(shortcut.performClick())
+                val input=activity.findViewById<EditText>(R.id.input_text)
+                assertTrue("Text input is visible before submitting",input.isShown)
+                input.setText(text)
                 assertTrue(activity.findViewById<View>(R.id.sign_it_button).performClick())
                 assertSame(viewer, activity.findViewById(R.id.avatarWebView))
             }
@@ -66,6 +74,7 @@ class AslFingerspellingPlaybackInstrumentedTest {
                 val start = SystemClock.uptimeMillis()
                 submit(text)
                 val result = await("$text completes") { it.contains("Complete") }
+                i.runOnMainSync { assertEquals(text,activity.findViewById<TextView>(R.id.signed_text).text.toString()) }
                 if (text in listOf("NICOLE", "ANNA", "JAZZ", "HELLO NICOLE")) assertTrue(result.contains("fingerspelling"))
                 evidence.put(JSONObject().put("input", text).put("status", result)
                     .put("elapsedMs", SystemClock.uptimeMillis() - start))

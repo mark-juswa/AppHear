@@ -5,7 +5,7 @@
   "language": "ASL",
   "avatarProfile": "ORIGINAL_HUMAN",
   "asset": "asl_animations/original_words_v1/fingerspelling-avatar.glb",
-  "sha256": "907944cee4c3ea684d4eddc8b734db75a1c21e06e04d3092f9fbdab7cbdd7fd1",
+  "sha256": "c04f873aa44d7c31fdf688d423d18100843535067acab0223418ea9340fa34b5",
   "sourceSha256": "645da29f5e8a24dc7da2f4b6e23ca2e87fb91254958f5053ba0281080ec0a524",
   "status": "UNREVIEWED_RETARGETED_PREVIEW",
   "source": "Existing AppHear FemaleASL alphabet; motion rights/provenance unresolved",
@@ -1051,5 +1051,101 @@
       "https://www.lifeprint.com/asl101/pages-signs/m/me.htm",
       "https://www.lifeprint.com/asl101/pages-signs/y/yes.htm"
     ]
+  },
+  "loveWristFistCorrection": {
+    "sourceSha256": "907944cee4c3ea684d4eddc8b734db75a1c21e06e04d3092f9fbdab7cbdd7fd1",
+    "sha256": "c04f873aa44d7c31fdf688d423d18100843535067acab0223418ea9340fa34b5",
+    "animationName": "SIGN_LOVE",
+    "changedNodes": [
+      "LeftArm",
+      "LeftForeArm",
+      "LeftHand",
+      "LeftHandIndex1",
+      "LeftHandIndex2",
+      "LeftHandIndex3",
+      "LeftHandMiddle1",
+      "LeftHandMiddle2",
+      "LeftHandMiddle3",
+      "LeftHandPinky1",
+      "LeftHandPinky2",
+      "LeftHandPinky3",
+      "LeftHandRing1",
+      "LeftHandRing2",
+      "LeftHandRing3",
+      "RightArm",
+      "RightForeArm",
+      "RightHand",
+      "RightHandIndex1",
+      "RightHandIndex2",
+      "RightHandIndex3",
+      "RightHandMiddle1",
+      "RightHandMiddle2",
+      "RightHandMiddle3",
+      "RightHandPinky1",
+      "RightHandPinky2",
+      "RightHandPinky3",
+      "RightHandRing1",
+      "RightHandRing2",
+      "RightHandRing3"
+    ],
+    "unchangedActions": 231,
+    "qualifiedASLValidation": false,
+    "status": "UNREVIEWED_REFERENCE_GUIDED_PREVIEW",
+    "reference": "https://www.lifeprint.com/asl101/pages-signs/l/love.htm",
+    "preservedFingerEntryReleaseSeconds": 0.3,
+    "transitionSeconds": 0.25,
+    "fingerFlexionDegrees": [
+      80,
+      95,
+      50
+    ],
+    "maximumAdditionalClearanceMeters": {
+      "Left": 0.0,
+      "Right": 0.0223123373417034
+    },
+    "samples": [
+      {
+        "side": "Left",
+        "version": "before",
+        "metrics": {
+          "edgeStretch99": 1.465327264823494,
+          "edgeStretchMax": 1.7418173384945024
+        }
+      },
+      {
+        "side": "Left",
+        "version": "prototype",
+        "metrics": {
+          "edgeStretch99": 1.5548065484117715,
+          "edgeStretchMax": 1.821134000553192
+        }
+      },
+      {
+        "side": "Right",
+        "version": "before",
+        "metrics": {
+          "edgeStretch99": 1.6267583338426161,
+          "edgeStretchMax": 1.9574102601807812
+        }
+      },
+      {
+        "side": "Right",
+        "version": "prototype",
+        "metrics": {
+          "edgeStretch99": 1.6322637876670025,
+          "edgeStretchMax": 2.012206797863316
+        }
+      }
+    ],
+    "maxWristDisplacementMeters": 0.12765419786049284,
+    "maxFrontTorsoHandDepthMeters": 0.0,
+    "maxFrontTorsoForearmDepthMeters": 0.001891694406008268,
+    "heldForearmRollDegrees": {
+      "Left": -22.196289357345748,
+      "Right": -9.374195453465648
+    },
+    "surfaceSamples": 641,
+    "limitations": "Front-surface torso proxy only; not full mesh or arm-arm collision. Low-poly mesh and thumb articulation remain. Requires Android visual testing and qualified ASL review.",
+    "surfaceGatePassed": true
   }
 }

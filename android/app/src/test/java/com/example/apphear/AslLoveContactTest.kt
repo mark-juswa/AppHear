@@ -70,8 +70,16 @@ class AslLoveContactTest {
         val original = document(AslResidentAvatarBundle.PATH).getAsJsonArray("animations").single {
             it.asJsonObject.get("name").asString == "SIGN_LOVE"
         }.asJsonObject
-        // Finger corrections append after the six preserved contact tracks.
-        val samplers = a.getAsJsonArray("samplers").toList().drop(original.getAsJsonArray("samplers").size()).take(6)
+        // Check the six tracks actually referenced by the final clip, including
+        // subsequent wrist/contact repairs; obsolete appended tracks aren't played.
+        val armNames=setOf("LeftArm","LeftForeArm","LeftHand","RightArm","RightForeArm","RightHand")
+        val samplers = a.getAsJsonArray("channels").mapNotNull { channel ->
+            val c=channel.asJsonObject
+            val node=g.getAsJsonArray("nodes")[c.getAsJsonObject("target").get("node").asInt].asJsonObject.get("name").asString
+            if(node in armNames && c.getAsJsonObject("target").get("path").asString=="rotation")
+                a.getAsJsonArray("samplers")[c.get("sampler").asInt] else null
+        }
+        assertEquals(6,samplers.size)
         for (sampler in samplers) {
             val s = sampler.asJsonObject
             val times = values(s.get("input").asInt)
@@ -91,5 +99,22 @@ class AslLoveContactTest {
                 assertEquals(1.0, kotlin.math.abs(x.zip(y).sumOf { (u, v) -> u.toDouble() * v }), .00001)
             }
         }
+    }
+
+    @Test fun loveWristFistRepairIsScopedAndExplicitlyUnvalidated() {
+        val manifest=JsonParser.parseString(String(Files.readAllBytes(root.resolve(AslFingerspellingBundle.MANIFEST)))).asJsonObject
+        val repair=manifest.getAsJsonObject("loveWristFistCorrection")
+        assertEquals("SIGN_LOVE",repair.get("animationName").asString)
+        assertEquals("907944cee4c3ea684d4eddc8b734db75a1c21e06e04d3092f9fbdab7cbdd7fd1",repair.get("sourceSha256").asString)
+        assertFalse(repair.get("qualifiedASLValidation").asBoolean)
+        assertTrue(repair.get("surfaceGatePassed").asBoolean)
+        assertEquals(231,repair.get("unchangedActions").asInt)
+        val expected=listOf("Left","Right").flatMap { side ->
+            listOf(side+"Arm",side+"ForeArm",side+"Hand")+
+                listOf("Index","Middle","Ring","Pinky").flatMap { f->(1..3).map { j->side+"Hand"+f+j } }
+        }.toSet()
+        assertEquals(expected,repair.getAsJsonArray("changedNodes").map { it.asString }.toSet())
+        assertTrue(repair.get("maxFrontTorsoHandDepthMeters").asDouble<.002)
+        assertTrue(repair.get("maxFrontTorsoForearmDepthMeters").asDouble<.010)
     }
 }

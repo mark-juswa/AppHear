@@ -2,6 +2,49 @@
 
 This correction is limited to Text-to-Sign. It is not qualified ASL validation.
 
+## Latest LOVE follow-up: wrists, fist closure and crossed-arm placement
+
+Checkpoint before this follow-up: `checkpoint/love-wrist-review-20261012`, commit `635cd57`. The preceding finger-only repair below is historical; its statement that wrists/arms are unchanged does not describe this follow-up.
+
+The actual held LOVE pose had bind-relative wrist rotations of approximately 144° left and 160° right. Earlier torso-clearance IK retained the source world-hand orientation. Closing fingers alone therefore retained a twisted-looking wrist. The YES donor's index remained incompletely curled. An actual Android close-up confirmed this; playback completion was not sufficient evidence of a good handshape.
+
+The follow-up changes only `SIGN_LOVE`: six arm/forearm/hand rotation tracks and 24 index/middle/ring/pinky joint tracks. Both wrists are straightened in the held pose, with axial roll assigned to the forearm, and the arms cross diagonally with fists at the opposite upper chest, guided by the supplied reference and ASLU's LOVE demonstration. Finger flexion uses each actual anatomical segment and palm normal, rather than a generic local-X clamp. The existing thumb tracks remain. This is authored, unvalidated preview data; the numerical joint angles are implementation choices, not an ASL standard.
+
+The existing first/last 0.3 seconds of finger articulation are preserved, with 0.25-second transition envelopes in the signing area. A separately measured brief release-hand penetration already existed in the pinned baseline. LOVE-only two-bone IK reroutes the affected right-hand release forward by at most 22.3 mm, preserving its world orientation and bone lengths. No runtime collision system or global restriction was introduced.
+
+Offline verification sampled 641 actual skinned poses: maximum front-torso hand penetration 0 mm and forearm penetration 1.892 mm. These are measurements against a front-surface proxy, not proof of all-mesh or arm-arm collision clearance. The low-poly mesh remains angular, and qualified ASL review is still required. All 231 other named actions, including YES, ME, HELP and all 26 alphabet clips, are byte-identical to the checkpoint. Hierarchy, bind matrices, skin weights, mesh, materials, textures and animation endpoints remain unchanged.
+
+Bundle SHA256: `c04f873aa44d7c31fdf688d423d18100843535067acab0223418ea9340fa34b5`.
+
+Files changed in this follow-up:
+
+- `app/src/aslOriginalWords/assets/asl_animations/original_words_v1/fingerspelling-avatar.glb`: only the 30 LOVE rotation channels described above.
+- Adjacent `fingerspelling-avatar.json`: checksum and separate `loveWristFistCorrection` audit. Older repair metadata remains explicitly historical.
+- `app/src/main/java/com/example/apphear/domain/texttoasl/AslFingerspellingBundle.kt`: checksum only.
+- `tools/correct-text-to-sign-love-wrists.py`: guarded candidate-only generator, exact scope/neutral endpoint checks, dense surface gate and skinned comparison. It never overwrites production assets.
+- `app/src/test/java/com/example/apphear/AslLoveContactTest.kt`: checks the actually referenced final arm tracks rather than obsolete append-only samplers; checks repair scope, surface gate and unvalidated status.
+- `app/src/androidTest/java/com/example/apphear/AslFingerspellingPlaybackInstrumentedTest.kt`: explicitly opens normal Text mode and asserts that the displayed input equals the submitted request, avoiding stale replay passes.
+- This report.
+
+To reproduce the candidate, recover the bundle from checkpoint `635cd57` as binary without changing the checkout, then run the generator with `--source <checkpoint.glb> --output <candidate.glb> --report <audit.json>`. NumPy and Pillow are development-only requirements already used by the existing tools. Inspect the actual candidate on Android before applying it. The integrity check deliberately rejects other input hashes.
+
+The predecessor APK `183938864c8db39afce5e4c9c4a8bef6a96f1f5f5466293bd5870a57cb43ec0d` was successfully installed after the user approved an AppHear-only keep-data reinstall. Its corrected normal-input test passed all 21 requested inputs and cancellation/replacement on one viewer. The first harness run failed at NICOLE with `Ready`; explicitly opening Text mode resolved that harness issue. This predecessor result must not be presented as the final corrected APK's test result.
+
+Final verification:
+
+- `testDebugUnitTest`, `assembleDebug`, `assembleDebugAndroidTest`: successful; 244 JVM tests, no failures/errors/skips. The first run exposed a test-filter error that counted translation/scale alongside rotation channels; it was corrected, then all tests rerun. No animation changes were needed for that test failure.
+- Signed APK: `app/build/outputs/apk/debug/app-debug.apk`, SHA256 `809a9f43b7330db6d9219cbc91f501fb2d416e87bbe5d1ac1634ac798e427aed`. Signature verified; packaged bundle checksum and emulator-installed APK checksum both match.
+- Actual Medium Phone API 36 / Android 16 emulator: all 21 normal-input cases and NICOLE→ANNA cancellation/replacement passed on the final APK in 124.941 seconds. Inputs: NICOLE, NAME, YOU, ANNA, JAZZ, ACTION, HELLO NICOLE, ME, YES, LOVE, HELP, COOK, BECOME, MONEY, NEW, SOME, DAY, HELLO LOVE, MY NAME, YOUR NAME, I LOVE YOU. One existing WebView was retained throughout. This is technical playback verification, not ASL sentence validation.
+- The first emulator session ended during the build. The same existing AVD was restarted without wiping or creating another device. AppHear was absent in the restarted persistent session; the final APK was installed without another removal. The previously saved AppHear-only data archive was restored using ADB binary input, and the onboarding preference hash was verified against the original backup. No other apps were removed.
+- Actual installed-APK LOVE body and both-hand screenshots were inspected at 0.866667 seconds. Closed fingers and straighter crossed wrists are visible. A paused bone audit matches the final bundle to approximately 0.00000171° with no interfering scheduled animation. This capture used the APK's local asset, not an injected candidate. The viewer was restored afterward.
+- No AndroidRuntime/Chromium exception appeared in the collected startup/test log window. This does not prove absence of every possible crash.
+- All 26 alphabet clips are unchanged, with normal NICOLE/ANNA/JAZZ/ACTION and mixed-input playback passing. A new individual visual review of all A–Z letters was not performed in this follow-up. No physical-phone test or qualified ASL validation occurred. Full frame-by-frame linguistic review, thumb/mesh refinement and complete arm-arm collision validation remain outstanding.
+- Main/home and existing Text/Talk input were exercised. Sign-to-Text camera/recognition, database, live accounts, Gemini and voice services were not runtime regression-tested. Their source and UI are unchanged. The build reused the existing public `fake` service configuration; live-service connectivity is not established by these tests.
+
+Evidence remains in the existing `outputs/AppHear-Word-Finger-Fix-Review` folder: `love-wrist-fist-correction.json`, `love-corrected-apk-input-tests-20261012.json`, `closed-fist-runtime-installed-love-corrected.json`, `love-installed-pose-comparison.json`, and `closed-fist-SIGN_LOVE-{Body,Right,Left}-installed-love-corrected.png`. Earlier unsuccessful/neutral diagnostic captures are not final-pose evidence.
+
+No UI, navigation, recognition, camera, model, database, shared settings, Gradle or dependency changes are part of this follow-up. No new vocabulary, avatar, clone, exported APK copy, or GitHub push was added.
+
 The user reported YES as visually acceptable and ME/LOVE as distorted, then provided a LOVE reference showing closed fists crossed over the upper chest. Reference pages: [ME](https://www.lifeprint.com/asl101/pages-signs/m/me.htm), [LOVE](https://www.lifeprint.com/asl101/pages-signs/l/love.htm), [YES](https://www.lifeprint.com/asl101/pages-signs/y/yes.htm). No external media or motion data was packaged.
 
 ## Finding and repair
