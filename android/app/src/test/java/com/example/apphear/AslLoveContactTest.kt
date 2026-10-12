@@ -40,7 +40,7 @@ class AslLoveContactTest {
             }
         }
         val arms=setOf("LeftArm", "LeftForeArm", "LeftHand", "RightArm", "RightForeArm", "RightHand")
-        val fingers=listOf("Left","Right").flatMap { side -> listOf("Index","Middle","Ring","Pinky").flatMap { f ->
+        val fingers=listOf("Left","Right").flatMap { side -> listOf("Thumb","Index","Middle","Ring","Pinky").flatMap { f ->
             (1..3).map { j -> side+"Hand"+f+j }
         } }.toSet()
         assertEquals(arms+fingers, changed)

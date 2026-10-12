@@ -82,7 +82,7 @@ class AslFingerspellingFallbackTest {
         for (key in listOf("nodes","skins","meshes","materials","textures","images","scenes")) assertEquals(old.get(key),g.get(key))
         assertEquals(232,g.getAsJsonArray("animations").size())
         // Explicitly profiled native finger fixes are separately scope-tested.
-        val corrected=setOf("SIGN_LOVE","SIGN_HUSBAND","SIGN_WIFE",
+        val corrected=setOf("SIGN_LOVE","SIGN_I","SIGN_HUSBAND","SIGN_WIFE",
             "SIGN_COOK","SIGN_BECOME","SIGN_MONEY","SIGN_NEW","SIGN_SOME","SIGN_DAY")
         // Compare individually so a failure reports its action, not a multi-MB
         // dump of every track. New repairs have a separate exact-scope test.

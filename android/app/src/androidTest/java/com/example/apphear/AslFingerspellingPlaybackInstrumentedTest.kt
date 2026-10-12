@@ -61,7 +61,7 @@ class AslFingerspellingPlaybackInstrumentedTest {
                 assertSame(viewer, activity.findViewById(R.id.avatarWebView))
             }
             for (text in listOf("NICOLE", "NAME", "YOU", "ANNA", "JAZZ", "ACTION", "HELLO NICOLE",
-                    "LOVE", "HELP", "COOK", "BECOME", "MONEY", "NEW", "SOME", "DAY",
+                    "ME", "YES", "LOVE", "HELP", "COOK", "BECOME", "MONEY", "NEW", "SOME", "DAY",
                     "HELLO LOVE", "MY NAME", "YOUR NAME", "I LOVE YOU")) {
                 val start = SystemClock.uptimeMillis()
                 submit(text)

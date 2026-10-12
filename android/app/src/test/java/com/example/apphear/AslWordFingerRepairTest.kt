@@ -44,7 +44,7 @@ class AslWordFingerRepairTest {
         val profiles=mapOf("SIGN_LOVE" to listOf("Left","Right"),"SIGN_HUSBAND" to listOf("Left"),"SIGN_WIFE" to listOf("Left"))
         assertEquals(profiles.keys,correction.getAsJsonArray("profiles").map { it.asJsonObject.get("animationName").asString }.toSet())
         var repaired=0
-        for((name,sides) in profiles) {
+        for((name,sides) in profiles.filterKeys {it!="SIGN_LOVE"}) {
             val before=animation(old,name);val after=animation(g,name)
             val expected=sides.flatMap { side -> listOf("Index","Middle","Ring","Pinky").flatMap { f -> (1..3).map { j -> side+"Hand"+f+j } } }.toSet()
             before.getAsJsonArray("channels").zip(after.getAsJsonArray("channels")).forEach { (x,y) ->
@@ -67,11 +67,13 @@ class AslWordFingerRepairTest {
                 }
             }
         }
-        assertEquals(48,repaired)
+        assertEquals(24,repaired)
     }
 
-    @Test fun correctedCoreReflectsOnlyBindRelativeFlexionAndKeepsQuaternionsValid() {
-        for(name in listOf("SIGN_LOVE","SIGN_HUSBAND","SIGN_WIFE")) {
+    @Test fun retainedWifeAndHusbandRepairsReflectOnlyBindRelativeFlexionAndKeepQuaternionsValid() {
+        // LOVE's former reflection has been superseded by the scoped YES-pose
+        // repair; its donor and preservation boundary have a separate test.
+        for(name in listOf("SIGN_HUSBAND","SIGN_WIFE")) {
             val before=animation(old,name);val after=animation(g,name)
             before.getAsJsonArray("channels").zip(after.getAsJsonArray("channels")).forEach { (x,y) ->
                 val target=x.asJsonObject.getAsJsonObject("target")
