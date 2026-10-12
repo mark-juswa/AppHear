@@ -12,6 +12,10 @@ args=parser.parse_args()
 android=Path(__file__).resolve().parents[1]
 assert args.before.is_file()
 class Handler(SimpleHTTPRequestHandler):
+    def end_headers(self):
+        # Diagnostics must never compare a corrected file against stale bytes.
+        self.send_header('Cache-Control','no-store')
+        super().end_headers()
     def translate_path(self,url):
         path=unquote(urlparse(url).path)
         fixed={'/before.glb':args.before,

@@ -52,7 +52,15 @@ async function start(s,url,token,name='hello'){
  v=s.viewers.find(x=>x.src==='resident.glb');let loads=0;const originalLoad=v.load;
  v.load=function(n){loads++;originalLoad.call(this,n)};v.load(names);await first;
  const resident=v;
- for(const [index,name] of ['SIGN_LOVE','SIGN_HELLO','SIGN_BEAUTIFUL','SIGN_LETTER_N_WOLF3D_PREVIEW','SIGN_LETTER_A_WOLF3D_PREVIEW','SIGN_LETTER_N_WOLF3D_PREVIEW','SIGN_LETTER_N_WOLF3D_PREVIEW','SIGN_LETTER_A_WOLF3D_PREVIEW','SIGN_LETTER_J_WOLF3D_PREVIEW','SIGN_LETTER_Z_WOLF3D_PREVIEW','SIGN_LETTER_Z_WOLF3D_PREVIEW'].entries()){
+ const letters=text=>[...text].map(c=>'SIGN_LETTER_'+c+'_WOLF3D_PREVIEW');
+ // Exercise every actual action plus the reported regression sequences. The
+ // planner has separate Kotlin tests; this verifies named controller playback.
+ const sequence=[...names.filter(n=>n!=='SIGN_RELAXED_NEUTRAL'),
+   ...letters('NICOLENAMEANNAJAZZACTION'),
+   'SIGN_HELLO','SIGN_LOVE','SIGN_MY','SIGN_CALL__TO_CALL_SOMEONE_S_NAME',
+   'SIGN_YOUR','SIGN_CALL__TO_CALL_SOMEONE_S_NAME','SIGN_HELLO',...letters('NICOLE'),
+   'SIGN_I','SIGN_LOVE','SIGN_YOU_HUMAN_RETARGETED_PREVIEW','SIGN_HELP',...letters('NICOLE')];
+ for(const [index,name] of sequence.entries()){
    const fingerspelling=name.startsWith('SIGN_LETTER_');
    const previous=resident.animationName;resident.operations=[];
    await s.window.playSign('resident.glb',{requestId:11+index,animationName:name,loop:false,fingerspelling});
@@ -68,15 +76,15 @@ async function start(s,url,token,name='hello'){
    }else assert.equal(resident.operations.filter(o=>o[0]==='append').length,0,'lexical/same-letter actions cannot inherit a pose overlay');
    resident.currentTime=2;resident.emit('finished');
  }
- assert.equal(s.calls.filter(c=>c[0]==='onPilotFinished').length,11);
- await s.window.playSign('resident.glb',{requestId:99,animationName:'SIGN_HELLO',neutralFrame:0,pinSource:true});
+ assert.equal(s.calls.filter(c=>c[0]==='onPilotFinished').length,sequence.length);
+ await s.window.playSign('resident.glb',{requestId:1000,animationName:'SIGN_HELLO',neutralFrame:0,pinSource:true});
  assert.equal(resident.animationName,'SIGN_RELAXED_NEUTRAL');
  assert.equal(resident.animationCrossfadeDuration,0);
  assert.equal(resident.detached.options.fade,.22);
  assert.equal(resident.options.repetitions,Infinity);
  assert.equal(resident.playRequest,null,'idle must not advance the queue');
  assert.equal(loads,1);
- assert.equal(s.calls.filter(c=>c[0]==='onPilotFinished').length,11);
- console.log('PASS: one resident viewer, one model load, eleven mixed/repeated word and letter clips and completion callbacks.');
+ assert.equal(s.calls.filter(c=>c[0]==='onPilotFinished').length,sequence.length);
+ console.log('PASS: one resident viewer, one model load, '+sequence.length+' word/letter clips and completion callbacks; every actual action covered.');
  console.log('PASS: early/duplicate/stale completion, named clip identity, ambiguous clip rejection and timeline completion.');
 })().catch(e=>{console.error(e);process.exitCode=1});

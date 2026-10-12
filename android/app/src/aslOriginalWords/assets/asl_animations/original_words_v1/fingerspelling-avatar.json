@@ -5,7 +5,7 @@
   "language": "ASL",
   "avatarProfile": "ORIGINAL_HUMAN",
   "asset": "asl_animations/original_words_v1/fingerspelling-avatar.glb",
-  "sha256": "e83e16d0d0ca1e19777b913304566d8dfcfdd39ed5acaa020846963d6a9d8170",
+  "sha256": "292914132fa3ec325206ac65c347691709364566870a521230187949b46d3bfd",
   "sourceSha256": "645da29f5e8a24dc7da2f4b6e23ca2e87fb91254958f5053ba0281080ec0a524",
   "status": "UNREVIEWED_RETARGETED_PREVIEW",
   "source": "Existing AppHear FemaleASL alphabet; motion rights/provenance unresolved",
@@ -856,5 +856,133 @@
     "anatomicalFrameError": 1.0769163338864018e-13,
     "qualifiedAslValidation": false,
     "sourceGeometryUnchanged": true
+  },
+  "flatBaseHandCorrection": {
+    "status": "UNREVIEWED_REFERENCE_GUIDED_FLAT_BASE_HAND_REPAIR",
+    "sourceSha256": "e83e16d0d0ca1e19777b913304566d8dfcfdd39ed5acaa020846963d6a9d8170",
+    "profiles": [
+      {
+        "animationName": "SIGN_COOK",
+        "side": "Left",
+        "reference": "https://www.lifeprint.com/asl101/pages-signs/c/cook.htm",
+        "reason": "Base palm supports the turning dominant flat hand; backward PIP/DIP curls prevent a flat supporting surface.",
+        "correctedNodes": [
+          "LeftHandIndex1",
+          "LeftHandIndex2",
+          "LeftHandIndex3",
+          "LeftHandMiddle1",
+          "LeftHandMiddle2",
+          "LeftHandMiddle3",
+          "LeftHandRing1",
+          "LeftHandRing2",
+          "LeftHandRing3",
+          "LeftHandPinky1",
+          "LeftHandPinky2",
+          "LeftHandPinky3"
+        ]
+      },
+      {
+        "animationName": "SIGN_BECOME",
+        "side": "Left",
+        "reference": "https://www.lifeprint.com/asl101/pages-signs/b/become.htm",
+        "reason": "Reference specifies two flat hands reversing orientation; left PIP/DIP back-bends contradict that surface.",
+        "correctedNodes": [
+          "LeftHandIndex1",
+          "LeftHandIndex2",
+          "LeftHandIndex3",
+          "LeftHandMiddle1",
+          "LeftHandMiddle2",
+          "LeftHandMiddle3",
+          "LeftHandRing1",
+          "LeftHandRing2",
+          "LeftHandRing3",
+          "LeftHandPinky1",
+          "LeftHandPinky2",
+          "LeftHandPinky3"
+        ]
+      },
+      {
+        "animationName": "SIGN_MONEY",
+        "side": "Left",
+        "reference": "https://www.lifeprint.com/asl101/pages-signs/m/money.htm",
+        "reason": "Preserve dominant flattened-O and taps; remove backward curls only in the receiving base hand.",
+        "correctedNodes": [
+          "LeftHandIndex1",
+          "LeftHandIndex2",
+          "LeftHandIndex3",
+          "LeftHandMiddle1",
+          "LeftHandMiddle2",
+          "LeftHandMiddle3",
+          "LeftHandRing1",
+          "LeftHandRing2",
+          "LeftHandRing3",
+          "LeftHandPinky1",
+          "LeftHandPinky2",
+          "LeftHandPinky3"
+        ]
+      },
+      {
+        "animationName": "SIGN_NEW",
+        "side": "Left",
+        "reference": "https://www.lifeprint.com/asl101/pages-signs/n/new.htm",
+        "reason": "Preserve dominant skimming trajectory; base palm must remain an open supporting surface.",
+        "correctedNodes": [
+          "LeftHandIndex1",
+          "LeftHandIndex2",
+          "LeftHandIndex3",
+          "LeftHandMiddle1",
+          "LeftHandMiddle2",
+          "LeftHandMiddle3",
+          "LeftHandRing1",
+          "LeftHandRing2",
+          "LeftHandRing3",
+          "LeftHandPinky1",
+          "LeftHandPinky2",
+          "LeftHandPinky3"
+        ]
+      },
+      {
+        "animationName": "SIGN_SOME",
+        "side": "Left",
+        "reference": "https://www.lifeprint.com/asl101/pages-signs/s/some.htm",
+        "reason": "Preserve dominant slicing motion and stationary base hand; remove backward curls in the receiving surface.",
+        "correctedNodes": [
+          "LeftHandIndex1",
+          "LeftHandIndex2",
+          "LeftHandIndex3",
+          "LeftHandMiddle1",
+          "LeftHandMiddle2",
+          "LeftHandMiddle3",
+          "LeftHandRing1",
+          "LeftHandRing2",
+          "LeftHandRing3",
+          "LeftHandPinky1",
+          "LeftHandPinky2",
+          "LeftHandPinky3"
+        ]
+      },
+      {
+        "animationName": "SIGN_DAY",
+        "side": "Left",
+        "reference": "https://www.lifeprint.com/asl101/pages-signs/d/day.htm",
+        "reason": "Keep horizontal base forearm/hand and dominant sweeping index; remove reverse curls only in base PIP/DIP joints.",
+        "correctedNodes": [
+          "LeftHandIndex1",
+          "LeftHandIndex2",
+          "LeftHandIndex3",
+          "LeftHandMiddle1",
+          "LeftHandMiddle2",
+          "LeftHandMiddle3",
+          "LeftHandRing1",
+          "LeftHandRing2",
+          "LeftHandRing3",
+          "LeftHandPinky1",
+          "LeftHandPinky2",
+          "LeftHandPinky3"
+        ]
+      }
+    ],
+    "qualifiedASLValidation": false,
+    "method": "Scoped bind-relative straight-finger pose in six reference-required flat base hands; no runtime constraints; source endpoints/times, thumbs, dominant hands and all other joints preserved"
   }
 }

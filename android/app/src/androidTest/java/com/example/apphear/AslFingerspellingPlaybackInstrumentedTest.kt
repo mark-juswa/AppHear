@@ -1,6 +1,7 @@
 package com.example.apphear
 
 import android.os.SystemClock
+import android.content.Intent
 import android.view.View
 import android.widget.EditText
 import android.widget.TextView
@@ -22,9 +23,12 @@ class AslFingerspellingPlaybackInstrumentedTest {
         // Avoid startActivitySync's global-idle gate: an animated WebView and
         // the device's speech-service activity need not make the main queue idle.
         val monitor = i.addMonitor(MainActivity::class.java.name, null, false)
-        // Use the exported launcher as a foreground shell request. Some phones
-        // deny background startActivity from an instrumentation-owned process.
-        i.uiAutomation.executeShellCommand("am start -n com.example.apphear/.SplashActivity").close()
+        // Splash can route a fresh emulator to onboarding/login, not MainActivity.
+        // Launch inside the instrumented app on its main thread; this tests the
+        // existing Text-to-Sign screen without changing the production launcher.
+        i.runOnMainSync {
+            context.startActivity(Intent(context, MainActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK))
+        }
         val activity = i.waitForMonitorWithTimeout(monitor, 20_000) as? MainActivity
             ?: throw AssertionError("MainActivity did not open")
         i.removeMonitor(monitor)
@@ -56,7 +60,9 @@ class AslFingerspellingPlaybackInstrumentedTest {
                 assertTrue(activity.findViewById<View>(R.id.sign_it_button).performClick())
                 assertSame(viewer, activity.findViewById(R.id.avatarWebView))
             }
-            for (text in listOf("NICOLE", "NAME", "YOU", "YOU ALL", "ALL OF YOU", "MOM", "DAD", "OKAY", "ANNA", "JAZZ", "HELLO NICOLE", "LOVE", "HELP")) {
+            for (text in listOf("NICOLE", "NAME", "YOU", "ANNA", "JAZZ", "ACTION", "HELLO NICOLE",
+                    "LOVE", "HELP", "COOK", "BECOME", "MONEY", "NEW", "SOME", "DAY",
+                    "HELLO LOVE", "MY NAME", "YOUR NAME", "I LOVE YOU")) {
                 val start = SystemClock.uptimeMillis()
                 submit(text)
                 val result = await("$text completes") { it.contains("Complete") }
