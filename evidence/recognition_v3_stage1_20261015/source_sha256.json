@@ -1,0 +1,11 @@
+{
+  "android/app/build.gradle.kts": "77b85a67f01d41d62ad78d04469f6b8affbdf6e2386bba0b85aeb4cf49a8af3a",
+  "android/app/src/main/java/com/example/apphear/perceptionvnext/Candidate01FrameAnalyzer.kt": "23b1ffa338584eb2a5547d09b5ca4285f79db82ffe0c7e43e0bfc1bbcfc0bc15",
+  "android/app/src/main/java/com/example/apphear/perceptionvnext/CurrentFrameHandPair.kt": "c2e5c50ad34e0637c5d01d9a53706ec6416a82b90cba4cda2f69f836707f3fcf",
+  "android/app/src/main/java/com/example/apphear/perceptionvnext/PerceptionVNextNativePreprocessor.kt": "bbfc0d9a2d62d00d94a58bf7347e1f0c444a0478eeb5deb78a00901d12db6eb8",
+  "android/app/src/test/java/com/example/apphear/perceptionvnext/CurrentFrameHandPairTest.kt": "318d1a2248922a7dae740dc704a7f1b85e9978b00abe05dc89e0d111da935237",
+  "android/app/src/androidTest/java/com/example/apphear/perceptionvnext/ParallelHandRefinerInstrumentedTest.kt": "d25a636b6c5bc948e5e95282bb05a12fba765c32d5898a932ecb56d022e5d58a",
+  "tools/recognition_v3/build_stage1.ps1": "f0ddf6a362352ca301f861232717e04a4dc87f6d9998872fc71b4f474f0cdb12",
+  "tools/recognition_v3/compare_hand_scheduling.py": "aec33782135fafef8b7de4bba2bce69ce2f52940761bf7489f3d7b2367684ce6",
+  "tools/recognition_v3/summarize_trace.py": "969289fe88979f36c6a8cf4706b49d08c2ba39ec08d7d6bd1e3d4cdc591ba5b9"
+}

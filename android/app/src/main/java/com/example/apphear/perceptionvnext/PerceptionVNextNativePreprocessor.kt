@@ -79,11 +79,11 @@ internal class PerceptionVNextNativePreprocessor(image: ImageProxy) : AutoClosea
         poseInput.rewind()
     }
 
-    fun crop(roi: PerceptionVNextMath.HandRoi): ByteBuffer {
+    fun crop(roi: PerceptionVNextMath.HandRoi, output: ByteBuffer = handInput): ByteBuffer {
         check(handle != 0L)
-        PerceptionVNextNative.crop(handle, roi.centerX, roi.centerY, roi.side, handInput)
-        handInput.rewind()
-        return handInput
+        PerceptionVNextNative.crop(handle, roi.centerX, roi.centerY, roi.side, output)
+        output.rewind()
+        return output
     }
 
     override fun close() {

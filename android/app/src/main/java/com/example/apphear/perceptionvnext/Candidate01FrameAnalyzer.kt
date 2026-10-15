@@ -3,6 +3,7 @@ package com.example.apphear.perceptionvnext
 import android.content.Context
 import android.os.SystemClock
 import android.util.Log
+import com.example.apphear.BuildConfig
 import androidx.camera.core.ImageProxy
 import com.example.apphear.pipeline.CloseableFrameAnalyzer
 import com.example.apphear.pipeline.FpsTracker
@@ -25,10 +26,23 @@ internal class Candidate01FrameAnalyzer(
         val proposalPresent: Boolean,
         val proposalSupport: FloatArray,
         val roi: PerceptionVNextMath.HandRoi?,
+        val cropMs: Double = 0.0,
+        val inferenceMs: Double = 0.0,
     )
 
     private val poseRunner = DWPoseTRunner(context)
     private val handRunner = HandRefinerRunner(context)
+    private val parallelHands = BuildConfig.RECOGNITION_V3_PARALLEL_HANDS_ENABLED
+    private val rightHandRunner = try {
+        if (parallelHands) HandRefinerRunner(context) else null
+    } catch (error: Throwable) {
+        handRunner.close()
+        poseRunner.close()
+        throw error
+    }
+    private val handPair = if (parallelHands) CurrentFrameHandPair() else null
+    private val rightHandInput = if (parallelHands) java.nio.ByteBuffer
+        .allocateDirect(224 * 224 * 3 * 4).order(java.nio.ByteOrder.nativeOrder()) else null
     private val fps = FpsTracker()
     private var preprocessor: PerceptionVNextNativePreprocessor? = null
     private var lastTimestampNs = Long.MIN_VALUE
@@ -36,6 +50,7 @@ internal class Candidate01FrameAnalyzer(
     private var lastDecoderState: PhoneDecoderState? = null
     private var closed = false
     private var failed = false
+    private var profileCount = 0
 
     @Synchronized
     override fun analyze(image: ImageProxy) {
@@ -51,9 +66,23 @@ internal class Candidate01FrameAnalyzer(
                     preprocessor = replacement
                 }
             prepared.preprocess(image)
+            val preprocessEnded = SystemClock.elapsedRealtimeNanos()
             val pose = poseRunner.run(prepared.poseInput, prepared.transform)
-            val left = runHand(prepared, pose.decoded, PerceptionVNextMath.LEFT_HAND_START)
-            val right = runHand(prepared, pose.decoded, PerceptionVNextMath.RIGHT_HAND_START)
+            val handsStarted = SystemClock.elapsedRealtimeNanos()
+            // Native crop is read-only on the current frame; each task writes its own buffer.
+            // One-hand frames stay serial, without a task handoff or a second inference.
+            val bothProposed = handPair != null && listOf(
+                PerceptionVNextMath.LEFT_HAND_START, PerceptionVNextMath.RIGHT_HAND_START,
+            ).all { PerceptionVNextMath.handRoi(pose.decoded, it, prepared.transform) != null }
+            val (left, right) = if (bothProposed) requireNotNull(handPair).run(
+                { runHand(prepared, pose.decoded, PerceptionVNextMath.LEFT_HAND_START) },
+                { runHand(prepared, pose.decoded, PerceptionVNextMath.RIGHT_HAND_START,
+                    requireNotNull(rightHandRunner), requireNotNull(rightHandInput)) },
+            ) else Pair(
+                runHand(prepared, pose.decoded, PerceptionVNextMath.LEFT_HAND_START),
+                runHand(prepared, pose.decoded, PerceptionVNextMath.RIGHT_HAND_START),
+            )
+            val handsEnded = SystemClock.elapsedRealtimeNanos()
             val bodyXy = FloatArray(16)
             val bodySupport = FloatArray(8)
             val bodyValid = BooleanArray(8)
@@ -85,6 +114,7 @@ internal class Candidate01FrameAnalyzer(
                 bodySupport = bodySupport,
                 bodyValid = bodyValid,
                 bodyAvailable = supported >= 6,
+                candidatePreprocessMs = (preprocessEnded - started) / 1_000_000.0,
                 candidatePoseInferenceMs = pose.inferenceMs,
                 candidatePoseDecodeMs = pose.decodeMs,
                 candidateTotalMs = (SystemClock.elapsedRealtimeNanos() - started) / 1_000_000.0,
@@ -120,6 +150,34 @@ internal class Candidate01FrameAnalyzer(
                 phoneSentence = session.sentenceText,
                 recognitionEvidence = update?.evidence,
             ))
+            val completedNs = SystemClock.elapsedRealtimeNanos()
+            if (BuildConfig.RECOGNITION_V3_PROFILE_ENABLED && profileCount++ < 240) {
+                // Bounded opt-in trace, identical in both A/B arms. No arrays/tensors retained.
+                Log.i("AppHearV3", org.json.JSONObject()
+                    .put("schema_version", "apphear.perception_v3_timing.v1")
+                    .put("v3_parallel_hands", parallelHands).put("hands_parallel_this_frame", bothProposed)
+                    .put("source_index", observation.sourceIndex)
+                    .put("capture_timestamp_ns", timestampNs)
+                    .put("completed_timestamp_ns", completedNs)
+                    .put("source_width", observation.sourceWidth).put("source_height", observation.sourceHeight)
+                    .put("rotation_degrees", image.imageInfo.rotationDegrees)
+                    .put("newly_measured", true).put("reused", false)
+                    .put("owner", if (spellingOwner) "FINGERSPELL" else "WORD")
+                    .put("preprocess_ms", observation.candidatePreprocessMs)
+                    .put("pose_inference_and_output_ms", pose.inferenceMs)
+                    .put("pose_decode_ms", pose.decodeMs)
+                    .put("hand_crop_ms", left.cropMs + right.cropMs)
+                    .put("hand_inference_ms", left.inferenceMs + right.inferenceMs)
+                    .put("hands_wall_ms", (handsEnded - handsStarted) / 1_000_000.0)
+                    .put("perception_ms", observation.candidateTotalMs)
+                    .put("analyzer_ms", (completedNs - started) / 1_000_000.0)
+                    .put("body_valid_points", supported)
+                    .put("hands_observed", listOf(left, right).count { it.observed })
+                    .put("hand_valid_points", left.valid.count { it } + right.valid.count { it })
+                    .put("java_heap_bytes", Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory())
+                    .put("native_heap_bytes", android.os.Debug.getNativeHeapAllocatedSize())
+                    .toString())
+            }
         } catch (error: Throwable) {
             failed = true
             Log.e(TAG, "Causal recognition stopped; legacy fallback is disabled", error)
@@ -133,14 +191,19 @@ internal class Candidate01FrameAnalyzer(
         prepared: PerceptionVNextNativePreprocessor,
         decoded: PerceptionVNextMath.Decoded,
         start: Int,
+        runner: HandRefinerRunner = handRunner,
+        output: java.nio.ByteBuffer = prepared.handInput,
     ): HandFrame {
         val support = FloatArray(21) { decoded.support[start + it] }
         val roi = PerceptionVNextMath.handRoi(decoded, start, prepared.transform)
             ?: return HandFrame(FloatArray(42), BooleanArray(21), false,
                 Float.NaN, false, support, null)
-        val result = handRunner.run(prepared.crop(roi), roi)
+        val cropStarted = SystemClock.elapsedRealtimeNanos()
+        val crop = prepared.crop(roi, output)
+        val cropMs = (SystemClock.elapsedRealtimeNanos() - cropStarted) / 1_000_000.0
+        val result = runner.run(crop, roi)
         return HandFrame(result.xySource, result.valid, result.observed, result.presence,
-            true, support, roi)
+            true, support, roi, cropMs, result.inferenceMs)
     }
 
     private fun roiValues(roi: PerceptionVNextMath.HandRoi?): FloatArray =
@@ -159,7 +222,9 @@ internal class Candidate01FrameAnalyzer(
     override fun close() {
         if (closed) return
         closed = true
+        handPair?.close()
         preprocessor?.close()
+        rightHandRunner?.close()
         handRunner.close()
         poseRunner.close()
     }

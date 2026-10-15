@@ -1,0 +1,46 @@
+{
+  "base_commit": "4c99ac24ebe7d1d1371a7268288df43df08f8d6b",
+  "protected_commit": "76d93cecd85bf9f76064d320aa4a5791b5f0704a",
+  "apks": {
+    "app-debug-baseline-androidTest.apk": {
+      "sha256": "e3d71b2a73f41cbb77d23e67db60b2a96d4cfbe0918d789c8075247e8c362a86",
+      "bytes": 33577802
+    },
+    "app-debug-baseline.apk": {
+      "sha256": "5aa262c6b21a1e0675b4f2fc69ad7b13102fb5011e12babcdc02d252e011990a",
+      "bytes": 822576858
+    },
+    "app-debug-v3-androidTest.apk": {
+      "sha256": "d979d665000881264c90c9d30a5431d9d02b65e1364336e1ae3ce5c62312b3c4",
+      "bytes": 33579127
+    },
+    "app-debug-v3.apk": {
+      "sha256": "24d403c2eca200338574d97e05bd398992fa410e51e4bdaea70996003d1be673",
+      "bytes": 822576866
+    }
+  },
+  "jvm_tests": {
+    "baseline": {
+      "tests": 191,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "v3": {
+      "tests": 191,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "host_fingerspelling_tests": 53,
+  "identical_packaged_assets_and_native_libraries": 465,
+  "protected_source_diff": [],
+  "source_manifest_sha256": "5448eb98e07f39742251bc1ab4345d2478e188313f0989f72ab9fbbebc38438a",
+  "device": "NONE_CONNECTED",
+  "android_instrumentation": "COMPILED_NOT_RUN",
+  "phone_fps": "NOT_TESTED",
+  "phone_memory": "NOT_TESTED",
+  "recognition_accuracy": "UNVERIFIED",
+  "host_runtime": "TensorFlow 2.21.0 / NumPy 2.4.6 / Windows CPU; Android remains TFLite 2.16.1"
+}

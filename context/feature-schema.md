@@ -1,5 +1,26 @@
 # Feature / Schema Contract
 
+## Recognition V3 Stage 1 component — 2026-10-15
+
+`CurrentFrameHandPair` (`android/app/src/main/java/com/example/apphear/perceptionvnext/`)
+overlaps the two current-frame hand crop/refiner calls only when both existing DWPose proposals
+exist. `recognitionV3ParallelHands=true` is debug opt-in; default/release remain serial.
+One bounded worker, two distinct CPU/XNNPACK interpreter owners (unchanged two threads each),
+and separate 602,112-byte input buffers are mandatory. `run()` drains both operations, including
+on failure/interruption, before any observation delivery, buffer reuse, frame close or native
+handle destruction. No frame queue, tracking, hold, synthetic landmarks or pose cadence change.
+
+The raw-v1, S2 378, Recognition V2 350 and fingerspelling Adapter v1 405 contracts are unchanged;
+no new model representation or compatibility adapter is introduced. Native crop math, DWPose,
+hand models, ROI/presence/validity/handedness decisions and all downstream feature math stay frozen.
+The optional caller-owned output in `PerceptionVNextNativePreprocessor.crop` must never alias
+another concurrently executing crop. The JNI kernel reads the immutable current-frame raw image.
+
+`recognitionV3Profile=true` adds at most 240 genuine-observation timing rows per analyzer under
+`apphear.perception_v3_timing.v1`; this is diagnostic metadata, never model input. Capture identity
+and completion clock are separate. Phone FPS, full Android parity and recognition accuracy remain
+unverified. See `docs/recognition-v3-stage1-2026-10-15.md` and its compact evidence.
+
 *(This file occupies the `ui-registry.md` slot in the Context System convention. Like the UI
 registry, it is a **living document**: it starts with the baseline contract and is updated —
 via `/imprint` — every time the feature contract or a reusable pipeline/runtime component

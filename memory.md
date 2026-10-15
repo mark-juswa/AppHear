@@ -1295,3 +1295,37 @@ Recognition remains experimental; this baseline does not certify A–Z accuracy.
 ## Original word batch delivery — 2026-10-09
 
 273-entry Original catalog installed as flagged private debug extension: 32 ZIP replacements, 171 additions, STAND excluded/idle retained. 186 host tests and 2 device playback/catalog tests passed; ownership regression passed separately after combined window-focus timeout. Recognition and New Character remain untouched. Authoritative app checkout: C:/Users/Gigabyte/.codex/worktrees/fingerspell-continuous-oct05/5. Apphear3; branch codex/original-character-word-batch-2026-10-09. Frozen baseline remains 34f24ab6d7aea8179decb1688a82fc5734f6d370. See context/text-to-asl-original-words-v1.md. Mixed avatars and all-clips ASL correctness remain review limitations; no baseline commit/push performed. Next: supervisor reviews actual Original playback and appearance; do not change recognition.
+
+# Memory — Recognition V3 Stage 1 implementation, 2026-10-15
+
+Last updated: 2026-10-15 (Asia/Manila)
+
+## What was built
+Isolated codex/recognition-v3-stage1 at C:/Users/Gigabyte/.codex/worktrees/recognition-v3-stage1/5. Apphear3,
+from canonical integrated 4c99ac24. Concurrent current-frame hand refinement is debug/default-off.
+Matched integrated baseline/V3 app and test APKs, real recorded-input host comparison, bounded
+stage tracing and compiled Android pixel/model parity gate are delivered. See the V3 report.
+
+## Decisions made
+Stage 1 only. Preserve cloud SONAR/Uni-Sign and all Stage 2/3 work independently. Neural inference
+is the supported bottleneck; overlap two refiners without changing models, ROI/validity/ownership
+or dropping perception evidence. Keep the candidate experimental until actual phone gates pass.
+
+## Problems solved
+Independent buffers/interpreters and failure/interruption drain protect native/frame lifetimes.
+No phone connected. No infrastructure-repair or training cycle was started.
+
+## Current state
+IMPLEMENTED_HOST_PARITY_PASS_DEVICE_GATE_PENDING. 51 recorded frames/255 hand comparisons have
+zero bitwise differences. Host two-hand p50/p95: serial8.5389/9.6632ms, concurrent5.0619/6.47986ms.
+Both integrated builds pass191 JVM tests;53 host fingerspelling regressions pass.465 packaged
+assets/native libraries match. Phone FPS/PSS/accuracy and Android instrumentation are NOT TESTED.
+
+## Next session starts with
+Run ParallelHandRefinerInstrumentedTest on a real Android phone using the saved matching app/test
+APKs, then the bounded matched WORD/FINGERSPELL/lens captures described in the report. Preserve
+baseline APK/commits and keep Stage2 unstarted until the phone result is reviewed.
+
+## Open questions
+Does phone CPU contention and the extra interpreter arena offset the two-hand overlap? Does net
+genuine delivery improve without WORD/FINGERSPELL regressions? No ASL accuracy improvement is claimed.

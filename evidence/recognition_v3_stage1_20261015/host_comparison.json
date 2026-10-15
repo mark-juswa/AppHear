@@ -1,0 +1,80 @@
+{
+  "schema_version": "apphear.v3.host_hand_scheduling.v1",
+  "model_sha256": "6acda74af3fbf40e68265c20c7394b2bad81a16a481dcd79ad7a081887c3d6b9",
+  "source_manifest_sha256": "13f750f9998a321b494f1f49efa10a9bf423babbdf39771d471745867b56531a",
+  "scope": "Windows CPU refiner scheduling only; identical precomputed crops/ROIs",
+  "frames": 51,
+  "conditions": {
+    "C0_EMPTY_FRAME_NO_PERSON/proposals_0": 2,
+    "C1_PERSON_HANDS_DOWN/proposals_1": 2,
+    "C1_PERSON_HANDS_DOWN/proposals_2": 1,
+    "C1_PERSON_HANDS_DOWN/proposals_0": 2,
+    "C2_LEFT_HAND_ONLY/proposals_2": 2,
+    "C2_LEFT_HAND_ONLY/proposals_0": 2,
+    "C2_LEFT_HAND_ONLY/proposals_1": 2,
+    "C3_RIGHT_HAND_ONLY/proposals_0": 2,
+    "C3_RIGHT_HAND_ONLY/proposals_1": 2,
+    "C3_RIGHT_HAND_ONLY/proposals_2": 2,
+    "C4_BOTH_WIDELY_SEPARATED/proposals_0": 2,
+    "C4_BOTH_WIDELY_SEPARATED/proposals_2": 2,
+    "C5_BOTH_HANDS_CROSSING/proposals_1": 2,
+    "C5_BOTH_HANDS_CROSSING/proposals_2": 2,
+    "C5_BOTH_HANDS_CROSSING/proposals_0": 1,
+    "C6L_HAND_NEAR_FACE_LEFT/proposals_0": 2,
+    "C6L_HAND_NEAR_FACE_LEFT/proposals_1": 1,
+    "C6L_HAND_NEAR_FACE_LEFT/proposals_2": 2,
+    "C6R_HAND_NEAR_FACE_RIGHT/proposals_0": 2,
+    "C6R_HAND_NEAR_FACE_RIGHT/proposals_1": 2,
+    "C7L_HAND_NEAR_TORSO_LEFT/proposals_1": 2,
+    "C7L_HAND_NEAR_TORSO_LEFT/proposals_2": 2,
+    "C7R_HAND_NEAR_TORSO_RIGHT/proposals_1": 2,
+    "C7R_HAND_NEAR_TORSO_RIGHT/proposals_2": 2,
+    "C8_FINGER_ARTICULATION/proposals_1": 2,
+    "C8_FINGER_ARTICULATION/proposals_0": 2,
+    "C8_FINGER_ARTICULATION/proposals_2": 2
+  },
+  "repeats": 5,
+  "compared_hand_outputs": 255,
+  "bitwise_output_mismatches": 0,
+  "by_hand_count": {
+    "0": {
+      "serial": {
+        "n": 85,
+        "p50_ms": 0.0012,
+        "p95_ms": 0.0029799999999999996
+      },
+      "parallel": {
+        "n": 85,
+        "p50_ms": 0.0038,
+        "p95_ms": 0.00658
+      }
+    },
+    "1": {
+      "serial": {
+        "n": 85,
+        "p50_ms": 4.2079,
+        "p95_ms": 5.0891399999999996
+      },
+      "parallel": {
+        "n": 85,
+        "p50_ms": 4.1682,
+        "p95_ms": 5.10384
+      }
+    },
+    "2": {
+      "serial": {
+        "n": 85,
+        "p50_ms": 8.5389,
+        "p95_ms": 9.6632
+      },
+      "parallel": {
+        "n": 85,
+        "p50_ms": 5.0619,
+        "p95_ms": 6.479859999999999
+      }
+    }
+  },
+  "phone_fps": "NOT_TESTED",
+  "word_accuracy": "NOT_TESTED",
+  "fingerspell_accuracy": "NOT_TESTED"
+}

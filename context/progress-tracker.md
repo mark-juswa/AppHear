@@ -16,6 +16,29 @@ provisioning remain open; no automatic new experiment is authorized. See docs/te
 
 # Progress Tracker
 
+**2026-10-15 — Recognition V3 Stage 1 implemented; phone validation pending.**
+Isolated `codex/recognition-v3-stage1` starts at canonical integrated
+`4c99ac24ebe7d1d1371a7268288df43df08f8d6b`; protected `76d93cec` and the canonical
+checkout remain intact. User authorization supersedes historical prohibitions on perception work
+only for this bounded Stage 1; cloud SONAR/Uni-Sign research and Stage 2/3 remain separate.
+
+- [x] Inspected CameraX, native preprocessing, DWPose and refiner execution. Historical native
+  profile supports neural inference as largest cost (DWPose ~80 ms, each serial refiner ~51 ms).
+- [x] Implemented default-off concurrent current-frame hand refinement with independent
+  interpreter/buffer owners, bounded scheduling and failure/interruption drain.
+- [x] Recorded-input Windows CPU comparison: 51 frames, 255 hand-output comparisons,
+  zero bitwise differences; two-hand refiner p50 8.5389→5.0619 ms, p95 9.6632→6.47986 ms.
+  This is host scheduling/semantic evidence, not phone cadence or ASL accuracy.
+- [x] Initial Android debug build/JVM gate passed 191 tests; 53 focused host fingerspelling
+  regressions passed. Matched integrated builds and final hashes are in the report/evidence.
+- [ ] Android recorded-pixel/model parity, matched front/rear WORD/FINGERSPELL device runs,
+  sensor drops, PSS/thermal and end-to-end held-out recognition remain NOT TESTED (no device).
+
+No S2-R2, Admission, materializer, Recognition V2, SentenceBuilder, FS policy/model, UI or asset
+change. Default/release optimization remains off. Review outcome: retain experimental candidate;
+do not promote as a phone performance or recognition accuracy improvement. Next action is the
+bounded device gate in `docs/recognition-v3-stage1-2026-10-15.md`, before Stage 2.
+
 **CURRENT STATUS 2026-09-28 — `DIAGNOSTIC_TOOLING_READY_WAIT_FOR_AB_CAPTURE`:**
 `APPHEAR_CONTINUOUS_TRANSITION_AND_READINESS_01` is implemented on
 `dev/continuous-transition-diagnostics` from protected baseline `76d93cecd85bf9f76064d320aa4a5791b5f0704a`.

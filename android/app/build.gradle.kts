@@ -4,6 +4,10 @@ plugins {
 }
 
 android {
+    val recognitionV3ParallelHands = providers.gradleProperty("recognitionV3ParallelHands")
+        .map { it.equals("true", ignoreCase = true) }.getOrElse(false)
+    val recognitionV3Profile = providers.gradleProperty("recognitionV3Profile")
+        .map { it.equals("true", ignoreCase = true) }.getOrElse(false)
     val aslOriginalWords = providers.gradleProperty("aslOriginalWords")
         .map { it.equals("true", ignoreCase = true) }.getOrElse(false)
     val profileAccounts = providers.gradleProperty("profileAccounts")
@@ -141,6 +145,8 @@ android {
 
     buildTypes {
         debug {
+            buildConfigField("boolean", "RECOGNITION_V3_PARALLEL_HANDS_ENABLED", recognitionV3ParallelHands.toString())
+            buildConfigField("boolean", "RECOGNITION_V3_PROFILE_ENABLED", recognitionV3Profile.toString())
             buildConfigField("boolean", "ASL_ORIGINAL_WORDS_ENABLED", aslOriginalWords.toString())
             buildConfigField("boolean", "RECOGNITION_REAR_CAMERA_ENABLED", recognitionRearCamera.toString())
             buildConfigField("boolean", "RECOGNITION_COORDINATION_ENABLED", (recognitionCoordination && fingerspellDebug && fingerspellContinuous && contextPhraseAssistDebug).toString())
@@ -177,6 +183,8 @@ android {
             )
         }
         release {
+            buildConfigField("boolean", "RECOGNITION_V3_PARALLEL_HANDS_ENABLED", "false")
+            buildConfigField("boolean", "RECOGNITION_V3_PROFILE_ENABLED", "false")
             buildConfigField("boolean", "ASL_ORIGINAL_WORDS_ENABLED", "false")
             buildConfigField("boolean", "RECOGNITION_REAR_CAMERA_ENABLED", "false")
             buildConfigField("boolean", "RECOGNITION_COORDINATION_ENABLED", "false")
@@ -228,6 +236,9 @@ android {
     }
     if (aslOriginalWords) {
         sourceSets.getByName("debug").assets.srcDir("src/aslOriginalWords/assets")
+    }
+    providers.gradleProperty("recognitionV3FixtureDir").orNull?.let {
+        sourceSets.getByName("androidTest").assets.srcDir(it)
     }
     if (fingerspellDebug) {
         val fingerspellArtifacts = providers.gradleProperty("fingerspellArtifactDir")
