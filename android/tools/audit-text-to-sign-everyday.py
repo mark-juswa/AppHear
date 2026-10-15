@@ -7,13 +7,16 @@ c=importlib.util.module_from_spec(s);s.loader.exec_module(c)
 before,candidate,report=map(Path,sys.argv[1:4])
 a,b=c.hands.Model(before),c.hands.Model(candidate)
 registry=json.loads(candidate.with_suffix('.json').read_text())
-assert hashlib.sha256(before.read_bytes()).hexdigest()==registry['everydayExpansion']['baselineSha256']
+audit_key=sys.argv[4] if len(sys.argv)>4 else 'everydayExpansion'
+audit=registry[audit_key];preserved=audit['preservedActions'];added=audit['newLexicalActions']
+assert hashlib.sha256(before.read_bytes()).hexdigest()==audit['baselineSha256']
 assert hashlib.sha256(candidate.read_bytes()).hexdigest()==registry['sha256']
-assert b.g['animations'][:232]==a.g['animations']
+assert len(a.g['animations'])==preserved
+assert b.g['animations'][:preserved]==a.g['animations']
 assert b.binary[:a.g['buffers'][0]['byteLength']]==a.binary[:a.g['buffers'][0]['byteLength']]
 for k in ['nodes','skins','meshes','materials','textures','images','scenes']:assert a.g[k]==b.g[k],k
 mesh=c.ContactMesh(b);results=[]
-for e in registry['wordAdditions'][-10:]:
+for e in registry['wordAdditions'][-added:]:
  tracks=b.tracks(e['animationName']);duration=max(t['times'][-1] for t in tracks)
  for t in tracks:
   assert np.isfinite(t['values']).all() and np.all(np.diff(t['times'])>0)
@@ -31,7 +34,7 @@ for e in registry['wordAdditions'][-10:]:
    maxForearmFrontSurfaceDepthMm=float(np.max(np.array(depths)[:,1])*1000),
    rightIndexPinkySpanMeters=np.linalg.norm(handspread,axis=1).tolist(),qualifiedAslValidation=False))
  print(e['id'],results[-1]['maxHandFrontSurfaceDepthMm'],flush=True)
-result=dict(bundleSha256=registry['sha256'],existingActionsPreserved=232,newActions=10,geometryAndSkinUnchanged=True,
+result=dict(bundleSha256=registry['sha256'],existingActionsPreserved=preserved,newActions=added,geometryAndSkinUnchanged=True,
   qualifiedAslValidations=0,checks=results,collisionLimit='Front torso/face projection only; not full mesh collision or linguistic evaluation')
 report.write_text(json.dumps(result,indent=2)+'\n')
 # Complete active word inventory: asset presence is separate from visual and
@@ -51,6 +54,7 @@ for e in registry['wordAdditions']:
    animationExists=e['animationName'] in b.animations,newInThisBatch=e['id'] in {p['id'] for p in results},
    visualReviewThisBatch='See Android capture report' if e['id'] in {p['id'] for p in results} else 'Not repeated',
    linguisticValidation='UNREVIEWED'))
-assert len(inventory)==216 and len({e['id'] for e in inventory})==216
-with report.with_name('everyday-ten-vocabulary-inventory.csv').open('w',newline='',encoding='utf-8') as f:
+expected=len(original['replacements'])+len(original['newClips'])+len(registry['wordAdditions'])
+assert len(inventory)==expected and len({e['id'] for e in inventory})==expected
+with report.with_name(report.stem+'-inventory.csv').open('w',newline='',encoding='utf-8') as f:
  writer=csv.DictWriter(f,fieldnames=list(inventory[0]));writer.writeheader();writer.writerows(inventory)

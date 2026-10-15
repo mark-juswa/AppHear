@@ -5,7 +5,7 @@
   "language": "ASL",
   "avatarProfile": "ORIGINAL_HUMAN",
   "asset": "asl_animations/original_words_v1/fingerspelling-avatar.glb",
-  "sha256": "11b50d333dae036132515c535bea9b9adbf0d42f43be901bb7c4b36b3bb1e43c",
+  "sha256": "c8e86f065acd1bb0fe39ee7524daad73324106a53fb8b455bf89744e4a1a778d",
   "sourceSha256": "645da29f5e8a24dc7da2f4b6e23ca2e87fb91254958f5053ba0281080ec0a524",
   "status": "UNREVIEWED_RETARGETED_PREVIEW",
   "source": "Existing AppHear FemaleASL alphabet; motion rights/provenance unresolved",
@@ -1060,6 +1060,137 @@
       "linguisticValidationStatus": "UNREVIEWED",
       "technicalPlaybackStatus": "Candidate: device review required",
       "correctionNotes": "Reference-guided handshape/contact keyframes on resident rig; independent anatomical curl axes; unvalidated timing/style. Original source action retained in repository."
+    },
+    {
+      "id": "again",
+      "english": [
+        "again",
+        "repeat",
+        "do over"
+      ],
+      "animationName": "SIGN_AGAIN_HUMAN_RETARGETED_PREVIEW",
+      "durationMs": 3658,
+      "sourceAsset": "asl_animations/again.glb",
+      "sourceSha256": "d355028630aa5d9959448230f8c1b09832d0c699280e781cb1e5462eeb0cc0ba",
+      "reference": "https://www.lifeprint.com/asl101/pages-signs/a/again.htm",
+      "meaning": "Repeat or do again; bent fingertips arc into flat non-dominant palm",
+      "status": "UNREVIEWED_RETARGETED_PREVIEW",
+      "language": "ASL",
+      "gloss": [
+        "AGAIN"
+      ],
+      "license": "Existing AppHear motion/rig provenance unresolved; local development preview only. Reference links only, no reference media copied.",
+      "linguisticValidationStatus": "UNREVIEWED",
+      "technicalPlaybackStatus": "Candidate: device review required",
+      "correctionNotes": "Actual source arm/wrist motion with equivalent resident-rig B/C/X handshapes, a dominant bent hand for AGAIN, and source-driven independent flexion without axial twist for FINGERSPELL. AGAIN/CLASS have scoped shared placement corrections and fixed-length arm IK. No global finger limits or changes to old words/alphabet. Qualified ASL review still required."
+    },
+    {
+      "id": "class",
+      "english": [
+        "class"
+      ],
+      "animationName": "SIGN_CLASS_HUMAN_RETARGETED_PREVIEW",
+      "durationMs": 2867,
+      "sourceAsset": "asl_animations/class.glb",
+      "sourceSha256": "49f02a3cd5b504bdf7fcaabbb9172509696e0dbce9c96906287530c35665d025",
+      "reference": "https://www.lifeprint.com/asl101/pages-signs/c/class.htm",
+      "meaning": "Educational class; two C hands outline a group, not social status",
+      "status": "UNREVIEWED_RETARGETED_PREVIEW",
+      "language": "ASL",
+      "gloss": [
+        "CLASS"
+      ],
+      "license": "Existing AppHear motion/rig provenance unresolved; local development preview only. Reference links only, no reference media copied.",
+      "linguisticValidationStatus": "UNREVIEWED",
+      "technicalPlaybackStatus": "Candidate: device review required",
+      "correctionNotes": "Actual source arm/wrist motion with equivalent resident-rig B/C/X handshapes, a dominant bent hand for AGAIN, and source-driven independent flexion without axial twist for FINGERSPELL. AGAIN/CLASS have scoped shared placement corrections and fixed-length arm IK. No global finger limits or changes to old words/alphabet. Qualified ASL review still required."
+    },
+    {
+      "id": "must",
+      "english": [
+        "must"
+      ],
+      "animationName": "SIGN_MUST_HUMAN_RETARGETED_PREVIEW",
+      "durationMs": 3200,
+      "sourceAsset": "asl_animations/critical-must.glb",
+      "sourceSha256": "54fd010b087ccc8d4165a8a69297fbe418d890a3edb947b046f33fcd7b26820f",
+      "reference": "https://www.lifeprint.com/asl101/pages-signs/m/must.htm",
+      "meaning": "Obligation or necessity; source MUST variant, not every meaning of critical",
+      "status": "UNREVIEWED_RETARGETED_PREVIEW",
+      "language": "ASL",
+      "gloss": [
+        "MUST"
+      ],
+      "license": "Existing AppHear motion/rig provenance unresolved; local development preview only. Reference links only, no reference media copied.",
+      "linguisticValidationStatus": "UNREVIEWED",
+      "technicalPlaybackStatus": "Candidate: device review required",
+      "correctionNotes": "Actual source arm/wrist motion with equivalent resident-rig B/C/X handshapes, a dominant bent hand for AGAIN, and source-driven independent flexion without axial twist for FINGERSPELL. AGAIN/CLASS have scoped shared placement corrections and fixed-length arm IK. No global finger limits or changes to old words/alphabet. Qualified ASL review still required."
+    },
+    {
+      "id": "fingerspell",
+      "english": [
+        "fingerspell",
+        "fingerspelling",
+        "spell"
+      ],
+      "animationName": "SIGN_FINGERSPELL_HUMAN_RETARGETED_PREVIEW",
+      "durationMs": 4117,
+      "sourceAsset": "asl_animations/fingerspell.glb",
+      "sourceSha256": "9f5284e57787780e2070a65a0ef9428c2c62704eff571c5e5e7549b2140b39d4",
+      "reference": "https://www.lifeprint.com/asl101/pages-signs/f/fingerspell.htm",
+      "meaning": "Lexical sign about spelling; this does not change the alphabet fallback controller",
+      "status": "UNREVIEWED_RETARGETED_PREVIEW",
+      "language": "ASL",
+      "gloss": [
+        "FINGERSPELL"
+      ],
+      "license": "Existing AppHear motion/rig provenance unresolved; local development preview only. Reference links only, no reference media copied.",
+      "linguisticValidationStatus": "UNREVIEWED",
+      "technicalPlaybackStatus": "Candidate: device review required",
+      "correctionNotes": "Actual source arm/wrist motion with equivalent resident-rig B/C/X handshapes, a dominant bent hand for AGAIN, and source-driven independent flexion without axial twist for FINGERSPELL. AGAIN/CLASS have scoped shared placement corrections and fixed-length arm IK. No global finger limits or changes to old words/alphabet. Qualified ASL review still required."
+    },
+    {
+      "id": "so_so",
+      "english": [
+        "so so",
+        "so-so"
+      ],
+      "animationName": "SIGN_SO_SO_HUMAN_RETARGETED_PREVIEW",
+      "durationMs": 2617,
+      "sourceAsset": "asl_animations/so-so.glb",
+      "sourceSha256": "361e2b9ec331a12dab6bd063df679673f92aeef9010bcb864aca97cd7c8ef5cb",
+      "reference": "https://www.lifeprint.com/asl101/pages-signs/s/so-so.htm",
+      "meaning": "Middling condition/so-so; palm-down hand rocks side to side",
+      "status": "UNREVIEWED_RETARGETED_PREVIEW",
+      "language": "ASL",
+      "gloss": [
+        "SO_SO"
+      ],
+      "license": "Existing AppHear motion/rig provenance unresolved; local development preview only. Reference links only, no reference media copied.",
+      "linguisticValidationStatus": "UNREVIEWED",
+      "technicalPlaybackStatus": "Candidate: device review required",
+      "correctionNotes": "Actual source arm/wrist motion with equivalent resident-rig B/C/X handshapes, a dominant bent hand for AGAIN, and source-driven independent flexion without axial twist for FINGERSPELL. AGAIN/CLASS have scoped shared placement corrections and fixed-length arm IK. No global finger limits or changes to old words/alphabet. Qualified ASL review still required."
+    },
+    {
+      "id": "grow_up",
+      "english": [
+        "grow up"
+      ],
+      "animationName": "SIGN_GROW_UP_HUMAN_RETARGETED_PREVIEW",
+      "durationMs": 2867,
+      "sourceAsset": "asl_animations/grow-up-raised.glb",
+      "sourceSha256": "fff31a427aa9d0e4fb53358b7e937527ff0827184b52908b15798c41aae2347c",
+      "reference": "https://www.lifeprint.com/asl101/pages-signs/g/grow-up.htm",
+      "meaning": "Growing from childhood to adulthood; not every sense of raised",
+      "status": "UNREVIEWED_RETARGETED_PREVIEW",
+      "language": "ASL",
+      "gloss": [
+        "GROW_UP"
+      ],
+      "license": "Existing AppHear motion/rig provenance unresolved; local development preview only. Reference links only, no reference media copied.",
+      "linguisticValidationStatus": "UNREVIEWED",
+      "technicalPlaybackStatus": "Candidate: device review required",
+      "correctionNotes": "Actual source arm/wrist motion with equivalent resident-rig B/C/X handshapes, a dominant bent hand for AGAIN, and source-driven independent flexion without axial twist for FINGERSPELL. AGAIN/CLASS have scoped shared placement corrections and fixed-length arm IK. No global finger limits or changes to old words/alphabet. Qualified ASL review still required."
     }
   ],
   "vocabularyExpansion": {
@@ -1634,6 +1765,84 @@
       "maxWorldHandRotationMatrixChange": 9.652001420334955e-15,
       "otherActionsPreserved": 241,
       "fingerChannelsUnchanged": true,
+      "qualifiedAslValidation": false
+    }
+  },
+  "everydayExpansion2": {
+    "version": 1,
+    "baselineSha256": "11b50d333dae036132515c535bea9b9adbf0d42f43be901bb7c4b36b3bb1e43c",
+    "preservedActions": 242,
+    "newLexicalActions": 6,
+    "sourceGeometryUnchanged": true,
+    "qualifiedAslValidations": 0,
+    "checks": [
+      {
+        "id": "again",
+        "sourceAction": "again",
+        "sourceSha256": "d355028630aa5d9959448230f8c1b09832d0c699280e781cb1e5462eeb0cc0ba",
+        "frames": 72,
+        "anatomicalFrameError": 1.446620601086579e-13,
+        "mappedNodes": 36,
+        "reference": "https://www.lifeprint.com/asl101/pages-signs/a/again.htm",
+        "qualifiedAslValidation": false
+      },
+      {
+        "id": "class",
+        "sourceAction": "CLASS_zYsmQgZRW0g",
+        "sourceSha256": "49f02a3cd5b504bdf7fcaabbb9172509696e0dbce9c96906287530c35665d025",
+        "frames": 53,
+        "anatomicalFrameError": 1.5987211554602254e-13,
+        "mappedNodes": 36,
+        "reference": "https://www.lifeprint.com/asl101/pages-signs/c/class.htm",
+        "qualifiedAslValidation": false
+      },
+      {
+        "id": "must",
+        "sourceAction": "critical-must_Ti9-UQ7u0fY",
+        "sourceSha256": "54fd010b087ccc8d4165a8a69297fbe418d890a3edb947b046f33fcd7b26820f",
+        "frames": 61,
+        "anatomicalFrameError": 1.4299672557172016e-13,
+        "mappedNodes": 36,
+        "reference": "https://www.lifeprint.com/asl101/pages-signs/m/must.htm",
+        "qualifiedAslValidation": false
+      },
+      {
+        "id": "fingerspell",
+        "sourceAction": "FINGERSPELL",
+        "sourceSha256": "9f5284e57787780e2070a65a0ef9428c2c62704eff571c5e5e7549b2140b39d4",
+        "frames": 83,
+        "anatomicalFrameError": 1.4088730182493236e-13,
+        "mappedNodes": 36,
+        "reference": "https://www.lifeprint.com/asl101/pages-signs/f/fingerspell.htm",
+        "qualifiedAslValidation": false
+      },
+      {
+        "id": "so_so",
+        "sourceAction": "SO-SO_fhhBx_WQGAo",
+        "sourceSha256": "361e2b9ec331a12dab6bd063df679673f92aeef9010bcb864aca97cd7c8ef5cb",
+        "frames": 47,
+        "anatomicalFrameError": 1.532107773982716e-13,
+        "mappedNodes": 36,
+        "reference": "https://www.lifeprint.com/asl101/pages-signs/s/so-so.htm",
+        "qualifiedAslValidation": false
+      },
+      {
+        "id": "grow_up",
+        "sourceAction": "GROW-UP-RAISED_hNj04ToIMkg",
+        "sourceSha256": "fff31a427aa9d0e4fb53358b7e937527ff0827184b52908b15798c41aae2347c",
+        "frames": 53,
+        "anatomicalFrameError": 1.667554982986985e-13,
+        "mappedNodes": 36,
+        "reference": "https://www.lifeprint.com/asl101/pages-signs/g/grow-up.htm",
+        "qualifiedAslValidation": false
+      }
+    ],
+    "againContactCorrection": {
+      "contactTimeSeconds": 2.433333158493042,
+      "previousTipToPalmSurfaceGapMeters": 0.07126209807746009,
+      "maxFingerRigidShiftErrorMeters": 1.8772255317089788e-08,
+      "fingerChannelsUnchanged": true,
+      "otherActionsUnchanged": 247,
       "qualifiedAslValidation": false
     }
   }

@@ -171,10 +171,12 @@ def reference_pose(model,neutral,rest,torso,hand_profiles,word,phase,source_rota
             world=r.world(model.nodes,model.parents,model.order,override)
     return {i:q for (i,path),q in override.items() if path=='rotation'}
 
-def main():
-    source_bundle, output, report_path = map(Path, sys.argv[1:4])
+def generate(source_bundle, output, report_path, *, plans=PLANS, baseline=BASELINE,
+             pose_function=reference_pose, audit_key='everydayExpansion',
+             correction_notes='Reference-guided handshape/contact keyframes on resident rig; independent anatomical curl axes; unvalidated timing/style. Original source action retained in repository.'):
+    source_bundle, output, report_path = map(Path, (source_bundle, output, report_path))
     payload = source_bundle.read_bytes()
-    assert digest(payload) == BASELINE, 'Use the checkpoint bundle, never overwrite/reprocess a newer bundle'
+    assert digest(payload) == baseline, 'Use the checkpoint bundle, never overwrite/reprocess a newer bundle'
     assert output.resolve() != source_bundle.resolve(), 'Candidate output must be separate'
     target = h.Model(source_bundle)
     manifest = json.loads(source_bundle.with_suffix('.json').read_text())
@@ -184,7 +186,8 @@ def main():
     existing = json.loads((android / 'app/src/aslOriginalWords/assets/asl_animations/original_words_v1/manifest.json').read_text())
     ids = {e['id'] for e in existing['replacements'] + existing['newClips']}
     ids.update(e['id'] for e in manifest['wordAdditions'])
-    assert not ids.intersection(p[0] for p in PLANS), 'Not ten missing lexical entries'
+    assert not ids.intersection(p[0] for p in plans), 'Candidate entries already exist'
+    preserved_count = len(target.g['animations'])
     gltf = copy.deepcopy(target.g)
     original_binary = target.binary[:gltf['buffers'][0]['byteLength']]
     binary = bytearray(original_binary)
@@ -206,7 +209,7 @@ def main():
                target.nodes[i].get('name','').startswith('RightHand') and target.nodes[i]['name']!='RightHand'}
     hand_profiles=dict(thumb=thumb_pose,five=five_pose,mesh=mesh)
     checks = []
-    for word, filename, english, meaning, reference in PLANS:
+    for word, filename, english, meaning, reference in plans:
         source_path = raw_root / f'asl_animations/{filename}.glb'
         source = h.Model(source_path)
         assert len(source.animations)==1, (filename, list(source.animations))
@@ -251,7 +254,7 @@ def main():
                 if i in mapping:
                     max_error = max(max_error,float(np.max(np.abs(result[i]-desired))))
                     source_rotations[i]=r.quaternion(local).tolist()
-            corrected=reference_pose(target,neutral,tw,torso,hand_profiles,word,time/duration,source_rotations)
+            corrected=pose_function(target,neutral,tw,torso,hand_profiles,word,time/duration,source_rotations)
             for i in rotations: rotations[i].append(corrected.get(i,target.nodes[i].get('rotation',[0,0,0,1])))
         def accessor(values, kind):
             values = np.asarray(values,dtype='<f4')
@@ -286,7 +289,7 @@ def main():
             status='UNREVIEWED_RETARGETED_PREVIEW',language='ASL',gloss=[word.upper()],
             license='Existing AppHear motion/rig provenance unresolved; local development preview only. Reference links only, no reference media copied.',
             linguisticValidationStatus='UNREVIEWED',technicalPlaybackStatus='Candidate: device review required')
-        entry['correctionNotes']='Reference-guided handshape/contact keyframes on resident rig; independent anatomical curl axes; unvalidated timing/style. Original source action retained in repository.'
+        entry['correctionNotes']=correction_notes
         manifest['wordAdditions'].append(entry)
         assert max_error<1e-10
         checks.append(dict(id=word,sourceAction=source_action,sourceSha256=entry['sourceSha256'],frames=len(times),
@@ -294,7 +297,7 @@ def main():
         print(word,'candidate frames prepared',flush=True)
     for key in ['nodes','skins','meshes','materials','textures','images','scenes']:
         assert target.g[key]==gltf[key],key
-    assert gltf['animations'][:232]==target.g['animations']
+    assert gltf['animations'][:preserved_count]==target.g['animations']
     assert bytes(binary[:len(original_binary)])==original_binary
     gltf['buffers'][0]['byteLength']=len(binary)
     encoded=json.dumps(gltf,separators=(',',':')).encode()
@@ -303,7 +306,7 @@ def main():
     payload=struct.pack('<III',0x46546c67,2,12+8+len(encoded)+8+len(binary))+struct.pack('<II',len(encoded),0x4e4f534a)+encoded+struct.pack('<II',len(binary),0x004e4942)+binary
     output.write_bytes(payload)
     manifest['sha256']=digest(payload)
-    manifest['everydayExpansion']=dict(version=1,baselineSha256=BASELINE,preservedActions=232,newLexicalActions=10,
+    manifest[audit_key]=dict(version=1,baselineSha256=baseline,preservedActions=preserved_count,newLexicalActions=len(plans),
         sourceGeometryUnchanged=True,qualifiedAslValidations=0,checks=checks)
     output.with_suffix('.json').write_text(json.dumps(manifest,indent=2)+'\n')
     report=dict(bundleSha256=manifest['sha256'],animations=len(gltf['animations']),checks=checks,
@@ -311,4 +314,4 @@ def main():
     report_path.write_text(json.dumps(report,indent=2)+'\n')
     print(json.dumps(report))
 
-if __name__=='__main__': main()
+if __name__=='__main__': generate(*sys.argv[1:4])

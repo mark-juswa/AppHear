@@ -5,11 +5,14 @@ import android.content.Intent
 import android.view.View
 import android.widget.EditText
 import android.widget.TextView
+import android.webkit.WebView
 import androidx.navigation.fragment.NavHostFragment
 import androidx.test.platform.app.InstrumentationRegistry
 import org.json.JSONArray
 import org.json.JSONObject
 import java.io.File
+import java.util.concurrent.CountDownLatch
+import java.util.concurrent.TimeUnit
 import org.junit.Assert.*
 import org.junit.Assume.assumeTrue
 import org.junit.Test
@@ -55,6 +58,24 @@ class AslFingerspellingPlaybackInstrumentedTest {
             await("Viewer ready") { it == "Ready" }
             var viewer: View? = null
             i.runOnMainSync { viewer = activity.findViewById(R.id.avatarWebView) }
+            // The page bridge can say Ready before its initial GLB has loaded.
+            // Wait on actual model state instead of racing the first input on a cold emulator.
+            val modelDeadline=SystemClock.uptimeMillis()+180_000
+            var modelLoaded=false
+            while(SystemClock.uptimeMillis()<modelDeadline && !modelLoaded) {
+                val latch=CountDownLatch(1)
+                i.runOnMainSync {
+                    (viewer as WebView).evaluateJavascript(
+                        "(()=>{if(typeof viewers==='undefined')return false;const v=viewers[activeIndex];return Boolean(v&&v.loaded&&v.src&&v.loadedSource===v.src)})()"
+                    ) { value -> modelLoaded=value=="true";latch.countDown() }
+                }
+                // Use the same overall readiness deadline for a busy renderer;
+                // a separate ten-second callback limit raced cold GLB parsing.
+                assertTrue("WebView state callback before model deadline",latch.await(
+                    (modelDeadline-SystemClock.uptimeMillis()).coerceAtLeast(1),TimeUnit.MILLISECONDS))
+                if(!modelLoaded)SystemClock.sleep(100) // Test polling only, not animation sequencing.
+            }
+            assertTrue("Initial avatar model loaded",modelLoaded)
             fun submit(text: String) = i.runOnMainSync {
                 // The collapsed/Text/Talk controls are part of normal input.
                 // A hidden Sign It in Talk mode replays the previous plan.
@@ -72,7 +93,9 @@ class AslFingerspellingPlaybackInstrumentedTest {
                     "ME", "YES", "LOVE", "HELP", "COOK", "BECOME", "MONEY", "NEW", "SOME", "DAY",
                     "HELLO LOVE", "MY NAME", "YOUR NAME", "I LOVE YOU", "I", "ME YOU", "YOU ME",
                     "YOU NICOLE", "ME NICOLE", "BEST", "BETTER", "DIVORCE", "FROM", "GRANDMA",
-                    "GRANDPA", "HERE", "PARENTS", "PREFER", "SINGLE", "HELLO GRANDMA NICOLE") +
+                    "GRANDPA", "HERE", "PARENTS", "PREFER", "SINGLE", "HELLO GRANDMA NICOLE",
+                    "AGAIN", "CLASS", "MUST", "FINGERSPELL", "SO-SO", "GROW UP", "repeat", "spell",
+                    "grow up!", "HELLO CLASS NICOLE", "HELP AGAIN", "GIRL") +
                     ('A'..'Z').map { it.toString() }) {
                 val start = SystemClock.uptimeMillis()
                 submit(text)
