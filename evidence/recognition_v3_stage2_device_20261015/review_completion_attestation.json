@@ -1,0 +1,16 @@
+{
+  "schema": "apphear.stage2.review_completion_attestation.v1",
+  "submitted_filename": "human_boundaries (2).json",
+  "submitted_sha256": "4f703ff24f6140ed85a489d398c0618b9db925d10988acd8c3caa1c454906400",
+  "question": "Did you review all five whole blocks and intentionally leave the others uncertain? I can record that attestation while preserving your original file.",
+  "human_reply": "All five signs done",
+  "context": "User supplied a new export marking one or more intervals in each of the five blocks immediately after this reply.",
+  "derived_metadata_only": [
+    "reviewed_blocks"
+  ],
+  "sign_or_negative_boundaries_changed": false,
+  "judgments_or_uncertainty_changed": false,
+  "reviewer_or_blinding_changed": false,
+  "signer_proficiency": "NONEXPERT_ENGINEERING_SMOKE",
+  "validated_labels_sha256": "ac73e5d569c24a543f7e982e3f36ad830c41c264ef77850248eae85fa948f96a"
+}

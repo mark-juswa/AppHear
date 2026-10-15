@@ -1415,3 +1415,23 @@ When user says final export saved, check only Downloads/human_boundaries*.json f
 validate before importing beside reviewer, then run existing analyze. Preserve incomplete drafts,
 keep uncertainty/nonexpert status. Device report/evidence drafted; update review status and commit
 validation once final labels or explicit deferral arrive. No need to repeat captures/gates.
+
+# Memory — Stage2 phone review completed with uncertainty, 2026-10-16
+
+## Supersedes the pending-review handoff above
+User supplied human_boundaries (2).json and replied “All five signs done” to the whole-block
+review question. Export covers all5 blocks but lacks checkmarks; recorded exact reply/provenance
+and filled only reviewed_blocks. Preserved source export, all intervals/judgments/uncertainties.
+Existing full validator and evaluator PASS.4 marked positive HELLO spans,1 confirmed movement
+negative;2 HOMEs,second repeated HELLO and separate hold remain UNCERTAIN. Do not invent them.
+3 marked spans noACTIVE despite allIDLE; C first HELLO event2 correctly classified/delivered once.
+Movement event3 WASH2 is bounded non-sign activation, not normal-app sentence false-word evidence.
+No timer/runtime/model change; no ASL accuracy or repeat/transition success/failure rate claimed.
+
+## Next action
+Read docs/recognition-v3-stage2-device-validation-2026-10-16.md and boundary_analysis.json in
+evidence/recognition_v3_stage2_device_20261015. Stage2 unresolved: prioritize accepted evidence and
+ACTIVE acquisition, not400ms-only tuning; qualified well-framed capture/review must resolve second
+sign/repeat/hold intervals before a transition policy is promoted. Keep Stage1 off and prior reset
+rejected. No more phone loops required for this capture. Reviewer may remain open locally for
+inspection; raw finalized recording is preserved on F:, normal app repeat sentence gate unmeasured.

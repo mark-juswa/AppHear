@@ -1,7 +1,7 @@
 {
   "schema": "apphear.stage2.compact_device_diagnostics.v1",
   "session": "F:\\ASL DATASET\\5. Apphear3\\artifacts\\recognition_v3_stage2_compact_device\\finalized\\session_20261015T155027Z",
-  "scope": "Single unlabelled nonexpert front-camera diagnostic capture; no algorithm change or accuracy claim.",
+  "scope": "Single human-reviewed nonexpert front-camera diagnostic capture; no algorithm change or accuracy claim.",
   "integrity": {
     "transition_protocol_id": "V3_STAGE2_COMPACT_01",
     "transition_protocol_sha256": "500e4c43f8d64a01d55fb861b73c11604e2b32464f846071d029903bafa9100c",
@@ -522,5 +522,5 @@
   "true_sensor_frame_drop_count": "NOT_MEASURED: callback counters include drain and are not source-ID matched",
   "memory_cpu_comparison": "NOT_MEASURED",
   "normal_app_sentence_delivery": "NOT_MEASURED",
-  "recognition_accuracy": "UNVERIFIED_NONEXPERT_AND_HUMAN_BOUNDARIES_PENDING"
+  "recognition_accuracy": "UNVERIFIED_NONEXPERT_SINGLE_DESIGN_COHORT"
 }

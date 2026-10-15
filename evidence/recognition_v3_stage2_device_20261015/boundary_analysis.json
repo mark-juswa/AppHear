@@ -1,0 +1,440 @@
+{
+  "milestone": "RECOGNITION_V3_STAGE2_TRANSITION_CAPTURE_01",
+  "baseline_sha": "76d93cecd85bf9f76064d320aa4a5791b5f0704a",
+  "human_labels_sha256": "ac73e5d569c24a543f7e982e3f36ad830c41c264ef77850248eae85fa948f96a",
+  "integrity": {
+    "transition_protocol_id": "V3_STAGE2_COMPACT_01",
+    "transition_protocol_sha256": "500e4c43f8d64a01d55fb861b73c11604e2b32464f846071d029903bafa9100c",
+    "declared_signer_proficiency": "NONEXPERT_ENGINEERING_SMOKE",
+    "comparison_baseline_sha": "e196a8d501386091eae52f59df0fa349e26b43e2",
+    "status": "CAPTURE_INTEGRITY_PASS",
+    "count": 757,
+    "blocks": [
+      {
+        "block": "A_HANDS_DOWN",
+        "start_index": 180,
+        "end_index": 211
+      },
+      {
+        "block": "B_HANDS_UP",
+        "start_index": 228,
+        "end_index": 252
+      },
+      {
+        "block": "C_REPEAT_HANDS_UP",
+        "start_index": 269,
+        "end_index": 302
+      },
+      {
+        "block": "D_SIGN_THEN_HOLD",
+        "start_index": 315,
+        "end_index": 368
+      },
+      {
+        "block": "E_ORDINARY_MOVEMENT",
+        "start_index": 391,
+        "end_index": 427
+      }
+    ],
+    "event_count": 4,
+    "baseline_replay_events_identical": true,
+    "rearm_transitions_identical": true,
+    "visual_coverage": "ALL_PROCESSED_OBSERVATIONS",
+    "materializer_indices_identical": true,
+    "source_runtime_clock_sanity_pass": true,
+    "source_clock": "ImageProxy monotonic ns, serialized as ms; runtime/UI elapsedRealtime ns",
+    "session_identity_sha256": "c9def58e46f72e96c9a27160e59dc7887d837ab9d48d5e6e5b5f78fcad767720",
+    "exact_manifest_sha256": "64b51a63d65874da1d2823b713912a4cd50c8c1f3ae308d74640caa975fd0590",
+    "observations_sha256": "bdd53a6fb86577323ad35464c7bcdbb1e27b00f0d07b6d382a109a20f7f40092",
+    "events_sha256": "8513390eba27ea4fdca17eafa9faf2a7243ebfbb5a466d21cc4acb117add1297",
+    "attempt_markers_sha256": "a19172d5b2ae44671056e1e9c0fcc5dc1c12311a8fe87fc1c1e74efe441464cf",
+    "ui_delivery_sha256": "011c6ccae6087b7ad7bda6103df125d191ae967109d09875a9656e98a865ce75",
+    "minimum_active_ms": 133.308,
+    "maximum_observation_gap_ms": 533.232
+  },
+  "compact_outcomes": {
+    "physical_signs": [
+      {
+        "condition": "A_HANDS_DOWN",
+        "ordinal": 1,
+        "outcome": "NO_COMPLETED_EVENT",
+        "event_ids": []
+      },
+      {
+        "condition": "A_HANDS_DOWN",
+        "ordinal": 2,
+        "outcome": "UNCERTAIN_OR_NOT_PERFORMED",
+        "event_ids": []
+      },
+      {
+        "condition": "B_HANDS_UP",
+        "ordinal": 1,
+        "outcome": "NO_COMPLETED_EVENT",
+        "event_ids": []
+      },
+      {
+        "condition": "B_HANDS_UP",
+        "ordinal": 2,
+        "outcome": "UNCERTAIN_OR_NOT_PERFORMED",
+        "event_ids": []
+      },
+      {
+        "condition": "C_REPEAT_HANDS_UP",
+        "ordinal": 1,
+        "outcome": "DISTINCT_EVENT_EXPECTED_GLOSS",
+        "event_ids": [
+          2
+        ]
+      },
+      {
+        "condition": "C_REPEAT_HANDS_UP",
+        "ordinal": 2,
+        "outcome": "UNCERTAIN_OR_NOT_PERFORMED",
+        "event_ids": []
+      },
+      {
+        "condition": "D_SIGN_THEN_HOLD",
+        "ordinal": 1,
+        "outcome": "NO_COMPLETED_EVENT",
+        "event_ids": []
+      }
+    ],
+    "adjacent_repeat_has_two_distinct_events": false,
+    "repeat_event_glosses": [
+      "HELLO"
+    ],
+    "normal_app_sentence_delivery": "NOT_MEASURED_DIAGNOSTIC_ACTIVITY",
+    "accuracy_claim": "NONE_SINGLE_DESIGN_COHORT"
+  },
+  "transition_protocol_id": "V3_STAGE2_COMPACT_01",
+  "transition_protocol_sha256": "500e4c43f8d64a01d55fb861b73c11604e2b32464f846071d029903bafa9100c",
+  "attempts": [
+    {
+      "condition": "A_HANDS_DOWN",
+      "ordinal": 1,
+      "gloss": "HELLO",
+      "start_index": 195,
+      "end_index": 201,
+      "judgment": "GENUINE_SIGN",
+      "note": "",
+      "classification": [
+        "C_S2_ACTIVE_REACQUISITION_FAILURE"
+      ],
+      "lifecycle_before_start_observation": "IDLE",
+      "active_observations": 0,
+      "human_sign_observations": 7,
+      "first_argmax_active_index": null,
+      "first_continuous_qualifying_active_index": null,
+      "first_accepted_candidate_minimum_span_index": null,
+      "opened_indices": [],
+      "blocked_active_indices": [],
+      "event_count": 0,
+      "events": [],
+      "timing_ms": {
+        "physical_start_to_first_qualifying_active": null,
+        "physical_start_to_event_open": null,
+        "physical_end_to_completion_source": null,
+        "physical_start_to_recognizer_result": null,
+        "physical_start_to_debug_ui_delivery": null
+      }
+    },
+    {
+      "condition": "A_HANDS_DOWN",
+      "ordinal": 2,
+      "gloss": "HOME",
+      "start_index": null,
+      "end_index": null,
+      "judgment": "UNCERTAIN",
+      "note": "",
+      "classification": "UNCERTAIN_OR_NOT_PERFORMED"
+    },
+    {
+      "condition": "B_HANDS_UP",
+      "ordinal": 1,
+      "gloss": "HELLO",
+      "start_index": 229,
+      "end_index": 238,
+      "judgment": "GENUINE_SIGN",
+      "note": "",
+      "classification": [
+        "C_S2_ACTIVE_REACQUISITION_FAILURE"
+      ],
+      "lifecycle_before_start_observation": "IDLE",
+      "active_observations": 0,
+      "human_sign_observations": 10,
+      "first_argmax_active_index": null,
+      "first_continuous_qualifying_active_index": null,
+      "first_accepted_candidate_minimum_span_index": null,
+      "opened_indices": [],
+      "blocked_active_indices": [],
+      "event_count": 0,
+      "events": [],
+      "timing_ms": {
+        "physical_start_to_first_qualifying_active": null,
+        "physical_start_to_event_open": null,
+        "physical_end_to_completion_source": null,
+        "physical_start_to_recognizer_result": null,
+        "physical_start_to_debug_ui_delivery": null
+      }
+    },
+    {
+      "condition": "B_HANDS_UP",
+      "ordinal": 2,
+      "gloss": "HOME",
+      "start_index": null,
+      "end_index": null,
+      "judgment": "UNCERTAIN",
+      "note": "",
+      "classification": "UNCERTAIN_OR_NOT_PERFORMED"
+    },
+    {
+      "condition": "C_REPEAT_HANDS_UP",
+      "ordinal": 1,
+      "gloss": "HELLO",
+      "start_index": 279,
+      "end_index": 286,
+      "judgment": "GENUINE_SIGN",
+      "note": "",
+      "classification": [
+        "D_EVENT_DELIVERY_OK_DOWNSTREAM"
+      ],
+      "lifecycle_before_start_observation": "IDLE",
+      "active_observations": 3,
+      "human_sign_observations": 8,
+      "first_argmax_active_index": 279,
+      "first_continuous_qualifying_active_index": 280,
+      "first_accepted_candidate_minimum_span_index": 280,
+      "opened_indices": [
+        279
+      ],
+      "blocked_active_indices": [],
+      "event_count": 1,
+      "events": [
+        {
+          "schema": "apphear.phone_causal_recognition.event.v1",
+          "event_id": 2,
+          "logical_active_start_index": 279,
+          "logical_active_end_index": 281,
+          "logical_active_start_ms": 10631405.764942,
+          "logical_active_end_ms": 10631805.688952,
+          "terminal_post_index": 282,
+          "terminal_post_ms": 10632005.650932,
+          "commit_index": 284,
+          "commit_ms": 10632538.882911,
+          "recognizer_start_elapsed_realtime_ns": 10632880893859,
+          "recognizer_complete_elapsed_realtime_ns": 10632888321619,
+          "materialized_source_indices": [
+            278,
+            279,
+            280,
+            281,
+            282,
+            283
+          ],
+          "recognition_v2_source_indices": [
+            278,
+            279,
+            280,
+            281,
+            282,
+            283
+          ],
+          "materialized_start_index": 278,
+          "materialized_end_index": 283,
+          "materialized_observation_count": 6,
+          "requested_pre_context_ms": 250,
+          "actual_pre_context_ms": 266.61604199931026,
+          "actual_pre_context_observation_count": 1,
+          "requested_post_context_ms": 250,
+          "actual_post_context_ms": 266.6159890014678,
+          "actual_post_context_observation_count": 1,
+          "left_censored": false,
+          "right_censored": false,
+          "materializer_ms": 1.609843,
+          "recognition_v2_valid_count": 6,
+          "recognition_v2_mask_count": 6,
+          "recognition_v2_ms": 11.172396,
+          "top1_class": 80,
+          "top1_gloss": "HELLO",
+          "top1_probability": 0.99298495,
+          "top5": [
+            {
+              "gloss": "HELLO",
+              "probability": 0.99298495
+            },
+            {
+              "gloss": "FATHER",
+              "probability": 0.0019310291
+            },
+            {
+              "gloss": "LUNCH1",
+              "probability": 0.0015547568
+            },
+            {
+              "gloss": "TEACH2",
+              "probability": 0.0014170568
+            },
+            {
+              "gloss": "FOR",
+              "probability": 0.0013479753
+            }
+          ],
+          "attempt_id": 3,
+          "expected_gloss": "C_REPEAT_HANDS_UP",
+          "expected_class": null,
+          "expected_probability": null,
+          "expected_rank": null,
+          "recognition_invocation_ms": 2.674479,
+          "event_visual_evidence_directory": "continuous_visual/events/event_002",
+          "genuine_observations_only": true,
+          "interpolation": false,
+          "duplication": false,
+          "stale_carry": false,
+          "shared_between_physical_signs": false,
+          "human_sign_observation_containment": 0.625,
+          "recognizer_selected_sign_containment": 0.625,
+          "ui_delivery": {
+            "event_id": 2,
+            "ui_delivery_elapsed_realtime_ns": 10632891377140,
+            "ui_owner": "PerceptionVNextLiveRecognitionActivity",
+            "normal_app_sentence_commit": false
+          }
+        }
+      ],
+      "timing_ms": {
+        "physical_start_to_first_qualifying_active": 199.96197899989784,
+        "physical_start_to_event_open": 0.0,
+        "physical_end_to_completion_source": -466.5780209992081,
+        "physical_start_to_recognizer_result": 1482.5566770005971,
+        "physical_start_to_debug_ui_delivery": 1485.6121980007738
+      }
+    },
+    {
+      "condition": "C_REPEAT_HANDS_UP",
+      "ordinal": 2,
+      "gloss": "HELLO",
+      "start_index": null,
+      "end_index": null,
+      "judgment": "UNCERTAIN",
+      "note": "",
+      "classification": "UNCERTAIN_OR_NOT_PERFORMED"
+    },
+    {
+      "condition": "D_SIGN_THEN_HOLD",
+      "ordinal": 1,
+      "gloss": "HELLO",
+      "start_index": 318,
+      "end_index": 354,
+      "judgment": "GENUINE_SIGN",
+      "note": "",
+      "classification": [
+        "C_S2_ACTIVE_REACQUISITION_FAILURE"
+      ],
+      "lifecycle_before_start_observation": "IDLE",
+      "active_observations": 0,
+      "human_sign_observations": 37,
+      "first_argmax_active_index": null,
+      "first_continuous_qualifying_active_index": null,
+      "first_accepted_candidate_minimum_span_index": null,
+      "opened_indices": [],
+      "blocked_active_indices": [],
+      "event_count": 0,
+      "events": [],
+      "timing_ms": {
+        "physical_start_to_first_qualifying_active": null,
+        "physical_start_to_event_open": null,
+        "physical_end_to_completion_source": null,
+        "physical_start_to_recognizer_result": null,
+        "physical_start_to_debug_ui_delivery": null
+      }
+    }
+  ],
+  "transitions": [
+    {
+      "condition": "A_HANDS_DOWN",
+      "from": 1,
+      "to": 2,
+      "status": "UNCERTAIN",
+      "next_sign_classification": "UNCERTAIN_OR_NOT_PERFORMED",
+      "next_sign_event_details": [],
+      "timing_ms": {}
+    },
+    {
+      "condition": "B_HANDS_UP",
+      "from": 1,
+      "to": 2,
+      "status": "UNCERTAIN",
+      "next_sign_classification": "UNCERTAIN_OR_NOT_PERFORMED",
+      "next_sign_event_details": [],
+      "timing_ms": {}
+    },
+    {
+      "condition": "C_REPEAT_HANDS_UP",
+      "from": 1,
+      "to": 2,
+      "status": "UNCERTAIN",
+      "next_sign_classification": "UNCERTAIN_OR_NOT_PERFORMED",
+      "next_sign_event_details": [],
+      "timing_ms": {}
+    }
+  ],
+  "reviewed_negatives": [
+    {
+      "block": "D_SIGN_THEN_HOLD",
+      "start_index": null,
+      "end_index": null,
+      "judgment": "UNCERTAIN",
+      "note": "",
+      "status": "EXCLUDED_FROM_NEGATIVE_METRICS"
+    },
+    {
+      "block": "E_ORDINARY_MOVEMENT",
+      "start_index": 391,
+      "end_index": 427,
+      "judgment": "CONFIRMED_NON_SIGN",
+      "note": "",
+      "status": "HUMAN_CONFIRMED_BOUNDED_NEGATIVE",
+      "observation_count": 37,
+      "active_observations": 2,
+      "fully_contained_event_ids": [
+        3
+      ],
+      "overlapping_event_ids_for_manual_attribution": [
+        3
+      ],
+      "commits_in_interval_not_automatically_false": [
+        3
+      ]
+    }
+  ],
+  "block_cadence": {
+    "A_HANDS_DOWN": {
+      "observations": 7,
+      "spacing_p50_ms": 266.6159894997254,
+      "spacing_p95_ms": 316.6065104994923,
+      "gaps_over_continuity_boundary": 0
+    },
+    "B_HANDS_UP": {
+      "observations": 10,
+      "spacing_p50_ms": 266.6160420011729,
+      "spacing_p95_ms": 466.57796899974346,
+      "gaps_over_continuity_boundary": 0
+    },
+    "C_REPEAT_HANDS_UP": {
+      "observations": 8,
+      "spacing_p50_ms": 199.9620310012251,
+      "spacing_p95_ms": 266.6159899998456,
+      "gaps_over_continuity_boundary": 0
+    },
+    "D_SIGN_THEN_HOLD": {
+      "observations": 37,
+      "spacing_p50_ms": 266.6159889996052,
+      "spacing_p95_ms": 266.61604199931026,
+      "gaps_over_continuity_boundary": 0
+    }
+  },
+  "decision": "EVIDENCE_FOR_PROJECT_LEAD_REVIEW_ONLY",
+  "behavior_change_authorized": false,
+  "timing_caveat": "Human boundaries have observation resolution; missing metrics stay null. These are response/transition intervals, not inference latency.",
+  "ui_caveat": "UI timings belong to the diagnostic Activity; normal app sentence delivery is not measured by this capture."
+}

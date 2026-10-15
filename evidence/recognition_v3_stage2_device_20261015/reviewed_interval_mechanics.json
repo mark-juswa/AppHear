@@ -1,0 +1,175 @@
+{
+  "schema": "apphear.stage2.reviewed_interval_mechanics.v1",
+  "scope": "Human-marked intervals from a NONEXPERT_ENGINEERING_SMOKE signer; no ASL accuracy claim",
+  "spans": [
+    {
+      "condition": "A_HANDS_DOWN",
+      "ordinal": 1,
+      "gloss": "HELLO",
+      "start_index": 195,
+      "end_index": 201,
+      "judgment": "GENUINE_SIGN",
+      "note": "",
+      "observations": 7,
+      "state_counts": {
+        "0": 3,
+        "2": 4
+      },
+      "lifecycle_counts": {
+        "IDLE": 7
+      },
+      "ready_observations": 7,
+      "active_observations": 0,
+      "blocked_active_indices": [],
+      "maximum_active_probability": 0.14342467,
+      "any_accepted_hand_observations": 5,
+      "both_accepted_hand_observations": 0,
+      "any_proposed_hand_observations": 7,
+      "hand_motion_available_observations": 3,
+      "mean_valid_body_points": 5.142857142857143,
+      "admission_rejections": 0,
+      "zero_active_cannot_be_repaired_by_rearm_alone": true,
+      "body_available_observations": 3,
+      "source_span_ms": 1533.042030999437,
+      "sampling": {
+        "spacing_p50_ms": 266.6159894997254,
+        "spacing_p95_ms": 316.6065104994923,
+        "gaps_over_533_232_ms": 0,
+        "shorter_transition_could_fall_between_samples": true,
+        "sensor_frame_drops": "NOT_MEASURED",
+        "dense_counterfactual": "UNAVAILABLE_NO_UNPROCESSED_SENSOR_FRAMES"
+      }
+    },
+    {
+      "condition": "B_HANDS_UP",
+      "ordinal": 1,
+      "gloss": "HELLO",
+      "start_index": 229,
+      "end_index": 238,
+      "judgment": "GENUINE_SIGN",
+      "note": "",
+      "observations": 10,
+      "state_counts": {
+        "0": 3,
+        "2": 7
+      },
+      "lifecycle_counts": {
+        "IDLE": 10
+      },
+      "ready_observations": 10,
+      "active_observations": 0,
+      "blocked_active_indices": [],
+      "maximum_active_probability": 0.014174957,
+      "any_accepted_hand_observations": 7,
+      "both_accepted_hand_observations": 3,
+      "any_proposed_hand_observations": 10,
+      "hand_motion_available_observations": 5,
+      "mean_valid_body_points": 4.7,
+      "admission_rejections": 0,
+      "zero_active_cannot_be_repaired_by_rearm_alone": true,
+      "body_available_observations": 0,
+      "source_span_ms": 2866.121979000047,
+      "sampling": {
+        "spacing_p50_ms": 266.6160420011729,
+        "spacing_p95_ms": 466.57796899974346,
+        "gaps_over_533_232_ms": 0,
+        "shorter_transition_could_fall_between_samples": true,
+        "sensor_frame_drops": "NOT_MEASURED",
+        "dense_counterfactual": "UNAVAILABLE_NO_UNPROCESSED_SENSOR_FRAMES"
+      }
+    },
+    {
+      "condition": "C_REPEAT_HANDS_UP",
+      "ordinal": 1,
+      "gloss": "HELLO",
+      "start_index": 279,
+      "end_index": 286,
+      "judgment": "GENUINE_SIGN",
+      "note": "",
+      "observations": 8,
+      "state_counts": {
+        "1": 3,
+        "2": 5
+      },
+      "lifecycle_counts": {
+        "IDLE": 1,
+        "ACTIVE_CANDIDATE": 3,
+        "POST_CANDIDATE": 2,
+        "EVENT_EMITTED_WAIT_REARM": 2
+      },
+      "ready_observations": 1,
+      "active_observations": 3,
+      "blocked_active_indices": [],
+      "maximum_active_probability": 0.95302963,
+      "any_accepted_hand_observations": 8,
+      "both_accepted_hand_observations": 5,
+      "any_proposed_hand_observations": 8,
+      "hand_motion_available_observations": 8,
+      "mean_valid_body_points": 4.75,
+      "admission_rejections": 0,
+      "zero_active_cannot_be_repaired_by_rearm_alone": false,
+      "body_available_observations": 0,
+      "source_span_ms": 1599.6959899999201,
+      "sampling": {
+        "spacing_p50_ms": 199.9620310012251,
+        "spacing_p95_ms": 266.6159899998456,
+        "gaps_over_533_232_ms": 0,
+        "shorter_transition_could_fall_between_samples": true,
+        "sensor_frame_drops": "NOT_MEASURED",
+        "dense_counterfactual": "UNAVAILABLE_NO_UNPROCESSED_SENSOR_FRAMES"
+      }
+    },
+    {
+      "condition": "D_SIGN_THEN_HOLD",
+      "ordinal": 1,
+      "gloss": "HELLO",
+      "start_index": 318,
+      "end_index": 354,
+      "judgment": "GENUINE_SIGN",
+      "note": "",
+      "observations": 37,
+      "state_counts": {
+        "2": 34,
+        "0": 3
+      },
+      "lifecycle_counts": {
+        "IDLE": 37
+      },
+      "ready_observations": 37,
+      "active_observations": 0,
+      "blocked_active_indices": [],
+      "maximum_active_probability": 0.3620711,
+      "any_accepted_hand_observations": 37,
+      "both_accepted_hand_observations": 18,
+      "any_proposed_hand_observations": 37,
+      "hand_motion_available_observations": 37,
+      "mean_valid_body_points": 5.0,
+      "admission_rejections": 0,
+      "zero_active_cannot_be_repaired_by_rearm_alone": true,
+      "body_available_observations": 0,
+      "source_span_ms": 8731.673957999796,
+      "sampling": {
+        "spacing_p50_ms": 266.6159889996052,
+        "spacing_p95_ms": 266.61604199931026,
+        "gaps_over_533_232_ms": 0,
+        "shorter_transition_could_fall_between_samples": true,
+        "sensor_frame_drops": "NOT_MEASURED",
+        "dense_counterfactual": "UNAVAILABLE_NO_UNPROCESSED_SENSOR_FRAMES"
+      }
+    }
+  ],
+  "uncertain_positive_intervals": 3,
+  "negative_events": [
+    {
+      "event_id": 3,
+      "logical_start_index": 399,
+      "logical_end_index": 401,
+      "commit_index": 404,
+      "gloss": "WASH2",
+      "probability": 0.23730668
+    }
+  ],
+  "repeat_two_event_metric_interpretable": false,
+  "repeat_reason": "Second repeated HELLO remains UNCERTAIN without boundaries; evaluator false boolean means not demonstrated, not proof of a second-sign miss",
+  "hold_reason": "D source span is long and separate hold-negative is UNCERTAIN; no claim that hold was distinct from the marked sign"
+}

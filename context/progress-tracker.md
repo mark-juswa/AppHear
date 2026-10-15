@@ -16,7 +16,7 @@ provisioning remain open; no automatic new experiment is authorized. See docs/te
 
 # Progress Tracker
 
-**2026-10-16 — Stage2 compact profile validated on connected Xiaomi; physical review pending.**
+**2026-10-16 — Stage2 compact Android validation and nonexpert review complete; recognition objective open.**
 Continues6dbb2d3 with the same integrated runtime and Stage1 disabled. Saved pair installed-r,
 no data cleared.11 applicable Android tests pass: parser/camera/S2/RecognitionV2/FINGERSPELL/owner.
 - [x] Read-only pre/post health; no observed disconnect/reboot,34.4→37.1°C battery; earlier closure
@@ -26,11 +26,13 @@ no data cleared.11 applicable Android tests pass: parser/camera/S2/RecognitionV2
 - [x] Same-observation features/normalization exact; S2 max error4.76837e-7, zero argmax differences.
   Diagnostic delivery4.696FPS whole session; no baseline/candidate speed or ASL accuracy claim.
 - [x]581 protected hashes; canonical clean4c99ac24; no production source/model/policy changes.
-- [ ] User editing blinded physical-boundary review. Initial export blank; do not auto-fill labels.
-  Qualified-signer/framing evidence and an effective continuous WORD improvement remain open.
+- [x] User marked4 positive spans and1 non-sign interval; retained3 positive/hold uncertainties.
+  Completion attestation supplies missing review checkmarks only; original export preserved.
+  Three marked spans have no ACTIVE while IDLE; event2 matches HELLO, ordinary motion emits event3.
+- [ ] Qualified-signer/second-sign/repeat/hold evidence and effective continuous WORD fix remain open.
 First unfinalized pull preserved; human tapped final-save, second snapshot passes all integrity gates.
 Raw evidence on F: under artifacts/recognition_v3_stage2_compact_device/finalized/. Local reviewer
-127.0.0.1:8765; wait for final export then analyze. No timer/reset/training sweep.
+127.0.0.1:8765; validated analysis saved. No timer/reset/training sweep.
 See [device validation](../docs/recognition-v3-stage2-device-validation-2026-10-16.md).
 The earlier phone-absent status below is historical; physical engineering validation is now complete.
 

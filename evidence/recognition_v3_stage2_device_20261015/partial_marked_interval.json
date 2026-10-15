@@ -1,0 +1,49 @@
+{
+  "schema": "apphear.stage2.partial_marked_interval.v1",
+  "status": "PARTIAL_INTERVAL_FACTS_ONLY_FULL_COHORT_REVIEW_NOT_ATTESTED",
+  "source_label_sha256": "498c8bc8887ad5ae0ba518de646136b92450ba699b0d29f2769348722f50abc3",
+  "signer_proficiency": "NONEXPERT_ENGINEERING_SMOKE",
+  "reviewer_marked_interval": {
+    "condition": "A_HANDS_DOWN",
+    "ordinal": 1,
+    "gloss": "HELLO",
+    "start_index": 195,
+    "end_index": 201,
+    "judgment": "GENUINE_SIGN",
+    "note": ""
+  },
+  "span": {
+    "observations": 7,
+    "state_counts": {
+      "0": 3,
+      "2": 4
+    },
+    "lifecycle_counts": {
+      "IDLE": 7
+    },
+    "ready_observations": 7,
+    "active_observations": 0,
+    "blocked_active_indices": [],
+    "maximum_active_probability": 0.14342467,
+    "any_accepted_hand_observations": 5,
+    "both_accepted_hand_observations": 0,
+    "any_proposed_hand_observations": 7,
+    "hand_motion_available_observations": 3,
+    "mean_valid_body_points": 5.142857142857143,
+    "admission_rejections": 0,
+    "zero_active_cannot_be_repaired_by_rearm_alone": true
+  },
+  "sampling": {
+    "spacing_p50_ms": 266.6159894997254,
+    "spacing_p95_ms": 316.6065104994923,
+    "gaps_over_533_232_ms": 0,
+    "shorter_transition_could_fall_between_samples": true,
+    "sensor_frame_drops": "NOT_MEASURED",
+    "dense_counterfactual": "UNAVAILABLE_NO_UNPROCESSED_SENSOR_FRAMES"
+  },
+  "body_available_observations": 3,
+  "overlapping_logical_event_ids": [],
+  "full_evaluator_executed": false,
+  "accuracy_claim": "NONE; single nonexpert-labelled physical interval, no cross-signer or complete cohort metric",
+  "superseded_by": "boundary_analysis.json; original partial facts retained"
+}

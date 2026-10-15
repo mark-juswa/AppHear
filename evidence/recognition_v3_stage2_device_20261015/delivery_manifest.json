@@ -1,6 +1,6 @@
 {
   "schema": "apphear.stage2.compact.device_delivery.v1",
-  "status": "CAPTURE_AND_ENGINEERING_GATES_PASS_HUMAN_REVIEW_PENDING",
+  "status": "ANDROID_ENGINEERING_CAPTURE_AND_NONEXPERT_REVIEW_COMPLETE_STAGE2_OBJECTIVE_UNRESOLVED",
   "implementation_commit": "6dbb2d351a672cb7f63571b08ffd91491cb4cba8",
   "canonical_commit": "4c99ac24ebe7d1d1371a7268288df43df08f8d6b",
   "protected_commit": "76d93cecd85bf9f76064d320aa4a5791b5f0704a",
@@ -38,7 +38,9 @@
   "normal_app_sentence_delivery": "NOT_MEASURED",
   "evidence_files": {
     "android_gates.json": "7f38e292bc6d18edb3e8049a1e526c53222ef0f04770f4d15ec46c96c3ff5316",
-    "capture_diagnostics.json": "59fee130b02b4c64ab6061d3578664fd7c82c050f77b1e9738c21bf967a3f456",
+    "boundary_analysis.json": "6130a33c33387966ee59167d073d0aeff2c4ee34d20f25edd23363144f72ac0f",
+    "BOUNDARY_RESULT.md": "af9892da24b4822cb35f5a54bb06085ad62463dd47ef17ecbcaaaac3d3ab2a61",
+    "capture_diagnostics.json": "03e1df9fd6de41ec59ba879d7ddff47d15a679f0a3ea954ae5dd2c7aa13b817c",
     "capture_integrity.json": "c3820ea663f7f5439970ea7e80c6e955f5ef3871573c6b33d206adbdfb93c86d",
     "gates/gate_CameraInputInstrumentedTest.txt": "e5016a2489c2a4395fdee1be7992638231133f63e460e721349ad8b5f8811266",
     "gates/gate_ContinuousFingerspellInstrumentedTest.txt": "cbf474dbe3ab56313e911539c6b0b8ed89b6979becb507b2462b06b6db6589db",
@@ -48,7 +50,29 @@
     "gates/gate_RecognitionCoordinationInstrumentedTest_actualOwnerAutomaticEntryConfirmedSpellingAndWordPreservation.txt": "5f090db601cfcf9c634b79f60e8ccce5c57fb2baf84496571d2c183c478bbdb7",
     "gates/gate_RecognitionV2EndToEndReplayInstrumentedTest.txt": "dcb16da58056e01ca3a8fd54c61b95dd359bc19b7e8c1b60c06b1e1c87c43d92",
     "gates/gate_SequenceV21ParityInstrumentedTest.txt": "a690c667eff63bdbc471a9e0babab509583ca9383ce74bfe43fc333fcaba671c",
+    "human_boundaries.analysis.json": "ac73e5d569c24a543f7e982e3f36ad830c41c264ef77850248eae85fa948f96a",
+    "human_boundaries.final_export.json": "4f703ff24f6140ed85a489d398c0618b9db925d10988acd8c3caa1c454906400",
+    "human_boundaries.submitted.json": "498c8bc8887ad5ae0ba518de646136b92450ba699b0d29f2769348722f50abc3",
+    "human_review_import.json": "0f6fb7108f47db48b1ce6d42315e69f382f7390c0ec034480c600aa96d79b831",
+    "partial_marked_interval.json": "3bbf4ac52f4cae8ea029dd82d8aec7ca0f2cf9d6b81d528e7a2f3fbb785e8d5e",
     "phone_health.json": "03a53bcd1c79dbf4e058c02b337c1b34727f07fed7ff9668fe6c1fc16db08b32",
+    "review_completion_attestation.json": "bce7a99f3ad45ded92d6879cf8ad98b6c827aeec18cd86a79554ff0eae3d9a6d",
+    "reviewed_interval_mechanics.json": "a430e14428c1d42cb6143a583336a7981fb4591fee1248d56807d282b5c88bae",
     "same_observation_s2_parity.json": "02f46fa5ad13d08941c01da3a70022bffe6f79b8d2a932d7fb4f0a35adf3a5d8"
+  },
+  "validation_checkpoint_commit": "1727796d9aaab6f07e8d6c689d8a0b9f04a6a1ff",
+  "human_review": {
+    "original_export": "human_boundaries.final_export.json",
+    "original_sha256": "4f703ff24f6140ed85a489d398c0618b9db925d10988acd8c3caa1c454906400",
+    "analysis_labels": "human_boundaries.analysis.json",
+    "analysis_labels_sha256": "ac73e5d569c24a543f7e982e3f36ad830c41c264ef77850248eae85fa948f96a",
+    "metadata_attestation": "review_completion_attestation.json",
+    "marked_positive_intervals": 4,
+    "uncertain_positive_intervals": 3,
+    "confirmed_negative_intervals": 1,
+    "separate_hold_interval": "UNCERTAIN",
+    "analysis": "boundary_analysis.json",
+    "normal_app_sentence_delivery": "NOT_MEASURED",
+    "continuous_second_sign_or_repeat_outcome": "UNRESOLVED_UNCERTAIN_SECOND_INTERVALS"
   }
 }

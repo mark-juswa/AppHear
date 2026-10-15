@@ -1,0 +1,91 @@
+{
+  "schema": "apphear.continuous_transition.human_boundaries.v2",
+  "transition_protocol_id": "V3_STAGE2_COMPACT_01",
+  "transition_protocol_sha256": "500e4c43f8d64a01d55fb861b73c11604e2b32464f846071d029903bafa9100c",
+  "session_id": "session_20261015T155027Z",
+  "evidence_sha256": "bdd53a6fb86577323ad35464c7bcdbb1e27b00f0d07b6d382a109a20f7f40092",
+  "reviewer": "GH",
+  "blinded_to_predictions": true,
+  "signs": [
+    {
+      "condition": "A_HANDS_DOWN",
+      "ordinal": 1,
+      "gloss": "HELLO",
+      "start_index": 195,
+      "end_index": 201,
+      "judgment": "GENUINE_SIGN",
+      "note": ""
+    },
+    {
+      "condition": "A_HANDS_DOWN",
+      "ordinal": 2,
+      "gloss": "HOME",
+      "start_index": null,
+      "end_index": null,
+      "judgment": "UNCERTAIN",
+      "note": ""
+    },
+    {
+      "condition": "B_HANDS_UP",
+      "ordinal": 1,
+      "gloss": "HELLO",
+      "start_index": null,
+      "end_index": null,
+      "judgment": "UNCERTAIN",
+      "note": ""
+    },
+    {
+      "condition": "B_HANDS_UP",
+      "ordinal": 2,
+      "gloss": "HOME",
+      "start_index": null,
+      "end_index": null,
+      "judgment": "UNCERTAIN",
+      "note": ""
+    },
+    {
+      "condition": "C_REPEAT_HANDS_UP",
+      "ordinal": 1,
+      "gloss": "HELLO",
+      "start_index": null,
+      "end_index": null,
+      "judgment": "UNCERTAIN",
+      "note": ""
+    },
+    {
+      "condition": "C_REPEAT_HANDS_UP",
+      "ordinal": 2,
+      "gloss": "HELLO",
+      "start_index": null,
+      "end_index": null,
+      "judgment": "UNCERTAIN",
+      "note": ""
+    },
+    {
+      "condition": "D_SIGN_THEN_HOLD",
+      "ordinal": 1,
+      "gloss": "HELLO",
+      "start_index": null,
+      "end_index": null,
+      "judgment": "UNCERTAIN",
+      "note": ""
+    }
+  ],
+  "negative_intervals": [
+    {
+      "block": "D_SIGN_THEN_HOLD",
+      "start_index": null,
+      "end_index": null,
+      "judgment": "UNCERTAIN",
+      "note": ""
+    },
+    {
+      "block": "E_ORDINARY_MOVEMENT",
+      "start_index": null,
+      "end_index": null,
+      "judgment": "UNCERTAIN",
+      "note": ""
+    }
+  ],
+  "reviewed_blocks": []
+}

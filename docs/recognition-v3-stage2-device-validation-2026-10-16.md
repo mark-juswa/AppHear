@@ -1,7 +1,7 @@
 # Recognition V3 Stage2 — connected-phone compact validation
 
 2026-10-16, Asia/Manila (capture began October15; UTC session20261015T155027Z).
-Status: ANDROID_ENGINEERING_GATES_AND_CAPTURE_PASS; PHYSICAL_REVIEW_PENDING.
+Status: ANDROID_ENGINEERING_CAPTURE_AND_NONEXPERT_REVIEW_COMPLETE; STAGE2_OBJECTIVE_UNRESOLVED.
 
 ## Verified starting point
 
@@ -129,23 +129,56 @@ not measured. Stage1's previous mixed live FPS/memory findings remain the releva
 
 ## Recognition interpretation and next decision
 
-Physical source-boundary review is pending; the first downloaded draft was blank. No automatic
-labels were filled from button markers, S2 states or classifier outputs. Consequently there is
-no new count of genuine correct, missing, duplicate, merged or wrong-class signs yet, and no
-new claim of ASL or continuous-recognition accuracy. The diagnostic Activity is also not the
-normal app SentenceBuilder; repeated-word sentence delivery remains a separate production gate.
+The user supplied a revised review identifying four positive HELLO intervals and one confirmed
+ordinary-movement interval. Two HOME intervals, the second repeated HELLO and the separate hold
+interval remain UNCERTAIN. The export omitted all whole-block checkmarks. In response to the
+specific completion question the user replied “All five signs done” and supplied the revised
+file covering all five blocks. This human attestation supplies only reviewed_blocks metadata;
+the original export is preserved byte-exact, and every boundary, judgment, reviewer and blinding
+field is unchanged. The final derived labels pass the existing validator and full evaluator.
+Source export, derived labels and exact attestation are retained separately with hashes.
 
-Whole-block traces already constrain the re-arm hypothesis: A/B/D contain only IDLE-before
-observations and no ACTIVE, so a global400ms WAIT lock does not account for their entire duration.
-Whether valid physical signs were missed, which observations supplied usable evidence, and why
-ACTIVE was absent require the blinded review and better-qualified signing evidence. The reviewed
-historical capture remains stronger: six/seven confident signs had no ACTIVE, while hands-up HOME
-had13 IDLE observations with accepted hands. The rejected reset raised reviewed non-sign events4→9.
+| Human-marked positive interval | Rows | Any accepted hand | IDLE-before rows | S2 ACTIVE | Associated event |
+|---|---:|---:|---:|---:|---|
+| A HELLO195–201 |7|5|7|0|None|
+| B HELLO229–238 |10|7|10|0|None|
+| C first HELLO279–286 |8|8|1|3|Event2, HELLO|
+| D HELLO318–354 |37|37|37|0|None|
 
-Retain Stage1 disabled. Do not shorten timers or deploy the rejected history reset. Finish the
-current physical review; then distinguish accepted-evidence loss, absent ACTIVE acquisition,
-completion/re-arm collisions and classifier errors on those exact spans. If lexical execution or
-coverage is uncertain, the smallest decisive follow-up is one qualified design signer repeating
+Three marked positive intervals lacked ACTIVE acquisition despite an already ready decoder;
+there were no Admission rejections in these spans. For those observed non-activations, a recovery
+WAIT lock, downstream materializer, classifier or UI drop is not the blocking stage: no candidate
+opened to reach them. A/B have intermittent accepted hands; D has accepted hands/motion on all37
+rows yet no ACTIVE. D spans8.732s and its separate hold boundary is uncertain, so it must not be
+interpreted as a precisely isolated lexical sign. Body availability/framing, execution quality,
+sparse observations and S2 learned behavior remain confounded. No specific refiner/model defect
+or universal cause is established by this nonexpert capture.
+
+Event2 opened at279, emitted at284 and reached the diagnostic UI once. Its six-source-observation
+window was compatible with RecognitionV2, which returned HELLO0.99298495. This is one observed
+matching event, not held-out-signer accuracy or two successful repeats. The reviewed interval ends
+after commit, so its negative end-to-commit value is retained as boundary information and must
+not be described as negative processing latency. The reviewer’s second HELLO is uncertain: the
+evaluator’s adjacent_repeat_has_two_distinct_events=false means not demonstrated, not a measured
+second-sign miss. All three pair-transition metrics remain UNCERTAIN; no A/B transition advantage
+or recovery-timer change is supported.
+
+The human-confirmed ordinary-movement interval391–427 contains event3 entirely (logical399–401,
+commit404), classified WASH2 with0.23730668 probability. This is one bounded non-sign activation
+in the diagnostic stream. It is not a product false-positive rate or a demonstrated false word in
+the normal app sentence. The separate held-position negative remains unlabelled/uncertain;
+no hold-duplicate safety claim is possible. The diagnostic Activity bypasses normal SentenceBuilder
+presentation, so consecutive repeated-word sentence behavior remains a separate production gate.
+
+These findings support the previous reviewed historical evidence against treating the400ms
+requirement as the sole cause. That capture had six/seven confident signs with no ACTIVE and
+hands-up HOME with13 IDLE observations despite accepted hands. The rejected context reset raised
+reviewed non-sign events4→9. Current same-input parity rules out a serialization/host-state replay
+mismatch for these saved inputs, not perception or model semantic errors.
+
+Retain Stage1 disabled. Do not shorten timers or deploy the rejected history reset. Prioritize evidence availability and ACTIVE acquisition; a timer-only change cannot create
+missing state evidence and risks extra non-sign activations. Existing HOME/repeat-second/hold
+labels remain uncertain. The smallest decisive follow-up is one qualified design signer repeating
 this same compact profile with full upper-body and hand visibility, same camera/lighting/distance,
 and no prediction-driven waits. Inspect visibility before START, not by changing inference rules.
 No new model, Stage3, fingerspelling policy or unrelated UI change is justified by this smoke test.
@@ -163,8 +196,8 @@ Reproduce the source audit with the existing tool:
 & 'F:/ASL DATASET/5. Apphear3/.venv/Scripts/python.exe' -m eval.runtime_diagnostics.continuous_transition_diagnostics prepare --session 'F:/ASL DATASET/5. Apphear3/artifacts/recognition_v3_stage2_compact_device/finalized/session_20261015T155027Z'
 ```
 
-After a complete human review is saved as transition_review/human_boundaries.json, use the same
-command with analyze instead of prepare. Same-observation S2 replay uses the existing
+The validated human review is now saved as transition_review/human_boundaries.json; use the same
+command with analyze instead of prepare to reproduce the completed boundary analysis. Same-observation S2 replay uses the existing
 recognition_v3_stage2_audit.verify_s2(session) helper, not the legacy Phase7 six-attempt CLI.
 
 No runtime recognition policy was changed. Omit recognition_v3_stage2_diagnostics for the legacy

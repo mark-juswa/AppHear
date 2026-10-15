@@ -1,0 +1,15 @@
+{
+  "schema": "apphear.stage2.human_review_import.v1",
+  "status": "AWAITING_WHOLE_BLOCK_REVIEW_ATTESTATION",
+  "submitted_filename": "human_boundaries (1).json",
+  "submitted_sha256": "498c8bc8887ad5ae0ba518de646136b92450ba699b0d29f2769348722f50abc3",
+  "source_session": "session_20261015T155027Z",
+  "validation_error": "HUMAN_REVIEW_INCOMPLETE",
+  "marked_signs": 1,
+  "reviewed_blocks": [],
+  "automatic_sign_or_negative_labels_added": false,
+  "full_evaluator_run": false,
+  "recovery_diagnosis": "Specific review-completion metadata gap; no phone failure or model/runtime change; preserve original and request exact human attestation.",
+  "historical_import_attempt": true,
+  "resolved_by": "review_completion_attestation.json and human_boundaries.analysis.json; original boundaries/judgments unchanged"
+}

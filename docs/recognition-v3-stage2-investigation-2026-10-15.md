@@ -1,4 +1,4 @@
-> **Connected-phone follow-up (October16):** Eleven Android gates and a finalized757-observation engineering capture now pass. Physical review is pending; see [device validation](recognition-v3-stage2-device-validation-2026-10-16.md). Earlier phone-absent/pending-device statements below are historical.
+> **Connected-phone follow-up (October16):** Eleven Android gates and a finalized757-observation engineering capture now pass. Nonexpert physical review is complete with uncertainty; see [device validation](recognition-v3-stage2-device-validation-2026-10-16.md). Earlier phone-absent/pending-device statements below are historical.
 
 > **Compact capture follow-up:** The previously missing profile is now implemented and built. See [compact capture delivery](recognition-v3-stage2-compact-capture-2026-10-15.md). Physical capture and recognition improvement remain unverified.
 
