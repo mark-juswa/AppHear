@@ -16,6 +16,20 @@ provisioning remain open; no automatic new experiment is authorized. See docs/te
 
 # Progress Tracker
 
+**2026-10-15 update — PARTIAL_ANDROID_EVIDENCE_MIXED_DO_NOT_PROMOTE.**
+Canonical4c99ac24 and protected76d93cec remain intact; runtime5d73b412 unchanged.
+- [x] Android applicable gates:11 tests/arm; recorded51-frame/204-output paired benchmark exact.
+- [x] Six20s live engineering captures; fixed14s analysis: front WORD4.64→4.36FPS,
+  FINGERSPELL4.93→6.07FPS; V3 PSS roughly21–25MiB higher.71 host tests pass.
+- [ ] V3 rear, repeated scenes, true frame drops, qualified recognition accuracy and sustained
+  stability remain incomplete. Phone closed/ADB vanished before V3 rear install; last app serial
+  baseline; cause unknown. User ended device testing. No more phone operations.
+- [ ] User again reports needing hands-down wait between signs. Earlier September28 transition
+  work is integrated diagnostic tooling, not a policy fix; preserve this Stage2 issue for Project Lead.
+Keep concurrency default-off; no accuracy claim. No Stage2/3/model/cloud work started.
+Report: [partial phone validation](../docs/recognition-v3-stage1-validation-2026-10-15.md).
+The original implementation status below is historical and superseded by this update.
+
 **2026-10-15 — Recognition V3 Stage 1 implemented; phone validation pending.**
 Isolated `codex/recognition-v3-stage1` starts at canonical integrated
 `4c99ac24ebe7d1d1371a7268288df43df08f8d6b`; protected `76d93cec` and the canonical

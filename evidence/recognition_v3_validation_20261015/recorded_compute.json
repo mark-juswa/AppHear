@@ -1,0 +1,159 @@
+{
+  "schema_version": "apphear.v3.android_recorded_compute.v1",
+  "status": "PASS",
+  "fixtures": 51,
+  "compared_hand_outputs": 204,
+  "scope": "paired hand scheduling; shared freshly inferred DWPose per recorded frame",
+  "pss_before_kb": 76702,
+  "pss_after_kb": 199542,
+  "pss_is_not_incremental_production_cost": true,
+  "live_observation_fps": "NOT_MEASURED",
+  "accuracy_claim": "NONE",
+  "measurement_rows_exclude_first_full_warmup_pass": true,
+  "by_proposals": {
+    "0": {
+      "baseline": {
+        "n": 48,
+        "preprocess_ms": {
+          "p50": 1.0781245,
+          "p95": 1.204062
+        },
+        "pose_inference_and_output_ms": {
+          "p50": 34.847942,
+          "p95": 37.4225
+        },
+        "pose_decode_ms": {
+          "p50": 0.36273500000000003,
+          "p95": 0.423542
+        },
+        "hands_wall_ms": {
+          "p50": 0.002578,
+          "p95": 0.010834
+        },
+        "hand_inference_sum_ms": {
+          "p50": 0.0,
+          "p95": 0
+        }
+      },
+      "v3": {
+        "n": 48,
+        "preprocess_ms": {
+          "p50": 1.0781245,
+          "p95": 1.204062
+        },
+        "pose_inference_and_output_ms": {
+          "p50": 34.847942,
+          "p95": 37.4225
+        },
+        "pose_decode_ms": {
+          "p50": 0.36273500000000003,
+          "p95": 0.423542
+        },
+        "hands_wall_ms": {
+          "p50": 0.0080465,
+          "p95": 0.011094
+        },
+        "hand_inference_sum_ms": {
+          "p50": 0.0,
+          "p95": 0
+        }
+      }
+    },
+    "1": {
+      "baseline": {
+        "n": 57,
+        "preprocess_ms": {
+          "p50": 1.05776,
+          "p95": 1.214896
+        },
+        "pose_inference_and_output_ms": {
+          "p50": 34.856823,
+          "p95": 36.660469
+        },
+        "pose_decode_ms": {
+          "p50": 0.367031,
+          "p95": 0.423385
+        },
+        "hands_wall_ms": {
+          "p50": 30.72776,
+          "p95": 31.27901
+        },
+        "hand_inference_sum_ms": {
+          "p50": 28.922084,
+          "p95": 29.454688
+        }
+      },
+      "v3": {
+        "n": 57,
+        "preprocess_ms": {
+          "p50": 1.05776,
+          "p95": 1.214896
+        },
+        "pose_inference_and_output_ms": {
+          "p50": 34.856823,
+          "p95": 36.660469
+        },
+        "pose_decode_ms": {
+          "p50": 0.367031,
+          "p95": 0.423385
+        },
+        "hands_wall_ms": {
+          "p50": 30.704688,
+          "p95": 31.225677
+        },
+        "hand_inference_sum_ms": {
+          "p50": 28.94026,
+          "p95": 29.340677
+        }
+      }
+    },
+    "2": {
+      "baseline": {
+        "n": 48,
+        "preprocess_ms": {
+          "p50": 1.0577345,
+          "p95": 1.167656
+        },
+        "pose_inference_and_output_ms": {
+          "p50": 34.818332999999996,
+          "p95": 35.367448
+        },
+        "pose_decode_ms": {
+          "p50": 0.36567700000000003,
+          "p95": 0.462448
+        },
+        "hands_wall_ms": {
+          "p50": 61.7819535,
+          "p95": 64.147448
+        },
+        "hand_inference_sum_ms": {
+          "p50": 58.000495,
+          "p95": 60.728177
+        }
+      },
+      "v3": {
+        "n": 48,
+        "preprocess_ms": {
+          "p50": 1.0577345,
+          "p95": 1.167656
+        },
+        "pose_inference_and_output_ms": {
+          "p50": 34.818332999999996,
+          "p95": 35.367448
+        },
+        "pose_decode_ms": {
+          "p50": 0.36567700000000003,
+          "p95": 0.462448
+        },
+        "hands_wall_ms": {
+          "p50": 38.900546500000004,
+          "p95": 43.167709
+        },
+        "hand_inference_sum_ms": {
+          "p50": 63.150780499999996,
+          "p95": 67.072708
+        }
+      }
+    }
+  }
+}

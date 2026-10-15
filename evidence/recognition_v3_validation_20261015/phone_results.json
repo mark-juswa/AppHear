@@ -1,0 +1,495 @@
+{
+  "schema_version": "apphear.v3.partial_android_validation.v1",
+  "device": "Xiaomi M2101K7AG / Android12 / SM6150",
+  "signer_status": "NONEXPERT_ENGINEERING_SMOKE",
+  "scope": "six completed 20-second live runs; paired recorded compute test",
+  "analysis_window": "completion clock [BEGIN+5s, BEGIN+19s); five-second warmup; 14s denominator",
+  "analysis_is_exploratory": true,
+  "runs": {
+    "baseline_word_front_02": {
+      "schema_version": "apphear.v3.trace_summary.v1",
+      "genuine_observations": 65,
+      "v3_parallel_hands": false,
+      "owner": "WORD",
+      "delivered_observation_fps": 4.620694667490871,
+      "capture_span_observation_fps": 4.616261694786616,
+      "frame_drops": "NOT_MEASURED_USE_SENSOR_TIMESTAMP_JOIN",
+      "reused_observations": 0,
+      "body_valid_points_total": 278,
+      "hands_observed_total": 23,
+      "hand_valid_points_total": 2520,
+      "accuracy_claim": "NONE",
+      "source_index_range": [
+        26,
+        90
+      ],
+      "observation_gap_p95_ms": 266.61599,
+      "preprocess_ms": {
+        "p50": 2.607968,
+        "p95": 3.160416
+      },
+      "pose_inference_and_output_ms": {
+        "p50": 86.782709,
+        "p95": 114.9975
+      },
+      "pose_decode_ms": {
+        "p50": 0.665416,
+        "p95": 0.795312
+      },
+      "hand_crop_ms": {
+        "p50": 7.391093,
+        "p95": 7.8896869999999995
+      },
+      "hand_inference_ms": {
+        "p50": 101.579792,
+        "p95": 104.69744800000001
+      },
+      "hands_wall_ms": {
+        "p50": 109.845469,
+        "p95": 112.754896
+      },
+      "perception_ms": {
+        "p50": 196.595677,
+        "p95": 231.901718
+      },
+      "analyzer_ms": {
+        "p50": 214.651145,
+        "p95": 248.083073
+      },
+      "java_heap_bytes": {
+        "first": 12694776,
+        "max": 20308880
+      },
+      "native_heap_bytes": {
+        "first": 126331088,
+        "max": 134041304
+      },
+      "window_delivered_observation_fps": 4.642857142857143,
+      "window_seconds": 14,
+      "pss_median_kb": 279412.0,
+      "pss_max_kb": 285640,
+      "pss_scope": "instrumented app snapshots; scene-dependent allocations included",
+      "mean_valid_body_fraction": 0.5346153846153846,
+      "mean_accepted_hands": 0.35384615384615387,
+      "parallel_frames": 0,
+      "observed_sentences": [
+        "HELLO"
+      ],
+      "observed_spelling_drafts": []
+    },
+    "v3_word_front_02": {
+      "schema_version": "apphear.v3.trace_summary.v1",
+      "genuine_observations": 61,
+      "v3_parallel_hands": true,
+      "owner": "WORD",
+      "delivered_observation_fps": 4.353021193475713,
+      "capture_span_observation_fps": 4.3670403216585125,
+      "frame_drops": "NOT_MEASURED_USE_SENSOR_TIMESTAMP_JOIN",
+      "reused_observations": 0,
+      "body_valid_points_total": 263,
+      "hands_observed_total": 30,
+      "hand_valid_points_total": 2520,
+      "accuracy_claim": "NONE",
+      "source_index_range": [
+        29,
+        89
+      ],
+      "observation_gap_p95_ms": 333.795,
+      "preprocess_ms": {
+        "p50": 2.627708,
+        "p95": 12.685938
+      },
+      "pose_inference_and_output_ms": {
+        "p50": 106.99276,
+        "p95": 139.972917
+      },
+      "pose_decode_ms": {
+        "p50": 0.667969,
+        "p95": 1.844167
+      },
+      "hand_crop_ms": {
+        "p50": 16.637657,
+        "p95": 24.75901
+      },
+      "hand_inference_ms": {
+        "p50": 139.281301,
+        "p95": 219.819792
+      },
+      "hands_wall_ms": {
+        "p50": 99.964062,
+        "p95": 172.871875
+      },
+      "perception_ms": {
+        "p50": 206.935312,
+        "p95": 307.580469
+      },
+      "analyzer_ms": {
+        "p50": 225.434219,
+        "p95": 328.870364
+      },
+      "java_heap_bytes": {
+        "first": 13711440,
+        "max": 20809256
+      },
+      "native_heap_bytes": {
+        "first": 158175384,
+        "max": 168481784
+      },
+      "window_delivered_observation_fps": 4.357142857142857,
+      "window_seconds": 14,
+      "pss_median_kb": 301402.0,
+      "pss_max_kb": 307794,
+      "pss_scope": "instrumented app snapshots; scene-dependent allocations included",
+      "mean_valid_body_fraction": 0.5389344262295082,
+      "mean_accepted_hands": 0.4918032786885246,
+      "parallel_frames": 59,
+      "observed_sentences": [
+        "HELLO"
+      ],
+      "observed_spelling_drafts": []
+    },
+    "baseline_fingerspell_front_02": {
+      "schema_version": "apphear.v3.trace_summary.v1",
+      "genuine_observations": 69,
+      "v3_parallel_hands": false,
+      "owner": "FINGERSPELL",
+      "delivered_observation_fps": 4.969924762318189,
+      "capture_span_observation_fps": 4.976555301604866,
+      "frame_drops": "NOT_MEASURED_USE_SENSOR_TIMESTAMP_JOIN",
+      "reused_observations": 0,
+      "body_valid_points_total": 238,
+      "hands_observed_total": 55,
+      "hand_valid_points_total": 2898,
+      "accuracy_claim": "NONE",
+      "source_index_range": [
+        28,
+        96
+      ],
+      "observation_gap_p95_ms": 266.615989,
+      "preprocess_ms": {
+        "p50": 2.643385,
+        "p95": 3.120052
+      },
+      "pose_inference_and_output_ms": {
+        "p50": 82.581198,
+        "p95": 102.324062
+      },
+      "pose_decode_ms": {
+        "p50": 0.680365,
+        "p95": 0.917917
+      },
+      "hand_crop_ms": {
+        "p50": 7.254167,
+        "p95": 8.36776
+      },
+      "hand_inference_ms": {
+        "p50": 101.5675,
+        "p95": 104.61749900000001
+      },
+      "hands_wall_ms": {
+        "p50": 109.610938,
+        "p95": 113.343907
+      },
+      "perception_ms": {
+        "p50": 195.246302,
+        "p95": 217.055573
+      },
+      "analyzer_ms": {
+        "p50": 195.925573,
+        "p95": 217.520312
+      },
+      "java_heap_bytes": {
+        "first": 10839192,
+        "max": 19222144
+      },
+      "native_heap_bytes": {
+        "first": 122598400,
+        "max": 132126424
+      },
+      "window_delivered_observation_fps": 4.928571428571429,
+      "window_seconds": 14,
+      "pss_median_kb": 274878.0,
+      "pss_max_kb": 281244,
+      "pss_scope": "instrumented app snapshots; scene-dependent allocations included",
+      "mean_valid_body_fraction": 0.4311594202898551,
+      "mean_accepted_hands": 0.7971014492753623,
+      "parallel_frames": 0,
+      "observed_sentences": [
+        "S",
+        "SA",
+        "SAE"
+      ],
+      "observed_spelling_drafts": [
+        "S",
+        "SA",
+        "SAE"
+      ]
+    },
+    "v3_fingerspell_front_02": {
+      "schema_version": "apphear.v3.trace_summary.v1",
+      "genuine_observations": 85,
+      "v3_parallel_hands": true,
+      "owner": "FINGERSPELL",
+      "delivered_observation_fps": 6.069535313097435,
+      "capture_span_observation_fps": 6.058843497132416,
+      "frame_drops": "NOT_MEASURED_USE_SENSOR_TIMESTAMP_JOIN",
+      "reused_observations": 0,
+      "body_valid_points_total": 314,
+      "hands_observed_total": 148,
+      "hand_valid_points_total": 3276,
+      "accuracy_claim": "NONE",
+      "source_index_range": [
+        30,
+        114
+      ],
+      "observation_gap_p95_ms": 199.962032,
+      "preprocess_ms": {
+        "p50": 2.600729,
+        "p95": 3.383802
+      },
+      "pose_inference_and_output_ms": {
+        "p50": 80.893177,
+        "p95": 96.535052
+      },
+      "pose_decode_ms": {
+        "p50": 0.666302,
+        "p95": 1.089011
+      },
+      "hand_crop_ms": {
+        "p50": 15.827239,
+        "p95": 21.006093999999997
+      },
+      "hand_inference_ms": {
+        "p50": 114.798437,
+        "p95": 132.06005199999998
+      },
+      "hands_wall_ms": {
+        "p50": 73.800052,
+        "p95": 93.997917
+      },
+      "perception_ms": {
+        "p50": 159.462448,
+        "p95": 184.392917
+      },
+      "analyzer_ms": {
+        "p50": 160.37698,
+        "p95": 185.242344
+      },
+      "java_heap_bytes": {
+        "first": 18979144,
+        "max": 20622856
+      },
+      "native_heap_bytes": {
+        "first": 200284792,
+        "max": 201498504
+      },
+      "window_delivered_observation_fps": 6.071428571428571,
+      "window_seconds": 14,
+      "pss_median_kb": 300521.0,
+      "pss_max_kb": 305753,
+      "pss_scope": "instrumented app snapshots; scene-dependent allocations included",
+      "mean_valid_body_fraction": 0.46176470588235297,
+      "mean_accepted_hands": 1.7411764705882353,
+      "parallel_frames": 71,
+      "observed_sentences": [
+        "S",
+        "SM",
+        "SMY"
+      ],
+      "observed_spelling_drafts": [
+        "S",
+        "SM",
+        "SMY"
+      ]
+    },
+    "baseline_word_rear_02": {
+      "schema_version": "apphear.v3.trace_summary.v1",
+      "genuine_observations": 104,
+      "v3_parallel_hands": false,
+      "owner": "WORD",
+      "delivered_observation_fps": 7.434369558763266,
+      "capture_span_observation_fps": 7.41713400544008,
+      "frame_drops": "NOT_MEASURED_USE_SENSOR_TIMESTAMP_JOIN",
+      "reused_observations": 0,
+      "body_valid_points_total": 176,
+      "hands_observed_total": 10,
+      "hand_valid_points_total": 3780,
+      "accuracy_claim": "NONE",
+      "source_index_range": [
+        33,
+        136
+      ],
+      "observation_gap_p95_ms": 166.507969,
+      "preprocess_ms": {
+        "p50": 1.812291,
+        "p95": 2.320469
+      },
+      "pose_inference_and_output_ms": {
+        "p50": 59.671823,
+        "p95": 68.016719
+      },
+      "pose_decode_ms": {
+        "p50": 0.367448,
+        "p95": 0.424115
+      },
+      "hand_crop_ms": {
+        "p50": 3.8075,
+        "p95": 4.233699
+      },
+      "hand_inference_ms": {
+        "p50": 61.986874,
+        "p95": 64.666146
+      },
+      "hands_wall_ms": {
+        "p50": 66.256511,
+        "p95": 68.917709
+      },
+      "perception_ms": {
+        "p50": 126.740833,
+        "p95": 137.607239
+      },
+      "analyzer_ms": {
+        "p50": 135.538177,
+        "p95": 156.978282
+      },
+      "java_heap_bytes": {
+        "first": 14714480,
+        "max": 19923656
+      },
+      "native_heap_bytes": {
+        "first": 137618112,
+        "max": 143708832
+      },
+      "window_delivered_observation_fps": 7.428571428571429,
+      "window_seconds": 14,
+      "pss_median_kb": 269480.5,
+      "pss_max_kb": 276466,
+      "pss_scope": "instrumented app snapshots; scene-dependent allocations included",
+      "mean_valid_body_fraction": 0.21153846153846154,
+      "mean_accepted_hands": 0.09615384615384616,
+      "parallel_frames": 0,
+      "observed_sentences": [
+        "HOME",
+        "HOME HELLO"
+      ],
+      "observed_spelling_drafts": []
+    },
+    "baseline_fingerspell_rear_02": {
+      "schema_version": "apphear.v3.trace_summary.v1",
+      "genuine_observations": 108,
+      "v3_parallel_hands": false,
+      "owner": "FINGERSPELL",
+      "delivered_observation_fps": 7.774333092364464,
+      "capture_span_observation_fps": 7.783951632756438,
+      "frame_drops": "NOT_MEASURED_USE_SENSOR_TIMESTAMP_JOIN",
+      "reused_observations": 0,
+      "body_valid_points_total": 203,
+      "hands_observed_total": 148,
+      "hand_valid_points_total": 4093,
+      "accuracy_claim": "NONE",
+      "source_index_range": [
+        40,
+        147
+      ],
+      "observation_gap_p95_ms": 169.288542,
+      "preprocess_ms": {
+        "p50": 1.79875,
+        "p95": 2.36349
+      },
+      "pose_inference_and_output_ms": {
+        "p50": 61.300052,
+        "p95": 72.15
+      },
+      "pose_decode_ms": {
+        "p50": 0.374948,
+        "p95": 0.492605
+      },
+      "hand_crop_ms": {
+        "p50": 4.008906,
+        "p95": 4.689114
+      },
+      "hand_inference_ms": {
+        "p50": 62.280625,
+        "p95": 64.679272
+      },
+      "hands_wall_ms": {
+        "p50": 66.650625,
+        "p95": 69.720833
+      },
+      "perception_ms": {
+        "p50": 128.655989,
+        "p95": 143.285313
+      },
+      "analyzer_ms": {
+        "p50": 129.00849,
+        "p95": 143.75125
+      },
+      "java_heap_bytes": {
+        "first": 17520288,
+        "max": 19580872
+      },
+      "native_heap_bytes": {
+        "first": 138105480,
+        "max": 140599952
+      },
+      "window_delivered_observation_fps": 7.714285714285714,
+      "window_seconds": 14,
+      "pss_median_kb": 269099.0,
+      "pss_max_kb": 275348,
+      "pss_scope": "instrumented app snapshots; scene-dependent allocations included",
+      "mean_valid_body_fraction": 0.2349537037037037,
+      "mean_accepted_hands": 1.3703703703703705,
+      "parallel_frames": 0,
+      "observed_sentences": [
+        "A",
+        "AE",
+        "AES"
+      ],
+      "observed_spelling_drafts": [
+        "A",
+        "AE",
+        "AES"
+      ]
+    }
+  },
+  "source_evidence_sha256": {
+    "baseline_word_front_02.log": "e984cd629b34b8e863a48ba88f456c5bda8af78b2e0f78bbe74b6d6c2ec384dd",
+    "baseline_word_front_02-ui.json": "4b59b7df2925e87149bc394a916961bce0b969c3d6597a2b1e25d7c8e8b1d5d1",
+    "v3_word_front_02.log": "8d3263f519ec9d24080a928a92ef48f06973ecb5282f6b6750feb65e0063832f",
+    "v3_word_front_02-ui.json": "ecd33f782723c1b17799f1dae7bce0162aea85da7631da810bb8716f16b8b500",
+    "baseline_fingerspell_front_02.log": "3c207cbf531357de1e5a7ea6b0856eecdf0e159e7a281a8ddc733a508d4fe3c8",
+    "baseline_fingerspell_front_02-ui.json": "2af9e141d5953e9c89c5797e2aa4bb5e249d7b817b3e1f3c38c7a4b95e3f2afb",
+    "v3_fingerspell_front_02.log": "8718cf3043acb9c82b969ee29c8296f22fe5238742125a2dd828233a089ffdc7",
+    "v3_fingerspell_front_02-ui.json": "5e161885e6c19b357e9fc7199a43c77e9e17b6c4065df2aaec677aeec5cd4433",
+    "baseline_word_rear_02.log": "cfe41198e56836b65079499c77a14382e284f5798a3bc8288f25b0dd08a67a7d",
+    "baseline_word_rear_02-ui.json": "1f42dcdf97f2fd5b73b14660564d87318f9369506a96112361a705af894965f5",
+    "baseline_fingerspell_rear_02.log": "bc7a3f81605e4f050bc22f007626b14068446e94a747161317e0b65de90608de",
+    "baseline_fingerspell_rear_02-ui.json": "0f94fe52b26874898938d9cd5a3c77d6d488e6a137bcbbe036bb284efcae2dfc"
+  },
+  "missing_runs": [
+    "v3_word_rear_02",
+    "v3_fingerspell_rear_02"
+  ],
+  "initial_run_excluded_from_pairs": {
+    "baseline_word_front_01": "pilot before clarified live/automated-test instructions; preserved separately"
+  },
+  "incident": "Phone closed and both ADB transports vanished before V3 rear install; cause unresolved",
+  "last_confirmed_installed_arm": "baseline",
+  "frame_drops": "NOT_MEASURED_SENSOR_TIMESTAMPS_UNAVAILABLE",
+  "sustained_stability": "NOT_ESTABLISHED",
+  "cpu_percent_comparison": "EXCLUDED_STALE_DUMPSYS_INTERVALS",
+  "accuracy_claim": "NONE",
+  "decision": "RETAIN_DEFAULT_OFF_CANDIDATE_DO_NOT_PROMOTE",
+  "front_comparisons": {
+    "word": {
+      "observed_fps_change_percent": -6.153846153846166,
+      "pss_median_delta_mib": 21.474609375,
+      "causal_accuracy_effect": "UNVERIFIED_DIFFERENT_LIVE_GESTURES_AND_VALIDITY"
+    },
+    "fingerspell": {
+      "observed_fps_change_percent": 23.188405797101442,
+      "pss_median_delta_mib": 25.0419921875,
+      "causal_accuracy_effect": "UNVERIFIED_DIFFERENT_LIVE_GESTURES_AND_VALIDITY"
+    }
+  }
+}

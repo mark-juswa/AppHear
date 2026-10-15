@@ -1,0 +1,282 @@
+{
+  "schema_version": "apphear.v3.validation_delivery.v1",
+  "status": "PARTIAL_ANDROID_EVIDENCE_MIXED_DO_NOT_PROMOTE",
+  "canonical_commit": "4c99ac24ebe7d1d1371a7268288df43df08f8d6b",
+  "runtime_commit": "5d73b412c3f310d56346f1c4cc960f69246afc27",
+  "protected_commit": "76d93cecd85bf9f76064d320aa4a5791b5f0704a",
+  "branch": "codex/recognition-v3-stage1",
+  "runtime_changed_during_validation": false,
+  "canonical_checkout_clean": true,
+  "transition_diagnostics_in_canonical": true,
+  "shared_state_hashes_passed": 581,
+  "stage1_app_apks": {
+    "app-debug-baseline-androidTest.apk": {
+      "sha256": "e3d71b2a73f41cbb77d23e67db60b2a96d4cfbe0918d789c8075247e8c362a86",
+      "bytes": 33577802
+    },
+    "app-debug-baseline.apk": {
+      "sha256": "5aa262c6b21a1e0675b4f2fc69ad7b13102fb5011e12babcdc02d252e011990a",
+      "bytes": 822576858
+    },
+    "app-debug-v3-androidTest.apk": {
+      "sha256": "d979d665000881264c90c9d30a5431d9d02b65e1364336e1ae3ce5c62312b3c4",
+      "bytes": 33579127
+    },
+    "app-debug-v3.apk": {
+      "sha256": "24d403c2eca200338574d97e05bd398992fa410e51e4bdaea70996003d1be673",
+      "bytes": 822576866
+    }
+  },
+  "new_test_apks": {
+    "benchmark-androidTest.apk": {
+      "sha256": "6c7455bcdaec5e94fdee664146663a6a2e68a7e105483a1ba866e77c9c586486",
+      "bytes": 33616487
+    },
+    "live-androidTest.apk": {
+      "sha256": "41104ee40a1c3b767322a3eec09d1671a9b9e1b3a227efcef3c3457f2b497da2",
+      "bytes": 33620202
+    }
+  },
+  "host_tests": {
+    "tests": 71,
+    "failures": 0,
+    "errors": 0,
+    "scope": "18 trace integrity +14 prefix beam +39 single-letter regressions",
+    "receipt_sha256": "e3b2138af9d153b87f38d4145ffb2a805345a431be33aedc1c0bd8c2ca718c54"
+  },
+  "android_gates": {
+    "baseline": {
+      "receipts": [
+        {
+          "receipt": "artifacts/recognition_v3_validation/device_20261015T122730466Z_baseline/CameraInputInstrumentedTest.txt",
+          "sha256": "6c5c6628dbed9c99425084d6aa39e507b504a15cfefa11433b1bac4f3098e18c",
+          "status": "PASS",
+          "tests": 1
+        },
+        {
+          "receipt": "artifacts/recognition_v3_validation/device_20261015T122730466Z_baseline/ContinuousFingerspellInstrumentedTest.txt",
+          "sha256": "ec48230b4a74f06097a6c105fec1eb1ba88728d24d6079e850353e3754893440",
+          "status": "PASS",
+          "tests": 2
+        },
+        {
+          "receipt": "artifacts/recognition_v3_validation/device_20261015T122730466Z_baseline/FingerspellSingleLetterInstrumentedTest.txt",
+          "sha256": "69fe063d4cf4f5ecf5bb3d869e1d0feba82de45236fe6250fcef4e7c70636541",
+          "status": "FAIL_LEGACY_MANUAL_METHOD_NOT_APPLICABLE",
+          "tests": 2
+        },
+        {
+          "receipt": "artifacts/recognition_v3_validation/device_20261015T122730466Z_baseline/ParallelHandRefinerInstrumentedTest.txt",
+          "sha256": "57512257a99a70879dcb652c2f35d357e4e02dd29f6f37f38320a09fdd31c65a",
+          "status": "PASS",
+          "tests": 1
+        },
+        {
+          "receipt": "artifacts/recognition_v3_validation/device_20261015T122730466Z_baseline/PhoneS2ParityInstrumentedTest.txt",
+          "sha256": "256e29ff04a5058220d0b3914102f85914424031ca7dfb403157ae9b1802bc85",
+          "status": "PASS",
+          "tests": 3
+        },
+        {
+          "receipt": "artifacts/recognition_v3_validation/device_20261015T122730466Z_baseline/RecognitionCoordinationInstrumentedTest_actualOwnerAutomaticEntryConfirmedSpellingAndWordPreservation.txt",
+          "sha256": "63ac931cecb03dfcd03cff2064712c437876fe984651b3397153277a44403ccd",
+          "status": "PASS",
+          "tests": 1
+        },
+        {
+          "receipt": "artifacts/recognition_v3_validation/device_20261015T122730466Z_baseline/RecognitionV2EndToEndReplayInstrumentedTest.txt",
+          "sha256": "afcf8fe0747847665e9c10cf359c90312dd15f9a3fc1bcd400bec4e301928368",
+          "status": "PASS",
+          "tests": 1
+        },
+        {
+          "receipt": "artifacts/recognition_v3_validation/device_20261015T122730466Z_baseline/SequenceV21ParityInstrumentedTest.txt",
+          "sha256": "fb33e49421d297f9ef8c0f6411b5a78e6f491a215ee97fda7c1ed8925b021d2b",
+          "status": "PASS",
+          "tests": 1
+        }
+      ],
+      "applicable_passing_tests": 11,
+      "note": "Baseline mixed legacy class ran two methods: exactPythonParity passed; obsolete manual method failed."
+    },
+    "v3": {
+      "receipts": [
+        {
+          "receipt": "artifacts/recognition_v3_validation/device_20261015T123725493Z_v3/CameraInputInstrumentedTest.txt",
+          "sha256": "9657f5339d861177b72b8c7fb58bb825beb8a2628dd2dbf690722b4289998081",
+          "status": "PASS",
+          "tests": 1
+        },
+        {
+          "receipt": "artifacts/recognition_v3_validation/device_20261015T123725493Z_v3/ContinuousFingerspellInstrumentedTest.txt",
+          "sha256": "a6a0e2588eeaed0133a6281fc6f13beaccb224190af386d353765dc3105858a5",
+          "status": "PASS",
+          "tests": 2
+        },
+        {
+          "receipt": "artifacts/recognition_v3_validation/device_20261015T123725493Z_v3/FingerspellSingleLetterInstrumentedTest_exactPythonParity.txt",
+          "sha256": "f088589baa98f778ce102f0c2bdedc8d902fba3ed82b127cf78fae66db1df915",
+          "status": "PASS",
+          "tests": 1
+        },
+        {
+          "receipt": "artifacts/recognition_v3_validation/device_20261015T123725493Z_v3/ParallelHandRefinerInstrumentedTest.txt",
+          "sha256": "55250c3b22757a61a6be6542d990dd6c4105fb597ffb2014d1635fa5c5c2267d",
+          "status": "PASS",
+          "tests": 1
+        },
+        {
+          "receipt": "artifacts/recognition_v3_validation/device_20261015T123725493Z_v3/PhoneS2ParityInstrumentedTest.txt",
+          "sha256": "8dbbd530c84dfbe6fa911787dade667101201c679a7881d046dc2e6ec8bd96cb",
+          "status": "PASS",
+          "tests": 3
+        },
+        {
+          "receipt": "artifacts/recognition_v3_validation/device_20261015T123725493Z_v3/RecognitionCoordinationInstrumentedTest_actualOwnerAutomaticEntryConfirmedSpellingAndWordPreservation.txt",
+          "sha256": "00673419612ce32c4cf143ddbecc24156f07e954c9c935430cd88fba9cbe3230",
+          "status": "PASS",
+          "tests": 1
+        },
+        {
+          "receipt": "artifacts/recognition_v3_validation/device_20261015T123725493Z_v3/RecognitionV2EndToEndReplayInstrumentedTest.txt",
+          "sha256": "1167db09230ad270e04a4e002e384fe9f789bd1d7408c30b9e73c0eb5483b5eb",
+          "status": "PASS",
+          "tests": 1
+        },
+        {
+          "receipt": "artifacts/recognition_v3_validation/device_20261015T123725493Z_v3/SequenceV21ParityInstrumentedTest.txt",
+          "sha256": "5200f285d3620af6bc2ec8ac3f22f33eb50a2cb659199eedaae4a59b27cc1974",
+          "status": "PASS",
+          "tests": 1
+        }
+      ],
+      "applicable_passing_tests": 11,
+      "note": "Corrected applicable gate passed."
+    }
+  },
+  "android_recorded_benchmark": {
+    "status": "PASS",
+    "frames": 51,
+    "hand_output_comparisons": 204,
+    "warmup_comparisons_included": true
+  },
+  "live_completed_runs": 6,
+  "missing_runs": [
+    "v3_word_rear_02",
+    "v3_fingerspell_rear_02"
+  ],
+  "stability": "UNRESOLVED_PHONE_CLOSURE_NO_POSTINCIDENT_EVIDENCE",
+  "accuracy_claim": "NONE",
+  "last_confirmed_installed_arm": "baseline",
+  "source_sha256": {
+    "android/app/src/androidTest/java/com/example/apphear/perceptionvnext/LivePerceptionCaptureInstrumentedTest.kt": "29e340971d20cec6fd9995566b322b3717f5e0d0722024d51f9515855e4d9ab1",
+    "android/app/src/androidTest/java/com/example/apphear/perceptionvnext/RecordedPerceptionBenchmarkInstrumentedTest.kt": "deed7ec87ade923c4941cd5ff2d2da56729102cc95a9a63465162dad3b5318e4",
+    "tools/recognition_v3/summarize_trace.py": "6200c33e6fde04a3ff1246a1b2b0a4ea40fd1056b6b79cc2d88413257c38899f",
+    "tools/recognition_v3/evaluate_collected_runs.py": "c46373e3dc6513081b430a216c1010ae6ed44a8a27995ab71540239aa60ed5c5",
+    "tools/recognition_v3/run_device_gate.ps1": "8edec30660274275bdee431e2a92f04a7f304c516b31271dc6973e3539ca23a2",
+    "tools/recognition_v3/run_live_capture.ps1": "5c995861ff1edeb89cb83a62a7156ebc4ae4eb223422487e7b5e9a64eba82b48",
+    "tests/test_recognition_v3_trace.py": "1408e6cccca2ba71681050d2ed7e7172721d6b71c80cc15d3bf640d3ce7f60fd",
+    "docs/recognition-v3-stage1-validation-2026-10-15.md": "a467738955471e2cdcb2ff7e93b51ef2dc543669b2ae5b61f73c2ee8f2653d86",
+    "docs/recognition-v3-stage1-2026-10-15.md": "7cf93dba07ce46d54491d17ebeac355c5483183ce9a3ba01ae549ace29a0f5ae",
+    "context/progress-tracker.md": "7a83135b080d3dad456b36a5f3ed46eab8dca92a59932ddd86b69fbdf59fff7f",
+    "memory.md": "de19bd6d3dd43b2507ae9e9e04d398551d50a1a77920a21b4699858719eb528a"
+  },
+  "compact_results_sha256": {
+    "phone_results.json": "72c75d9aa09e7dab0b30a4b4bc14caabdcee55eec1c964f8ac5548dfd6e2ea24",
+    "recorded_compute.json": "b3df9308b948426549d835a1cee648171a9c308735e8439580543a8791b54af7"
+  },
+  "raw_artifact_sha256": {
+    "artifacts/recognition_v3_validation/baseline_fingerspell_front_02-all.log": "c65b3fa0b2eb9fd296cb4f2de1335fae61809bfc3487be523389b5eaee7e9e24",
+    "artifacts/recognition_v3_validation/baseline_fingerspell_front_02-cpuinfo-after.txt": "9515d6f6707a5230d2cb8989f66dc9969cb8c0c80524354a80445d6584a7a534",
+    "artifacts/recognition_v3_validation/baseline_fingerspell_front_02-driver.log": "1dec9330cc106ce23fe9ce48cfafbb99da1537fc4b54091a8af4378ff0266f72",
+    "artifacts/recognition_v3_validation/baseline_fingerspell_front_02-summary.json": "3d553b71859ebf0172b0b95d742ab5275c6d8c30faa8f98fe5ba99487b875dcb",
+    "artifacts/recognition_v3_validation/baseline_fingerspell_front_02-test.txt": "0d5ba366efbc3befb9ff9383c15c90a9ac3bbc6519ff6653a9c3ccf5b4f5e853",
+    "artifacts/recognition_v3_validation/baseline_fingerspell_front_02-thermal-before.txt": "47a1f06f6de5b69e9f675f08d72c2339091801c959af5845facf427537d5a6fc",
+    "artifacts/recognition_v3_validation/baseline_fingerspell_front_02-thermalservice-after.txt": "47a1f06f6de5b69e9f675f08d72c2339091801c959af5845facf427537d5a6fc",
+    "artifacts/recognition_v3_validation/baseline_fingerspell_front_02-ui.json": "2af9e141d5953e9c89c5797e2aa4bb5e249d7b817b3e1f3c38c7a4b95e3f2afb",
+    "artifacts/recognition_v3_validation/baseline_fingerspell_front_02.log": "3c207cbf531357de1e5a7ea6b0856eecdf0e159e7a281a8ddc733a508d4fe3c8",
+    "artifacts/recognition_v3_validation/baseline_fingerspell_rear_02-all.log": "438eb4ef099afdac9b1e77dc6a2bb1c63257d17b16c3df11c68a86b3429842aa",
+    "artifacts/recognition_v3_validation/baseline_fingerspell_rear_02-cpuinfo-after.txt": "59bfcf98a121eb52d5d0831680f9c6338f5073266cc5923381a26bdb5df9fab7",
+    "artifacts/recognition_v3_validation/baseline_fingerspell_rear_02-driver.log": "507b9fb9dc27c50d0486a932a7571efeaf9fe766b0a82a753d6c50017d06c0ec",
+    "artifacts/recognition_v3_validation/baseline_fingerspell_rear_02-summary.json": "46448bd643541240ff7c5dece96a8624493519d8d14cb357c9c31bd387ba8064",
+    "artifacts/recognition_v3_validation/baseline_fingerspell_rear_02-test.txt": "f088f727c2741b2bf19ce3ae4f6744e0deb2c61c7a5b4c357ba15921ae56bd2c",
+    "artifacts/recognition_v3_validation/baseline_fingerspell_rear_02-thermal-before.txt": "47a1f06f6de5b69e9f675f08d72c2339091801c959af5845facf427537d5a6fc",
+    "artifacts/recognition_v3_validation/baseline_fingerspell_rear_02-thermalservice-after.txt": "47a1f06f6de5b69e9f675f08d72c2339091801c959af5845facf427537d5a6fc",
+    "artifacts/recognition_v3_validation/baseline_fingerspell_rear_02-ui.json": "0f94fe52b26874898938d9cd5a3c77d6d488e6a137bcbbe036bb284efcae2dfc",
+    "artifacts/recognition_v3_validation/baseline_fingerspell_rear_02.log": "bc7a3f81605e4f050bc22f007626b14068446e94a747161317e0b65de90608de",
+    "artifacts/recognition_v3_validation/baseline_word_front_01-all.log": "732f64f32b19bedd1ae698239a18097475fa45039c389fd4bfb8c27f7bd938c7",
+    "artifacts/recognition_v3_validation/baseline_word_front_01-cpu.txt": "17e98b01b3c356512f997d77e147ec820d3eb3799ac5814151815dd563a545f7",
+    "artifacts/recognition_v3_validation/baseline_word_front_01-summary.json": "dccc582e5a4c1a49310c4875f5e501c9bca742c779e9e226087253aea9cb4bf5",
+    "artifacts/recognition_v3_validation/baseline_word_front_01-test.txt": "b33b22705550e4ef129d4d234f7d8e88b65e06bfcd92e055103a5e42810dab7a",
+    "artifacts/recognition_v3_validation/baseline_word_front_01-thermal-after.txt": "61b9d9a064838d8fb7acf101174959c1616822e5dc80039213a3a015ff2c77c4",
+    "artifacts/recognition_v3_validation/baseline_word_front_01-thermal-before.txt": "61b9d9a064838d8fb7acf101174959c1616822e5dc80039213a3a015ff2c77c4",
+    "artifacts/recognition_v3_validation/baseline_word_front_01-ui.json": "e6f2b23499c053af833975ea3d929413f13f499fbfff22e0edf79ef717624791",
+    "artifacts/recognition_v3_validation/baseline_word_front_01.log": "e61f4a8ded790e70cd9754070a531edfd9b247d755dfb334ab2df9dd684d0329",
+    "artifacts/recognition_v3_validation/baseline_word_front_02-all.log": "8e16175e484711eb1cbfa1f0288c4895094ce0f5d6376a757e07e78716625382",
+    "artifacts/recognition_v3_validation/baseline_word_front_02-cpuinfo-after.txt": "79d0cb33ff2eb8ed450f02b731b0cbab455cb1e6c3c47f8f4894b93532f59b44",
+    "artifacts/recognition_v3_validation/baseline_word_front_02-driver.log": "f00ec550aafae2f136e104215d590262ec5fae8205b307a271c5da61ab9f0417",
+    "artifacts/recognition_v3_validation/baseline_word_front_02-summary.json": "6586a1eb03ea6c8f42c00edbf337d4cd2404954ddc6a1254ca27480502547923",
+    "artifacts/recognition_v3_validation/baseline_word_front_02-test.txt": "a25448e4e7b415cf8b8b2db65f018fad7dddc07b31d348bfa8ce0fd4434de316",
+    "artifacts/recognition_v3_validation/baseline_word_front_02-thermal-before.txt": "47a1f06f6de5b69e9f675f08d72c2339091801c959af5845facf427537d5a6fc",
+    "artifacts/recognition_v3_validation/baseline_word_front_02-thermalservice-after.txt": "47a1f06f6de5b69e9f675f08d72c2339091801c959af5845facf427537d5a6fc",
+    "artifacts/recognition_v3_validation/baseline_word_front_02-ui.json": "4b59b7df2925e87149bc394a916961bce0b969c3d6597a2b1e25d7c8e8b1d5d1",
+    "artifacts/recognition_v3_validation/baseline_word_front_02.log": "e984cd629b34b8e863a48ba88f456c5bda8af78b2e0f78bbe74b6d6c2ec384dd",
+    "artifacts/recognition_v3_validation/baseline_word_rear_02-all.log": "1b3e82b58205193ccc507b828e9e63c2ec83c45690d5136c469b8580dd2543e6",
+    "artifacts/recognition_v3_validation/baseline_word_rear_02-cpuinfo-after.txt": "3cd05d44d4a162bed1a2bac97b49a4f29997593e4e8833f20c25c96f28ac1faf",
+    "artifacts/recognition_v3_validation/baseline_word_rear_02-driver.log": "7a80dfbde7fe4872231a15eb35230d1edbfd3949242f8d86a99277f9196db3a0",
+    "artifacts/recognition_v3_validation/baseline_word_rear_02-summary.json": "d90508defc63ff67d6970d45d880229665b6a2d7deac8f5df10b717328367614",
+    "artifacts/recognition_v3_validation/baseline_word_rear_02-test.txt": "b0ff155423388ffd531df173513e02a318d9bce0f69c31a824aa77fb09c3835a",
+    "artifacts/recognition_v3_validation/baseline_word_rear_02-thermal-before.txt": "47a1f06f6de5b69e9f675f08d72c2339091801c959af5845facf427537d5a6fc",
+    "artifacts/recognition_v3_validation/baseline_word_rear_02-thermalservice-after.txt": "47a1f06f6de5b69e9f675f08d72c2339091801c959af5845facf427537d5a6fc",
+    "artifacts/recognition_v3_validation/baseline_word_rear_02-ui.json": "1f42dcdf97f2fd5b73b14660564d87318f9369506a96112361a705af894965f5",
+    "artifacts/recognition_v3_validation/baseline_word_rear_02.log": "cfe41198e56836b65079499c77a14382e284f5798a3bc8288f25b0dd08a67a7d",
+    "artifacts/recognition_v3_validation/build-benchmark-test.log": "5ab3b2341aebc1072601b7f5ce28b912311252b9425b522ec38abe67682adda7",
+    "artifacts/recognition_v3_validation/build-live-test.log": "96f07df8bf5faf7ab03fd4a32831651e60de433c967d022793d381bc12d81f35",
+    "artifacts/recognition_v3_validation/device-baseline-run.log": "a57a60bcb51fd324287b46647d99dcf40ee52803d5964dd1ac1577cd103f890f",
+    "artifacts/recognition_v3_validation/device-v3-run.log": "76ed654ed0bca4abed24c180516dd1bd218a597d21dfb2c7dd9f17338aca32ff",
+    "artifacts/recognition_v3_validation/device_20261015T122730466Z_baseline/CameraInputInstrumentedTest.txt": "6c5c6628dbed9c99425084d6aa39e507b504a15cfefa11433b1bac4f3098e18c",
+    "artifacts/recognition_v3_validation/device_20261015T122730466Z_baseline/ContinuousFingerspellInstrumentedTest.txt": "ec48230b4a74f06097a6c105fec1eb1ba88728d24d6079e850353e3754893440",
+    "artifacts/recognition_v3_validation/device_20261015T122730466Z_baseline/FingerspellSingleLetterInstrumentedTest.txt": "69fe063d4cf4f5ecf5bb3d869e1d0feba82de45236fe6250fcef4e7c70636541",
+    "artifacts/recognition_v3_validation/device_20261015T122730466Z_baseline/identity.json": "65360558d18ae895d517c95c0b4e80b0c14072db86445c1f9ff63637ec545eba",
+    "artifacts/recognition_v3_validation/device_20261015T122730466Z_baseline/ParallelHandRefinerInstrumentedTest.txt": "57512257a99a70879dcb652c2f35d357e4e02dd29f6f37f38320a09fdd31c65a",
+    "artifacts/recognition_v3_validation/device_20261015T122730466Z_baseline/PhoneS2ParityInstrumentedTest.txt": "256e29ff04a5058220d0b3914102f85914424031ca7dfb403157ae9b1802bc85",
+    "artifacts/recognition_v3_validation/device_20261015T122730466Z_baseline/RecognitionCoordinationInstrumentedTest_actualOwnerAutomaticEntryConfirmedSpellingAndWordPreservation.txt": "63ac931cecb03dfcd03cff2064712c437876fe984651b3397153277a44403ccd",
+    "artifacts/recognition_v3_validation/device_20261015T122730466Z_baseline/RecognitionV2EndToEndReplayInstrumentedTest.txt": "afcf8fe0747847665e9c10cf359c90312dd15f9a3fc1bcd400bec4e301928368",
+    "artifacts/recognition_v3_validation/device_20261015T122730466Z_baseline/SequenceV21ParityInstrumentedTest.txt": "fb33e49421d297f9ef8c0f6411b5a78e6f491a215ee97fda7c1ed8925b021d2b",
+    "artifacts/recognition_v3_validation/device_20261015T123725493Z_v3/CameraInputInstrumentedTest.txt": "9657f5339d861177b72b8c7fb58bb825beb8a2628dd2dbf690722b4289998081",
+    "artifacts/recognition_v3_validation/device_20261015T123725493Z_v3/ContinuousFingerspellInstrumentedTest.txt": "a6a0e2588eeaed0133a6281fc6f13beaccb224190af386d353765dc3105858a5",
+    "artifacts/recognition_v3_validation/device_20261015T123725493Z_v3/FingerspellSingleLetterInstrumentedTest_exactPythonParity.txt": "f088589baa98f778ce102f0c2bdedc8d902fba3ed82b127cf78fae66db1df915",
+    "artifacts/recognition_v3_validation/device_20261015T123725493Z_v3/identity.json": "3846f79bb7d486ec0ea11ba45c177265ec4b7f6b232a20bf72046b9bd30c4fe2",
+    "artifacts/recognition_v3_validation/device_20261015T123725493Z_v3/ParallelHandRefinerInstrumentedTest.txt": "55250c3b22757a61a6be6542d990dd6c4105fb597ffb2014d1635fa5c5c2267d",
+    "artifacts/recognition_v3_validation/device_20261015T123725493Z_v3/PhoneS2ParityInstrumentedTest.txt": "8dbbd530c84dfbe6fa911787dade667101201c679a7881d046dc2e6ec8bd96cb",
+    "artifacts/recognition_v3_validation/device_20261015T123725493Z_v3/RecognitionCoordinationInstrumentedTest_actualOwnerAutomaticEntryConfirmedSpellingAndWordPreservation.txt": "00673419612ce32c4cf143ddbecc24156f07e954c9c935430cd88fba9cbe3230",
+    "artifacts/recognition_v3_validation/device_20261015T123725493Z_v3/RecognitionV2EndToEndReplayInstrumentedTest.txt": "1167db09230ad270e04a4e002e384fe9f789bd1d7408c30b9e73c0eb5483b5eb",
+    "artifacts/recognition_v3_validation/device_20261015T123725493Z_v3/recorded_parity.json": "489d5d5cdd62d8ddd7bf78aa8801d960e2ce648507fb16fb6483e75b82da7496",
+    "artifacts/recognition_v3_validation/device_20261015T123725493Z_v3/SequenceV21ParityInstrumentedTest.txt": "5200f285d3620af6bc2ec8ac3f22f33eb50a2cb659199eedaae4a59b27cc1974",
+    "artifacts/recognition_v3_validation/host_tests.xml": "e3b2138af9d153b87f38d4145ffb2a805345a431be33aedc1c0bd8c2ca718c54",
+    "artifacts/recognition_v3_validation/phone-crash-buffer.txt": "0bbaf5cbf89a4abd240f12f751204d82fd4940255c414b9b8bf3eea361986339",
+    "artifacts/recognition_v3_validation/phone-exit-info.txt": "38acdb28076dd926991c91c24f9deb4c43f4a53db3b7fd175f04ad2cba8ebff0",
+    "artifacts/recognition_v3_validation/recorded-benchmark-summary.json": "b3df9308b948426549d835a1cee648171a9c308735e8439580543a8791b54af7",
+    "artifacts/recognition_v3_validation/recorded-benchmark-test.txt": "af51a22be296ac8648316a14221e0e82d52da4fb75fadcc79e5f77943ee6b865",
+    "artifacts/recognition_v3_validation/recorded-benchmark.json": "06bcc9b89cae7517e123193061ae67e0c8c05a02e85e00f518b55227d761f0e7",
+    "artifacts/recognition_v3_validation/v3_fingerspell_front_02-all.log": "5a64c5378d8d23c1892807ec7ec4c0ebfe9f4611da887739fb44783fbf23c4ea",
+    "artifacts/recognition_v3_validation/v3_fingerspell_front_02-cpuinfo-after.txt": "75dcfa1c122b3276abe63c10bf6c37ac83a4194f169690f840b4607a585c7976",
+    "artifacts/recognition_v3_validation/v3_fingerspell_front_02-driver.log": "f68bdcc2cfb8f155ede8b647b939efde2df1b35776ddd1ffeb359b812be59afe",
+    "artifacts/recognition_v3_validation/v3_fingerspell_front_02-summary.json": "9375336ed5e7709b6d86966eb3e06c4764f4b25684ad563f41372ddc9f1bb0ad",
+    "artifacts/recognition_v3_validation/v3_fingerspell_front_02-test.txt": "03dc12e4c7091f46e6ae1d741538a6498325b7af51b9c22aa7d69d55214b8c3f",
+    "artifacts/recognition_v3_validation/v3_fingerspell_front_02-thermal-before.txt": "47a1f06f6de5b69e9f675f08d72c2339091801c959af5845facf427537d5a6fc",
+    "artifacts/recognition_v3_validation/v3_fingerspell_front_02-thermalservice-after.txt": "47a1f06f6de5b69e9f675f08d72c2339091801c959af5845facf427537d5a6fc",
+    "artifacts/recognition_v3_validation/v3_fingerspell_front_02-ui.json": "5e161885e6c19b357e9fc7199a43c77e9e17b6c4065df2aaec677aeec5cd4433",
+    "artifacts/recognition_v3_validation/v3_fingerspell_front_02.log": "8718cf3043acb9c82b969ee29c8296f22fe5238742125a2dd828233a089ffdc7",
+    "artifacts/recognition_v3_validation/v3_word_front_02-all.log": "31af5fac81a63b1c6ac0349383cb1f5e7fab499617a69ce61dd5ecb89f42c76a",
+    "artifacts/recognition_v3_validation/v3_word_front_02-cpuinfo-after.txt": "620c4d1f6e6de2ef3081434dabebe240b63ae1f38b2bb60e848a80e00ef8d0cc",
+    "artifacts/recognition_v3_validation/v3_word_front_02-driver.log": "4299e647ab0e3d361e197e3871358d4a4fccdf14d0379793197da52661d2eed9",
+    "artifacts/recognition_v3_validation/v3_word_front_02-summary.json": "dff63eae3f074740b311b53391ee80488cef58b4b5900e3a00c5c32516a6a57d",
+    "artifacts/recognition_v3_validation/v3_word_front_02-test.txt": "3049a08c44c38f2720cff1027082251d3896c9d357eac94a792daeebeb6220d6",
+    "artifacts/recognition_v3_validation/v3_word_front_02-thermal-before.txt": "47a1f06f6de5b69e9f675f08d72c2339091801c959af5845facf427537d5a6fc",
+    "artifacts/recognition_v3_validation/v3_word_front_02-thermalservice-after.txt": "47a1f06f6de5b69e9f675f08d72c2339091801c959af5845facf427537d5a6fc",
+    "artifacts/recognition_v3_validation/v3_word_front_02-ui.json": "ecd33f782723c1b17799f1dae7bce0162aea85da7631da810bb8716f16b8b500",
+    "artifacts/recognition_v3_validation/v3_word_front_02.log": "8d3263f519ec9d24080a928a92ef48f06973ecb5282f6b6750feb65e0063832f",
+    "artifacts/recognition_v3_validation/v3_word_rear_02-driver.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

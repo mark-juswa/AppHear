@@ -1329,3 +1329,24 @@ baseline APK/commits and keep Stage2 unstarted until the phone result is reviewe
 ## Open questions
 Does phone CPU contention and the extra interpreter arena offset the two-hand overlap? Does net
 genuine delivery improve without WORD/FINGERSPELL regressions? No ASL accuracy improvement is claimed.
+
+# Memory — Recognition V3 partial Android validation, 2026-10-15
+
+## Current state and decisions
+Saved six live phone runs and paired recorded replay; report/evidence in V3 worktree.
+Phone closed and both ADB transports disappeared before V3 rear install; last app baseline.
+User explicitly chose to finish with collected evidence: DO NOT retry phone operations.
+Retain concurrent refiner default-off: exact compute parity/speed benefit, mixed live results,
+memory cost, no accuracy or sustained stability pass. Stage2/3 remain unstarted.
+
+## User feedback / Project Lead handoff
+Hands-down waiting between signs persists. Recalled September28 continuous-transition diagnostics,
+which are integrated but never claimed a runtime policy fix. Report records precise WORD rearm
+mechanism and recommends existing A/B lifecycle diagnostics once Stage2 is authorized.
+Do not confuse this with automatic held-letter FINGERSPELL and same-letter tracking-loss rearm.
+
+## Next session starts with
+Read docs/recognition-v3-stage1-validation-2026-10-15.md and committed phone_results.json.
+If the user reconnects a stable phone, first diagnose the closure; then choose a single bounded
+next evaluation with the Project Lead. Missing V3 rear and repeated scene evidence stay missing.
+Do not start Stage2/timer changes, a thread-budget rewrite or more phone tests automatically.

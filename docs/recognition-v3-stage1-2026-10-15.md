@@ -1,3 +1,5 @@
+> **Later phone evaluation:** See [partial Android validation](recognition-v3-stage1-validation-2026-10-15.md). The implementation report below preserves its original pre-device state; measured live results are mixed and promotion remains blocked.
+
 # Recognition V3 Stage 1 — concurrent current-frame hand refinement
 
 Status: **IMPLEMENTED_HOST_PARITY_PASS_DEVICE_GATE_PENDING**, 2026-10-15 Asia/Manila.
