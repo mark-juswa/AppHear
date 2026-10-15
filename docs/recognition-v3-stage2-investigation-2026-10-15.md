@@ -1,3 +1,5 @@
+> **Compact capture follow-up:** The previously missing profile is now implemented and built. See [compact capture delivery](recognition-v3-stage2-compact-capture-2026-10-15.md). Physical capture and recognition improvement remain unverified.
+
 # Recognition V3 Stage 2 — continuous WORD investigation
 
 2026-10-15, Asia/Manila. **OFFLINE_DIAGNOSIS_COMPLETE_CONTEXT_RESET_REJECTED**.

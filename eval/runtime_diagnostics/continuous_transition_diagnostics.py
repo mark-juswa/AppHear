@@ -26,25 +26,23 @@ from eval.runtime_diagnostics.phone_s2_exact_parity_and_r2_decision import (
     read_json,
     sha256,
 )
+from eval.runtime_diagnostics.transition_protocols import (
+    LEGACY,
+    TransitionProtocol,
+    from_identity,
+    from_integrity,
+)
 from pipeline.perception_vnext.recognition_window_materializer import (
     LogicalSignEvent,
     materialize_recognition_window,
 )
 
 BASELINE = "76d93cecd85bf9f76064d320aa4a5791b5f0704a"
-MILESTONE = "APPHEAR_CONTINUOUS_TRANSITION_AND_READINESS_01"
-BLOCKS = (
-    "A_HANDS_DOWN",
-    "B_HANDS_UP",
-    "NEG_OPEN_HAND_HOLD",
-    "NEG_SEAT_BODY_REPOSITION",
-    "NEG_STANDING_MOVING",
-    "NEG_GROOMING_ADJUSTMENT",
-    "NEG_PHONE_INTERACTION",
-)
-GLOSSES = ("HELLO", "HOME", "TABLE", "HELLO")
+MILESTONE = LEGACY.milestone
+BLOCKS = LEGACY.blocks
+GLOSSES = LEGACY.positive_sequences[0][1]
 WAIT = "EVENT_EMITTED_WAIT_REARM"
-LABEL_SCHEMA = "apphear.continuous_transition.human_boundaries.v1"
+LABEL_SCHEMA = LEGACY.label_schema
 MODEL_SHA = "b6f8b52cece72f0b6f5b802a4ea583060d923e90a6b951059e7013114c8fc151"
 NORM_SHA = "65d885f62eaca6f11a596302d304f63149795ddaf01e702f1e6a36dd7da5c005"
 TFLITE_SHA = "7d26c896db1a00e7a41ff3e02b02033428cbd2ae4b5cbf3e4d279d45f529d3d7"
@@ -70,9 +68,10 @@ def audit(session: Path) -> tuple[list[dict[str, Any]], list[dict[str, Any]], di
     capture = load_capture(session, require_full_session=False)
     identity = read_json(session / "identity.json")
     declared = read_json(session / "session_identity.json")
+    protocol = from_identity(declared)
     if (
         declared.get("protected_baseline_sha") != BASELINE
-        or declared.get("diagnostic_milestone") != MILESTONE
+        or declared.get("diagnostic_milestone") != protocol.milestone
         or not declared.get("transition_diagnostics_enabled")
     ):
         raise ValueError("WRONG_DIAGNOSTIC_COHORT_OR_BASELINE")
@@ -136,10 +135,10 @@ def audit(session: Path) -> tuple[list[dict[str, Any]], list[dict[str, Any]], di
     begins = [m for m in markers if m["action"] == "BEGIN"]
     ends = [m for m in markers if m["action"] == "COMPLETE"]
     if (
-        tuple(m["expected_gloss"] for m in begins) != BLOCKS
-        or tuple(m["expected_gloss"] for m in ends) != BLOCKS
-        or [m["attempt_id"] for m in begins] != list(range(1, 8))
-        or [m["attempt_id"] for m in ends] != list(range(1, 8))
+        tuple(m["expected_gloss"] for m in begins) != protocol.blocks
+        or tuple(m["expected_gloss"] for m in ends) != protocol.blocks
+        or [m["attempt_id"] for m in begins] != list(range(1, len(protocol.blocks) + 1))
+        or [m["attempt_id"] for m in ends] != list(range(1, len(protocol.blocks) + 1))
     ):
         raise ValueError("FIXED_AB_NEGATIVE_MARKERS_INCOMPLETE")
     ranges = []
@@ -211,6 +210,15 @@ def audit(session: Path) -> tuple[list[dict[str, Any]], list[dict[str, Any]], di
         rows,
         events,
         {
+            **protocol.metadata(),
+            **(
+                {
+                    "declared_signer_proficiency": declared["declared_signer_proficiency"],
+                    "comparison_baseline_sha": declared["comparison_baseline_sha"],
+                }
+                if protocol != LEGACY
+                else {}
+            ),
             "status": "CAPTURE_INTEGRITY_PASS",
             "count": capture.count,
             "blocks": ranges,
@@ -237,10 +245,12 @@ def audit(session: Path) -> tuple[list[dict[str, Any]], list[dict[str, Any]], di
 
 def prepare(session: Path) -> Path:
     rows, _, integrity = audit(session)
+    protocol = from_integrity(integrity)
     output = session / "transition_review"
     output.mkdir(exist_ok=True)
     public = {
-        "schema": LABEL_SCHEMA,
+        "schema": protocol.label_schema,
+        **protocol.metadata(),
         "session_id": session.name,
         "evidence_sha256": integrity["observations_sha256"],
         "blocks": integrity["blocks"],
@@ -257,7 +267,8 @@ def prepare(session: Path) -> Path:
     shutil.copyfile(Path(__file__).with_suffix(".html"), output / "index.html")
     write(output / "integrity.json", integrity)
     template = {
-        "schema": LABEL_SCHEMA,
+        "schema": protocol.label_schema,
+        **protocol.metadata(),
         "session_id": session.name,
         "evidence_sha256": integrity["observations_sha256"],
         "reviewer": "",
@@ -272,8 +283,8 @@ def prepare(session: Path) -> Path:
                 "judgment": "UNCERTAIN",
                 "note": "",
             }
-            for b in BLOCKS[:2]
-            for i, gloss in enumerate(GLOSSES, 1)
+            for b, glosses in protocol.positive_sequences
+            for i, gloss in enumerate(glosses, 1)
         ],
         "negative_intervals": [
             {
@@ -283,7 +294,7 @@ def prepare(session: Path) -> Path:
                 "judgment": "UNCERTAIN",
                 "note": "",
             }
-            for b in BLOCKS[2:]
+            for b in protocol.negative_blocks
         ],
         "reviewed_blocks": [],
     }
@@ -296,17 +307,22 @@ def prepare(session: Path) -> Path:
 def validate_labels(
     labels: dict[str, Any], integrity: dict[str, Any], count: int, session_id: str
 ) -> None:
+    protocol = from_integrity(integrity)
     if (
-        labels.get("schema") != LABEL_SCHEMA
+        labels.get("schema") != protocol.label_schema
         or labels.get("session_id") != session_id
         or labels.get("evidence_sha256") != integrity["observations_sha256"]
     ):
         raise ValueError("HUMAN_LABEL_EVIDENCE_IDENTITY_MISMATCH")
+    if any(labels.get(key) != value for key, value in protocol.metadata().items()):
+        raise ValueError("HUMAN_LABEL_PROTOCOL_MISMATCH")
     if not labels.get("reviewer", "").strip() or set(labels.get("reviewed_blocks", [])) != set(
-        BLOCKS
+        protocol.blocks
     ):
         raise ValueError("HUMAN_REVIEW_INCOMPLETE")
-    expected = [(b, i, g) for b in BLOCKS[:2] for i, g in enumerate(GLOSSES, 1)]
+    expected = [
+        (b, i, g) for b, glosses in protocol.positive_sequences for i, g in enumerate(glosses, 1)
+    ]
     signs = labels.get("signs", [])
     if [(s["condition"], s["ordinal"], s["gloss"]) for s in signs] != expected:
         raise ValueError("PHYSICAL_SIGN_ORDER_CHANGED")
@@ -339,7 +355,7 @@ def validate_labels(
                 raise ValueError("OVERLAPPING_OR_REVERSED_PHYSICAL_SIGNS")
             previous_end[block] = end
     negatives = labels.get("negative_intervals", [])
-    if {n["block"] for n in negatives} != set(BLOCKS[2:]):
+    if {n["block"] for n in negatives} != set(protocol.negative_blocks):
         raise ValueError("NEGATIVE_REVIEW_CATEGORIES_MISSING")
     for i, a in enumerate(negatives):
         if a.get("start_index") is None:
@@ -350,10 +366,32 @@ def validate_labels(
             ):
                 raise ValueError("OVERLAPPING_NEGATIVE_INTERVALS")
 
+    if protocol != LEGACY:
+        if [n["block"] for n in negatives] != list(protocol.negative_blocks):
+            raise ValueError("COMPACT_NEGATIVE_ORDER_OR_DUPLICATION")
+        if labels.get("blinded_to_predictions") is not True:
+            raise ValueError("COMPACT_REVIEW_MUST_DECLARE_BLINDING")
+        for interval in negatives:
+            if interval["judgment"] != "CONFIRMED_NON_SIGN":
+                continue
+            for sign in signs:
+                if sign["judgment"] == "GENUINE_SIGN" and max(
+                    interval["start_index"], sign["start_index"]
+                ) <= min(interval["end_index"], sign["end_index"]):
+                    raise ValueError("NEGATIVE_INTERVAL_OVERLAPS_GENUINE_SIGN")
+            if interval["block"] == "D_SIGN_THEN_HOLD":
+                sign = next(s for s in signs if s["condition"] == "D_SIGN_THEN_HOLD")
+                if (
+                    sign["judgment"] == "GENUINE_SIGN"
+                    and interval["start_index"] <= sign["end_index"]
+                ):
+                    raise ValueError("HOLD_MUST_FOLLOW_COMPLETED_PHYSICAL_SIGN")
+
 
 def _overlap(event: dict[str, Any], sign: dict[str, Any]) -> bool:
-    return max(event["logical_active_start_index"], sign["start_index"]) <= min(
-        event["logical_active_end_index"], sign["end_index"]
+    return bool(
+        max(event["logical_active_start_index"], sign["start_index"])
+        <= min(event["logical_active_end_index"], sign["end_index"])
     )
 
 
@@ -395,7 +433,7 @@ def _qualifying_active(
             if beginning is None or (previous is not None and t - previous > maximum_gap_ms):
                 beginning = t
             if t - beginning >= minimum_ms:
-                return row["source_index"]
+                return int(row["source_index"])
         previous = t
     return None
 
@@ -407,6 +445,7 @@ def evaluate(
     deliveries: list[dict[str, Any]],
     minimum_ms: float,
     maximum_gap_ms: float,
+    protocol: TransitionProtocol = LEGACY,
 ) -> dict[str, Any]:
     """Retrospective diagnostics anchored only to human-reviewed source indices."""
     genuine = [s for s in labels["signs"] if s["judgment"] == "GENUINE_SIGN"]
@@ -545,7 +584,7 @@ def evaluate(
             }
         )
     transitions = []
-    for condition in BLOCKS[:2]:
+    for condition, _ in protocol.positive_sequences:
         ordered = [s for s in labels["signs"] if s["condition"] == condition]
         for prior, following in zip(ordered, ordered[1:], strict=False):
             if any(s["judgment"] != "GENUINE_SIGN" for s in (prior, following)):
@@ -586,19 +625,17 @@ def evaluate(
                     "physical_next_start_ms": _time(rows, following["start_index"]),
                     "previous_event_id": previous["event_id"] if previous else None,
                     "previous_terminal_post_ms": previous["terminal_post_ms"] if previous else None,
-                    "previous_completion_commit_source_ms": previous["commit_ms"]
-                    if previous
-                    else None,
-                    "previous_decision_elapsed_realtime_ns": rows[previous["commit_index"]].get(
-                        "event_decision_elapsed_realtime_ns"
-                    )
-                    if previous
-                    else None,
-                    "state_after_previous_commit": rows[previous["commit_index"]][
-                        "event_state_after"
-                    ]
-                    if previous
-                    else None,
+                    "previous_completion_commit_source_ms": (
+                        previous["commit_ms"] if previous else None
+                    ),
+                    "previous_decision_elapsed_realtime_ns": (
+                        rows[previous["commit_index"]].get("event_decision_elapsed_realtime_ns")
+                        if previous
+                        else None
+                    ),
+                    "state_after_previous_commit": (
+                        rows[previous["commit_index"]]["event_state_after"] if previous else None
+                    ),
                     "state_before_next_start": rows[following["start_index"]]["event_state_before"],
                     "intersign_argmax_counts": dict(
                         Counter(str(r["argmax_state"]) for r in between)
@@ -712,6 +749,11 @@ def evaluate(
             },
         }
     return {
+        **(
+            {"compact_outcomes": compact_outcomes(attempts, events), **protocol.metadata()}
+            if protocol != LEGACY
+            else {}
+        ),
         "attempts": attempts,
         "transitions": transitions,
         "reviewed_negatives": negatives,
@@ -722,7 +764,7 @@ def evaluate(
                 max(s["end_index"] for s in genuine if s["condition"] == block),
                 maximum_gap_ms,
             )
-            for block in BLOCKS[:2]
+            for block, _ in protocol.positive_sequences
             if any(s["condition"] == block for s in genuine)
         },
         "decision": "EVIDENCE_FOR_PROJECT_LEAD_REVIEW_ONLY",
@@ -738,9 +780,51 @@ def evaluate(
     }
 
 
+def compact_outcomes(
+    attempts: list[dict[str, Any]], events: list[dict[str, Any]]
+) -> dict[str, Any]:
+    """Event identity and lexical output stay separate from normal-app sentence delivery."""
+    outcomes = []
+    for attempt in attempts:
+        matches = attempt.get("events", [])
+        if attempt["judgment"] != "GENUINE_SIGN":
+            outcome = "UNCERTAIN_OR_NOT_PERFORMED"
+        elif any(e["shared_between_physical_signs"] for e in matches):
+            outcome = "MERGED_EVENT"
+        elif not matches:
+            outcome = "NO_COMPLETED_EVENT"
+        elif len(matches) > 1:
+            outcome = "MULTIPLE_EVENTS_REVIEW_DUPLICATION_OR_OVERSEGMENTATION"
+        elif "EARLY_OR_WRONG_EPISODE" in attempt.get("classification", []):
+            outcome = "OVERLAPPING_EARLY_EPISODE_REVIEW_REQUIRED"
+        else:
+            outcome = (
+                "DISTINCT_EVENT_EXPECTED_GLOSS"
+                if matches[0]["top1_gloss"] == attempt["gloss"]
+                else "DISTINCT_EVENT_CLASSIFICATION_MISMATCH"
+            )
+        outcomes.append(
+            {
+                "condition": attempt["condition"],
+                "ordinal": attempt["ordinal"],
+                "outcome": outcome,
+                "event_ids": [e["event_id"] for e in matches],
+            }
+        )
+    repeated = [o for o in outcomes if o["condition"] == "C_REPEAT_HANDS_UP"]
+    ids = [o["event_ids"][0] for o in repeated if len(o["event_ids"]) == 1]
+    return {
+        "physical_signs": outcomes,
+        "adjacent_repeat_has_two_distinct_events": len(ids) == 2 and len(set(ids)) == 2,
+        "repeat_event_glosses": [e["top1_gloss"] for e in events if e["event_id"] in ids],
+        "normal_app_sentence_delivery": "NOT_MEASURED_DIAGNOSTIC_ACTIVITY",
+        "accuracy_claim": "NONE_SINGLE_DESIGN_COHORT",
+    }
+
+
 def markdown_result(result: dict[str, Any]) -> str:
     lines = [
-        f"# {MILESTONE} — captured evidence",
+        f"# {result.get('milestone', MILESTONE)} — captured evidence",
         "",
         result["decision"],
         "",
@@ -786,6 +870,24 @@ def markdown_result(result: dict[str, Any]) -> str:
             + " | ".join("unknown" if v is None else f"{v:.3f}" for v in cells)
             + " |"
         )
+    if "compact_outcomes" in result:
+        lines += [
+            "",
+            "## Compact event/lexical outcomes",
+            "",
+            "| Block/sign | Outcome | Event IDs |",
+            "|---|---|---|",
+        ]
+        for item in result["compact_outcomes"]["physical_signs"]:
+            lines.append(
+                f"| {item['condition']}/{item['ordinal']} | {item['outcome']} | "
+                f"{item['event_ids']} |"
+            )
+        lines += [
+            "",
+            "Normal-app sentence delivery is NOT MEASURED by this diagnostic Activity.",
+            "This single design cohort is not an accuracy claim.",
+        ]
     lines += [
         "",
         result["timing_caveat"],
@@ -825,19 +927,23 @@ def main() -> int:
         jsonl(session / "ui_delivery.jsonl"),
         integrity["minimum_active_ms"],
         integrity["maximum_observation_gap_ms"],
+        protocol=from_integrity(integrity),
     )
     output = session / "transition_analysis"
     write(
         output / "result.json",
         {
-            "milestone": MILESTONE,
+            "milestone": from_integrity(integrity).milestone,
             "baseline_sha": BASELINE,
             "human_labels_sha256": sha256(labels_path),
             "integrity": integrity,
             **result,
         },
     )
-    (output / "RESULT.md").write_text(markdown_result(result), encoding="utf-8")
+    (output / "RESULT.md").write_text(
+        markdown_result({**result, "milestone": from_integrity(integrity).milestone}),
+        encoding="utf-8",
+    )
     print(
         json.dumps({"status": result["decision"], "report": str(output / "result.json")}, indent=2)
     )

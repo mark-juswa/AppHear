@@ -1,0 +1,13 @@
+{
+  "schema_version": "apphear.stage2.compact.legacy_compatibility.v1",
+  "status": "PASS",
+  "recorded_observations": 1364,
+  "recorded_events": 10,
+  "integrity_payload_unchanged": true,
+  "human_boundary_analysis_unchanged": true,
+  "source_observations_sha256": "392aae5da986810ae3ace3f6bb1885ecf54db8535e88d1b930d0fb1f53ccb8fe",
+  "source_labels_sha256": "bfad9237aa1fa7c225b14e3b856dde332546418c45c3456c0e4979341a36c96d",
+  "source_old_analysis_sha256": "13908e21087faa13a728e96f2227c9bdea94f843a745f6575c3cfc3fe495aa80",
+  "new_device_tests": "NOT_RUN_NO_DEVICE",
+  "accuracy_claim": "NONE"
+}

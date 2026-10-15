@@ -1,0 +1,9 @@
+{
+  "schema_version": "apphear.compact.host_packaging_incident.v1",
+  "host_drive_full": true,
+  "partial_apk_path": "C:\\Users\\Gigabyte\\.codex\\worktrees\\recognition-v3-stage2\\5. Apphear3\\android\\app\\build\\outputs\\apk\\debug\\app-debug.apk",
+  "partial_apk_bytes": 161341301,
+  "partial_apk_sha256": "500914e35ef209fc719c12c96c4f4651636792d3befe2dd81e51b9531c404c80",
+  "partial_apk_zip_valid": false,
+  "valid_delivery_on_f_drive": true
+}

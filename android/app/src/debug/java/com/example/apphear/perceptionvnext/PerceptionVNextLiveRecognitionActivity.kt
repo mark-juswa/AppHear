@@ -158,6 +158,11 @@ class PerceptionVNextLiveRecognitionActivity : AppCompatActivity() {
     private var phoneS2Package = PhoneS2Package.PHASE7_CONTROL
     private var phoneS2ExactParityCaptureEnabled = false
     private var transitionDiagnosticMode = false
+    private var stage2TransitionProtocol: PhoneStage2TransitionProtocol? = null
+    private val transitionBlocks get() = stage2TransitionProtocol?.blocks?.map { it.id }
+        ?: PhoneTransitionDiagnosticCohort.blocks
+    private val transitionInstructions get() = stage2TransitionProtocol?.blocks?.map { it.instruction }
+        ?: PhoneTransitionDiagnosticCohort.instructions
     private var phoneEvidenceOrdinal = 0
     private val phoneEvidenceRing = ArrayDeque<Pair<Int, Gate4A1bVisualDiagnostics.Frame>>()
     private val phoneEvidenceFutures = mutableListOf<Future<*>>()
@@ -188,7 +193,7 @@ class PerceptionVNextLiveRecognitionActivity : AppCompatActivity() {
     )
     private val targets: List<Target>
         get() = if (transitionDiagnosticMode) {
-            PhoneTransitionDiagnosticCohort.blocks.map { Target(-1, it, "DIAGNOSTIC_BLOCK", 1) }
+            transitionBlocks.map { Target(-1, it, "DIAGNOSTIC_BLOCK", 1) }
         } else if (
             phoneCausalMode &&
             (intent.getBooleanExtra(EXTRA_RESTED_ADMISSION_EVIDENCE_COHORT, false) ||
@@ -204,6 +209,14 @@ class PerceptionVNextLiveRecognitionActivity : AppCompatActivity() {
         phoneCausalMode = intent.getBooleanExtra(EXTRA_PHONE_CAUSAL_ENABLED, false)
         phoneS2ExactParityCaptureEnabled = intent.getBooleanExtra(EXTRA_S2_EXACT_PARITY_CAPTURE, false)
         transitionDiagnosticMode = intent.getBooleanExtra(EXTRA_TRANSITION_DIAGNOSTICS, false)
+        if (intent.getBooleanExtra(EXTRA_STAGE2_TRANSITION_DIAGNOSTICS, false)) {
+            PhoneStage2TransitionProtocol.validateCaptureOptions(transitionDiagnosticMode, phoneCausalMode,
+                BuildConfig.RECOGNITION_V3_PARALLEL_HANDS_ENABLED,
+                intent.getStringExtra(EXTRA_SIGNER_PROFICIENCY) ?: "UNKNOWN")
+            stage2TransitionProtocol = assets.open(PhoneStage2TransitionProtocol.ASSET).use {
+                PhoneStage2TransitionProtocol.parse(it.readBytes())
+            }
+        }
         require(!transitionDiagnosticMode || phoneCausalMode) { "TRANSITION_DIAGNOSTICS_REQUIRE_CAUSAL_PATH" }
         onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
@@ -551,7 +564,7 @@ class PerceptionVNextLiveRecognitionActivity : AppCompatActivity() {
             startButton.isEnabled = false
             stopButton.isEnabled = true
             resultText.text = "CAPTURING ${targets[targetOrdinal].gloss}. Perform one sign, return to rest, then STOP."
-            if (transitionDiagnosticMode) resultText.text = PhoneTransitionDiagnosticCohort.instructions[targetOrdinal]
+            if (transitionDiagnosticMode) resultText.text = transitionInstructions[targetOrdinal]
         }
     }
 
@@ -1011,7 +1024,8 @@ class PerceptionVNextLiveRecognitionActivity : AppCompatActivity() {
         val contractBytes = assets.open(RecognitionV2LiveRecognizer.CONTRACT_ASSET).use { it.readBytes() }
         val experimentContractBytes = assets.open(EXPERIMENT_CONTRACT_ASSET).use { it.readBytes() }
         val value = JSONObject().put("milestone", if (phoneCausalMode) PHONE_CAUSAL_MILESTONE else MILESTONE)
-            .put("diagnostic_milestone", if (transitionDiagnosticMode) PhoneTransitionDiagnosticCohort.MILESTONE else JSONObject.NULL)
+            .put("diagnostic_milestone", if (transitionDiagnosticMode) stage2TransitionProtocol?.milestone
+                ?: PhoneTransitionDiagnosticCohort.MILESTONE else JSONObject.NULL)
             .put("protected_baseline_sha", if (transitionDiagnosticMode) PhoneTransitionDiagnosticCohort.BASELINE_SHA else JSONObject.NULL)
             .put("transition_diagnostics_enabled", transitionDiagnosticMode)
             .put("markers_are_physical_boundaries", false)
@@ -1036,7 +1050,7 @@ class PerceptionVNextLiveRecognitionActivity : AppCompatActivity() {
             .put(
                 "phone_target_cohort",
                 if (transitionDiagnosticMode) {
-                    "CONTINUOUS_TRANSITION_AB_AND_NEGATIVES_7_BLOCKS"
+                    stage2TransitionProtocol?.profileId ?: "CONTINUOUS_TRANSITION_AB_AND_NEGATIVES_7_BLOCKS"
                 } else if (
                     phoneCausalMode &&
                     intent.getBooleanExtra(EXTRA_S2_R2_VALIDATION_COHORT, false)
@@ -1059,6 +1073,15 @@ class PerceptionVNextLiveRecognitionActivity : AppCompatActivity() {
             )
             .put("evidence_retention", "pull entire session to host before uninstall/cleanup/reinstall")
             .put("dev_accessed", false).put("protected_test_accessed", false).put("training_executed", false)
+        stage2TransitionProtocol?.let { protocol ->
+            value.put("transition_protocol_id", protocol.profileId)
+                .put("transition_protocol_sha256", protocol.sha256)
+                .put("comparison_baseline_sha", protocol.comparisonBaselineSha)
+                .put("transition_label_schema", protocol.labelSchema)
+                .put("declared_signer_proficiency", intent.getStringExtra(EXTRA_SIGNER_PROFICIENCY) ?: "UNKNOWN")
+                .put("stage1_parallel_hands_enabled", BuildConfig.RECOGNITION_V3_PARALLEL_HANDS_ENABLED)
+                .put("normal_app_sentence_delivery_measured", false)
+        }
         File(sessionRoot, "session_identity.json").writeText(value.toString(2))
     }
 
@@ -1220,6 +1243,8 @@ class PerceptionVNextLiveRecognitionActivity : AppCompatActivity() {
         const val EXTRA_ENABLED = "perception_vnext_enabled"
         const val EXTRA_PHONE_CAUSAL_ENABLED = "phone_causal_enabled"
         const val EXTRA_TRANSITION_DIAGNOSTICS = "continuous_transition_diagnostics"
+        const val EXTRA_STAGE2_TRANSITION_DIAGNOSTICS = "recognition_v3_stage2_diagnostics"
+        const val EXTRA_SIGNER_PROFICIENCY = "validation_signer_proficiency"
         const val EXTRA_PHONE_REARM_POLICY = "phone_rearm_policy"
         const val EXTRA_RESTED_ADMISSION_EVIDENCE_COHORT = "rested_admission_evidence_cohort"
         const val EXTRA_S2_EXACT_PARITY_CAPTURE = "s2_exact_parity_capture"

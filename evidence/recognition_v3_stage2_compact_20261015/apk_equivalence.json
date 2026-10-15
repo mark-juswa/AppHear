@@ -1,0 +1,28 @@
+{
+  "schema_version": "apphear.stage2.compact.apk_equivalence.v1",
+  "status": "PASS",
+  "original_preserved_asset_native_entries": 465,
+  "removed": [],
+  "changed": [],
+  "extra": [
+    "assets/phone_causal_recognition_01/stage2_transition_protocol.json"
+  ],
+  "zip_integrity": "PASS_BOTH_APKS",
+  "jvm_tests": 200,
+  "jvm_failures": 0,
+  "apks": {
+    "app-debug-stage2-compact.apk": {
+      "path": "F:\\ASL DATASET\\5. Apphear3\\artifacts\\recognition_v3_stage2_compact_build_20261015\\delivery\\app-debug-stage2-compact.apk",
+      "sha256": "846ad345cdb061bef11858ef95151c0d35abdadbd67a5dbb1f9401abf7f6f6fc",
+      "bytes": 822025443
+    },
+    "app-debug-stage2-compact-androidTest.apk": {
+      "path": "F:\\ASL DATASET\\5. Apphear3\\artifacts\\recognition_v3_stage2_compact_build_20261015\\delivery\\app-debug-stage2-compact-androidTest.apk",
+      "sha256": "45d5faaad3ae5e87308d1d25e4ad0ba029bc9f4d19691deb5350eb5a0689fd15",
+      "bytes": 7527248
+    }
+  },
+  "instrumentation_parser_test": "COMPILED_NOT_RUN_NO_DEVICE",
+  "runtime_accuracy_claim": "NONE",
+  "stage1_concurrency_enabled": false
+}

@@ -1369,3 +1369,26 @@ A/B + adjacent repeat + held-position/movement capture. Existing7-block harness 
 negatives but needs compact-repeat profile/annotation extension; do not pretend it already exists.
 Choose perception availability vs S2 transition acquisition vs lifecycle handoff from linked evidence.
 Do not deploy prefix reset, reduce timers, or remove sentence dedup as a claimed continuous fix.
+
+# Memory — Stage2 compact capture implementation, 2026-10-15
+
+## Current state
+Same isolated Stage2 branch, continuing1422cad. Missing compact protocol now implemented/built:
+five blocks, seven intended signs, v2 hash-bound review, legacy analysis unchanged.
+No runtime recognition policy fix; Stage1 disabled; earlier history-reset ablation remains rejected.
+Phone absent: parser instrumentation, capture and actual signing results NOT TESTED.
+
+## Build incident resolved
+C: filled during APK packaging;200 JVM tests had passed. Preserved receipts/logs and removed only
+this worktree's generated intermediates; one F:-build-layout attempt succeeded. Valid APK snapshots:
+F:/ASL DATASET/5. Apphear3/artifacts/recognition_v3_stage2_compact_build_20261015/delivery/
+Do not use the old failed C: partial APK. No baseline/model/dataset/evidence was removed.
+141host/200JVM checks,581 protected hashes,465 original packaged asset/native entries preserved.
+
+## Next session starts with
+Read docs/recognition-v3-stage2-compact-capture-2026-10-15.md and compact delivery manifest.
+When user reconnects stable phone, run read-only inspect_stage2_phone.ps1, inspect closure/thermal
+evidence, install saved pair with-r, run packaged-parser test, then launch explicit compact profile.
+Use correctly attested signer proficiency; UNKNOWN/nonexpert does not establish ASL accuracy.
+Review physical boundaries/held negatives; separate events, lexical results and normal sentence.
+Do not rerun the rejected reset experiment or start timer/retraining loops automatically.

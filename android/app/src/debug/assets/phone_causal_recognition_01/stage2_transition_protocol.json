@@ -1,0 +1,51 @@
+{
+  "schema": "apphear.word_transition_protocol.v1",
+  "profile_id": "V3_STAGE2_COMPACT_01",
+  "milestone": "RECOGNITION_V3_STAGE2_TRANSITION_CAPTURE_01",
+  "protected_baseline_sha": "76d93cecd85bf9f76064d320aa4a5791b5f0704a",
+  "comparison_baseline_sha": "e196a8d501386091eae52f59df0fa349e26b43e2",
+  "label_schema": "apphear.continuous_transition.human_boundaries.v2",
+  "blocks": [
+    {
+      "id": "A_HANDS_DOWN",
+      "glosses": [
+        "HELLO",
+        "HOME"
+      ],
+      "review_negative": false,
+      "instruction": "HELLO → hands down naturally → HOME. No deliberate READY wait between words. Return to neutral after HOME; keep recording about 3 seconds, then STOP."
+    },
+    {
+      "id": "B_HANDS_UP",
+      "glosses": [
+        "HELLO",
+        "HOME"
+      ],
+      "review_negative": false,
+      "instruction": "HELLO → HOME. Keep hands in signing space; no deliberate READY wait or hands-down reset. Return to neutral only after HOME; allow about 3 seconds, then STOP."
+    },
+    {
+      "id": "C_REPEAT_HANDS_UP",
+      "glosses": [
+        "HELLO",
+        "HELLO"
+      ],
+      "review_negative": false,
+      "instruction": "HELLO → HELLO as two distinct executions. Keep hands in signing space; no deliberate READY wait. Return to neutral only after the second HELLO; allow about 3 seconds, then STOP."
+    },
+    {
+      "id": "D_SIGN_THEN_HOLD",
+      "glosses": [
+        "HELLO"
+      ],
+      "review_negative": true,
+      "instruction": "Sign HELLO once, then hold its final position about 5 seconds without a second sign. Return naturally, allow about 3 seconds, then STOP. Reviewer marks sign end and hold interval separately."
+    },
+    {
+      "id": "E_ORDINARY_MOVEMENT",
+      "glosses": [],
+      "review_negative": true,
+      "instruction": "Move or reposition your hands/body normally for about 5 seconds, without intending any sign. Return naturally, allow about 3 seconds, then STOP."
+    }
+  ]
+}

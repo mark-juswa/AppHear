@@ -16,6 +16,20 @@ provisioning remain open; no automatic new experiment is authorized. See docs/te
 
 # Progress Tracker
 
+**2026-10-15 — Stage2 compact capture built; physical validation pending.**
+Continues1422cad on codex/recognition-v3-stage2. Five-block debug-only profile now covers hands-down,
+hands-up, adjacent HELLO repeats, sign-then-hold and ordinary movement. Same recorder/models/decoder.
+- [x]141 host tests,200 JVM tests; historical1364-row/10-event analysis unchanged;581 protected hashes.
+- [x] App/test APKs built on F: after one bounded C:-disk-full recovery;465 original asset/native
+  entries byte-identical, only compact protocol JSON added. APK/source hashes in new manifest.
+- [x] Versioned profile/hash-bound v2 review and outcome attribution; legacy seven-block path retained.
+- [ ] Phone absent. Read-only health inspection, packaged-parser instrumentation and actual qualified
+  signing/repeat/hold capture remain NOT TESTED. No runtime recognition fix or accuracy claim.
+Keep Stage1 concurrency off and S2 history-reset candidate rejected. Next: connect a stable phone,
+inspect prior closure, then run the saved compact APK/procedure. No automatic timer/training change.
+See [compact capture delivery](../docs/recognition-v3-stage2-compact-capture-2026-10-15.md).
+Prior missing-profile status is superseded; Stage2 recognition objective remains unresolved.
+
 **2026-10-15 — Recognition V3 Stage2 offline investigation; no runtime policy promoted.**
 Branch codex/recognition-v3-stage2 starts at e196a8d; Stage1 flags remain false.
 - [x] Recovered completed September27 A/B capture omitted by earlier handoff;1364 observations,

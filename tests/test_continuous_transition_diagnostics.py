@@ -305,10 +305,15 @@ def test_review_fails_closed(defect: str, expected: str) -> None:
 
 
 @pytest.mark.parametrize("with_event", [False, True])
+@pytest.mark.parametrize("compact", [False, True])
 def test_capture_audit_and_blinded_review_roundtrip(
-    tmp_path: Path, monkeypatch: pytest.MonkeyPatch, with_event: bool
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch, with_event: bool, compact: bool
 ) -> None:
-    rows, events = stream(([0, 1, 1, 2, 2, 2] + [0] * 8) if with_event else [0] * 14)
+    from eval.runtime_diagnostics.transition_protocols import LEGACY, compact_protocol
+
+    profile = compact_protocol() if compact else LEGACY
+    count = 2 * len(profile.blocks)
+    rows, events = stream(([0, 1, 1, 2, 2, 2] + [0] * (count - 6)) if with_event else [0] * count)
     for event in events:
         event["materialized_source_indices"] = list(range(6))
         event["recognition_v2_source_indices"] = list(range(6))
@@ -335,14 +340,25 @@ def test_capture_audit_and_blinded_review_roundtrip(
         )
     diag.write(
         tmp_path / "continuous_visual/evidence_summary.json",
-        {"finalized_after_capture_stop": True, "verified_original_files": 14},
+        {"finalized_after_capture_stop": True, "verified_original_files": count},
     )
     diag.write(
         tmp_path / "session_identity.json",
         {
             "protected_baseline_sha": diag.BASELINE,
-            "diagnostic_milestone": diag.MILESTONE,
+            "diagnostic_milestone": profile.milestone,
             "transition_diagnostics_enabled": True,
+            **(
+                {
+                    **profile.metadata(),
+                    "comparison_baseline_sha": "e196a8d501386091eae52f59df0fa349e26b43e2",
+                    "transition_label_schema": profile.label_schema,
+                    "stage1_parallel_hands_enabled": False,
+                    "declared_signer_proficiency": "UNKNOWN",
+                }
+                if compact
+                else {}
+            ),
         },
     )
     diag.write(
@@ -375,7 +391,7 @@ def test_capture_audit_and_blinded_review_roundtrip(
             "".join(json.dumps(v) + "\n" for v in values), encoding="utf-8"
         )
     markers = []
-    for i, block in enumerate(diag.BLOCKS):
+    for i, block in enumerate(profile.blocks):
         for action, index in (("BEGIN", i * 2), ("COMPLETE", i * 2 + 1)):
             markers.append(
                 {
@@ -389,7 +405,7 @@ def test_capture_audit_and_blinded_review_roundtrip(
         "".join(json.dumps(v) + "\n" for v in markers), encoding="utf-8"
     )
     capture = SimpleNamespace(
-        count=14,
+        count=count,
         raw=SimpleNamespace(timestamp_ms=np.asarray([r["source_timestamp_ms"] for r in rows])),
         android_argmax=np.asarray([r["argmax_state"] for r in rows]),
         android_probabilities=np.asarray(
@@ -403,6 +419,10 @@ def test_capture_audit_and_blinded_review_roundtrip(
     monkeypatch.setattr(diag, "load_capture", lambda *args, **kwargs: capture)
     output = diag.prepare(tmp_path)
     assert diag.read_json(output / "integrity.json")["status"] == "CAPTURE_INTEGRITY_PASS"
+    review_template = diag.read_json(output / "human_boundaries.template.json")
+    assert review_template["schema"] == profile.label_schema
+    assert len(review_template["signs"]) == (7 if compact else 8)
+    assert len(review_template["negative_intervals"]) == (2 if compact else 5)
     manifest = diag.read_json(output / "review_manifest.json")
     assert "probability" not in json.dumps(manifest)
     template = output / "human_boundaries.template.json"

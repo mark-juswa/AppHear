@@ -969,3 +969,29 @@ checks pass; 104-character display remains untruncated. No acceptance/feature co
 Existing coordination status is now a glass pill between Back and Camera, labeled only Fingerspell
 or Word. Owner/routing/confirmation/recognition unchanged; no feature contract change. 181host
 +3Xiaomi engineering checks pass; docs/apphear-recognition-mode-header-2026-10-09.md.
+
+
+## Compact WORD transition diagnostics — 2026-10-15
+
+Debug-only protocol asset `phone_causal_recognition_01/stage2_transition_protocol.json`
+(`apphear.word_transition_protocol.v1`, profile `V3_STAGE2_COMPACT_01`) is the shared Android/host
+capture/review specification. `PhoneStage2TransitionProtocol` loads and validates it; the existing
+`PerceptionVNextLiveRecognitionActivity` selects it only with the explicit Stage2 extra plus the
+existing causal/transition flags. Parallel hands must remain disabled. No block marker resets
+perception, S2, candidate lifecycle, recovery or the genuine observation ring.
+
+The five-block cohort covers hands-down HELLO→HOME, hands-up HELLO→HOME, adjacent HELLO→HELLO,
+HELLO then a held final position, and ordinary movement. Capture identity binds protocol SHA,
+comparison baseline e196a8d, S2-R2 hashes and declared signer proficiency (UNKNOWN is permitted
+and makes no qualified-signer claim). The historical seven-block profile and v1 reviews retain
+their behavior and analysis outputs.
+
+Host `transition_protocols.py` and `continuous_transition_diagnostics.py` bind compact review
+labels to `apphear.continuous_transition.human_boundaries.v2`, protocol hash and evidence hash.
+Physical sign bounds and bounded held/movement negatives require separate human judgments;
+negative intervals cannot overlap genuine signs. Event, merge/miss, lexical outcome and normal
+sentence delivery are distinct; diagnostic UI does not measure normal-app sentence delivery.
+This is metadata/annotation schema only. Raw-v1, segmentation_features.v1[378], normalization,
+recognition.v2[96,350]+mask, all model weights and FINGERSPELL Adapter405 remain unchanged.
+Neither protocol documents nor human labels are model inputs. No feature schema upgrade or
+frozen-model validation exemption is implied. Device capture/accuracy remains pending.
