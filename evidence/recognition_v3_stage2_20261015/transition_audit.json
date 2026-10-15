@@ -1,0 +1,2883 @@
+{
+  "schema_version": "apphear.recognition_v3.stage2_audit.v1",
+  "integrated_comparison_commit": "e196a8d501386091eae52f59df0fa349e26b43e2",
+  "historical_session": "session_20260927T162103Z",
+  "integrity": {
+    "status": "CAPTURE_INTEGRITY_PASS",
+    "count": 1364,
+    "blocks": [
+      {
+        "block": "A_HANDS_DOWN",
+        "start_index": 96,
+        "end_index": 237
+      },
+      {
+        "block": "B_HANDS_UP",
+        "start_index": 333,
+        "end_index": 430
+      },
+      {
+        "block": "NEG_OPEN_HAND_HOLD",
+        "start_index": 675,
+        "end_index": 773
+      },
+      {
+        "block": "NEG_SEAT_BODY_REPOSITION",
+        "start_index": 809,
+        "end_index": 908
+      },
+      {
+        "block": "NEG_STANDING_MOVING",
+        "start_index": 939,
+        "end_index": 1040
+      },
+      {
+        "block": "NEG_GROOMING_ADJUSTMENT",
+        "start_index": 1068,
+        "end_index": 1163
+      },
+      {
+        "block": "NEG_PHONE_INTERACTION",
+        "start_index": 1253,
+        "end_index": 1345
+      }
+    ],
+    "event_count": 10,
+    "baseline_replay_events_identical": true,
+    "rearm_transitions_identical": true,
+    "visual_coverage": "ALL_PROCESSED_OBSERVATIONS",
+    "materializer_indices_identical": true,
+    "source_runtime_clock_sanity_pass": true,
+    "source_clock": "ImageProxy monotonic ns, serialized as ms; runtime/UI elapsedRealtime ns",
+    "session_identity_sha256": "38cd42f9c7609fac6f4c609830a71df4561c0f884c2cfa59d9b588d841692cb8",
+    "exact_manifest_sha256": "e1fce144230a9103095c102c1c3815c523ce7f5fff78fb525591a1a3ee2ae206",
+    "observations_sha256": "392aae5da986810ae3ace3f6bb1885ecf54db8535e88d1b930d0fb1f53ccb8fe",
+    "events_sha256": "bd9fc840849d6aea5979d0aacce76ae78e01b780671ae52e8cc855af0431567b",
+    "attempt_markers_sha256": "9be87613540439da0ccc682d4398509203a6b015545f15034e15af9557bd4a68",
+    "ui_delivery_sha256": "f20cc770d373c82a033a44e4eb305b4a01b2bc61ce9955fad9136aab633f51d6",
+    "minimum_active_ms": 133.308,
+    "maximum_observation_gap_ms": 533.232
+  },
+  "human_labels_sha256": "bfad9237aa1fa7c225b14e3b856dde332546418c45c3456c0e4979341a36c96d",
+  "historical_analysis_reproduced_exactly": true,
+  "signer_status": "UNKNOWN_PROFICIENCY_DESIGN_SESSION_NOT_ACCURACY_VALIDATION",
+  "reviewed_genuine_signs": 7,
+  "signs_with_zero_active": 6,
+  "signs_with_zero_accepted_hands": 2,
+  "signs": [
+    {
+      "condition": "A_HANDS_DOWN",
+      "ordinal": 1,
+      "gloss": "HELLO",
+      "start_index": 134,
+      "end_index": 139,
+      "judgment": "GENUINE_SIGN",
+      "note": "",
+      "legacy_classification": [
+        "C_S2_ACTIVE_REACQUISITION_FAILURE",
+        "OBSERVATION_CADENCE_CONFOUND"
+      ],
+      "observations": 6,
+      "state_counts": {
+        "0": 5,
+        "2": 1
+      },
+      "lifecycle_counts": {
+        "IDLE": 6
+      },
+      "ready_observations": 6,
+      "active_observations": 0,
+      "blocked_active_indices": [],
+      "maximum_active_probability": 0.14910688,
+      "any_accepted_hand_observations": 3,
+      "both_accepted_hand_observations": 0,
+      "any_proposed_hand_observations": 6,
+      "hand_motion_available_observations": 1,
+      "mean_valid_body_points": 8.0,
+      "admission_rejections": 0,
+      "zero_active_cannot_be_repaired_by_rearm_alone": true,
+      "sampling": {
+        "spacing_p50_ms": 467.31296900101006,
+        "spacing_p95_ms": 520.7201874006539,
+        "gaps_over_533_232_ms": 1,
+        "shorter_transition_could_fall_between_samples": true,
+        "sensor_frame_drops": "NOT_MEASURED",
+        "dense_counterfactual": "UNAVAILABLE_NO_UNPROCESSED_SENSOR_FRAMES"
+      }
+    },
+    {
+      "condition": "A_HANDS_DOWN",
+      "ordinal": 2,
+      "gloss": "HOME",
+      "start_index": 150,
+      "end_index": 158,
+      "judgment": "GENUINE_SIGN",
+      "note": "",
+      "legacy_classification": [
+        "C_S2_ACTIVE_REACQUISITION_FAILURE"
+      ],
+      "observations": 9,
+      "state_counts": {
+        "0": 7,
+        "2": 2
+      },
+      "lifecycle_counts": {
+        "IDLE": 9
+      },
+      "ready_observations": 9,
+      "active_observations": 0,
+      "blocked_active_indices": [],
+      "maximum_active_probability": 0.047226045,
+      "any_accepted_hand_observations": 7,
+      "both_accepted_hand_observations": 0,
+      "any_proposed_hand_observations": 9,
+      "hand_motion_available_observations": 6,
+      "mean_valid_body_points": 8.0,
+      "admission_rejections": 0,
+      "zero_active_cannot_be_repaired_by_rearm_alone": true,
+      "sampling": {
+        "spacing_p50_ms": 267.0359899997711,
+        "spacing_p95_ms": 377.1883227003738,
+        "gaps_over_533_232_ms": 0,
+        "shorter_transition_could_fall_between_samples": true,
+        "sensor_frame_drops": "NOT_MEASURED",
+        "dense_counterfactual": "UNAVAILABLE_NO_UNPROCESSED_SENSOR_FRAMES"
+      }
+    },
+    {
+      "condition": "A_HANDS_DOWN",
+      "ordinal": 3,
+      "gloss": "TABLE",
+      "start_index": 176,
+      "end_index": 185,
+      "judgment": "GENUINE_SIGN",
+      "note": "",
+      "legacy_classification": [
+        "C_S2_ACTIVE_REACQUISITION_FAILURE"
+      ],
+      "observations": 10,
+      "state_counts": {
+        "0": 8,
+        "2": 2
+      },
+      "lifecycle_counts": {
+        "IDLE": 10
+      },
+      "ready_observations": 10,
+      "active_observations": 0,
+      "blocked_active_indices": [],
+      "maximum_active_probability": 0.010967933,
+      "any_accepted_hand_observations": 0,
+      "both_accepted_hand_observations": 0,
+      "any_proposed_hand_observations": 10,
+      "hand_motion_available_observations": 0,
+      "mean_valid_body_points": 8.0,
+      "admission_rejections": 0,
+      "zero_active_cannot_be_repaired_by_rearm_alone": true,
+      "sampling": {
+        "spacing_p50_ms": 200.27703100070357,
+        "spacing_p95_ms": 267.03602120056746,
+        "gaps_over_533_232_ms": 0,
+        "shorter_transition_could_fall_between_samples": true,
+        "sensor_frame_drops": "NOT_MEASURED",
+        "dense_counterfactual": "UNAVAILABLE_NO_UNPROCESSED_SENSOR_FRAMES"
+      }
+    },
+    {
+      "condition": "A_HANDS_DOWN",
+      "ordinal": 4,
+      "gloss": "HELLO",
+      "start_index": 206,
+      "end_index": 214,
+      "judgment": "UNCERTAIN",
+      "note": "",
+      "legacy_classification": "UNCERTAIN_OR_NOT_PERFORMED"
+    },
+    {
+      "condition": "B_HANDS_UP",
+      "ordinal": 1,
+      "gloss": "HELLO",
+      "start_index": 346,
+      "end_index": 356,
+      "judgment": "GENUINE_SIGN",
+      "note": "",
+      "legacy_classification": [
+        "EARLY_OR_WRONG_EPISODE"
+      ],
+      "observations": 11,
+      "state_counts": {
+        "1": 11
+      },
+      "lifecycle_counts": {
+        "ACTIVE_CANDIDATE": 11
+      },
+      "ready_observations": 0,
+      "active_observations": 11,
+      "blocked_active_indices": [],
+      "maximum_active_probability": 0.99550676,
+      "any_accepted_hand_observations": 11,
+      "both_accepted_hand_observations": 0,
+      "any_proposed_hand_observations": 11,
+      "hand_motion_available_observations": 10,
+      "mean_valid_body_points": 5.0,
+      "admission_rejections": 0,
+      "zero_active_cannot_be_repaired_by_rearm_alone": false,
+      "sampling": {
+        "spacing_p50_ms": 166.89749999996275,
+        "spacing_p95_ms": 236.99445790108285,
+        "gaps_over_533_232_ms": 0,
+        "shorter_transition_could_fall_between_samples": true,
+        "sensor_frame_drops": "NOT_MEASURED",
+        "dense_counterfactual": "UNAVAILABLE_NO_UNPROCESSED_SENSOR_FRAMES"
+      }
+    },
+    {
+      "condition": "B_HANDS_UP",
+      "ordinal": 2,
+      "gloss": "HOME",
+      "start_index": 360,
+      "end_index": 374,
+      "judgment": "GENUINE_SIGN",
+      "note": "",
+      "legacy_classification": [
+        "C_S2_ACTIVE_REACQUISITION_FAILURE"
+      ],
+      "observations": 15,
+      "state_counts": {
+        "2": 15
+      },
+      "lifecycle_counts": {
+        "EVENT_EMITTED_WAIT_REARM": 2,
+        "IDLE": 13
+      },
+      "ready_observations": 13,
+      "active_observations": 0,
+      "blocked_active_indices": [],
+      "maximum_active_probability": 0.0623394,
+      "any_accepted_hand_observations": 15,
+      "both_accepted_hand_observations": 0,
+      "any_proposed_hand_observations": 15,
+      "hand_motion_available_observations": 15,
+      "mean_valid_body_points": 5.0,
+      "admission_rejections": 0,
+      "zero_active_cannot_be_repaired_by_rearm_alone": true,
+      "sampling": {
+        "spacing_p50_ms": 200.2769789993763,
+        "spacing_p95_ms": 200.27703135013581,
+        "gaps_over_533_232_ms": 0,
+        "shorter_transition_could_fall_between_samples": true,
+        "sensor_frame_drops": "NOT_MEASURED",
+        "dense_counterfactual": "UNAVAILABLE_NO_UNPROCESSED_SENSOR_FRAMES"
+      }
+    },
+    {
+      "condition": "B_HANDS_UP",
+      "ordinal": 3,
+      "gloss": "TABLE",
+      "start_index": 378,
+      "end_index": 391,
+      "judgment": "GENUINE_SIGN",
+      "note": "",
+      "legacy_classification": [
+        "C_S2_ACTIVE_REACQUISITION_FAILURE"
+      ],
+      "observations": 14,
+      "state_counts": {
+        "2": 14
+      },
+      "lifecycle_counts": {
+        "IDLE": 14
+      },
+      "ready_observations": 14,
+      "active_observations": 0,
+      "blocked_active_indices": [],
+      "maximum_active_probability": 0.054530635,
+      "any_accepted_hand_observations": 0,
+      "both_accepted_hand_observations": 0,
+      "any_proposed_hand_observations": 14,
+      "hand_motion_available_observations": 0,
+      "mean_valid_body_points": 5.714285714285714,
+      "admission_rejections": 0,
+      "zero_active_cannot_be_repaired_by_rearm_alone": true,
+      "sampling": {
+        "spacing_p50_ms": 267.0359889995307,
+        "spacing_p95_ms": 267.0360420010984,
+        "gaps_over_533_232_ms": 0,
+        "shorter_transition_could_fall_between_samples": true,
+        "sensor_frame_drops": "NOT_MEASURED",
+        "dense_counterfactual": "UNAVAILABLE_NO_UNPROCESSED_SENSOR_FRAMES"
+      }
+    },
+    {
+      "condition": "B_HANDS_UP",
+      "ordinal": 4,
+      "gloss": "HELLO",
+      "start_index": 399,
+      "end_index": 405,
+      "judgment": "GENUINE_SIGN",
+      "note": "",
+      "legacy_classification": [
+        "C_S2_ACTIVE_REACQUISITION_FAILURE"
+      ],
+      "observations": 7,
+      "state_counts": {
+        "2": 5,
+        "0": 2
+      },
+      "lifecycle_counts": {
+        "IDLE": 7
+      },
+      "ready_observations": 7,
+      "active_observations": 0,
+      "blocked_active_indices": [],
+      "maximum_active_probability": 0.24463212,
+      "any_accepted_hand_observations": 6,
+      "both_accepted_hand_observations": 0,
+      "any_proposed_hand_observations": 7,
+      "hand_motion_available_observations": 6,
+      "mean_valid_body_points": 4.857142857142857,
+      "admission_rejections": 0,
+      "zero_active_cannot_be_repaired_by_rearm_alone": true,
+      "sampling": {
+        "spacing_p50_ms": 267.03598950151354,
+        "spacing_p95_ms": 267.03604199923575,
+        "gaps_over_533_232_ms": 0,
+        "shorter_transition_could_fall_between_samples": true,
+        "sensor_frame_drops": "NOT_MEASURED",
+        "dense_counterfactual": "UNAVAILABLE_NO_UNPROCESSED_SENSOR_FRAMES"
+      }
+    }
+  ],
+  "transition_sampling": [
+    {
+      "condition": "A_HANDS_DOWN",
+      "from": 1,
+      "to": 2,
+      "end_to_next_start_ms": 3070.9140109997243,
+      "between_observations": 10,
+      "between_state_counts": {
+        "2": 8,
+        "0": 2
+      }
+    },
+    {
+      "condition": "A_HANDS_DOWN",
+      "from": 2,
+      "to": 3,
+      "end_to_next_start_ms": 4205.8170309998095,
+      "between_observations": 17,
+      "between_state_counts": {
+        "2": 7,
+        "0": 10
+      }
+    },
+    {
+      "condition": "B_HANDS_UP",
+      "from": 1,
+      "to": 2,
+      "end_to_next_start_ms": 801.1080210004002,
+      "between_observations": 3,
+      "between_state_counts": {
+        "2": 3
+      }
+    },
+    {
+      "condition": "B_HANDS_UP",
+      "from": 2,
+      "to": 3,
+      "end_to_next_start_ms": 801.1079689990729,
+      "between_observations": 3,
+      "between_state_counts": {
+        "2": 3
+      }
+    },
+    {
+      "condition": "B_HANDS_UP",
+      "from": 3,
+      "to": 4,
+      "end_to_next_start_ms": 1535.456979000941,
+      "between_observations": 7,
+      "between_state_counts": {
+        "2": 7
+      }
+    }
+  ],
+  "transitions": [
+    {
+      "condition": "A_HANDS_DOWN",
+      "from": 1,
+      "to": 2,
+      "physical_end_ms": 14171940.445045,
+      "physical_next_start_ms": 14175011.359056,
+      "previous_event_id": null,
+      "previous_terminal_post_ms": null,
+      "previous_completion_commit_source_ms": null,
+      "previous_decision_elapsed_realtime_ns": null,
+      "state_after_previous_commit": null,
+      "state_before_next_start": "IDLE",
+      "intersign_argmax_counts": {
+        "2": 8,
+        "0": 2
+      },
+      "intersign_probability_rows": [
+        {
+          "source_index": 140,
+          "source_timestamp_ms": 14172407.758066,
+          "pre_probability": 0.06824036,
+          "active_probability": 0.027206454,
+          "post_probability": 0.9045532,
+          "event_state_after": "IDLE"
+        },
+        {
+          "source_index": 141,
+          "source_timestamp_ms": 14172741.553066,
+          "pre_probability": 0.2933845,
+          "active_probability": 0.25498062,
+          "post_probability": 0.4516349,
+          "event_state_after": "IDLE"
+        },
+        {
+          "source_index": 142,
+          "source_timestamp_ms": 14173008.589056,
+          "pre_probability": 0.39315805,
+          "active_probability": 0.16998369,
+          "post_probability": 0.43685824,
+          "event_state_after": "IDLE"
+        },
+        {
+          "source_index": 143,
+          "source_timestamp_ms": 14173208.866035,
+          "pre_probability": 0.43732935,
+          "active_probability": 0.104261704,
+          "post_probability": 0.45840895,
+          "event_state_after": "IDLE"
+        },
+        {
+          "source_index": 144,
+          "source_timestamp_ms": 14173475.902077,
+          "pre_probability": 0.08309549,
+          "active_probability": 0.15282947,
+          "post_probability": 0.76407504,
+          "event_state_after": "IDLE"
+        },
+        {
+          "source_index": 145,
+          "source_timestamp_ms": 14173676.179056,
+          "pre_probability": 0.39283437,
+          "active_probability": 0.13375114,
+          "post_probability": 0.4734145,
+          "event_state_after": "IDLE"
+        },
+        {
+          "source_index": 146,
+          "source_timestamp_ms": 14173943.215045,
+          "pre_probability": 0.13505206,
+          "active_probability": 0.25654942,
+          "post_probability": 0.6083985,
+          "event_state_after": "IDLE"
+        },
+        {
+          "source_index": 147,
+          "source_timestamp_ms": 14174210.251087,
+          "pre_probability": 0.4209447,
+          "active_probability": 0.12847874,
+          "post_probability": 0.4505766,
+          "event_state_after": "IDLE"
+        },
+        {
+          "source_index": 148,
+          "source_timestamp_ms": 14174477.287077,
+          "pre_probability": 0.59515274,
+          "active_probability": 0.019492809,
+          "post_probability": 0.38535446,
+          "event_state_after": "IDLE"
+        },
+        {
+          "source_index": 149,
+          "source_timestamp_ms": 14174677.564056,
+          "pre_probability": 0.81822467,
+          "active_probability": 0.019523446,
+          "post_probability": 0.16225186,
+          "event_state_after": "IDLE"
+        }
+      ],
+      "boundary_episode_trace": [
+        {
+          "source_index": 139,
+          "source_timestamp_ms": 14171940.445045,
+          "argmax_state": 2,
+          "event_state_before": "IDLE",
+          "event_state_after": "IDLE",
+          "event_action": "NO_CHANGE",
+          "candidate_open_index": null,
+          "candidate_active_span_ms": null,
+          "rearm_timer_start_ms": null,
+          "rearm_elapsed_ms": null,
+          "rearm_reason": null,
+          "admission_decision": null
+        },
+        {
+          "source_index": 140,
+          "source_timestamp_ms": 14172407.758066,
+          "argmax_state": 2,
+          "event_state_before": "IDLE",
+          "event_state_after": "IDLE",
+          "event_action": "NO_CHANGE",
+          "candidate_open_index": null,
+          "candidate_active_span_ms": null,
+          "rearm_timer_start_ms": null,
+          "rearm_elapsed_ms": null,
+          "rearm_reason": null,
+          "admission_decision": null
+        },
+        {
+          "source_index": 141,
+          "source_timestamp_ms": 14172741.553066,
+          "argmax_state": 2,
+          "event_state_before": "IDLE",
+          "event_state_after": "IDLE",
+          "event_action": "NO_CHANGE",
+          "candidate_open_index": null,
+          "candidate_active_span_ms": null,
+          "rearm_timer_start_ms": null,
+          "rearm_elapsed_ms": null,
+          "rearm_reason": null,
+          "admission_decision": null
+        },
+        {
+          "source_index": 142,
+          "source_timestamp_ms": 14173008.589056,
+          "argmax_state": 2,
+          "event_state_before": "IDLE",
+          "event_state_after": "IDLE",
+          "event_action": "NO_CHANGE",
+          "candidate_open_index": null,
+          "candidate_active_span_ms": null,
+          "rearm_timer_start_ms": null,
+          "rearm_elapsed_ms": null,
+          "rearm_reason": null,
+          "admission_decision": null
+        },
+        {
+          "source_index": 143,
+          "source_timestamp_ms": 14173208.866035,
+          "argmax_state": 2,
+          "event_state_before": "IDLE",
+          "event_state_after": "IDLE",
+          "event_action": "NO_CHANGE",
+          "candidate_open_index": null,
+          "candidate_active_span_ms": null,
+          "rearm_timer_start_ms": null,
+          "rearm_elapsed_ms": null,
+          "rearm_reason": null,
+          "admission_decision": null
+        },
+        {
+          "source_index": 144,
+          "source_timestamp_ms": 14173475.902077,
+          "argmax_state": 2,
+          "event_state_before": "IDLE",
+          "event_state_after": "IDLE",
+          "event_action": "NO_CHANGE",
+          "candidate_open_index": null,
+          "candidate_active_span_ms": null,
+          "rearm_timer_start_ms": null,
+          "rearm_elapsed_ms": null,
+          "rearm_reason": null,
+          "admission_decision": null
+        },
+        {
+          "source_index": 145,
+          "source_timestamp_ms": 14173676.179056,
+          "argmax_state": 2,
+          "event_state_before": "IDLE",
+          "event_state_after": "IDLE",
+          "event_action": "NO_CHANGE",
+          "candidate_open_index": null,
+          "candidate_active_span_ms": null,
+          "rearm_timer_start_ms": null,
+          "rearm_elapsed_ms": null,
+          "rearm_reason": null,
+          "admission_decision": null
+        },
+        {
+          "source_index": 146,
+          "source_timestamp_ms": 14173943.215045,
+          "argmax_state": 2,
+          "event_state_before": "IDLE",
+          "event_state_after": "IDLE",
+          "event_action": "NO_CHANGE",
+          "candidate_open_index": null,
+          "candidate_active_span_ms": null,
+          "rearm_timer_start_ms": null,
+          "rearm_elapsed_ms": null,
+          "rearm_reason": null,
+          "admission_decision": null
+        },
+        {
+          "source_index": 147,
+          "source_timestamp_ms": 14174210.251087,
+          "argmax_state": 2,
+          "event_state_before": "IDLE",
+          "event_state_after": "IDLE",
+          "event_action": "NO_CHANGE",
+          "candidate_open_index": null,
+          "candidate_active_span_ms": null,
+          "rearm_timer_start_ms": null,
+          "rearm_elapsed_ms": null,
+          "rearm_reason": null,
+          "admission_decision": null
+        },
+        {
+          "source_index": 148,
+          "source_timestamp_ms": 14174477.287077,
+          "argmax_state": 0,
+          "event_state_before": "IDLE",
+          "event_state_after": "IDLE",
+          "event_action": "NO_CHANGE",
+          "candidate_open_index": null,
+          "candidate_active_span_ms": null,
+          "rearm_timer_start_ms": null,
+          "rearm_elapsed_ms": null,
+          "rearm_reason": null,
+          "admission_decision": null
+        },
+        {
+          "source_index": 149,
+          "source_timestamp_ms": 14174677.564056,
+          "argmax_state": 0,
+          "event_state_before": "IDLE",
+          "event_state_after": "IDLE",
+          "event_action": "NO_CHANGE",
+          "candidate_open_index": null,
+          "candidate_active_span_ms": null,
+          "rearm_timer_start_ms": null,
+          "rearm_elapsed_ms": null,
+          "rearm_reason": null,
+          "admission_decision": null
+        },
+        {
+          "source_index": 150,
+          "source_timestamp_ms": 14175011.359056,
+          "argmax_state": 0,
+          "event_state_before": "IDLE",
+          "event_state_after": "IDLE",
+          "event_action": "NO_CHANGE",
+          "candidate_open_index": null,
+          "candidate_active_span_ms": null,
+          "rearm_timer_start_ms": null,
+          "rearm_elapsed_ms": null,
+          "rearm_reason": null,
+          "admission_decision": null
+        },
+        {
+          "source_index": 151,
+          "source_timestamp_ms": 14175345.154056,
+          "argmax_state": 0,
+          "event_state_before": "IDLE",
+          "event_state_after": "IDLE",
+          "event_action": "NO_CHANGE",
+          "candidate_open_index": null,
+          "candidate_active_span_ms": null,
+          "rearm_timer_start_ms": null,
+          "rearm_elapsed_ms": null,
+          "rearm_reason": null,
+          "admission_decision": null
+        },
+        {
+          "source_index": 152,
+          "source_timestamp_ms": 14175545.431035,
+          "argmax_state": 2,
+          "event_state_before": "IDLE",
+          "event_state_after": "IDLE",
+          "event_action": "NO_CHANGE",
+          "candidate_open_index": null,
+          "candidate_active_span_ms": null,
+          "rearm_timer_start_ms": null,
+          "rearm_elapsed_ms": null,
+          "rearm_reason": null,
+          "admission_decision": null
+        },
+        {
+          "source_index": 153,
+          "source_timestamp_ms": 14175812.467077,
+          "argmax_state": 0,
+          "event_state_before": "IDLE",
+          "event_state_after": "IDLE",
+          "event_action": "NO_CHANGE",
+          "candidate_open_index": null,
+          "candidate_active_span_ms": null,
+          "rearm_timer_start_ms": null,
+          "rearm_elapsed_ms": null,
+          "rearm_reason": null,
+          "admission_decision": null
+        },
+        {
+          "source_index": 154,
+          "source_timestamp_ms": 14176213.021035,
+          "argmax_state": 0,
+          "event_state_before": "IDLE",
+          "event_state_after": "IDLE",
+          "event_action": "NO_CHANGE",
+          "candidate_open_index": null,
+          "candidate_active_span_ms": null,
+          "rearm_timer_start_ms": null,
+          "rearm_elapsed_ms": null,
+          "rearm_reason": null,
+          "admission_decision": null
+        },
+        {
+          "source_index": 155,
+          "source_timestamp_ms": 14176480.057025,
+          "argmax_state": 0,
+          "event_state_before": "IDLE",
+          "event_state_after": "IDLE",
+          "event_action": "NO_CHANGE",
+          "candidate_open_index": null,
+          "candidate_active_span_ms": null,
+          "rearm_timer_start_ms": null,
+          "rearm_elapsed_ms": null,
+          "rearm_reason": null,
+          "admission_decision": null
+        },
+        {
+          "source_index": 156,
+          "source_timestamp_ms": 14176680.334056,
+          "argmax_state": 0,
+          "event_state_before": "IDLE",
+          "event_state_after": "IDLE",
+          "event_action": "NO_CHANGE",
+          "candidate_open_index": null,
+          "candidate_active_span_ms": null,
+          "rearm_timer_start_ms": null,
+          "rearm_elapsed_ms": null,
+          "rearm_reason": null,
+          "admission_decision": null
+        },
+        {
+          "source_index": 157,
+          "source_timestamp_ms": 14176947.370045,
+          "argmax_state": 0,
+          "event_state_before": "IDLE",
+          "event_state_after": "IDLE",
+          "event_action": "NO_CHANGE",
+          "candidate_open_index": null,
+          "candidate_active_span_ms": null,
+          "rearm_timer_start_ms": null,
+          "rearm_elapsed_ms": null,
+          "rearm_reason": null,
+          "admission_decision": null
+        },
+        {
+          "source_index": 158,
+          "source_timestamp_ms": 14177214.406035,
+          "argmax_state": 2,
+          "event_state_before": "IDLE",
+          "event_state_after": "IDLE",
+          "event_action": "NO_CHANGE",
+          "candidate_open_index": null,
+          "candidate_active_span_ms": null,
+          "rearm_timer_start_ms": null,
+          "rearm_elapsed_ms": null,
+          "rearm_reason": null,
+          "admission_decision": null
+        }
+      ],
+      "rearm_before_next_sign": false,
+      "rearm_index": null,
+      "active_recovery_interruptions": [],
+      "timing_ms": {
+        "physical_end_to_completion_commit": null,
+        "completion_commit_to_rearm": null,
+        "next_start_to_rearm_signed": null,
+        "physical_start_to_first_qualifying_active": null,
+        "physical_start_to_event_open": null,
+        "physical_start_to_recognizer_result": null,
+        "physical_start_to_debug_ui_delivery": null
+      },
+      "next_sign_classification": [
+        "C_S2_ACTIVE_REACQUISITION_FAILURE"
+      ],
+      "next_sign_event_details": []
+    },
+    {
+      "condition": "A_HANDS_DOWN",
+      "from": 2,
+      "to": 3,
+      "physical_end_ms": 14177214.406035,
+      "physical_next_start_ms": 14181420.223066,
+      "previous_event_id": null,
+      "previous_terminal_post_ms": null,
+      "previous_completion_commit_source_ms": null,
+      "previous_decision_elapsed_realtime_ns": null,
+      "state_after_previous_commit": null,
+      "state_before_next_start": "IDLE",
+      "intersign_argmax_counts": {
+        "2": 7,
+        "0": 10
+      },
+      "intersign_probability_rows": [
+        {
+          "source_index": 159,
+          "source_timestamp_ms": 14177414.683066,
+          "pre_probability": 0.29444614,
+          "active_probability": 0.0018079843,
+          "post_probability": 0.7037459,
+          "event_state_after": "IDLE"
+        },
+        {
+          "source_index": 160,
+          "source_timestamp_ms": 14177681.719056,
+          "pre_probability": 0.2615139,
+          "active_probability": 0.0007956994,
+          "post_probability": 0.7376904,
+          "event_state_after": "IDLE"
+        },
+        {
+          "source_index": 161,
+          "source_timestamp_ms": 14177881.996087,
+          "pre_probability": 0.42756513,
+          "active_probability": 0.0034697056,
+          "post_probability": 0.5689652,
+          "event_state_after": "IDLE"
+        },
+        {
+          "source_index": 162,
+          "source_timestamp_ms": 14178149.032077,
+          "pre_probability": 0.4582806,
+          "active_probability": 0.0027264394,
+          "post_probability": 0.53899294,
+          "event_state_after": "IDLE"
+        },
+        {
+          "source_index": 163,
+          "source_timestamp_ms": 14178349.309056,
+          "pre_probability": 0.51519346,
+          "active_probability": 0.0018775613,
+          "post_probability": 0.482929,
+          "event_state_after": "IDLE"
+        },
+        {
+          "source_index": 164,
+          "source_timestamp_ms": 14178616.345045,
+          "pre_probability": 0.5190185,
+          "active_probability": 0.0028197507,
+          "post_probability": 0.4781618,
+          "event_state_after": "IDLE"
+        },
+        {
+          "source_index": 165,
+          "source_timestamp_ms": 14178816.622077,
+          "pre_probability": 0.38699657,
+          "active_probability": 0.0015677068,
+          "post_probability": 0.6114358,
+          "event_state_after": "IDLE"
+        },
+        {
+          "source_index": 166,
+          "source_timestamp_ms": 14179083.658066,
+          "pre_probability": 0.46420342,
+          "active_probability": 0.0013455618,
+          "post_probability": 0.534451,
+          "event_state_after": "IDLE"
+        },
+        {
+          "source_index": 167,
+          "source_timestamp_ms": 14179283.935045,
+          "pre_probability": 0.50353336,
+          "active_probability": 0.0015519409,
+          "post_probability": 0.49491468,
+          "event_state_after": "IDLE"
+        },
+        {
+          "source_index": 168,
+          "source_timestamp_ms": 14179550.971087,
+          "pre_probability": 0.7065489,
+          "active_probability": 0.00062050717,
+          "post_probability": 0.29283062,
+          "event_state_after": "IDLE"
+        },
+        {
+          "source_index": 169,
+          "source_timestamp_ms": 14179818.007077,
+          "pre_probability": 0.64540803,
+          "active_probability": 0.0004630686,
+          "post_probability": 0.3541289,
+          "event_state_after": "IDLE"
+        },
+        {
+          "source_index": 170,
+          "source_timestamp_ms": 14180018.284056,
+          "pre_probability": 0.79963225,
+          "active_probability": 0.00053626765,
+          "post_probability": 0.19983141,
+          "event_state_after": "IDLE"
+        },
+        {
+          "source_index": 171,
+          "source_timestamp_ms": 14180285.320045,
+          "pre_probability": 0.76247305,
+          "active_probability": 0.0005446117,
+          "post_probability": 0.23698227,
+          "event_state_after": "IDLE"
+        },
+        {
+          "source_index": 172,
+          "source_timestamp_ms": 14180485.597077,
+          "pre_probability": 0.7924372,
+          "active_probability": 0.001395276,
+          "post_probability": 0.20616755,
+          "event_state_after": "IDLE"
+        },
+        {
+          "source_index": 173,
+          "source_timestamp_ms": 14180752.633066,
+          "pre_probability": 0.72564757,
+          "active_probability": 0.00091081107,
+          "post_probability": 0.2734416,
+          "event_state_after": "IDLE"
+        },
+        {
+          "source_index": 174,
+          "source_timestamp_ms": 14180952.910045,
+          "pre_probability": 0.6594167,
+          "active_probability": 0.0014151862,
+          "post_probability": 0.3391681,
+          "event_state_after": "IDLE"
+        },
+        {
+          "source_index": 175,
+          "source_timestamp_ms": 14181219.946087,
+          "pre_probability": 0.148312,
+          "active_probability": 0.00082244596,
+          "post_probability": 0.8508656,
+          "event_state_after": "IDLE"
+        }
+      ],
+      "boundary_episode_trace": [
+        {
+          "source_index": 158,
+          "source_timestamp_ms": 14177214.406035,
+          "argmax_state": 2,
+          "event_state_before": "IDLE",
+          "event_state_after": "IDLE",
+          "event_action": "NO_CHANGE",
+          "candidate_open_index": null,
+          "candidate_active_span_ms": null,
+          "rearm_timer_start_ms": null,
+          "rearm_elapsed_ms": null,
+          "rearm_reason": null,
+          "admission_decision": null
+        },
+        {
+          "source_index": 159,
+          "source_timestamp_ms": 14177414.683066,
+          "argmax_state": 2,
+          "event_state_before": "IDLE",
+          "event_state_after": "IDLE",
+          "event_action": "NO_CHANGE",
+          "candidate_open_index": null,
+          "candidate_active_span_ms": null,
+          "rearm_timer_start_ms": null,
+          "rearm_elapsed_ms": null,
+          "rearm_reason": null,
+          "admission_decision": null
+        },
+        {
+          "source_index": 160,
+          "source_timestamp_ms": 14177681.719056,
+          "argmax_state": 2,
+          "event_state_before": "IDLE",
+          "event_state_after": "IDLE",
+          "event_action": "NO_CHANGE",
+          "candidate_open_index": null,
+          "candidate_active_span_ms": null,
+          "rearm_timer_start_ms": null,
+          "rearm_elapsed_ms": null,
+          "rearm_reason": null,
+          "admission_decision": null
+        },
+        {
+          "source_index": 161,
+          "source_timestamp_ms": 14177881.996087,
+          "argmax_state": 2,
+          "event_state_before": "IDLE",
+          "event_state_after": "IDLE",
+          "event_action": "NO_CHANGE",
+          "candidate_open_index": null,
+          "candidate_active_span_ms": null,
+          "rearm_timer_start_ms": null,
+          "rearm_elapsed_ms": null,
+          "rearm_reason": null,
+          "admission_decision": null
+        },
+        {
+          "source_index": 162,
+          "source_timestamp_ms": 14178149.032077,
+          "argmax_state": 2,
+          "event_state_before": "IDLE",
+          "event_state_after": "IDLE",
+          "event_action": "NO_CHANGE",
+          "candidate_open_index": null,
+          "candidate_active_span_ms": null,
+          "rearm_timer_start_ms": null,
+          "rearm_elapsed_ms": null,
+          "rearm_reason": null,
+          "admission_decision": null
+        },
+        {
+          "source_index": 163,
+          "source_timestamp_ms": 14178349.309056,
+          "argmax_state": 0,
+          "event_state_before": "IDLE",
+          "event_state_after": "IDLE",
+          "event_action": "NO_CHANGE",
+          "candidate_open_index": null,
+          "candidate_active_span_ms": null,
+          "rearm_timer_start_ms": null,
+          "rearm_elapsed_ms": null,
+          "rearm_reason": null,
+          "admission_decision": null
+        },
+        {
+          "source_index": 164,
+          "source_timestamp_ms": 14178616.345045,
+          "argmax_state": 0,
+          "event_state_before": "IDLE",
+          "event_state_after": "IDLE",
+          "event_action": "NO_CHANGE",
+          "candidate_open_index": null,
+          "candidate_active_span_ms": null,
+          "rearm_timer_start_ms": null,
+          "rearm_elapsed_ms": null,
+          "rearm_reason": null,
+          "admission_decision": null
+        },
+        {
+          "source_index": 165,
+          "source_timestamp_ms": 14178816.622077,
+          "argmax_state": 2,
+          "event_state_before": "IDLE",
+          "event_state_after": "IDLE",
+          "event_action": "NO_CHANGE",
+          "candidate_open_index": null,
+          "candidate_active_span_ms": null,
+          "rearm_timer_start_ms": null,
+          "rearm_elapsed_ms": null,
+          "rearm_reason": null,
+          "admission_decision": null
+        },
+        {
+          "source_index": 166,
+          "source_timestamp_ms": 14179083.658066,
+          "argmax_state": 2,
+          "event_state_before": "IDLE",
+          "event_state_after": "IDLE",
+          "event_action": "NO_CHANGE",
+          "candidate_open_index": null,
+          "candidate_active_span_ms": null,
+          "rearm_timer_start_ms": null,
+          "rearm_elapsed_ms": null,
+          "rearm_reason": null,
+          "admission_decision": null
+        },
+        {
+          "source_index": 167,
+          "source_timestamp_ms": 14179283.935045,
+          "argmax_state": 0,
+          "event_state_before": "IDLE",
+          "event_state_after": "IDLE",
+          "event_action": "NO_CHANGE",
+          "candidate_open_index": null,
+          "candidate_active_span_ms": null,
+          "rearm_timer_start_ms": null,
+          "rearm_elapsed_ms": null,
+          "rearm_reason": null,
+          "admission_decision": null
+        },
+        {
+          "source_index": 168,
+          "source_timestamp_ms": 14179550.971087,
+          "argmax_state": 0,
+          "event_state_before": "IDLE",
+          "event_state_after": "IDLE",
+          "event_action": "NO_CHANGE",
+          "candidate_open_index": null,
+          "candidate_active_span_ms": null,
+          "rearm_timer_start_ms": null,
+          "rearm_elapsed_ms": null,
+          "rearm_reason": null,
+          "admission_decision": null
+        },
+        {
+          "source_index": 169,
+          "source_timestamp_ms": 14179818.007077,
+          "argmax_state": 0,
+          "event_state_before": "IDLE",
+          "event_state_after": "IDLE",
+          "event_action": "NO_CHANGE",
+          "candidate_open_index": null,
+          "candidate_active_span_ms": null,
+          "rearm_timer_start_ms": null,
+          "rearm_elapsed_ms": null,
+          "rearm_reason": null,
+          "admission_decision": null
+        },
+        {
+          "source_index": 170,
+          "source_timestamp_ms": 14180018.284056,
+          "argmax_state": 0,
+          "event_state_before": "IDLE",
+          "event_state_after": "IDLE",
+          "event_action": "NO_CHANGE",
+          "candidate_open_index": null,
+          "candidate_active_span_ms": null,
+          "rearm_timer_start_ms": null,
+          "rearm_elapsed_ms": null,
+          "rearm_reason": null,
+          "admission_decision": null
+        },
+        {
+          "source_index": 171,
+          "source_timestamp_ms": 14180285.320045,
+          "argmax_state": 0,
+          "event_state_before": "IDLE",
+          "event_state_after": "IDLE",
+          "event_action": "NO_CHANGE",
+          "candidate_open_index": null,
+          "candidate_active_span_ms": null,
+          "rearm_timer_start_ms": null,
+          "rearm_elapsed_ms": null,
+          "rearm_reason": null,
+          "admission_decision": null
+        },
+        {
+          "source_index": 172,
+          "source_timestamp_ms": 14180485.597077,
+          "argmax_state": 0,
+          "event_state_before": "IDLE",
+          "event_state_after": "IDLE",
+          "event_action": "NO_CHANGE",
+          "candidate_open_index": null,
+          "candidate_active_span_ms": null,
+          "rearm_timer_start_ms": null,
+          "rearm_elapsed_ms": null,
+          "rearm_reason": null,
+          "admission_decision": null
+        },
+        {
+          "source_index": 173,
+          "source_timestamp_ms": 14180752.633066,
+          "argmax_state": 0,
+          "event_state_before": "IDLE",
+          "event_state_after": "IDLE",
+          "event_action": "NO_CHANGE",
+          "candidate_open_index": null,
+          "candidate_active_span_ms": null,
+          "rearm_timer_start_ms": null,
+          "rearm_elapsed_ms": null,
+          "rearm_reason": null,
+          "admission_decision": null
+        },
+        {
+          "source_index": 174,
+          "source_timestamp_ms": 14180952.910045,
+          "argmax_state": 0,
+          "event_state_before": "IDLE",
+          "event_state_after": "IDLE",
+          "event_action": "NO_CHANGE",
+          "candidate_open_index": null,
+          "candidate_active_span_ms": null,
+          "rearm_timer_start_ms": null,
+          "rearm_elapsed_ms": null,
+          "rearm_reason": null,
+          "admission_decision": null
+        },
+        {
+          "source_index": 175,
+          "source_timestamp_ms": 14181219.946087,
+          "argmax_state": 2,
+          "event_state_before": "IDLE",
+          "event_state_after": "IDLE",
+          "event_action": "NO_CHANGE",
+          "candidate_open_index": null,
+          "candidate_active_span_ms": null,
+          "rearm_timer_start_ms": null,
+          "rearm_elapsed_ms": null,
+          "rearm_reason": null,
+          "admission_decision": null
+        },
+        {
+          "source_index": 176,
+          "source_timestamp_ms": 14181420.223066,
+          "argmax_state": 0,
+          "event_state_before": "IDLE",
+          "event_state_after": "IDLE",
+          "event_action": "NO_CHANGE",
+          "candidate_open_index": null,
+          "candidate_active_span_ms": null,
+          "rearm_timer_start_ms": null,
+          "rearm_elapsed_ms": null,
+          "rearm_reason": null,
+          "admission_decision": null
+        },
+        {
+          "source_index": 177,
+          "source_timestamp_ms": 14181687.259056,
+          "argmax_state": 0,
+          "event_state_before": "IDLE",
+          "event_state_after": "IDLE",
+          "event_action": "NO_CHANGE",
+          "candidate_open_index": null,
+          "candidate_active_span_ms": null,
+          "rearm_timer_start_ms": null,
+          "rearm_elapsed_ms": null,
+          "rearm_reason": null,
+          "admission_decision": null
+        },
+        {
+          "source_index": 178,
+          "source_timestamp_ms": 14181887.536087,
+          "argmax_state": 0,
+          "event_state_before": "IDLE",
+          "event_state_after": "IDLE",
+          "event_action": "NO_CHANGE",
+          "candidate_open_index": null,
+          "candidate_active_span_ms": null,
+          "rearm_timer_start_ms": null,
+          "rearm_elapsed_ms": null,
+          "rearm_reason": null,
+          "admission_decision": null
+        },
+        {
+          "source_index": 179,
+          "source_timestamp_ms": 14182087.813066,
+          "argmax_state": 0,
+          "event_state_before": "IDLE",
+          "event_state_after": "IDLE",
+          "event_action": "NO_CHANGE",
+          "candidate_open_index": null,
+          "candidate_active_span_ms": null,
+          "rearm_timer_start_ms": null,
+          "rearm_elapsed_ms": null,
+          "rearm_reason": null,
+          "admission_decision": null
+        },
+        {
+          "source_index": 180,
+          "source_timestamp_ms": 14182354.849056,
+          "argmax_state": 0,
+          "event_state_before": "IDLE",
+          "event_state_after": "IDLE",
+          "event_action": "NO_CHANGE",
+          "candidate_open_index": null,
+          "candidate_active_span_ms": null,
+          "rearm_timer_start_ms": null,
+          "rearm_elapsed_ms": null,
+          "rearm_reason": null,
+          "admission_decision": null
+        },
+        {
+          "source_index": 181,
+          "source_timestamp_ms": 14182555.126035,
+          "argmax_state": 0,
+          "event_state_before": "IDLE",
+          "event_state_after": "IDLE",
+          "event_action": "NO_CHANGE",
+          "candidate_open_index": null,
+          "candidate_active_span_ms": null,
+          "rearm_timer_start_ms": null,
+          "rearm_elapsed_ms": null,
+          "rearm_reason": null,
+          "admission_decision": null
+        },
+        {
+          "source_index": 182,
+          "source_timestamp_ms": 14182755.403066,
+          "argmax_state": 0,
+          "event_state_before": "IDLE",
+          "event_state_after": "IDLE",
+          "event_action": "NO_CHANGE",
+          "candidate_open_index": null,
+          "candidate_active_span_ms": null,
+          "rearm_timer_start_ms": null,
+          "rearm_elapsed_ms": null,
+          "rearm_reason": null,
+          "admission_decision": null
+        },
+        {
+          "source_index": 183,
+          "source_timestamp_ms": 14183022.439056,
+          "argmax_state": 2,
+          "event_state_before": "IDLE",
+          "event_state_after": "IDLE",
+          "event_action": "NO_CHANGE",
+          "candidate_open_index": null,
+          "candidate_active_span_ms": null,
+          "rearm_timer_start_ms": null,
+          "rearm_elapsed_ms": null,
+          "rearm_reason": null,
+          "admission_decision": null
+        },
+        {
+          "source_index": 184,
+          "source_timestamp_ms": 14183222.716035,
+          "argmax_state": 2,
+          "event_state_before": "IDLE",
+          "event_state_after": "IDLE",
+          "event_action": "NO_CHANGE",
+          "candidate_open_index": null,
+          "candidate_active_span_ms": null,
+          "rearm_timer_start_ms": null,
+          "rearm_elapsed_ms": null,
+          "rearm_reason": null,
+          "admission_decision": null
+        },
+        {
+          "source_index": 185,
+          "source_timestamp_ms": 14183489.752077,
+          "argmax_state": 0,
+          "event_state_before": "IDLE",
+          "event_state_after": "IDLE",
+          "event_action": "NO_CHANGE",
+          "candidate_open_index": null,
+          "candidate_active_span_ms": null,
+          "rearm_timer_start_ms": null,
+          "rearm_elapsed_ms": null,
+          "rearm_reason": null,
+          "admission_decision": null
+        }
+      ],
+      "rearm_before_next_sign": false,
+      "rearm_index": null,
+      "active_recovery_interruptions": [],
+      "timing_ms": {
+        "physical_end_to_completion_commit": null,
+        "completion_commit_to_rearm": null,
+        "next_start_to_rearm_signed": null,
+        "physical_start_to_first_qualifying_active": null,
+        "physical_start_to_event_open": null,
+        "physical_start_to_recognizer_result": null,
+        "physical_start_to_debug_ui_delivery": null
+      },
+      "next_sign_classification": [
+        "C_S2_ACTIVE_REACQUISITION_FAILURE"
+      ],
+      "next_sign_event_details": []
+    },
+    {
+      "condition": "A_HANDS_DOWN",
+      "from": 3,
+      "to": 4,
+      "status": "UNCERTAIN",
+      "next_sign_classification": "UNCERTAIN_OR_NOT_PERFORMED",
+      "next_sign_event_details": [],
+      "timing_ms": {}
+    },
+    {
+      "condition": "B_HANDS_UP",
+      "from": 1,
+      "to": 2,
+      "physical_end_ms": 14217469.138066,
+      "physical_next_start_ms": 14218270.246087,
+      "previous_event_id": 2,
+      "previous_terminal_post_ms": 14217736.174056,
+      "previous_completion_commit_source_ms": 14218069.969056,
+      "previous_decision_elapsed_realtime_ns": 14218351665977,
+      "state_after_previous_commit": "EVENT_EMITTED_WAIT_REARM",
+      "state_before_next_start": "EVENT_EMITTED_WAIT_REARM",
+      "intersign_argmax_counts": {
+        "2": 3
+      },
+      "intersign_probability_rows": [
+        {
+          "source_index": 357,
+          "source_timestamp_ms": 14217736.174056,
+          "pre_probability": 5.4905824e-05,
+          "active_probability": 0.34290856,
+          "post_probability": 0.65703654,
+          "event_state_after": "POST_CANDIDATE"
+        },
+        {
+          "source_index": 358,
+          "source_timestamp_ms": 14217869.692077,
+          "pre_probability": 0.00020349828,
+          "active_probability": 0.13298999,
+          "post_probability": 0.86680657,
+          "event_state_after": "POST_CANDIDATE"
+        },
+        {
+          "source_index": 359,
+          "source_timestamp_ms": 14218069.969056,
+          "pre_probability": 0.0002086128,
+          "active_probability": 0.14779112,
+          "post_probability": 0.85200024,
+          "event_state_after": "EVENT_EMITTED_WAIT_REARM"
+        }
+      ],
+      "boundary_episode_trace": [
+        {
+          "source_index": 356,
+          "source_timestamp_ms": 14217469.138066,
+          "argmax_state": 1,
+          "event_state_before": "ACTIVE_CANDIDATE",
+          "event_state_after": "ACTIVE_CANDIDATE",
+          "event_action": "EXTEND_ACTIVE_CANDIDATE",
+          "candidate_open_index": 344,
+          "candidate_active_span_ms": 2069.5290099997073,
+          "rearm_timer_start_ms": null,
+          "rearm_elapsed_ms": null,
+          "rearm_reason": null,
+          "admission_decision": null
+        },
+        {
+          "source_index": 357,
+          "source_timestamp_ms": 14217736.174056,
+          "argmax_state": 2,
+          "event_state_before": "ACTIVE_CANDIDATE",
+          "event_state_after": "POST_CANDIDATE",
+          "event_action": "BEGIN_POST_CANDIDATE",
+          "candidate_open_index": 344,
+          "candidate_active_span_ms": 2069.5290099997073,
+          "rearm_timer_start_ms": null,
+          "rearm_elapsed_ms": null,
+          "rearm_reason": null,
+          "admission_decision": null
+        },
+        {
+          "source_index": 358,
+          "source_timestamp_ms": 14217869.692077,
+          "argmax_state": 2,
+          "event_state_before": "POST_CANDIDATE",
+          "event_state_after": "POST_CANDIDATE",
+          "event_action": "NO_CHANGE",
+          "candidate_open_index": 344,
+          "candidate_active_span_ms": 2069.5290099997073,
+          "rearm_timer_start_ms": null,
+          "rearm_elapsed_ms": null,
+          "rearm_reason": null,
+          "admission_decision": null
+        },
+        {
+          "source_index": 359,
+          "source_timestamp_ms": 14218069.969056,
+          "argmax_state": 2,
+          "event_state_before": "POST_CANDIDATE",
+          "event_state_after": "EVENT_EMITTED_WAIT_REARM",
+          "event_action": "EMIT_SIGN_EVENT",
+          "candidate_open_index": 344,
+          "candidate_active_span_ms": 2069.5290099997073,
+          "rearm_timer_start_ms": 14218069.969056,
+          "rearm_elapsed_ms": 0,
+          "rearm_reason": "EVENT_COMMIT_ELIGIBLE_POST",
+          "admission_decision": null
+        },
+        {
+          "source_index": 360,
+          "source_timestamp_ms": 14218270.246087,
+          "argmax_state": 2,
+          "event_state_before": "EVENT_EMITTED_WAIT_REARM",
+          "event_state_after": "EVENT_EMITTED_WAIT_REARM",
+          "event_action": "NO_CHANGE",
+          "candidate_open_index": null,
+          "candidate_active_span_ms": null,
+          "rearm_timer_start_ms": 14218069.969056,
+          "rearm_elapsed_ms": 200.27703100070357,
+          "rearm_reason": "CONTINUE_STABLE_NON_ACTIVE",
+          "admission_decision": null
+        },
+        {
+          "source_index": 361,
+          "source_timestamp_ms": 14218470.523066,
+          "argmax_state": 2,
+          "event_state_before": "EVENT_EMITTED_WAIT_REARM",
+          "event_state_after": "IDLE",
+          "event_action": "REARM_COMPLETE",
+          "candidate_open_index": null,
+          "candidate_active_span_ms": null,
+          "rearm_timer_start_ms": null,
+          "rearm_elapsed_ms": 400.55401000007987,
+          "rearm_reason": "STABLE_NON_ACTIVE_COMPLETE",
+          "admission_decision": null
+        },
+        {
+          "source_index": 362,
+          "source_timestamp_ms": 14218604.041035,
+          "argmax_state": 2,
+          "event_state_before": "IDLE",
+          "event_state_after": "IDLE",
+          "event_action": "NO_CHANGE",
+          "candidate_open_index": null,
+          "candidate_active_span_ms": null,
+          "rearm_timer_start_ms": null,
+          "rearm_elapsed_ms": null,
+          "rearm_reason": null,
+          "admission_decision": null
+        },
+        {
+          "source_index": 363,
+          "source_timestamp_ms": 14218804.318066,
+          "argmax_state": 2,
+          "event_state_before": "IDLE",
+          "event_state_after": "IDLE",
+          "event_action": "NO_CHANGE",
+          "candidate_open_index": null,
+          "candidate_active_span_ms": null,
+          "rearm_timer_start_ms": null,
+          "rearm_elapsed_ms": null,
+          "rearm_reason": null,
+          "admission_decision": null
+        },
+        {
+          "source_index": 364,
+          "source_timestamp_ms": 14219004.595045,
+          "argmax_state": 2,
+          "event_state_before": "IDLE",
+          "event_state_after": "IDLE",
+          "event_action": "NO_CHANGE",
+          "candidate_open_index": null,
+          "candidate_active_span_ms": null,
+          "rearm_timer_start_ms": null,
+          "rearm_elapsed_ms": null,
+          "rearm_reason": null,
+          "admission_decision": null
+        },
+        {
+          "source_index": 365,
+          "source_timestamp_ms": 14219138.113066,
+          "argmax_state": 2,
+          "event_state_before": "IDLE",
+          "event_state_after": "IDLE",
+          "event_action": "NO_CHANGE",
+          "candidate_open_index": null,
+          "candidate_active_span_ms": null,
+          "rearm_timer_start_ms": null,
+          "rearm_elapsed_ms": null,
+          "rearm_reason": null,
+          "admission_decision": null
+        },
+        {
+          "source_index": 366,
+          "source_timestamp_ms": 14219338.390045,
+          "argmax_state": 2,
+          "event_state_before": "IDLE",
+          "event_state_after": "IDLE",
+          "event_action": "NO_CHANGE",
+          "candidate_open_index": null,
+          "candidate_active_span_ms": null,
+          "rearm_timer_start_ms": null,
+          "rearm_elapsed_ms": null,
+          "rearm_reason": null,
+          "admission_decision": null
+        },
+        {
+          "source_index": 367,
+          "source_timestamp_ms": 14219538.667077,
+          "argmax_state": 2,
+          "event_state_before": "IDLE",
+          "event_state_after": "IDLE",
+          "event_action": "NO_CHANGE",
+          "candidate_open_index": null,
+          "candidate_active_span_ms": null,
+          "rearm_timer_start_ms": null,
+          "rearm_elapsed_ms": null,
+          "rearm_reason": null,
+          "admission_decision": null
+        },
+        {
+          "source_index": 368,
+          "source_timestamp_ms": 14219738.944056,
+          "argmax_state": 2,
+          "event_state_before": "IDLE",
+          "event_state_after": "IDLE",
+          "event_action": "NO_CHANGE",
+          "candidate_open_index": null,
+          "candidate_active_span_ms": null,
+          "rearm_timer_start_ms": null,
+          "rearm_elapsed_ms": null,
+          "rearm_reason": null,
+          "admission_decision": null
+        },
+        {
+          "source_index": 369,
+          "source_timestamp_ms": 14219872.462077,
+          "argmax_state": 2,
+          "event_state_before": "IDLE",
+          "event_state_after": "IDLE",
+          "event_action": "NO_CHANGE",
+          "candidate_open_index": null,
+          "candidate_active_span_ms": null,
+          "rearm_timer_start_ms": null,
+          "rearm_elapsed_ms": null,
+          "rearm_reason": null,
+          "admission_decision": null
+        },
+        {
+          "source_index": 370,
+          "source_timestamp_ms": 14220072.739056,
+          "argmax_state": 2,
+          "event_state_before": "IDLE",
+          "event_state_after": "IDLE",
+          "event_action": "NO_CHANGE",
+          "candidate_open_index": null,
+          "candidate_active_span_ms": null,
+          "rearm_timer_start_ms": null,
+          "rearm_elapsed_ms": null,
+          "rearm_reason": null,
+          "admission_decision": null
+        },
+        {
+          "source_index": 371,
+          "source_timestamp_ms": 14220273.016035,
+          "argmax_state": 2,
+          "event_state_before": "IDLE",
+          "event_state_after": "IDLE",
+          "event_action": "NO_CHANGE",
+          "candidate_open_index": null,
+          "candidate_active_span_ms": null,
+          "rearm_timer_start_ms": null,
+          "rearm_elapsed_ms": null,
+          "rearm_reason": null,
+          "admission_decision": null
+        },
+        {
+          "source_index": 372,
+          "source_timestamp_ms": 14220473.293066,
+          "argmax_state": 2,
+          "event_state_before": "IDLE",
+          "event_state_after": "IDLE",
+          "event_action": "NO_CHANGE",
+          "candidate_open_index": null,
+          "candidate_active_span_ms": null,
+          "rearm_timer_start_ms": null,
+          "rearm_elapsed_ms": null,
+          "rearm_reason": null,
+          "admission_decision": null
+        },
+        {
+          "source_index": 373,
+          "source_timestamp_ms": 14220673.570045,
+          "argmax_state": 2,
+          "event_state_before": "IDLE",
+          "event_state_after": "IDLE",
+          "event_action": "NO_CHANGE",
+          "candidate_open_index": null,
+          "candidate_active_span_ms": null,
+          "rearm_timer_start_ms": null,
+          "rearm_elapsed_ms": null,
+          "rearm_reason": null,
+          "admission_decision": null
+        },
+        {
+          "source_index": 374,
+          "source_timestamp_ms": 14220807.088066,
+          "argmax_state": 2,
+          "event_state_before": "IDLE",
+          "event_state_after": "IDLE",
+          "event_action": "NO_CHANGE",
+          "candidate_open_index": null,
+          "candidate_active_span_ms": null,
+          "rearm_timer_start_ms": null,
+          "rearm_elapsed_ms": null,
+          "rearm_reason": null,
+          "admission_decision": null
+        }
+      ],
+      "rearm_before_next_sign": false,
+      "rearm_index": 361,
+      "active_recovery_interruptions": [],
+      "timing_ms": {
+        "physical_end_to_completion_commit": 600.8309899996966,
+        "completion_commit_to_rearm": 400.55401000007987,
+        "next_start_to_rearm_signed": 200.2769789993763,
+        "physical_start_to_first_qualifying_active": null,
+        "physical_start_to_event_open": null,
+        "physical_start_to_recognizer_result": null,
+        "physical_start_to_debug_ui_delivery": null
+      },
+      "next_sign_classification": [
+        "C_S2_ACTIVE_REACQUISITION_FAILURE"
+      ],
+      "next_sign_event_details": []
+    },
+    {
+      "condition": "B_HANDS_UP",
+      "from": 2,
+      "to": 3,
+      "physical_end_ms": 14220807.088066,
+      "physical_next_start_ms": 14221608.196035,
+      "previous_event_id": null,
+      "previous_terminal_post_ms": null,
+      "previous_completion_commit_source_ms": null,
+      "previous_decision_elapsed_realtime_ns": null,
+      "state_after_previous_commit": null,
+      "state_before_next_start": "IDLE",
+      "intersign_argmax_counts": {
+        "2": 3
+      },
+      "intersign_probability_rows": [
+        {
+          "source_index": 375,
+          "source_timestamp_ms": 14221007.365045,
+          "pre_probability": 0.01899096,
+          "active_probability": 0.00018559792,
+          "post_probability": 0.9808234,
+          "event_state_after": "IDLE"
+        },
+        {
+          "source_index": 376,
+          "source_timestamp_ms": 14221207.642077,
+          "pre_probability": 0.000935187,
+          "active_probability": 2.9358594e-06,
+          "post_probability": 0.9990619,
+          "event_state_after": "IDLE"
+        },
+        {
+          "source_index": 377,
+          "source_timestamp_ms": 14221407.919056,
+          "pre_probability": 0.0021189093,
+          "active_probability": 6.553813e-05,
+          "post_probability": 0.9978155,
+          "event_state_after": "IDLE"
+        }
+      ],
+      "boundary_episode_trace": [
+        {
+          "source_index": 374,
+          "source_timestamp_ms": 14220807.088066,
+          "argmax_state": 2,
+          "event_state_before": "IDLE",
+          "event_state_after": "IDLE",
+          "event_action": "NO_CHANGE",
+          "candidate_open_index": null,
+          "candidate_active_span_ms": null,
+          "rearm_timer_start_ms": null,
+          "rearm_elapsed_ms": null,
+          "rearm_reason": null,
+          "admission_decision": null
+        },
+        {
+          "source_index": 375,
+          "source_timestamp_ms": 14221007.365045,
+          "argmax_state": 2,
+          "event_state_before": "IDLE",
+          "event_state_after": "IDLE",
+          "event_action": "NO_CHANGE",
+          "candidate_open_index": null,
+          "candidate_active_span_ms": null,
+          "rearm_timer_start_ms": null,
+          "rearm_elapsed_ms": null,
+          "rearm_reason": null,
+          "admission_decision": null
+        },
+        {
+          "source_index": 376,
+          "source_timestamp_ms": 14221207.642077,
+          "argmax_state": 2,
+          "event_state_before": "IDLE",
+          "event_state_after": "IDLE",
+          "event_action": "NO_CHANGE",
+          "candidate_open_index": null,
+          "candidate_active_span_ms": null,
+          "rearm_timer_start_ms": null,
+          "rearm_elapsed_ms": null,
+          "rearm_reason": null,
+          "admission_decision": null
+        },
+        {
+          "source_index": 377,
+          "source_timestamp_ms": 14221407.919056,
+          "argmax_state": 2,
+          "event_state_before": "IDLE",
+          "event_state_after": "IDLE",
+          "event_action": "NO_CHANGE",
+          "candidate_open_index": null,
+          "candidate_active_span_ms": null,
+          "rearm_timer_start_ms": null,
+          "rearm_elapsed_ms": null,
+          "rearm_reason": null,
+          "admission_decision": null
+        },
+        {
+          "source_index": 378,
+          "source_timestamp_ms": 14221608.196035,
+          "argmax_state": 2,
+          "event_state_before": "IDLE",
+          "event_state_after": "IDLE",
+          "event_action": "NO_CHANGE",
+          "candidate_open_index": null,
+          "candidate_active_span_ms": null,
+          "rearm_timer_start_ms": null,
+          "rearm_elapsed_ms": null,
+          "rearm_reason": null,
+          "admission_decision": null
+        },
+        {
+          "source_index": 379,
+          "source_timestamp_ms": 14221875.232077,
+          "argmax_state": 2,
+          "event_state_before": "IDLE",
+          "event_state_after": "IDLE",
+          "event_action": "NO_CHANGE",
+          "candidate_open_index": null,
+          "candidate_active_span_ms": null,
+          "rearm_timer_start_ms": null,
+          "rearm_elapsed_ms": null,
+          "rearm_reason": null,
+          "admission_decision": null
+        },
+        {
+          "source_index": 380,
+          "source_timestamp_ms": 14222142.268066,
+          "argmax_state": 2,
+          "event_state_before": "IDLE",
+          "event_state_after": "IDLE",
+          "event_action": "NO_CHANGE",
+          "candidate_open_index": null,
+          "candidate_active_span_ms": null,
+          "rearm_timer_start_ms": null,
+          "rearm_elapsed_ms": null,
+          "rearm_reason": null,
+          "admission_decision": null
+        },
+        {
+          "source_index": 381,
+          "source_timestamp_ms": 14222409.304056,
+          "argmax_state": 2,
+          "event_state_before": "IDLE",
+          "event_state_after": "IDLE",
+          "event_action": "NO_CHANGE",
+          "candidate_open_index": null,
+          "candidate_active_span_ms": null,
+          "rearm_timer_start_ms": null,
+          "rearm_elapsed_ms": null,
+          "rearm_reason": null,
+          "admission_decision": null
+        },
+        {
+          "source_index": 382,
+          "source_timestamp_ms": 14222676.340045,
+          "argmax_state": 2,
+          "event_state_before": "IDLE",
+          "event_state_after": "IDLE",
+          "event_action": "NO_CHANGE",
+          "candidate_open_index": null,
+          "candidate_active_span_ms": null,
+          "rearm_timer_start_ms": null,
+          "rearm_elapsed_ms": null,
+          "rearm_reason": null,
+          "admission_decision": null
+        },
+        {
+          "source_index": 383,
+          "source_timestamp_ms": 14222876.617077,
+          "argmax_state": 2,
+          "event_state_before": "IDLE",
+          "event_state_after": "IDLE",
+          "event_action": "NO_CHANGE",
+          "candidate_open_index": null,
+          "candidate_active_span_ms": null,
+          "rearm_timer_start_ms": null,
+          "rearm_elapsed_ms": null,
+          "rearm_reason": null,
+          "admission_decision": null
+        },
+        {
+          "source_index": 384,
+          "source_timestamp_ms": 14223076.894056,
+          "argmax_state": 2,
+          "event_state_before": "IDLE",
+          "event_state_after": "IDLE",
+          "event_action": "NO_CHANGE",
+          "candidate_open_index": null,
+          "candidate_active_span_ms": null,
+          "rearm_timer_start_ms": null,
+          "rearm_elapsed_ms": null,
+          "rearm_reason": null,
+          "admission_decision": null
+        },
+        {
+          "source_index": 385,
+          "source_timestamp_ms": 14223343.930098,
+          "argmax_state": 2,
+          "event_state_before": "IDLE",
+          "event_state_after": "IDLE",
+          "event_action": "NO_CHANGE",
+          "candidate_open_index": null,
+          "candidate_active_span_ms": null,
+          "rearm_timer_start_ms": null,
+          "rearm_elapsed_ms": null,
+          "rearm_reason": null,
+          "admission_decision": null
+        },
+        {
+          "source_index": 386,
+          "source_timestamp_ms": 14223544.207077,
+          "argmax_state": 2,
+          "event_state_before": "IDLE",
+          "event_state_after": "IDLE",
+          "event_action": "NO_CHANGE",
+          "candidate_open_index": null,
+          "candidate_active_span_ms": null,
+          "rearm_timer_start_ms": null,
+          "rearm_elapsed_ms": null,
+          "rearm_reason": null,
+          "admission_decision": null
+        },
+        {
+          "source_index": 387,
+          "source_timestamp_ms": 14223811.243066,
+          "argmax_state": 2,
+          "event_state_before": "IDLE",
+          "event_state_after": "IDLE",
+          "event_action": "NO_CHANGE",
+          "candidate_open_index": null,
+          "candidate_active_span_ms": null,
+          "rearm_timer_start_ms": null,
+          "rearm_elapsed_ms": null,
+          "rearm_reason": null,
+          "admission_decision": null
+        },
+        {
+          "source_index": 388,
+          "source_timestamp_ms": 14224078.279056,
+          "argmax_state": 2,
+          "event_state_before": "IDLE",
+          "event_state_after": "IDLE",
+          "event_action": "NO_CHANGE",
+          "candidate_open_index": null,
+          "candidate_active_span_ms": null,
+          "rearm_timer_start_ms": null,
+          "rearm_elapsed_ms": null,
+          "rearm_reason": null,
+          "admission_decision": null
+        },
+        {
+          "source_index": 389,
+          "source_timestamp_ms": 14224345.315045,
+          "argmax_state": 2,
+          "event_state_before": "IDLE",
+          "event_state_after": "IDLE",
+          "event_action": "NO_CHANGE",
+          "candidate_open_index": null,
+          "candidate_active_span_ms": null,
+          "rearm_timer_start_ms": null,
+          "rearm_elapsed_ms": null,
+          "rearm_reason": null,
+          "admission_decision": null
+        },
+        {
+          "source_index": 390,
+          "source_timestamp_ms": 14224545.592077,
+          "argmax_state": 2,
+          "event_state_before": "IDLE",
+          "event_state_after": "IDLE",
+          "event_action": "NO_CHANGE",
+          "candidate_open_index": null,
+          "candidate_active_span_ms": null,
+          "rearm_timer_start_ms": null,
+          "rearm_elapsed_ms": null,
+          "rearm_reason": null,
+          "admission_decision": null
+        },
+        {
+          "source_index": 391,
+          "source_timestamp_ms": 14224812.628066,
+          "argmax_state": 2,
+          "event_state_before": "IDLE",
+          "event_state_after": "IDLE",
+          "event_action": "NO_CHANGE",
+          "candidate_open_index": null,
+          "candidate_active_span_ms": null,
+          "rearm_timer_start_ms": null,
+          "rearm_elapsed_ms": null,
+          "rearm_reason": null,
+          "admission_decision": null
+        }
+      ],
+      "rearm_before_next_sign": false,
+      "rearm_index": null,
+      "active_recovery_interruptions": [],
+      "timing_ms": {
+        "physical_end_to_completion_commit": null,
+        "completion_commit_to_rearm": null,
+        "next_start_to_rearm_signed": null,
+        "physical_start_to_first_qualifying_active": null,
+        "physical_start_to_event_open": null,
+        "physical_start_to_recognizer_result": null,
+        "physical_start_to_debug_ui_delivery": null
+      },
+      "next_sign_classification": [
+        "C_S2_ACTIVE_REACQUISITION_FAILURE"
+      ],
+      "next_sign_event_details": []
+    },
+    {
+      "condition": "B_HANDS_UP",
+      "from": 3,
+      "to": 4,
+      "physical_end_ms": 14224812.628066,
+      "physical_next_start_ms": 14226348.085045,
+      "previous_event_id": null,
+      "previous_terminal_post_ms": null,
+      "previous_completion_commit_source_ms": null,
+      "previous_decision_elapsed_realtime_ns": null,
+      "state_after_previous_commit": null,
+      "state_before_next_start": "IDLE",
+      "intersign_argmax_counts": {
+        "2": 7
+      },
+      "intersign_probability_rows": [
+        {
+          "source_index": 392,
+          "source_timestamp_ms": 14225012.905045,
+          "pre_probability": 0.414567,
+          "active_probability": 0.00045878728,
+          "post_probability": 0.5849742,
+          "event_state_after": "IDLE"
+        },
+        {
+          "source_index": 393,
+          "source_timestamp_ms": 14225146.423066,
+          "pre_probability": 0.141975,
+          "active_probability": 2.2437256e-05,
+          "post_probability": 0.8580026,
+          "event_state_after": "IDLE"
+        },
+        {
+          "source_index": 394,
+          "source_timestamp_ms": 14225346.700045,
+          "pre_probability": 0.13915296,
+          "active_probability": 1.3924882e-05,
+          "post_probability": 0.8608331,
+          "event_state_after": "IDLE"
+        },
+        {
+          "source_index": 395,
+          "source_timestamp_ms": 14225546.977077,
+          "pre_probability": 0.050708316,
+          "active_probability": 1.2443132e-05,
+          "post_probability": 0.94927925,
+          "event_state_after": "IDLE"
+        },
+        {
+          "source_index": 396,
+          "source_timestamp_ms": 14225747.254056,
+          "pre_probability": 0.22906214,
+          "active_probability": 2.7908683e-05,
+          "post_probability": 0.77090997,
+          "event_state_after": "IDLE"
+        },
+        {
+          "source_index": 397,
+          "source_timestamp_ms": 14225880.772077,
+          "pre_probability": 0.2758375,
+          "active_probability": 0.001160995,
+          "post_probability": 0.72300154,
+          "event_state_after": "IDLE"
+        },
+        {
+          "source_index": 398,
+          "source_timestamp_ms": 14226081.049056,
+          "pre_probability": 0.32537583,
+          "active_probability": 0.004960253,
+          "post_probability": 0.6696639,
+          "event_state_after": "IDLE"
+        }
+      ],
+      "boundary_episode_trace": [
+        {
+          "source_index": 391,
+          "source_timestamp_ms": 14224812.628066,
+          "argmax_state": 2,
+          "event_state_before": "IDLE",
+          "event_state_after": "IDLE",
+          "event_action": "NO_CHANGE",
+          "candidate_open_index": null,
+          "candidate_active_span_ms": null,
+          "rearm_timer_start_ms": null,
+          "rearm_elapsed_ms": null,
+          "rearm_reason": null,
+          "admission_decision": null
+        },
+        {
+          "source_index": 392,
+          "source_timestamp_ms": 14225012.905045,
+          "argmax_state": 2,
+          "event_state_before": "IDLE",
+          "event_state_after": "IDLE",
+          "event_action": "NO_CHANGE",
+          "candidate_open_index": null,
+          "candidate_active_span_ms": null,
+          "rearm_timer_start_ms": null,
+          "rearm_elapsed_ms": null,
+          "rearm_reason": null,
+          "admission_decision": null
+        },
+        {
+          "source_index": 393,
+          "source_timestamp_ms": 14225146.423066,
+          "argmax_state": 2,
+          "event_state_before": "IDLE",
+          "event_state_after": "IDLE",
+          "event_action": "NO_CHANGE",
+          "candidate_open_index": null,
+          "candidate_active_span_ms": null,
+          "rearm_timer_start_ms": null,
+          "rearm_elapsed_ms": null,
+          "rearm_reason": null,
+          "admission_decision": null
+        },
+        {
+          "source_index": 394,
+          "source_timestamp_ms": 14225346.700045,
+          "argmax_state": 2,
+          "event_state_before": "IDLE",
+          "event_state_after": "IDLE",
+          "event_action": "NO_CHANGE",
+          "candidate_open_index": null,
+          "candidate_active_span_ms": null,
+          "rearm_timer_start_ms": null,
+          "rearm_elapsed_ms": null,
+          "rearm_reason": null,
+          "admission_decision": null
+        },
+        {
+          "source_index": 395,
+          "source_timestamp_ms": 14225546.977077,
+          "argmax_state": 2,
+          "event_state_before": "IDLE",
+          "event_state_after": "IDLE",
+          "event_action": "NO_CHANGE",
+          "candidate_open_index": null,
+          "candidate_active_span_ms": null,
+          "rearm_timer_start_ms": null,
+          "rearm_elapsed_ms": null,
+          "rearm_reason": null,
+          "admission_decision": null
+        },
+        {
+          "source_index": 396,
+          "source_timestamp_ms": 14225747.254056,
+          "argmax_state": 2,
+          "event_state_before": "IDLE",
+          "event_state_after": "IDLE",
+          "event_action": "NO_CHANGE",
+          "candidate_open_index": null,
+          "candidate_active_span_ms": null,
+          "rearm_timer_start_ms": null,
+          "rearm_elapsed_ms": null,
+          "rearm_reason": null,
+          "admission_decision": null
+        },
+        {
+          "source_index": 397,
+          "source_timestamp_ms": 14225880.772077,
+          "argmax_state": 2,
+          "event_state_before": "IDLE",
+          "event_state_after": "IDLE",
+          "event_action": "NO_CHANGE",
+          "candidate_open_index": null,
+          "candidate_active_span_ms": null,
+          "rearm_timer_start_ms": null,
+          "rearm_elapsed_ms": null,
+          "rearm_reason": null,
+          "admission_decision": null
+        },
+        {
+          "source_index": 398,
+          "source_timestamp_ms": 14226081.049056,
+          "argmax_state": 2,
+          "event_state_before": "IDLE",
+          "event_state_after": "IDLE",
+          "event_action": "NO_CHANGE",
+          "candidate_open_index": null,
+          "candidate_active_span_ms": null,
+          "rearm_timer_start_ms": null,
+          "rearm_elapsed_ms": null,
+          "rearm_reason": null,
+          "admission_decision": null
+        },
+        {
+          "source_index": 399,
+          "source_timestamp_ms": 14226348.085045,
+          "argmax_state": 2,
+          "event_state_before": "IDLE",
+          "event_state_after": "IDLE",
+          "event_action": "NO_CHANGE",
+          "candidate_open_index": null,
+          "candidate_active_span_ms": null,
+          "rearm_timer_start_ms": null,
+          "rearm_elapsed_ms": null,
+          "rearm_reason": null,
+          "admission_decision": null
+        },
+        {
+          "source_index": 400,
+          "source_timestamp_ms": 14226615.121087,
+          "argmax_state": 2,
+          "event_state_before": "IDLE",
+          "event_state_after": "IDLE",
+          "event_action": "NO_CHANGE",
+          "candidate_open_index": null,
+          "candidate_active_span_ms": null,
+          "rearm_timer_start_ms": null,
+          "rearm_elapsed_ms": null,
+          "rearm_reason": null,
+          "admission_decision": null
+        },
+        {
+          "source_index": 401,
+          "source_timestamp_ms": 14226815.398066,
+          "argmax_state": 0,
+          "event_state_before": "IDLE",
+          "event_state_after": "IDLE",
+          "event_action": "NO_CHANGE",
+          "candidate_open_index": null,
+          "candidate_active_span_ms": null,
+          "rearm_timer_start_ms": null,
+          "rearm_elapsed_ms": null,
+          "rearm_reason": null,
+          "admission_decision": null
+        },
+        {
+          "source_index": 402,
+          "source_timestamp_ms": 14227082.434056,
+          "argmax_state": 2,
+          "event_state_before": "IDLE",
+          "event_state_after": "IDLE",
+          "event_action": "NO_CHANGE",
+          "candidate_open_index": null,
+          "candidate_active_span_ms": null,
+          "rearm_timer_start_ms": null,
+          "rearm_elapsed_ms": null,
+          "rearm_reason": null,
+          "admission_decision": null
+        },
+        {
+          "source_index": 403,
+          "source_timestamp_ms": 14227282.711035,
+          "argmax_state": 0,
+          "event_state_before": "IDLE",
+          "event_state_after": "IDLE",
+          "event_action": "NO_CHANGE",
+          "candidate_open_index": null,
+          "candidate_active_span_ms": null,
+          "rearm_timer_start_ms": null,
+          "rearm_elapsed_ms": null,
+          "rearm_reason": null,
+          "admission_decision": null
+        },
+        {
+          "source_index": 404,
+          "source_timestamp_ms": 14227549.747077,
+          "argmax_state": 2,
+          "event_state_before": "IDLE",
+          "event_state_after": "IDLE",
+          "event_action": "NO_CHANGE",
+          "candidate_open_index": null,
+          "candidate_active_span_ms": null,
+          "rearm_timer_start_ms": null,
+          "rearm_elapsed_ms": null,
+          "rearm_reason": null,
+          "admission_decision": null
+        },
+        {
+          "source_index": 405,
+          "source_timestamp_ms": 14227816.783066,
+          "argmax_state": 2,
+          "event_state_before": "IDLE",
+          "event_state_after": "IDLE",
+          "event_action": "NO_CHANGE",
+          "candidate_open_index": null,
+          "candidate_active_span_ms": null,
+          "rearm_timer_start_ms": null,
+          "rearm_elapsed_ms": null,
+          "rearm_reason": null,
+          "admission_decision": null
+        }
+      ],
+      "rearm_before_next_sign": false,
+      "rearm_index": null,
+      "active_recovery_interruptions": [],
+      "timing_ms": {
+        "physical_end_to_completion_commit": null,
+        "completion_commit_to_rearm": null,
+        "next_start_to_rearm_signed": null,
+        "physical_start_to_first_qualifying_active": null,
+        "physical_start_to_event_open": null,
+        "physical_start_to_recognizer_result": null,
+        "physical_start_to_debug_ui_delivery": null
+      },
+      "next_sign_classification": [
+        "C_S2_ACTIVE_REACQUISITION_FAILURE"
+      ],
+      "next_sign_event_details": []
+    }
+  ],
+  "reviewed_negatives": [
+    {
+      "block": "NEG_OPEN_HAND_HOLD",
+      "start_index": 693,
+      "end_index": 764,
+      "judgment": "CONFIRMED_NON_SIGN",
+      "note": "",
+      "status": "HUMAN_CONFIRMED_BOUNDED_NEGATIVE",
+      "observation_count": 72,
+      "active_observations": 8,
+      "fully_contained_event_ids": [],
+      "overlapping_event_ids_for_manual_attribution": [
+        3
+      ],
+      "commits_in_interval_not_automatically_false": [
+        3
+      ]
+    },
+    {
+      "block": "NEG_SEAT_BODY_REPOSITION",
+      "start_index": 818,
+      "end_index": 898,
+      "judgment": "CONFIRMED_NON_SIGN",
+      "note": "",
+      "status": "HUMAN_CONFIRMED_BOUNDED_NEGATIVE",
+      "observation_count": 81,
+      "active_observations": 16,
+      "fully_contained_event_ids": [
+        4,
+        5
+      ],
+      "overlapping_event_ids_for_manual_attribution": [
+        4,
+        5
+      ],
+      "commits_in_interval_not_automatically_false": [
+        4,
+        5
+      ]
+    },
+    {
+      "block": "NEG_STANDING_MOVING",
+      "start_index": 954,
+      "end_index": 993,
+      "judgment": "CONFIRMED_NON_SIGN",
+      "note": "",
+      "status": "HUMAN_CONFIRMED_BOUNDED_NEGATIVE",
+      "observation_count": 40,
+      "active_observations": 11,
+      "fully_contained_event_ids": [
+        6
+      ],
+      "overlapping_event_ids_for_manual_attribution": [
+        6
+      ],
+      "commits_in_interval_not_automatically_false": [
+        6
+      ]
+    },
+    {
+      "block": "NEG_GROOMING_ADJUSTMENT",
+      "start_index": 1086,
+      "end_index": 1125,
+      "judgment": "CONFIRMED_NON_SIGN",
+      "note": "",
+      "status": "HUMAN_CONFIRMED_BOUNDED_NEGATIVE",
+      "observation_count": 40,
+      "active_observations": 9,
+      "fully_contained_event_ids": [],
+      "overlapping_event_ids_for_manual_attribution": [
+        8
+      ],
+      "commits_in_interval_not_automatically_false": [
+        8
+      ]
+    },
+    {
+      "block": "NEG_PHONE_INTERACTION",
+      "start_index": 1257,
+      "end_index": 1326,
+      "judgment": "CONFIRMED_NON_SIGN",
+      "note": "",
+      "status": "HUMAN_CONFIRMED_BOUNDED_NEGATIVE",
+      "observation_count": 70,
+      "active_observations": 11,
+      "fully_contained_event_ids": [
+        10
+      ],
+      "overlapping_event_ids_for_manual_attribution": [
+        10
+      ],
+      "commits_in_interval_not_automatically_false": [
+        10
+      ]
+    }
+  ],
+  "fully_contained_negative_event_ids": [
+    4,
+    5,
+    6,
+    10
+  ],
+  "events": [
+    {
+      "event_id": 1,
+      "logical_active_start_index": 64,
+      "logical_active_end_index": 78,
+      "terminal_post_index": 79,
+      "commit_index": 81,
+      "top1_gloss": "TURN",
+      "top1_probability": 0.15061818,
+      "materialized_source_indices": [
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81
+      ],
+      "recognition_v2_source_indices": [
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81
+      ]
+    },
+    {
+      "event_id": 2,
+      "logical_active_start_index": 344,
+      "logical_active_end_index": 356,
+      "terminal_post_index": 357,
+      "commit_index": 359,
+      "top1_gloss": "HELLO",
+      "top1_probability": 0.99202967,
+      "materialized_source_indices": [
+        342,
+        343,
+        344,
+        345,
+        346,
+        347,
+        348,
+        349,
+        350,
+        351,
+        352,
+        353,
+        354,
+        355,
+        356,
+        357,
+        358,
+        359
+      ],
+      "recognition_v2_source_indices": [
+        342,
+        343,
+        344,
+        345,
+        346,
+        347,
+        348,
+        349,
+        350,
+        351,
+        352,
+        353,
+        354,
+        355,
+        356,
+        357,
+        358,
+        359
+      ]
+    },
+    {
+      "event_id": 3,
+      "logical_active_start_index": 692,
+      "logical_active_end_index": 700,
+      "terminal_post_index": 701,
+      "commit_index": 702,
+      "top1_gloss": "PICK",
+      "top1_probability": 0.6062183,
+      "materialized_source_indices": [
+        690,
+        691,
+        692,
+        693,
+        694,
+        695,
+        696,
+        697,
+        698,
+        699,
+        700,
+        701,
+        702
+      ],
+      "recognition_v2_source_indices": [
+        690,
+        691,
+        692,
+        693,
+        694,
+        695,
+        696,
+        697,
+        698,
+        699,
+        700,
+        701,
+        702
+      ]
+    },
+    {
+      "event_id": 4,
+      "logical_active_start_index": 823,
+      "logical_active_end_index": 829,
+      "terminal_post_index": 830,
+      "commit_index": 832,
+      "top1_gloss": "HAVE",
+      "top1_probability": 0.2998869,
+      "materialized_source_indices": [
+        821,
+        822,
+        823,
+        824,
+        825,
+        826,
+        827,
+        828,
+        829,
+        830,
+        831,
+        832
+      ],
+      "recognition_v2_source_indices": [
+        821,
+        822,
+        823,
+        824,
+        825,
+        826,
+        827,
+        828,
+        829,
+        830,
+        831,
+        832
+      ]
+    },
+    {
+      "event_id": 5,
+      "logical_active_start_index": 862,
+      "logical_active_end_index": 872,
+      "terminal_post_index": 873,
+      "commit_index": 875,
+      "top1_gloss": "SICK",
+      "top1_probability": 0.36764628,
+      "materialized_source_indices": [
+        861,
+        862,
+        863,
+        864,
+        865,
+        866,
+        867,
+        868,
+        869,
+        870,
+        871,
+        872,
+        873,
+        874,
+        875
+      ],
+      "recognition_v2_source_indices": [
+        861,
+        862,
+        863,
+        864,
+        865,
+        866,
+        867,
+        868,
+        869,
+        870,
+        871,
+        872,
+        873,
+        874,
+        875
+      ]
+    },
+    {
+      "event_id": 6,
+      "logical_active_start_index": 956,
+      "logical_active_end_index": 970,
+      "terminal_post_index": 971,
+      "commit_index": 973,
+      "top1_gloss": "HELLO",
+      "top1_probability": 0.7028262,
+      "materialized_source_indices": [
+        954,
+        955,
+        956,
+        957,
+        958,
+        959,
+        960,
+        961,
+        962,
+        963,
+        964,
+        965,
+        966,
+        967,
+        968,
+        969,
+        970,
+        971,
+        972,
+        973
+      ],
+      "recognition_v2_source_indices": [
+        954,
+        955,
+        956,
+        957,
+        958,
+        959,
+        960,
+        961,
+        962,
+        963,
+        964,
+        965,
+        966,
+        967,
+        968,
+        969,
+        970,
+        971,
+        972,
+        973
+      ]
+    },
+    {
+      "event_id": 7,
+      "logical_active_start_index": 1048,
+      "logical_active_end_index": 1054,
+      "terminal_post_index": 1055,
+      "commit_index": 1057,
+      "top1_gloss": "IF",
+      "top1_probability": 0.5121011,
+      "materialized_source_indices": [
+        1046,
+        1047,
+        1048,
+        1049,
+        1050,
+        1051,
+        1052,
+        1053,
+        1054,
+        1055,
+        1056
+      ],
+      "recognition_v2_source_indices": [
+        1046,
+        1047,
+        1048,
+        1049,
+        1050,
+        1051,
+        1052,
+        1053,
+        1054,
+        1055,
+        1056
+      ]
+    },
+    {
+      "event_id": 8,
+      "logical_active_start_index": 1084,
+      "logical_active_end_index": 1095,
+      "terminal_post_index": 1096,
+      "commit_index": 1097,
+      "top1_gloss": "TICKET",
+      "top1_probability": 0.61811453,
+      "materialized_source_indices": [
+        1083,
+        1084,
+        1085,
+        1086,
+        1087,
+        1088,
+        1089,
+        1090,
+        1091,
+        1092,
+        1093,
+        1094,
+        1095,
+        1096,
+        1097
+      ],
+      "recognition_v2_source_indices": [
+        1083,
+        1084,
+        1085,
+        1086,
+        1087,
+        1088,
+        1089,
+        1090,
+        1091,
+        1092,
+        1093,
+        1094,
+        1095,
+        1096,
+        1097
+      ]
+    },
+    {
+      "event_id": 9,
+      "logical_active_start_index": 1218,
+      "logical_active_end_index": 1220,
+      "terminal_post_index": 1221,
+      "commit_index": 1223,
+      "top1_gloss": "TAKE",
+      "top1_probability": 0.0695143,
+      "materialized_source_indices": [
+        1217,
+        1218,
+        1219,
+        1220,
+        1221,
+        1222,
+        1223
+      ],
+      "recognition_v2_source_indices": [
+        1217,
+        1218,
+        1219,
+        1220,
+        1221,
+        1222,
+        1223
+      ]
+    },
+    {
+      "event_id": 10,
+      "logical_active_start_index": 1285,
+      "logical_active_end_index": 1295,
+      "terminal_post_index": 1296,
+      "commit_index": 1297,
+      "top1_gloss": "AND",
+      "top1_probability": 0.8084126,
+      "materialized_source_indices": [
+        1284,
+        1285,
+        1286,
+        1287,
+        1288,
+        1289,
+        1290,
+        1291,
+        1292,
+        1293,
+        1294,
+        1295,
+        1296,
+        1297
+      ],
+      "recognition_v2_source_indices": [
+        1284,
+        1285,
+        1286,
+        1287,
+        1288,
+        1289,
+        1290,
+        1291,
+        1292,
+        1293,
+        1294,
+        1295,
+        1296,
+        1297
+      ]
+    }
+  ],
+  "rearm_only_solution_supported": false,
+  "continuous_s2_versus_perception_cause": "NOT_ISOLATED",
+  "same_sign_repeat_phone_evidence": "MISSING",
+  "sentence_repeat_limitation": "SentenceBuilder.add ignores equal adjacent glosses even for distinct events",
+  "stage1_android": {
+    "word": {
+      "observed_fps_change_percent": -6.153846153846166,
+      "pss_median_delta_mib": 21.474609375,
+      "causal_accuracy_effect": "UNVERIFIED_DIFFERENT_LIVE_GESTURES_AND_VALIDITY"
+    },
+    "fingerspell": {
+      "observed_fps_change_percent": 23.188405797101442,
+      "pss_median_delta_mib": 25.0419921875,
+      "causal_accuracy_effect": "UNVERIFIED_DIFFERENT_LIVE_GESTURES_AND_VALIDITY"
+    }
+  },
+  "stage1_live_lifecycle_truth": "NOT_RECORDED_NO_RETROSPECTIVE_CAUSE_ASSIGNMENT",
+  "accuracy_claim": "NONE",
+  "runtime_policy_changed": false,
+  "same_observation_s2_parity": {
+    "observations": 1364,
+    "model_sha256": "7d26c896db1a00e7a41ff3e02b02033428cbd2ae4b5cbf3e4d279d45f529d3d7",
+    "feature_parity": {
+      "max_absolute_error": 0.0,
+      "tolerance": 1e-06,
+      "pass": true
+    },
+    "normalization_parity": {
+      "max_absolute_error": 0.0,
+      "tolerance": 1e-06,
+      "pass": true
+    },
+    "tflite_probability_parity": {
+      "max_absolute_error": 8.344650268554688e-07,
+      "tolerance": 0.0001,
+      "pass": true
+    },
+    "argmax_mismatches": 0,
+    "pass": true,
+    "scope": "same observations, host TFLite; not fresh Android performance or new recognition accuracy"
+  }
+}

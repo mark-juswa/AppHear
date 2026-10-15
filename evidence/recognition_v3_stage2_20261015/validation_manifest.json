@@ -1,0 +1,137 @@
+{
+  "schema_version": "apphear.recognition_v3.stage2_delivery.v1",
+  "status": "OFFLINE_DIAGNOSIS_COMPLETE_CONTEXT_RESET_REJECTED",
+  "baseline_commit": "e196a8d501386091eae52f59df0fa349e26b43e2",
+  "runtime_implementation_commit": "5d73b412c3f310d56346f1c4cc960f69246afc27",
+  "canonical_commit": "4c99ac24ebe7d1d1371a7268288df43df08f8d6b",
+  "protected_commit": "76d93cecd85bf9f76064d320aa4a5791b5f0704a",
+  "branch": "codex/recognition-v3-stage2",
+  "unchanged_production_runtime_models_ui_and_stage1_worktree": true,
+  "stage1_concurrency_enabled": false,
+  "stage1_profile_enabled": false,
+  "adb_discovery": "NO_CONNECTED_DEVICES",
+  "fresh_android_device_tests": "NOT_RUN",
+  "device_closure_cause": "UNRESOLVED",
+  "new_apk": "NOT_PRODUCED_NO_RUNTIME_CANDIDATE",
+  "prior_apk_manifest": "evidence/recognition_v3_stage1_20261015/delivery_manifest.json",
+  "source_sha256": {
+    "eval/runtime_diagnostics/recognition_v3_stage2_audit.py": "51f039a35e7a7148e031c796378c1862b1533be47e48a031e71e19c0cde4f8ac",
+    "eval/runtime_diagnostics/phone_repeated_recognition_integration.py": "1a191afc3c839ab010f4beacdde27b453d5488f53392832bf582d05c37c88e70",
+    "tests/test_recognition_v3_stage2_audit.py": "285bf38565d5f438231fc613cb3024039f1991d2a8ca4983b9db730625b1538f",
+    "android/app/src/test/java/com/example/apphear/perceptionvnext/RecognitionV3Stage2RecordedTransitionTest.kt": "2560e7d8cbef68ab473d4b49ddefbc3b63ea3dd97f354ba00f3d52a43f14aed7",
+    "android/app/src/test/resources/recognition_v3_stage2/recorded_transition.tsv": "da2ff92658b353eaf8a2b83fdb810f3cedd2488f4e944bbdfab9ff661652759c",
+    "docs/recognition-v3-stage2-investigation-2026-10-15.md": "645b9d0d2fd2731ff7f5ef552537a827edbc5329ec93e73d2c70cc9616ef0b69",
+    "context/progress-tracker.md": "642c5c3ead26a210bf9c683980d8ecff8b5e3f83c3ea1365b35ffe44182a9d2b",
+    "memory.md": "a4842656f650958595bfaa324cf38e9e4fa4943ffbbb0bbbebfd0a13b4c36f8d"
+  },
+  "results_sha256": {
+    "transition_audit.json": "017d004a5d4da184455663eb6cd81ab75b5ef7cdb1ed5e13f03f7f3eb95e33d7",
+    "context_reset_probe.json": "20a7144b5edb6eecc57a3b3a4a95837e5586fb479ca3e666f2597a0cfb8599d5"
+  },
+  "source_capture": {
+    "session": "session_20260927T162103Z",
+    "proficiency": "UNKNOWN_DESIGN_ONLY",
+    "sha256": {
+      "observations.jsonl": "392aae5da986810ae3ace3f6bb1885ecf54db8535e88d1b930d0fb1f53ccb8fe",
+      "events.jsonl": "bd9fc840849d6aea5979d0aacce76ae78e01b780671ae52e8cc855af0431567b",
+      "attempts.jsonl": "9be87613540439da0ccc682d4398509203a6b015545f15034e15af9557bd4a68",
+      "session_identity.json": "38cd42f9c7609fac6f4c609830a71df4561c0f884c2cfa59d9b588d841692cb8",
+      "identity.json": "c4b50ce0cd40a00faab72c69aa573edc4b8b1ab0a9d3275935a2440b4c552e93",
+      "ui_delivery.jsonl": "f20cc770d373c82a033a44e4eb305b4a01b2bc61ce9955fad9136aab633f51d6",
+      "s2_exact_parity/manifest.json": "e1fce144230a9103095c102c1c3815c523ce7f5fff78fb525591a1a3ee2ae206",
+      "transition_review/human_boundaries.json": "bfad9237aa1fa7c225b14e3b856dde332546418c45c3456c0e4979341a36c96d",
+      "transition_analysis/result.json": "13908e21087faa13a728e96f2227c9bdea94f843a745f6575c3cfc3fe495aa80"
+    }
+  },
+  "host_tests": {
+    "passed": 119,
+    "failed": 0,
+    "errors": 0,
+    "receipt_sha256": "2123d283c62dc2379d11343b6d140cc8621e6299bc407063b70e4f0089463ecf"
+  },
+  "jvm_tests": {
+    "passed": 194,
+    "failed": 0,
+    "errors": 0,
+    "receipt_sha256": {
+      "TEST-com.example.apphear.AccountRepositoryTest.xml": "a0e25adcff00d689fe6331eda611c1006b9343efde8055f2fed2bd20071177d4",
+      "TEST-com.example.apphear.AslCharacterChoiceTest.xml": "a796cc55448cf36a1c80c5c2fd27399d55be7c2a5d3347918f9e60c2a894ba0f",
+      "TEST-com.example.apphear.ConfirmationTopKTest.xml": "2506b6ba214ebebd23703be53f09a4e81a4a7ba5cf1484c94184ee695da4615a",
+      "TEST-com.example.apphear.contextassist.PhraseAssistCoreTest.xml": "06215dbc87ec7bd5455fc2db5fa295c3217c3a810ee68f0844cfda90ccc8a43a",
+      "TEST-com.example.apphear.contextassist.PhraseAssistUiStateTest.xml": "f4384e1913e91816af59c03936bd06d127fb155c55ea03b5e2f95f842ed3853d",
+      "TEST-com.example.apphear.coordination.RecognitionCoordinatorTest.xml": "bdbe2c45da450e8e6f01ab38856685b3c40c84ceccff1180e70606e3076ef09e",
+      "TEST-com.example.apphear.ExampleUnitTest.xml": "85986ef6faefc0f7868f0f01153d2d78903f278ddfd5ab8c0bf46a2ec7cc22fb",
+      "TEST-com.example.apphear.fingerspelling.FingerspellBeamDecoderTest.xml": "4fd2056b5d86250986972fec9845b998ec33b1e541375ac8c3e1b515f40e7b80",
+      "TEST-com.example.apphear.fingerspelling.FingerspellSessionTest.xml": "a2005a8c288c2297e97f7b0d52181057eea3b3eba94a464c2da417dcb9169cce",
+      "TEST-com.example.apphear.fingerspelling.FingerspellSingleLetterTest.xml": "628c05e48b91f3db2061346f3ded61e133815d058ccf2504b09df59fc78dc456",
+      "TEST-com.example.apphear.fingerspelling.HeldLetterPolicyTest.xml": "634ea025ed7722458aa86d119355e88dd1c774c8d7fc582e5167601dc2dacad7",
+      "TEST-com.example.apphear.fingerspelling.UprightRgbaSourceTest.xml": "882330784bb9facff95caac65f1730ddb30050fd7822d112c38b2fb682e2acfa",
+      "TEST-com.example.apphear.OriginalWordBatchTest.xml": "17aad49da5599e452f2da07e163c59f18b4038bdf901a920b5169822a0348c9a",
+      "TEST-com.example.apphear.p7d.P7dMathTest.xml": "4e7b3e61080235f81c6785a3c4e47d9d348a2ef4715561ba9438f955f19da55d",
+      "TEST-com.example.apphear.p7dr1.P7dr1ParityTest.xml": "9650fcc94d0d9b473e84591594cb165fa0902402650b464de7959f988a65bbd6",
+      "TEST-com.example.apphear.p7dr2.P7dr2HarnessTest.xml": "27fc85a19e2faf305bf1bfdf29d8affd703b689be9490fd6cd9a5080fd3ac71f",
+      "TEST-com.example.apphear.p7e.P7eGateTest.xml": "18087b61be5150ef0a850a9200cd6aa1a9d5fa0c44a63460a5f0542f9bc00db6",
+      "TEST-com.example.apphear.p8b.P8bMathTest.xml": "46c49460be765f036a9c9f53b6f1a834df851900797bbe63f32ec89029c1a8cf",
+      "TEST-com.example.apphear.perceptionvnext.CurrentFrameHandPairTest.xml": "c57123a6caae816d6ec5be3f00d0b487111626958e751c58f4651b33379c5168",
+      "TEST-com.example.apphear.perceptionvnext.PerceptionVNextMathTest.xml": "47c7bfd94b7133663ed843338da2ef4a47f178cf0468752c593e18d8b2796c37",
+      "TEST-com.example.apphear.perceptionvnext.PhoneCausalCoreTest.xml": "1fad696e6502d991054e5319216b68a6254e6affc16f9df9a6725fdd9ff8bb3f",
+      "TEST-com.example.apphear.perceptionvnext.PhoneRecognitionRawSequenceTest.xml": "30e545c92f6020dbc30892257104ead2bd5581f7d3e1e357a8e67659bb2e2a4e",
+      "TEST-com.example.apphear.perceptionvnext.PhoneS2ExactParityRecorderTest.xml": "3cfa0f913f7245b31b0755bc523620eeff2f53136c010206928cef2c4a80a9ee",
+      "TEST-com.example.apphear.perceptionvnext.PhoneTransitionDiagnosticCohortTest.xml": "4a8425e4e170e46a00d852df95850338f5f2710cca6d4d3896f7fb4c70cefd40",
+      "TEST-com.example.apphear.perceptionvnext.PhoneVisualEvidenceFinalizerTest.xml": "552bb84860e56f8c37e7372aec6c4cc419b6182de3871f1d3949c5b2f5e0a9f0",
+      "TEST-com.example.apphear.perceptionvnext.RecognitionV2JvmParityTest.xml": "0c23ca4912c33e1979a1ea8affc7ef33ad20da11ae31d98b420582b2185b824c",
+      "TEST-com.example.apphear.perceptionvnext.RecognitionV3Stage2RecordedTransitionTest.xml": "28979de46dc0b7c3d7b4232b28f474394c532e22bc8e8fcb17e8b6f5696cca1d",
+      "TEST-com.example.apphear.Phase1ShadowMathTest.xml": "b8c5c1397986c51f0703cc1b55999146b5f127608683ad4c346626c155502087",
+      "TEST-com.example.apphear.pipeline.A1SchedulingTest.xml": "3f786d8eb4f5798b5309090d59c4afb42989851d06ff118320b4e5cd7aa42ca7",
+      "TEST-com.example.apphear.pipeline.diagnostics.RollingEvidenceBufferTest.xml": "0590893106df58d19a77093b7b77ac10394aae70c5a1c7834a424df2b0fb61e9",
+      "TEST-com.example.apphear.pipeline.recognition.RuD1WindowSourcesTest.xml": "532fb232680f5da9ccce795d54e58892872ccec883b4a4caf5cab722d801121b",
+      "TEST-com.example.apphear.PostCommitRearmTest.xml": "d0194519936957e4994c44baff93d80c1185180fef285ca338d473454fc15235",
+      "TEST-com.example.apphear.RecognitionUiSnapshotTest.xml": "d158d7d8b79590cf240a15eff67a86183d5ce2c22c8e0027089261d44f4eb9ee",
+      "TEST-com.example.apphear.S4SkewTest.xml": "b19a638b49123b556603b2085261d4ba64f26b338c6372bd86c6900cd8bb26a1",
+      "TEST-com.example.apphear.SentenceBuilderTest.xml": "0a12fe606b575db89e0f9780621231e3e626cdefc19db49d11979fbac8c3ba0e",
+      "TEST-com.example.apphear.SigningHandGateTest.xml": "e5db7bf3f57955ca0cf2dc0aac4388a3a2b82f96bcf3263035ef30bf145538a6",
+      "TEST-com.example.apphear.TextToAslAlphabetTest.xml": "832b3a40e7cb202a3571da557c73493429704b559c84cabd645fccc1aec535e1",
+      "TEST-com.example.apphear.TextToAslAssetManifestTest.xml": "05159512fa7f72607c2bfef509c2bb1559f8d1a83fe25f8f9d10467a5aed72e4",
+      "TEST-com.example.apphear.TextToAslIdleTest.xml": "9e899dbc04f54f1a4bf5e310fe312bc98bcff71f2675e3eeeeccf7e933de20fe",
+      "TEST-com.example.apphear.TextToAslMoreWordsManifestTest.xml": "e2cf3a491855b19365c6cc75357a80968deba7b68dbdca0c85ced2edfb2a34c7",
+      "TEST-com.example.apphear.TextToAslPilotManifestTest.xml": "137ac1a70160ad4b77d598e338f21cc5eaf6186d1ea92a1f4e880585afb94004",
+      "TEST-com.example.apphear.TextToAslPlannerTest.xml": "f50d3a3cad4437ba44dcaaf52fe9564bf57dba4f92c947204e49d77d963b639a"
+    },
+    "build_log_sha256": "b0f0fac17c1cc96365d42db839e4ec48ac6eb939384474fe7eb6b74a97efc7f8"
+  },
+  "shared_state_hashes_passed": 581,
+  "same_observation_s2_parity": {
+    "observations": 1364,
+    "model_sha256": "7d26c896db1a00e7a41ff3e02b02033428cbd2ae4b5cbf3e4d279d45f529d3d7",
+    "feature_parity": {
+      "max_absolute_error": 0.0,
+      "tolerance": 1e-06,
+      "pass": true
+    },
+    "normalization_parity": {
+      "max_absolute_error": 0.0,
+      "tolerance": 1e-06,
+      "pass": true
+    },
+    "tflite_probability_parity": {
+      "max_absolute_error": 8.344650268554688e-07,
+      "tolerance": 0.0001,
+      "pass": true
+    },
+    "argmax_mismatches": 0,
+    "pass": true,
+    "scope": "same observations, host TFLite; not fresh Android performance or new recognition accuracy"
+  },
+  "candidate": {
+    "scope": "OFFLINE_CAUSAL_S2_PREFIX_RESET_AFTER_REARM_ONLY",
+    "decision": "REJECT_FOR_ANDROID_ROLLOUT",
+    "baseline_events": 10,
+    "candidate_events": 20,
+    "baseline_contained_negative_events": 4,
+    "candidate_contained_negative_events": 9,
+    "classifier_ui_counterfactual": "NOT_RUN_SAFETY_SCREEN_FAILED"
+  },
+  "recognition_accuracy_claim": "NONE",
+  "stage2_complete": false,
+  "next_step": "Qualified-signer matched-frame transition/repeat/hold evidence after stable phone preflight; compact repeat cohort not yet implemented"
+}

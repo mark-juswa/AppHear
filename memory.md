@@ -1350,3 +1350,22 @@ Read docs/recognition-v3-stage1-validation-2026-10-15.md and committed phone_res
 If the user reconnects a stable phone, first diagnose the closure; then choose a single bounded
 next evaluation with the Project Lead. Missing V3 rear and repeated scene evidence stay missing.
 Do not start Stage2/timer changes, a thread-budget rewrite or more phone tests automatically.
+
+# Memory — Recognition V3 Stage2 investigation, 2026-10-15
+
+## Decisions / current state
+Stage2 authorized; isolated codex/recognition-v3-stage2 from e196a8d. Stage1 remains disabled.
+Recovered actual reviewed session_20260927T162103Z in F: research artifacts, despite old report
+saying capture pending. It is complete/auditable; do not repeat the previous mistaken handoff.
+Six of seven confident signs have no ACTIVE, not simply WAIT; TABLE has zero accepted hands.
+One offline S2-history reset-after-rearm experiment increases non-sign events4→9: rejected.
+No main/debug Android runtime change, new policy, retraining or Stage3 work. Report/evidence saved.
+ADB discovery empty. Prior closure remains unknown; no intensive or further phone actions.
+
+## Next session starts with
+Read docs/recognition-v3-stage2-investigation-2026-10-15.md and context_reset_probe.json.
+If phone returns stable, inspect boot/exit/thermal state before a qualified-signer matched-framing
+A/B + adjacent repeat + held-position/movement capture. Existing7-block harness supports A/B and
+negatives but needs compact-repeat profile/annotation extension; do not pretend it already exists.
+Choose perception availability vs S2 transition acquisition vs lifecycle handoff from linked evidence.
+Do not deploy prefix reset, reduce timers, or remove sentence dedup as a claimed continuous fix.

@@ -11,6 +11,7 @@ import hashlib
 import json
 import sys
 from collections import Counter
+from collections.abc import Callable
 from dataclasses import asdict
 from pathlib import Path
 from typing import Any
@@ -65,14 +66,25 @@ def identity(event: dict[str, Any]) -> dict[str, int]:
 def replay(
     rows: list[dict[str, Any]], *, allow_post_rearm: bool,
     exact_android_commit_recovery: bool = False,
+    prediction_hook: Callable[[dict[str, Any], str | None], dict[str, Any]] | None = None,
 ) -> dict[str, Any]:
+    """Optional prediction hook is a closed-loop offline probe; source identity is immutable."""
     decoder = CausalStreamingSignEventDecoder(CONFIG_01)
     previous_timestamp: float | None = None
     gap_resets: list[dict[str, float]] = []
     rearm_completions: list[dict[str, float]] = []
     last_emission_ms: float | None = None
     trace: list[dict[str, Any]] = []
-    for row in rows:
+    for source_row in rows:
+        # Explicit offline Stage2 probe only. Default replay still consumes persisted S2.
+        row = source_row if prediction_hook is None else prediction_hook(
+            dict(source_row), str(trace[-1]["action"]) if trace else None,
+        )
+        if prediction_hook is not None and (
+            row["source_index"] != source_row["source_index"] or
+            row["source_timestamp_ms"] != source_row["source_timestamp_ms"]
+        ):
+            raise ValueError("PREDICTION_HOOK_CHANGED_CAPTURE_IDENTITY")
         timestamp = float(row["source_timestamp_ms"])
         actual_state = int(row["argmax_state"])
         gap = None if previous_timestamp is None else timestamp - previous_timestamp

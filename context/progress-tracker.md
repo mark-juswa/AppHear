@@ -16,6 +16,22 @@ provisioning remain open; no automatic new experiment is authorized. See docs/te
 
 # Progress Tracker
 
+**2026-10-15 — Recognition V3 Stage2 offline investigation; no runtime policy promoted.**
+Branch codex/recognition-v3-stage2 starts at e196a8d; Stage1 flags remain false.
+- [x] Recovered completed September27 A/B capture omitted by earlier handoff;1364 observations,
+  10 events, final human labels and existing analysis reproduced exactly.
+- [x] Six/seven confidently reviewed signs have zero S2 ACTIVE; both TABLE attempts lack accepted
+  hands. Hands-up HOME remains POST despite15 hand-observed rows and13 READY observations.
+- [x] Raw378/normalization exact; frozen S2 parity max8.34465e-7, zero argmax differences.
+- [x] One closed-loop S2-prefix reset-after-rearm probe rejected:10→20 events,4→9 fully contained
+  reviewed non-sign events. No timer/model/runtime change or further reset sweep.
+- [x]119 focused host and194 JVM tests; actual Kotlin1364-row trace replay;581 protected hashes PASS.
+- [ ] ADB sees no phone; closure cause, qualified-signer compact A/B/repeat/hold cohort and an
+  effective boundary/readiness improvement remain unresolved. Existing7-block harness has no
+  adjacent-repeat profile; this is an explicit remaining capture task, not a completed test.
+See [Stage2 investigation](../docs/recognition-v3-stage2-investigation-2026-10-15.md).
+Older pending-capture notes below are superseded by recovered evidence. Stage2 is not complete.
+
 **2026-10-15 update — PARTIAL_ANDROID_EVIDENCE_MIXED_DO_NOT_PROMOTE.**
 Canonical4c99ac24 and protected76d93cec remain intact; runtime5d73b412 unchanged.
 - [x] Android applicable gates:11 tests/arm; recorded51-frame/204-output paired benchmark exact.
