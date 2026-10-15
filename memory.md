@@ -1392,3 +1392,26 @@ evidence, install saved pair with-r, run packaged-parser test, then launch expli
 Use correctly attested signer proficiency; UNKNOWN/nonexpert does not establish ASL accuracy.
 Review physical boundaries/held negatives; separate events, lexical results and normal sentence.
 Do not rerun the rejected reset experiment or start timer/retraining loops automatically.
+
+# Memory — Stage2 compact connected-phone capture, 2026-10-16
+
+## Current state
+User reconnected authorized Xiaomi and attested engineering smoke only. Installed saved6dbb2d3
+compact app/test pair without clearing data.11 applicable Android gates PASS. Captured all5 blocks,
+then actual final-save;757 source observations/images pass exact capture/event/re-arm/window/UI
+linkage. Features/normalization exact, TFLite max4.76837e-7, zero S2 argmax differences.
+Phone remained connected during bounded run; old closure still unexplained. Battery34.4→37.1°C.
+No source/model/runtime-policy change; Stage1 disabled; protected581 hashes and canonical clean.
+
+## Review pending — do not lose this
+User is actively editing blinded reviewer and explicitly asked to wait for final export.
+First Downloads/human_boundaries.json was blank (no reviewer/intervals/reviewed blocks); do not
+interpret it or auto-label. Local server session89035 on127.0.0.1:8765 remains for this review.
+Final valid session is F:/ASL DATASET/5. Apphear3/artifacts/recognition_v3_stage2_compact_device/finalized/session_20261015T155027Z.
+Earlier sibling session snapshot is intentionally unfinalized and preserved; DO NOT use it.
+
+## Next action
+When user says final export saved, check only Downloads/human_boundaries*.json for correct session,
+validate before importing beside reviewer, then run existing analyze. Preserve incomplete drafts,
+keep uncertainty/nonexpert status. Device report/evidence drafted; update review status and commit
+validation once final labels or explicit deferral arrive. No need to repeat captures/gates.

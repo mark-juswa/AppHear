@@ -1,0 +1,54 @@
+{
+  "schema": "apphear.stage2.compact.device_delivery.v1",
+  "status": "CAPTURE_AND_ENGINEERING_GATES_PASS_HUMAN_REVIEW_PENDING",
+  "implementation_commit": "6dbb2d351a672cb7f63571b08ffd91491cb4cba8",
+  "canonical_commit": "4c99ac24ebe7d1d1371a7268288df43df08f8d6b",
+  "protected_commit": "76d93cecd85bf9f76064d320aa4a5791b5f0704a",
+  "comparison_baseline": "e196a8d501386091eae52f59df0fa349e26b43e2",
+  "stage1_concurrency_enabled": false,
+  "runtime_policy_changed": false,
+  "session": "F:\\ASL DATASET\\5. Apphear3\\artifacts\\recognition_v3_stage2_compact_device\\finalized\\session_20261015T155027Z",
+  "signer_proficiency": "NONEXPERT_ENGINEERING_SMOKE",
+  "capture_inventory": {
+    "path": "C:\\Users\\Gigabyte\\.codex\\worktrees\\recognition-v3-stage2\\5. Apphear3\\artifacts\\recognition_v3_stage2_compact\\device_20261015T155027Z\\finalized_capture_files.json",
+    "sha256": "1ff23e8a67b73faceafe0d93f67563e110d76d1abe0415aa77d09ee27e4426f2",
+    "files": 1981,
+    "bytes": 43375481
+  },
+  "first_unfinalized_snapshot_preserved": "F:/ASL DATASET/5. Apphear3/artifacts/recognition_v3_stage2_compact_device/session_20261015T155027Z",
+  "finalization_incident": "First export preceded final-save control; phone denied remote INJECT_EVENTS; human tapped final save, new snapshot passed audit; no signs repeated, no repaired/fabricated data",
+  "apks": {
+    "app-debug-stage2-compact-androidTest.apk": {
+      "path": "F:\\ASL DATASET\\5. Apphear3\\artifacts\\recognition_v3_stage2_compact_build_20261015\\delivery\\app-debug-stage2-compact-androidTest.apk",
+      "sha256": "45d5faaad3ae5e87308d1d25e4ad0ba029bc9f4d19691deb5350eb5a0689fd15"
+    },
+    "app-debug-stage2-compact.apk": {
+      "path": "F:\\ASL DATASET\\5. Apphear3\\artifacts\\recognition_v3_stage2_compact_build_20261015\\delivery\\app-debug-stage2-compact.apk",
+      "sha256": "846ad345cdb061bef11858ef95151c0d35abdadbd67a5dbb1f9401abf7f6f6fc"
+    }
+  },
+  "statistics_method": {
+    "fps": "(N-1)*1000/(last_source_timestamp_ms-first_source_timestamp_ms); whole session includes warmup and between/after-block idle",
+    "percentiles": "numpy.percentile over recorded scalar fields; all observations, no hidden exclusions",
+    "blocks": "Exact timestamp-membership ranges in passed integrity; block markers are not physical sign labels",
+    "candidate_total_ms": "Measured analyzer entry through perception completion; includes diagnostic pixel capture, excludes S2/event/materializer/classifier/evidence scheduling/close",
+    "source_to_decision_ms": "decision_elapsed_realtime_ns/1e6-source_timestamp_ms; includes camera delivery/backlog, perception and S2; not full analyzer latency"
+  },
+  "recognition_accuracy": "UNVERIFIED",
+  "normal_app_sentence_delivery": "NOT_MEASURED",
+  "evidence_files": {
+    "android_gates.json": "7f38e292bc6d18edb3e8049a1e526c53222ef0f04770f4d15ec46c96c3ff5316",
+    "capture_diagnostics.json": "59fee130b02b4c64ab6061d3578664fd7c82c050f77b1e9738c21bf967a3f456",
+    "capture_integrity.json": "c3820ea663f7f5439970ea7e80c6e955f5ef3871573c6b33d206adbdfb93c86d",
+    "gates/gate_CameraInputInstrumentedTest.txt": "e5016a2489c2a4395fdee1be7992638231133f63e460e721349ad8b5f8811266",
+    "gates/gate_ContinuousFingerspellInstrumentedTest.txt": "cbf474dbe3ab56313e911539c6b0b8ed89b6979becb507b2462b06b6db6589db",
+    "gates/gate_FingerspellSingleLetterInstrumentedTest_exactPythonParity.txt": "d8e90b7e1f3b7489e99f2c8f630df04a52163d13b237340705593f719223cc86",
+    "gates/gate_PhoneS2ParityInstrumentedTest.txt": "1cb7e2352cf6205e25e92471a3353d9b4470aca56cfc2a1c8fbc7255af88de2a",
+    "gates/gate_protocol.txt": "513be8300373bcf36f891de19fe6046b9fcc75cc0249cdcf092027ffacbcf3f4",
+    "gates/gate_RecognitionCoordinationInstrumentedTest_actualOwnerAutomaticEntryConfirmedSpellingAndWordPreservation.txt": "5f090db601cfcf9c634b79f60e8ccce5c57fb2baf84496571d2c183c478bbdb7",
+    "gates/gate_RecognitionV2EndToEndReplayInstrumentedTest.txt": "dcb16da58056e01ca3a8fd54c61b95dd359bc19b7e8c1b60c06b1e1c87c43d92",
+    "gates/gate_SequenceV21ParityInstrumentedTest.txt": "a690c667eff63bdbc471a9e0babab509583ca9383ce74bfe43fc333fcaba671c",
+    "phone_health.json": "03a53bcd1c79dbf4e058c02b337c1b34727f07fed7ff9668fe6c1fc16db08b32",
+    "same_observation_s2_parity.json": "02f46fa5ad13d08941c01da3a70022bffe6f79b8d2a932d7fb4f0a35adf3a5d8"
+  }
+}

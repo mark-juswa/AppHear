@@ -16,6 +16,24 @@ provisioning remain open; no automatic new experiment is authorized. See docs/te
 
 # Progress Tracker
 
+**2026-10-16 — Stage2 compact profile validated on connected Xiaomi; physical review pending.**
+Continues6dbb2d3 with the same integrated runtime and Stage1 disabled. Saved pair installed-r,
+no data cleared.11 applicable Android tests pass: parser/camera/S2/RecognitionV2/FINGERSPELL/owner.
+- [x] Read-only pre/post health; no observed disconnect/reboot,34.4→37.1°C battery; earlier closure
+  unresolved. Instrumentation exit-info says finished inst; no sustained stability certification.
+- [x] User completed compact5-block NONEXPERT_ENGINEERING_SMOKE capture session_20261015T155027Z.
+  Finalized757 genuine observations/images; all exact hashes, event/re-arm/materializer/UI replay pass.
+- [x] Same-observation features/normalization exact; S2 max error4.76837e-7, zero argmax differences.
+  Diagnostic delivery4.696FPS whole session; no baseline/candidate speed or ASL accuracy claim.
+- [x]581 protected hashes; canonical clean4c99ac24; no production source/model/policy changes.
+- [ ] User editing blinded physical-boundary review. Initial export blank; do not auto-fill labels.
+  Qualified-signer/framing evidence and an effective continuous WORD improvement remain open.
+First unfinalized pull preserved; human tapped final-save, second snapshot passes all integrity gates.
+Raw evidence on F: under artifacts/recognition_v3_stage2_compact_device/finalized/. Local reviewer
+127.0.0.1:8765; wait for final export then analyze. No timer/reset/training sweep.
+See [device validation](../docs/recognition-v3-stage2-device-validation-2026-10-16.md).
+The earlier phone-absent status below is historical; physical engineering validation is now complete.
+
 **2026-10-15 — Stage2 compact capture built; physical validation pending.**
 Continues1422cad on codex/recognition-v3-stage2. Five-block debug-only profile now covers hands-down,
 hands-up, adjacent HELLO repeats, sign-then-hold and ordinary movement. Same recorder/models/decoder.

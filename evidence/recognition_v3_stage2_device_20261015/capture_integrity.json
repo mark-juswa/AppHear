@@ -1,0 +1,50 @@
+{
+  "transition_protocol_id": "V3_STAGE2_COMPACT_01",
+  "transition_protocol_sha256": "500e4c43f8d64a01d55fb861b73c11604e2b32464f846071d029903bafa9100c",
+  "declared_signer_proficiency": "NONEXPERT_ENGINEERING_SMOKE",
+  "comparison_baseline_sha": "e196a8d501386091eae52f59df0fa349e26b43e2",
+  "status": "CAPTURE_INTEGRITY_PASS",
+  "count": 757,
+  "blocks": [
+    {
+      "block": "A_HANDS_DOWN",
+      "start_index": 180,
+      "end_index": 211
+    },
+    {
+      "block": "B_HANDS_UP",
+      "start_index": 228,
+      "end_index": 252
+    },
+    {
+      "block": "C_REPEAT_HANDS_UP",
+      "start_index": 269,
+      "end_index": 302
+    },
+    {
+      "block": "D_SIGN_THEN_HOLD",
+      "start_index": 315,
+      "end_index": 368
+    },
+    {
+      "block": "E_ORDINARY_MOVEMENT",
+      "start_index": 391,
+      "end_index": 427
+    }
+  ],
+  "event_count": 4,
+  "baseline_replay_events_identical": true,
+  "rearm_transitions_identical": true,
+  "visual_coverage": "ALL_PROCESSED_OBSERVATIONS",
+  "materializer_indices_identical": true,
+  "source_runtime_clock_sanity_pass": true,
+  "source_clock": "ImageProxy monotonic ns, serialized as ms; runtime/UI elapsedRealtime ns",
+  "session_identity_sha256": "c9def58e46f72e96c9a27160e59dc7887d837ab9d48d5e6e5b5f78fcad767720",
+  "exact_manifest_sha256": "64b51a63d65874da1d2823b713912a4cd50c8c1f3ae308d74640caa975fd0590",
+  "observations_sha256": "bdd53a6fb86577323ad35464c7bcdbb1e27b00f0d07b6d382a109a20f7f40092",
+  "events_sha256": "8513390eba27ea4fdca17eafa9faf2a7243ebfbb5a466d21cc4acb117add1297",
+  "attempt_markers_sha256": "a19172d5b2ae44671056e1e9c0fcc5dc1c12311a8fe87fc1c1e74efe441464cf",
+  "ui_delivery_sha256": "011c6ccae6087b7ad7bda6103df125d191ae967109d09875a9656e98a865ce75",
+  "minimum_active_ms": 133.308,
+  "maximum_observation_gap_ms": 533.232
+}

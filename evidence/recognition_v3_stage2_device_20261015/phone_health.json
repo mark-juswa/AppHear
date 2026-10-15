@@ -1,0 +1,85 @@
+{
+  "schema": "apphear.stage2.bounded_phone_health.v1",
+  "device_model": "M2101K7AG",
+  "records": [
+    {
+      "receipt_directory": "C:\\Users\\Gigabyte\\.codex\\worktrees\\recognition-v3-stage2\\5. Apphear3\\artifacts\\recognition_v3_stage2_compact\\phone_preflight_20261015T154752440Z",
+      "sha256": {
+        "android.txt": "f2bf6cb915ec521520920f625e9a641f22bae7808a5f5db7867c431c1a79440f",
+        "app_exit_info.txt": "c093966dfdc729b81eafcc3d6867d4ece016fa86560e5a81053b0c6ca3d4ef83",
+        "battery.txt": "95df2922604a5308c966c3f025be3d7dde7d13a97177642c0360a651cf607e7a",
+        "boot_reason.txt": "7aaca74d9ceb51ff7c090cd3fb01aace5efdb6b93eb6d8814769d0b0c8e62d08",
+        "devices.txt": "e0bcfd2fa61ae1756201c9bbb890c17659dfef2c0927328b9cc58da0243bcaae",
+        "gate_CameraInputInstrumentedTest.txt": "e5016a2489c2a4395fdee1be7992638231133f63e460e721349ad8b5f8811266",
+        "gate_ContinuousFingerspellInstrumentedTest.txt": "cbf474dbe3ab56313e911539c6b0b8ed89b6979becb507b2462b06b6db6589db",
+        "gate_FingerspellSingleLetterInstrumentedTest_exactPythonParity.txt": "d8e90b7e1f3b7489e99f2c8f630df04a52163d13b237340705593f719223cc86",
+        "gate_PhoneS2ParityInstrumentedTest.txt": "1cb7e2352cf6205e25e92471a3353d9b4470aca56cfc2a1c8fbc7255af88de2a",
+        "gate_protocol.txt": "513be8300373bcf36f891de19fe6046b9fcc75cc0249cdcf092027ffacbcf3f4",
+        "gate_RecognitionCoordinationInstrumentedTest_actualOwnerAutomaticEntryConfirmedSpellingAndWordPreservation.txt": "5f090db601cfcf9c634b79f60e8ccce5c57fb2baf84496571d2c183c478bbdb7",
+        "gate_RecognitionV2EndToEndReplayInstrumentedTest.txt": "dcb16da58056e01ca3a8fd54c61b95dd359bc19b7e8c1b60c06b1e1c87c43d92",
+        "gate_SequenceV21ParityInstrumentedTest.txt": "a690c667eff63bdbc471a9e0babab509583ca9383ce74bfe43fc333fcaba671c",
+        "install_app.txt": "c4aa470acafcf8576c15b0f0b5ae7e852d1ec5413372d0e6a9272e788e1306d3",
+        "install_test.txt": "c4aa470acafcf8576c15b0f0b5ae7e852d1ec5413372d0e6a9272e788e1306d3",
+        "memory.txt": "636f1e7aefcc3083ba0789aa0a974bd8488e166d0722235b0a10f49fd8492797",
+        "model.txt": "3fe59819344218ff8fd0047eb5e9f7a7cbd8d2ceb286e32ae7b586f95e00d786",
+        "package_before.txt": "b6e0eedf6c113faad13d361e51116d06419d032023b68bef77eee1b5313148e9",
+        "recent_crashes.txt": "9ea70b5744c6d8ef86c2b8fa17be90fe5c15c2653e9d929d030a193ac956306b",
+        "system_boot_reason.txt": "7aaca74d9ceb51ff7c090cd3fb01aace5efdb6b93eb6d8814769d0b0c8e62d08",
+        "thermal.txt": "181a9f2a549344b7d28dd5ce8b81f3398127ec62ec4ac7d0394a654902a43ef7",
+        "uptime.txt": "29acfa108e3212eedfd77b7d1f7fa7601a75e294c656c5fcca885982a8ced756"
+      },
+      "uptime_seconds": 10425.32,
+      "battery_percent": 66,
+      "battery_temperature_c": 34.4
+    },
+    {
+      "receipt_directory": "C:\\Users\\Gigabyte\\.codex\\worktrees\\recognition-v3-stage2\\5. Apphear3\\artifacts\\recognition_v3_stage2_compact\\phone_preflight_20261015T155231332Z",
+      "sha256": {
+        "android.txt": "f2bf6cb915ec521520920f625e9a641f22bae7808a5f5db7867c431c1a79440f",
+        "app_exit_info.txt": "dd6c7150097c27cc606bea2c814a61419c2d7291b8173537cc71bca975dcfa0a",
+        "battery.txt": "2521ee99ca0dc5be9c90e9e9d8436f4f715cbbd78a416a8627b5b07f2b6c06f1",
+        "boot_reason.txt": "7aaca74d9ceb51ff7c090cd3fb01aace5efdb6b93eb6d8814769d0b0c8e62d08",
+        "devices.txt": "e0bcfd2fa61ae1756201c9bbb890c17659dfef2c0927328b9cc58da0243bcaae",
+        "memory.txt": "586e07d10e18415d2b007daa1df18b86ccbf2baf0067c1245ce5f0bc900213b1",
+        "model.txt": "3fe59819344218ff8fd0047eb5e9f7a7cbd8d2ceb286e32ae7b586f95e00d786",
+        "recent_crashes.txt": "9ea70b5744c6d8ef86c2b8fa17be90fe5c15c2653e9d929d030a193ac956306b",
+        "system_boot_reason.txt": "7aaca74d9ceb51ff7c090cd3fb01aace5efdb6b93eb6d8814769d0b0c8e62d08",
+        "thermal.txt": "181a9f2a549344b7d28dd5ce8b81f3398127ec62ec4ac7d0394a654902a43ef7",
+        "uptime.txt": "19344b3eb07bce46ac0b36b8938e09a81f4968602acbd2952e8669dfe9fa8aae"
+      },
+      "uptime_seconds": 10703.84,
+      "battery_percent": 64,
+      "battery_temperature_c": 36.9
+    },
+    {
+      "receipt_directory": "C:\\Users\\Gigabyte\\.codex\\worktrees\\recognition-v3-stage2\\5. Apphear3\\artifacts\\recognition_v3_stage2_compact\\phone_preflight_20261015T155346704Z",
+      "sha256": {
+        "android.txt": "f2bf6cb915ec521520920f625e9a641f22bae7808a5f5db7867c431c1a79440f",
+        "app_exit_info.txt": "dd6c7150097c27cc606bea2c814a61419c2d7291b8173537cc71bca975dcfa0a",
+        "app_memory_after_finalization.txt": "a55788b3b58b10b68c389bac8cdbf4b6494c686c31cd5a9bfd10cb7fde5ef6ec",
+        "battery.txt": "41e2f1e04f259360b0fa3b716c743c35d853c64d3a4f09d16d9bd9affe8ef52c",
+        "boot_reason.txt": "7aaca74d9ceb51ff7c090cd3fb01aace5efdb6b93eb6d8814769d0b0c8e62d08",
+        "devices.txt": "e0bcfd2fa61ae1756201c9bbb890c17659dfef2c0927328b9cc58da0243bcaae",
+        "memory.txt": "c139893f39fc6387a63ae5fc21d225d6d8b17effa5e66bec5fe0bb4ded410d43",
+        "model.txt": "3fe59819344218ff8fd0047eb5e9f7a7cbd8d2ceb286e32ae7b586f95e00d786",
+        "recent_crashes.txt": "9ea70b5744c6d8ef86c2b8fa17be90fe5c15c2653e9d929d030a193ac956306b",
+        "system_boot_reason.txt": "7aaca74d9ceb51ff7c090cd3fb01aace5efdb6b93eb6d8814769d0b0c8e62d08",
+        "thermal.txt": "181a9f2a549344b7d28dd5ce8b81f3398127ec62ec4ac7d0394a654902a43ef7",
+        "uptime.txt": "018987695560f06d1282a41384d9605a99b45b5d68f9a5a3f4468f9652fc3ed1",
+        "uptime_after_finalization.txt": "5ce600e3a243c2efb556088794ea6abc4b922b9c604f202024a0fd9e76173f70"
+      },
+      "uptime_seconds": 10779.26,
+      "battery_percent": 64,
+      "battery_temperature_c": 37.1
+    }
+  ],
+  "reboot_during_observed_period": false,
+  "stability_scope": "Automated gates and one compact capture only; no sustained stability certification",
+  "thermal_status": 0,
+  "thermal_hal_ready": false,
+  "earlier_closure_cause": "UNRESOLVED; retained init SIGABRT at 20:54 and generic reboot reason are insufficient for attribution",
+  "instrumentation_app_exits": "Post-gate exit-info reports USER REQUESTED: finished inst; expected instrumentation termination",
+  "pss_after_camera_finalization_kib": 205135,
+  "memory_comparison": "NOT_MEASURED; this is an idle post-finalization snapshot, not peak or matched A/B",
+  "cpu_comparison": "NOT_MEASURED"
+}

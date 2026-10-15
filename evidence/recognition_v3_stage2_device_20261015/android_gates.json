@@ -1,0 +1,57 @@
+{
+  "schema": "apphear.stage2.android_gate_receipts.v1",
+  "apk_commit": "6dbb2d351a672cb7f63571b08ffd91491cb4cba8",
+  "tests": 11,
+  "gates": [
+    {
+      "receipt": "gates/gate_CameraInputInstrumentedTest.txt",
+      "tests": 1,
+      "sha256": "e5016a2489c2a4395fdee1be7992638231133f63e460e721349ad8b5f8811266",
+      "status": "PASS"
+    },
+    {
+      "receipt": "gates/gate_ContinuousFingerspellInstrumentedTest.txt",
+      "tests": 2,
+      "sha256": "cbf474dbe3ab56313e911539c6b0b8ed89b6979becb507b2462b06b6db6589db",
+      "status": "PASS"
+    },
+    {
+      "receipt": "gates/gate_FingerspellSingleLetterInstrumentedTest_exactPythonParity.txt",
+      "tests": 1,
+      "sha256": "d8e90b7e1f3b7489e99f2c8f630df04a52163d13b237340705593f719223cc86",
+      "status": "PASS"
+    },
+    {
+      "receipt": "gates/gate_PhoneS2ParityInstrumentedTest.txt",
+      "tests": 3,
+      "sha256": "1cb7e2352cf6205e25e92471a3353d9b4470aca56cfc2a1c8fbc7255af88de2a",
+      "status": "PASS"
+    },
+    {
+      "receipt": "gates/gate_protocol.txt",
+      "tests": 1,
+      "sha256": "513be8300373bcf36f891de19fe6046b9fcc75cc0249cdcf092027ffacbcf3f4",
+      "status": "PASS"
+    },
+    {
+      "receipt": "gates/gate_RecognitionCoordinationInstrumentedTest_actualOwnerAutomaticEntryConfirmedSpellingAndWordPreservation.txt",
+      "tests": 1,
+      "sha256": "5f090db601cfcf9c634b79f60e8ccce5c57fb2baf84496571d2c183c478bbdb7",
+      "status": "PASS"
+    },
+    {
+      "receipt": "gates/gate_RecognitionV2EndToEndReplayInstrumentedTest.txt",
+      "tests": 1,
+      "sha256": "dcb16da58056e01ca3a8fd54c61b95dd359bc19b7e8c1b60c06b1e1c87c43d92",
+      "status": "PASS"
+    },
+    {
+      "receipt": "gates/gate_SequenceV21ParityInstrumentedTest.txt",
+      "tests": 1,
+      "sha256": "a690c667eff63bdbc471a9e0babab509583ca9383ce74bfe43fc333fcaba671c",
+      "status": "PASS"
+    }
+  ],
+  "old_parallel_hand_pixel_gate": "NOT_RUN: this test APK omits those fixtures",
+  "scope": "Android engineering regressions, not signing accuracy"
+}

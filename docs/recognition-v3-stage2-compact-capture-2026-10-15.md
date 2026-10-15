@@ -1,3 +1,5 @@
+> **Connected-phone follow-up (October16):** Eleven Android gates and a finalized757-observation engineering capture now pass. Physical review is pending; see [device validation](recognition-v3-stage2-device-validation-2026-10-16.md). Earlier phone-absent/pending-device statements below are historical.
+
 # Recognition V3 Stage2 — compact capture path
 
 2026-10-15, Asia/Manila. **COMPACT_CAPTURE_BUILT_DEVICE_VALIDATION_PENDING**.

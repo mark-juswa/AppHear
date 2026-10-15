@@ -1,0 +1,22 @@
+{
+  "observations": 757,
+  "model_sha256": "7d26c896db1a00e7a41ff3e02b02033428cbd2ae4b5cbf3e4d279d45f529d3d7",
+  "feature_parity": {
+    "max_absolute_error": 0.0,
+    "tolerance": 1e-06,
+    "pass": true
+  },
+  "normalization_parity": {
+    "max_absolute_error": 0.0,
+    "tolerance": 1e-06,
+    "pass": true
+  },
+  "tflite_probability_parity": {
+    "max_absolute_error": 4.76837158203125e-07,
+    "tolerance": 0.0001,
+    "pass": true
+  },
+  "argmax_mismatches": 0,
+  "pass": true,
+  "scope": "same observations, host TFLite; not fresh Android performance or new recognition accuracy"
+}
