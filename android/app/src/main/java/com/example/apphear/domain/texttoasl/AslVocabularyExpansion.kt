@@ -1,6 +1,6 @@
 package com.example.apphear.domain.texttoasl
 
-/** Sourced, retargeted previews only; never upgrades phrase/linguistic validation. */
+/** Imported or explicitly reference-authored previews; never linguistic validation. */
 object AslVocabularyExpansion {
     data class Word(
         val id: String,
@@ -13,6 +13,7 @@ object AslVocabularyExpansion {
         val meaning: String,
         val license: String,
         val variantOf: String? = null,
+        val construction: String = "RETARGETED_PREVIEW",
     )
 
     fun merge(base: List<AslAnimationAsset>, words: List<Word>): List<AslAnimationAsset> {
@@ -20,8 +21,11 @@ object AslVocabularyExpansion {
             require(word.id.matches(Regex("[a-z][a-z_]*")))
             require(word.english.isNotEmpty() && word.english.all { it.isNotBlank() })
             if (word.variantOf == null) {
-                require(word.animationName == "SIGN_${word.id.uppercase(java.util.Locale.US)}_HUMAN_RETARGETED_PREVIEW")
+                require(word.construction in setOf("RETARGETED_PREVIEW", "REFERENCE_AUTHORED_PREVIEW"))
+                val suffix = if (word.construction == "REFERENCE_AUTHORED_PREVIEW") "AUTHORED_PREVIEW" else "RETARGETED_PREVIEW"
+                require(word.animationName == "SIGN_${word.id.uppercase(java.util.Locale.US)}_HUMAN_$suffix")
             } else {
+                require(word.construction == "RETARGETED_PREVIEW")
                 // The documented NAME/NAMED form reuses one existing motion, not a generated pose.
                 require(word.id == "name" && word.variantOf == "call_someones_name")
                 val original = requireNotNull(base.singleOrNull { it.id == word.variantOf })
@@ -39,7 +43,9 @@ object AslVocabularyExpansion {
                 SignDictionaryMetadata(avatarProfile = AslSingleAvatarPolicy.profile,
                     source = word.sourceAsset, license = word.license, meaning = word.meaning,
                     references = listOf(word.reference), category = "Everyday communication",
-                    usageNotes = if (word.variantOf == null) "Unreviewed retargeted sign preview; not validated ASL translation"
+                    usageNotes = if (word.construction == "REFERENCE_AUTHORED_PREVIEW")
+                        "Unreviewed reference-authored animation preview; not validated ASL translation"
+                        else if (word.variantOf == null) "Unreviewed retargeted sign preview; not validated ASL translation"
                         else "Unreviewed NAME/NAMED form preview from existing motion; contact repetition and meaning require ASL review",
                     status = SignDictionaryMetadata.Status.MAPPED))
         }

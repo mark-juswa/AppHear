@@ -5,7 +5,7 @@
   "language": "ASL",
   "avatarProfile": "ORIGINAL_HUMAN",
   "asset": "asl_animations/original_words_v1/fingerspelling-avatar.glb",
-  "sha256": "c8e86f065acd1bb0fe39ee7524daad73324106a53fb8b455bf89744e4a1a778d",
+  "sha256": "9abc31e5eed7597c96e4cded055176427ea25fb8fd8999a32966409961208990",
   "sourceSha256": "645da29f5e8a24dc7da2f4b6e23ca2e87fb91254958f5053ba0281080ec0a524",
   "status": "UNREVIEWED_RETARGETED_PREVIEW",
   "source": "Existing AppHear FemaleASL alphabet; motion rights/provenance unresolved",
@@ -1191,6 +1191,236 @@
       "linguisticValidationStatus": "UNREVIEWED",
       "technicalPlaybackStatus": "Candidate: device review required",
       "correctionNotes": "Actual source arm/wrist motion with equivalent resident-rig B/C/X handshapes, a dominant bent hand for AGAIN, and source-driven independent flexion without axial twist for FINGERSPELL. AGAIN/CLASS have scoped shared placement corrections and fixed-length arm IK. No global finger limits or changes to old words/alphabet. Qualified ASL review still required."
+    },
+    {
+      "id": "stop",
+      "english": [
+        "stop"
+      ],
+      "animationName": "SIGN_STOP_HUMAN_AUTHORED_PREVIEW",
+      "durationMs": 2600,
+      "sourceAsset": "asl_animations/original_words_v1/resident-avatar.glb",
+      "sourceSha256": "4af1e10c9448d33db03cede4705dd2e7f851f12bb8394669b77d847bf885d3bf",
+      "sourceRole": "Resident rig/mesh provenance only; NOT an imported animation for this word",
+      "construction": "REFERENCE_AUTHORED_PREVIEW",
+      "status": "UNREVIEWED_NATIVE_VARIANT_PREVIEW",
+      "language": "ASL",
+      "gloss": [
+        "STOP"
+      ],
+      "reference": "https://www.lifeprint.com/asl101/pages-signs/s/stop.htm",
+      "meaning": "Cease an activity; dominant flat hand edge meets upward other palm, not traffic stop or FINISH",
+      "license": "New local reference-authored keyframes; existing AppHear human rig provenance unresolved. No reference media copied; no redistribution rights asserted.",
+      "linguisticValidationStatus": "UNREVIEWED",
+      "technicalPlaybackStatus": "Candidate: Android visual review required",
+      "correctionNotes": "Sign-specific trajectory and handshape on actual rig; no global joint clamps or edits to old animations. Non-manual grammar not certified."
+    },
+    {
+      "id": "understand",
+      "english": [
+        "understand"
+      ],
+      "animationName": "SIGN_UNDERSTAND_HUMAN_AUTHORED_PREVIEW",
+      "durationMs": 2600,
+      "sourceAsset": "asl_animations/original_words_v1/resident-avatar.glb",
+      "sourceSha256": "4af1e10c9448d33db03cede4705dd2e7f851f12bb8394669b77d847bf885d3bf",
+      "sourceRole": "Resident rig/mesh provenance only; NOT an imported animation for this word",
+      "construction": "REFERENCE_AUTHORED_PREVIEW",
+      "status": "UNREVIEWED_NATIVE_VARIANT_PREVIEW",
+      "language": "ASL",
+      "gloss": [
+        "UNDERSTAND"
+      ],
+      "reference": "https://www.lifeprint.com/asl101/pages-signs/u/understand.htm",
+      "meaning": "Comprehend; index opens near forehead; no automatic negation/headshake translation",
+      "license": "New local reference-authored keyframes; existing AppHear human rig provenance unresolved. No reference media copied; no redistribution rights asserted.",
+      "linguisticValidationStatus": "UNREVIEWED",
+      "technicalPlaybackStatus": "Candidate: Android visual review required",
+      "correctionNotes": "Sign-specific trajectory and handshape on actual rig; no global joint clamps or edits to old animations. Non-manual grammar not certified."
+    },
+    {
+      "id": "hungry",
+      "english": [
+        "hungry"
+      ],
+      "animationName": "SIGN_HUNGRY_HUMAN_AUTHORED_PREVIEW",
+      "durationMs": 2600,
+      "sourceAsset": "asl_animations/original_words_v1/resident-avatar.glb",
+      "sourceSha256": "4af1e10c9448d33db03cede4705dd2e7f851f12bb8394669b77d847bf885d3bf",
+      "sourceRole": "Resident rig/mesh provenance only; NOT an imported animation for this word",
+      "construction": "REFERENCE_AUTHORED_PREVIEW",
+      "status": "UNREVIEWED_NATIVE_VARIANT_PREVIEW",
+      "language": "ASL",
+      "gloss": [
+        "HUNGRY"
+      ],
+      "reference": "https://www.lifeprint.com/asl101/pages-signs/h/hungry.htm",
+      "meaning": "Hunger; C hand moves down central chest, no intensity or wish alias",
+      "license": "New local reference-authored keyframes; existing AppHear human rig provenance unresolved. No reference media copied; no redistribution rights asserted.",
+      "linguisticValidationStatus": "UNREVIEWED",
+      "technicalPlaybackStatus": "Candidate: Android visual review required",
+      "correctionNotes": "Sign-specific trajectory and handshape on actual rig; no global joint clamps or edits to old animations. Non-manual grammar not certified."
+    },
+    {
+      "id": "finish",
+      "english": [
+        "finish"
+      ],
+      "animationName": "SIGN_FINISH_HUMAN_AUTHORED_PREVIEW",
+      "durationMs": 2600,
+      "sourceAsset": "asl_animations/original_words_v1/resident-avatar.glb",
+      "sourceSha256": "4af1e10c9448d33db03cede4705dd2e7f851f12bb8394669b77d847bf885d3bf",
+      "sourceRole": "Resident rig/mesh provenance only; NOT an imported animation for this word",
+      "construction": "REFERENCE_AUTHORED_PREVIEW",
+      "status": "UNREVIEWED_NATIVE_VARIANT_PREVIEW",
+      "language": "ASL",
+      "gloss": [
+        "FINISH"
+      ],
+      "reference": "https://www.lifeprint.com/asl101/pages-signs/f/finish.htm",
+      "meaning": "Completion; two five-hands turn outward while separating; no automatic tense/conjunction translation",
+      "license": "New local reference-authored keyframes; existing AppHear human rig provenance unresolved. No reference media copied; no redistribution rights asserted.",
+      "linguisticValidationStatus": "UNREVIEWED",
+      "technicalPlaybackStatus": "Candidate: Android visual review required",
+      "correctionNotes": "Sign-specific trajectory and handshape on actual rig; no global joint clamps or edits to old animations. Non-manual grammar not certified."
+    },
+    {
+      "id": "tired",
+      "english": [
+        "tired"
+      ],
+      "animationName": "SIGN_TIRED_HUMAN_AUTHORED_PREVIEW",
+      "durationMs": 2600,
+      "sourceAsset": "asl_animations/original_words_v1/resident-avatar.glb",
+      "sourceSha256": "4af1e10c9448d33db03cede4705dd2e7f851f12bb8394669b77d847bf885d3bf",
+      "sourceRole": "Resident rig/mesh provenance only; NOT an imported animation for this word",
+      "construction": "REFERENCE_AUTHORED_PREVIEW",
+      "status": "UNREVIEWED_NATIVE_VARIANT_PREVIEW",
+      "language": "ASL",
+      "gloss": [
+        "TIRED"
+      ],
+      "reference": "https://www.lifeprint.com/asl101/pages-signs/t/tired.htm",
+      "meaning": "Fatigued; bent hands at chest rotate/slump, not a downward chest slide",
+      "license": "New local reference-authored keyframes; existing AppHear human rig provenance unresolved. No reference media copied; no redistribution rights asserted.",
+      "linguisticValidationStatus": "UNREVIEWED",
+      "technicalPlaybackStatus": "Candidate: Android visual review required",
+      "correctionNotes": "Sign-specific trajectory and handshape on actual rig; no global joint clamps or edits to old animations. Non-manual grammar not certified."
+    },
+    {
+      "id": "deaf",
+      "english": [
+        "deaf"
+      ],
+      "animationName": "SIGN_DEAF_HUMAN_AUTHORED_PREVIEW",
+      "durationMs": 3000,
+      "sourceAsset": "asl_animations/original_words_v1/resident-avatar.glb",
+      "sourceSha256": "4af1e10c9448d33db03cede4705dd2e7f851f12bb8394669b77d847bf885d3bf",
+      "sourceRole": "Resident rig/mesh provenance only; NOT an imported animation for this word",
+      "construction": "REFERENCE_AUTHORED_PREVIEW",
+      "status": "UNREVIEWED_NATIVE_VARIANT_PREVIEW",
+      "language": "ASL",
+      "gloss": [
+        "DEAF"
+      ],
+      "reference": "https://www.lifeprint.com/asl101/pages-signs/d/deaf.htm",
+      "meaning": "Deaf; index arcs between cheek near ear and cheek near mouth; not ear/lip contact",
+      "license": "New local reference-authored keyframes; existing AppHear human rig provenance unresolved. No reference media copied; no redistribution rights asserted.",
+      "linguisticValidationStatus": "UNREVIEWED",
+      "technicalPlaybackStatus": "Candidate: Android visual review required",
+      "correctionNotes": "Sign-specific trajectory and handshape on actual rig; no global joint clamps or edits to old animations. Non-manual grammar not certified."
+    },
+    {
+      "id": "hearing",
+      "english": [
+        "hearing"
+      ],
+      "animationName": "SIGN_HEARING_HUMAN_AUTHORED_PREVIEW",
+      "durationMs": 2600,
+      "sourceAsset": "asl_animations/original_words_v1/resident-avatar.glb",
+      "sourceSha256": "4af1e10c9448d33db03cede4705dd2e7f851f12bb8394669b77d847bf885d3bf",
+      "sourceRole": "Resident rig/mesh provenance only; NOT an imported animation for this word",
+      "construction": "REFERENCE_AUTHORED_PREVIEW",
+      "status": "UNREVIEWED_NATIVE_VARIANT_PREVIEW",
+      "language": "ASL",
+      "gloss": [
+        "HEARING"
+      ],
+      "reference": "https://www.lifeprint.com/asl101/pages-signs/h/hearing.htm",
+      "meaning": "Hearing person/community; index circles near mouth, distinct from physical HEAR",
+      "license": "New local reference-authored keyframes; existing AppHear human rig provenance unresolved. No reference media copied; no redistribution rights asserted.",
+      "linguisticValidationStatus": "UNREVIEWED",
+      "technicalPlaybackStatus": "Candidate: Android visual review required",
+      "correctionNotes": "Sign-specific trajectory and handshape on actual rig; no global joint clamps or edits to old animations. Non-manual grammar not certified."
+    },
+    {
+      "id": "learn",
+      "english": [
+        "learn"
+      ],
+      "animationName": "SIGN_LEARN_HUMAN_AUTHORED_PREVIEW",
+      "durationMs": 3000,
+      "sourceAsset": "asl_animations/original_words_v1/resident-avatar.glb",
+      "sourceSha256": "4af1e10c9448d33db03cede4705dd2e7f851f12bb8394669b77d847bf885d3bf",
+      "sourceRole": "Resident rig/mesh provenance only; NOT an imported animation for this word",
+      "construction": "REFERENCE_AUTHORED_PREVIEW",
+      "status": "UNREVIEWED_NATIVE_VARIANT_PREVIEW",
+      "language": "ASL",
+      "gloss": [
+        "LEARN"
+      ],
+      "reference": "https://www.lifeprint.com/asl101/pages-signs/l/learn.htm",
+      "meaning": "Acquire knowledge; fingertips gather from upward palm and lift toward forehead, no agent suffix",
+      "license": "New local reference-authored keyframes; existing AppHear human rig provenance unresolved. No reference media copied; no redistribution rights asserted.",
+      "linguisticValidationStatus": "UNREVIEWED",
+      "technicalPlaybackStatus": "Candidate: Android visual review required",
+      "correctionNotes": "Sign-specific trajectory and handshape on actual rig; no global joint clamps or edits to old animations. Non-manual grammar not certified."
+    },
+    {
+      "id": "rain",
+      "english": [
+        "rain"
+      ],
+      "animationName": "SIGN_RAIN_HUMAN_AUTHORED_PREVIEW",
+      "durationMs": 3000,
+      "sourceAsset": "asl_animations/original_words_v1/resident-avatar.glb",
+      "sourceSha256": "4af1e10c9448d33db03cede4705dd2e7f851f12bb8394669b77d847bf885d3bf",
+      "sourceRole": "Resident rig/mesh provenance only; NOT an imported animation for this word",
+      "construction": "REFERENCE_AUTHORED_PREVIEW",
+      "status": "UNREVIEWED_NATIVE_VARIANT_PREVIEW",
+      "language": "ASL",
+      "gloss": [
+        "RAIN"
+      ],
+      "reference": "https://www.lifeprint.com/asl101/pages-signs/r/rain.htm",
+      "meaning": "Ordinary rain; two bent/splayed hands descend twice, no wind/storm intensity",
+      "license": "New local reference-authored keyframes; existing AppHear human rig provenance unresolved. No reference media copied; no redistribution rights asserted.",
+      "linguisticValidationStatus": "UNREVIEWED",
+      "technicalPlaybackStatus": "Candidate: Android visual review required",
+      "correctionNotes": "Sign-specific trajectory and handshape on actual rig; no global joint clamps or edits to old animations. Non-manual grammar not certified."
+    },
+    {
+      "id": "now",
+      "english": [
+        "now"
+      ],
+      "animationName": "SIGN_NOW_HUMAN_AUTHORED_PREVIEW",
+      "durationMs": 2600,
+      "sourceAsset": "asl_animations/original_words_v1/resident-avatar.glb",
+      "sourceSha256": "4af1e10c9448d33db03cede4705dd2e7f851f12bb8394669b77d847bf885d3bf",
+      "sourceRole": "Resident rig/mesh provenance only; NOT an imported animation for this word",
+      "construction": "REFERENCE_AUTHORED_PREVIEW",
+      "status": "UNREVIEWED_NATIVE_VARIANT_PREVIEW",
+      "language": "ASL",
+      "gloss": [
+        "NOW"
+      ],
+      "reference": "https://www.lifeprint.com/asl101/pages-signs/n/now.htm",
+      "meaning": "Present time; palms-up Y hands descend ONCE, distinct from repeated TODAY",
+      "license": "New local reference-authored keyframes; existing AppHear human rig provenance unresolved. No reference media copied; no redistribution rights asserted.",
+      "linguisticValidationStatus": "UNREVIEWED",
+      "technicalPlaybackStatus": "Candidate: Android visual review required",
+      "correctionNotes": "Sign-specific trajectory and handshape on actual rig; no global joint clamps or edits to old animations. Non-manual grammar not certified."
     }
   ],
   "vocabularyExpansion": {
@@ -1845,5 +2075,56 @@
       "otherActionsUnchanged": 247,
       "qualifiedAslValidation": false
     }
+  },
+  "everydayExpansion3": {
+    "version": 1,
+    "baselineSha256": "c8e86f065acd1bb0fe39ee7524daad73324106a53fb8b455bf89744e4a1a778d",
+    "preservedActions": 248,
+    "newLexicalActions": 10,
+    "sourceGeometryUnchanged": true,
+    "qualifiedAslValidations": 0,
+    "construction": "REFERENCE_AUTHORED_PREVIEW",
+    "checks": [
+      {
+        "id": "stop",
+        "reference": "https://www.lifeprint.com/asl101/pages-signs/s/stop.htm"
+      },
+      {
+        "id": "understand",
+        "reference": "https://www.lifeprint.com/asl101/pages-signs/u/understand.htm"
+      },
+      {
+        "id": "hungry",
+        "reference": "https://www.lifeprint.com/asl101/pages-signs/h/hungry.htm"
+      },
+      {
+        "id": "finish",
+        "reference": "https://www.lifeprint.com/asl101/pages-signs/f/finish.htm"
+      },
+      {
+        "id": "tired",
+        "reference": "https://www.lifeprint.com/asl101/pages-signs/t/tired.htm"
+      },
+      {
+        "id": "deaf",
+        "reference": "https://www.lifeprint.com/asl101/pages-signs/d/deaf.htm"
+      },
+      {
+        "id": "hearing",
+        "reference": "https://www.lifeprint.com/asl101/pages-signs/h/hearing.htm"
+      },
+      {
+        "id": "learn",
+        "reference": "https://www.lifeprint.com/asl101/pages-signs/l/learn.htm"
+      },
+      {
+        "id": "rain",
+        "reference": "https://www.lifeprint.com/asl101/pages-signs/r/rain.htm"
+      },
+      {
+        "id": "now",
+        "reference": "https://www.lifeprint.com/asl101/pages-signs/n/now.htm"
+      }
+    ]
   }
 }

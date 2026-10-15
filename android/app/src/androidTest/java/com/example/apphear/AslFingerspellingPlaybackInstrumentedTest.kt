@@ -95,15 +95,21 @@ class AslFingerspellingPlaybackInstrumentedTest {
                     "YOU NICOLE", "ME NICOLE", "BEST", "BETTER", "DIVORCE", "FROM", "GRANDMA",
                     "GRANDPA", "HERE", "PARENTS", "PREFER", "SINGLE", "HELLO GRANDMA NICOLE",
                     "AGAIN", "CLASS", "MUST", "FINGERSPELL", "SO-SO", "GROW UP", "repeat", "spell",
-                    "grow up!", "HELLO CLASS NICOLE", "HELP AGAIN", "GIRL") +
+                    "grow up!", "HELLO CLASS NICOLE", "HELP AGAIN", "GIRL",
+                    "STOP", "UNDERSTAND", "HUNGRY", "FINISH", "TIRED", "DEAF", "HEARING", "LEARN", "RAIN", "NOW",
+                    "HELLO DEAF NICOLE", "LEARN NOW", "I HUNGRY", "HELP STOP", "Rain!", "  thirsty  ") +
                     ('A'..'Z').map { it.toString() }) {
                 val start = SystemClock.uptimeMillis()
                 submit(text)
                 val result = await("$text completes") { it.contains("Complete") }
-                i.runOnMainSync { assertEquals(text,activity.findViewById<TextView>(R.id.signed_text).text.toString()) }
+                // The existing screen preserves entered English after trimming
+                // outer whitespace. Normalization should not fail this assertion.
+                i.runOnMainSync { assertEquals(text.trim(),activity.findViewById<TextView>(R.id.signed_text).text.toString()) }
                 if (text in listOf("NICOLE", "ANNA", "JAZZ", "HELLO NICOLE")) assertTrue(result.contains("fingerspelling"))
                 evidence.put(JSONObject().put("input", text).put("status", result)
                     .put("elapsedMs", SystemClock.uptimeMillis() - start))
+                // Preserve completed-case evidence if a later case fails.
+                File(context.filesDir, "fingerspelling_playback_device.json").writeText(evidence.toString(2))
             }
             submit("NICOLE")
             await("First request active") { it.contains("1 / 6") }

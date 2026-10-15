@@ -80,7 +80,7 @@ class AslFingerspellingFallbackTest {
         val g=document(bytes)
         val old=document(Files.readAllBytes(assetRoot.resolve(AslResidentAvatarBundle.PATH)))
         for (key in listOf("nodes","skins","meshes","materials","textures","images","scenes")) assertEquals(old.get(key),g.get(key))
-        assertEquals(248,g.getAsJsonArray("animations").size())
+        assertEquals(258,g.getAsJsonArray("animations").size())
         // Explicitly profiled native finger fixes are separately scope-tested.
         val corrected=setOf("SIGN_LOVE","SIGN_I","SIGN_HUSBAND","SIGN_WIFE",
             "SIGN_COOK","SIGN_BECOME","SIGN_MONEY","SIGN_NEW","SIGN_SOME","SIGN_DAY")

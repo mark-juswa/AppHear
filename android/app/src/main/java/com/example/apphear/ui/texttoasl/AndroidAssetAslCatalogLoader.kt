@@ -95,7 +95,8 @@ class AndroidAssetAslCatalogLoader(
                     (0 until forms.length()).map(forms::getString), entry.getString("animationName"),
                     entry.getLong("durationMs"), entry.getString("sourceAsset"), entry.getString("sourceSha256"),
                     entry.getString("reference"), entry.getString("meaning"), entry.getString("license"),
-                    entry.optString("variantOf").takeIf { it.isNotBlank() })
+                    entry.optString("variantOf").takeIf { it.isNotBlank() },
+                    entry.optString("construction", "RETARGETED_PREVIEW"))
             }
             val unified = AslVocabularyExpansion.merge(resident.map { it.copy(assetPath = AslFingerspellingBundle.PATH) }, additions)
             return AslAnimationCatalog.fromAssets(unified, alphabet)

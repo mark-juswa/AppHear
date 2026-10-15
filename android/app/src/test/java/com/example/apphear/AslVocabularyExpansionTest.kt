@@ -22,7 +22,8 @@ class AslVocabularyExpansionTest {
         AslVocabularyExpansion.Word(e.get("id").asString, e.getAsJsonArray("english").map { it.asString },
             e.get("animationName").asString, e.get("durationMs").asLong, e.get("sourceAsset").asString,
             e.get("sourceSha256").asString, e.get("reference").asString, e.get("meaning").asString,
-            e.get("license").asString, e.get("variantOf")?.asString)
+            e.get("license").asString, e.get("variantOf")?.asString,
+            e.get("construction")?.asString ?: "RETARGETED_PREVIEW")
     }
     private val originals = (source.getAsJsonArray("replacements") + source.getAsJsonArray("newClips")).map { raw ->
         val e = raw.asJsonObject
@@ -80,15 +81,15 @@ class AslVocabularyExpansionTest {
         val length = ByteBuffer.wrap(bytes).order(ByteOrder.LITTLE_ENDIAN).getInt(12)
         val g = JsonParser.parseString(String(bytes, 20, length)).asJsonObject
         val names = g.getAsJsonArray("animations").map { it.asJsonObject.get("name").asString }
-        assertEquals(248, names.size)
+        assertEquals(258, names.size)
         for (word in words) {
             assertTrue(names.contains(word.animationName))
-            val folder = if (word.variantOf == null) Path.of("src/main/assets") else root
+            val folder = if (word.variantOf != null || word.construction == "REFERENCE_AUTHORED_PREVIEW") root else Path.of("src/main/assets")
             assertEquals(word.sourceSha256, hash(Files.readAllBytes(folder.resolve(word.sourceAsset))))
         }
         assertEquals(listOf("you", "you_all", "name", "best", "better", "divorce", "from", "grandma",
             "grandpa", "here", "parents", "prefer", "single", "again", "class", "must", "fingerspell",
-            "so_so", "grow_up"), words.map { it.id })
+            "so_so", "grow_up", "stop", "understand", "hungry", "finish", "tired", "deaf", "hearing", "learn", "rain", "now"), words.map { it.id })
         val name = catalog.findByAlias("name")!!
         assertEquals("SIGN_CALL__TO_CALL_SOMEONE_S_NAME", name.replacement!!.animationName)
         assertEquals(base.single { it.id == "call_someones_name" }.replacement!!.animationName, name.replacement.animationName)
@@ -154,8 +155,9 @@ class AslVocabularyExpansionTest {
         }
         // Rejected source mappings remain automatic spelling, never a wrong lexical sign.
         assertNull(catalog.findByAlias("request"))
-        assertNull(catalog.findByAlias("girl"))
-        assertEquals(listOf("girl"),planner.plan("girl").fingerspelledWords)
+        val secondBatchCatalog=AslAnimationCatalog.fromAssets(AslVocabularyExpansion.merge(base,words.dropLast(10)),letters)
+        assertNull(secondBatchCatalog.findByAlias("girl"))
+        assertEquals(listOf("girl"),AslTranslationPlanner(secondBatchCatalog).plan("girl").fingerspelledWords)
         assertNull(catalog.findByAlias("critical"))
         assertNull(catalog.findByAlias("raised"))
         val audit=registry.getAsJsonObject("everydayExpansion2")
@@ -172,5 +174,47 @@ class AslVocabularyExpansionTest {
         assertNotEquals(TextToAslPlan.Mode.VALIDATED_PHRASE,result.mode)
         assertTrue(result.translationNotice!!.contains("not a validated ASL sentence"))
         assertEquals(listOf("help","again"),ids("help again"))
+    }
+
+    @Test fun tenAuthoredEntriesAreAbsentFromPriorCatalogAndHaveHonestProvenance() {
+        val prior = AslAnimationCatalog.fromAssets(AslVocabularyExpansion.merge(base,words.dropLast(10)),letters)
+        for(word in words.takeLast(10)) {
+            assertNull(prior.findByAlias(word.english.first()))
+            assertEquals(listOf(word.id),ids("  ${word.id.uppercase()}!  "))
+            assertEquals("REFERENCE_AUTHORED_PREVIEW",word.construction)
+            val entry=catalog.findByAlias(word.id)!!
+            assertEquals(AslAnimationAsset.Type.WORD,entry.type)
+            assertEquals("SIGN_${word.id.uppercase()}_HUMAN_AUTHORED_PREVIEW",entry.replacement!!.animationName)
+            assertTrue(entry.metadata.usageNotes!!.contains("reference-authored"))
+            assertFalse(entry.metadata.isLinguisticallyValidated)
+        }
+        val audit=registry.getAsJsonObject("everydayExpansion3")
+        assertEquals(248,audit.get("preservedActions").asInt)
+        assertEquals(10,audit.get("newLexicalActions").asInt)
+        assertEquals(0,audit.get("qualifiedAslValidations").asInt)
+        // Reference authorship cannot silently masquerade as retargeted/imported motion.
+        val word=words.last()
+        assertTrue(runCatching { AslVocabularyExpansion.merge(base,listOf(word.copy(construction="RETARGETED_PREVIEW"))) }.isFailure)
+        assertTrue(runCatching { AslVocabularyExpansion.merge(base,listOf(word.copy(construction="CERTIFIED"))) }.isFailure)
+    }
+
+    @Test fun authoredWordsMixWithSpellingAndPreserveMeaningAndValidationBoundaries() {
+        val plan=planner.plan("HELLO DEAF NICOLE")
+        assertEquals(listOf("hello","deaf","letter_n","letter_i","letter_c","letter_o","letter_l","letter_e"),plan.queue.map {it.id})
+        assertEquals(1,plan.queue.map {it.assetPath}.distinct().size)
+        assertTrue(plan.queue.all(AslSingleAvatarPolicy::permits))
+        assertNotEquals(TextToAslPlan.Mode.VALIDATED_PHRASE,plan.mode)
+        assertEquals(listOf("i_me","hungry"),ids("I hungry"))
+        assertEquals(listOf("learn","now"),ids("Learn, now!"))
+        assertEquals(listOf("today"),ids("today"))
+        assertEquals(listOf("hear"),ids("hear"))
+        assertEquals(listOf("now"),ids("now"))
+        assertNull(catalog.findByAlias("wish"))
+        assertNull(catalog.findByAlias("crave"))
+        assertNull(catalog.findByAlias("thirsty"))
+        assertEquals(listOf("thirsty"),planner.plan("THIRSTY").fingerspelledWords)
+        val negative=planner.plan("don't understand")
+        assertTrue(negative.fingerspelledWords.isNotEmpty())
+        assertNotEquals(TextToAslPlan.Mode.VALIDATED_PHRASE,negative.mode)
     }
 }
