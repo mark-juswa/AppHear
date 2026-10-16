@@ -16,6 +16,40 @@ provisioning remain open; no automatic new experiment is authorized. See docs/te
 
 # Progress Tracker
 
+**2026-10-16 — S2-R3 build step 1: frozen context evaluation suite complete; no training yet.**
+Branch `claude/s2-r3-eval-suite` from `4503b55`. This follows the S2 history verification
+(`docs/audit/S2_HISTORY_DEPENDENCE_VERIFICATION_2026-10-16.md`) and the confirmed plan
+(`docs/audit/S2_R3_EXPERIMENT_PLAN_2026-10-16.md`).
+- [x] Verified mechanism. S2 never learned to leave POST: 0 POST→ACTIVE / POST→PRE transitions
+  in 515 training sequences. History length alone is rejected as the primary cause, and phantom
+  rest proposals are a likely contributor. Runtime caps and resets trade misses for false
+  activations (rejected).
+- [x] Confirmed plan decisions:
+  - three evaluation tiers (Tier 3 is a new qualified-signer capture plus E6, opened once);
+  - 3-state bounded-POST labels;
+  - staged data (R3a stitched FIT; R3b only on trigger);
+  - Arm A v1 / Arm B masked v2;
+  - preregistered absolute + non-inferiority gate;
+  - CAL-only selection; debug package `S2_R3_CANDIDATE`.
+- [x] `eval/runtime_diagnostics/s2_r3_context_suite.py` + `model/config/recognition_upgrade/s2_r3_context_suite_01.json`.
+  The freeze `evidence/s2_r3_context_suite_20261016/suite_freeze.json` (config SHA `e1b23f99…`)
+  reproduces every S2-R2 baseline:
+  - Tier 1: no-history 68/69, POST-15 10/69, direct+6 42/63, previous-sign 51/66;
+  - Tier 2: 11/23 signs with an event, 64/676 non-sign ACTIVE observations, 5 non-sign events,
+    POST dwell 6,079 ms;
+  - new isolated containment 51/69 (gate threshold 0.689).
+  DEV and session v1 features recomputed from raw are exact (error 0). Replayed events equal
+  recorded events in all 4 sessions. Reference gate: FAIL on exactly the continuous-signing lines.
+- [x] 8 tests pass (7 pure; 1 full source reproduction with `APPHEAR_EVIDENCE_ROOT`). Ruff, black
+  and mypy are clean for the new module.
+- [ ] Open:
+  - Tier 3 capture protocol;
+  - R3b design, only if triggered;
+  - re-arm/READY and decoder ACTIVE→PRE discard, after an arm passes.
+
+  Next is build step 2: raw-source inventory for R3a FIT stitching. No runtime, model or
+  contract change was made.
+
 **2026-10-16 — Stage2 compact Android validation and nonexpert review complete; recognition objective open.**
 Continues6dbb2d3 with the same integrated runtime and Stage1 disabled. Saved pair installed-r,
 no data cleared.11 applicable Android tests pass: parser/camera/S2/RecognitionV2/FINGERSPELL/owner.

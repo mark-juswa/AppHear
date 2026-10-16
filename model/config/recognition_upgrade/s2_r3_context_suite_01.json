@@ -1,0 +1,107 @@
+{
+  "schema": "apphear.s2_r3.context_suite_config.v1",
+  "milestone": "S2_R3_CONTEXT_SUITE_01",
+  "purpose": "Frozen pre-training evaluation suite for the S2-R3 segmenter retraining experiment. Tiers 1-2 only; Tier 3 is a separate untouched capture.",
+  "plan": "docs/audit/S2_R3_EXPERIMENT_PLAN_2026-10-16.md",
+  "evidence_root_relative_paths": true,
+  "reference_package": {
+    "package_id": "S2_R2_CANDIDATE",
+    "contract": "v1",
+    "keras": "artifacts/recognition_upgrade/perception_vnext/recognition_utility_236_01/s2_r2_continuous_domain_correction_01/main_candidate/best_model.keras",
+    "keras_sha256": "b6f8b52cece72f0b6f5b802a4ea583060d923e90a6b951059e7013114c8fc151",
+    "normalization": "artifacts/recognition_upgrade/perception_vnext/recognition_utility_236_01/s2_r2_continuous_domain_correction_01/main_candidate/normalization.json",
+    "normalization_sha256": "65d885f62eaca6f11a596302d304f63149795ddaf01e702f1e6a36dd7da5c005"
+  },
+  "receptive_field_observations": 61,
+  "rolling_equivalence_sample_size": 64,
+  "rolling_equivalence_tolerance": 1e-5,
+  "tier1_dev": {
+    "role": "DEVELOPMENT_EXPOSED_GATE_NOT_FOR_SELECTION",
+    "sparse_view_manifest": "artifacts/recognition_upgrade/perception_vnext/recognition_utility_236_01/phase7_production_cadence_aligned_segmenter_01/sparse_view_manifest.json",
+    "selected_manifest": "artifacts/recognition_upgrade/perception_vnext/recognition_utility_236_01/phase5_1t_2_bounded_segmentation_seed_dataset_01/selected_120_manifest.json",
+    "selected_manifest_sha256": "832ba25420bef80acda3b40e7a44414654c3227222e4336d66174b8cca7ea15e",
+    "human_annotations": "artifacts/recognition_upgrade/perception_vnext/recognition_utility_236_01/phase5_1t_2_bounded_segmentation_seed_dataset_01/segmentation_human_annotations.json",
+    "expected_views": 69,
+    "expected_clips": 23,
+    "expected_signers": 7,
+    "label_ignore": -1,
+    "label_active": 1,
+    "label_post": 2
+  },
+  "history_sources": {
+    "POST_PHONE": {
+      "session": "OCT15_COMPACT",
+      "first_row": 295,
+      "last_row": 354,
+      "meaning": "Oct 15 sign-then-hold block where frozen S2-R2 sits in POST (56/60 rows)"
+    },
+    "REST_PHONE": {
+      "session": "SEP23_REPRESENTATIVE",
+      "first_row": 10,
+      "last_row": 69,
+      "meaning": "First 60-row window of untouched-validation rest where frozen S2-R2 is >90% PRE"
+    }
+  },
+  "tier1_conditions": [
+    {"id": "NONE", "kind": "none", "gate": true},
+    {"id": "POST_PHONE_15", "kind": "phone_history", "source": "POST_PHONE", "length": 15, "gate": true},
+    {"id": "POST_PHONE_60", "kind": "phone_history", "source": "POST_PHONE", "length": 60, "gate": false},
+    {"id": "REST_PHONE_60", "kind": "phone_history", "source": "REST_PHONE", "length": 60, "gate": false},
+    {"id": "PREV_SIGN_SAME_SIGNER", "kind": "previous_clip_full", "gate": true},
+    {"id": "DIRECT_PLUS_0_POST", "kind": "direct_transition", "extra_post": 0, "gate": false},
+    {"id": "DIRECT_PLUS_3_POST", "kind": "direct_transition", "extra_post": 3, "gate": false},
+    {"id": "DIRECT_PLUS_6_POST", "kind": "direct_transition", "extra_post": 6, "gate": true}
+  ],
+  "tier1_join_semantics": "Histories are concatenated at feature level. Each source's features are derived causally from its own raw-v1; the target's first row keeps its no-previous-observation semantics (dt 0, transition validity 0), exactly as isolated clips are presented in training.",
+  "tier1_pairing": "Within each (signer, cadence view) group in manifest order: PREV_SIGN uses the first other clip; DIRECT uses group[k-1] (wraps to the last element). Groups of one view are skipped.",
+  "tier1_isolated_containment": {
+    "decoder": "PHASE8A_CONFIG_01",
+    "materializer_pre_ms": 250.0,
+    "materializer_post_ms": 250.0,
+    "containment_fraction": 0.90,
+    "no_event_counts_as_failure": true
+  },
+  "tier2_sessions": {
+    "role": "DEVELOPMENT_EXPOSED_GATE_NOT_FOR_SELECTION",
+    "SEP27_TRANSITION": {
+      "capture": "artifacts/recognition_upgrade/perception_vnext/recognition_utility_236_01/continuous_transition_readiness_01/device_capture/session_20260927T162103Z",
+      "labels": "boundaries",
+      "continuous_no_capture_pauses": true
+    },
+    "OCT15_COMPACT": {
+      "capture": "artifacts/recognition_v3_stage2_compact_device/finalized/session_20261015T155027Z",
+      "labels": "boundaries",
+      "continuous_no_capture_pauses": true
+    },
+    "SEP23_INDEPENDENT": {
+      "capture": "phone_pull_s2_r2_independent_validation/session_20260923T013439Z",
+      "labels": "attempts",
+      "review": "artifacts/recognition_upgrade/perception_vnext/recognition_utility_236_01/s2_r2_phone_deployment_and_independent_validation_01/session_20260923T013439Z/blinded_human_review",
+      "continuous_no_capture_pauses": false
+    },
+    "SEP23_REPRESENTATIVE": {
+      "capture": "phone_pull_s2_r2_representative_final_validation/session_20260923T030939Z",
+      "labels": "attempts",
+      "review": "artifacts/recognition_upgrade/perception_vnext/recognition_utility_236_01/s2_r2_phone_deployment_and_independent_validation_01/session_20260923T030939Z/blinded_human_review",
+      "continuous_no_capture_pauses": false
+    },
+    "timestamp_match_tolerance_ns": 2000,
+    "expected_genuine_signs": 23,
+    "expected_nonsign_observations": 676
+  },
+  "gate": [
+    {"id": "T1_NONE_ACQUISITION", "metric": "tier1.NONE.acquired_fraction", "op": ">=", "value": 0.95},
+    {"id": "T1_NONE_RECALL", "metric": "tier1.NONE.active_recall_mean", "op": ">=", "value": 0.85},
+    {"id": "T1_POST15_ACQUISITION", "metric": "tier1.POST_PHONE_15.acquired_fraction", "op": ">=", "value": 0.80},
+    {"id": "T1_DIRECT6_ACQUISITION", "metric": "tier1.DIRECT_PLUS_6_POST.acquired_fraction", "op": ">=", "value": 0.85},
+    {"id": "T1_PREV_SIGN_ACQUISITION", "metric": "tier1.PREV_SIGN_SAME_SIGNER.acquired_fraction", "op": ">=", "value": 0.90},
+    {"id": "T1_NONE_FALSE_ACTIVE", "metric": "tier1.NONE.false_active_mean", "op": "<=", "value": 0.10},
+    {"id": "T1_ISOLATED_CONTAINMENT", "metric": "tier1.isolated.contained_fraction", "op": ">=", "value_from_reference_minus": 0.05},
+    {"id": "T2_SIGNS_WITH_EVENT", "metric": "tier2.total.signs_with_event", "op": ">=", "value": 18},
+    {"id": "T2_NONSIGN_ACTIVE_OBS", "metric": "tier2.total.nonsign_active_observations", "op": "<=", "value": 64},
+    {"id": "T2_NONSIGN_EVENTS", "metric": "tier2.total.events_inside_nonsign", "op": "<=", "value": 5},
+    {"id": "T2_POST_DWELL_MEDIAN_MS", "metric": "tier2.continuous.post_dwell_median_ms", "op": "<=", "value": 1500.0}
+  ],
+  "arm_tie_rule": "If both arms pass, prefer the arm with more passing margin on T2_SIGNS_WITH_EVENT, then lower T2_NONSIGN_ACTIVE_OBS; an exact tie goes to contract v1 (Arm A).",
+  "never_opened": ["protected TEST", "E6 negative signer 0F747C-S001", "future independent phone validation signer", "segmentation DEV for checkpoint selection"]
+}

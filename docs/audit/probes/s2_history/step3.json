@@ -1,0 +1,222 @@
+{
+ "S2_R2": {
+  "NONE": {
+   "n": 69,
+   "acquired": 0.9855072463768116,
+   "active_recall": 0.8689556015642972,
+   "false_active": 0.08053843390024061
+  },
+  "STILL_SELF_5": {
+   "n": 69,
+   "acquired": 1.0,
+   "active_recall": 0.8788129744651483,
+   "false_active": 0.09528418153070788
+  },
+  "P1_NEG_5": {
+   "n": 69,
+   "acquired": 0.9565217391304348,
+   "active_recall": 0.83505291005291,
+   "false_active": 0.10746410669896087
+  },
+  "REST_PHONE_5": {
+   "n": 69,
+   "acquired": 1.0,
+   "active_recall": 0.9198010121923165,
+   "false_active": 0.10027710458409088
+  },
+  "POST_PHONE_5": {
+   "n": 69,
+   "acquired": 0.927536231884058,
+   "active_recall": 0.6366287094547964,
+   "false_active": 0.03795115956781265
+  },
+  "STILL_SELF_15": {
+   "n": 69,
+   "acquired": 0.8985507246376812,
+   "active_recall": 0.8067747872095699,
+   "false_active": 0.13174532761197824
+  },
+  "P1_NEG_15": {
+   "n": 69,
+   "acquired": 0.8695652173913043,
+   "active_recall": 0.7426040947780078,
+   "false_active": 0.11491427025324341
+  },
+  "REST_PHONE_15": {
+   "n": 69,
+   "acquired": 1.0,
+   "active_recall": 0.9188348286174373,
+   "false_active": 0.11963187056929164
+  },
+  "POST_PHONE_15": {
+   "n": 69,
+   "acquired": 0.14492753623188406,
+   "active_recall": 0.08663446054750402,
+   "false_active": 0.0017322988337481091
+  },
+  "STILL_SELF_30": {
+   "n": 69,
+   "acquired": 0.855072463768116,
+   "active_recall": 0.7428513917644353,
+   "false_active": 0.08516904244184945
+  },
+  "P1_NEG_30": {
+   "n": 69,
+   "acquired": 0.7971014492753623,
+   "active_recall": 0.6682252127904301,
+   "false_active": 0.09119841368516846
+  },
+  "REST_PHONE_30": {
+   "n": 69,
+   "acquired": 1.0,
+   "active_recall": 0.9030998389694042,
+   "false_active": 0.09603300219976833
+  },
+  "POST_PHONE_30": {
+   "n": 69,
+   "acquired": 0.17391304347826086,
+   "active_recall": 0.09826892109500805,
+   "false_active": 0.0017322988337481091
+  },
+  "STILL_SELF_60": {
+   "n": 69,
+   "acquired": 0.855072463768116,
+   "active_recall": 0.7428513917644353,
+   "false_active": 0.08111361127644386
+  },
+  "P1_NEG_60": {
+   "n": 69,
+   "acquired": 0.7971014492753623,
+   "active_recall": 0.6716471129514608,
+   "false_active": 0.09056829396242112
+  },
+  "REST_PHONE_60": {
+   "n": 69,
+   "acquired": 1.0,
+   "active_recall": 0.898268921095008,
+   "false_active": 0.0891917023527974
+  },
+  "POST_PHONE_60": {
+   "n": 69,
+   "acquired": 0.17391304347826086,
+   "active_recall": 0.09826892109500805,
+   "false_active": 0.0017322988337481091
+  },
+  "PREV_SIGN_SAME_SIGNER": {
+   "n": 66,
+   "acquired": 0.7727272727272727,
+   "active_recall": 0.5475348725348725,
+   "false_active": 0.044063011721952
+  }
+ },
+ "PHASE7": {
+  "NONE": {
+   "n": 69,
+   "acquired": 1.0,
+   "active_recall": 0.9437025534851623,
+   "false_active": 0.11078331731944023
+  },
+  "STILL_SELF_5": {
+   "n": 69,
+   "acquired": 0.9855072463768116,
+   "active_recall": 0.9400793650793651,
+   "false_active": 0.11497627179716818
+  },
+  "P1_NEG_5": {
+   "n": 69,
+   "acquired": 0.9710144927536232,
+   "active_recall": 0.902967563837129,
+   "false_active": 0.1272192859636228
+  },
+  "REST_PHONE_5": {
+   "n": 69,
+   "acquired": 1.0,
+   "active_recall": 0.9624223602484472,
+   "false_active": 0.13565347217441304
+  },
+  "POST_PHONE_5": {
+   "n": 69,
+   "acquired": 0.8115942028985508,
+   "active_recall": 0.5100184034966643,
+   "false_active": 0.06570403926173908
+  },
+  "STILL_SELF_15": {
+   "n": 69,
+   "acquired": 0.8840579710144928,
+   "active_recall": 0.8147170462387854,
+   "false_active": 0.11991967353835707
+  },
+  "P1_NEG_15": {
+   "n": 69,
+   "acquired": 0.7971014492753623,
+   "active_recall": 0.7571083505866114,
+   "false_active": 0.1073416855873012
+  },
+  "REST_PHONE_15": {
+   "n": 69,
+   "acquired": 1.0,
+   "active_recall": 0.9660455486542443,
+   "false_active": 0.18866914089396256
+  },
+  "POST_PHONE_15": {
+   "n": 69,
+   "acquired": 0.014492753623188406,
+   "active_recall": 0.0018115942028985507,
+   "false_active": 0.0
+  },
+  "STILL_SELF_30": {
+   "n": 69,
+   "acquired": 0.7681159420289855,
+   "active_recall": 0.708040027605245,
+   "false_active": 0.04964078389774166
+  },
+  "P1_NEG_30": {
+   "n": 69,
+   "acquired": 0.782608695652174,
+   "active_recall": 0.7305728088336784,
+   "false_active": 0.09754984685482442
+  },
+  "REST_PHONE_30": {
+   "n": 69,
+   "acquired": 1.0,
+   "active_recall": 0.9624223602484472,
+   "false_active": 0.1704121188256428
+  },
+  "POST_PHONE_30": {
+   "n": 69,
+   "acquired": 0.0,
+   "active_recall": 0.0,
+   "false_active": 0.0
+  },
+  "STILL_SELF_60": {
+   "n": 69,
+   "acquired": 0.7536231884057971,
+   "active_recall": 0.6964918334483551,
+   "false_active": 0.04456785171483505
+  },
+  "P1_NEG_60": {
+   "n": 69,
+   "acquired": 0.782608695652174,
+   "active_recall": 0.7341959972394754,
+   "false_active": 0.09056260809064805
+  },
+  "REST_PHONE_60": {
+   "n": 69,
+   "acquired": 1.0,
+   "active_recall": 0.9624223602484472,
+   "false_active": 0.16628570980792945
+  },
+  "POST_PHONE_60": {
+   "n": 69,
+   "acquired": 0.0,
+   "active_recall": 0.0,
+   "false_active": 0.0
+  },
+  "PREV_SIGN_SAME_SIGNER": {
+   "n": 66,
+   "acquired": 0.7121212121212122,
+   "active_recall": 0.497492784992785,
+   "false_active": 0.08830671107037505
+  }
+ }
+}

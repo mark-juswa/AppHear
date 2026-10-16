@@ -1,0 +1,282 @@
+{
+ "S2_R2/SEP27_TRANSITION/ROLLING_61": {
+  "genuine": 7,
+  "acquired": 1,
+  "sign_with_event": 1,
+  "events": 10,
+  "events_inside_confirmed_nonsign": 4,
+  "nonsign_active_rate": 0.18151815181518152,
+  "nonsign_obs": 303,
+  "other_events": 5
+ },
+ "S2_R2/SEP27_TRANSITION/CAP_8": {
+  "genuine": 7,
+  "acquired": 7,
+  "sign_with_event": 3,
+  "events": 12,
+  "events_inside_confirmed_nonsign": 6,
+  "nonsign_active_rate": 0.6105610561056105,
+  "nonsign_obs": 303,
+  "other_events": 3
+ },
+ "S2_R2/SEP27_TRANSITION/CAP_12": {
+  "genuine": 7,
+  "acquired": 7,
+  "sign_with_event": 4,
+  "events": 15,
+  "events_inside_confirmed_nonsign": 7,
+  "nonsign_active_rate": 0.38613861386138615,
+  "nonsign_obs": 303,
+  "other_events": 4
+ },
+ "S2_R2/SEP27_TRANSITION/CAP_16": {
+  "genuine": 7,
+  "acquired": 6,
+  "sign_with_event": 5,
+  "events": 15,
+  "events_inside_confirmed_nonsign": 5,
+  "nonsign_active_rate": 0.38283828382838286,
+  "nonsign_obs": 303,
+  "other_events": 5
+ },
+ "S2_R2/SEP27_TRANSITION/CAP_24": {
+  "genuine": 7,
+  "acquired": 4,
+  "sign_with_event": 2,
+  "events": 12,
+  "events_inside_confirmed_nonsign": 4,
+  "nonsign_active_rate": 0.3564356435643564,
+  "nonsign_obs": 303,
+  "other_events": 6
+ },
+ "S2_R2/SEP27_TRANSITION/CAP_32": {
+  "genuine": 7,
+  "acquired": 2,
+  "sign_with_event": 2,
+  "events": 12,
+  "events_inside_confirmed_nonsign": 5,
+  "nonsign_active_rate": 0.30033003300330036,
+  "nonsign_obs": 303,
+  "other_events": 5
+ },
+ "S2_R2/SEP27_TRANSITION/RESET_AFTER_REARM": {
+  "genuine": 7,
+  "acquired": 5,
+  "sign_with_event": 3,
+  "events": 20,
+  "events_inside_confirmed_nonsign": 9,
+  "nonsign_active_rate": 0.38613861386138615,
+  "nonsign_obs": 303,
+  "other_events": 8
+ },
+ "S2_R2/OCT15_COMPACT/ROLLING_61": {
+  "genuine": 4,
+  "acquired": 1,
+  "sign_with_event": 1,
+  "events": 4,
+  "events_inside_confirmed_nonsign": 1,
+  "nonsign_active_rate": 0.05405405405405406,
+  "nonsign_obs": 37,
+  "other_events": 2
+ },
+ "S2_R2/OCT15_COMPACT/CAP_8": {
+  "genuine": 4,
+  "acquired": 4,
+  "sign_with_event": 2,
+  "events": 4,
+  "events_inside_confirmed_nonsign": 1,
+  "nonsign_active_rate": 0.5675675675675675,
+  "nonsign_obs": 37,
+  "other_events": 1
+ },
+ "S2_R2/OCT15_COMPACT/CAP_12": {
+  "genuine": 4,
+  "acquired": 4,
+  "sign_with_event": 4,
+  "events": 7,
+  "events_inside_confirmed_nonsign": 1,
+  "nonsign_active_rate": 0.32432432432432434,
+  "nonsign_obs": 37,
+  "other_events": 2
+ },
+ "S2_R2/OCT15_COMPACT/CAP_16": {
+  "genuine": 4,
+  "acquired": 4,
+  "sign_with_event": 3,
+  "events": 8,
+  "events_inside_confirmed_nonsign": 1,
+  "nonsign_active_rate": 0.32432432432432434,
+  "nonsign_obs": 37,
+  "other_events": 4
+ },
+ "S2_R2/OCT15_COMPACT/CAP_24": {
+  "genuine": 4,
+  "acquired": 3,
+  "sign_with_event": 2,
+  "events": 12,
+  "events_inside_confirmed_nonsign": 1,
+  "nonsign_active_rate": 0.40540540540540543,
+  "nonsign_obs": 37,
+  "other_events": 9
+ },
+ "S2_R2/OCT15_COMPACT/CAP_32": {
+  "genuine": 4,
+  "acquired": 3,
+  "sign_with_event": 1,
+  "events": 4,
+  "events_inside_confirmed_nonsign": 1,
+  "nonsign_active_rate": 0.16216216216216217,
+  "nonsign_obs": 37,
+  "other_events": 2
+ },
+ "S2_R2/OCT15_COMPACT/RESET_AFTER_REARM": {
+  "genuine": 4,
+  "acquired": 3,
+  "sign_with_event": 1,
+  "events": 15,
+  "events_inside_confirmed_nonsign": 1,
+  "nonsign_active_rate": 0.1891891891891892,
+  "nonsign_obs": 37,
+  "other_events": 13
+ },
+ "S2_R2/SEP23_INDEPENDENT/ROLLING_61": {
+  "genuine": 6,
+  "acquired": 4,
+  "sign_with_event": 3,
+  "events": 7,
+  "events_inside_confirmed_nonsign": 0,
+  "nonsign_active_rate": 0.06422018348623854,
+  "nonsign_obs": 109,
+  "other_events": 4
+ },
+ "S2_R2/SEP23_INDEPENDENT/CAP_8": {
+  "genuine": 6,
+  "acquired": 6,
+  "sign_with_event": 4,
+  "events": 9,
+  "events_inside_confirmed_nonsign": 2,
+  "nonsign_active_rate": 0.1651376146788991,
+  "nonsign_obs": 109,
+  "other_events": 3
+ },
+ "S2_R2/SEP23_INDEPENDENT/CAP_12": {
+  "genuine": 6,
+  "acquired": 6,
+  "sign_with_event": 4,
+  "events": 10,
+  "events_inside_confirmed_nonsign": 2,
+  "nonsign_active_rate": 0.11009174311926606,
+  "nonsign_obs": 109,
+  "other_events": 4
+ },
+ "S2_R2/SEP23_INDEPENDENT/CAP_16": {
+  "genuine": 6,
+  "acquired": 6,
+  "sign_with_event": 4,
+  "events": 10,
+  "events_inside_confirmed_nonsign": 1,
+  "nonsign_active_rate": 0.09174311926605505,
+  "nonsign_obs": 109,
+  "other_events": 5
+ },
+ "S2_R2/SEP23_INDEPENDENT/CAP_24": {
+  "genuine": 6,
+  "acquired": 4,
+  "sign_with_event": 4,
+  "events": 8,
+  "events_inside_confirmed_nonsign": 0,
+  "nonsign_active_rate": 0.08256880733944955,
+  "nonsign_obs": 109,
+  "other_events": 4
+ },
+ "S2_R2/SEP23_INDEPENDENT/CAP_32": {
+  "genuine": 6,
+  "acquired": 4,
+  "sign_with_event": 3,
+  "events": 7,
+  "events_inside_confirmed_nonsign": 0,
+  "nonsign_active_rate": 0.09174311926605505,
+  "nonsign_obs": 109,
+  "other_events": 4
+ },
+ "S2_R2/SEP23_INDEPENDENT/RESET_AFTER_REARM": {
+  "genuine": 6,
+  "acquired": 5,
+  "sign_with_event": 5,
+  "events": 8,
+  "events_inside_confirmed_nonsign": 0,
+  "nonsign_active_rate": 0.07339449541284404,
+  "nonsign_obs": 109,
+  "other_events": 3
+ },
+ "S2_R2/SEP23_REPRESENTATIVE/ROLLING_61": {
+  "genuine": 6,
+  "acquired": 6,
+  "sign_with_event": 6,
+  "events": 7,
+  "events_inside_confirmed_nonsign": 0,
+  "nonsign_active_rate": 0.0,
+  "nonsign_obs": 227,
+  "other_events": 1
+ },
+ "S2_R2/SEP23_REPRESENTATIVE/CAP_8": {
+  "genuine": 6,
+  "acquired": 6,
+  "sign_with_event": 4,
+  "events": 5,
+  "events_inside_confirmed_nonsign": 0,
+  "nonsign_active_rate": 0.0,
+  "nonsign_obs": 227,
+  "other_events": 1
+ },
+ "S2_R2/SEP23_REPRESENTATIVE/CAP_12": {
+  "genuine": 6,
+  "acquired": 6,
+  "sign_with_event": 6,
+  "events": 7,
+  "events_inside_confirmed_nonsign": 0,
+  "nonsign_active_rate": 0.0,
+  "nonsign_obs": 227,
+  "other_events": 1
+ },
+ "S2_R2/SEP23_REPRESENTATIVE/CAP_16": {
+  "genuine": 6,
+  "acquired": 6,
+  "sign_with_event": 6,
+  "events": 7,
+  "events_inside_confirmed_nonsign": 0,
+  "nonsign_active_rate": 0.0,
+  "nonsign_obs": 227,
+  "other_events": 1
+ },
+ "S2_R2/SEP23_REPRESENTATIVE/CAP_24": {
+  "genuine": 6,
+  "acquired": 6,
+  "sign_with_event": 6,
+  "events": 7,
+  "events_inside_confirmed_nonsign": 0,
+  "nonsign_active_rate": 0.0,
+  "nonsign_obs": 227,
+  "other_events": 1
+ },
+ "S2_R2/SEP23_REPRESENTATIVE/CAP_32": {
+  "genuine": 6,
+  "acquired": 6,
+  "sign_with_event": 6,
+  "events": 7,
+  "events_inside_confirmed_nonsign": 0,
+  "nonsign_active_rate": 0.0,
+  "nonsign_obs": 227,
+  "other_events": 1
+ },
+ "S2_R2/SEP23_REPRESENTATIVE/RESET_AFTER_REARM": {
+  "genuine": 6,
+  "acquired": 6,
+  "sign_with_event": 6,
+  "events": 7,
+  "events_inside_confirmed_nonsign": 0,
+  "nonsign_active_rate": 0.0,
+  "nonsign_obs": 227,
+  "other_events": 1
+ }
+}

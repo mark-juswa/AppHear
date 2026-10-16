@@ -1,0 +1,250 @@
+{
+ "SEP27_TRANSITION": [
+  {
+   "name": "A_HANDS_DOWN:HELLO#1",
+   "judgment": "GENUINE_SIGN",
+   "n_active_labelled": 6,
+   "history_len_at_onset": 61,
+   "android_active": 0,
+   "fresh_onset-8": 5,
+   "fresh_onset-4": 5,
+   "fresh_onset-0": 5
+  },
+  {
+   "name": "A_HANDS_DOWN:HOME#2",
+   "judgment": "GENUINE_SIGN",
+   "n_active_labelled": 9,
+   "history_len_at_onset": 61,
+   "android_active": 0,
+   "fresh_onset-8": 1,
+   "fresh_onset-4": 4,
+   "fresh_onset-0": 4
+  },
+  {
+   "name": "A_HANDS_DOWN:TABLE#3",
+   "judgment": "GENUINE_SIGN",
+   "n_active_labelled": 10,
+   "history_len_at_onset": 61,
+   "android_active": 0,
+   "fresh_onset-8": 5,
+   "fresh_onset-4": 10,
+   "fresh_onset-0": 9
+  },
+  {
+   "name": "A_HANDS_DOWN:HELLO#4",
+   "judgment": "UNCERTAIN",
+   "n_active_labelled": 9,
+   "history_len_at_onset": 61,
+   "android_active": 0,
+   "fresh_onset-8": 4,
+   "fresh_onset-4": 8,
+   "fresh_onset-0": 6
+  },
+  {
+   "name": "B_HANDS_UP:HELLO#1",
+   "judgment": "GENUINE_SIGN",
+   "n_active_labelled": 11,
+   "history_len_at_onset": 61,
+   "android_active": 11,
+   "fresh_onset-8": 10,
+   "fresh_onset-4": 5,
+   "fresh_onset-0": 0
+  },
+  {
+   "name": "B_HANDS_UP:HOME#2",
+   "judgment": "GENUINE_SIGN",
+   "n_active_labelled": 15,
+   "history_len_at_onset": 61,
+   "android_active": 0,
+   "fresh_onset-8": 0,
+   "fresh_onset-4": 2,
+   "fresh_onset-0": 0
+  },
+  {
+   "name": "B_HANDS_UP:TABLE#3",
+   "judgment": "GENUINE_SIGN",
+   "n_active_labelled": 14,
+   "history_len_at_onset": 61,
+   "android_active": 0,
+   "fresh_onset-8": 5,
+   "fresh_onset-4": 7,
+   "fresh_onset-0": 7
+  },
+  {
+   "name": "B_HANDS_UP:HELLO#4",
+   "judgment": "GENUINE_SIGN",
+   "n_active_labelled": 7,
+   "history_len_at_onset": 61,
+   "android_active": 0,
+   "fresh_onset-8": 6,
+   "fresh_onset-4": 6,
+   "fresh_onset-0": 2
+  }
+ ],
+ "OCT15_COMPACT": [
+  {
+   "name": "A_HANDS_DOWN:HELLO#1",
+   "judgment": "GENUINE_SIGN",
+   "n_active_labelled": 7,
+   "history_len_at_onset": 61,
+   "android_active": 0,
+   "fresh_onset-8": 4,
+   "fresh_onset-4": 6,
+   "fresh_onset-0": 6
+  },
+  {
+   "name": "B_HANDS_UP:HELLO#1",
+   "judgment": "GENUINE_SIGN",
+   "n_active_labelled": 10,
+   "history_len_at_onset": 61,
+   "android_active": 0,
+   "fresh_onset-8": 7,
+   "fresh_onset-4": 8,
+   "fresh_onset-0": 7
+  },
+  {
+   "name": "C_REPEAT_HANDS_UP:HELLO#1",
+   "judgment": "GENUINE_SIGN",
+   "n_active_labelled": 8,
+   "history_len_at_onset": 61,
+   "android_active": 3,
+   "fresh_onset-8": 8,
+   "fresh_onset-4": 8,
+   "fresh_onset-0": 6
+  },
+  {
+   "name": "D_SIGN_THEN_HOLD:HELLO#1",
+   "judgment": "GENUINE_SIGN",
+   "n_active_labelled": 37,
+   "history_len_at_onset": 61,
+   "android_active": 0,
+   "fresh_onset-8": 11,
+   "fresh_onset-4": 8,
+   "fresh_onset-0": 5
+  }
+ ],
+ "SEP23_INDEPENDENT": [
+  {
+   "name": "attempt_001:HELLO",
+   "judgment": "GENUINE_SIGN",
+   "n_active_labelled": 6,
+   "history_len_at_onset": 61,
+   "android_active": 4,
+   "fresh_onset-8": 5,
+   "fresh_onset-4": 3,
+   "fresh_onset-0": 2
+  },
+  {
+   "name": "attempt_002:HELLO",
+   "judgment": "GENUINE_SIGN",
+   "n_active_labelled": 7,
+   "history_len_at_onset": 61,
+   "android_active": 6,
+   "fresh_onset-8": 6,
+   "fresh_onset-4": 3,
+   "fresh_onset-0": 4
+  },
+  {
+   "name": "attempt_003:HOME",
+   "judgment": "GENUINE_SIGN",
+   "n_active_labelled": 4,
+   "history_len_at_onset": 61,
+   "android_active": 4,
+   "fresh_onset-8": 4,
+   "fresh_onset-4": 4,
+   "fresh_onset-0": 4
+  },
+  {
+   "name": "attempt_004:HOME",
+   "judgment": "GENUINE_SIGN",
+   "n_active_labelled": 4,
+   "history_len_at_onset": 61,
+   "android_active": 4,
+   "fresh_onset-8": 4,
+   "fresh_onset-4": 4,
+   "fresh_onset-0": 4
+  },
+  {
+   "name": "attempt_005:TABLE",
+   "judgment": "GENUINE_SIGN",
+   "n_active_labelled": 5,
+   "history_len_at_onset": 61,
+   "android_active": 0,
+   "fresh_onset-8": 5,
+   "fresh_onset-4": 5,
+   "fresh_onset-0": 5
+  },
+  {
+   "name": "attempt_006:TABLE",
+   "judgment": "GENUINE_SIGN",
+   "n_active_labelled": 3,
+   "history_len_at_onset": 61,
+   "android_active": 0,
+   "fresh_onset-8": 2,
+   "fresh_onset-4": 2,
+   "fresh_onset-0": 1
+  }
+ ],
+ "SEP23_REPRESENTATIVE": [
+  {
+   "name": "attempt_001:HELLO",
+   "judgment": "GENUINE_SIGN",
+   "n_active_labelled": 9,
+   "history_len_at_onset": 61,
+   "android_active": 8,
+   "fresh_onset-8": 8,
+   "fresh_onset-4": 8,
+   "fresh_onset-0": 8
+  },
+  {
+   "name": "attempt_002:HELLO",
+   "judgment": "GENUINE_SIGN",
+   "n_active_labelled": 9,
+   "history_len_at_onset": 61,
+   "android_active": 9,
+   "fresh_onset-8": 9,
+   "fresh_onset-4": 9,
+   "fresh_onset-0": 7
+  },
+  {
+   "name": "attempt_003:HOME",
+   "judgment": "GENUINE_SIGN",
+   "n_active_labelled": 8,
+   "history_len_at_onset": 61,
+   "android_active": 8,
+   "fresh_onset-8": 7,
+   "fresh_onset-4": 6,
+   "fresh_onset-0": 1
+  },
+  {
+   "name": "attempt_004:HOME",
+   "judgment": "GENUINE_SIGN",
+   "n_active_labelled": 9,
+   "history_len_at_onset": 61,
+   "android_active": 7,
+   "fresh_onset-8": 8,
+   "fresh_onset-4": 7,
+   "fresh_onset-0": 1
+  },
+  {
+   "name": "attempt_005:TABLE",
+   "judgment": "GENUINE_SIGN",
+   "n_active_labelled": 12,
+   "history_len_at_onset": 61,
+   "android_active": 11,
+   "fresh_onset-8": 12,
+   "fresh_onset-4": 12,
+   "fresh_onset-0": 11
+  },
+  {
+   "name": "attempt_006:TABLE",
+   "judgment": "GENUINE_SIGN",
+   "n_active_labelled": 9,
+   "history_len_at_onset": 61,
+   "android_active": 9,
+   "fresh_onset-8": 9,
+   "fresh_onset-4": 9,
+   "fresh_onset-0": 7
+  }
+ ]
+}
