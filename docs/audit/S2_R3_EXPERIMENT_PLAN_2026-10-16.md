@@ -167,3 +167,19 @@ Reporting rules:
 - **Phone holds are not representable in R3a.** That is the explicit R3b trigger.
 - **Small Tier 2.** 23 signs and 676 non-sign observations from at most 3 signers are
   development-exposed. Tier 3 is mandatory before any promotion.
+
+## Amendment approved 2026-10-16 (readiness review)
+
+See [S2_R3_READINESS_REVIEW_2026-10-16.md](S2_R3_READINESS_REVIEW_2026-10-16.md).
+
+- **Gate:** suite **v02** supersedes v01. It adds held-out HOLD and non-sign-movement
+  conditions, one-to-one distinct-event matching with a merged-event line, and a continuous-only
+  Tier-2 line. POST_PHONE_15 is now diagnostic. v01 remains reproducible.
+- **D3 (approved change):** start the real-hold / continuous R3b TRAIN capture in parallel with
+  R3a, instead of waiting for an R3a failure. Training must not use synthetic duplicated holds,
+  so the HOLD gates stay independent.
+- **New approved decisions:**
+  - use N0 negatives under a participant split (P03/P04 train, P05/P06 held-out
+    false-activation set, which would require suite v03);
+  - use a signer-grouped FIT/CAL split for selection;
+  - mount `G:` for the 6 remaining enrichment clips, or exclude them explicitly.

@@ -17,6 +17,7 @@ import platform
 import sys
 from collections import defaultdict
 from dataclasses import dataclass
+from dataclasses import fields as dataclass_fields
 from pathlib import Path
 from typing import Any
 
@@ -58,8 +59,18 @@ from pipeline.perception_vnext.segmentation.streaming_decoder import (  # noqa: 
     CausalStreamingSignEventDecoder,
 )
 
-CONFIG_PATH = ROOT / "model/config/recognition_upgrade/s2_r3_context_suite_01.json"
-FREEZE_PATH = ROOT / "evidence/s2_r3_context_suite_20261016/suite_freeze.json"
+SUITES = {
+    "01": (
+        ROOT / "model/config/recognition_upgrade/s2_r3_context_suite_01.json",
+        ROOT / "evidence/s2_r3_context_suite_20261016/suite_freeze.json",
+    ),
+    "02": (
+        ROOT / "model/config/recognition_upgrade/s2_r3_context_suite_02.json",
+        ROOT / "evidence/s2_r3_context_suite_20261016/suite_freeze_02.json",
+    ),
+}
+CURRENT_SUITE = "02"
+CONFIG_PATH, FREEZE_PATH = SUITES["01"]
 PRE, ACTIVE, POST = 0, 1, 2
 SUPPORTED_CONTRACTS = ("v1",)
 
@@ -89,6 +100,58 @@ def features_for_raw(raw: RawSequence, contract: str) -> np.ndarray:
     if contract == "v1":
         return np.asarray(derive_causal_segmentation_features(raw), np.float32)
     raise ValueError(f"[s2_r3/suite] S2R3_CONTRACT_NOT_IMPLEMENTED:{contract}")
+
+
+def _take(raw: RawSequence, indices: np.ndarray, timestamps: np.ndarray) -> RawSequence:
+    values: dict[str, Any] = {
+        f.name: np.asarray(getattr(raw, f.name))[indices]
+        for f in dataclass_fields(RawSequence)
+        if f.name not in ("metadata", "frame_index", "timestamp_ms")
+    }
+    value = RawSequence(
+        metadata=dict(raw.metadata),
+        frame_index=np.arange(len(indices), dtype=np.int32),
+        timestamp_ms=np.asarray(timestamps, np.float64),
+        **values,
+    )
+    value.validate()
+    return value
+
+
+def slice_raw(raw: RawSequence, first: int, last: int) -> RawSequence:
+    indices = np.arange(first, last + 1, dtype=np.int32)
+    return _take(raw, indices, np.asarray(raw.timestamp_ms, np.float64)[indices])
+
+
+def hold_raw(raw: RawSequence, index: int, count: int, interval_ms: float) -> RawSequence:
+    """Diagnostic-only still hold: one genuine observation repeated at the view interval."""
+    indices = np.full(count, index, np.int32)
+    return _take(raw, indices, np.arange(count, dtype=np.float64) * interval_ms)
+
+
+def concat_raw(parts: list[RawSequence], interval_ms: float) -> RawSequence:
+    """Raw-level stitching: features are recomputed over the joined sequence, so the join is
+    an ordinary (cross-source) backward delta rather than a start-of-sequence marker."""
+    chunks: dict[str, list[np.ndarray]] = defaultdict(list)
+    stamps: list[np.ndarray] = []
+    offset = 0.0
+    for part in parts:
+        t = np.asarray(part.timestamp_ms, np.float64)
+        shifted = t - t[0] + offset
+        stamps.append(shifted)
+        offset = float(shifted[-1]) + interval_ms
+        for f in dataclass_fields(RawSequence):
+            if f.name not in ("metadata", "frame_index", "timestamp_ms"):
+                chunks[f.name].append(np.asarray(getattr(part, f.name)))
+    timestamp = np.concatenate(stamps)
+    value = RawSequence(
+        metadata=dict(parts[-1].metadata),
+        frame_index=np.arange(len(timestamp), dtype=np.int32),
+        timestamp_ms=timestamp,
+        **{name: np.concatenate(values) for name, values in chunks.items()},
+    )
+    value.validate()
+    return value
 
 
 @dataclass
@@ -177,7 +240,8 @@ def load_tier1_views(root: Path, config: dict[str, Any], contract: str) -> list[
             if sha256(Path(raw_path)) != item["source_raw_sha256"]:
                 raise ValueError(f"[s2_r3/suite] DEV_RAW_HASH_MISMATCH:{item['view_key']}")
             raw_cache[raw_path] = load_raw_sequence(Path(raw_path))
-        features = features_for_raw(subset_raw(raw_cache[raw_path], selected), contract)
+        raw = subset_raw(raw_cache[raw_path], selected)
+        features = features_for_raw(raw, contract)
         annotation = annotations[str(item["sample_id"])]
         views.append(
             {
@@ -186,6 +250,8 @@ def load_tier1_views(root: Path, config: dict[str, Any], contract: str) -> list[
                 "signer": str(item["signer_id"]),
                 "source": str(item["source"]),
                 "view": str(item["view_id"]),
+                "interval_ms": float(item["target_interval_ms"]),
+                "raw": raw,
                 "features": features,
                 "stored_v1_features": stored,
                 "labels": labels,
@@ -305,14 +371,87 @@ def score_view(
     }
 
 
-def summarize(rows: list[dict[str, float]]) -> dict[str, float]:
+def score_stitched(
+    package: Package,
+    combined: RawSequence,
+    history_rows: int,
+    labels: np.ndarray,
+    history_scored: np.ndarray,
+) -> dict[str, float]:
+    """Score a raw-stitched sequence; history rows marked in `history_scored` count as
+    confirmed non-sign evidence for the history false-ACTIVE rate."""
+    features = features_for_raw(combined, package.contract)
+    predicted = np.argmax(package.probabilities(features), axis=1)
+    target, history = predicted[history_rows:], predicted[:history_rows]
+    active = labels == ACTIVE
+    other = (labels != ACTIVE) & (labels >= 0)
     return {
+        "acquired": float(np.any(target[active] == ACTIVE)),
+        "active_recall": float(np.mean(target[active] == ACTIVE)),
+        "false_active": float(np.mean(target[other] == ACTIVE)) if np.any(other) else 0.0,
+        "history_false_active": (
+            float(np.mean(history[history_scored] == ACTIVE)) if np.any(history_scored) else 0.0
+        ),
+    }
+
+
+def summarize(rows: list[dict[str, float]]) -> dict[str, float]:
+    summary = {
         "n": len(rows),
         "acquired_count": int(sum(row["acquired"] for row in rows)),
         "acquired_fraction": float(np.mean([row["acquired"] for row in rows])),
         "active_recall_mean": float(np.mean([row["active_recall"] for row in rows])),
         "false_active_mean": float(np.mean([row["false_active"] for row in rows])),
     }
+    if rows and "history_false_active" in rows[0]:
+        summary["history_false_active_mean"] = float(
+            np.mean([row["history_false_active"] for row in rows])
+        )
+    return summary
+
+
+def stitched_condition(
+    package: Package,
+    condition: dict[str, Any],
+    config: dict[str, Any],
+    view: dict[str, Any],
+    group: list[dict[str, Any]],
+    sessions: dict[str, dict[str, Any]],
+) -> dict[str, float] | None:
+    """Raw-level held-out conditions (suite v02+)."""
+    interval = float(view["interval_ms"])
+    raw, labels = view["raw"], view["labels"]
+    kind = condition["kind"]
+    if kind == "raw_hold_after_previous_sign":
+        others = [other for other in group if other["sample_id"] != view["sample_id"]]
+        if not others:
+            return None
+        previous = others[0]
+        previous_active = np.flatnonzero(previous["labels"] == ACTIVE)
+        last_active = int(previous_active[-1])
+        hold = int(condition["hold_observations"])
+        parts = [slice_raw(previous["raw"], 0, last_active)]
+        if hold:
+            parts.append(hold_raw(previous["raw"], last_active, hold, interval))
+        history = concat_raw(parts, interval)
+        first_active = int(np.flatnonzero(labels == ACTIVE)[0])
+        start = max(0, first_active - 1)
+        target = slice_raw(raw, start, len(raw.timestamp_ms) - 1)
+        scored = np.zeros(len(history.timestamp_ms), bool)
+        return score_stitched(
+            package, concat_raw([history, target], interval), len(scored), labels[start:], scored
+        )
+    if kind == "raw_session_history":
+        source = config["history_sources"][condition["source"]]
+        session_raw = sessions[source["session"]]["capture"].raw
+        last = int(source["last_row"])
+        first = max(int(source["first_row"]), last - int(condition["length"]) + 1)
+        history = slice_raw(session_raw, first, last)
+        scored = np.full(len(history.timestamp_ms), bool(source.get("confirmed_non_sign", False)))
+        return score_stitched(
+            package, concat_raw([history, raw], interval), len(scored), labels, scored
+        )
+    raise ValueError(f"[s2_r3/suite] UNKNOWN_CONDITION_KIND:{kind}")
 
 
 def evaluate_tier1(
@@ -362,6 +501,11 @@ def evaluate_tier1(
                 first_active = int(np.flatnonzero(labels == ACTIVE)[0])
                 target = target[max(0, first_active - 1) :]
                 labels = labels[max(0, first_active - 1) :]
+            elif kind.startswith("raw_"):
+                stitched = stitched_condition(package, condition, config, view, group, sessions)
+                if stitched is not None:
+                    rows.append(stitched)
+                continue
             elif kind != "none":
                 raise ValueError(f"[s2_r3/suite] UNKNOWN_CONDITION_KIND:{kind}")
             rows.append(score_view(package, history, target, labels))
@@ -422,6 +566,40 @@ def isolated_containment(
 
 
 # ----------------------------------------------------------------------------- tier 2 scoring
+def match_signs(
+    positives: list[dict[str, Any]], events: list[dict[str, Any]], states: np.ndarray
+) -> tuple[list[dict[str, Any]], set[int], int]:
+    """Overlap matching of reviewed signs to logical events. An event may be credited to at most
+    one sign (a merged episode spanning two signs is one recognition, not two)."""
+    used: set[int] = set()
+    credited: set[int] = set()
+    signs_per_event: dict[int, int] = defaultdict(int)
+    signs = []
+    for sign in positives:
+        hits = [
+            k
+            for k, event in enumerate(events)
+            if max(sign["first"], event["logical_active_start_index"])
+            <= min(sign["last"], event["logical_active_end_index"])
+        ]
+        used.update(hits)
+        for k in hits:
+            signs_per_event[k] += 1
+        distinct = next((k for k in hits if k not in credited), None)
+        if distinct is not None:
+            credited.add(distinct)
+        signs.append(
+            {
+                "name": sign["name"],
+                "acquired": bool(np.any(states[sign["active_rows"]] == ACTIVE)),
+                "with_event": bool(hits),
+                "with_distinct_event": distinct is not None,
+            }
+        )
+    merged = sum(1 for count in signs_per_event.values() if count > 1)
+    return signs, used, merged
+
+
 def evaluate_session(
     package: Package, session: dict[str, Any], receptive_field: int, sample: int, tolerance: float
 ) -> dict[str, Any]:
@@ -461,23 +639,7 @@ def evaluate_session(
         exact_android_commit_recovery=True,
     )
     events = replayed["events"]
-    used: set[int] = set()
-    signs = []
-    for sign in session["positives"]:
-        hits = [
-            k
-            for k, event in enumerate(events)
-            if max(sign["first"], event["logical_active_start_index"])
-            <= min(sign["last"], event["logical_active_end_index"])
-        ]
-        used.update(hits)
-        signs.append(
-            {
-                "name": sign["name"],
-                "acquired": bool(np.any(states[sign["active_rows"]] == ACTIVE)),
-                "with_event": bool(hits),
-            }
-        )
+    signs, used, merged = match_signs(session["positives"], events, states)
     nonsign_observations = sum(n["last"] - n["first"] + 1 for n in session["negatives"])
     nonsign_active = sum(
         int(np.sum(states[n["first"] : n["last"] + 1] == ACTIVE)) for n in session["negatives"]
@@ -499,6 +661,8 @@ def evaluate_session(
         "genuine_signs": len(signs),
         "acquired": sum(sign["acquired"] for sign in signs),
         "signs_with_event": sum(sign["with_event"] for sign in signs),
+        "signs_with_distinct_event": sum(sign["with_distinct_event"] for sign in signs),
+        "merged_events": merged,
         "events": len(events),
         "events_inside_nonsign": inside_nonsign,
         "other_events": len(events) - len(used) - inside_nonsign,
@@ -536,6 +700,8 @@ def evaluate_tier2(
         "genuine_signs",
         "acquired",
         "signs_with_event",
+        "signs_with_distinct_event",
+        "merged_events",
         "events",
         "events_inside_nonsign",
         "other_events",
@@ -554,10 +720,15 @@ def evaluate_tier2(
         if result["continuous"]
         for value in result["post_dwell_ms"]
     ]
+    continuous = {
+        key: int(sum(result[key] for result in per.values() if result["continuous"]))
+        for key in keys
+    }
     return {
         "sessions": per,
         "total": total,
         "continuous": {
+            **continuous,
             "post_dwell_events": len(dwell),
             "post_dwell_median_ms": float(np.median(dwell)) if dwell else None,
         },
@@ -569,7 +740,8 @@ def metric_value(results: dict[str, Any], path: str) -> float:
     value: Any = results
     for part in path.split("."):
         value = value[part]
-    return float(value)
+    # A missing measurement (e.g. no events to time) can never satisfy a gate line.
+    return float("nan") if value is None else float(value)
 
 
 def apply_gate(
@@ -577,13 +749,18 @@ def apply_gate(
 ) -> dict[str, Any]:
     lines = []
     for line in config["gate"]:
-        threshold = (
-            metric_value(reference, line["metric"]) - float(line["value_from_reference_minus"])
-            if "value_from_reference_minus" in line
-            else float(line["value"])
-        )
+        if "value_from_reference_minus" in line:
+            threshold = metric_value(reference, line["metric"]) - float(
+                line["value_from_reference_minus"]
+            )
+        elif "value_from_reference_plus" in line:
+            threshold = metric_value(reference, line["metric"]) + float(
+                line["value_from_reference_plus"]
+            )
+        else:
+            threshold = float(line["value"])
         observed = metric_value(results, line["metric"])
-        passed = observed >= threshold if line["op"] == ">=" else observed <= threshold
+        passed = bool(observed >= threshold if line["op"] == ">=" else observed <= threshold)
         lines.append(
             {
                 "id": line["id"],
@@ -616,10 +793,11 @@ def run_suite(
     return results, {"views": views, "sessions": sessions}
 
 
-def freeze(root: Path) -> dict[str, Any]:
+def freeze(root: Path, suite_id: str = CURRENT_SUITE) -> dict[str, Any]:
     import tensorflow as tf
 
-    config = read_json(CONFIG_PATH)
+    config_path, freeze_path = SUITES[suite_id]
+    config = read_json(config_path)
     spec = config["reference_package"]
     package = load_package(
         spec["package_id"],
@@ -671,8 +849,9 @@ def freeze(root: Path) -> dict[str, Any]:
             raise ValueError(f"[s2_r3/suite] SESSION_EVENT_REPLAY_MISMATCH:{name}")
     record = {
         "schema": "apphear.s2_r3.context_suite_freeze.v1",
-        "config_path": str(CONFIG_PATH.relative_to(ROOT)).replace("\\", "/"),
-        "config_sha256": sha256(CONFIG_PATH),
+        "suite_id": suite_id,
+        "config_path": str(config_path.relative_to(ROOT)).replace("\\", "/"),
+        "config_sha256": sha256(config_path),
         "reference_package": {**spec, "measured_identity": package.identity},
         "input_identity": {
             "dev_selected_manifest_sha256": config["tier1_dev"]["selected_manifest_sha256"],
@@ -698,21 +877,29 @@ def freeze(root: Path) -> dict[str, Any]:
         },
         "scope": "Development-exposed Tier 1/2 diagnostics only; not ASL accuracy and not Tier 3.",
     }
-    write_json(FREEZE_PATH, record)
+    write_json(freeze_path, record)
     return record
 
 
 def evaluate_candidate(
-    root: Path, package_id: str, contract: str, keras: Path, normalization: Path, out: Path
+    root: Path,
+    package_id: str,
+    contract: str,
+    keras: Path,
+    normalization: Path,
+    out: Path,
+    suite_id: str = CURRENT_SUITE,
 ) -> dict[str, Any]:
-    config = read_json(CONFIG_PATH)
-    frozen = read_json(FREEZE_PATH)
-    if sha256(CONFIG_PATH) != frozen["config_sha256"]:
+    config_path, freeze_path = SUITES[suite_id]
+    config = read_json(config_path)
+    frozen = read_json(freeze_path)
+    if sha256(config_path) != frozen["config_sha256"]:
         raise ValueError("[s2_r3/suite] CONFIG_CHANGED_AFTER_FREEZE")
     package = load_package(package_id, contract, keras, normalization)
     results, _ = run_suite(root, config, package)
     record = {
         "schema": "apphear.s2_r3.context_suite_result.v1",
+        "suite_id": suite_id,
         "config_sha256": frozen["config_sha256"],
         "package_id": package_id,
         "contract": contract,
@@ -730,6 +917,7 @@ def main() -> None:
     for name in ("freeze", "evaluate"):
         command = sub.add_parser(name)
         command.add_argument("--evidence-root", type=Path, required=True)
+        command.add_argument("--suite", choices=sorted(SUITES), default=CURRENT_SUITE)
     candidate = sub.choices["evaluate"]
     candidate.add_argument("--package-id", required=True)
     candidate.add_argument("--contract", default="v1")
@@ -738,7 +926,7 @@ def main() -> None:
     candidate.add_argument("--out", type=Path, required=True)
     args = parser.parse_args()
     if args.command == "freeze":
-        record = freeze(args.evidence_root)
+        record = freeze(args.evidence_root, args.suite)
         print(json.dumps(record["reference_gate"], indent=2))
     else:
         record = evaluate_candidate(
@@ -748,6 +936,7 @@ def main() -> None:
             args.keras,
             args.normalization,
             args.out,
+            args.suite,
         )
         print(json.dumps(record["gate"], indent=2))
 

@@ -16,6 +16,41 @@ provisioning remain open; no automatic new experiment is authorized. See docs/te
 
 # Progress Tracker
 
+**2026-10-16 — S2-R3 readiness review: suite v02 frozen, source audit complete; no training yet.**
+See `docs/audit/S2_R3_READINESS_REVIEW_2026-10-16.md`.
+- [x] Held-out decomposition (69 DEV views):
+  - history length/padding is a minor effect; 60 observations of real rest give 100% detection;
+  - join artifact: none;
+  - holds at the sign end collapse next-sign detection 0.955→0.000 as g goes 0→24;
+  - the effect is POST-inducing content, not length.
+- [x] Suite v02 (`s2_r3_context_suite_02.json`, `suite_freeze_02.json`) fixes the circular POST-15
+  gate and adds:
+  - HOLD gates;
+  - non-sign-movement false-activation non-inferiority;
+  - one-to-one distinct-event matching with a merged-event line;
+  - a continuous-only Tier-2 line.
+
+  v02 reproduces every v01 value. The reference passes the guard rails and fails exactly the
+  continuous lines. 14 tests pass.
+- [x] Source audit:
+  - Phase-7 FIT/CAL/DEV raw verified (336/336 views);
+  - enrichment/P1 re-extraction is byte-exact;
+  - DEV is signer-disjoint from all sources.
+
+  Gaps:
+  - no real holds;
+  - negatives from 2 participants;
+  - 13/14 CAL signers are in FIT;
+  - 6 enrichment clips need `G:`;
+  - Tier-2 continuous sessions are LIKELY a FIT signer.
+- [ ] Decisions pending:
+  - R3b capture in parallel;
+  - N0 participant split (P03/P04 train, P05/P06 held-out → suite v03);
+  - signer-grouped CAL;
+  - `G:` mount.
+
+  Next is build step 3 (stitched-stream builder) after these decisions.
+
 **2026-10-16 — S2-R3 build step 1: frozen context evaluation suite complete; no training yet.**
 Branch `claude/s2-r3-eval-suite` from `4503b55`. This follows the S2 history verification
 (`docs/audit/S2_HISTORY_DEPENDENCE_VERIFICATION_2026-10-16.md`) and the confirmed plan

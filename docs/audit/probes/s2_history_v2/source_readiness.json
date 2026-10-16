@@ -1,0 +1,210 @@
+{
+ "schema": "apphear.s2_r3.source_readiness.v1",
+ "phase7": {
+  "DEV": {
+   "views": 69,
+   "clips": 23,
+   "signers": 7,
+   "views_with_verified_raw": 69,
+   "views_missing_or_bad_raw": [],
+   "active_labels": 348,
+   "human_labelled_clips": 23
+  },
+  "FIT": {
+   "views": 213,
+   "clips": 71,
+   "signers": 27,
+   "views_with_verified_raw": 213,
+   "views_missing_or_bad_raw": [],
+   "active_labels": 995,
+   "human_labelled_clips": 71
+  },
+  "CAL": {
+   "views": 54,
+   "clips": 18,
+   "signers": 14,
+   "views_with_verified_raw": 54,
+   "views_missing_or_bad_raw": [],
+   "active_labels": 256,
+   "human_labelled_clips": 18
+  }
+ },
+ "enrichment": {
+  "rows": 48,
+  "clips": 16,
+  "clips_with_verified_video": 10,
+  "clips_video_unavailable": [
+   "asl:train:19978233231036002-WRITE",
+   "asl:train:345772354898102-seedBOTH",
+   "asl:train:3741021155965083-AND",
+   "asl:train:38799379375716403-ALWAYS",
+   "asl:train:8618961603650133-FIND",
+   "asl:train:9116897977316643-IF"
+  ],
+  "raw_on_disk": false,
+  "reextraction_check": {
+   "sample_id": "e6:e6p_00389",
+   "views": {
+    "e6:e6p_00389::VIEW_A": {
+     "shape_equal": true,
+     "max_abs": 0.0,
+     "labels_equal": true
+    },
+    "e6:e6p_00389::VIEW_B": {
+     "shape_equal": true,
+     "max_abs": 0.0,
+     "labels_equal": true
+    },
+    "e6:e6p_00389::VIEW_C": {
+     "shape_equal": true,
+     "max_abs": 0.0,
+     "labels_equal": true
+    }
+   }
+  }
+ },
+ "p1_negatives": {
+  "rows": 45,
+  "fit_rows": 37,
+  "videos_verified": 45,
+  "raw_on_disk": false,
+  "observations": 3119,
+  "reextraction_check": {
+   "row_id": "p1::p1_2::003",
+   "shape_equal": true,
+   "max_abs": 0.0
+  }
+ },
+ "exact_phone_positive": {
+  "observations": 669,
+  "raw_to_378_vs_android_max_abs": 0.0,
+  "labelled_rows_fit": 155,
+  "labelled_rows_internal_dev": 77
+ },
+ "signers": {
+  "DEV": [
+   "asl_citizen:P24",
+   "asl_citizen:P30",
+   "asl_citizen:P33",
+   "asl_citizen:P34",
+   "asl_citizen:P38",
+   "asl_citizen:P4",
+   "local_recorder:3B96F6-S002"
+  ],
+  "FIT": [
+   "asl_citizen:P10",
+   "asl_citizen:P11",
+   "asl_citizen:P14",
+   "asl_citizen:P16",
+   "asl_citizen:P20",
+   "asl_citizen:P23",
+   "asl_citizen:P25",
+   "asl_citizen:P27",
+   "asl_citizen:P28",
+   "asl_citizen:P3",
+   "asl_citizen:P31",
+   "asl_citizen:P36",
+   "asl_citizen:P37",
+   "asl_citizen:P40",
+   "asl_citizen:P41",
+   "asl_citizen:P43",
+   "asl_citizen:P44",
+   "asl_citizen:P45",
+   "asl_citizen:P46",
+   "asl_citizen:P50",
+   "asl_citizen:P51",
+   "asl_citizen:P52",
+   "asl_citizen:P7",
+   "local_recorder:3B96F6-S001",
+   "local_recorder:6CC240-S001",
+   "local_recorder:6F7328-S001",
+   "local_recorder:93EB89-S001"
+  ],
+  "CAL": [
+   "asl_citizen:P10",
+   "asl_citizen:P11",
+   "asl_citizen:P16",
+   "asl_citizen:P23",
+   "asl_citizen:P25",
+   "asl_citizen:P27",
+   "asl_citizen:P28",
+   "asl_citizen:P32",
+   "asl_citizen:P40",
+   "asl_citizen:P51",
+   "asl_citizen:P7",
+   "local_recorder:6CC240-S001",
+   "local_recorder:6F7328-S001",
+   "local_recorder:93EB89-S001"
+  ],
+  "ENRICHMENT": [
+   "asl_citizen:P16",
+   "asl_citizen:P37",
+   "asl_citizen:P40",
+   "asl_citizen:P43",
+   "asl_citizen:P46",
+   "asl_citizen:P52",
+   "local_recorder:6CC240-S001",
+   "local_recorder:6F7328-S001"
+  ],
+  "P1_FIT": [
+   "P01",
+   "P02"
+  ],
+  "P1_DEV": [
+   "P01",
+   "P02"
+  ],
+  "PHONE_DESIGN": [
+   "phone_design:session_20260921T153138Z:S001"
+  ]
+ },
+ "signer_overlaps": {
+  "CAL&FIT": [
+   "asl_citizen:P10",
+   "asl_citizen:P11",
+   "asl_citizen:P16",
+   "asl_citizen:P23",
+   "asl_citizen:P25",
+   "asl_citizen:P27",
+   "asl_citizen:P28",
+   "asl_citizen:P40",
+   "asl_citizen:P51",
+   "asl_citizen:P7",
+   "local_recorder:6CC240-S001",
+   "local_recorder:6F7328-S001",
+   "local_recorder:93EB89-S001"
+  ],
+  "CAL&ENRICHMENT": [
+   "asl_citizen:P16",
+   "asl_citizen:P40",
+   "local_recorder:6CC240-S001",
+   "local_recorder:6F7328-S001"
+  ],
+  "ENRICHMENT&FIT": [
+   "asl_citizen:P16",
+   "asl_citizen:P37",
+   "asl_citizen:P40",
+   "asl_citizen:P43",
+   "asl_citizen:P46",
+   "asl_citizen:P52",
+   "local_recorder:6CC240-S001",
+   "local_recorder:6F7328-S001"
+  ],
+  "P1_DEV&P1_FIT": [
+   "P01",
+   "P02"
+  ]
+ },
+ "tier2_signer_roles": {
+  "SEP27_TRANSITION": "supervisor_transition_design_01 (Xiaomi; design signer, LIKELY same person as PHONE_DESIGN)",
+  "OCT15_COMPACT": "stage2_design_signer_01 (Xiaomi; design signer, LIKELY same person as PHONE_DESIGN)",
+  "SEP23_INDEPENDENT": "phone_validation_signer_01 (ITEL A665L; declared distinct)",
+  "SEP23_REPRESENTATIVE": "representative_phone_signer_01 (Xiaomi; declared distinct)"
+ },
+ "reserved_never_opened": [
+  "protected TEST",
+  "E6 0F747C-S001",
+  "future independent phone signer",
+  "P03-P06 / N0 (unused negative participants)"
+ ]
+}

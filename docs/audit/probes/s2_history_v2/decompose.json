@@ -1,0 +1,342 @@
+{
+ "S2_R2": {
+  "NONE": {
+   "acquired": 0.9855072463768116,
+   "recall": 0.8689556015642972,
+   "target_false_active": 0.08053843390024061,
+   "history_false_active": 0.0,
+   "n": 69
+  },
+  "A_STILL_SELF_01": {
+   "acquired": 0.9855072463768116,
+   "recall": 0.8752012882447666,
+   "target_false_active": 0.08737753149325792,
+   "history_false_active": 0.0,
+   "n": 69
+  },
+  "A_STILL_SELF_02": {
+   "acquired": 0.9855072463768116,
+   "recall": 0.880129974695192,
+   "target_false_active": 0.0884023167001848,
+   "history_false_active": 0.043478260869565216,
+   "n": 69
+  },
+  "A_STILL_SELF_04": {
+   "acquired": 0.9855072463768116,
+   "recall": 0.889872325741891,
+   "target_false_active": 0.09409838560215361,
+   "history_false_active": 0.06521739130434782,
+   "n": 69
+  },
+  "A_STILL_SELF_08": {
+   "acquired": 0.9710144927536232,
+   "recall": 0.8702668507016333,
+   "target_false_active": 0.11963143988601048,
+   "history_false_active": 0.07608695652173914,
+   "n": 69
+  },
+  "A_STILL_SELF_16": {
+   "acquired": 0.9130434782608695,
+   "recall": 0.7969921785139176,
+   "target_false_active": 0.1376451996057566,
+   "history_false_active": 0.04891304347826087,
+   "n": 69
+  },
+  "A_STILL_SELF_32": {
+   "acquired": 0.8260869565217391,
+   "recall": 0.737364849321371,
+   "target_false_active": 0.07635870434762389,
+   "history_false_active": 0.029438405797101448,
+   "n": 69
+  },
+  "A_STILL_SELF_60": {
+   "acquired": 0.8405797101449275,
+   "recall": 0.7363296526340004,
+   "target_false_active": 0.0805595024992727,
+   "history_false_active": 0.01570048309178744,
+   "n": 69
+  },
+  "B_PHONE_POST_15_feature_join": {
+   "acquired": 0.14492753623188406,
+   "recall": 0.07890499194847021,
+   "target_false_active": 0.0017322988337481091,
+   "history_false_active": 0.6666666666666664,
+   "n": 69
+  },
+  "B_PHONE_POST_15_raw_join": {
+   "acquired": 0.14492753623188406,
+   "recall": 0.07809983896940419,
+   "target_false_active": 0.0021998070151412834,
+   "history_false_active": 0.6666666666666664,
+   "n": 69
+  },
+  "B_PHONE_POST_60_feature_join": {
+   "acquired": 0.17391304347826086,
+   "recall": 0.09826892109500805,
+   "target_false_active": 0.0017322988337481091,
+   "history_false_active": 0.09999999999999996,
+   "n": 69
+  },
+  "B_PHONE_POST_60_raw_join": {
+   "acquired": 0.18840579710144928,
+   "recall": 0.11223832528180352,
+   "target_false_active": 0.0021998070151412834,
+   "history_false_active": 0.09999999999999996,
+   "n": 69
+  },
+  "C_PHONE_REST_30": {
+   "acquired": 1.0,
+   "recall": 0.8968196457326891,
+   "target_false_active": 0.09603300219976833,
+   "history_false_active": 0.0,
+   "n": 69
+  },
+  "D_PREV_SIGN_then_still_00": {
+   "acquired": 0.7727272727272727,
+   "recall": 0.526070226070226,
+   "target_false_active": 0.04160743589681095,
+   "history_false_active": 0.1488713593560145,
+   "n": 66
+  },
+  "D_PREV_SIGN_then_still_10": {
+   "acquired": 0.803030303030303,
+   "recall": 0.6984247234247235,
+   "target_false_active": 0.0438294955653743,
+   "history_false_active": 0.1132305451890102,
+   "n": 66
+  },
+  "D_PREV_SIGN_then_still_20": {
+   "acquired": 0.8181818181818182,
+   "recall": 0.7390993265993265,
+   "target_false_active": 0.06723226767077368,
+   "history_false_active": 0.07950220758380952,
+   "n": 66
+  },
+  "D_PREV_SIGN_then_still_40": {
+   "acquired": 0.8181818181818182,
+   "recall": 0.7377104377104376,
+   "target_false_active": 0.06331844470556734,
+   "history_false_active": 0.05082186610881895,
+   "n": 66
+  },
+  "D_PREV_SIGN_then_still_60": {
+   "acquired": 0.8181818181818182,
+   "recall": 0.7377104377104376,
+   "target_false_active": 0.06331844470556734,
+   "history_false_active": 0.03760145436075557,
+   "n": 66
+  },
+  "E_HOLD_AT_SIGN_END_00": {
+   "acquired": 0.9545454545454546,
+   "recall": 0.7481481481481481,
+   "target_false_active": 0.08041726791726792,
+   "history_false_active": 0.10019731951550133,
+   "n": 66
+  },
+  "E_HOLD_AT_SIGN_END_03": {
+   "acquired": 0.8787878787878788,
+   "recall": 0.596446608946609,
+   "target_false_active": 0.0370384517443341,
+   "history_false_active": 0.308761736225851,
+   "n": 66
+  },
+  "E_HOLD_AT_SIGN_END_06": {
+   "acquired": 0.5757575757575758,
+   "recall": 0.3622234247234247,
+   "target_false_active": 0.020670995670995673,
+   "history_false_active": 0.36576608180886255,
+   "n": 66
+  },
+  "E_HOLD_AT_SIGN_END_12": {
+   "acquired": 0.045454545454545456,
+   "recall": 0.010606060606060605,
+   "target_false_active": 0.007034632034632035,
+   "history_false_active": 0.3319288390462424,
+   "n": 66
+  },
+  "E_HOLD_AT_SIGN_END_24": {
+   "acquired": 0.0,
+   "recall": 0.0,
+   "target_false_active": 0.0007215007215007215,
+   "history_false_active": 0.20949498100653657,
+   "n": 66
+  },
+  "C_PHONE_NO_SIGN_IDLE_30": {
+   "acquired": 0.7971014492753623,
+   "recall": 0.4307395905221992,
+   "target_false_active": 0.015038198431851897,
+   "history_false_active": 0.2333333333333333,
+   "n": 69
+  }
+ },
+ "PHASE7": {
+  "NONE": {
+   "acquired": 1.0,
+   "recall": 0.9437025534851623,
+   "target_false_active": 0.11078331731944023,
+   "history_false_active": 0.0,
+   "n": 69
+  },
+  "A_STILL_SELF_01": {
+   "acquired": 1.0,
+   "recall": 0.9594030365769497,
+   "target_false_active": 0.10638546689857192,
+   "history_false_active": 0.0,
+   "n": 69
+  },
+  "A_STILL_SELF_02": {
+   "acquired": 1.0,
+   "recall": 0.9618184955141477,
+   "target_false_active": 0.1176931212461982,
+   "history_false_active": 0.036231884057971016,
+   "n": 69
+  },
+  "A_STILL_SELF_04": {
+   "acquired": 1.0,
+   "recall": 0.9479296066252588,
+   "target_false_active": 0.13456044471309908,
+   "history_false_active": 0.06884057971014493,
+   "n": 69
+  },
+  "A_STILL_SELF_08": {
+   "acquired": 0.9565217391304348,
+   "recall": 0.8976593052680009,
+   "target_false_active": 0.14318677410029812,
+   "history_false_active": 0.1213768115942029,
+   "n": 69
+  },
+  "A_STILL_SELF_16": {
+   "acquired": 0.8840579710144928,
+   "recall": 0.7932999769956292,
+   "target_false_active": 0.12799828358738857,
+   "history_false_active": 0.14583333333333334,
+   "n": 69
+  },
+  "A_STILL_SELF_32": {
+   "acquired": 0.7681159420289855,
+   "recall": 0.7030710835058661,
+   "target_false_active": 0.04600812536682893,
+   "history_false_active": 0.09193840579710146,
+   "n": 69
+  },
+  "A_STILL_SELF_60": {
+   "acquired": 0.7536231884057971,
+   "recall": 0.6964918334483551,
+   "target_false_active": 0.0419614474071075,
+   "history_false_active": 0.04903381642512077,
+   "n": 69
+  },
+  "B_PHONE_POST_15_feature_join": {
+   "acquired": 0.014492753623188406,
+   "recall": 0.0018115942028985507,
+   "target_false_active": 0.0,
+   "history_false_active": 0.3333333333333332,
+   "n": 69
+  },
+  "B_PHONE_POST_15_raw_join": {
+   "acquired": 0.028985507246376812,
+   "recall": 0.0038819875776397515,
+   "target_false_active": 0.0,
+   "history_false_active": 0.3333333333333332,
+   "n": 69
+  },
+  "B_PHONE_POST_60_feature_join": {
+   "acquired": 0.0,
+   "recall": 0.0,
+   "target_false_active": 0.0,
+   "history_false_active": 0.06666666666666665,
+   "n": 69
+  },
+  "B_PHONE_POST_60_raw_join": {
+   "acquired": 0.0,
+   "recall": 0.0,
+   "target_false_active": 0.0,
+   "history_false_active": 0.06666666666666665,
+   "n": 69
+  },
+  "C_PHONE_REST_30": {
+   "acquired": 1.0,
+   "recall": 0.9624223602484472,
+   "target_false_active": 0.17181642410518438,
+   "history_false_active": 0.1666666666666666,
+   "n": 69
+  },
+  "D_PREV_SIGN_then_still_00": {
+   "acquired": 0.696969696969697,
+   "recall": 0.4801587301587302,
+   "target_false_active": 0.08578145854512254,
+   "history_false_active": 0.16570283205320432,
+   "n": 66
+  },
+  "D_PREV_SIGN_then_still_10": {
+   "acquired": 0.7575757575757576,
+   "recall": 0.5344155844155845,
+   "target_false_active": 0.025851002428100258,
+   "history_false_active": 0.17928009789232707,
+   "n": 66
+  },
+  "D_PREV_SIGN_then_still_20": {
+   "acquired": 0.7878787878787878,
+   "recall": 0.6866161616161616,
+   "target_false_active": 0.04635761643054583,
+   "history_false_active": 0.1278785121920354,
+   "n": 66
+  },
+  "D_PREV_SIGN_then_still_40": {
+   "acquired": 0.7878787878787878,
+   "recall": 0.7368506493506494,
+   "target_false_active": 0.06781345700614436,
+   "history_false_active": 0.07847936143721676,
+   "n": 66
+  },
+  "D_PREV_SIGN_then_still_60": {
+   "acquired": 0.7878787878787878,
+   "recall": 0.7368506493506494,
+   "target_false_active": 0.06259681692108322,
+   "history_false_active": 0.05705355503598939,
+   "n": 66
+  },
+  "E_HOLD_AT_SIGN_END_00": {
+   "acquired": 1.0,
+   "recall": 0.7908850408850409,
+   "target_false_active": 0.08857765328353563,
+   "history_false_active": 0.12664933971752154,
+   "n": 66
+  },
+  "E_HOLD_AT_SIGN_END_03": {
+   "acquired": 0.8333333333333334,
+   "recall": 0.5511784511784512,
+   "target_false_active": 0.04208895679483914,
+   "history_false_active": 0.34827354307511915,
+   "n": 66
+  },
+  "E_HOLD_AT_SIGN_END_06": {
+   "acquired": 0.6818181818181818,
+   "recall": 0.37183140933140935,
+   "target_false_active": 0.026107715813598165,
+   "history_false_active": 0.4182545989364171,
+   "n": 66
+  },
+  "E_HOLD_AT_SIGN_END_12": {
+   "acquired": 0.15151515151515152,
+   "recall": 0.08573232323232324,
+   "target_false_active": 0.0032467532467532465,
+   "history_false_active": 0.39092758522644266,
+   "n": 66
+  },
+  "E_HOLD_AT_SIGN_END_24": {
+   "acquired": 0.030303030303030304,
+   "recall": 0.01893939393939394,
+   "target_false_active": 0.0007215007215007215,
+   "history_false_active": 0.2644928967499804,
+   "n": 66
+  },
+  "C_PHONE_NO_SIGN_IDLE_30": {
+   "acquired": 0.028985507246376812,
+   "recall": 0.005952380952380952,
+   "target_false_active": 0.0,
+   "history_false_active": 0.06666666666666665,
+   "n": 69
+  }
+ }
+}
