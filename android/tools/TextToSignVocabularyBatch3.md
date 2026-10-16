@@ -88,7 +88,7 @@ for all ten**, at 41 samples per action. FINISH has a maximum **4.05 mm forearm
 projection depth** during transition; the other nine have zero measured forearm
 depth. This small residual and full mesh contact still need review. All 248 old actions and the
 old binary prefix, skeleton, geometry and skinning compare unchanged. The bundle
-hash is `9abc31e5eed7597c96e4cded055176427ea25fb8fd8999a32966409961208990`.
+hash is `e9079308b6780e180528e4b893e64bdb77e46b33b6ad2cd99355bec03df57b18`.
 Zero in this bounded projection test does not rule out every possible mesh
 intersection or establish linguistically correct signing.
 
@@ -108,10 +108,27 @@ actual Android poses and motion before replacing the production bundle/checksum.
 Run the existing build wrapper with OriginalWords, unit/controller tests and the
 instrumented normal-input test. Source/data checks do not replace signer review.
 
+For the exact exported bundle, recover the GLB and adjacent JSON from candidate
+checkpoint **1d9abe3** into a distinct working filename. Run
+`correct-text-to-sign-tired.py CHECKPOINT.glb FINAL.glb CORRECTION.json`, then the
+independent audit against Update-2 with audit key `everydayExpansion3`. This
+targeted patch keeps the other 257 actions and every TIRED finger channel
+unchanged, appending only six arm/wrist output arrays (about 7.5 KB). The full
+generator also contains the corrected pose, but the exported bundle uses this
+minimal patch to preserve the other nine inspected candidates exactly.
+
+TIRED's final wrist correction changes the direction of the slump: bent
+fingertips move downward, rather than the initial candidate's upward turn. The
+chest-area MCP anchors stay stationary while wrist orientation changes. No finger
+pose restrictions or global idle changes are introduced. At sampled active poses
+the dominant middle fingertip drops from 1.330 m to 1.273 m, with no measured hand
+or forearm penetration in the independent 41-pose test. Qualified ASL review of
+contact, facial expression, timing and the complete motion is still required.
+
 ## Build and controller evidence
 
 Existing OriginalWords/fake build wrapper: `testDebugUnitTest assembleDebug
-assembleDebugAndroidTest`, successful in **3m 35s**; **254 JVM tests, zero
+assembleDebugAndroidTest`, successful in **10m 34s**; **254 JVM tests, zero
 failures/errors**. Existing SDK/Gradle/JDK configuration retained. Debug signature
 verified, same certificate SHA256
 `5a315db9ca99c70f5f0c127dc8c6558e02d343e5b41d0bf4eee8bb256ce38a8c`.
@@ -130,7 +147,7 @@ Catalog: 232 lexical dictionary entries,
 These are ten new input entries and independently named motion clips, not ten
 newly discovered ASL lexemes: HEARING is related to SPEAK and TIRED to EXHAUSTED.
 
-Installation, final rendered inspection and emulator regression are pending.
+Final APK installation was verified against SHA256 f6bfd28405efb98ae421b0ffe2867f364cf867eb9f31813d1b950cdf778a3340. Installed animation bundle matches the checksum above. Compared with Update-2, unrelated packaged resources, assets and native libraries were unchanged; retained preference files were byte-identical. Final rendered inspection and the full emulator regression do not have a confirmed completion result and must not be reported as passed.
 
 ## Exact component files
 
@@ -146,6 +163,7 @@ Relative to the Android project:
 - `app/src/androidTest/java/com/example/apphear/AslFingerspellingPlaybackInstrumentedTest.kt`: normal-button tests for ten words, mixtures and retained unknown-word spelling.
 - `tools/test-text-to-sign-resident.cjs`: updated total; still exercises every named action and completion/cancellation paths.
 - `tools/expand-text-to-sign-batch3.py`: reproducible offline authoring with pinned baseline, geometry preservation, quaternion, reach, length and transform-type guards.
+- `tools/correct-text-to-sign-tired.py`: checkpoint-pinned six-channel correction, with assertions preserving the other 257 actions, TIRED fingers and geometry.
 - `tools/TextToSignVocabularyBatch3.md`: this component report, references, test evidence and limitations.
 
 No unrelated source file or application feature was changed. No Windows files,

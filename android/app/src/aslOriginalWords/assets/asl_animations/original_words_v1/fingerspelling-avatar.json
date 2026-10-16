@@ -5,7 +5,7 @@
   "language": "ASL",
   "avatarProfile": "ORIGINAL_HUMAN",
   "asset": "asl_animations/original_words_v1/fingerspelling-avatar.glb",
-  "sha256": "9abc31e5eed7597c96e4cded055176427ea25fb8fd8999a32966409961208990",
+  "sha256": "e9079308b6780e180528e4b893e64bdb77e46b33b6ad2cd99355bec03df57b18",
   "sourceSha256": "645da29f5e8a24dc7da2f4b6e23ca2e87fb91254958f5053ba0281080ec0a524",
   "status": "UNREVIEWED_RETARGETED_PREVIEW",
   "source": "Existing AppHear FemaleASL alphabet; motion rights/provenance unresolved",
@@ -2125,6 +2125,15 @@
         "id": "now",
         "reference": "https://www.lifeprint.com/asl101/pages-signs/n/now.htm"
       }
-    ]
+    ],
+    "tiredCorrection": {
+      "sourceBundleSha256": "9abc31e5eed7597c96e4cded055176427ea25fb8fd8999a32966409961208990",
+      "changedRotationChannels": 6,
+      "unchangedActions": 257,
+      "fingerChannelsUnchanged": true,
+      "sourceGeometryUnchanged": true,
+      "qualifiedAslValidation": false,
+      "correction": "Bent hands slump downward through wrist rotation around stable chest-area MCP anchors; no downward sliding of the whole hand."
+    }
   }
 }
