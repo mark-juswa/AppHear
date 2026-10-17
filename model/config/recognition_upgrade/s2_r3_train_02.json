@@ -1,0 +1,75 @@
+{
+  "schema": "apphear.s2_r3.train_config.v1",
+  "milestone": "S2_R3_ARM_A2_01",
+  "plan": "docs/audit/S2_R3_EXPERIMENT_PLAN_2026-10-16.md (D2, D6, D7; build steps 3-6)",
+  "arm": "A2",
+  "contract": "v1",
+  "seed": 5103,
+  "views": {
+    "VIEW_A": 133.308,
+    "VIEW_B": 199.962,
+    "VIEW_C": 266.616
+  },
+  "streams": {
+    "fit_count": 1200,
+    "cal_count": 240,
+    "length_range": [
+      60,
+      400
+    ],
+    "join_ignore_observations": 2,
+    "transition_mix": {
+      "ISOLATED": 0.25,
+      "DIRECT": 0.35,
+      "VIA_NEGATIVE": 0.4
+    },
+    "direct_post_keep_range": [
+      0,
+      6
+    ],
+    "negative_block_range": [
+      10,
+      80
+    ],
+    "start_with_negative_probability": 0.7,
+    "negative_family_mix": {
+      "P1": 0.6,
+      "N0": 0.4
+    },
+    "n0_exclusion_radius_ms": 1000.0
+  },
+  "phone_design_stream": {
+    "chunk": 400,
+    "stride": 340
+  },
+  "training": {
+    "epochs": 30,
+    "batch_size": 8,
+    "learning_rate": 0.001,
+    "source_family_weight": {
+      "PHASE7_SIGN": 0.3,
+      "ENRICHMENT_SIGN": 0.05,
+      "PHONE_POSITIVE": 0.1,
+      "P1_NEGATIVE": 0.1,
+      "STITCHED_STREAM": 0.35,
+      "PHONE_DESIGN_NEGATIVE": 0.1
+    },
+    "negative_block_multiplier": 4.0
+  },
+  "selection": {
+    "rule": "D7 lexicographic on CAL only: eligible iff CAL non-sign ACTIVE rate <= frozen S2-R2 rate on the same CAL streams; then maximize CAL second-sign acquisition, then CAL isolated containment",
+    "containment_fraction": 0.9,
+    "fallback_if_no_eligible_epoch": {
+      "rule": "DIAGNOSTIC_FALLBACK (not D7-compliant): epoch with the lowest CAL non-sign ACTIVE rate among epochs with CAL later-sign acquisition >= 0.8",
+      "minimum_later_sign_acquisition": 0.8,
+      "preregistered": "2026-10-16 before the main run"
+    }
+  },
+  "reference_package": {
+    "keras": "artifacts/recognition_upgrade/perception_vnext/recognition_utility_236_01/s2_r2_continuous_domain_correction_01/main_candidate/best_model.keras",
+    "normalization": "artifacts/recognition_upgrade/perception_vnext/recognition_utility_236_01/s2_r2_continuous_domain_correction_01/main_candidate/normalization.json"
+  },
+  "output": "artifacts/recognition_upgrade/perception_vnext/recognition_utility_236_01/s2_r3_arm_a2_01",
+  "ablation_of": "s2_r3_train_01.json (identical data, seed and selection; only non-sign rows inside stitched streams get 4x loss weight)",
+  "preregistered": "2026-10-16, after Arm A epochs 1-7 showed CAL non-sign ACTIVE 3-5% vs the 1.09% D7 bar; before any A2 result"
+}

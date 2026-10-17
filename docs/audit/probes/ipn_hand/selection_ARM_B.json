@@ -1,0 +1,563 @@
+{
+ "run": "ARM_B",
+ "rule": "(fixed 2026-10-17 before any Arm B/I result): eligible epochs have CAL later-sign\nacquisition >= Arm A e10 - 0.03 and IPN-CAL gesture_canary >= 0.7 x Arm A e10's; choose the\nlowest IPN-CAL nog_events_per_min; ties -> lower CAL non-sign ACTIVE rate. Applied identically to\nArm A's own epochs (selection-only control).",
+ "reference_arm_a_e10": {
+  "cal": {
+   "first_sign_acquisition": 0.9958333333333333,
+   "isolated_containment": 0.8333333333333334,
+   "later_sign_acquisition": 0.9551724137931035,
+   "nonsign_active_rate": 0.015663747371064445
+  },
+  "ipn_cal": {
+   "nog_events_per_min": 8.755760368663593,
+   "nog_events": 38,
+   "nog_minutes": 4.340000000000001,
+   "nog_chunk_fire": 0.7,
+   "gesture_canary": 0.6608695652173913,
+   "gesture_segments": 115
+  }
+ },
+ "epochs": [
+  {
+   "epoch": 1,
+   "cal": {
+    "first_sign_acquisition": 0.8208333333333333,
+    "isolated_containment": 0.5,
+    "later_sign_acquisition": 0.6793103448275862,
+    "nonsign_active_rate": 0.008852057632545438
+   },
+   "ipn_cal": {
+    "nog_events_per_min": 0.46082949308755755,
+    "nog_events": 2,
+    "nog_minutes": 4.340000000000001,
+    "nog_chunk_fire": 0.17142857142857143,
+    "gesture_canary": 0.12173913043478261,
+    "gesture_segments": 115
+   },
+   "eligible": false
+  },
+  {
+   "epoch": 2,
+   "cal": {
+    "first_sign_acquisition": 0.9916666666666667,
+    "isolated_containment": 0.7083333333333334,
+    "later_sign_acquisition": 0.8844827586206897,
+    "nonsign_active_rate": 0.017264651410992874
+   },
+   "ipn_cal": {
+    "nog_events_per_min": 3.6866359447004604,
+    "nog_events": 16,
+    "nog_minutes": 4.340000000000001,
+    "nog_chunk_fire": 0.4642857142857143,
+    "gesture_canary": 0.391304347826087,
+    "gesture_segments": 115
+   },
+   "eligible": false
+  },
+  {
+   "epoch": 3,
+   "cal": {
+    "first_sign_acquisition": 0.9625,
+    "isolated_containment": 0.7916666666666666,
+    "later_sign_acquisition": 0.9408045977011494,
+    "nonsign_active_rate": 0.018080798568603448
+   },
+   "ipn_cal": {
+    "nog_events_per_min": 3.2258064516129026,
+    "nog_events": 14,
+    "nog_minutes": 4.340000000000001,
+    "nog_chunk_fire": 0.6428571428571429,
+    "gesture_canary": 0.4782608695652174,
+    "gesture_segments": 115
+   },
+   "eligible": true
+  },
+  {
+   "epoch": 4,
+   "cal": {
+    "first_sign_acquisition": 0.8875,
+    "isolated_containment": 0.7916666666666666,
+    "later_sign_acquisition": 0.9109195402298851,
+    "nonsign_active_rate": 0.03010327400571303
+   },
+   "ipn_cal": {
+    "nog_events_per_min": 3.917050691244239,
+    "nog_events": 17,
+    "nog_minutes": 4.340000000000001,
+    "nog_chunk_fire": 0.75,
+    "gesture_canary": 0.5478260869565217,
+    "gesture_segments": 115
+   },
+   "eligible": false
+  },
+  {
+   "epoch": 5,
+   "cal": {
+    "first_sign_acquisition": 0.9166666666666666,
+    "isolated_containment": 0.7916666666666666,
+    "later_sign_acquisition": 0.9482758620689655,
+    "nonsign_active_rate": 0.03634993878896318
+   },
+   "ipn_cal": {
+    "nog_events_per_min": 3.2258064516129026,
+    "nog_events": 14,
+    "nog_minutes": 4.340000000000001,
+    "nog_chunk_fire": 0.8214285714285714,
+    "gesture_canary": 0.5565217391304348,
+    "gesture_segments": 115
+   },
+   "eligible": true
+  },
+  {
+   "epoch": 6,
+   "cal": {
+    "first_sign_acquisition": 0.9,
+    "isolated_containment": 0.8125,
+    "later_sign_acquisition": 0.9356321839080459,
+    "nonsign_active_rate": 0.04799573092256019
+   },
+   "ipn_cal": {
+    "nog_events_per_min": 2.995391705069124,
+    "nog_events": 13,
+    "nog_minutes": 4.340000000000001,
+    "nog_chunk_fire": 0.8642857142857143,
+    "gesture_canary": 0.6956521739130435,
+    "gesture_segments": 115
+   },
+   "eligible": true
+  },
+  {
+   "epoch": 7,
+   "cal": {
+    "first_sign_acquisition": 0.8625,
+    "isolated_containment": 0.8125,
+    "later_sign_acquisition": 0.9172413793103448,
+    "nonsign_active_rate": 0.030542737859811032
+   },
+   "ipn_cal": {
+    "nog_events_per_min": 2.995391705069124,
+    "nog_events": 13,
+    "nog_minutes": 4.340000000000001,
+    "nog_chunk_fire": 0.8714285714285714,
+    "gesture_canary": 0.591304347826087,
+    "gesture_segments": 115
+   },
+   "eligible": false
+  },
+  {
+   "epoch": 8,
+   "cal": {
+    "first_sign_acquisition": 0.8708333333333333,
+    "isolated_containment": 0.7916666666666666,
+    "later_sign_acquisition": 0.9172413793103448,
+    "nonsign_active_rate": 0.025175000784756884
+   },
+   "ipn_cal": {
+    "nog_events_per_min": 2.764976958525345,
+    "nog_events": 12,
+    "nog_minutes": 4.340000000000001,
+    "nog_chunk_fire": 0.9357142857142857,
+    "gesture_canary": 0.4434782608695652,
+    "gesture_segments": 115
+   },
+   "eligible": false
+  },
+  {
+   "epoch": 9,
+   "cal": {
+    "first_sign_acquisition": 0.9916666666666667,
+    "isolated_containment": 0.75,
+    "later_sign_acquisition": 0.9948275862068966,
+    "nonsign_active_rate": 0.02837680886461374
+   },
+   "ipn_cal": {
+    "nog_events_per_min": 2.073732718894009,
+    "nog_events": 9,
+    "nog_minutes": 4.340000000000001,
+    "nog_chunk_fire": 0.8714285714285714,
+    "gesture_canary": 0.5652173913043478,
+    "gesture_segments": 115
+   },
+   "eligible": true
+  },
+  {
+   "epoch": 10,
+   "cal": {
+    "first_sign_acquisition": 0.8625,
+    "isolated_containment": 0.8125,
+    "later_sign_acquisition": 0.9241379310344827,
+    "nonsign_active_rate": 0.047650437894340335
+   },
+   "ipn_cal": {
+    "nog_events_per_min": 2.995391705069124,
+    "nog_events": 13,
+    "nog_minutes": 4.340000000000001,
+    "nog_chunk_fire": 0.9142857142857143,
+    "gesture_canary": 0.6434782608695652,
+    "gesture_segments": 115
+   },
+   "eligible": false
+  },
+  {
+   "epoch": 11,
+   "cal": {
+    "first_sign_acquisition": 0.9833333333333333,
+    "isolated_containment": 0.8125,
+    "later_sign_acquisition": 0.9781609195402299,
+    "nonsign_active_rate": 0.043820824308629186
+   },
+   "ipn_cal": {
+    "nog_events_per_min": 2.764976958525345,
+    "nog_events": 12,
+    "nog_minutes": 4.340000000000001,
+    "nog_chunk_fire": 0.8785714285714286,
+    "gesture_canary": 0.46956521739130436,
+    "gesture_segments": 115
+   },
+   "eligible": true
+  },
+  {
+   "epoch": 12,
+   "cal": {
+    "first_sign_acquisition": 0.8583333333333333,
+    "isolated_containment": 0.8125,
+    "later_sign_acquisition": 0.917816091954023,
+    "nonsign_active_rate": 0.04783877954609662
+   },
+   "ipn_cal": {
+    "nog_events_per_min": 2.764976958525345,
+    "nog_events": 12,
+    "nog_minutes": 4.340000000000001,
+    "nog_chunk_fire": 0.8928571428571429,
+    "gesture_canary": 0.5478260869565217,
+    "gesture_segments": 115
+   },
+   "eligible": false
+  },
+  {
+   "epoch": 13,
+   "cal": {
+    "first_sign_acquisition": 0.8583333333333333,
+    "isolated_containment": 0.8125,
+    "later_sign_acquisition": 0.9195402298850575,
+    "nonsign_active_rate": 0.05075807514831905
+   },
+   "ipn_cal": {
+    "nog_events_per_min": 3.2258064516129026,
+    "nog_events": 14,
+    "nog_minutes": 4.340000000000001,
+    "nog_chunk_fire": 0.8857142857142857,
+    "gesture_canary": 0.6,
+    "gesture_segments": 115
+   },
+   "eligible": false
+  },
+  {
+   "epoch": 14,
+   "cal": {
+    "first_sign_acquisition": 0.8916666666666667,
+    "isolated_containment": 0.8333333333333334,
+    "later_sign_acquisition": 0.9408045977011494,
+    "nonsign_active_rate": 0.04498226449445961
+   },
+   "ipn_cal": {
+    "nog_events_per_min": 3.2258064516129026,
+    "nog_events": 14,
+    "nog_minutes": 4.340000000000001,
+    "nog_chunk_fire": 0.9071428571428571,
+    "gesture_canary": 0.5217391304347826,
+    "gesture_segments": 115
+   },
+   "eligible": true
+  },
+  {
+   "epoch": 15,
+   "cal": {
+    "first_sign_acquisition": 0.8583333333333333,
+    "isolated_containment": 0.8125,
+    "later_sign_acquisition": 0.9206896551724137,
+    "nonsign_active_rate": 0.038076403930062466
+   },
+   "ipn_cal": {
+    "nog_events_per_min": 2.764976958525345,
+    "nog_events": 12,
+    "nog_minutes": 4.340000000000001,
+    "nog_chunk_fire": 0.9,
+    "gesture_canary": 0.5391304347826087,
+    "gesture_segments": 115
+   },
+   "eligible": false
+  },
+  {
+   "epoch": 16,
+   "cal": {
+    "first_sign_acquisition": 0.8583333333333333,
+    "isolated_containment": 0.8333333333333334,
+    "later_sign_acquisition": 0.9160919540229885,
+    "nonsign_active_rate": 0.057193081583325485
+   },
+   "ipn_cal": {
+    "nog_events_per_min": 3.2258064516129026,
+    "nog_events": 14,
+    "nog_minutes": 4.340000000000001,
+    "nog_chunk_fire": 0.9,
+    "gesture_canary": 0.5739130434782609,
+    "gesture_segments": 115
+   },
+   "eligible": false
+  },
+  {
+   "epoch": 17,
+   "cal": {
+    "first_sign_acquisition": 0.8625,
+    "isolated_containment": 0.8125,
+    "later_sign_acquisition": 0.9264367816091954,
+    "nonsign_active_rate": 0.0423140910945789
+   },
+   "ipn_cal": {
+    "nog_events_per_min": 3.2258064516129026,
+    "nog_events": 14,
+    "nog_minutes": 4.340000000000001,
+    "nog_chunk_fire": 0.9214285714285714,
+    "gesture_canary": 0.6,
+    "gesture_segments": 115
+   },
+   "eligible": true
+  },
+  {
+   "epoch": 18,
+   "cal": {
+    "first_sign_acquisition": 0.9166666666666666,
+    "isolated_containment": 0.8333333333333334,
+    "later_sign_acquisition": 0.9563218390804598,
+    "nonsign_active_rate": 0.037699720626549894
+   },
+   "ipn_cal": {
+    "nog_events_per_min": 2.995391705069124,
+    "nog_events": 13,
+    "nog_minutes": 4.340000000000001,
+    "nog_chunk_fire": 0.9142857142857143,
+    "gesture_canary": 0.5565217391304348,
+    "gesture_segments": 115
+   },
+   "eligible": true
+  },
+  {
+   "epoch": 19,
+   "cal": {
+    "first_sign_acquisition": 1.0,
+    "isolated_containment": 0.75,
+    "later_sign_acquisition": 0.9977011494252873,
+    "nonsign_active_rate": 0.01701352920865116
+   },
+   "ipn_cal": {
+    "nog_events_per_min": 2.5345622119815663,
+    "nog_events": 11,
+    "nog_minutes": 4.340000000000001,
+    "nog_chunk_fire": 0.7071428571428572,
+    "gesture_canary": 0.40869565217391307,
+    "gesture_segments": 115
+   },
+   "eligible": false
+  },
+  {
+   "epoch": 20,
+   "cal": {
+    "first_sign_acquisition": 1.0,
+    "isolated_containment": 0.8125,
+    "later_sign_acquisition": 0.9982758620689656,
+    "nonsign_active_rate": 0.022632388486047022
+   },
+   "ipn_cal": {
+    "nog_events_per_min": 3.4562211981566815,
+    "nog_events": 15,
+    "nog_minutes": 4.340000000000001,
+    "nog_chunk_fire": 0.9071428571428571,
+    "gesture_canary": 0.4434782608695652,
+    "gesture_segments": 115
+   },
+   "eligible": false
+  },
+  {
+   "epoch": 21,
+   "cal": {
+    "first_sign_acquisition": 0.8708333333333333,
+    "isolated_containment": 0.8125,
+    "later_sign_acquisition": 0.9281609195402298,
+    "nonsign_active_rate": 0.028314028314028315
+   },
+   "ipn_cal": {
+    "nog_events_per_min": 2.764976958525345,
+    "nog_events": 12,
+    "nog_minutes": 4.340000000000001,
+    "nog_chunk_fire": 0.9428571428571428,
+    "gesture_canary": 0.5217391304347826,
+    "gesture_segments": 115
+   },
+   "eligible": true
+  },
+  {
+   "epoch": 22,
+   "cal": {
+    "first_sign_acquisition": 0.8708333333333333,
+    "isolated_containment": 0.8125,
+    "later_sign_acquisition": 0.9333333333333333,
+    "nonsign_active_rate": 0.035941865210157894
+   },
+   "ipn_cal": {
+    "nog_events_per_min": 3.4562211981566815,
+    "nog_events": 15,
+    "nog_minutes": 4.340000000000001,
+    "nog_chunk_fire": 0.95,
+    "gesture_canary": 0.5043478260869565,
+    "gesture_segments": 115
+   },
+   "eligible": true
+  },
+  {
+   "epoch": 23,
+   "cal": {
+    "first_sign_acquisition": 0.8625,
+    "isolated_containment": 0.8125,
+    "later_sign_acquisition": 0.917816091954023,
+    "nonsign_active_rate": 0.033964277866716894
+   },
+   "ipn_cal": {
+    "nog_events_per_min": 3.4562211981566815,
+    "nog_events": 15,
+    "nog_minutes": 4.340000000000001,
+    "nog_chunk_fire": 0.9428571428571428,
+    "gesture_canary": 0.4608695652173913,
+    "gesture_segments": 115
+   },
+   "eligible": false
+  },
+  {
+   "epoch": 24,
+   "cal": {
+    "first_sign_acquisition": 0.8666666666666667,
+    "isolated_containment": 0.8125,
+    "later_sign_acquisition": 0.9224137931034483,
+    "nonsign_active_rate": 0.028753492168126314
+   },
+   "ipn_cal": {
+    "nog_events_per_min": 3.917050691244239,
+    "nog_events": 17,
+    "nog_minutes": 4.340000000000001,
+    "nog_chunk_fire": 0.9428571428571428,
+    "gesture_canary": 0.5304347826086957,
+    "gesture_segments": 115
+   },
+   "eligible": false
+  },
+  {
+   "epoch": 25,
+   "cal": {
+    "first_sign_acquisition": 0.8666666666666667,
+    "isolated_containment": 0.8125,
+    "later_sign_acquisition": 0.9235632183908046,
+    "nonsign_active_rate": 0.02310324261543774
+   },
+   "ipn_cal": {
+    "nog_events_per_min": 2.995391705069124,
+    "nog_events": 13,
+    "nog_minutes": 4.340000000000001,
+    "nog_chunk_fire": 0.9428571428571428,
+    "gesture_canary": 0.5478260869565217,
+    "gesture_segments": 115
+   },
+   "eligible": false
+  },
+  {
+   "epoch": 26,
+   "cal": {
+    "first_sign_acquisition": 0.8833333333333333,
+    "isolated_containment": 0.8125,
+    "later_sign_acquisition": 0.9310344827586207,
+    "nonsign_active_rate": 0.02363687729541388
+   },
+   "ipn_cal": {
+    "nog_events_per_min": 3.4562211981566815,
+    "nog_events": 15,
+    "nog_minutes": 4.340000000000001,
+    "nog_chunk_fire": 0.9214285714285714,
+    "gesture_canary": 0.5826086956521739,
+    "gesture_segments": 115
+   },
+   "eligible": true
+  },
+  {
+   "epoch": 27,
+   "cal": {
+    "first_sign_acquisition": 0.8666666666666667,
+    "isolated_containment": 0.8125,
+    "later_sign_acquisition": 0.9235632183908046,
+    "nonsign_active_rate": 0.029757980977493173
+   },
+   "ipn_cal": {
+    "nog_events_per_min": 3.2258064516129026,
+    "nog_events": 14,
+    "nog_minutes": 4.340000000000001,
+    "nog_chunk_fire": 0.9357142857142857,
+    "gesture_canary": 0.5739130434782609,
+    "gesture_segments": 115
+   },
+   "eligible": false
+  },
+  {
+   "epoch": 28,
+   "cal": {
+    "first_sign_acquisition": 0.9208333333333333,
+    "isolated_containment": 0.8125,
+    "later_sign_acquisition": 0.9586206896551724,
+    "nonsign_active_rate": 0.037919452553598895
+   },
+   "ipn_cal": {
+    "nog_events_per_min": 3.2258064516129026,
+    "nog_events": 14,
+    "nog_minutes": 4.340000000000001,
+    "nog_chunk_fire": 0.9428571428571428,
+    "gesture_canary": 0.6,
+    "gesture_segments": 115
+   },
+   "eligible": true
+  },
+  {
+   "epoch": 29,
+   "cal": {
+    "first_sign_acquisition": 0.8708333333333333,
+    "isolated_containment": 0.8125,
+    "later_sign_acquisition": 0.9218390804597701,
+    "nonsign_active_rate": 0.029820761528078603
+   },
+   "ipn_cal": {
+    "nog_events_per_min": 2.995391705069124,
+    "nog_events": 13,
+    "nog_minutes": 4.340000000000001,
+    "nog_chunk_fire": 0.9214285714285714,
+    "gesture_canary": 0.5565217391304348,
+    "gesture_segments": 115
+   },
+   "eligible": false
+  },
+  {
+   "epoch": 30,
+   "cal": {
+    "first_sign_acquisition": 1.0,
+    "isolated_containment": 0.8125,
+    "later_sign_acquisition": 0.9959770114942529,
+    "nonsign_active_rate": 0.037888062278306184
+   },
+   "ipn_cal": {
+    "nog_events_per_min": 2.995391705069124,
+    "nog_events": 13,
+    "nog_minutes": 4.340000000000001,
+    "nog_chunk_fire": 0.8928571428571429,
+    "gesture_canary": 0.3565217391304348,
+    "gesture_segments": 115
+   },
+   "eligible": false
+  }
+ ],
+ "selected_epoch": 9
+}

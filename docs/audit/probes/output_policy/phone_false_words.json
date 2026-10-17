@@ -1,0 +1,34 @@
+{
+  "today (S2-R2+frozen, gate 0.55)": {
+    "correct": 8,
+    "correct_gated": 7,
+    "misclassified": 3,
+    "misclassified_gated": 1,
+    "nonsign_words": 5,
+    "nonsign_words_gated": 2,
+    "other_unmatched": 12,
+    "other_unmatched_gated": 4,
+    "by_session_correct": {
+      "OCT15_COMPACT": 1,
+      "SEP23_INDEPENDENT": 3,
+      "SEP23_REPRESENTATIVE": 3,
+      "SEP27_TRANSITION": 1
+    }
+  },
+  "candidate (E21@0.8+v2, gate 0.60)": {
+    "correct": 10,
+    "correct_gated": 8,
+    "misclassified": 1,
+    "misclassified_gated": 1,
+    "nonsign_words": 6,
+    "nonsign_words_gated": 3,
+    "other_unmatched": 3,
+    "other_unmatched_gated": 2,
+    "by_session_correct": {
+      "OCT15_COMPACT": 3,
+      "SEP23_INDEPENDENT": 2,
+      "SEP23_REPRESENTATIVE": 4,
+      "SEP27_TRANSITION": 1
+    }
+  }
+}

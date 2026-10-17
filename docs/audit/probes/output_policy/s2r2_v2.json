@@ -1,0 +1,312 @@
+{
+  "name": "s2r2_v2",
+  "s2": {
+    "keras_sha256": "b6f8b52cece72f0b6f5b802a4ea583060d923e90a6b951059e7013114c8fc151",
+    "normalization_sha256": "65d885f62eaca6f11a596302d304f63149795ddaf01e702f1e6a36dd7da5c005"
+  },
+  "recognizer": "4f56ce612ca5b40c4073c07670c9e46e9de9ba5f31736b5f0615154a984673bf",
+  "calibration_signers": [
+    "asl_citizen:P12",
+    "asl_citizen:P21",
+    "asl_citizen:P5"
+  ],
+  "selected_threshold": 0.65,
+  "calibration": {
+    "none": {
+      "threshold": 0.0,
+      "correct": 87,
+      "wrong": 180,
+      "correct_kept": 87,
+      "wrong_kept": 180,
+      "precision_kept": 0.3258426966292135,
+      "youden": 0.0
+    },
+    "selected": {
+      "threshold": 0.65,
+      "correct": 87,
+      "wrong": 180,
+      "correct_kept": 54,
+      "wrong_kept": 37,
+      "precision_kept": 0.5934065934065934,
+      "youden": 0.41513409961685827
+    },
+    "sweep": [
+      {
+        "threshold": 0.0,
+        "correct": 87,
+        "wrong": 180,
+        "correct_kept": 87,
+        "wrong_kept": 180,
+        "precision_kept": 0.3258426966292135,
+        "youden": 0.0
+      },
+      {
+        "threshold": 0.05,
+        "correct": 87,
+        "wrong": 180,
+        "correct_kept": 87,
+        "wrong_kept": 180,
+        "precision_kept": 0.3258426966292135,
+        "youden": 0.0
+      },
+      {
+        "threshold": 0.1,
+        "correct": 87,
+        "wrong": 180,
+        "correct_kept": 87,
+        "wrong_kept": 178,
+        "precision_kept": 0.3283018867924528,
+        "youden": 0.011111111111111072
+      },
+      {
+        "threshold": 0.15,
+        "correct": 87,
+        "wrong": 180,
+        "correct_kept": 87,
+        "wrong_kept": 174,
+        "precision_kept": 0.3333333333333333,
+        "youden": 0.033333333333333326
+      },
+      {
+        "threshold": 0.2,
+        "correct": 87,
+        "wrong": 180,
+        "correct_kept": 86,
+        "wrong_kept": 159,
+        "precision_kept": 0.3510204081632653,
+        "youden": 0.10517241379310349
+      },
+      {
+        "threshold": 0.25,
+        "correct": 87,
+        "wrong": 180,
+        "correct_kept": 83,
+        "wrong_kept": 146,
+        "precision_kept": 0.3624454148471616,
+        "youden": 0.14291187739463596
+      },
+      {
+        "threshold": 0.3,
+        "correct": 87,
+        "wrong": 180,
+        "correct_kept": 79,
+        "wrong_kept": 130,
+        "precision_kept": 0.37799043062200954,
+        "youden": 0.18582375478927204
+      },
+      {
+        "threshold": 0.35,
+        "correct": 87,
+        "wrong": 180,
+        "correct_kept": 73,
+        "wrong_kept": 115,
+        "precision_kept": 0.3882978723404255,
+        "youden": 0.20019157088122608
+      },
+      {
+        "threshold": 0.4,
+        "correct": 87,
+        "wrong": 180,
+        "correct_kept": 67,
+        "wrong_kept": 97,
+        "precision_kept": 0.40853658536585363,
+        "youden": 0.23122605363984672
+      },
+      {
+        "threshold": 0.45,
+        "correct": 87,
+        "wrong": 180,
+        "correct_kept": 67,
+        "wrong_kept": 84,
+        "precision_kept": 0.44370860927152317,
+        "youden": 0.3034482758620689
+      },
+      {
+        "threshold": 0.5,
+        "correct": 87,
+        "wrong": 180,
+        "correct_kept": 64,
+        "wrong_kept": 72,
+        "precision_kept": 0.47058823529411764,
+        "youden": 0.33563218390804594
+      },
+      {
+        "threshold": 0.55,
+        "correct": 87,
+        "wrong": 180,
+        "correct_kept": 59,
+        "wrong_kept": 56,
+        "precision_kept": 0.5130434782608696,
+        "youden": 0.3670498084291187
+      },
+      {
+        "threshold": 0.6,
+        "correct": 87,
+        "wrong": 180,
+        "correct_kept": 56,
+        "wrong_kept": 48,
+        "precision_kept": 0.5384615384615384,
+        "youden": 0.37701149425287356
+      },
+      {
+        "threshold": 0.65,
+        "correct": 87,
+        "wrong": 180,
+        "correct_kept": 54,
+        "wrong_kept": 37,
+        "precision_kept": 0.5934065934065934,
+        "youden": 0.41513409961685827
+      },
+      {
+        "threshold": 0.7,
+        "correct": 87,
+        "wrong": 180,
+        "correct_kept": 46,
+        "wrong_kept": 29,
+        "precision_kept": 0.6133333333333333,
+        "youden": 0.367624521072797
+      },
+      {
+        "threshold": 0.75,
+        "correct": 87,
+        "wrong": 180,
+        "correct_kept": 45,
+        "wrong_kept": 25,
+        "precision_kept": 0.6428571428571429,
+        "youden": 0.37835249042145597
+      },
+      {
+        "threshold": 0.8,
+        "correct": 87,
+        "wrong": 180,
+        "correct_kept": 37,
+        "wrong_kept": 17,
+        "precision_kept": 0.6851851851851852,
+        "youden": 0.3308429118773946
+      },
+      {
+        "threshold": 0.85,
+        "correct": 87,
+        "wrong": 180,
+        "correct_kept": 31,
+        "wrong_kept": 13,
+        "precision_kept": 0.7045454545454546,
+        "youden": 0.2840996168582376
+      },
+      {
+        "threshold": 0.9,
+        "correct": 87,
+        "wrong": 180,
+        "correct_kept": 23,
+        "wrong_kept": 12,
+        "precision_kept": 0.6571428571428571,
+        "youden": 0.19770114942528738
+      },
+      {
+        "threshold": 0.95,
+        "correct": 87,
+        "wrong": 180,
+        "correct_kept": 16,
+        "wrong_kept": 3,
+        "precision_kept": 0.8421052631578947,
+        "youden": 0.16724137931034483
+      }
+    ]
+  },
+  "validation": {
+    "none": {
+      "threshold": 0.0,
+      "correct": 138,
+      "wrong": 239,
+      "correct_kept": 138,
+      "wrong_kept": 239,
+      "precision_kept": 0.3660477453580902,
+      "youden": 0.0
+    },
+    "selected": {
+      "threshold": 0.65,
+      "correct": 138,
+      "wrong": 239,
+      "correct_kept": 86,
+      "wrong_kept": 80,
+      "precision_kept": 0.5180722891566265,
+      "youden": 0.2884603723242981
+    }
+  },
+  "phone": {
+    "none": {
+      "threshold": 0.0,
+      "correct": 9,
+      "wrong": 19,
+      "correct_kept": 9,
+      "wrong_kept": 19,
+      "precision_kept": 0.32142857142857145,
+      "youden": 0.0
+    },
+    "selected": {
+      "threshold": 0.65,
+      "correct": 9,
+      "wrong": 19,
+      "correct_kept": 8,
+      "wrong_kept": 3,
+      "precision_kept": 0.7272727272727273,
+      "youden": 0.7309941520467835
+    }
+  },
+  "benchmark_summary": {
+    "NATURAL": {
+      "signs": 812.0,
+      "acquired": 499.0,
+      "oracle_correct": 349.0,
+      "detected": 313.0,
+      "correct_words": 134.0,
+      "acquired_no_distinct_event": 186.0,
+      "acquired_inside_shared_event": 11.0,
+      "events": 383.0,
+      "merged_events": 11.0,
+      "split_signs": 0.0,
+      "duplicate_words": 0.0,
+      "extra_events": 70.0,
+      "observations": 8283.0,
+      "minutes": 35.8976758548371,
+      "detection_rate": 0.3854679802955665,
+      "correct_word_rate": 0.16502463054187191,
+      "oracle_word_rate": 0.42980295566502463,
+      "word_precision": 0.34986945169712796,
+      "extra_events_per_minute": 1.9499869652583017
+    },
+    "CONTINUOUS": {
+      "acquired_no_distinct_event": 344.0,
+      "acquired_inside_shared_event": 77.0,
+      "signs": 812.0,
+      "acquired": 600.0,
+      "oracle_correct": 317.0,
+      "detected": 256.0,
+      "correct_words": 91.0,
+      "events": 261.0,
+      "merged_events": 61.0,
+      "split_signs": 0.0,
+      "duplicate_words": 0.0,
+      "extra_events": 5.0,
+      "observations": 5443.0,
+      "minutes": 23.28417734232086,
+      "detection_rate": 0.31527093596059114,
+      "correct_word_rate": 0.11206896551724138,
+      "oracle_word_rate": 0.39039408866995073,
+      "word_precision": 0.3486590038314176,
+      "extra_events_per_minute": 0.2147380998903534
+    },
+    "per_signer_correct_word_rate": {
+      "CONTINUOUS:asl_citizen:P12": 0.04411764705882353,
+      "CONTINUOUS:asl_citizen:P21": 0.12916666666666668,
+      "CONTINUOUS:asl_citizen:P26": 0.09913793103448276,
+      "CONTINUOUS:asl_citizen:P39": 0.13524590163934427,
+      "CONTINUOUS:asl_citizen:P5": 0.03571428571428571,
+      "NATURAL:asl_citizen:P12": 0.08823529411764706,
+      "NATURAL:asl_citizen:P21": 0.17083333333333334,
+      "NATURAL:asl_citizen:P26": 0.12931034482758622,
+      "NATURAL:asl_citizen:P39": 0.21311475409836064,
+      "NATURAL:asl_citizen:P5": 0.17857142857142858
+    }
+  }
+}

@@ -1,0 +1,371 @@
+{
+ "config": "ARM_A_E10__CONFIRM_BOUNDARY_70",
+ "pool_sizes": {
+  "cal_genuine": 1498,
+  "cal_nonsign_p1": 80,
+  "cal_nonsign_n0": 16,
+  "devcal_correct": 125,
+  "devcal_wrong": 213,
+  "devcal_nonsign": 26,
+  "devval_correct": 265,
+  "devval_wrong": 313,
+  "devval_nonsign": 56,
+  "phone_correct": 19,
+  "phone_wrong": 3,
+  "phone_nonsign": 10,
+  "phone_unreviewed": 12
+ },
+ "feature_auc": {
+  "hand_fraction": {
+   "cal_genuine_vs_p1": 0.6764477636849132,
+   "devcal_correct_vs_nonsign": 0.49815384615384617,
+   "devval_correct_vs_nonsign": 0.461455525606469,
+   "phone_correct_vs_nonsign": 0.46578947368421053
+  },
+  "both_hands_fraction": {
+   "cal_genuine_vs_p1": 0.7691713951935915,
+   "devcal_correct_vs_nonsign": 0.5672307692307692,
+   "devval_correct_vs_nonsign": 0.5011118598382749,
+   "phone_correct_vs_nonsign": 0.3868421052631579
+  },
+  "window_hand_fraction": {
+   "cal_genuine_vs_p1": 0.6136348464619492,
+   "devcal_correct_vs_nonsign": 0.5287692307692308,
+   "devval_correct_vs_nonsign": 0.5554919137466307,
+   "phone_correct_vs_nonsign": 0.4473684210526316
+  },
+  "s2_peak_active": {
+   "cal_genuine_vs_p1": 0.8769859813084112,
+   "devcal_correct_vs_nonsign": 0.6883076923076923,
+   "devval_correct_vs_nonsign": 0.616644204851752,
+   "phone_correct_vs_nonsign": 0.5736842105263158
+  },
+  "s2_mean_active": {
+   "cal_genuine_vs_p1": 0.8008427903871829,
+   "devcal_correct_vs_nonsign": 0.5326153846153846,
+   "devval_correct_vs_nonsign": 0.49171159029649597,
+   "phone_correct_vs_nonsign": 0.7
+  },
+  "s2_active_fraction": {
+   "cal_genuine_vs_p1": 0.5334946595460615,
+   "devcal_correct_vs_nonsign": 0.49153846153846154,
+   "devval_correct_vs_nonsign": 0.4810646900269542,
+   "phone_correct_vs_nonsign": 0.49736842105263157
+  },
+  "duration_ms": {
+   "cal_genuine_vs_p1": 0.7536799065420561,
+   "devcal_correct_vs_nonsign": 0.573076923076923,
+   "devval_correct_vs_nonsign": 0.6392520215633423,
+   "phone_correct_vs_nonsign": 0.5
+  },
+  "logical_observations": {
+   "cal_genuine_vs_p1": 0.7010263684913217,
+   "devcal_correct_vs_nonsign": 0.5843076923076923,
+   "devval_correct_vs_nonsign": 0.6514150943396226,
+   "phone_correct_vs_nonsign": 0.4605263157894737
+  },
+  "motion_wrist_travel_per_s": {
+   "cal_genuine_vs_p1": 0.7757426568758344,
+   "devcal_correct_vs_nonsign": 0.592923076923077,
+   "devval_correct_vs_nonsign": 0.5898921832884098,
+   "phone_correct_vs_nonsign": 0.5105263157894737
+  },
+  "motion_shape_change": {
+   "cal_genuine_vs_p1": 0.476076435246996,
+   "devcal_correct_vs_nonsign": 0.5135384615384616,
+   "devval_correct_vs_nonsign": 0.6012129380053909,
+   "phone_correct_vs_nonsign": 0.43157894736842106
+  },
+  "word_p1": {
+   "cal_genuine_vs_p1": 0.6459863150867824,
+   "devcal_correct_vs_nonsign": 0.6289230769230769,
+   "devval_correct_vs_nonsign": 0.6417115902964959,
+   "phone_correct_vs_nonsign": 0.9052631578947369
+  },
+  "word_margin": {
+   "cal_genuine_vs_p1": 0.633402870493992,
+   "devcal_correct_vs_nonsign": 0.6153846153846154,
+   "devval_correct_vs_nonsign": 0.6516172506738545,
+   "phone_correct_vs_nonsign": 0.9105263157894737
+  },
+  "word_entropy": {
+   "cal_genuine_vs_p1": 0.35689252336448596,
+   "devcal_correct_vs_nonsign": 0.3507692307692308,
+   "devval_correct_vs_nonsign": 0.37830188679245286,
+   "phone_correct_vs_nonsign": 0.11052631578947368
+  },
+  "word_stability": {
+   "cal_genuine_vs_p1": 0.633932743658211,
+   "devcal_correct_vs_nonsign": 0.5696923076923077,
+   "devval_correct_vs_nonsign": 0.5747304582210242,
+   "phone_correct_vs_nonsign": 0.6499999999999999
+  },
+  "v2_p1": {
+   "cal_genuine_vs_p1": 0.7247580106809078,
+   "devcal_correct_vs_nonsign": 0.6744615384615384,
+   "devval_correct_vs_nonsign": 0.6731805929919138,
+   "phone_correct_vs_nonsign": 0.8842105263157894
+  },
+  "word_models_agree": {
+   "cal_genuine_vs_p1": 0.753479639519359,
+   "devcal_correct_vs_nonsign": 0.6035384615384616,
+   "devval_correct_vs_nonsign": 0.6224730458221024,
+   "phone_correct_vs_nonsign": 0.5973684210526315
+  }
+ },
+ "rules": {
+  "HANDS": {
+   "threshold": 0.55,
+   "calibration_nonsign_removed": 0.24528301886792447,
+   "pools": {
+    "cal_genuine": {
+     "n": 1498,
+     "kept": 0.9853137516688919
+    },
+    "cal_nonsign_p1": {
+     "n": 80,
+     "kept": 0.7375
+    },
+    "cal_nonsign_n0": {
+     "n": 16,
+     "kept": 1.0
+    },
+    "devcal_correct": {
+     "n": 125,
+     "kept": 0.968
+    },
+    "devcal_wrong": {
+     "n": 213,
+     "kept": 0.8356807511737089
+    },
+    "devcal_nonsign": {
+     "n": 26,
+     "kept": 0.8076923076923077
+    },
+    "devval_correct": {
+     "n": 265,
+     "kept": 0.9509433962264151
+    },
+    "devval_wrong": {
+     "n": 313,
+     "kept": 0.8977635782747604
+    },
+    "devval_nonsign": {
+     "n": 56,
+     "kept": 0.9464285714285714
+    },
+    "phone_correct": {
+     "n": 19,
+     "kept": 0.9473684210526315
+    },
+    "phone_wrong": {
+     "n": 3,
+     "kept": 1.0
+    },
+    "phone_nonsign": {
+     "n": 10,
+     "kept": 1.0
+    },
+    "phone_unreviewed": {
+     "n": 12,
+     "kept": 0.5
+    }
+   }
+  },
+  "WORD_P1": {
+   "threshold": 0.0,
+   "calibration_nonsign_removed": 0.0,
+   "pools": {
+    "cal_genuine": {
+     "n": 1498,
+     "kept": 1.0
+    },
+    "cal_nonsign_p1": {
+     "n": 80,
+     "kept": 1.0
+    },
+    "cal_nonsign_n0": {
+     "n": 16,
+     "kept": 1.0
+    },
+    "devcal_correct": {
+     "n": 125,
+     "kept": 1.0
+    },
+    "devcal_wrong": {
+     "n": 213,
+     "kept": 1.0
+    },
+    "devcal_nonsign": {
+     "n": 26,
+     "kept": 1.0
+    },
+    "devval_correct": {
+     "n": 265,
+     "kept": 1.0
+    },
+    "devval_wrong": {
+     "n": 313,
+     "kept": 1.0
+    },
+    "devval_nonsign": {
+     "n": 56,
+     "kept": 1.0
+    },
+    "phone_correct": {
+     "n": 19,
+     "kept": 1.0
+    },
+    "phone_wrong": {
+     "n": 3,
+     "kept": 1.0
+    },
+    "phone_nonsign": {
+     "n": 10,
+     "kept": 1.0
+    },
+    "phone_unreviewed": {
+     "n": 12,
+     "kept": 1.0
+    }
+   }
+  },
+  "HANDS+WORD": {
+   "threshold": [
+    0.55,
+    0.0
+   ],
+   "calibration_nonsign_removed": 0.24528301886792447,
+   "pools": {
+    "cal_genuine": {
+     "n": 1498,
+     "kept": 0.9853137516688919
+    },
+    "cal_nonsign_p1": {
+     "n": 80,
+     "kept": 0.7375
+    },
+    "cal_nonsign_n0": {
+     "n": 16,
+     "kept": 1.0
+    },
+    "devcal_correct": {
+     "n": 125,
+     "kept": 0.968
+    },
+    "devcal_wrong": {
+     "n": 213,
+     "kept": 0.8356807511737089
+    },
+    "devcal_nonsign": {
+     "n": 26,
+     "kept": 0.8076923076923077
+    },
+    "devval_correct": {
+     "n": 265,
+     "kept": 0.9509433962264151
+    },
+    "devval_wrong": {
+     "n": 313,
+     "kept": 0.8977635782747604
+    },
+    "devval_nonsign": {
+     "n": 56,
+     "kept": 0.9464285714285714
+    },
+    "phone_correct": {
+     "n": 19,
+     "kept": 0.9473684210526315
+    },
+    "phone_wrong": {
+     "n": 3,
+     "kept": 1.0
+    },
+    "phone_nonsign": {
+     "n": 10,
+     "kept": 1.0
+    },
+    "phone_unreviewed": {
+     "n": 12,
+     "kept": 0.5
+    }
+   }
+  },
+  "LOGISTIC": {
+   "threshold": 0.1,
+   "calibration_nonsign_removed": 0.37735849056603776,
+   "pools": {
+    "cal_genuine": {
+     "n": 1498,
+     "kept": 0.986648865153538
+    },
+    "cal_nonsign_p1": {
+     "n": 80,
+     "kept": 0.5125
+    },
+    "cal_nonsign_n0": {
+     "n": 16,
+     "kept": 0.625
+    },
+    "devcal_correct": {
+     "n": 125,
+     "kept": 0.952
+    },
+    "devcal_wrong": {
+     "n": 213,
+     "kept": 0.892018779342723
+    },
+    "devcal_nonsign": {
+     "n": 26,
+     "kept": 0.9615384615384616
+    },
+    "devval_correct": {
+     "n": 265,
+     "kept": 0.9811320754716981
+    },
+    "devval_wrong": {
+     "n": 313,
+     "kept": 0.9201277955271565
+    },
+    "devval_nonsign": {
+     "n": 56,
+     "kept": 0.875
+    },
+    "phone_correct": {
+     "n": 19,
+     "kept": 0.8947368421052632
+    },
+    "phone_wrong": {
+     "n": 3,
+     "kept": 1.0
+    },
+    "phone_nonsign": {
+     "n": 10,
+     "kept": 0.8
+    },
+    "phone_unreviewed": {
+     "n": 12,
+     "kept": 0.75
+    }
+   },
+   "coefficients": {
+    "hand_fraction": 0.423,
+    "both_hands_fraction": 0.037,
+    "window_hand_fraction": -0.718,
+    "s2_peak_active": 0.073,
+    "s2_mean_active": 0.451,
+    "s2_active_fraction": -0.022,
+    "duration_ms": 1.313,
+    "logical_observations": 0.463,
+    "motion_wrist_travel_per_s": 1.133,
+    "motion_shape_change": -0.31,
+    "word_p1": 0.676,
+    "word_margin": -0.374,
+    "word_entropy": 0.294,
+    "word_stability": -0.029,
+    "v2_p1": -0.054,
+    "word_models_agree": 0.618
+   }
+  }
+ }
+}

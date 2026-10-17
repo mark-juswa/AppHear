@@ -1,0 +1,914 @@
+{
+  "config_path": "model/config/recognition_upgrade/s2_r3_context_suite_03.json",
+  "config_sha256": "221f1ad1034c141579b0b83bba88c2244133aa01cc37d15f5212be6a2dd601f4",
+  "environment": {
+    "numpy": "2.4.6",
+    "python": "3.11.5",
+    "tensorflow": "2.21.0"
+  },
+  "input_identity": {
+    "dev_human_annotations_sha256": "da94461cb783ea5118992ae1eb6e9dfa0ad3234a0c77bb7dc853807d1ccae727",
+    "dev_selected_manifest_sha256": "832ba25420bef80acda3b40e7a44414654c3227222e4336d66174b8cca7ea15e",
+    "dev_sparse_view_manifest_sha256": "24416e605ebed74c89dccaf4702bb4014b87d4a8e13186a73b496b8131a68be5",
+    "dev_view_feature_sha256": {
+      "asl:train:055732368427704904-COME::VIEW_A": "33022b0b98fb546a5af0d2da53bce7daefbc1baf62b812a1cbee6244e80ecb46",
+      "asl:train:055732368427704904-COME::VIEW_B": "b86ccb5a18cd16138dab567bea7db57497ff3a5c966f4e15e5f6e50aee8ca849",
+      "asl:train:055732368427704904-COME::VIEW_C": "1ef773b1ef2b05df1e7c8b9ed8afb089e16f003f9715cac5985ed20db3538d77",
+      "asl:train:07578464379765082-ASK::VIEW_A": "b4d15bdef82f16c48180895d3f72345da570c0535228159d03c1fff0178c3a21",
+      "asl:train:07578464379765082-ASK::VIEW_B": "a2f447d288b9d4341bcbfa71de9ec48def80c468d0582628f7977dd089c3a1b0",
+      "asl:train:07578464379765082-ASK::VIEW_C": "4099a297708d1395e41dfb5ca8ae17e1b1635798135f1a726e14b0974abd55c3",
+      "asl:train:09937285850055066-HAPPY::VIEW_A": "a4df5c2d800f4837e0a19c56b8dc1172294def96c6021cd56b89772f0ca9e7f8",
+      "asl:train:09937285850055066-HAPPY::VIEW_B": "e1d0d68cd68d5b017a7de90289cc1e86e891bf7137f8fef9319a56690911d135",
+      "asl:train:09937285850055066-HAPPY::VIEW_C": "86b01ecf8d51c8b97159c6ee1e75cfc3805482ea23a88ac843416003925fa2f2",
+      "asl:train:21869286125340692-WHICH::VIEW_A": "e6551ee9ab79f688dce0d14bbdf15fb22b9d7606f258341070075aae4c98d67b",
+      "asl:train:21869286125340692-WHICH::VIEW_B": "1515fe4d20b41647caf1e60c632b812757a94d082c6cefe4edd8131f402e0715",
+      "asl:train:21869286125340692-WHICH::VIEW_C": "4e6b2a82cb3a090ab4725e0bf59f012f456acdfe73eff465c0bae5362ca3d34c",
+      "asl:train:38040807712002134-LUNCH::VIEW_A": "3b472669ee2311c04810f14da535df1eb289499b148fd8474edd561d41f7c4c4",
+      "asl:train:38040807712002134-LUNCH::VIEW_B": "1a2a0b7caae02808be5cccda0e5a541c0da4e9256b5552700501102d9ae28f54",
+      "asl:train:38040807712002134-LUNCH::VIEW_C": "8783fddfc01ed1e864f639c5a57258e5935936a8ace5e86cca35b565dfc92ad1",
+      "asl:train:44864710765134386-ROAD::VIEW_A": "5feb9d7e114f321d989c52a11b7100fe2a6d7f2181ac602ae004819e6e3ad955",
+      "asl:train:44864710765134386-ROAD::VIEW_B": "59c3ebe433732330da4ba0c410bda12674795b668cd9a95ec979e94eff5a8824",
+      "asl:train:44864710765134386-ROAD::VIEW_C": "671a3864f2c53c719bad56afb64dd00fc549bbc96bac3c0b53b015492b112336",
+      "asl:train:4664356046166651-START::VIEW_A": "5ef4115ee0d26335ca73fdc7a20c9d33e045ac37ffc07699322df29eccb15463",
+      "asl:train:4664356046166651-START::VIEW_B": "1aff8a0a5046920b1af8d0f087a91e8a4b1c6fa610f2891d8da9409d6667c153",
+      "asl:train:4664356046166651-START::VIEW_C": "2e060de267e994b4afed57b6d4c4eb0e7805f54a95ab81211c62db39607251f2",
+      "asl:train:46851973820760406-HURRY::VIEW_A": "fa01c018b1d6dddda178bf900f80c7ceae648ca86a4248d8b4d696be46cdf1f4",
+      "asl:train:46851973820760406-HURRY::VIEW_B": "688c8484cdbb8d252af20832ed23d19ff421e102593528873818ce021deebf60",
+      "asl:train:46851973820760406-HURRY::VIEW_C": "4b61be5f3d2f5142907b7c0169ee46b608fd9817b62774f809ceb8a7c671f12d",
+      "asl:train:5641210498834153-WE::VIEW_A": "a490bcbf1a2c35ef75797eb4d3d3ff6c601a65d36eba7ff279d95dbd33f631b0",
+      "asl:train:5641210498834153-WE::VIEW_B": "89de2f866b36985c0ecad192c89cc15d5e4bb3190efc8c39502500e8bb64903f",
+      "asl:train:5641210498834153-WE::VIEW_C": "e2f867ca9c315a0249126358ab59866e28a988a95df44d0bb73fbb6b4fa194ec",
+      "asl:train:5825270520157624-MEAN 1::VIEW_A": "1b59e251eadd2085291a0a422136325ad8f6d46c1112c97041b8cacd47f58499",
+      "asl:train:5825270520157624-MEAN 1::VIEW_B": "fca6f2cdaf24fed0216972bff447ef69db686dab3404ba7a4772959564dffdd2",
+      "asl:train:5825270520157624-MEAN 1::VIEW_C": "f480c313d88365bf6037daff83f333536500b827d5c17efba2c9dedfc4d7756c",
+      "asl:train:6529086386636707-CITY 2::VIEW_A": "8530718cd213be49ddd5cf538ac44dce55d91b5c17b3f4afb811aa3b887d25ac",
+      "asl:train:6529086386636707-CITY 2::VIEW_B": "c32239eb0a24e16da13a6f18bb4a43ccab04f35fb163ac12bfa23aed66cdec63",
+      "asl:train:6529086386636707-CITY 2::VIEW_C": "35466494e80677a584d2309c6a8e20f580a394c7fb48b9f64cad89b852fde6a3",
+      "asl:train:8604919873971555-DAY::VIEW_A": "6a56db63d2fcec7d95af5c369144eaa7736ebf27cdffde4bf18bb17b256ca10e",
+      "asl:train:8604919873971555-DAY::VIEW_B": "2e67f6eb4db06a453328f60ddb6aebc7f0cce1aa683506d69e9cb42fb3a39480",
+      "asl:train:8604919873971555-DAY::VIEW_C": "3a9606603852b79ecc47a9b23092ca5bc1b08760b74f4ca64fa74844133cdc38",
+      "asl:train:8749149490186505-TOMORROW::VIEW_A": "c33e748aa93a642c9c184982734fd69afb78f16e88d47e6295dbf2213bb1002e",
+      "asl:train:8749149490186505-TOMORROW::VIEW_B": "9fdcb09a0dd3b458f2ee03dd3d2aaddf4e793a201bb47570992f38ea4447a3dd",
+      "asl:train:8749149490186505-TOMORROW::VIEW_C": "0b8e61e6553032028781fba78922bf8e8b5c294d3528d53ae7a5c7eaacede63d",
+      "asl:train:8836713624109029-MEAT::VIEW_A": "a49ab553848da99cf230c2591653be2c878e370971e10ab4f68e07d701770d55",
+      "asl:train:8836713624109029-MEAT::VIEW_B": "331a98d88efb02a3f6667fcf042be2ff8a8890a7ed832990e28ba5c16672d84e",
+      "asl:train:8836713624109029-MEAT::VIEW_C": "abea1013cfc56d430d5f45560ca2b38c3100ea565104b16a56f29d6aaad1b030",
+      "asl:train:8907945228853642-WHAT 2::VIEW_A": "4f9dc1439b3471463dab271aa10011414073c495d8fb968b97624013419fac9d",
+      "asl:train:8907945228853642-WHAT 2::VIEW_B": "0df3eb1d964f201fce780e41aeb6a13191b94d1ca0d95266b8b306de59fd07c1",
+      "asl:train:8907945228853642-WHAT 2::VIEW_C": "2aaa9a2123a97145466ea519fd2cb5da69f91de7b2056170c6172f01384b3966",
+      "asl:train:9328642600089894-FIRST::VIEW_A": "17dddb28e388c0c80de2895168e245a933845b44790c4bf9d1f4dd2e1b60c520",
+      "asl:train:9328642600089894-FIRST::VIEW_B": "569036e7a23ea77745d053d262304fbb4d65f43576b9ade082616b3d8783bcbe",
+      "asl:train:9328642600089894-FIRST::VIEW_C": "86b649011bb5f08505986649a19e92c0d54ce9245e45ac579eecc085aa0e7b50",
+      "asl:train:9377899064716586-LOVE::VIEW_A": "4a3b42dd43cfa20c95af47b025daa63b7a1062fa07b273805ba113ed87ec49ce",
+      "asl:train:9377899064716586-LOVE::VIEW_B": "75004b92969a862973d8d9d7d076a0ed7372579c02763bbe3731f926524ca794",
+      "asl:train:9377899064716586-LOVE::VIEW_C": "2a7a6fb3e9c5e218bea72ddc3049e7870a0c3a6b88083059e502c18880c74fd2",
+      "asl:train:9420991279307549-USE::VIEW_A": "58c41c6b90404a7b468c2cac3bc00febec600bce64ea2e52cbdde50c649eab0a",
+      "asl:train:9420991279307549-USE::VIEW_B": "4478a0c468698def9d70ef72ddcaa23dccd5205db36d4be9330e100f9f22a3a0",
+      "asl:train:9420991279307549-USE::VIEW_C": "d4a7f5d80c9045a2bb9cb628128b350698e7be18a95e7190e28b68475aa22912",
+      "asl:train:9629943991422294-HOT::VIEW_A": "7aaef6d8101878e5e34e8feb61fcce3a9961c147f2a29af0f93a5b7fd61cc7b6",
+      "asl:train:9629943991422294-HOT::VIEW_B": "c9b5bf41816ada64329fddda81da41771523c442b2c41bd210bd976a6fabb9b4",
+      "asl:train:9629943991422294-HOT::VIEW_C": "57e9284dce8c3151dd2bdd42ba3eef3a98f6d8a91329a1a9cc55ded7b2f5fd61",
+      "e6:e6p_00729::VIEW_A": "4029f38e873f38e3f41c84ab2068ec5c0202edefb77456a11d4867e3f5f95ffa",
+      "e6:e6p_00729::VIEW_B": "fab5bdacb0b0b1faf046bb170104c807d331d68792705ca10796a81143a9f73d",
+      "e6:e6p_00729::VIEW_C": "98ee9a5686a20a716e6f907cbf5636b3335c3e585263c515db783752f6df8063",
+      "e6:e6p_00768::VIEW_A": "61f0de32f80e551392cae98bb8f61cabe63d4592824ceb848b5136f9db2ea1f8",
+      "e6:e6p_00768::VIEW_B": "0c2fc8081988d9edf1963baf06d81d36b6ef67f1271ed3e3456d4bf7b4541704",
+      "e6:e6p_00768::VIEW_C": "ad08de497a994f4c0d43f0754bafffa914e85a8c80e5e2d98e6f922523753185",
+      "e6:e6p_01034::VIEW_A": "2cae62475979d9641900c12a257b4a4a2549227b442e73f53d6c887473fce219",
+      "e6:e6p_01034::VIEW_B": "59bb19a8fa24ea75e061135ce5e1d0f78c185b3ba885cf7b418ad780ba3888b1",
+      "e6:e6p_01034::VIEW_C": "1823d26f8656e9dc6e0e586160a9b0f7b8f4d66101db5c19ca5da835141b132c",
+      "e6:e6p_01038::VIEW_A": "56c8f9cf73d414b44f472b6e9cc58f6e232ff62f0dd910b535c7a703776b2558",
+      "e6:e6p_01038::VIEW_B": "0cf85f4980f0866b34417c71b3feb5c87beae1960850d1303b4663a79cc97143",
+      "e6:e6p_01038::VIEW_C": "c89b06bafa1f74459cfdb772512cb5846c6d8a75b8fbf0631979009e45dabce8"
+    }
+  },
+  "reference_gate": {
+    "lines": [
+      {
+        "id": "T1_NONE_ACQUISITION",
+        "observed": 0.9855072463768116,
+        "op": ">=",
+        "pass": true,
+        "threshold": 0.95
+      },
+      {
+        "id": "T1_NONE_RECALL",
+        "observed": 0.8689556015642972,
+        "op": ">=",
+        "pass": true,
+        "threshold": 0.85
+      },
+      {
+        "id": "T1_NONE_FALSE_ACTIVE",
+        "observed": 0.08053843390024061,
+        "op": "<=",
+        "pass": true,
+        "threshold": 0.1
+      },
+      {
+        "id": "T1_ISOLATED_CONTAINMENT",
+        "observed": 0.7391304347826086,
+        "op": ">=",
+        "pass": true,
+        "threshold": 0.6891304347826086
+      },
+      {
+        "id": "T1_PREV_SIGN_ACQUISITION",
+        "observed": 0.7727272727272727,
+        "op": ">=",
+        "pass": false,
+        "threshold": 0.9
+      },
+      {
+        "id": "T1_DIRECT6_ACQUISITION",
+        "observed": 0.6666666666666666,
+        "op": ">=",
+        "pass": false,
+        "threshold": 0.85
+      },
+      {
+        "id": "T1_HOLD06_ACQUISITION",
+        "observed": 0.5757575757575758,
+        "op": ">=",
+        "pass": false,
+        "threshold": 0.85
+      },
+      {
+        "id": "T1_HOLD12_ACQUISITION",
+        "observed": 0.045454545454545456,
+        "op": ">=",
+        "pass": false,
+        "threshold": 0.75
+      },
+      {
+        "id": "T1_MOVEMENT30_RECALL",
+        "observed": 0.9142799631930068,
+        "op": ">=",
+        "pass": true,
+        "threshold": 0.7
+      },
+      {
+        "id": "T1_MOVEMENT30_HISTORY_FALSE_ACTIVE",
+        "observed": 0.1333333333333333,
+        "op": "<=",
+        "pass": true,
+        "threshold": 0.1333333333333333
+      },
+      {
+        "id": "T2_SIGNS_WITH_DISTINCT_EVENT",
+        "observed": 11.0,
+        "op": ">=",
+        "pass": false,
+        "threshold": 18.0
+      },
+      {
+        "id": "T2_CONTINUOUS_SIGNS_WITH_DISTINCT_EVENT",
+        "observed": 2.0,
+        "op": ">=",
+        "pass": false,
+        "threshold": 7.0
+      },
+      {
+        "id": "T2_NONSIGN_ACTIVE_OBS",
+        "observed": 64.0,
+        "op": "<=",
+        "pass": true,
+        "threshold": 64.0
+      },
+      {
+        "id": "T2_NONSIGN_EVENTS",
+        "observed": 5.0,
+        "op": "<=",
+        "pass": true,
+        "threshold": 5.0
+      },
+      {
+        "id": "T2_POST_DWELL_MEDIAN_MS",
+        "observed": 6078.81567750033,
+        "op": "<=",
+        "pass": false,
+        "threshold": 1500.0
+      },
+      {
+        "id": "T2_MERGED_EVENTS",
+        "observed": 0.0,
+        "op": "<=",
+        "pass": true,
+        "threshold": 0.0
+      },
+      {
+        "id": "T1B_HELDOUT_NEG_ACTIVE_RATE",
+        "observed": 0.0057049714751426246,
+        "op": "<=",
+        "pass": true,
+        "threshold": 0.0057049714751426246
+      },
+      {
+        "id": "T1B_HELDOUT_NEG_EVENTS_PER_MIN",
+        "observed": 0.23719402160638559,
+        "op": "<=",
+        "pass": true,
+        "threshold": 0.23719402160638559
+      }
+    ],
+    "pass": false
+  },
+  "reference_package": {
+    "contract": "v1",
+    "keras": "artifacts/recognition_upgrade/perception_vnext/recognition_utility_236_01/s2_r2_continuous_domain_correction_01/main_candidate/best_model.keras",
+    "keras_sha256": "b6f8b52cece72f0b6f5b802a4ea583060d923e90a6b951059e7013114c8fc151",
+    "measured_identity": {
+      "keras_sha256": "b6f8b52cece72f0b6f5b802a4ea583060d923e90a6b951059e7013114c8fc151",
+      "normalization_sha256": "65d885f62eaca6f11a596302d304f63149795ddaf01e702f1e6a36dd7da5c005"
+    },
+    "normalization": "artifacts/recognition_upgrade/perception_vnext/recognition_utility_236_01/s2_r2_continuous_domain_correction_01/main_candidate/normalization.json",
+    "normalization_sha256": "65d885f62eaca6f11a596302d304f63149795ddaf01e702f1e6a36dd7da5c005",
+    "package_id": "S2_R2_CANDIDATE"
+  },
+  "reference_results": {
+    "tier1": {
+      "DIRECT_PLUS_0_POST": {
+        "acquired_count": 60,
+        "acquired_fraction": 0.9523809523809523,
+        "active_recall_mean": 0.6648148148148149,
+        "false_active_mean": 0.047898250209174584,
+        "n": 63
+      },
+      "DIRECT_PLUS_3_POST": {
+        "acquired_count": 52,
+        "acquired_fraction": 0.8253968253968254,
+        "active_recall_mean": 0.5637503149407912,
+        "false_active_mean": 0.009399315281668224,
+        "n": 63
+      },
+      "DIRECT_PLUS_6_POST": {
+        "acquired_count": 42,
+        "acquired_fraction": 0.6666666666666666,
+        "active_recall_mean": 0.44106827916351726,
+        "false_active_mean": 0.012044817927170867,
+        "n": 63
+      },
+      "HOLD_00": {
+        "acquired_count": 63,
+        "acquired_fraction": 0.9545454545454546,
+        "active_recall_mean": 0.7481481481481481,
+        "false_active_mean": 0.08041726791726792,
+        "history_false_active_mean": 0.0,
+        "n": 66
+      },
+      "HOLD_03": {
+        "acquired_count": 58,
+        "acquired_fraction": 0.8787878787878788,
+        "active_recall_mean": 0.596446608946609,
+        "false_active_mean": 0.0370384517443341,
+        "history_false_active_mean": 0.0,
+        "n": 66
+      },
+      "HOLD_06": {
+        "acquired_count": 38,
+        "acquired_fraction": 0.5757575757575758,
+        "active_recall_mean": 0.3622234247234247,
+        "false_active_mean": 0.020670995670995673,
+        "history_false_active_mean": 0.0,
+        "n": 66
+      },
+      "HOLD_12": {
+        "acquired_count": 3,
+        "acquired_fraction": 0.045454545454545456,
+        "active_recall_mean": 0.010606060606060605,
+        "false_active_mean": 0.007034632034632035,
+        "history_false_active_mean": 0.0,
+        "n": 66
+      },
+      "HOLD_24": {
+        "acquired_count": 0,
+        "acquired_fraction": 0.0,
+        "active_recall_mean": 0.0,
+        "false_active_mean": 0.0007215007215007215,
+        "history_false_active_mean": 0.0,
+        "n": 66
+      },
+      "NONE": {
+        "acquired_count": 68,
+        "acquired_fraction": 0.9855072463768116,
+        "active_recall_mean": 0.8689556015642972,
+        "false_active_mean": 0.08053843390024061,
+        "n": 69
+      },
+      "NONSIGN_MOVEMENT_30": {
+        "acquired_count": 69,
+        "acquired_fraction": 1.0,
+        "active_recall_mean": 0.9142799631930068,
+        "false_active_mean": 0.24007315463715986,
+        "history_false_active_mean": 0.1333333333333333,
+        "n": 69
+      },
+      "NO_SIGN_IDLE_30": {
+        "acquired_count": 55,
+        "acquired_fraction": 0.7971014492753623,
+        "active_recall_mean": 0.4307395905221992,
+        "false_active_mean": 0.015038198431851897,
+        "history_false_active_mean": 0.2333333333333333,
+        "n": 69
+      },
+      "POST_PHONE_15": {
+        "acquired_count": 10,
+        "acquired_fraction": 0.14492753623188406,
+        "active_recall_mean": 0.08663446054750402,
+        "false_active_mean": 0.0017322988337481091,
+        "n": 69
+      },
+      "POST_PHONE_60": {
+        "acquired_count": 12,
+        "acquired_fraction": 0.17391304347826086,
+        "active_recall_mean": 0.09826892109500805,
+        "false_active_mean": 0.0017322988337481091,
+        "n": 69
+      },
+      "PREV_SIGN_SAME_SIGNER": {
+        "acquired_count": 51,
+        "acquired_fraction": 0.7727272727272727,
+        "active_recall_mean": 0.5475348725348725,
+        "false_active_mean": 0.044063011721952,
+        "n": 66
+      },
+      "REST_PHONE_60": {
+        "acquired_count": 69,
+        "acquired_fraction": 1.0,
+        "active_recall_mean": 0.898268921095008,
+        "false_active_mean": 0.0891917023527974,
+        "n": 69
+      },
+      "REST_PHONE_60_RAW": {
+        "acquired_count": 69,
+        "acquired_fraction": 1.0,
+        "active_recall_mean": 0.898268921095008,
+        "false_active_mean": 0.09361754326257025,
+        "history_false_active_mean": 0.0,
+        "n": 69
+      },
+      "isolated": {
+        "contained": 51,
+        "contained_fraction": 0.7391304347826086,
+        "emitted": 54,
+        "n": 69
+      }
+    },
+    "tier1b": {
+      "participants": {
+        "P05": {
+          "active_observations": 2,
+          "clips": 8,
+          "events": 0,
+          "minutes": 1.987096261111111,
+          "observations": 597,
+          "scored_observations": 567
+        },
+        "P06": {
+          "active_observations": 5,
+          "clips": 9,
+          "events": 1,
+          "minutes": 2.2288616,
+          "observations": 670,
+          "scored_observations": 660
+        }
+      },
+      "total": {
+        "active_observations": 7,
+        "active_rate": 0.0057049714751426246,
+        "events": 1,
+        "events_per_minute": 0.23719402160638559,
+        "minutes": 4.215957861111111,
+        "scored_observations": 1227
+      }
+    },
+    "tier2": {
+      "continuous": {
+        "acquired": 2,
+        "events": 14,
+        "events_inside_nonsign": 5,
+        "genuine_signs": 11,
+        "merged_events": 0,
+        "nonsign_active_observations": 57,
+        "nonsign_observations": 340,
+        "other_events": 7,
+        "post_dwell_events": 14,
+        "post_dwell_median_ms": 6078.81567750033,
+        "signs_with_distinct_event": 2,
+        "signs_with_event": 2
+      },
+      "sessions": {
+        "OCT15_COMPACT": {
+          "acquired": 1,
+          "continuous": true,
+          "event_identities": [
+            [
+              172,
+              173,
+              176
+            ],
+            [
+              279,
+              281,
+              284
+            ],
+            [
+              399,
+              401,
+              404
+            ],
+            [
+              459,
+              468,
+              471
+            ]
+          ],
+          "events": 4,
+          "events_inside_nonsign": 1,
+          "genuine_signs": 4,
+          "merged_events": 0,
+          "nonsign_active_observations": 2,
+          "nonsign_observations": 37,
+          "other_events": 2,
+          "per_sign": [
+            {
+              "acquired": false,
+              "name": "A_HANDS_DOWN:HELLO#1",
+              "with_distinct_event": false,
+              "with_event": false
+            },
+            {
+              "acquired": false,
+              "name": "B_HANDS_UP:HELLO#1",
+              "with_distinct_event": false,
+              "with_event": false
+            },
+            {
+              "acquired": true,
+              "name": "C_REPEAT_HANDS_UP:HELLO#1",
+              "with_distinct_event": true,
+              "with_event": true
+            },
+            {
+              "acquired": false,
+              "name": "D_SIGN_THEN_HOLD:HELLO#1",
+              "with_distinct_event": false,
+              "with_event": false
+            }
+          ],
+          "post_dwell_ms": [
+            4599.125989999622,
+            8265.095989000052,
+            3865.9320320002735,
+            8798.32802000083
+          ],
+          "rolling_equivalence_max_abs": 3.5787915886320576e-07,
+          "signs_with_distinct_event": 1,
+          "signs_with_event": 1
+        },
+        "SEP23_INDEPENDENT": {
+          "acquired": 4,
+          "continuous": false,
+          "event_identities": [
+            [
+              94,
+              98,
+              100
+            ],
+            [
+              155,
+              160,
+              162
+            ],
+            [
+              195,
+              198,
+              200
+            ],
+            [
+              233,
+              234,
+              236
+            ],
+            [
+              271,
+              274,
+              276
+            ],
+            [
+              347,
+              353,
+              355
+            ],
+            [
+              472,
+              474,
+              476
+            ]
+          ],
+          "events": 7,
+          "events_inside_nonsign": 0,
+          "genuine_signs": 6,
+          "merged_events": 0,
+          "nonsign_active_observations": 7,
+          "nonsign_observations": 109,
+          "other_events": 4,
+          "per_sign": [
+            {
+              "acquired": true,
+              "name": "attempt_001:HELLO",
+              "with_distinct_event": true,
+              "with_event": true
+            },
+            {
+              "acquired": true,
+              "name": "attempt_002:HELLO",
+              "with_distinct_event": true,
+              "with_event": true
+            },
+            {
+              "acquired": true,
+              "name": "attempt_003:HOME",
+              "with_distinct_event": false,
+              "with_event": false
+            },
+            {
+              "acquired": true,
+              "name": "attempt_004:HOME",
+              "with_distinct_event": true,
+              "with_event": true
+            },
+            {
+              "acquired": false,
+              "name": "attempt_005:TABLE",
+              "with_distinct_event": false,
+              "with_event": false
+            },
+            {
+              "acquired": false,
+              "name": "attempt_006:TABLE",
+              "with_distinct_event": false,
+              "with_event": false
+            }
+          ],
+          "post_dwell_ms": [
+            103069.53854197264,
+            95378.30104798079,
+            2213.0288059711456,
+            469.3820769786835,
+            83237.3363249898,
+            120798.16479796171,
+            1676.4533060193062
+          ],
+          "rolling_equivalence_max_abs": 3.4683299321436323e-07,
+          "signs_with_distinct_event": 3,
+          "signs_with_event": 3
+        },
+        "SEP23_REPRESENTATIVE": {
+          "acquired": 6,
+          "continuous": false,
+          "event_identities": [
+            [
+              227,
+              230,
+              233
+            ],
+            [
+              257,
+              264,
+              267
+            ],
+            [
+              314,
+              323,
+              325
+            ],
+            [
+              360,
+              369,
+              372
+            ],
+            [
+              424,
+              432,
+              435
+            ],
+            [
+              495,
+              509,
+              512
+            ],
+            [
+              599,
+              611,
+              613
+            ]
+          ],
+          "events": 7,
+          "events_inside_nonsign": 0,
+          "genuine_signs": 6,
+          "merged_events": 0,
+          "nonsign_active_observations": 0,
+          "nonsign_observations": 227,
+          "other_events": 1,
+          "per_sign": [
+            {
+              "acquired": true,
+              "name": "attempt_001:HELLO",
+              "with_distinct_event": true,
+              "with_event": true
+            },
+            {
+              "acquired": true,
+              "name": "attempt_002:HELLO",
+              "with_distinct_event": true,
+              "with_event": true
+            },
+            {
+              "acquired": true,
+              "name": "attempt_003:HOME",
+              "with_distinct_event": true,
+              "with_event": true
+            },
+            {
+              "acquired": true,
+              "name": "attempt_004:HOME",
+              "with_distinct_event": true,
+              "with_event": true
+            },
+            {
+              "acquired": true,
+              "name": "attempt_005:TABLE",
+              "with_distinct_event": true,
+              "with_event": true
+            },
+            {
+              "acquired": true,
+              "name": "attempt_006:TABLE",
+              "with_distinct_event": true,
+              "with_event": true
+            }
+          ],
+          "post_dwell_ms": [
+            533.2320309877396,
+            31512.775313019753,
+            26328.330001950264,
+            26661.599999904633,
+            27861.371978998184,
+            29727.684010982513,
+            24995.24994802475
+          ],
+          "rolling_equivalence_max_abs": 2.548549010716883e-07,
+          "signs_with_distinct_event": 6,
+          "signs_with_event": 6
+        },
+        "SEP27_TRANSITION": {
+          "acquired": 1,
+          "continuous": true,
+          "event_identities": [
+            [
+              64,
+              78,
+              81
+            ],
+            [
+              344,
+              356,
+              359
+            ],
+            [
+              692,
+              700,
+              702
+            ],
+            [
+              823,
+              829,
+              832
+            ],
+            [
+              862,
+              872,
+              875
+            ],
+            [
+              956,
+              970,
+              973
+            ],
+            [
+              1048,
+              1054,
+              1057
+            ],
+            [
+              1084,
+              1095,
+              1097
+            ],
+            [
+              1218,
+              1220,
+              1223
+            ],
+            [
+              1285,
+              1295,
+              1297
+            ]
+          ],
+          "events": 10,
+          "events_inside_nonsign": 4,
+          "genuine_signs": 7,
+          "merged_events": 0,
+          "nonsign_active_observations": 55,
+          "nonsign_observations": 303,
+          "other_events": 5,
+          "per_sign": [
+            {
+              "acquired": false,
+              "name": "A_HANDS_DOWN:HELLO#1",
+              "with_distinct_event": false,
+              "with_event": false
+            },
+            {
+              "acquired": false,
+              "name": "A_HANDS_DOWN:HOME#2",
+              "with_distinct_event": false,
+              "with_event": false
+            },
+            {
+              "acquired": false,
+              "name": "A_HANDS_DOWN:TABLE#3",
+              "with_distinct_event": false,
+              "with_event": false
+            },
+            {
+              "acquired": true,
+              "name": "B_HANDS_UP:HELLO#1",
+              "with_distinct_event": true,
+              "with_event": true
+            },
+            {
+              "acquired": false,
+              "name": "B_HANDS_UP:HOME#2",
+              "with_distinct_event": false,
+              "with_event": false
+            },
+            {
+              "acquired": false,
+              "name": "B_HANDS_UP:TABLE#3",
+              "with_distinct_event": false,
+              "with_event": false
+            },
+            {
+              "acquired": false,
+              "name": "B_HANDS_UP:HELLO#4",
+              "with_distinct_event": false,
+              "with_event": false
+            }
+          ],
+          "post_dwell_ms": [
+            6082.5623439997435,
+            8745.42901000008,
+            7143.213020998985,
+            1735.7340099997818,
+            6940.731042001396,
+            1535.4570310004056,
+            3271.190990000963,
+            6275.345990000293,
+            534.0720309987664,
+            6075.069011000916
+          ],
+          "rolling_equivalence_max_abs": 5.089240716626975e-07,
+          "signs_with_distinct_event": 1,
+          "signs_with_event": 1
+        }
+      },
+      "total": {
+        "acquired": 12,
+        "events": 28,
+        "events_inside_nonsign": 5,
+        "genuine_signs": 23,
+        "merged_events": 0,
+        "nonsign_active_observations": 64,
+        "nonsign_observations": 676,
+        "other_events": 12,
+        "signs_with_distinct_event": 11,
+        "signs_with_event": 11
+      }
+    }
+  },
+  "reproduction_checks": {
+    "dev_v1_recomputed_vs_stored_max_abs": 0.0,
+    "sessions": {
+      "OCT15_COMPACT": {
+        "capture_file_sha256": {
+          "android_argmax.u8": "bf19124225cae0b91e5e72bbc5e8099b9f28c934db857eda67f3e13824185fac",
+          "android_features.f32": "a2e2eaabbfbb64b83ccbc16779c0a7fd7353c40f4b3aa76585093caf34277247",
+          "android_normalized.f32": "87f00ca62ec52f77f4ff13c449a011f319038ddf53d77248da76e6a407ca6875",
+          "android_probabilities.f32": "58c7caf3ff47d26fde2bff6db197b1224dd0f434e958a1b8185e96420d4befa3",
+          "history_length.i32": "ff6b8ceda48776c9968f3f01de6984b7344f8d85ae6c6551e5dc93ed05cb7ed2",
+          "raw_body_available.u8": "c94357943866cae726bccdecb1a6561f065f73a89f47220ec11e8c78fc9ceb36",
+          "raw_body_support.f32": "4bbab57e8b00e1df786eb64bef8bf8c3e82939599b52fcbb17d754a915bd2521",
+          "raw_body_valid.u8": "72ba72a8429441b67157b13f241d0a163172fc6c494a2032e5398955dec7ddbe",
+          "raw_body_xy.f32": "552dab5c37c92c3777ff34a8fa1c42c8c940e72bee55b046a394f2555849a94a",
+          "raw_hand_joint_valid.u8": "c7be371f969d241360993e5e15159ea7d10c4e77d5e1366d9e74a6511f7551ed",
+          "raw_hand_observed.u8": "70ad2507a0d09f2bb4e5f4d867ed62e76b99efe7f7a0d988f037c4397d2c9b01",
+          "raw_hand_presence.f32": "1f7d3680544967fe3f7a889c80544eaa324878ab11b4c7cc0de2b82518854348",
+          "raw_hand_proposal_present.u8": "8a4599dccf6d650d7894571c3d208cb4e336a0b5214cf7181bec993397131095",
+          "raw_hand_proposal_support.f32": "7dae48142ddb4fd8b82f66d990a399186c70ebcb3355da9c651823e64458a027",
+          "raw_hand_roi_center_side.f32": "a54f8a7fa9d43a0b79d894c54eb67d2422ccdd81983445d4224d5564ab4c2cc4",
+          "raw_hand_xy.f32": "0096e9ce8aa75551d2b68233472a69906e73cc202b12a3c70633db1a70d1d601",
+          "source_index.i32": "dabd203100a878041c58dba30b0665e2ae6758a99cf0f54b1672a78d770d5b41",
+          "source_size.i32": "bef26916c0e0cbbd358246eefc39fb756e9c8cd6e0fc999a6d26a099975188ec",
+          "timestamp_ms.f64": "ab0195ae66f67a97265f3388ee7e824e4c37024a930aff29519ed76f8146c830"
+        },
+        "probabilities_vs_android_max_abs": 8.571160167170078e-07,
+        "replayed_events_equal_recorded": true,
+        "v1_features_vs_android_max_abs": 0.0
+      },
+      "SEP23_INDEPENDENT": {
+        "capture_file_sha256": {
+          "android_argmax.u8": "c7d0dbc1c7f8e139e7593c9a3b3ae3a27a4af1f917dd80726ab2d14342b7785f",
+          "android_features.f32": "e266f249d691737d1c6df73e10b4a5913b25abe0f4b6e53015fb44059310b802",
+          "android_normalized.f32": "8925184f11e089cc70b034e859ee01231a9b409f77ecb2d86e517fbd659e4294",
+          "android_probabilities.f32": "14807db452653f4cb3d64a0e93b398f9e811f56895bc02b026d9a10e0f2490fe",
+          "history_length.i32": "77eeb509e54ce0a9fd9af8e0e7ab62ef314603a6bb7d08ea60e9e8c8e82e3f8a",
+          "raw_body_available.u8": "96bb96548a14a07ee5bfdf079167c3a41f0b51168c557dbea795eee671b13363",
+          "raw_body_support.f32": "6be596cdfc2687459719a65082bcf5af27557768162502fa909e38b79528495f",
+          "raw_body_valid.u8": "7400b35c62e12ebb691010b32a872430f6c7def1175c2064b99d8811a95ed82f",
+          "raw_body_xy.f32": "48f5babddb6c604ca7d9d1424f55bcd2d11d7768b8ed4e103fb3b17164abc0f4",
+          "raw_hand_joint_valid.u8": "101dc8333da19328995f2c9d85fe670f81ab2b9e419c463dab6d7d5d0183f366",
+          "raw_hand_observed.u8": "2c0ba04c6d851f770fa04de44aa418c7c2a2ea76d6030d5e34ff7d96f37f2447",
+          "raw_hand_presence.f32": "0fc12b57948e72c57473485bd18e3bf542dac786e406b5fcba316096c9cbe913",
+          "raw_hand_proposal_present.u8": "8cdc4801b8cb25c3d07f00d47791c4cce80e83549b1b660f3906f267f5e1e6e6",
+          "raw_hand_proposal_support.f32": "e8e75750fbdbe21b90619c1bbbc70a0e423b48ba0e7d864b41d30005650433d5",
+          "raw_hand_roi_center_side.f32": "f5099eb00d1a97a1cc2e21b8102ade1196bc8c838edff3dd133279aea36d5695",
+          "raw_hand_xy.f32": "ef85b9ae84b1008890adb35f60bdb3c46b0f88b59acc2406aeb37137782249c7",
+          "source_index.i32": "3bec2bc0662b1bd967d88930ba4aa1d565be7a1e994c87c4c7dfaa4c5e62d082",
+          "source_size.i32": "31ec0ee13b767acc365869c56f32d9a85f5deca306e565155588b4d3cb2829d7",
+          "timestamp_ms.f64": "59f43ebc9e123736caaa3f23e2aea53d73febd7bd69ed8b85646bc8f5df06d2a"
+        },
+        "probabilities_vs_android_max_abs": 1.0224138913272895e-06,
+        "replayed_events_equal_recorded": true,
+        "v1_features_vs_android_max_abs": 0.0
+      },
+      "SEP23_REPRESENTATIVE": {
+        "capture_file_sha256": {
+          "android_argmax.u8": "eaa6e400129f1fe3754e6f83e3cb798fedc60d19650f70c419a840c4eea66378",
+          "android_features.f32": "47f2738dbca2b1e0cc5d9e424540bb5f348ab5cd0e44316d96afd8141ec5da54",
+          "android_normalized.f32": "b5ea9f6661edd112fff891053414c122b4f7a5f648ff01fb0a7203bbf563740f",
+          "android_probabilities.f32": "23a1ed15a0eba35a7d8d2c4a4e367b3e2930a576c643f0937aa8e54c3db4e51b",
+          "history_length.i32": "cc1e0be3d7eb042c87e906cf4aaa5f054bc7dfb05cfa8fe713ef8479efac4326",
+          "raw_body_available.u8": "38457ca7b3121e0afba406a5faff70e534801eecbd898c5dee4e534c1440fa3e",
+          "raw_body_support.f32": "667f7e43f6ddb77c7b0afdc9e566acb949542b615a4c84df95b8b62de7267784",
+          "raw_body_valid.u8": "1f28e879fb32c730056c75a2553b3a7d6b773255688a18a0ae34d2bc939c065f",
+          "raw_body_xy.f32": "8269cecfb2e35db2b9cbbd77c09094f067eb001d2d5c692a6365619d1c2fc57b",
+          "raw_hand_joint_valid.u8": "c7c695f0e7ad42832b2095641b8bb8728b6dbae1087f64020b262eedb5091a40",
+          "raw_hand_observed.u8": "947aa4110e6fbe20f71d8624bd1f5def0122f9cc6c70a4be71ad462f27629d59",
+          "raw_hand_presence.f32": "7f63e682416d274f327c3be00ae02427eb7d2cd4b81905094e00d2ce5b35f2e2",
+          "raw_hand_proposal_present.u8": "0baa20840767a8f86bc2fefeea13e6903e983f03ce590a04e5ea7bb2b8e0b080",
+          "raw_hand_proposal_support.f32": "652cf8e379994f53c1c714442b13eb71aa21b7c99ff6d45bbbda35bfbaec6779",
+          "raw_hand_roi_center_side.f32": "10acc01c07f612684d0278895a81209b968271b60c547851f5a8ae90f6a55061",
+          "raw_hand_xy.f32": "1107fe387488bb5f843a38e2357422d71ecfb35023e26d73a994b7e6953c70a1",
+          "source_index.i32": "bc710c36f27594ecdbf6b83ff2fb858ac0c8d7a439242727db8b3cdaf8f6742b",
+          "source_size.i32": "eccdaa4dbffffecfe61a3649d263a3819b7beb2872675c0a19c2136b14988f9b",
+          "timestamp_ms.f64": "c1a87de46b26bc6b6be5db86002e0cf3f78c1ef3e4e35b6577d98f6f8e117e00"
+        },
+        "probabilities_vs_android_max_abs": 8.865792102685788e-07,
+        "replayed_events_equal_recorded": true,
+        "v1_features_vs_android_max_abs": 0.0
+      },
+      "SEP27_TRANSITION": {
+        "capture_file_sha256": {
+          "android_argmax.u8": "032ca0e5fa2948155eb0c3f32b4a468f9455581d88c62504ec3fed63599fd117",
+          "android_features.f32": "f0fc5a1b236b75a92a6d61405ecf98406a54a594b611709ce3ef603e2447cde9",
+          "android_normalized.f32": "26e39aace1e76181565708a8d5cf52d6ecbd48e54bf71945db3d2378a19a6ec1",
+          "android_probabilities.f32": "2f03593c66002dd7a2796a5ebd65ea2ed2f094e4e3d3d3613c6715024e3d53c7",
+          "history_length.i32": "1c9bf6336ee5755459fef13ad172b2b02e84348598b7b08b19ac58226371db4a",
+          "raw_body_available.u8": "214cbeeeea7ee1e73c463e31b7d0fded59fd3d352083185043d4f2933d9b8e66",
+          "raw_body_support.f32": "9c28556bd91a087e6cc8bf176efe6c52721f43bf0a804c091dc00a53ddf0e6c0",
+          "raw_body_valid.u8": "1c60ea0a41fbb88df90449abe52669f14f192e9bfa5ad485639f3c23e79d221b",
+          "raw_body_xy.f32": "f3fb54e390603ca98df6e2e501782b2fded95d60d471c9f729f1d3207b526a67",
+          "raw_hand_joint_valid.u8": "6bd5e4e777f0eeac8887b37a60c45f24236b1c6a26b5d44a5faeac60be436e37",
+          "raw_hand_observed.u8": "65fb5fced295a0ada76bce8b887b391c35081c4c773f925a7d8bf0c8ff4d5618",
+          "raw_hand_presence.f32": "502ec15a31500b1fd7f33d5a5c2cda193c3bc72cf223803772b905880fcfd383",
+          "raw_hand_proposal_present.u8": "5ca8c05d1c7fbca954f50b1663de1b62e774e8d244473e1e85c800abb629eb52",
+          "raw_hand_proposal_support.f32": "98c81e94e203e39e45283f7d5e5882041e29b91ab95c1d695def5305dba118cf",
+          "raw_hand_roi_center_side.f32": "f63cfb5689b4cc13a0f8f8ec4557199b9bb68c07b3680c07f3eae1cafcb0db37",
+          "raw_hand_xy.f32": "f18bdeac07eaa98a627a561f17f81bf7bdd98d7e1eb8109053d142f89fa46db9",
+          "source_index.i32": "81d0bd4c476ed8c6f03ed27d8afb10558312b314c34138df3b2d11373160923a",
+          "source_size.i32": "76e023084250ed021cc5757208d034dfc7f59d8eebe1d5077d61c71ffae6916f",
+          "timestamp_ms.f64": "dfb2db8a04697c8834309a88805e63c8db88c753f6b1effd2149e98e918efdaf"
+        },
+        "probabilities_vs_android_max_abs": 1.0812134705329157e-06,
+        "replayed_events_equal_recorded": true,
+        "v1_features_vs_android_max_abs": 0.0
+      }
+    }
+  },
+  "schema": "apphear.s2_r3.context_suite_freeze.v1",
+  "scope": "Development-exposed Tier 1/2 diagnostics only; not ASL accuracy and not Tier 3.",
+  "suite_id": "03"
+}

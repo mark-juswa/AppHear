@@ -1,0 +1,131 @@
+{
+  "s2": "ARM_A_E10",
+  "cal_streams": 240,
+  "results": {
+    "BASELINE": {
+      "signs": 1980.0,
+      "split": 0.0,
+      "distinct": 1461.0,
+      "merged": 132.0,
+      "neg_ev": 85.0,
+      "events": 1556.0,
+      "distinct_rate": 0.7378787878787879,
+      "split_rate": 0.0
+    },
+    "REENTRY_1": {
+      "signs": 1980.0,
+      "split": 8.0,
+      "distinct": 1658.0,
+      "merged": 149.0,
+      "neg_ev": 100.0,
+      "events": 1784.0,
+      "distinct_rate": 0.8373737373737373,
+      "split_rate": 0.00404040404040404
+    },
+    "REENTRY_2": {
+      "signs": 1980.0,
+      "split": 1.0,
+      "distinct": 1575.0,
+      "merged": 143.0,
+      "neg_ev": 96.0,
+      "events": 1685.0,
+      "distinct_rate": 0.7954545454545454,
+      "split_rate": 0.000505050505050505
+    },
+    "SHORT_POST_50": {
+      "signs": 1980.0,
+      "split": 52.0,
+      "distinct": 1508.0,
+      "merged": 89.0,
+      "neg_ev": 98.0,
+      "events": 1675.0,
+      "distinct_rate": 0.7616161616161616,
+      "split_rate": 0.026262626262626262
+    },
+    "SHORT_POST_70": {
+      "signs": 1980.0,
+      "split": 43.0,
+      "distinct": 1508.0,
+      "merged": 95.0,
+      "neg_ev": 89.0,
+      "events": 1645.0,
+      "distinct_rate": 0.7616161616161616,
+      "split_rate": 0.021717171717171718
+    },
+    "MAX_ACTIVE_1600": {
+      "signs": 1980.0,
+      "split": 53.0,
+      "distinct": 1564.0,
+      "merged": 61.0,
+      "neg_ev": 88.0,
+      "events": 1729.0,
+      "distinct_rate": 0.7898989898989899,
+      "split_rate": 0.026767676767676767
+    },
+    "MAX_ACTIVE_2000": {
+      "signs": 1980.0,
+      "split": 17.0,
+      "distinct": 1536.0,
+      "merged": 80.0,
+      "neg_ev": 86.0,
+      "events": 1644.0,
+      "distinct_rate": 0.7757575757575758,
+      "split_rate": 0.008585858585858586
+    },
+    "R1_SP50": {
+      "signs": 1980.0,
+      "split": 63.0,
+      "distinct": 1700.0,
+      "merged": 99.0,
+      "neg_ev": 113.0,
+      "events": 1903.0,
+      "distinct_rate": 0.8585858585858586,
+      "split_rate": 0.031818181818181815
+    },
+    "R1_SP50_MA2000": {
+      "signs": 1980.0,
+      "split": 76.0,
+      "distinct": 1739.0,
+      "merged": 66.0,
+      "neg_ev": 113.0,
+      "events": 1957.0,
+      "distinct_rate": 0.8782828282828283,
+      "split_rate": 0.03838383838383838
+    },
+    "R2_SP70_MA2000": {
+      "signs": 1980.0,
+      "split": 62.0,
+      "distinct": 1662.0,
+      "merged": 67.0,
+      "neg_ev": 100.0,
+      "events": 1834.0,
+      "distinct_rate": 0.8393939393939394,
+      "split_rate": 0.031313131313131314
+    },
+    "CONFIRM_BOUNDARY_50": {
+      "signs": 1980.0,
+      "split": 9.0,
+      "distinct": 1500.0,
+      "merged": 89.0,
+      "neg_ev": 97.0,
+      "events": 1630.0,
+      "distinct_rate": 0.7575757575757576,
+      "split_rate": 0.004545454545454545
+    },
+    "CONFIRM_BOUNDARY_70": {
+      "signs": 1980.0,
+      "split": 7.0,
+      "distinct": 1498.0,
+      "merged": 93.0,
+      "neg_ev": 96.0,
+      "events": 1619.0,
+      "distinct_rate": 0.7565656565656566,
+      "split_rate": 0.0035353535353535356
+    }
+  },
+  "eligible": [
+    "BASELINE",
+    "MAX_ACTIVE_2000"
+  ],
+  "selected": "MAX_ACTIVE_2000"
+}

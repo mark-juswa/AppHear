@@ -1,0 +1,265 @@
+{
+  "identities": {
+    "frozen": "8107accbc621ae5652766fec80d314fe8dc9f94ba0d0548a6aef80ed91729340",
+    "v2": "4f56ce612ca5b40c4073c07670c9e46e9de9ba5f31736b5f0615154a984673bf",
+    "v3": "b4d319bc5af46eb0e2afdce2b5475e5af721633ca689df0c7562a17aaa26bad4"
+  },
+  "A_dev": {
+    "5.61fps": {
+      "frozen": 0.39950980392156865,
+      "v2": 0.43995098039215685,
+      "v3": 0.4375,
+      "v3_vs_v2": {
+        "fixed": 38,
+        "broken": 40,
+        "p": 0.9099464518745243
+      },
+      "v3_vs_frozen": {
+        "fixed": 71,
+        "broken": 40,
+        "p": 0.004195534185394854
+      }
+    },
+    "3.75fps": {
+      "frozen": 0.3860294117647059,
+      "v2": 0.43014705882352944,
+      "v3": 0.43014705882352944,
+      "v3_vs_v2": {
+        "fixed": 37,
+        "broken": 37,
+        "p": 1.0
+      },
+      "v3_vs_frozen": {
+        "fixed": 79,
+        "broken": 43,
+        "p": 0.0014280617135795576
+      }
+    }
+  },
+  "B_contamination": {
+    "CLEAN": {
+      "frozen": 0.3958333333333333,
+      "v2": 0.43137254901960786,
+      "v3": 0.44362745098039214,
+      "v3_vs_v2": {
+        "fixed": 52,
+        "broken": 42,
+        "p": 0.3533280324715825
+      },
+      "v3_vs_frozen": {
+        "fixed": 88,
+        "broken": 49,
+        "p": 0.0010910236162357514
+      }
+    },
+    "NEXT_30": {
+      "frozen": 0.35661764705882354,
+      "v2": 0.36764705882352944,
+      "v3": 0.3590686274509804,
+      "v3_vs_v2": {
+        "fixed": 34,
+        "broken": 41,
+        "p": 0.48868297090314333
+      },
+      "v3_vs_frozen": {
+        "fixed": 53,
+        "broken": 51,
+        "p": 0.9219488276264309
+      }
+    },
+    "NEXT_50": {
+      "frozen": 0.34068627450980393,
+      "v2": 0.3492647058823529,
+      "v3": 0.3431372549019608,
+      "v3_vs_v2": {
+        "fixed": 30,
+        "broken": 35,
+        "p": 0.620144765081303
+      },
+      "v3_vs_frozen": {
+        "fixed": 62,
+        "broken": 60,
+        "p": 0.92791079960554
+      }
+    },
+    "PREV_30": {
+      "frozen": 0.2806372549019608,
+      "v2": 0.3394607843137255,
+      "v3": 0.34191176470588236,
+      "v3_vs_v2": {
+        "fixed": 34,
+        "broken": 32,
+        "p": 0.9021585000966993
+      },
+      "v3_vs_frozen": {
+        "fixed": 78,
+        "broken": 28,
+        "p": 1.251224275151152e-06
+      }
+    }
+  },
+  "C_phone": {
+    "RECORDED_DEVICE_WINDOW": {
+      "n": 13,
+      "frozen": 10,
+      "v2": 11,
+      "v3": 10,
+      "per_window": [
+        [
+          "HELLO",
+          "HELLO",
+          "HELLO",
+          "HELLO"
+        ],
+        [
+          "HELLO",
+          "HELLO",
+          "HELLO",
+          "HELLO"
+        ],
+        [
+          "HELLO",
+          "HELLO",
+          "HELLO",
+          "HELLO"
+        ],
+        [
+          "HELLO",
+          "HELLO",
+          "HELLO",
+          "HELLO"
+        ],
+        [
+          "HOME",
+          "HOME",
+          "HOME",
+          "HOME"
+        ],
+        [
+          "HELLO",
+          "HELLO",
+          "HELLO",
+          "HELLO"
+        ],
+        [
+          "HELLO",
+          "HELLO",
+          "HELLO",
+          "HELLO"
+        ],
+        [
+          "HOME",
+          "HOME",
+          "HOME",
+          "HOME"
+        ],
+        [
+          "HOME",
+          "THINK",
+          "HOME",
+          "THINK"
+        ],
+        [
+          "TABLE",
+          "BABY1",
+          "MEAT1",
+          "SCHOOL"
+        ],
+        [
+          "TABLE",
+          "ON",
+          "MEAT1",
+          "ON"
+        ],
+        [
+          "HOME",
+          "HOME",
+          "HOME",
+          "HOME"
+        ],
+        [
+          "TABLE",
+          "TABLE",
+          "TABLE",
+          "TABLE"
+        ]
+      ]
+    },
+    "SHADOW_023004Z_DEVICE_WINDOW (unblinded labels)": {
+      "n": 4,
+      "frozen": 4,
+      "v2": 2,
+      "v3": 2,
+      "per_window": [
+        [
+          "HELLO",
+          "HELLO",
+          "HELLO",
+          "HELLO"
+        ],
+        [
+          "HELLO",
+          "HELLO",
+          "LUNCH1",
+          "LUNCH1"
+        ],
+        [
+          "HELLO",
+          "HELLO",
+          "LUNCH1",
+          "LUNCH1"
+        ],
+        [
+          "HELLO",
+          "HELLO",
+          "HELLO",
+          "HELLO"
+        ]
+      ]
+    },
+    "SHADOW_023004Z_HUMAN_BOUNDARY (unblinded labels)": {
+      "n": 6,
+      "frozen": 4,
+      "v2": 6,
+      "v3": 4,
+      "per_window": [
+        [
+          "HELLO",
+          "HELLO",
+          "HELLO",
+          "HELLO"
+        ],
+        [
+          "HOME",
+          "LUNCH1",
+          "HOME",
+          "LUNCH1"
+        ],
+        [
+          "HELLO",
+          "HELLO",
+          "HELLO",
+          "HELLO"
+        ],
+        [
+          "HOME",
+          "LUNCH1",
+          "HOME",
+          "LUNCH1"
+        ],
+        [
+          "HELLO",
+          "HELLO",
+          "HELLO",
+          "HELLO"
+        ],
+        [
+          "HELLO",
+          "HELLO",
+          "HELLO",
+          "HELLO"
+        ]
+      ]
+    }
+  }
+}

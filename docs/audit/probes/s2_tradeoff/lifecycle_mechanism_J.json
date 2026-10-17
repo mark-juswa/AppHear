@@ -1,0 +1,40 @@
+{
+ "ARM_J_E2": {
+  "phone": {
+   "no_event_mechanism": {
+    "DISCARD_PRE_GAP": 8,
+    "OTHER": 1
+   },
+   "exit_after_active_run": {
+    "POST": 25,
+    "PRE": 11
+   },
+   "active_run_length": {
+    "1": 8,
+    "2": 5,
+    "3": 7,
+    "5": 16
+   }
+  },
+  "dev_continuous": {
+   "no_event_mechanism": {
+    "SWALLOWED_IN_REARM": 196,
+    "DISCARD_TOO_SHORT": 17,
+    "OTHER": 35,
+    "DISCARD_PRE_GAP": 36
+   },
+   "exit_after_active_run": {
+    "POST": 727,
+    "PRE": 45,
+    "END": 1
+   },
+   "active_run_length": {
+    "1": 117,
+    "2": 141,
+    "3": 195,
+    "4": 152,
+    "5": 168
+   }
+  }
+ }
+}

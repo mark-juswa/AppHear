@@ -1,0 +1,103 @@
+{
+  "descriptors": {
+    "cal_sign": {
+      "rows": 9437,
+      "any_hand": 0.815089541167744,
+      "both_hands": 0.32054678393557273,
+      "body_available": 0.6868708275935149,
+      "hand_scale_median": 0.08115127491459415,
+      "hand_wrist_y_median": 0.7700302759806315,
+      "cadence_ms_median": 200.0
+    },
+    "cal_P1": {
+      "rows": 17610,
+      "any_hand": 0.04735945485519591,
+      "both_hands": 0.0097671777399205,
+      "body_available": 0.8633730834752982,
+      "hand_scale_median": 0.06859712505465602,
+      "hand_wrist_y_median": 0.6381307601928711,
+      "cadence_ms_median": 208.54166666666424
+    },
+    "cal_N0": {
+      "rows": 15857,
+      "any_hand": 0.05303651384246705,
+      "both_hands": 0.002459481616951504,
+      "body_available": 0.9988017910071262,
+      "hand_scale_median": 0.024973048334502,
+      "hand_wrist_y_median": 1.00512752532959,
+      "cadence_ms_median": 208.54166666666424
+    },
+    "phone_genuine": {
+      "rows": 274,
+      "any_hand": 0.7116788321167883,
+      "both_hands": 0.17153284671532848,
+      "body_available": 0.22262773722627738,
+      "hand_scale_median": 0.09725347014723437,
+      "hand_wrist_y_median": 0.5929321050643921,
+      "cadence_ms_median": 266.61598896980286
+    },
+    "phone_nonsign": {
+      "rows": 705,
+      "any_hand": 0.30354609929078014,
+      "both_hands": 0.1347517730496454,
+      "body_available": 0.22695035460992907,
+      "hand_scale_median": 0.07522052597379408,
+      "hand_wrist_y_median": 0.7387436747550964,
+      "cadence_ms_median": 200.27697900123894
+    }
+  },
+  "separability": {
+    "S2_R2": {
+      "cal_sign_vs_P1": 0.9400764616177557,
+      "cal_sign_vs_N0": 0.9016753398470688,
+      "cal_sign_vs_pooled": 0.9218803031700901,
+      "phone_genuine_vs_nonsign": 0.7887385421213444,
+      "n": {
+        "cal_sign": 1980,
+        "P1": 1901,
+        "N0": 1712,
+        "phone_genuine": 29,
+        "phone_nonsign": 79
+      },
+      "P1_fired_at_0.5": 0.03945291951604419,
+      "phone_nonsign_fired_at_0.5": 0.25316455696202533
+    },
+    "ARM_A_E10": {
+      "cal_sign_vs_P1": 0.9860809568594945,
+      "cal_sign_vs_N0": 0.9971950816576984,
+      "cal_sign_vs_pooled": 0.9913473232183445,
+      "phone_genuine_vs_nonsign": 0.8363160192055871,
+      "n": {
+        "cal_sign": 1980,
+        "P1": 1901,
+        "N0": 1712,
+        "phone_genuine": 29,
+        "phone_nonsign": 79
+      },
+      "P1_fired_at_0.5": 0.06522882693319305,
+      "phone_nonsign_fired_at_0.5": 0.3037974683544304
+    }
+  },
+  "source_cue_auc": {
+    "cal_sign_vs_P1_descriptors_only": 0.9839423799550606,
+    "cal_sign_vs_P1_body_available_only": 0.6070621177960638,
+    "cal_sign_vs_P1_hand_scale_only": 0.9493295337064293
+  },
+  "counterfactual": {
+    "no_body": {
+      "cal_sign_vs_P1": 0.6232931630880079,
+      "cal_sign_detected_at_0.5": 0.7303030303030303,
+      "P1_fired_at_0.5": 0.6927932667017359
+    },
+    "zoom_1.5": {
+      "cal_sign_vs_P1": 0.9845073565746896,
+      "cal_sign_detected_at_0.5": 0.9484848484848485,
+      "P1_fired_at_0.5": 0.06575486586007365
+    },
+    "zoom_1.5_no_body": {
+      "cal_sign_vs_P1": 0.7740009245532654,
+      "cal_sign_detected_at_0.5": 0.8888888888888888,
+      "P1_fired_at_0.5": 0.7438190426091531
+    }
+  }
+}

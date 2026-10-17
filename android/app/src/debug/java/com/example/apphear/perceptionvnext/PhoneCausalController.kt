@@ -31,7 +31,9 @@ internal class PhoneCausalController(
     private val decoderConfig: PhoneDecoderConfig = PhoneDecoderConfig(),
     exactParityCaptureEnabled: Boolean = false,
     s2Package: PhoneS2Package = PhoneS2Package.PHASE7_CONTROL,
+    wordShadow: RecognizerPackageSpec? = null,
 ) : AutoCloseable {
+    private val shadowRecognizer = wordShadow?.let { RecognitionV2LiveRecognizer(context, it) }
     private val featureBuilder = PhoneSegmentationFeatureBuilder()
     private val s2 = PhoneS2Runner(context, s2Package)
     private val eventProducer = PhoneCausalEventProducer(decoderConfig)
@@ -247,6 +249,8 @@ internal class PhoneCausalController(
         val recognitionV2Ms = (System.nanoTime() - recognitionV2Started) / 1_000_000.0
         val recognitionStartNs = SystemClock.elapsedRealtimeNanos()
         val prediction = recognizer.invoke(view, RecognitionV2.FEATURE_SCHEMA)
+        // Shadow WORD candidate: identical view, logged only (never displayed or committed).
+        val shadow = shadowRecognizer?.invoke(view, RecognitionV2.FEATURE_SCHEMA)
         val recognitionCompleteNs = SystemClock.elapsedRealtimeNanos()
         val top1 = prediction.top5.first()
         val top5 = prediction.top5.map { recognizer.glosses[it] to prediction.probabilities[it] }
@@ -320,6 +324,26 @@ internal class PhoneCausalController(
             .put("interpolation", false)
             .put("duplication", false)
             .put("stale_carry", false)
+        if (shadowRecognizer != null && shadow != null) {
+            val shadowTop1 = shadow.top5.first()
+            val shadowExpected = expectedClass?.let { target ->
+                1 + shadow.probabilities.indices.count {
+                    shadow.probabilities[it] > shadow.probabilities[target] ||
+                        (shadow.probabilities[it] == shadow.probabilities[target] && it < target)
+                }
+            }
+            eventJson
+                .put("shadow_word_package", shadowRecognizer.identityJson().getString("package_id"))
+                .put("shadow_top1_class", shadowTop1)
+                .put("shadow_top1_gloss", shadowRecognizer.glosses[shadowTop1])
+                .put("shadow_top1_probability", shadow.probabilities[shadowTop1])
+                .put("shadow_top5", JSONArray(shadow.top5.map {
+                    JSONObject().put("gloss", shadowRecognizer.glosses[it]).put("probability", shadow.probabilities[it])
+                }))
+                .put("shadow_expected_probability", expectedClass?.let { shadow.probabilities[it] } ?: JSONObject.NULL)
+                .put("shadow_expected_rank", shadowExpected ?: JSONObject.NULL)
+                .put("shadow_recognition_invocation_ms", shadow.invocationMs)
+        }
         appendJson(eventLog, eventJson)
         return PhoneCausalResult(
             event,
@@ -354,6 +378,7 @@ internal class PhoneCausalController(
                  .put("admission_policy", decoderConfig.admissionPolicy.name))
             .put("materializer_contract_sha256", MATERIALIZER_CONTRACT_SHA)
             .put("recognizer", recognizer.identityJson())
+            .put("shadow_recognizer", shadowRecognizer?.identityJson() ?: JSONObject.NULL)
             .put("recognition_v2_schema", RecognitionV2.FEATURE_SCHEMA)
             .put("training_executed", false)
             .put("exact_s2_parity_capture_enabled", exactParityRecorder != null)
@@ -385,6 +410,7 @@ internal class PhoneCausalController(
             deliveryLog.close()
         }
         s2.close()
+        shadowRecognizer?.close()
     }
 
     private fun sha256(bytes: ByteArray) = MessageDigest.getInstance("SHA-256")

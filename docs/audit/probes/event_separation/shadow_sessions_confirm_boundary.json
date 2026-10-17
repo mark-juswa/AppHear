@@ -1,0 +1,243 @@
+{
+  "session_20261017T022535Z:BASELINE": {
+    "events": 7,
+    "frozen": {
+      "expected_gloss_outputs": 4,
+      "other_outputs_in_sign_blocks": 1,
+      "outputs_in_ordinary_movement": 2,
+      "outputs_outside_blocks": 0,
+      "expected_signs": 7
+    },
+    "v2": {
+      "expected_gloss_outputs": 4,
+      "other_outputs_in_sign_blocks": 1,
+      "outputs_in_ordinary_movement": 2,
+      "outputs_outside_blocks": 0,
+      "expected_signs": 7
+    },
+    "outputs": [
+      [
+        "B_HANDS_UP",
+        "HELLO",
+        "HELLO"
+      ],
+      [
+        "B_HANDS_UP",
+        "HOME",
+        "HOME"
+      ],
+      [
+        "C_REPEAT_HANDS_UP",
+        "HELLO",
+        "HELLO"
+      ],
+      [
+        "C_REPEAT_HANDS_UP",
+        "LUNCH1",
+        "LUNCH1"
+      ],
+      [
+        "D_SIGN_THEN_HOLD",
+        "HELLO",
+        "HELLO"
+      ],
+      [
+        "E_ORDINARY_MOVEMENT",
+        "BREAKFAST1",
+        "BREAKFAST1"
+      ],
+      [
+        "E_ORDINARY_MOVEMENT",
+        "SICK",
+        "HOUSE"
+      ]
+    ]
+  },
+  "session_20261017T022535Z:CONFIRM_BOUNDARY_70": {
+    "events": 8,
+    "frozen": {
+      "expected_gloss_outputs": 5,
+      "other_outputs_in_sign_blocks": 1,
+      "outputs_in_ordinary_movement": 2,
+      "outputs_outside_blocks": 0,
+      "expected_signs": 7
+    },
+    "v2": {
+      "expected_gloss_outputs": 5,
+      "other_outputs_in_sign_blocks": 1,
+      "outputs_in_ordinary_movement": 2,
+      "outputs_outside_blocks": 0,
+      "expected_signs": 7
+    },
+    "outputs": [
+      [
+        "B_HANDS_UP",
+        "HELLO",
+        "HELLO"
+      ],
+      [
+        "B_HANDS_UP",
+        "HOME",
+        "HOME"
+      ],
+      [
+        "C_REPEAT_HANDS_UP",
+        "HELLO",
+        "HELLO"
+      ],
+      [
+        "C_REPEAT_HANDS_UP",
+        "LUNCH1",
+        "LUNCH1"
+      ],
+      [
+        "C_REPEAT_HANDS_UP",
+        "HELLO",
+        "HELLO"
+      ],
+      [
+        "D_SIGN_THEN_HOLD",
+        "HELLO",
+        "HELLO"
+      ],
+      [
+        "E_ORDINARY_MOVEMENT",
+        "BREAKFAST1",
+        "BREAKFAST1"
+      ],
+      [
+        "E_ORDINARY_MOVEMENT",
+        "SICK",
+        "HOUSE"
+      ]
+    ]
+  },
+  "session_20261017T023004Z:BASELINE": {
+    "events": 8,
+    "frozen": {
+      "expected_gloss_outputs": 2,
+      "other_outputs_in_sign_blocks": 3,
+      "outputs_in_ordinary_movement": 1,
+      "outputs_outside_blocks": 2,
+      "expected_signs": 7
+    },
+    "v2": {
+      "expected_gloss_outputs": 3,
+      "other_outputs_in_sign_blocks": 2,
+      "outputs_in_ordinary_movement": 1,
+      "outputs_outside_blocks": 2,
+      "expected_signs": 7
+    },
+    "outputs": [
+      [
+        "OUTSIDE_BLOCKS",
+        "HAVE",
+        "CAR"
+      ],
+      [
+        "OUTSIDE_BLOCKS",
+        "MORNING",
+        "MORNING"
+      ],
+      [
+        "A_HANDS_DOWN",
+        "HELLO",
+        "HELLO"
+      ],
+      [
+        "A_HANDS_DOWN",
+        "LUNCH1",
+        "HOME"
+      ],
+      [
+        "B_HANDS_UP",
+        "LUNCH1",
+        "LUNCH1"
+      ],
+      [
+        "C_REPEAT_HANDS_UP",
+        "LUNCH1",
+        "LUNCH1"
+      ],
+      [
+        "D_SIGN_THEN_HOLD",
+        "HELLO",
+        "HELLO"
+      ],
+      [
+        "E_ORDINARY_MOVEMENT",
+        "SICK",
+        "KNOW"
+      ]
+    ]
+  },
+  "session_20261017T023004Z:CONFIRM_BOUNDARY_70": {
+    "events": 10,
+    "frozen": {
+      "expected_gloss_outputs": 5,
+      "other_outputs_in_sign_blocks": 2,
+      "outputs_in_ordinary_movement": 1,
+      "outputs_outside_blocks": 2,
+      "expected_signs": 7
+    },
+    "v2": {
+      "expected_gloss_outputs": 4,
+      "other_outputs_in_sign_blocks": 3,
+      "outputs_in_ordinary_movement": 1,
+      "outputs_outside_blocks": 2,
+      "expected_signs": 7
+    },
+    "outputs": [
+      [
+        "OUTSIDE_BLOCKS",
+        "HAVE",
+        "CAR"
+      ],
+      [
+        "OUTSIDE_BLOCKS",
+        "RIGHT3",
+        "MORNING"
+      ],
+      [
+        "A_HANDS_DOWN",
+        "HELLO",
+        "HELLO"
+      ],
+      [
+        "A_HANDS_DOWN",
+        "LUNCH1",
+        "HOME"
+      ],
+      [
+        "B_HANDS_UP",
+        "HELLO",
+        "LUNCH1"
+      ],
+      [
+        "B_HANDS_UP",
+        "HOME",
+        "HOME"
+      ],
+      [
+        "C_REPEAT_HANDS_UP",
+        "HELLO",
+        "LUNCH1"
+      ],
+      [
+        "C_REPEAT_HANDS_UP",
+        "HOME",
+        "HOME"
+      ],
+      [
+        "D_SIGN_THEN_HOLD",
+        "HELLO",
+        "HELLO"
+      ],
+      [
+        "E_ORDINARY_MOVEMENT",
+        "SICK",
+        "KNOW"
+      ]
+    ]
+  }
+}

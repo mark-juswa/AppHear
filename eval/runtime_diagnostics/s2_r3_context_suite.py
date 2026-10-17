@@ -29,6 +29,7 @@ if str(ROOT) not in sys.path:
 
 from eval.runtime_diagnostics.phase5_1t_first_segmenter import softmax  # noqa: E402
 from eval.runtime_diagnostics.phase7_production_cadence_aligned_segmenter import (  # noqa: E402
+    sparse_observation_indices,
     subset_raw,
 )
 from eval.runtime_diagnostics.phase8a_m2_frozen_sparse_dev_validation import (  # noqa: E402
@@ -68,8 +69,16 @@ SUITES = {
         ROOT / "model/config/recognition_upgrade/s2_r3_context_suite_02.json",
         ROOT / "evidence/s2_r3_context_suite_20261016/suite_freeze_02.json",
     ),
+    "03": (
+        ROOT / "model/config/recognition_upgrade/s2_r3_context_suite_03.json",
+        ROOT / "evidence/s2_r3_context_suite_20261016/suite_freeze_03.json",
+    ),
+    "04": (
+        ROOT / "model/config/recognition_upgrade/s2_r3_context_suite_04.json",
+        ROOT / "evidence/s2_r3_context_suite_20261016/suite_freeze_04.json",
+    ),
 }
-CURRENT_SUITE = "02"
+CURRENT_SUITE = "04"
 CONFIG_PATH, FREEZE_PATH = SUITES["01"]
 PRE, ACTIVE, POST = 0, 1, 2
 SUPPORTED_CONTRACTS = ("v1",)
@@ -773,6 +782,229 @@ def apply_gate(
     return {"lines": lines, "pass": all(line["pass"] for line in lines)}
 
 
+# ----------------------------------------------------------------------------- tier 1b
+def load_heldout_negative_streams(
+    root: Path, config: dict[str, Any], contract: str
+) -> dict[str, dict[str, Any]]:
+    """One continuous stream per held-out N0 participant (suite v03+): each clip is sampled at
+    the configured phone cadence view, clips are raw-stitched in clip-id order, and rows within
+    the exclusion radius of a human-flagged visible-hand sample are left unscored."""
+    spec = config["tier1b_heldout_negatives"]
+    manifest = read_json(root / spec["n0_manifest"])
+    split = read_json(ROOT / spec["data_split"])
+    if sha256(ROOT / spec["data_split"]) != manifest["split_sha256"]:
+        raise ValueError("[s2_r3/suite] N0_MANIFEST_SPLIT_MISMATCH")
+    allowed = {clip["clip_id"] for clip in split["n0_negatives"] if clip["role"] in spec["roles"]}
+    interval = float(spec["view_interval_ms"])
+    radius = float(spec["exclusion_radius_ms"])
+    by_participant: dict[str, list[dict[str, Any]]] = defaultdict(list)
+    for clip in manifest["clips"]:
+        if clip["clip_id"] in allowed:
+            by_participant[clip["participant"]].append(clip)
+    if {c for clips in by_participant.values() for c in (x["clip_id"] for x in clips)} != allowed:
+        raise ValueError("[s2_r3/suite] N0_HELDOUT_CLIPS_INCOMPLETE")
+    streams = {}
+    for participant, clips in sorted(by_participant.items()):
+        parts, scored = [], []
+        for clip in sorted(clips, key=lambda c: c["clip_id"]):
+            path = root / clip["raw_path"]
+            if sha256(path) != clip["raw_sha256"]:
+                raise ValueError(f"[s2_r3/suite] N0_RAW_HASH_MISMATCH:{clip['clip_id']}")
+            raw = load_raw_sequence(path)
+            indices, _ = sparse_observation_indices(
+                np.asarray(raw.timestamp_ms), clip["clip_id"], spec["view_id"], interval
+            )
+            sparse = subset_raw(raw, indices)
+            stamps = np.asarray(sparse.timestamp_ms, np.float64) - float(raw.timestamp_ms[0])
+            mask = np.ones(len(stamps), bool)
+            for sample in clip["excluded_review_samples"]:
+                mask &= np.abs(stamps - float(sample["timestamp_ms"])) > radius
+            parts.append(sparse)
+            scored.append(mask)
+        stream = concat_raw(parts, interval)
+        streams[participant] = {
+            "features": features_for_raw(stream, contract),
+            "timestamps_ms": np.asarray(stream.timestamp_ms, np.float64),
+            "scored": np.concatenate(scored),
+            "clips": len(clips),
+        }
+    return streams
+
+
+def evaluate_heldout_negatives(
+    package: Package, streams: dict[str, dict[str, Any]]
+) -> dict[str, Any]:
+    per = {}
+    for participant, stream in streams.items():
+        probabilities = package.probabilities(stream["features"])
+        states = np.argmax(probabilities, axis=1)
+        timestamps = stream["timestamps_ms"]
+        replayed = replay(
+            [
+                {
+                    "source_index": index,
+                    "source_timestamp_ms": float(timestamps[index]),
+                    "argmax_state": int(states[index]),
+                    "pre_probability": float(probabilities[index, PRE]),
+                    "active_probability": float(probabilities[index, ACTIVE]),
+                    "post_probability": float(probabilities[index, POST]),
+                }
+                for index in range(len(states))
+            ],
+            allow_post_rearm=True,
+            exact_android_commit_recovery=True,
+        )
+        scored = stream["scored"]
+        events = [
+            event
+            for event in replayed["events"]
+            if scored[int(event["logical_active_start_index"])]
+        ]
+        minutes = float(timestamps[-1] - timestamps[0]) / 60000.0
+        per[participant] = {
+            "clips": stream["clips"],
+            "observations": int(len(states)),
+            "scored_observations": int(np.sum(scored)),
+            "active_observations": int(np.sum(states[scored] == ACTIVE)),
+            "events": len(events),
+            "minutes": minutes,
+        }
+    scored_total = sum(item["scored_observations"] for item in per.values())
+    minutes_total = sum(item["minutes"] for item in per.values())
+    active_total = sum(item["active_observations"] for item in per.values())
+    events_total = sum(item["events"] for item in per.values())
+    return {
+        "participants": per,
+        "total": {
+            "scored_observations": scored_total,
+            "active_observations": active_total,
+            "active_rate": active_total / scored_total if scored_total else float("nan"),
+            "events": events_total,
+            "minutes": minutes_total,
+            "events_per_minute": events_total / minutes_total if minutes_total else float("nan"),
+        },
+    }
+
+
+# ----------------------------------------------------------------------------- tier 1c
+def load_ipn_streams(
+    root: Path, config: dict[str, Any], contract: str
+) -> dict[str, dict[str, Any]]:
+    """IPN Hand held-out subjects (suite v04+): hands-visible everyday movement from people outside
+    every S2 training and selection set. Each video is one stream at the configured view; rows are
+    labelled from IPN HandS by time (ffmpeg fps=30 timeline, 1-based inclusive); NOG rows within
+    the margin of any gesture are unscored transitions; gestures are never treated as ASL."""
+    from eval.runtime_diagnostics import ipn_hand_feasibility as ipn
+
+    spec = config["tier1c_ipn_hands_visible"]
+    manifest_path = root / spec["manifest"]
+    if sha256(manifest_path) != spec["manifest_sha256"]:
+        raise ValueError("[s2_r3/suite] IPN_MANIFEST_CHANGED")
+    if sha256(ROOT / spec["subject_split"]) != spec["subject_split_sha256"]:
+        raise ValueError("[s2_r3/suite] IPN_SPLIT_CHANGED")
+    roles = read_json(ROOT / spec["subject_split"])["roles"]
+    streams = {}
+    for clip in read_json(manifest_path)["clips"]:
+        if roles[clip["subject"]] not in spec["roles"]:
+            continue
+        for key in ("raw", "annotation"):
+            if sha256(root / clip[f"{key}_path"]) != clip[f"{key}_sha256"]:
+                raise ValueError(f"[s2_r3/suite] IPN_{key.upper()}_HASH:{clip['video']}")
+        full = load_raw_sequence(root / clip["raw_path"])
+        raw = subset_raw(full, ipn.view(full, float(spec["view_interval_ms"])))
+        t = np.asarray(raw.timestamp_ms, np.float64)
+        segments = ipn.hands_segments(root, clip["video"])
+        streams[clip["video"]] = {
+            "subject": clip["subject"],
+            "raw": raw,
+            "features": features_for_raw(raw, contract),
+            "timestamps_ms": t,
+            "classes": ipn.row_classes(t, segments, float(spec["gesture_margin_ms"])),
+            "segments": segments,
+        }
+    if len({s["subject"] for s in streams.values()}) != int(spec["expected_subjects"]):
+        raise ValueError("[s2_r3/suite] IPN_SUBJECT_COUNT_MISMATCH")
+    return streams
+
+
+def evaluate_ipn(
+    package: Package, streams: dict[str, dict[str, Any]], spec: dict[str, Any]
+) -> dict[str, Any]:
+    chunk = int(spec["chunk_observations"])
+    per: dict[str, dict[str, Any]] = {}
+    for video, stream in streams.items():
+        probabilities = package.probabilities(stream["features"])
+        states = np.argmax(probabilities, axis=1)
+        t, cls = stream["timestamps_ms"], stream["classes"]
+        replayed = replay(
+            [
+                {
+                    "source_index": index,
+                    "source_timestamp_ms": float(t[index]),
+                    "argmax_state": int(states[index]),
+                    "pre_probability": float(probabilities[index, PRE]),
+                    "active_probability": float(probabilities[index, ACTIVE]),
+                    "post_probability": float(probabilities[index, POST]),
+                }
+                for index in range(len(states))
+            ],
+            allow_post_rearm=True,
+            exact_android_commit_recovery=True,
+        )
+        spans = [
+            (int(e["logical_active_start_index"]), int(e["logical_active_end_index"]))
+            for e in replayed["events"]
+        ]
+        nog = np.flatnonzero(cls == 0)
+        hands = np.asarray(stream["raw"].hand_observed, bool).any(axis=1)
+        chunks = fired = 0
+        for block in np.split(nog, np.flatnonzero(np.diff(nog) > 1) + 1) if len(nog) else []:
+            for a in range(0, len(block), chunk):
+                rows = block[a : a + chunk]
+                if len(rows) >= 4 and hands[rows].any():
+                    chunks += 1
+                    fired += int(probabilities[rows, ACTIVE].max() >= 0.5)
+        rel = (t - t[0]) * 30.0 / 1000.0 + 1.0
+        gestures = hit = 0
+        for c, start, end in stream["segments"]:
+            if c in spec["canary_classes"]:
+                rows = np.flatnonzero((rel >= start) & (rel <= end))
+                if len(rows):
+                    gestures += 1
+                    hit += int(any(max(a, rows[0]) <= min(b, rows[-1]) for a, b in spans))
+        per[video] = {
+            "subject": stream["subject"],
+            "nog_observations": int(len(nog)),
+            "nog_active_observations": int(np.sum(states[nog] == ACTIVE)),
+            "nog_events": sum(1 for a, b in spans if np.all(cls[a : b + 1] == 0)),
+            "nog_minutes": float(len(nog) * float(spec["view_interval_ms"]) / 60000.0),
+            "hand_visible_nog_chunks": chunks,
+            "hand_visible_nog_chunks_fired": fired,
+            "canary_gestures": gestures,
+            "canary_gestures_with_event": hit,
+        }
+
+    def total(key: str) -> float:
+        return float(sum(v[key] for v in per.values()))
+
+    return {
+        "videos": per,
+        "total": {
+            "subjects": sorted({v["subject"] for v in per.values()}),
+            "nog_observations": int(total("nog_observations")),
+            "nog_active_rate": total("nog_active_observations")
+            / max(1.0, total("nog_observations")),
+            "nog_events": int(total("nog_events")),
+            "nog_minutes": total("nog_minutes"),
+            "nog_events_per_minute": total("nog_events") / max(1e-9, total("nog_minutes")),
+            "hand_visible_nog_chunk_fire_rate": total("hand_visible_nog_chunks_fired")
+            / max(1.0, total("hand_visible_nog_chunks")),
+            "gesture_canary": total("canary_gestures_with_event")
+            / max(1.0, total("canary_gestures")),
+        },
+    }
+
+
 # ----------------------------------------------------------------------------- commands
 def run_suite(
     root: Path, config: dict[str, Any], package: Package
@@ -790,6 +1022,12 @@ def run_suite(
         "tier1": evaluate_tier1(package, config, views, sessions),
         "tier2": evaluate_tier2(package, config, sessions),
     }
+    if "tier1b_heldout_negatives" in config:
+        streams = load_heldout_negative_streams(root, config, package.contract)
+        results["tier1b"] = evaluate_heldout_negatives(package, streams)
+    if "tier1c_ipn_hands_visible" in config:
+        ipn_streams = load_ipn_streams(root, config, package.contract)
+        results["tier1c"] = evaluate_ipn(package, ipn_streams, config["tier1c_ipn_hands_visible"])
     return results, {"views": views, "sessions": sessions}
 
 
@@ -863,6 +1101,16 @@ def freeze(root: Path, suite_id: str = CURRENT_SUITE) -> dict[str, Any]:
                 view["key"]: hashlib.sha256(view["stored_v1_features"].tobytes()).hexdigest()
                 for view in views
             },
+            **(
+                {
+                    "ipn_manifest_sha256": config["tier1c_ipn_hands_visible"]["manifest_sha256"],
+                    "ipn_subject_split_sha256": config["tier1c_ipn_hands_visible"][
+                        "subject_split_sha256"
+                    ],
+                }
+                if "tier1c_ipn_hands_visible" in config
+                else {}
+            ),
         },
         "reproduction_checks": {
             "dev_v1_recomputed_vs_stored_max_abs": feature_parity,

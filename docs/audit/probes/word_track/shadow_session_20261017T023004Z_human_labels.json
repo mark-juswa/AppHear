@@ -1,0 +1,74 @@
+{
+  "DEVICE_S2_R2": {
+    "frozen": 4,
+    "v2": 2,
+    "detected": 4,
+    "signs": 6,
+    "nonsign_words": 1,
+    "other_unmatched": 1,
+    "wrong_frozen": 0,
+    "wrong_v2": 2
+  },
+  "ARM_A_E10": {
+    "frozen": 2,
+    "v2": 3,
+    "detected": 5,
+    "signs": 6,
+    "nonsign_words": 1,
+    "other_unmatched": 2,
+    "wrong_frozen": 3,
+    "wrong_v2": 2
+  },
+  "ARM_A_E21_T08": {
+    "frozen": 2,
+    "v2": 3,
+    "detected": 3,
+    "signs": 6,
+    "nonsign_words": 2,
+    "other_unmatched": 1,
+    "wrong_frozen": 1,
+    "wrong_v2": 0
+  },
+  "ORACLE": {
+    "frozen": 4,
+    "v2": 6,
+    "per_sign": [
+      [
+        "HELLO",
+        "HELLO",
+        "HELLO"
+      ],
+      [
+        "HOME",
+        "LUNCH1",
+        "HOME"
+      ],
+      [
+        "HELLO",
+        "HELLO",
+        "HELLO"
+      ],
+      [
+        "HOME",
+        "LUNCH1",
+        "HOME"
+      ],
+      [
+        "HELLO",
+        "HELLO",
+        "HELLO"
+      ],
+      [
+        "HELLO",
+        "HELLO",
+        "HELLO"
+      ]
+    ]
+  },
+  "label_provenance": {
+    "reviewer": "gch",
+    "reviewed_blocks": [],
+    "declared_blinded": true,
+    "caveat": "model outputs for this session were shown in chat before review; analyzer rejected file as HUMAN_REVIEW_INCOMPLETE (no block attested)"
+  }
+}

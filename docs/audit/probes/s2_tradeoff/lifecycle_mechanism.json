@@ -1,0 +1,157 @@
+{
+ "ARM_A_E10": {
+  "phone": {
+   "no_event_mechanism": {
+    "DISCARD_PRE_GAP": 1
+   },
+   "exit_after_active_run": {
+    "POST": 26,
+    "PRE": 1
+   },
+   "active_run_length": {
+    "1": 5,
+    "2": 2,
+    "3": 3,
+    "4": 2,
+    "5": 15
+   }
+  },
+  "dev_continuous": {
+   "no_event_mechanism": {
+    "DISCARD_TOO_SHORT": 33,
+    "SWALLOWED_IN_REARM": 136,
+    "OTHER": 31,
+    "DISCARD_PRE_GAP": 10
+   },
+   "exit_after_active_run": {
+    "POST": 710,
+    "PRE": 15,
+    "END": 2
+   },
+   "active_run_length": {
+    "1": 168,
+    "2": 150,
+    "3": 175,
+    "4": 129,
+    "5": 105
+   }
+  }
+ },
+ "ARM_A_E21": {
+  "phone": {
+   "no_event_mechanism": {
+    "DISCARD_TOO_SHORT": 1
+   },
+   "exit_after_active_run": {
+    "PRE": 3,
+    "POST": 28
+   },
+   "active_run_length": {
+    "1": 10,
+    "2": 3,
+    "3": 6,
+    "4": 1,
+    "5": 11
+   }
+  },
+  "dev_continuous": {
+   "no_event_mechanism": {
+    "DISCARD_TOO_SHORT": 21,
+    "SWALLOWED_IN_REARM": 176,
+    "OTHER": 41,
+    "DISCARD_PRE_GAP": 11
+   },
+   "exit_after_active_run": {
+    "POST": 754,
+    "PRE": 15,
+    "END": 1
+   },
+   "active_run_length": {
+    "1": 131,
+    "2": 172,
+    "3": 206,
+    "4": 131,
+    "5": 130
+   }
+  }
+ },
+ "ARM_B_E9": {
+  "phone": {
+   "no_event_mechanism": {
+    "DISCARD_PRE_GAP": 5,
+    "DISCARD_TOO_SHORT": 2
+   },
+   "exit_after_active_run": {
+    "POST": 30,
+    "PRE": 6
+   },
+   "active_run_length": {
+    "1": 15,
+    "2": 7,
+    "3": 3,
+    "4": 2,
+    "5": 9
+   }
+  },
+  "dev_continuous": {
+   "no_event_mechanism": {
+    "DISCARD_TOO_SHORT": 34,
+    "SWALLOWED_IN_REARM": 169,
+    "OTHER": 42,
+    "DISCARD_PRE_GAP": 31
+   },
+   "exit_after_active_run": {
+    "POST": 704,
+    "PRE": 49,
+    "END": 2
+   },
+   "active_run_length": {
+    "1": 134,
+    "2": 162,
+    "3": 197,
+    "4": 129,
+    "5": 133
+   }
+  }
+ },
+ "ARM_I_E28": {
+  "phone": {
+   "no_event_mechanism": {
+    "DISCARD_PRE_GAP": 5,
+    "OTHER": 2,
+    "SWALLOWED_IN_REARM": 1
+   },
+   "exit_after_active_run": {
+    "PRE": 10,
+    "POST": 21
+   },
+   "active_run_length": {
+    "1": 11,
+    "2": 3,
+    "3": 2,
+    "4": 3,
+    "5": 12
+   }
+  },
+  "dev_continuous": {
+   "no_event_mechanism": {
+    "DISCARD_PRE_GAP": 87,
+    "SWALLOWED_IN_REARM": 182,
+    "DISCARD_TOO_SHORT": 19,
+    "OTHER": 48
+   },
+   "exit_after_active_run": {
+    "PRE": 132,
+    "POST": 607,
+    "END": 1
+   },
+   "active_run_length": {
+    "1": 139,
+    "2": 164,
+    "3": 205,
+    "4": 131,
+    "5": 101
+   }
+  }
+ }
+}

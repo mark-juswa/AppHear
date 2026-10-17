@@ -1,0 +1,35 @@
+{
+  "schema": "apphear.s2_r3.data_split_rules.v1",
+  "approved": "2026-10-16 user approval of the readiness-review data decisions",
+  "seed": 5103,
+  "cal_signer_fraction": 0.2,
+  "min_signers_to_split": 3,
+  "phone_design_signer_role": "FIT",
+  "negative_participant_roles": {
+    "P01": "CAL",
+    "P02": "FIT",
+    "P03": "FIT",
+    "P04": "CAL",
+    "P05": "HELD_OUT_EVAL",
+    "P06": "HELD_OUT_EVAL"
+  },
+  "rationale": {
+    "positives": "Signer-grouped: per source, round(0.2 x signers) signers (lowest SHA-256 rank of seed:signer) form CAL; a source with fewer than 3 signers stays wholly FIT because one signer cannot be split. DEV signers are excluded by construction.",
+    "negatives": "Participant-grouped. Approved: N0 P03/P04 for training, P05/P06 as the held-out false-activation set (suite v03). P1 and N0 participants P01/P02 follow one role each so CAL negatives are participant-disjoint from FIT. Each N0 participant used a distinct phone and environment, so the split is also device/environment-disjoint. P1 (hands-visible non-sign) has only P01 (19 rows) and P02 (26 rows); the larger, P02, is FIT so fitting keeps the most real hand-movement negatives.",
+    "phone_design_signer": "The only phone positive signer; all attempts stay FIT, so CAL has no phone-domain positives (a stated limitation)."
+  },
+  "sources": {
+    "phase7_sparse_view_manifest": "artifacts/recognition_upgrade/perception_vnext/recognition_utility_236_01/phase7_production_cadence_aligned_segmenter_01/sparse_view_manifest.json",
+    "s2_r2_dataset_manifest": "artifacts/recognition_upgrade/perception_vnext/recognition_utility_236_01/s2_r2_continuous_domain_correction_01/main_candidate/dataset_manifest.json",
+    "p1_intervals": "artifacts/recognition_upgrade/perception_vnext/recognition_utility_236_01/s2_r2_phone_temporal_supervision_01/p1_temporal_review_01/p1_reviewed_intervals.csv",
+    "n0_capture_manifest": "artifacts/recognition_upgrade/e2e_c0/n0_capture_06/capture_manifest.csv"
+  },
+  "outside_this_split": [
+    "segmentation DEV (suite Tier 1 gate only)",
+    "suite Tier 2 phone sessions (gate only)",
+    "protected TEST",
+    "E6 negative signer 0F747C-S001",
+    "Tier 3 independent qualified signer",
+    "R3b design-signer TRAIN capture (added as FIT when it exists)"
+  ]
+}

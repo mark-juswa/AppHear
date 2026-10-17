@@ -1,0 +1,84 @@
+{
+ "S2_R2__BASELINE": {
+  "threshold": 0.55,
+  "dev_validation": {
+   "ungated": {
+    "correct": 135,
+    "wrong": 242
+   },
+   "gated": {
+    "correct": 101,
+    "wrong": 102
+   }
+  },
+  "phone_reviewed": {
+   "ungated": {
+    "correct": 12,
+    "wrong_on_genuine": 3,
+    "confirmed_nonsign": 6,
+    "unreviewed_uncertain_partial": 13
+   },
+   "gated": {
+    "correct": 10,
+    "wrong_on_genuine": 1,
+    "confirmed_nonsign": 2,
+    "unreviewed_uncertain_partial": 4
+   }
+  },
+  "protocol_022535Z": {
+   "ungated": {
+    "expected_words": 2,
+    "other_in_sign_blocks": 2,
+    "ordinary_movement": 1,
+    "outside": 1
+   },
+   "gated": {
+    "expected_words": 2,
+    "other_in_sign_blocks": 0,
+    "ordinary_movement": 0,
+    "outside": 1
+   }
+  }
+ },
+ "ARM_A_E10__CONFIRM_BOUNDARY_70": {
+  "threshold": 0.75,
+  "dev_validation": {
+   "ungated": {
+    "correct": 265,
+    "wrong": 370
+   },
+   "gated": {
+    "correct": 173,
+    "wrong": 98
+   }
+  },
+  "phone_reviewed": {
+   "ungated": {
+    "correct": 19,
+    "wrong_on_genuine": 3,
+    "confirmed_nonsign": 10,
+    "unreviewed_uncertain_partial": 12
+   },
+   "gated": {
+    "correct": 16,
+    "wrong_on_genuine": 3,
+    "confirmed_nonsign": 3,
+    "unreviewed_uncertain_partial": 5
+   }
+  },
+  "protocol_022535Z": {
+   "ungated": {
+    "expected_words": 5,
+    "other_in_sign_blocks": 1,
+    "ordinary_movement": 2,
+    "outside": 0
+   },
+   "gated": {
+    "expected_words": 5,
+    "other_in_sign_blocks": 0,
+    "ordinary_movement": 0,
+    "outside": 0
+   }
+  }
+ }
+}

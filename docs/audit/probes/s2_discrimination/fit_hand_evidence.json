@@ -1,0 +1,128 @@
+{
+ "STITCHED_STREAM": {
+  "PRE": {
+   "rows": 179438,
+   "with_accepted_hand": 61918,
+   "fraction": 0.3450662624416233
+  },
+  "ACTIVE": {
+   "rows": 30185,
+   "with_accepted_hand": 24486,
+   "fraction": 0.8111976147092927
+  },
+  "POST": {
+   "rows": 46628,
+   "with_accepted_hand": 4303,
+   "fraction": 0.09228360641674531
+  }
+ },
+ "STITCHED_NEGATIVE_BLOCKS": {
+  "PRE": {
+   "rows": 151773,
+   "with_accepted_hand": 58174,
+   "fraction": 0.3832961066856424
+  }
+ },
+ "PHASE7_SIGN": {
+  "PRE": {
+   "rows": 1570,
+   "with_accepted_hand": 204,
+   "fraction": 0.12993630573248408
+  },
+  "ACTIVE": {
+   "rows": 983,
+   "with_accepted_hand": 773,
+   "fraction": 0.7863682604272635
+  },
+  "POST": {
+   "rows": 1949,
+   "with_accepted_hand": 207,
+   "fraction": 0.10620831195484864
+  }
+ },
+ "ENRICHMENT_SIGN": {
+  "PRE": {
+   "rows": 85,
+   "with_accepted_hand": 11,
+   "fraction": 0.12941176470588237
+  },
+  "ACTIVE": {
+   "rows": 168,
+   "with_accepted_hand": 101,
+   "fraction": 0.6011904761904762
+  },
+  "POST": {
+   "rows": 334,
+   "with_accepted_hand": 66,
+   "fraction": 0.19760479041916168
+  }
+ },
+ "P1_NEGATIVE": {
+  "PRE": {
+   "rows": 1794,
+   "with_accepted_hand": 1161,
+   "fraction": 0.6471571906354515
+  },
+  "ACTIVE": {
+   "rows": 0,
+   "with_accepted_hand": 0,
+   "fraction": 0.0
+  },
+  "POST": {
+   "rows": 0,
+   "with_accepted_hand": 0,
+   "fraction": 0.0
+  }
+ },
+ "PHONE_POSITIVE": {
+  "PRE": {
+   "rows": 67,
+   "with_accepted_hand": 0,
+   "fraction": 0.0
+  },
+  "ACTIVE": {
+   "rows": 67,
+   "with_accepted_hand": 37,
+   "fraction": 0.5522388059701493
+  },
+  "POST": {
+   "rows": 86,
+   "with_accepted_hand": 0,
+   "fraction": 0.0
+  }
+ },
+ "PHONE_DESIGN_NEGATIVE": {
+  "PRE": {
+   "rows": 264,
+   "with_accepted_hand": 10,
+   "fraction": 0.03787878787878788
+  },
+  "ACTIVE": {
+   "rows": 0,
+   "with_accepted_hand": 0,
+   "fraction": 0.0
+  },
+  "POST": {
+   "rows": 0,
+   "with_accepted_hand": 0,
+   "fraction": 0.0
+  }
+ },
+ "ALL_FIT": {
+  "PRE": {
+   "rows": 183218,
+   "with_accepted_hand": 63304,
+   "fraction": 0.3455119038522416
+  },
+  "ACTIVE": {
+   "rows": 31403,
+   "with_accepted_hand": 25397,
+   "fraction": 0.8087443874789033
+  },
+  "POST": {
+   "rows": 48997,
+   "with_accepted_hand": 4576,
+   "fraction": 0.09339347306977978
+  }
+ }
+}

@@ -117,6 +117,35 @@ def test_suite_02_reference_baselines_for_new_conditions() -> None:
     assert tier2["total"]["merged_events"] == 0
 
 
+def test_suite_03_reproduces_suite_02_and_records_heldout_negative_baseline() -> None:
+    second = suite.read_json(suite.SUITES["02"][1])["reference_results"]
+    third = suite.read_json(suite.SUITES["03"][1])["reference_results"]
+    assert third["tier1"] == second["tier1"] and third["tier2"] == second["tier2"]
+    heldout = third["tier1b"]
+    assert sorted(heldout["participants"]) == ["P05", "P06"]
+    assert heldout["total"]["scored_observations"] == 1227
+    assert heldout["total"]["active_observations"] == 7
+    assert heldout["total"]["events"] == 1
+
+
+def test_suite_04_reproduces_suite_03_and_records_ipn_hands_visible_baseline() -> None:
+    third = suite.read_json(suite.SUITES["03"][1])["reference_results"]
+    fourth_record = suite.read_json(suite.SUITES["04"][1])
+    fourth = fourth_record["reference_results"]
+    for tier in ("tier1", "tier2", "tier1b"):
+        assert fourth[tier] == third[tier]
+    ipn = fourth["tier1c"]["total"]
+    assert ipn["subjects"] == ["4CM11_2", "4CM11_24"]
+    assert ipn["nog_observations"] == 1329
+    assert ipn["nog_events"] == 0
+    config = suite.read_json(suite.SUITES["04"][0])["tier1c_ipn_hands_visible"]
+    assert config["roles"] == ["HELD_OUT_EVAL"]
+    identity = fourth_record["input_identity"]
+    assert identity["ipn_manifest_sha256"] == config["manifest_sha256"]
+    assert identity["ipn_subject_split_sha256"] == config["subject_split_sha256"]
+    assert suite.sha256(suite.ROOT / config["subject_split"]) == config["subject_split_sha256"]
+
+
 def test_match_signs_credits_a_merged_event_to_one_sign_only() -> None:
     positives = [
         {"name": "A", "first": 2, "last": 4, "active_rows": [2, 3, 4]},

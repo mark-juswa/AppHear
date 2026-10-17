@@ -1,0 +1,2555 @@
+{
+  "phone": {
+    "fresh_start_negative_controls": [
+      {
+        "fresh_start_active": true,
+        "full_history_active": true,
+        "rows": [
+          693,
+          702
+        ],
+        "session": "SEP27_TRANSITION"
+      },
+      {
+        "fresh_start_active": true,
+        "full_history_active": false,
+        "rows": [
+          703,
+          712
+        ],
+        "session": "SEP27_TRANSITION"
+      },
+      {
+        "fresh_start_active": true,
+        "full_history_active": false,
+        "rows": [
+          713,
+          722
+        ],
+        "session": "SEP27_TRANSITION"
+      },
+      {
+        "fresh_start_active": true,
+        "full_history_active": false,
+        "rows": [
+          723,
+          732
+        ],
+        "session": "SEP27_TRANSITION"
+      },
+      {
+        "fresh_start_active": true,
+        "full_history_active": false,
+        "rows": [
+          733,
+          742
+        ],
+        "session": "SEP27_TRANSITION"
+      },
+      {
+        "fresh_start_active": true,
+        "full_history_active": false,
+        "rows": [
+          743,
+          752
+        ],
+        "session": "SEP27_TRANSITION"
+      },
+      {
+        "fresh_start_active": true,
+        "full_history_active": false,
+        "rows": [
+          753,
+          762
+        ],
+        "session": "SEP27_TRANSITION"
+      },
+      {
+        "fresh_start_active": true,
+        "full_history_active": true,
+        "rows": [
+          818,
+          827
+        ],
+        "session": "SEP27_TRANSITION"
+      },
+      {
+        "fresh_start_active": false,
+        "full_history_active": true,
+        "rows": [
+          828,
+          837
+        ],
+        "session": "SEP27_TRANSITION"
+      },
+      {
+        "fresh_start_active": false,
+        "full_history_active": false,
+        "rows": [
+          838,
+          847
+        ],
+        "session": "SEP27_TRANSITION"
+      },
+      {
+        "fresh_start_active": false,
+        "full_history_active": false,
+        "rows": [
+          848,
+          857
+        ],
+        "session": "SEP27_TRANSITION"
+      },
+      {
+        "fresh_start_active": true,
+        "full_history_active": true,
+        "rows": [
+          858,
+          867
+        ],
+        "session": "SEP27_TRANSITION"
+      },
+      {
+        "fresh_start_active": true,
+        "full_history_active": true,
+        "rows": [
+          868,
+          877
+        ],
+        "session": "SEP27_TRANSITION"
+      },
+      {
+        "fresh_start_active": true,
+        "full_history_active": false,
+        "rows": [
+          878,
+          887
+        ],
+        "session": "SEP27_TRANSITION"
+      },
+      {
+        "fresh_start_active": true,
+        "full_history_active": false,
+        "rows": [
+          888,
+          897
+        ],
+        "session": "SEP27_TRANSITION"
+      },
+      {
+        "fresh_start_active": true,
+        "full_history_active": true,
+        "rows": [
+          954,
+          963
+        ],
+        "session": "SEP27_TRANSITION"
+      },
+      {
+        "fresh_start_active": true,
+        "full_history_active": true,
+        "rows": [
+          964,
+          973
+        ],
+        "session": "SEP27_TRANSITION"
+      },
+      {
+        "fresh_start_active": true,
+        "full_history_active": true,
+        "rows": [
+          974,
+          983
+        ],
+        "session": "SEP27_TRANSITION"
+      },
+      {
+        "fresh_start_active": false,
+        "full_history_active": false,
+        "rows": [
+          984,
+          993
+        ],
+        "session": "SEP27_TRANSITION"
+      },
+      {
+        "fresh_start_active": true,
+        "full_history_active": true,
+        "rows": [
+          1086,
+          1095
+        ],
+        "session": "SEP27_TRANSITION"
+      },
+      {
+        "fresh_start_active": true,
+        "full_history_active": false,
+        "rows": [
+          1096,
+          1105
+        ],
+        "session": "SEP27_TRANSITION"
+      },
+      {
+        "fresh_start_active": true,
+        "full_history_active": false,
+        "rows": [
+          1106,
+          1115
+        ],
+        "session": "SEP27_TRANSITION"
+      },
+      {
+        "fresh_start_active": true,
+        "full_history_active": false,
+        "rows": [
+          1116,
+          1125
+        ],
+        "session": "SEP27_TRANSITION"
+      },
+      {
+        "fresh_start_active": true,
+        "full_history_active": false,
+        "rows": [
+          1257,
+          1266
+        ],
+        "session": "SEP27_TRANSITION"
+      },
+      {
+        "fresh_start_active": true,
+        "full_history_active": false,
+        "rows": [
+          1267,
+          1276
+        ],
+        "session": "SEP27_TRANSITION"
+      },
+      {
+        "fresh_start_active": true,
+        "full_history_active": true,
+        "rows": [
+          1277,
+          1286
+        ],
+        "session": "SEP27_TRANSITION"
+      },
+      {
+        "fresh_start_active": true,
+        "full_history_active": true,
+        "rows": [
+          1287,
+          1296
+        ],
+        "session": "SEP27_TRANSITION"
+      },
+      {
+        "fresh_start_active": true,
+        "full_history_active": false,
+        "rows": [
+          1297,
+          1306
+        ],
+        "session": "SEP27_TRANSITION"
+      },
+      {
+        "fresh_start_active": true,
+        "full_history_active": false,
+        "rows": [
+          1307,
+          1316
+        ],
+        "session": "SEP27_TRANSITION"
+      },
+      {
+        "fresh_start_active": true,
+        "full_history_active": false,
+        "rows": [
+          1317,
+          1326
+        ],
+        "session": "SEP27_TRANSITION"
+      },
+      {
+        "fresh_start_active": true,
+        "full_history_active": true,
+        "rows": [
+          391,
+          399
+        ],
+        "session": "OCT15_COMPACT"
+      },
+      {
+        "fresh_start_active": true,
+        "full_history_active": true,
+        "rows": [
+          400,
+          408
+        ],
+        "session": "OCT15_COMPACT"
+      },
+      {
+        "fresh_start_active": true,
+        "full_history_active": false,
+        "rows": [
+          409,
+          417
+        ],
+        "session": "OCT15_COMPACT"
+      },
+      {
+        "fresh_start_active": true,
+        "full_history_active": false,
+        "rows": [
+          418,
+          426
+        ],
+        "session": "OCT15_COMPACT"
+      },
+      {
+        "fresh_start_active": false,
+        "full_history_active": false,
+        "rows": [
+          0,
+          3
+        ],
+        "session": "SEP23_INDEPENDENT"
+      },
+      {
+        "fresh_start_active": true,
+        "full_history_active": true,
+        "rows": [
+          4,
+          7
+        ],
+        "session": "SEP23_INDEPENDENT"
+      },
+      {
+        "fresh_start_active": true,
+        "full_history_active": true,
+        "rows": [
+          8,
+          11
+        ],
+        "session": "SEP23_INDEPENDENT"
+      },
+      {
+        "fresh_start_active": true,
+        "full_history_active": true,
+        "rows": [
+          12,
+          15
+        ],
+        "session": "SEP23_INDEPENDENT"
+      },
+      {
+        "fresh_start_active": true,
+        "full_history_active": true,
+        "rows": [
+          16,
+          19
+        ],
+        "session": "SEP23_INDEPENDENT"
+      },
+      {
+        "fresh_start_active": true,
+        "full_history_active": false,
+        "rows": [
+          20,
+          23
+        ],
+        "session": "SEP23_INDEPENDENT"
+      },
+      {
+        "fresh_start_active": true,
+        "full_history_active": true,
+        "rows": [
+          24,
+          27
+        ],
+        "session": "SEP23_INDEPENDENT"
+      },
+      {
+        "fresh_start_active": false,
+        "full_history_active": false,
+        "rows": [
+          28,
+          31
+        ],
+        "session": "SEP23_INDEPENDENT"
+      },
+      {
+        "fresh_start_active": true,
+        "full_history_active": true,
+        "rows": [
+          32,
+          35
+        ],
+        "session": "SEP23_INDEPENDENT"
+      },
+      {
+        "fresh_start_active": true,
+        "full_history_active": false,
+        "rows": [
+          36,
+          39
+        ],
+        "session": "SEP23_INDEPENDENT"
+      },
+      {
+        "fresh_start_active": false,
+        "full_history_active": false,
+        "rows": [
+          69,
+          72
+        ],
+        "session": "SEP23_INDEPENDENT"
+      },
+      {
+        "fresh_start_active": false,
+        "full_history_active": false,
+        "rows": [
+          73,
+          76
+        ],
+        "session": "SEP23_INDEPENDENT"
+      },
+      {
+        "fresh_start_active": false,
+        "full_history_active": false,
+        "rows": [
+          413,
+          416
+        ],
+        "session": "SEP23_INDEPENDENT"
+      },
+      {
+        "fresh_start_active": false,
+        "full_history_active": false,
+        "rows": [
+          417,
+          420
+        ],
+        "session": "SEP23_INDEPENDENT"
+      },
+      {
+        "fresh_start_active": false,
+        "full_history_active": false,
+        "rows": [
+          421,
+          424
+        ],
+        "session": "SEP23_INDEPENDENT"
+      },
+      {
+        "fresh_start_active": false,
+        "full_history_active": false,
+        "rows": [
+          425,
+          428
+        ],
+        "session": "SEP23_INDEPENDENT"
+      },
+      {
+        "fresh_start_active": false,
+        "full_history_active": false,
+        "rows": [
+          429,
+          432
+        ],
+        "session": "SEP23_INDEPENDENT"
+      },
+      {
+        "fresh_start_active": false,
+        "full_history_active": false,
+        "rows": [
+          433,
+          436
+        ],
+        "session": "SEP23_INDEPENDENT"
+      },
+      {
+        "fresh_start_active": false,
+        "full_history_active": false,
+        "rows": [
+          437,
+          440
+        ],
+        "session": "SEP23_INDEPENDENT"
+      },
+      {
+        "fresh_start_active": false,
+        "full_history_active": false,
+        "rows": [
+          441,
+          444
+        ],
+        "session": "SEP23_INDEPENDENT"
+      },
+      {
+        "fresh_start_active": false,
+        "full_history_active": false,
+        "rows": [
+          445,
+          448
+        ],
+        "session": "SEP23_INDEPENDENT"
+      },
+      {
+        "fresh_start_active": false,
+        "full_history_active": false,
+        "rows": [
+          449,
+          452
+        ],
+        "session": "SEP23_INDEPENDENT"
+      },
+      {
+        "fresh_start_active": false,
+        "full_history_active": false,
+        "rows": [
+          453,
+          456
+        ],
+        "session": "SEP23_INDEPENDENT"
+      },
+      {
+        "fresh_start_active": false,
+        "full_history_active": false,
+        "rows": [
+          457,
+          460
+        ],
+        "session": "SEP23_INDEPENDENT"
+      },
+      {
+        "fresh_start_active": false,
+        "full_history_active": false,
+        "rows": [
+          461,
+          464
+        ],
+        "session": "SEP23_INDEPENDENT"
+      },
+      {
+        "fresh_start_active": true,
+        "full_history_active": false,
+        "rows": [
+          507,
+          510
+        ],
+        "session": "SEP23_INDEPENDENT"
+      },
+      {
+        "fresh_start_active": false,
+        "full_history_active": false,
+        "rows": [
+          336,
+          344
+        ],
+        "session": "SEP23_REPRESENTATIVE"
+      },
+      {
+        "fresh_start_active": false,
+        "full_history_active": false,
+        "rows": [
+          386,
+          394
+        ],
+        "session": "SEP23_REPRESENTATIVE"
+      },
+      {
+        "fresh_start_active": false,
+        "full_history_active": false,
+        "rows": [
+          395,
+          403
+        ],
+        "session": "SEP23_REPRESENTATIVE"
+      },
+      {
+        "fresh_start_active": false,
+        "full_history_active": false,
+        "rows": [
+          404,
+          412
+        ],
+        "session": "SEP23_REPRESENTATIVE"
+      },
+      {
+        "fresh_start_active": false,
+        "full_history_active": false,
+        "rows": [
+          448,
+          456
+        ],
+        "session": "SEP23_REPRESENTATIVE"
+      },
+      {
+        "fresh_start_active": false,
+        "full_history_active": false,
+        "rows": [
+          457,
+          465
+        ],
+        "session": "SEP23_REPRESENTATIVE"
+      },
+      {
+        "fresh_start_active": false,
+        "full_history_active": false,
+        "rows": [
+          466,
+          474
+        ],
+        "session": "SEP23_REPRESENTATIVE"
+      },
+      {
+        "fresh_start_active": false,
+        "full_history_active": false,
+        "rows": [
+          475,
+          483
+        ],
+        "session": "SEP23_REPRESENTATIVE"
+      },
+      {
+        "fresh_start_active": false,
+        "full_history_active": false,
+        "rows": [
+          527,
+          535
+        ],
+        "session": "SEP23_REPRESENTATIVE"
+      },
+      {
+        "fresh_start_active": false,
+        "full_history_active": false,
+        "rows": [
+          536,
+          544
+        ],
+        "session": "SEP23_REPRESENTATIVE"
+      },
+      {
+        "fresh_start_active": false,
+        "full_history_active": false,
+        "rows": [
+          545,
+          553
+        ],
+        "session": "SEP23_REPRESENTATIVE"
+      },
+      {
+        "fresh_start_active": false,
+        "full_history_active": false,
+        "rows": [
+          554,
+          562
+        ],
+        "session": "SEP23_REPRESENTATIVE"
+      },
+      {
+        "fresh_start_active": false,
+        "full_history_active": false,
+        "rows": [
+          563,
+          571
+        ],
+        "session": "SEP23_REPRESENTATIVE"
+      },
+      {
+        "fresh_start_active": false,
+        "full_history_active": false,
+        "rows": [
+          572,
+          580
+        ],
+        "session": "SEP23_REPRESENTATIVE"
+      },
+      {
+        "fresh_start_active": false,
+        "full_history_active": false,
+        "rows": [
+          621,
+          629
+        ],
+        "session": "SEP23_REPRESENTATIVE"
+      },
+      {
+        "fresh_start_active": false,
+        "full_history_active": false,
+        "rows": [
+          630,
+          638
+        ],
+        "session": "SEP23_REPRESENTATIVE"
+      },
+      {
+        "fresh_start_active": false,
+        "full_history_active": false,
+        "rows": [
+          639,
+          647
+        ],
+        "session": "SEP23_REPRESENTATIVE"
+      },
+      {
+        "fresh_start_active": false,
+        "full_history_active": false,
+        "rows": [
+          648,
+          656
+        ],
+        "session": "SEP23_REPRESENTATIVE"
+      },
+      {
+        "fresh_start_active": false,
+        "full_history_active": false,
+        "rows": [
+          657,
+          665
+        ],
+        "session": "SEP23_REPRESENTATIVE"
+      },
+      {
+        "fresh_start_active": false,
+        "full_history_active": false,
+        "rows": [
+          666,
+          674
+        ],
+        "session": "SEP23_REPRESENTATIVE"
+      },
+      {
+        "fresh_start_active": false,
+        "full_history_active": false,
+        "rows": [
+          675,
+          683
+        ],
+        "session": "SEP23_REPRESENTATIVE"
+      },
+      {
+        "fresh_start_active": false,
+        "full_history_active": false,
+        "rows": [
+          684,
+          692
+        ],
+        "session": "SEP23_REPRESENTATIVE"
+      },
+      {
+        "fresh_start_active": false,
+        "full_history_active": false,
+        "rows": [
+          693,
+          701
+        ],
+        "session": "SEP23_REPRESENTATIVE"
+      },
+      {
+        "fresh_start_active": false,
+        "full_history_active": false,
+        "rows": [
+          702,
+          710
+        ],
+        "session": "SEP23_REPRESENTATIVE"
+      }
+    ],
+    "signs": [
+      {
+        "body_fraction": 1.0,
+        "both_hands_fraction": 0.0,
+        "continuous": true,
+        "distinct_event": false,
+        "duration_ms": 2203.046979000792,
+        "event": false,
+        "first": 134,
+        "first_failure": "NOT_SEGMENTED",
+        "gloss": "HELLO",
+        "hand_fraction": 0.5,
+        "last": 139,
+        "median_interval_ms": 467.31296900101006,
+        "merged": false,
+        "observations": 6,
+        "oracle_ctx": {
+          "correct": true,
+          "expected_probability": 0.9847596287727356,
+          "expected_rank": 1,
+          "top1": "HELLO",
+          "top1_probability": 0.9847596287727356,
+          "top5": true
+        },
+        "oracle_ctx_window": [
+          133,
+          141
+        ],
+        "oracle_tight": {
+          "correct": true,
+          "expected_probability": 0.9595850706100464,
+          "expected_rank": 1,
+          "top1": "HELLO",
+          "top1_probability": 0.9595850706100464,
+          "top5": true
+        },
+        "proposal_fraction": 1.0,
+        "s2_acquired": false,
+        "s2_acquired_fresh_start": true,
+        "s2_active_rows": 0,
+        "s2_valid": true,
+        "session": "SEP27_TRANSITION",
+        "sign": "A_HANDS_DOWN:HELLO#1",
+        "signer_role": "DESIGN_SIGNER_LIKELY_FIT (same device/supervisor as FIT phone positives; identity not authoritative)"
+      },
+      {
+        "body_fraction": 1.0,
+        "both_hands_fraction": 0.0,
+        "continuous": true,
+        "distinct_event": false,
+        "duration_ms": 2203.046979000792,
+        "event": false,
+        "first": 150,
+        "first_failure": "NOT_SEGMENTED",
+        "gloss": "HOME",
+        "hand_fraction": 0.7777777777777778,
+        "last": 158,
+        "median_interval_ms": 267.0359899997711,
+        "merged": false,
+        "observations": 9,
+        "oracle_ctx": {
+          "correct": true,
+          "expected_probability": 0.773869514465332,
+          "expected_rank": 1,
+          "top1": "HOME",
+          "top1_probability": 0.773869514465332,
+          "top5": true
+        },
+        "oracle_ctx_window": [
+          149,
+          160
+        ],
+        "oracle_tight": {
+          "correct": true,
+          "expected_probability": 0.9476212859153748,
+          "expected_rank": 1,
+          "top1": "HOME",
+          "top1_probability": 0.9476212859153748,
+          "top5": true
+        },
+        "proposal_fraction": 1.0,
+        "s2_acquired": false,
+        "s2_acquired_fresh_start": true,
+        "s2_active_rows": 0,
+        "s2_valid": true,
+        "session": "SEP27_TRANSITION",
+        "sign": "A_HANDS_DOWN:HOME#2",
+        "signer_role": "DESIGN_SIGNER_LIKELY_FIT (same device/supervisor as FIT phone positives; identity not authoritative)"
+      },
+      {
+        "body_fraction": 1.0,
+        "both_hands_fraction": 0.0,
+        "continuous": true,
+        "distinct_event": false,
+        "duration_ms": 2069.529010999948,
+        "event": false,
+        "first": 176,
+        "first_failure": "NOT_SEGMENTED|WEAK_OBSERVATION",
+        "gloss": "TABLE",
+        "hand_fraction": 0.0,
+        "last": 185,
+        "median_interval_ms": 200.27703100070357,
+        "merged": false,
+        "observations": 10,
+        "oracle_ctx": {
+          "correct": false,
+          "expected_probability": 0.021697504445910454,
+          "expected_rank": 6,
+          "top1": "WALK2",
+          "top1_probability": 0.6621295213699341,
+          "top5": false
+        },
+        "oracle_ctx_window": [
+          174,
+          187
+        ],
+        "oracle_tight": {
+          "correct": false,
+          "expected_probability": 0.02286740206182003,
+          "expected_rank": 5,
+          "top1": "WALK2",
+          "top1_probability": 0.7019933462142944,
+          "top5": true
+        },
+        "proposal_fraction": 1.0,
+        "s2_acquired": false,
+        "s2_acquired_fresh_start": true,
+        "s2_active_rows": 0,
+        "s2_valid": true,
+        "session": "SEP27_TRANSITION",
+        "sign": "A_HANDS_DOWN:TABLE#3",
+        "signer_role": "DESIGN_SIGNER_LIKELY_FIT (same device/supervisor as FIT phone positives; identity not authoritative)"
+      },
+      {
+        "body_fraction": 0.0,
+        "both_hands_fraction": 0.0,
+        "continuous": true,
+        "distinct_event": true,
+        "duration_ms": 1735.7340099997818,
+        "event": true,
+        "first": 346,
+        "first_failure": "CORRECT",
+        "gloss": "HELLO",
+        "hand_fraction": 1.0,
+        "last": 356,
+        "median_interval_ms": 200.2769789993763,
+        "merged": false,
+        "observations": 11,
+        "oracle_ctx": {
+          "correct": true,
+          "expected_probability": 0.9884601831436157,
+          "expected_rank": 1,
+          "top1": "HELLO",
+          "top1_probability": 0.9884601831436157,
+          "top5": true
+        },
+        "oracle_ctx_window": [
+          344,
+          359
+        ],
+        "oracle_tight": {
+          "correct": true,
+          "expected_probability": 0.9960587024688721,
+          "expected_rank": 1,
+          "top1": "HELLO",
+          "top1_probability": 0.9960587024688721,
+          "top5": true
+        },
+        "proposal_fraction": 1.0,
+        "runtime": {
+          "correct": true,
+          "expected_probability": 0.9810785055160522,
+          "expected_rank": 1,
+          "top1": "HELLO",
+          "top1_probability": 0.9810785055160522,
+          "top5": true
+        },
+        "runtime_coverage": 1.0,
+        "runtime_window": [
+          342,
+          359
+        ],
+        "runtime_window_contains_other_sign": false,
+        "s2_acquired": true,
+        "s2_acquired_fresh_start": true,
+        "s2_active_rows": 11,
+        "s2_valid": true,
+        "session": "SEP27_TRANSITION",
+        "sign": "B_HANDS_UP:HELLO#1",
+        "signer_role": "DESIGN_SIGNER_LIKELY_FIT (same device/supervisor as FIT phone positives; identity not authoritative)"
+      },
+      {
+        "body_fraction": 0.0,
+        "both_hands_fraction": 0.0,
+        "continuous": true,
+        "distinct_event": false,
+        "duration_ms": 2536.8419790007174,
+        "event": false,
+        "first": 360,
+        "first_failure": "NOT_SEGMENTED",
+        "gloss": "HOME",
+        "hand_fraction": 1.0,
+        "last": 374,
+        "median_interval_ms": 200.2769789993763,
+        "merged": false,
+        "observations": 15,
+        "oracle_ctx": {
+          "correct": true,
+          "expected_probability": 0.9988009929656982,
+          "expected_rank": 1,
+          "top1": "HOME",
+          "top1_probability": 0.9988009929656982,
+          "top5": true
+        },
+        "oracle_ctx_window": [
+          358,
+          377
+        ],
+        "oracle_tight": {
+          "correct": true,
+          "expected_probability": 0.9996945858001709,
+          "expected_rank": 1,
+          "top1": "HOME",
+          "top1_probability": 0.9996945858001709,
+          "top5": true
+        },
+        "proposal_fraction": 1.0,
+        "s2_acquired": false,
+        "s2_acquired_fresh_start": true,
+        "s2_active_rows": 0,
+        "s2_valid": true,
+        "session": "SEP27_TRANSITION",
+        "sign": "B_HANDS_UP:HOME#2",
+        "signer_role": "DESIGN_SIGNER_LIKELY_FIT (same device/supervisor as FIT phone positives; identity not authoritative)"
+      },
+      {
+        "body_fraction": 0.7857142857142857,
+        "both_hands_fraction": 0.0,
+        "continuous": true,
+        "distinct_event": false,
+        "duration_ms": 3204.432031000033,
+        "event": false,
+        "first": 378,
+        "first_failure": "NOT_SEGMENTED|WEAK_OBSERVATION",
+        "gloss": "TABLE",
+        "hand_fraction": 0.0,
+        "last": 391,
+        "median_interval_ms": 267.0359889995307,
+        "merged": false,
+        "observations": 14,
+        "oracle_ctx": {
+          "correct": false,
+          "expected_probability": 0.00010108073183801025,
+          "expected_rank": 35,
+          "top1": "WALK2",
+          "top1_probability": 0.8269899487495422,
+          "top5": false
+        },
+        "oracle_ctx_window": [
+          376,
+          394
+        ],
+        "oracle_tight": {
+          "correct": false,
+          "expected_probability": 4.843182614422403e-05,
+          "expected_rank": 36,
+          "top1": "WALK2",
+          "top1_probability": 0.865082859992981,
+          "top5": false
+        },
+        "proposal_fraction": 1.0,
+        "s2_acquired": false,
+        "s2_acquired_fresh_start": true,
+        "s2_active_rows": 0,
+        "s2_valid": true,
+        "session": "SEP27_TRANSITION",
+        "sign": "B_HANDS_UP:TABLE#3",
+        "signer_role": "DESIGN_SIGNER_LIKELY_FIT (same device/supervisor as FIT phone positives; identity not authoritative)"
+      },
+      {
+        "body_fraction": 0.0,
+        "both_hands_fraction": 0.0,
+        "continuous": true,
+        "distinct_event": false,
+        "duration_ms": 1468.6980210002512,
+        "event": false,
+        "first": 399,
+        "first_failure": "NOT_SEGMENTED",
+        "gloss": "HELLO",
+        "hand_fraction": 0.8571428571428571,
+        "last": 405,
+        "median_interval_ms": 267.0359895005822,
+        "merged": false,
+        "observations": 7,
+        "oracle_ctx": {
+          "correct": true,
+          "expected_probability": 0.9333657622337341,
+          "expected_rank": 1,
+          "top1": "HELLO",
+          "top1_probability": 0.9333657622337341,
+          "top5": true
+        },
+        "oracle_ctx_window": [
+          398,
+          408
+        ],
+        "oracle_tight": {
+          "correct": true,
+          "expected_probability": 0.8923982977867126,
+          "expected_rank": 1,
+          "top1": "HELLO",
+          "top1_probability": 0.8923982977867126,
+          "top5": true
+        },
+        "proposal_fraction": 1.0,
+        "s2_acquired": false,
+        "s2_acquired_fresh_start": true,
+        "s2_active_rows": 0,
+        "s2_valid": true,
+        "session": "SEP27_TRANSITION",
+        "sign": "B_HANDS_UP:HELLO#4",
+        "signer_role": "DESIGN_SIGNER_LIKELY_FIT (same device/supervisor as FIT phone positives; identity not authoritative)"
+      },
+      {
+        "first": 206,
+        "gloss": "HELLO",
+        "last": 214,
+        "session": "SEP27_TRANSITION",
+        "sign": "A_HANDS_DOWN:HELLO#4",
+        "uncertain": true
+      },
+      {
+        "body_fraction": 0.42857142857142855,
+        "both_hands_fraction": 0.0,
+        "continuous": true,
+        "distinct_event": false,
+        "duration_ms": 1533.042030999437,
+        "event": false,
+        "first": 195,
+        "first_failure": "NOT_SEGMENTED",
+        "gloss": "HELLO",
+        "hand_fraction": 0.7142857142857143,
+        "last": 201,
+        "median_interval_ms": 233.28901000041515,
+        "merged": false,
+        "observations": 7,
+        "oracle_ctx": {
+          "correct": false,
+          "expected_probability": 0.09166330844163895,
+          "expected_rank": 2,
+          "top1": "TEACH2",
+          "top1_probability": 0.8179201483726501,
+          "top5": true
+        },
+        "oracle_ctx_window": [
+          193,
+          204
+        ],
+        "oracle_tight": {
+          "correct": false,
+          "expected_probability": 0.4114660918712616,
+          "expected_rank": 2,
+          "top1": "TEACH2",
+          "top1_probability": 0.4861914813518524,
+          "top5": true
+        },
+        "proposal_fraction": 1.0,
+        "s2_acquired": false,
+        "s2_acquired_fresh_start": true,
+        "s2_active_rows": 0,
+        "s2_valid": true,
+        "session": "OCT15_COMPACT",
+        "sign": "A_HANDS_DOWN:HELLO#1",
+        "signer_role": "DESIGN_SIGNER_LIKELY_FIT (same device/supervisor as FIT phone positives; identity not authoritative)"
+      },
+      {
+        "body_fraction": 0.0,
+        "both_hands_fraction": 0.3,
+        "continuous": true,
+        "distinct_event": false,
+        "duration_ms": 2866.121979000047,
+        "event": false,
+        "first": 229,
+        "first_failure": "NOT_SEGMENTED",
+        "gloss": "HELLO",
+        "hand_fraction": 0.7,
+        "last": 238,
+        "median_interval_ms": 266.6160420011729,
+        "merged": false,
+        "observations": 10,
+        "oracle_ctx": {
+          "correct": true,
+          "expected_probability": 0.980718731880188,
+          "expected_rank": 1,
+          "top1": "HELLO",
+          "top1_probability": 0.980718731880188,
+          "top5": true
+        },
+        "oracle_ctx_window": [
+          228,
+          240
+        ],
+        "oracle_tight": {
+          "correct": true,
+          "expected_probability": 0.9889543056488037,
+          "expected_rank": 1,
+          "top1": "HELLO",
+          "top1_probability": 0.9889543056488037,
+          "top5": true
+        },
+        "proposal_fraction": 1.0,
+        "s2_acquired": false,
+        "s2_acquired_fresh_start": true,
+        "s2_active_rows": 0,
+        "s2_valid": true,
+        "session": "OCT15_COMPACT",
+        "sign": "B_HANDS_UP:HELLO#1",
+        "signer_role": "DESIGN_SIGNER_LIKELY_FIT (same device/supervisor as FIT phone positives; identity not authoritative)"
+      },
+      {
+        "body_fraction": 0.0,
+        "both_hands_fraction": 0.625,
+        "continuous": true,
+        "distinct_event": true,
+        "duration_ms": 1599.6959899999201,
+        "event": true,
+        "first": 279,
+        "first_failure": "BAD_WINDOW|RIGHT_CLASS",
+        "gloss": "HELLO",
+        "hand_fraction": 1.0,
+        "last": 286,
+        "median_interval_ms": 199.9620310012251,
+        "merged": false,
+        "observations": 8,
+        "oracle_ctx": {
+          "correct": true,
+          "expected_probability": 0.9524610042572021,
+          "expected_rank": 1,
+          "top1": "HELLO",
+          "top1_probability": 0.9524610042572021,
+          "top5": true
+        },
+        "oracle_ctx_window": [
+          278,
+          288
+        ],
+        "oracle_tight": {
+          "correct": true,
+          "expected_probability": 0.9111905694007874,
+          "expected_rank": 1,
+          "top1": "HELLO",
+          "top1_probability": 0.9111905694007874,
+          "top5": true
+        },
+        "proposal_fraction": 1.0,
+        "runtime": {
+          "correct": true,
+          "expected_probability": 0.9375063180923462,
+          "expected_rank": 1,
+          "top1": "HELLO",
+          "top1_probability": 0.9375063180923462,
+          "top5": true
+        },
+        "runtime_coverage": 0.5416666569258011,
+        "runtime_window": [
+          278,
+          283
+        ],
+        "runtime_window_contains_other_sign": false,
+        "s2_acquired": true,
+        "s2_acquired_fresh_start": true,
+        "s2_active_rows": 3,
+        "s2_valid": true,
+        "session": "OCT15_COMPACT",
+        "sign": "C_REPEAT_HANDS_UP:HELLO#1",
+        "signer_role": "DESIGN_SIGNER_LIKELY_FIT (same device/supervisor as FIT phone positives; identity not authoritative)"
+      },
+      {
+        "body_fraction": 0.0,
+        "both_hands_fraction": 0.4864864864864865,
+        "continuous": true,
+        "distinct_event": false,
+        "duration_ms": 8731.673957999796,
+        "event": false,
+        "first": 318,
+        "first_failure": "NOT_SEGMENTED",
+        "gloss": "HELLO",
+        "hand_fraction": 1.0,
+        "last": 354,
+        "median_interval_ms": 266.6159890005365,
+        "merged": false,
+        "observations": 37,
+        "oracle_ctx": {
+          "correct": true,
+          "expected_probability": 0.9996724128723145,
+          "expected_rank": 1,
+          "top1": "HELLO",
+          "top1_probability": 0.9996724128723145,
+          "top5": true
+        },
+        "oracle_ctx_window": [
+          317,
+          356
+        ],
+        "oracle_tight": {
+          "correct": true,
+          "expected_probability": 0.9997536540031433,
+          "expected_rank": 1,
+          "top1": "HELLO",
+          "top1_probability": 0.9997536540031433,
+          "top5": true
+        },
+        "proposal_fraction": 1.0,
+        "s2_acquired": false,
+        "s2_acquired_fresh_start": true,
+        "s2_active_rows": 0,
+        "s2_valid": true,
+        "session": "OCT15_COMPACT",
+        "sign": "D_SIGN_THEN_HOLD:HELLO#1",
+        "signer_role": "DESIGN_SIGNER_LIKELY_FIT (same device/supervisor as FIT phone positives; identity not authoritative)"
+      },
+      {
+        "body_fraction": 1.0,
+        "both_hands_fraction": 0.0,
+        "continuous": false,
+        "distinct_event": true,
+        "duration_ms": 2078.870729982853,
+        "event": true,
+        "first": 93,
+        "first_failure": "CORRECT",
+        "gloss": "HELLO",
+        "hand_fraction": 0.8333333333333334,
+        "last": 98,
+        "median_interval_ms": 402.1014229655266,
+        "merged": false,
+        "observations": 6,
+        "oracle_ctx": {
+          "correct": true,
+          "expected_probability": 0.9935374855995178,
+          "expected_rank": 1,
+          "top1": "HELLO",
+          "top1_probability": 0.9935374855995178,
+          "top5": true
+        },
+        "oracle_ctx_window": [
+          92,
+          100
+        ],
+        "oracle_tight": {
+          "correct": true,
+          "expected_probability": 0.992768406867981,
+          "expected_rank": 1,
+          "top1": "HELLO",
+          "top1_probability": 0.992768406867981,
+          "top5": true
+        },
+        "proposal_fraction": 1.0,
+        "runtime": {
+          "correct": true,
+          "expected_probability": 0.9963054656982422,
+          "expected_rank": 1,
+          "top1": "HELLO",
+          "top1_probability": 0.9963054656982422,
+          "top5": true
+        },
+        "runtime_coverage": 1.0,
+        "runtime_window": [
+          93,
+          100
+        ],
+        "runtime_window_contains_other_sign": false,
+        "s2_acquired": true,
+        "s2_acquired_fresh_start": true,
+        "s2_active_rows": 4,
+        "s2_valid": true,
+        "session": "SEP23_INDEPENDENT",
+        "sign": "attempt_001:HELLO",
+        "signer_role": "DECLARED_DISTINCT_SIGNER (ITEL A665L)"
+      },
+      {
+        "body_fraction": 1.0,
+        "both_hands_fraction": 0.0,
+        "continuous": false,
+        "distinct_event": true,
+        "duration_ms": 2548.005113005638,
+        "event": true,
+        "first": 152,
+        "first_failure": "BAD_WINDOW|RIGHT_CLASS",
+        "gloss": "HELLO",
+        "hand_fraction": 0.7142857142857143,
+        "last": 158,
+        "median_interval_ms": 402.35467249155045,
+        "merged": false,
+        "observations": 7,
+        "oracle_ctx": {
+          "correct": true,
+          "expected_probability": 0.9245743751525879,
+          "expected_rank": 1,
+          "top1": "HELLO",
+          "top1_probability": 0.9245743751525879,
+          "top5": true
+        },
+        "oracle_ctx_window": [
+          151,
+          160
+        ],
+        "oracle_tight": {
+          "correct": true,
+          "expected_probability": 0.8560169339179993,
+          "expected_rank": 1,
+          "top1": "HELLO",
+          "top1_probability": 0.8560169339179993,
+          "top5": true
+        },
+        "proposal_fraction": 1.0,
+        "runtime": {
+          "correct": true,
+          "expected_probability": 0.9984657764434814,
+          "expected_rank": 1,
+          "top1": "HELLO",
+          "top1_probability": 0.9984657764434814,
+          "top5": true
+        },
+        "runtime_coverage": 0.7105942444020137,
+        "runtime_window": [
+          154,
+          162
+        ],
+        "runtime_window_contains_other_sign": false,
+        "s2_acquired": true,
+        "s2_acquired_fresh_start": true,
+        "s2_active_rows": 6,
+        "s2_valid": true,
+        "session": "SEP23_INDEPENDENT",
+        "sign": "attempt_002:HELLO",
+        "signer_role": "DECLARED_DISTINCT_SIGNER (ITEL A665L)"
+      },
+      {
+        "body_fraction": 0.0,
+        "both_hands_fraction": 1.0,
+        "continuous": false,
+        "distinct_event": false,
+        "duration_ms": 1475.0509989857674,
+        "event": false,
+        "first": 238,
+        "first_failure": "ACQUIRED_NO_EVENT",
+        "gloss": "HOME",
+        "hand_fraction": 1.0,
+        "last": 241,
+        "median_interval_ms": 536.2114989757538,
+        "merged": false,
+        "observations": 4,
+        "oracle_ctx": {
+          "correct": true,
+          "expected_probability": 0.9978874325752258,
+          "expected_rank": 1,
+          "top1": "HOME",
+          "top1_probability": 0.9978874325752258,
+          "top5": true
+        },
+        "oracle_ctx_window": [
+          237,
+          243
+        ],
+        "oracle_tight": {
+          "correct": true,
+          "expected_probability": 0.9918620586395264,
+          "expected_rank": 1,
+          "top1": "HOME",
+          "top1_probability": 0.9918620586395264,
+          "top5": true
+        },
+        "proposal_fraction": 1.0,
+        "s2_acquired": true,
+        "s2_acquired_fresh_start": true,
+        "s2_active_rows": 4,
+        "s2_valid": true,
+        "session": "SEP23_INDEPENDENT",
+        "sign": "attempt_003:HOME",
+        "signer_role": "DECLARED_DISTINCT_SIGNER (ITEL A665L)"
+      },
+      {
+        "body_fraction": 0.0,
+        "both_hands_fraction": 1.0,
+        "continuous": false,
+        "distinct_event": true,
+        "duration_ms": 1743.5228840112686,
+        "event": true,
+        "first": 271,
+        "first_failure": "CORRECT",
+        "gloss": "HOME",
+        "hand_fraction": 1.0,
+        "last": 274,
+        "median_interval_ms": 536.4676920175552,
+        "merged": false,
+        "observations": 4,
+        "oracle_ctx": {
+          "correct": true,
+          "expected_probability": 0.9997995495796204,
+          "expected_rank": 1,
+          "top1": "HOME",
+          "top1_probability": 0.9997995495796204,
+          "top5": true
+        },
+        "oracle_ctx_window": [
+          270,
+          276
+        ],
+        "oracle_tight": {
+          "correct": true,
+          "expected_probability": 0.9999316930770874,
+          "expected_rank": 1,
+          "top1": "HOME",
+          "top1_probability": 0.9999316930770874,
+          "top5": true
+        },
+        "proposal_fraction": 1.0,
+        "runtime": {
+          "correct": true,
+          "expected_probability": 0.9997995495796204,
+          "expected_rank": 1,
+          "top1": "HOME",
+          "top1_probability": 0.9997995495796204,
+          "top5": true
+        },
+        "runtime_coverage": 1.0,
+        "runtime_window": [
+          270,
+          276
+        ],
+        "runtime_window_contains_other_sign": false,
+        "s2_acquired": true,
+        "s2_acquired_fresh_start": true,
+        "s2_active_rows": 4,
+        "s2_valid": true,
+        "session": "SEP23_INDEPENDENT",
+        "sign": "attempt_004:HOME",
+        "signer_role": "DECLARED_DISTINCT_SIGNER (ITEL A665L)"
+      },
+      {
+        "body_fraction": 0.0,
+        "both_hands_fraction": 0.0,
+        "continuous": false,
+        "distinct_event": false,
+        "duration_ms": 2212.940843999386,
+        "event": false,
+        "first": 362,
+        "first_failure": "NOT_SEGMENTED|WEAK_OBSERVATION",
+        "gloss": "TABLE",
+        "hand_fraction": 0.0,
+        "last": 366,
+        "median_interval_ms": 536.4733455181122,
+        "merged": false,
+        "observations": 5,
+        "oracle_ctx": {
+          "correct": false,
+          "expected_probability": 9.468374628340825e-06,
+          "expected_rank": 126,
+          "top1": "WALK2",
+          "top1_probability": 0.6941592693328857,
+          "top5": false
+        },
+        "oracle_ctx_window": [
+          361,
+          368
+        ],
+        "oracle_tight": {
+          "correct": false,
+          "expected_probability": 8.149771133503236e-07,
+          "expected_rank": 225,
+          "top1": "HAPPY",
+          "top1_probability": 0.3144828677177429,
+          "top5": false
+        },
+        "proposal_fraction": 1.0,
+        "s2_acquired": false,
+        "s2_acquired_fresh_start": true,
+        "s2_active_rows": 0,
+        "s2_valid": true,
+        "session": "SEP23_INDEPENDENT",
+        "sign": "attempt_005:TABLE",
+        "signer_role": "DECLARED_DISTINCT_SIGNER (ITEL A665L)"
+      },
+      {
+        "body_fraction": 0.3333333333333333,
+        "both_hands_fraction": 0.0,
+        "continuous": false,
+        "distinct_event": false,
+        "duration_ms": 1005.8869990110397,
+        "event": false,
+        "first": 496,
+        "first_failure": "NOT_SEGMENTED|WEAK_OBSERVATION",
+        "gloss": "TABLE",
+        "hand_fraction": 0.0,
+        "last": 498,
+        "median_interval_ms": 502.94349950551987,
+        "merged": false,
+        "observations": 3,
+        "oracle_ctx": {
+          "correct": false,
+          "expected_probability": 2.309473347850144e-05,
+          "expected_rank": 109,
+          "top1": "WALK2",
+          "top1_probability": 0.3789319097995758,
+          "top5": false
+        },
+        "oracle_ctx_window": [
+          495,
+          500
+        ],
+        "oracle_tight": {
+          "correct": false,
+          "expected_probability": 0.0002476621593814343,
+          "expected_rank": 103,
+          "top1": "WALK2",
+          "top1_probability": 0.23826390504837036,
+          "top5": false
+        },
+        "proposal_fraction": 1.0,
+        "s2_acquired": false,
+        "s2_acquired_fresh_start": true,
+        "s2_active_rows": 0,
+        "s2_valid": true,
+        "session": "SEP23_INDEPENDENT",
+        "sign": "attempt_006:TABLE",
+        "signer_role": "DECLARED_DISTINCT_SIGNER (ITEL A665L)"
+      },
+      {
+        "body_fraction": 0.0,
+        "both_hands_fraction": 0.5555555555555556,
+        "continuous": false,
+        "distinct_event": true,
+        "duration_ms": 1999.6200000047684,
+        "event": true,
+        "first": 257,
+        "first_failure": "CORRECT",
+        "gloss": "HELLO",
+        "hand_fraction": 0.8888888888888888,
+        "last": 265,
+        "median_interval_ms": 266.6159890294075,
+        "merged": false,
+        "observations": 9,
+        "oracle_ctx": {
+          "correct": true,
+          "expected_probability": 0.9906689524650574,
+          "expected_rank": 1,
+          "top1": "HELLO",
+          "top1_probability": 0.9906689524650574,
+          "top5": true
+        },
+        "oracle_ctx_window": [
+          256,
+          267
+        ],
+        "oracle_tight": {
+          "correct": true,
+          "expected_probability": 0.9876255393028259,
+          "expected_rank": 1,
+          "top1": "HELLO",
+          "top1_probability": 0.9876255393028259,
+          "top5": true
+        },
+        "proposal_fraction": 1.0,
+        "runtime": {
+          "correct": true,
+          "expected_probability": 0.9906689524650574,
+          "expected_rank": 1,
+          "top1": "HELLO",
+          "top1_probability": 0.9906689524650574,
+          "top5": true
+        },
+        "runtime_coverage": 1.0,
+        "runtime_window": [
+          256,
+          267
+        ],
+        "runtime_window_contains_other_sign": false,
+        "s2_acquired": true,
+        "s2_acquired_fresh_start": true,
+        "s2_active_rows": 8,
+        "s2_valid": true,
+        "session": "SEP23_REPRESENTATIVE",
+        "sign": "attempt_001:HELLO",
+        "signer_role": "DECLARED_DISTINCT_SIGNER (Xiaomi)"
+      },
+      {
+        "body_fraction": 0.0,
+        "both_hands_fraction": 0.5555555555555556,
+        "continuous": false,
+        "distinct_event": true,
+        "duration_ms": 1999.6200519800186,
+        "event": true,
+        "first": 315,
+        "first_failure": "CORRECT",
+        "gloss": "HELLO",
+        "hand_fraction": 1.0,
+        "last": 323,
+        "median_interval_ms": 266.61598896980286,
+        "merged": false,
+        "observations": 9,
+        "oracle_ctx": {
+          "correct": true,
+          "expected_probability": 0.9677666425704956,
+          "expected_rank": 1,
+          "top1": "HELLO",
+          "top1_probability": 0.9677666425704956,
+          "top5": true
+        },
+        "oracle_ctx_window": [
+          313,
+          325
+        ],
+        "oracle_tight": {
+          "correct": true,
+          "expected_probability": 0.9940165281295776,
+          "expected_rank": 1,
+          "top1": "HELLO",
+          "top1_probability": 0.9940165281295776,
+          "top5": true
+        },
+        "proposal_fraction": 1.0,
+        "runtime": {
+          "correct": true,
+          "expected_probability": 0.9620504975318909,
+          "expected_rank": 1,
+          "top1": "HELLO",
+          "top1_probability": 0.9620504975318909,
+          "top5": true
+        },
+        "runtime_coverage": 1.0,
+        "runtime_window": [
+          312,
+          325
+        ],
+        "runtime_window_contains_other_sign": false,
+        "s2_acquired": true,
+        "s2_acquired_fresh_start": true,
+        "s2_active_rows": 9,
+        "s2_valid": true,
+        "session": "SEP23_REPRESENTATIVE",
+        "sign": "attempt_002:HELLO",
+        "signer_role": "DECLARED_DISTINCT_SIGNER (Xiaomi)"
+      },
+      {
+        "body_fraction": 0.0,
+        "both_hands_fraction": 0.125,
+        "continuous": false,
+        "distinct_event": true,
+        "duration_ms": 1599.6959899663925,
+        "event": true,
+        "first": 362,
+        "first_failure": "CORRECT",
+        "gloss": "HOME",
+        "hand_fraction": 1.0,
+        "last": 369,
+        "median_interval_ms": 199.96203207969666,
+        "merged": false,
+        "observations": 8,
+        "oracle_ctx": {
+          "correct": true,
+          "expected_probability": 0.9903822541236877,
+          "expected_rank": 1,
+          "top1": "HOME",
+          "top1_probability": 0.9903822541236877,
+          "top5": true
+        },
+        "oracle_ctx_window": [
+          361,
+          372
+        ],
+        "oracle_tight": {
+          "correct": true,
+          "expected_probability": 0.9961440563201904,
+          "expected_rank": 1,
+          "top1": "HOME",
+          "top1_probability": 0.9961440563201904,
+          "top5": true
+        },
+        "proposal_fraction": 1.0,
+        "runtime": {
+          "correct": true,
+          "expected_probability": 0.9464490413665771,
+          "expected_rank": 1,
+          "top1": "HOME",
+          "top1_probability": 0.9464490413665771,
+          "top5": true
+        },
+        "runtime_coverage": 1.0,
+        "runtime_window": [
+          358,
+          372
+        ],
+        "runtime_window_contains_other_sign": false,
+        "s2_acquired": true,
+        "s2_acquired_fresh_start": true,
+        "s2_active_rows": 8,
+        "s2_valid": true,
+        "session": "SEP23_REPRESENTATIVE",
+        "sign": "attempt_003:HOME",
+        "signer_role": "DECLARED_DISTINCT_SIGNER (Xiaomi)"
+      },
+      {
+        "body_fraction": 0.0,
+        "both_hands_fraction": 0.2222222222222222,
+        "continuous": false,
+        "distinct_event": true,
+        "duration_ms": 1666.3499480485916,
+        "event": true,
+        "first": 426,
+        "first_failure": "CORRECT",
+        "gloss": "HOME",
+        "hand_fraction": 1.0,
+        "last": 434,
+        "median_interval_ms": 199.96200549602509,
+        "merged": false,
+        "observations": 9,
+        "oracle_ctx": {
+          "correct": true,
+          "expected_probability": 0.9901718497276306,
+          "expected_rank": 1,
+          "top1": "HOME",
+          "top1_probability": 0.9901718497276306,
+          "top5": true
+        },
+        "oracle_ctx_window": [
+          425,
+          436
+        ],
+        "oracle_tight": {
+          "correct": true,
+          "expected_probability": 0.9947831034660339,
+          "expected_rank": 1,
+          "top1": "HOME",
+          "top1_probability": 0.9947831034660339,
+          "top5": true
+        },
+        "proposal_fraction": 1.0,
+        "runtime": {
+          "correct": true,
+          "expected_probability": 0.8618412017822266,
+          "expected_rank": 1,
+          "top1": "HOME",
+          "top1_probability": 0.8618412017822266,
+          "top5": true
+        },
+        "runtime_coverage": 1.0,
+        "runtime_window": [
+          423,
+          435
+        ],
+        "runtime_window_contains_other_sign": false,
+        "s2_acquired": true,
+        "s2_acquired_fresh_start": true,
+        "s2_active_rows": 7,
+        "s2_valid": true,
+        "session": "SEP23_REPRESENTATIVE",
+        "sign": "attempt_004:HOME",
+        "signer_role": "DECLARED_DISTINCT_SIGNER (Xiaomi)"
+      },
+      {
+        "body_fraction": 0.25,
+        "both_hands_fraction": 0.0,
+        "continuous": false,
+        "distinct_event": true,
+        "duration_ms": 2666.1599999666214,
+        "event": true,
+        "first": 498,
+        "first_failure": "MISCLASSIFIED|WEAK_OBSERVATION",
+        "gloss": "TABLE",
+        "hand_fraction": 0.08333333333333333,
+        "last": 509,
+        "median_interval_ms": 266.6159899234772,
+        "merged": false,
+        "observations": 12,
+        "oracle_ctx": {
+          "correct": false,
+          "expected_probability": 3.897580609191209e-05,
+          "expected_rank": 52,
+          "top1": "WALK2",
+          "top1_probability": 0.8833020329475403,
+          "top5": false
+        },
+        "oracle_ctx_window": [
+          497,
+          511
+        ],
+        "oracle_tight": {
+          "correct": false,
+          "expected_probability": 0.0003489369119051844,
+          "expected_rank": 36,
+          "top1": "WALK2",
+          "top1_probability": 0.7128275036811829,
+          "top5": false
+        },
+        "proposal_fraction": 1.0,
+        "runtime": {
+          "correct": false,
+          "expected_probability": 0.0039230939000844955,
+          "expected_rank": 19,
+          "top1": "WALK2",
+          "top1_probability": 0.39689838886260986,
+          "top5": false
+        },
+        "runtime_coverage": 1.0,
+        "runtime_window": [
+          494,
+          511
+        ],
+        "runtime_window_contains_other_sign": false,
+        "s2_acquired": true,
+        "s2_acquired_fresh_start": true,
+        "s2_active_rows": 11,
+        "s2_valid": true,
+        "session": "SEP23_REPRESENTATIVE",
+        "sign": "attempt_005:TABLE",
+        "signer_role": "DECLARED_DISTINCT_SIGNER (Xiaomi)"
+      },
+      {
+        "body_fraction": 0.5555555555555556,
+        "both_hands_fraction": 0.0,
+        "continuous": false,
+        "distinct_event": true,
+        "duration_ms": 1999.6200000047684,
+        "event": true,
+        "first": 601,
+        "first_failure": "MISCLASSIFIED|WEAK_OBSERVATION",
+        "gloss": "TABLE",
+        "hand_fraction": 0.0,
+        "last": 609,
+        "median_interval_ms": 266.6159899234772,
+        "merged": false,
+        "observations": 9,
+        "oracle_ctx": {
+          "correct": false,
+          "expected_probability": 1.565767524880357e-05,
+          "expected_rank": 69,
+          "top1": "WALK2",
+          "top1_probability": 0.8784162998199463,
+          "top5": false
+        },
+        "oracle_ctx_window": [
+          600,
+          611
+        ],
+        "oracle_tight": {
+          "correct": false,
+          "expected_probability": 0.00012620302732102573,
+          "expected_rank": 54,
+          "top1": "WALK2",
+          "top1_probability": 0.765238881111145,
+          "top5": false
+        },
+        "proposal_fraction": 1.0,
+        "runtime": {
+          "correct": false,
+          "expected_probability": 0.00010338469292037189,
+          "expected_rank": 48,
+          "top1": "WALK2",
+          "top1_probability": 0.8086985349655151,
+          "top5": false
+        },
+        "runtime_coverage": 1.0,
+        "runtime_window": [
+          597,
+          613
+        ],
+        "runtime_window_contains_other_sign": false,
+        "s2_acquired": true,
+        "s2_acquired_fresh_start": true,
+        "s2_active_rows": 9,
+        "s2_valid": true,
+        "session": "SEP23_REPRESENTATIVE",
+        "sign": "attempt_006:TABLE",
+        "signer_role": "DECLARED_DISTINCT_SIGNER (Xiaomi)"
+      },
+      {
+        "body_fraction": 1.0,
+        "both_hands_fraction": 0.09090909090909091,
+        "continuous": false,
+        "distinct_event": true,
+        "duration_ms": 1932.9659889936447,
+        "event": true,
+        "first": 93,
+        "first_failure": "BAD_WINDOW|RIGHT_CLASS",
+        "gloss": "HELLO",
+        "hand_fraction": 0.7272727272727273,
+        "last": 103,
+        "median_interval_ms": 199.9619790315628,
+        "merged": false,
+        "observations": 11,
+        "oracle_ctx": {
+          "correct": true,
+          "expected_probability": 0.9991773962974548,
+          "expected_rank": 1,
+          "top1": "HELLO",
+          "top1_probability": 0.9991773962974548,
+          "top5": true
+        },
+        "oracle_ctx_window": [
+          91,
+          106
+        ],
+        "oracle_tight": {
+          "correct": true,
+          "expected_probability": 0.9979346990585327,
+          "expected_rank": 1,
+          "top1": "HELLO",
+          "top1_probability": 0.9979346990585327,
+          "top5": true
+        },
+        "proposal_fraction": 1.0,
+        "runtime": {
+          "correct": true,
+          "expected_probability": 0.9849709868431091,
+          "expected_rank": 1,
+          "top1": "HELLO",
+          "top1_probability": 0.9849709868431091,
+          "top5": true
+        },
+        "runtime_coverage": 0.41379311662262597,
+        "runtime_window": [
+          91,
+          97
+        ],
+        "runtime_window_contains_other_sign": false,
+        "s2_acquired": true,
+        "s2_acquired_fresh_start": true,
+        "s2_active_rows": 7,
+        "s2_valid": false,
+        "session": "SEP21_S2FIT_EXACT",
+        "sign": "attempt_001:HELLO",
+        "signer_role": "DESIGN_SIGNER_S2_FIT (WORD-only; S2 trained on these attempts)"
+      },
+      {
+        "body_fraction": 0.9230769230769231,
+        "both_hands_fraction": 0.46153846153846156,
+        "continuous": false,
+        "distinct_event": true,
+        "duration_ms": 2666.1600000858307,
+        "event": true,
+        "first": 230,
+        "first_failure": "CORRECT",
+        "gloss": "HELLO",
+        "hand_fraction": 0.8461538461538461,
+        "last": 242,
+        "median_interval_ms": 199.96203196048737,
+        "merged": false,
+        "observations": 13,
+        "oracle_ctx": {
+          "correct": true,
+          "expected_probability": 0.9972917437553406,
+          "expected_rank": 1,
+          "top1": "HELLO",
+          "top1_probability": 0.9972917437553406,
+          "top5": true
+        },
+        "oracle_ctx_window": [
+          229,
+          245
+        ],
+        "oracle_tight": {
+          "correct": true,
+          "expected_probability": 0.9941126704216003,
+          "expected_rank": 1,
+          "top1": "HELLO",
+          "top1_probability": 0.9941126704216003,
+          "top5": true
+        },
+        "proposal_fraction": 1.0,
+        "runtime": {
+          "correct": true,
+          "expected_probability": 0.9972917437553406,
+          "expected_rank": 1,
+          "top1": "HELLO",
+          "top1_probability": 0.9972917437553406,
+          "top5": true
+        },
+        "runtime_coverage": 1.0,
+        "runtime_window": [
+          229,
+          245
+        ],
+        "runtime_window_contains_other_sign": false,
+        "s2_acquired": true,
+        "s2_acquired_fresh_start": true,
+        "s2_active_rows": 13,
+        "s2_valid": false,
+        "session": "SEP21_S2FIT_EXACT",
+        "sign": "attempt_002:HELLO",
+        "signer_role": "DESIGN_SIGNER_S2_FIT (WORD-only; S2 trained on these attempts)"
+      },
+      {
+        "body_fraction": 0.5714285714285714,
+        "both_hands_fraction": 0.7142857142857143,
+        "continuous": false,
+        "distinct_event": true,
+        "duration_ms": 1932.9659900665283,
+        "event": true,
+        "first": 343,
+        "first_failure": "CORRECT",
+        "gloss": "HOME",
+        "hand_fraction": 1.0,
+        "last": 349,
+        "median_interval_ms": 333.2699999809265,
+        "merged": false,
+        "observations": 7,
+        "oracle_ctx": {
+          "correct": true,
+          "expected_probability": 0.9997225403785706,
+          "expected_rank": 1,
+          "top1": "HOME",
+          "top1_probability": 0.9997225403785706,
+          "top5": true
+        },
+        "oracle_ctx_window": [
+          342,
+          351
+        ],
+        "oracle_tight": {
+          "correct": true,
+          "expected_probability": 0.9996789693832397,
+          "expected_rank": 1,
+          "top1": "HOME",
+          "top1_probability": 0.9996789693832397,
+          "top5": true
+        },
+        "proposal_fraction": 1.0,
+        "runtime": {
+          "correct": true,
+          "expected_probability": 0.9988301396369934,
+          "expected_rank": 1,
+          "top1": "HOME",
+          "top1_probability": 0.9988301396369934,
+          "top5": true
+        },
+        "runtime_coverage": 1.0,
+        "runtime_window": [
+          341,
+          352
+        ],
+        "runtime_window_contains_other_sign": false,
+        "s2_acquired": true,
+        "s2_acquired_fresh_start": true,
+        "s2_active_rows": 7,
+        "s2_valid": false,
+        "session": "SEP21_S2FIT_EXACT",
+        "sign": "attempt_003:HOME",
+        "signer_role": "DESIGN_SIGNER_S2_FIT (WORD-only; S2 trained on these attempts)"
+      },
+      {
+        "body_fraction": 0.3333333333333333,
+        "both_hands_fraction": 0.3333333333333333,
+        "continuous": false,
+        "distinct_event": true,
+        "duration_ms": 1799.6580209732056,
+        "event": true,
+        "first": 410,
+        "first_failure": "CORRECT",
+        "gloss": "HOME",
+        "hand_fraction": 1.0,
+        "last": 418,
+        "median_interval_ms": 199.96203142404556,
+        "merged": false,
+        "observations": 9,
+        "oracle_ctx": {
+          "correct": true,
+          "expected_probability": 0.9974867105484009,
+          "expected_rank": 1,
+          "top1": "HOME",
+          "top1_probability": 0.9974867105484009,
+          "top5": true
+        },
+        "oracle_ctx_window": [
+          408,
+          421
+        ],
+        "oracle_tight": {
+          "correct": true,
+          "expected_probability": 0.99916672706604,
+          "expected_rank": 1,
+          "top1": "HOME",
+          "top1_probability": 0.99916672706604,
+          "top5": true
+        },
+        "proposal_fraction": 1.0,
+        "runtime": {
+          "correct": true,
+          "expected_probability": 0.9944781064987183,
+          "expected_rank": 1,
+          "top1": "HOME",
+          "top1_probability": 0.9944781064987183,
+          "top5": true
+        },
+        "runtime_coverage": 1.0,
+        "runtime_window": [
+          407,
+          422
+        ],
+        "runtime_window_contains_other_sign": false,
+        "s2_acquired": true,
+        "s2_acquired_fresh_start": true,
+        "s2_active_rows": 9,
+        "s2_valid": false,
+        "session": "SEP21_S2FIT_EXACT",
+        "sign": "attempt_004:HOME",
+        "signer_role": "DESIGN_SIGNER_S2_FIT (WORD-only; S2 trained on these attempts)"
+      },
+      {
+        "body_fraction": 0.7857142857142857,
+        "both_hands_fraction": 0.0,
+        "continuous": false,
+        "distinct_event": true,
+        "duration_ms": 2932.776041984558,
+        "event": true,
+        "first": 501,
+        "first_failure": "BAD_WINDOW",
+        "gloss": "TABLE",
+        "hand_fraction": 0.14285714285714285,
+        "last": 514,
+        "median_interval_ms": 199.96203100681305,
+        "merged": false,
+        "observations": 14,
+        "oracle_ctx": {
+          "correct": false,
+          "expected_probability": 0.042535774409770966,
+          "expected_rank": 2,
+          "top1": "WE",
+          "top1_probability": 0.8031080365180969,
+          "top5": true
+        },
+        "oracle_ctx_window": [
+          500,
+          516
+        ],
+        "oracle_tight": {
+          "correct": false,
+          "expected_probability": 0.024020427837967873,
+          "expected_rank": 4,
+          "top1": "WE",
+          "top1_probability": 0.775426983833313,
+          "top5": true
+        },
+        "proposal_fraction": 1.0,
+        "runtime": {
+          "correct": false,
+          "expected_probability": 0.09865472465753555,
+          "expected_rank": 2,
+          "top1": "WE",
+          "top1_probability": 0.47862687706947327,
+          "top5": true
+        },
+        "runtime_coverage": 0.7045454482155687,
+        "runtime_window": [
+          497,
+          510
+        ],
+        "runtime_window_contains_other_sign": false,
+        "s2_acquired": true,
+        "s2_acquired_fresh_start": true,
+        "s2_active_rows": 9,
+        "s2_valid": false,
+        "session": "SEP21_S2FIT_EXACT",
+        "sign": "attempt_005:TABLE",
+        "signer_role": "DESIGN_SIGNER_S2_FIT (WORD-only; S2 trained on these attempts)"
+      },
+      {
+        "body_fraction": 0.8461538461538461,
+        "both_hands_fraction": 0.0,
+        "continuous": false,
+        "distinct_event": true,
+        "duration_ms": 2666.1600000858307,
+        "event": true,
+        "first": 600,
+        "first_failure": "MISCLASSIFIED|WEAK_OBSERVATION",
+        "gloss": "TABLE",
+        "hand_fraction": 0.0,
+        "last": 612,
+        "median_interval_ms": 199.9620314836502,
+        "merged": false,
+        "observations": 13,
+        "oracle_ctx": {
+          "correct": false,
+          "expected_probability": 0.055844809859991074,
+          "expected_rank": 8,
+          "top1": "WE",
+          "top1_probability": 0.21021392941474915,
+          "top5": false
+        },
+        "oracle_ctx_window": [
+          599,
+          615
+        ],
+        "oracle_tight": {
+          "correct": false,
+          "expected_probability": 0.12580834329128265,
+          "expected_rank": 3,
+          "top1": "HELLO",
+          "top1_probability": 0.2526590824127197,
+          "top5": true
+        },
+        "proposal_fraction": 1.0,
+        "runtime": {
+          "correct": false,
+          "expected_probability": 0.10428713262081146,
+          "expected_rank": 5,
+          "top1": "WALK2",
+          "top1_probability": 0.17827054858207703,
+          "top5": true
+        },
+        "runtime_coverage": 1.0,
+        "runtime_window": [
+          597,
+          615
+        ],
+        "runtime_window_contains_other_sign": false,
+        "s2_acquired": true,
+        "s2_acquired_fresh_start": true,
+        "s2_active_rows": 13,
+        "s2_valid": false,
+        "session": "SEP21_S2FIT_EXACT",
+        "sign": "attempt_006:TABLE",
+        "signer_role": "DESIGN_SIGNER_S2_FIT (WORD-only; S2 trained on these attempts)"
+      }
+    ],
+    "unmatched_events": [
+      {
+        "event": 0,
+        "inside_confirmed_nonsign": false,
+        "logical": [
+          64,
+          78
+        ],
+        "obs_after_previous_sign_end": null,
+        "previous_sign": null,
+        "previous_sign_matched": false,
+        "session": "SEP27_TRANSITION",
+        "top1": "SEND",
+        "top1_probability": 0.34223857522010803
+      },
+      {
+        "event": 2,
+        "inside_confirmed_nonsign": false,
+        "logical": [
+          692,
+          700
+        ],
+        "obs_after_previous_sign_end": 287,
+        "previous_sign": "B_HANDS_UP:HELLO#4",
+        "previous_sign_matched": false,
+        "session": "SEP27_TRANSITION",
+        "top1": "HELLO",
+        "top1_probability": 0.29139474034309387
+      },
+      {
+        "event": 3,
+        "inside_confirmed_nonsign": true,
+        "logical": [
+          823,
+          829
+        ],
+        "obs_after_previous_sign_end": 418,
+        "previous_sign": "B_HANDS_UP:HELLO#4",
+        "previous_sign_matched": false,
+        "session": "SEP27_TRANSITION",
+        "top1": "TEACH2",
+        "top1_probability": 0.10540047287940979
+      },
+      {
+        "event": 4,
+        "inside_confirmed_nonsign": true,
+        "logical": [
+          862,
+          872
+        ],
+        "obs_after_previous_sign_end": 457,
+        "previous_sign": "B_HANDS_UP:HELLO#4",
+        "previous_sign_matched": false,
+        "session": "SEP27_TRANSITION",
+        "top1": "DRIVE",
+        "top1_probability": 0.4621569514274597
+      },
+      {
+        "event": 5,
+        "inside_confirmed_nonsign": true,
+        "logical": [
+          956,
+          970
+        ],
+        "obs_after_previous_sign_end": 551,
+        "previous_sign": "B_HANDS_UP:HELLO#4",
+        "previous_sign_matched": false,
+        "session": "SEP27_TRANSITION",
+        "top1": "HELLO",
+        "top1_probability": 0.2221614420413971
+      },
+      {
+        "event": 6,
+        "inside_confirmed_nonsign": false,
+        "logical": [
+          1048,
+          1054
+        ],
+        "obs_after_previous_sign_end": 643,
+        "previous_sign": "B_HANDS_UP:HELLO#4",
+        "previous_sign_matched": false,
+        "session": "SEP27_TRANSITION",
+        "top1": "SEE",
+        "top1_probability": 0.2359621673822403
+      },
+      {
+        "event": 7,
+        "inside_confirmed_nonsign": false,
+        "logical": [
+          1084,
+          1095
+        ],
+        "obs_after_previous_sign_end": 679,
+        "previous_sign": "B_HANDS_UP:HELLO#4",
+        "previous_sign_matched": false,
+        "session": "SEP27_TRANSITION",
+        "top1": "IMPORTANT",
+        "top1_probability": 0.16236154735088348
+      },
+      {
+        "event": 8,
+        "inside_confirmed_nonsign": false,
+        "logical": [
+          1218,
+          1220
+        ],
+        "obs_after_previous_sign_end": 813,
+        "previous_sign": "B_HANDS_UP:HELLO#4",
+        "previous_sign_matched": false,
+        "session": "SEP27_TRANSITION",
+        "top1": "SAD",
+        "top1_probability": 0.05085325613617897
+      },
+      {
+        "event": 9,
+        "inside_confirmed_nonsign": true,
+        "logical": [
+          1285,
+          1295
+        ],
+        "obs_after_previous_sign_end": 880,
+        "previous_sign": "B_HANDS_UP:HELLO#4",
+        "previous_sign_matched": false,
+        "session": "SEP27_TRANSITION",
+        "top1": "SEE",
+        "top1_probability": 0.9973891377449036
+      },
+      {
+        "event": 0,
+        "inside_confirmed_nonsign": false,
+        "logical": [
+          172,
+          173
+        ],
+        "obs_after_previous_sign_end": null,
+        "previous_sign": null,
+        "previous_sign_matched": false,
+        "session": "OCT15_COMPACT",
+        "top1": "HOT",
+        "top1_probability": 0.13292793929576874
+      },
+      {
+        "event": 2,
+        "inside_confirmed_nonsign": true,
+        "logical": [
+          399,
+          401
+        ],
+        "obs_after_previous_sign_end": 45,
+        "previous_sign": "D_SIGN_THEN_HOLD:HELLO#1",
+        "previous_sign_matched": false,
+        "session": "OCT15_COMPACT",
+        "top1": "COLD",
+        "top1_probability": 0.7184163928031921
+      },
+      {
+        "event": 3,
+        "inside_confirmed_nonsign": false,
+        "logical": [
+          459,
+          468
+        ],
+        "obs_after_previous_sign_end": 105,
+        "previous_sign": "D_SIGN_THEN_HOLD:HELLO#1",
+        "previous_sign_matched": false,
+        "session": "OCT15_COMPACT",
+        "top1": "CHAIR",
+        "top1_probability": 0.3316699266433716
+      },
+      {
+        "event": 2,
+        "inside_confirmed_nonsign": false,
+        "logical": [
+          195,
+          198
+        ],
+        "obs_after_previous_sign_end": 37,
+        "previous_sign": "attempt_002:HELLO",
+        "previous_sign_matched": true,
+        "session": "SEP23_INDEPENDENT",
+        "top1": "HOME",
+        "top1_probability": 0.9879779815673828
+      },
+      {
+        "event": 3,
+        "inside_confirmed_nonsign": false,
+        "logical": [
+          233,
+          234
+        ],
+        "obs_after_previous_sign_end": 75,
+        "previous_sign": "attempt_002:HELLO",
+        "previous_sign_matched": true,
+        "session": "SEP23_INDEPENDENT",
+        "top1": "GIVE",
+        "top1_probability": 0.2604979872703552
+      },
+      {
+        "event": 5,
+        "inside_confirmed_nonsign": false,
+        "logical": [
+          347,
+          353
+        ],
+        "obs_after_previous_sign_end": 73,
+        "previous_sign": "attempt_004:HOME",
+        "previous_sign_matched": true,
+        "session": "SEP23_INDEPENDENT",
+        "top1": "HOME",
+        "top1_probability": 0.99552983045578
+      },
+      {
+        "event": 6,
+        "inside_confirmed_nonsign": false,
+        "logical": [
+          472,
+          474
+        ],
+        "obs_after_previous_sign_end": 106,
+        "previous_sign": "attempt_005:TABLE",
+        "previous_sign_matched": false,
+        "session": "SEP23_INDEPENDENT",
+        "top1": "WE",
+        "top1_probability": 0.22007925808429718
+      },
+      {
+        "event": 0,
+        "inside_confirmed_nonsign": false,
+        "logical": [
+          227,
+          230
+        ],
+        "obs_after_previous_sign_end": null,
+        "previous_sign": null,
+        "previous_sign_matched": false,
+        "session": "SEP23_REPRESENTATIVE",
+        "top1": "OPEN",
+        "top1_probability": 0.5283035635948181
+      }
+    ]
+  },
+  "phone_summary": {
+    "first_failure": {
+      "ACQUIRED_NO_EVENT": 1,
+      "BAD_WINDOW": 1,
+      "BAD_WINDOW|RIGHT_CLASS": 3,
+      "CORRECT": 10,
+      "MISCLASSIFIED|WEAK_OBSERVATION": 3,
+      "NOT_SEGMENTED": 7,
+      "NOT_SEGMENTED|WEAK_OBSERVATION": 4
+    },
+    "first_failure_s2_valid": {
+      "ACQUIRED_NO_EVENT": 1,
+      "BAD_WINDOW|RIGHT_CLASS": 2,
+      "CORRECT": 7,
+      "MISCLASSIFIED|WEAK_OBSERVATION": 2,
+      "NOT_SEGMENTED": 7,
+      "NOT_SEGMENTED|WEAK_OBSERVATION": 4
+    },
+    "n": 29,
+    "n_s2_valid": 23,
+    "oracle_ctx_top1": 20,
+    "oracle_tight_top1": 20,
+    "runtime_top1_s2_valid": 9
+  },
+  "recognizer_sha256": "9c9a112c06c969236ca126d3bbff2f80dad5a8d9d75592331c5f7fcc2d62abd4",
+  "s2_package": {
+    "keras_sha256": "b6f8b52cece72f0b6f5b802a4ea583060d923e90a6b951059e7013114c8fc151",
+    "normalization_sha256": "65d885f62eaca6f11a596302d304f63149795ddaf01e702f1e6a36dd7da5c005"
+  }
+}

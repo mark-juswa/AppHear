@@ -1,0 +1,338 @@
+{
+  "session": "session_20261017T022535Z",
+  "label_status": "PROTOCOL_EXPECTED_ONLY_NOT_HUMAN_REVIEWED",
+  "observations": 461,
+  "hand_fraction": 0.18872017353579176,
+  "body_fraction": 0.03470715835140998,
+  "blocks": [
+    {
+      "block": "A_HANDS_DOWN",
+      "first": 123,
+      "last": 208,
+      "hand_fraction": 0.03,
+      "body_fraction": 0.0
+    },
+    {
+      "block": "B_HANDS_UP",
+      "first": 252,
+      "last": 287,
+      "hand_fraction": 0.42,
+      "body_fraction": 0.0
+    },
+    {
+      "block": "C_REPEAT_HANDS_UP",
+      "first": 299,
+      "last": 351,
+      "hand_fraction": 0.53,
+      "body_fraction": 0.0
+    },
+    {
+      "block": "D_SIGN_THEN_HOLD",
+      "first": 362,
+      "last": 399,
+      "hand_fraction": 0.71,
+      "body_fraction": 0.0
+    },
+    {
+      "block": "E_ORDINARY_MOVEMENT",
+      "first": 408,
+      "last": 455,
+      "hand_fraction": 0.29,
+      "body_fraction": 0.33
+    }
+  ],
+  "device_events": [
+    {
+      "event": 1,
+      "block": "OUTSIDE_BLOCKS",
+      "device_frozen": [
+        "RIGHT3",
+        0.705
+      ],
+      "device_v2": [
+        "RIGHT3",
+        0.378
+      ],
+      "frozen_parity": true,
+      "v2_parity": true,
+      "shadow_ms": 2.077031,
+      "hand_fraction": 0.0,
+      "body_fraction": 0.0
+    },
+    {
+      "event": 2,
+      "block": "A_HANDS_DOWN",
+      "device_frozen": [
+        "MAN",
+        0.352
+      ],
+      "device_v2": [
+        "FIND",
+        0.291
+      ],
+      "frozen_parity": true,
+      "v2_parity": true,
+      "shadow_ms": 2.72526,
+      "hand_fraction": 0.25,
+      "body_fraction": 0.0
+    },
+    {
+      "event": 3,
+      "block": "B_HANDS_UP",
+      "device_frozen": [
+        "LUNCH1",
+        0.327
+      ],
+      "device_v2": [
+        "LUNCH1",
+        0.543
+      ],
+      "frozen_parity": true,
+      "v2_parity": true,
+      "shadow_ms": 2.902552,
+      "hand_fraction": 0.78,
+      "body_fraction": 0.0
+    },
+    {
+      "event": 4,
+      "block": "C_REPEAT_HANDS_UP",
+      "device_frozen": [
+        "HELLO",
+        0.827
+      ],
+      "device_v2": [
+        "LUNCH1",
+        0.555
+      ],
+      "frozen_parity": true,
+      "v2_parity": true,
+      "shadow_ms": 2.780781,
+      "hand_fraction": 0.83,
+      "body_fraction": 0.0
+    },
+    {
+      "event": 5,
+      "block": "D_SIGN_THEN_HOLD",
+      "device_frozen": [
+        "HELLO",
+        0.999
+      ],
+      "device_v2": [
+        "HELLO",
+        0.997
+      ],
+      "frozen_parity": true,
+      "v2_parity": true,
+      "shadow_ms": 2.696406,
+      "hand_fraction": 1.0,
+      "body_fraction": 0.0
+    },
+    {
+      "event": 6,
+      "block": "E_ORDINARY_MOVEMENT",
+      "device_frozen": [
+        "BREAKFAST1",
+        0.413
+      ],
+      "device_v2": [
+        "BREAKFAST1",
+        0.28
+      ],
+      "frozen_parity": true,
+      "v2_parity": true,
+      "shadow_ms": 2.717187,
+      "hand_fraction": 0.7,
+      "body_fraction": 0.4
+    }
+  ],
+  "device_score": {
+    "frozen": {
+      "expected_gloss_outputs": 2,
+      "other_outputs_in_sign_blocks": 2,
+      "outputs_in_ordinary_movement": 1,
+      "outputs_outside_blocks": 1,
+      "expected_signs": 7
+    },
+    "v2": {
+      "expected_gloss_outputs": 1,
+      "other_outputs_in_sign_blocks": 3,
+      "outputs_in_ordinary_movement": 1,
+      "outputs_outside_blocks": 1,
+      "expected_signs": 7
+    }
+  },
+  "offline_s2_replay": {
+    "S2_R2": {
+      "events": 6,
+      "events_by_block": {
+        "OUTSIDE_BLOCKS": 1,
+        "A_HANDS_DOWN": 1,
+        "B_HANDS_UP": 1,
+        "C_REPEAT_HANDS_UP": 1,
+        "D_SIGN_THEN_HOLD": 1,
+        "E_ORDINARY_MOVEMENT": 1
+      },
+      "frozen": {
+        "expected_gloss_outputs": 2,
+        "other_outputs_in_sign_blocks": 2,
+        "outputs_in_ordinary_movement": 1,
+        "outputs_outside_blocks": 1,
+        "expected_signs": 7
+      },
+      "v2": {
+        "expected_gloss_outputs": 1,
+        "other_outputs_in_sign_blocks": 3,
+        "outputs_in_ordinary_movement": 1,
+        "outputs_outside_blocks": 1,
+        "expected_signs": 7
+      },
+      "outputs": [
+        [
+          "OUTSIDE_BLOCKS",
+          "RIGHT3",
+          "RIGHT3"
+        ],
+        [
+          "A_HANDS_DOWN",
+          "MAN",
+          "FIND"
+        ],
+        [
+          "B_HANDS_UP",
+          "LUNCH1",
+          "LUNCH1"
+        ],
+        [
+          "C_REPEAT_HANDS_UP",
+          "HELLO",
+          "LUNCH1"
+        ],
+        [
+          "D_SIGN_THEN_HOLD",
+          "HELLO",
+          "HELLO"
+        ],
+        [
+          "E_ORDINARY_MOVEMENT",
+          "BREAKFAST1",
+          "BREAKFAST1"
+        ]
+      ]
+    },
+    "ARM_A_E10": {
+      "events": 7,
+      "events_by_block": {
+        "B_HANDS_UP": 2,
+        "C_REPEAT_HANDS_UP": 2,
+        "D_SIGN_THEN_HOLD": 1,
+        "E_ORDINARY_MOVEMENT": 2
+      },
+      "frozen": {
+        "expected_gloss_outputs": 4,
+        "other_outputs_in_sign_blocks": 1,
+        "outputs_in_ordinary_movement": 2,
+        "outputs_outside_blocks": 0,
+        "expected_signs": 7
+      },
+      "v2": {
+        "expected_gloss_outputs": 4,
+        "other_outputs_in_sign_blocks": 1,
+        "outputs_in_ordinary_movement": 2,
+        "outputs_outside_blocks": 0,
+        "expected_signs": 7
+      },
+      "outputs": [
+        [
+          "B_HANDS_UP",
+          "HELLO",
+          "HELLO"
+        ],
+        [
+          "B_HANDS_UP",
+          "HOME",
+          "HOME"
+        ],
+        [
+          "C_REPEAT_HANDS_UP",
+          "HELLO",
+          "HELLO"
+        ],
+        [
+          "C_REPEAT_HANDS_UP",
+          "LUNCH1",
+          "LUNCH1"
+        ],
+        [
+          "D_SIGN_THEN_HOLD",
+          "HELLO",
+          "HELLO"
+        ],
+        [
+          "E_ORDINARY_MOVEMENT",
+          "BREAKFAST1",
+          "BREAKFAST1"
+        ],
+        [
+          "E_ORDINARY_MOVEMENT",
+          "SICK",
+          "HOUSE"
+        ]
+      ]
+    },
+    "ARM_A_E21_T08": {
+      "events": 6,
+      "events_by_block": {
+        "B_HANDS_UP": 2,
+        "C_REPEAT_HANDS_UP": 2,
+        "D_SIGN_THEN_HOLD": 1,
+        "E_ORDINARY_MOVEMENT": 1
+      },
+      "frozen": {
+        "expected_gloss_outputs": 5,
+        "other_outputs_in_sign_blocks": 0,
+        "outputs_in_ordinary_movement": 1,
+        "outputs_outside_blocks": 0,
+        "expected_signs": 7
+      },
+      "v2": {
+        "expected_gloss_outputs": 4,
+        "other_outputs_in_sign_blocks": 1,
+        "outputs_in_ordinary_movement": 1,
+        "outputs_outside_blocks": 0,
+        "expected_signs": 7
+      },
+      "outputs": [
+        [
+          "B_HANDS_UP",
+          "HELLO",
+          "SEEM"
+        ],
+        [
+          "B_HANDS_UP",
+          "HOME",
+          "HOME"
+        ],
+        [
+          "C_REPEAT_HANDS_UP",
+          "HELLO",
+          "HELLO"
+        ],
+        [
+          "C_REPEAT_HANDS_UP",
+          "HELLO",
+          "HELLO"
+        ],
+        [
+          "D_SIGN_THEN_HOLD",
+          "HELLO",
+          "HELLO"
+        ],
+        [
+          "E_ORDINARY_MOVEMENT",
+          "BREAKFAST1",
+          "BREAKFAST1"
+        ]
+      ]
+    }
+  }
+}

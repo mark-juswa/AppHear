@@ -1,0 +1,2261 @@
+{
+ "configs": [
+  "ARM_A_E10:CONFIRM_BOUNDARY_70",
+  "ARM_I_E28:R1_CB70",
+  "ARM_I_E28:R2_CB70_PRE_EXIT_POST"
+ ],
+ "stage_counts": {
+  "ARM_A_E10:CONFIRM_BOUNDARY_70": {
+   "CORRECT": 19,
+   "WRONG_WORD": 3,
+   "NOT_ACQUIRED": 6,
+   "NO_EVENT": 1
+  },
+  "ARM_I_E28:R1_CB70": {
+   "NOT_ACQUIRED": 7,
+   "NO_EVENT": 7,
+   "CORRECT": 12,
+   "WRONG_WORD": 3
+  },
+  "ARM_I_E28:R2_CB70_PRE_EXIT_POST": {
+   "NOT_ACQUIRED": 7,
+   "NO_EVENT": 2,
+   "CORRECT": 14,
+   "WRONG_WORD": 6
+  }
+ },
+ "lost_by_candidate_stage": {
+  "NOT_ACQUIRED": 3,
+  "WRONG_WORD": 2,
+  "NO_EVENT": 2
+ },
+ "lost_recovered_by_diagnostic": 1,
+ "gained": 0,
+ "signs": [
+  {
+   "session": "SEP27_TRANSITION",
+   "sign": "A_HANDS_DOWN:HELLO#1",
+   "gloss": "HELLO",
+   "rows": 6,
+   "hand_fraction": 0.5,
+   "both_hands_fraction": 0.0,
+   "body_fraction": 1.0,
+   "motion_wrist_travel_per_s": 0.004818275524722137,
+   "motion_shape_change": 0.03490264533788968,
+   "motion_pairs": 1.0,
+   "ARM_A_E10:CONFIRM_BOUNDARY_70": {
+    "stage": "CORRECT",
+    "peak_active": 0.990841863829523,
+    "mean_active": 0.5204959640614367,
+    "active_rows": 3,
+    "first_active_offset": 3,
+    "event_span": [
+     137,
+     139
+    ],
+    "states": "OOP|PPPAAA|OOO",
+    "actions": [
+     "START_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "BEGIN_POST_CANDIDATE",
+     "EMIT_SIGN_EVENT"
+    ],
+    "word_top1": "HELLO",
+    "word_p1": 0.6476804614067078
+   },
+   "ARM_I_E28:R1_CB70": {
+    "stage": "NOT_ACQUIRED",
+    "peak_active": 0.31749781016390255,
+    "mean_active": 0.1263628120565978,
+    "active_rows": 0,
+    "first_active_offset": null,
+    "event_span": null,
+    "states": "PPP|PPPPPP|PPP",
+    "actions": []
+   },
+   "ARM_I_E28:R2_CB70_PRE_EXIT_POST": {
+    "stage": "NOT_ACQUIRED",
+    "peak_active": 0.31749781016390255,
+    "mean_active": 0.1263628120565978,
+    "active_rows": 0,
+    "first_active_offset": null,
+    "event_span": null,
+    "states": "PPP|PPPPPP|PPP",
+    "actions": []
+   }
+  },
+  {
+   "session": "SEP27_TRANSITION",
+   "sign": "A_HANDS_DOWN:HOME#2",
+   "gloss": "HOME",
+   "rows": 9,
+   "hand_fraction": 0.7777777777777778,
+   "both_hands_fraction": 0.0,
+   "body_fraction": 1.0,
+   "motion_wrist_travel_per_s": 0.05218786826796415,
+   "motion_shape_change": 0.04934997243263515,
+   "motion_pairs": 6.0,
+   "ARM_A_E10:CONFIRM_BOUNDARY_70": {
+    "stage": "WRONG_WORD",
+    "peak_active": 0.9988338091927574,
+    "mean_active": 0.794303082557014,
+    "active_rows": 7,
+    "first_active_offset": 2,
+    "event_span": [
+     152,
+     158
+    ],
+    "states": "OOO|OPAAAAAAA|OOO",
+    "actions": [
+     "START_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "BEGIN_POST_CANDIDATE",
+     "EMIT_SIGN_EVENT"
+    ],
+    "word_top1": "KNOW",
+    "word_p1": 0.9785341024398804
+   },
+   "ARM_I_E28:R1_CB70": {
+    "stage": "NO_EVENT",
+    "peak_active": 0.5082339816797894,
+    "mean_active": 0.0971390061405457,
+    "active_rows": 1,
+    "first_active_offset": 3,
+    "event_span": null,
+    "states": "PPP|PPPAPPPPP|PPO",
+    "actions": [
+     "START_ACTIVE_CANDIDATE",
+     "BEGIN_PRE_GAP",
+     "DISCARD_SUSTAINED_PRE_GAP"
+    ]
+   },
+   "ARM_I_E28:R2_CB70_PRE_EXIT_POST": {
+    "stage": "NO_EVENT",
+    "peak_active": 0.5082339816797894,
+    "mean_active": 0.0971390061405457,
+    "active_rows": 1,
+    "first_active_offset": 3,
+    "event_span": null,
+    "states": "PPP|PPPAPPPPP|PPO",
+    "actions": [
+     "START_ACTIVE_CANDIDATE",
+     "BEGIN_PRE_GAP",
+     "DISCARD_SUSTAINED_PRE_GAP"
+    ]
+   }
+  },
+  {
+   "session": "SEP27_TRANSITION",
+   "sign": "A_HANDS_DOWN:TABLE#3",
+   "gloss": "TABLE",
+   "rows": 10,
+   "hand_fraction": 0.0,
+   "both_hands_fraction": 0.0,
+   "body_fraction": 1.0,
+   "motion_wrist_travel_per_s": 0.0,
+   "motion_shape_change": 0.0,
+   "motion_pairs": 0.0,
+   "ARM_A_E10:CONFIRM_BOUNDARY_70": {
+    "stage": "NOT_ACQUIRED",
+    "peak_active": 0.009832103130878813,
+    "mean_active": 0.005302715432634024,
+    "active_rows": 0,
+    "first_active_offset": null,
+    "event_span": null,
+    "states": "OOO|PPPPOPPPPP|POO",
+    "actions": []
+   },
+   "ARM_I_E28:R1_CB70": {
+    "stage": "NO_EVENT",
+    "peak_active": 0.7495186630816898,
+    "mean_active": 0.20283673344713002,
+    "active_rows": 2,
+    "first_active_offset": 7,
+    "event_span": null,
+    "states": "PPP|PPPPPOPAAP|PPO",
+    "actions": [
+     "START_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "BEGIN_PRE_GAP",
+     "DISCARD_SUSTAINED_PRE_GAP"
+    ]
+   },
+   "ARM_I_E28:R2_CB70_PRE_EXIT_POST": {
+    "stage": "CORRECT",
+    "peak_active": 0.7495186630816898,
+    "mean_active": 0.20283673344713002,
+    "active_rows": 2,
+    "first_active_offset": 7,
+    "event_span": [
+     183,
+     184
+    ],
+    "states": "PPP|PPPPPOPAAP|PPO",
+    "actions": [
+     "START_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "BEGIN_POST_CANDIDATE",
+     "EMIT_SIGN_EVENT"
+    ],
+    "word_top1": "TABLE",
+    "word_p1": 0.9335228204727173
+   }
+  },
+  {
+   "session": "SEP27_TRANSITION",
+   "sign": "B_HANDS_UP:HELLO#1",
+   "gloss": "HELLO",
+   "rows": 11,
+   "hand_fraction": 1.0,
+   "both_hands_fraction": 0.0,
+   "body_fraction": 0.0,
+   "motion_wrist_travel_per_s": 0.07963261115794983,
+   "motion_shape_change": 0.07377814976859746,
+   "motion_pairs": 10.0,
+   "ARM_A_E10:CONFIRM_BOUNDARY_70": {
+    "stage": "CORRECT",
+    "peak_active": 0.9992076756531817,
+    "mean_active": 0.8771812404777848,
+    "active_rows": 10,
+    "first_active_offset": 1,
+    "event_span": [
+     347,
+     359
+    ],
+    "states": "OPO|PAAAAAAAAAA|AAA",
+    "actions": [
+     "START_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE"
+    ],
+    "word_top1": "HELLO",
+    "word_p1": 0.9894631505012512
+   },
+   "ARM_I_E28:R1_CB70": {
+    "stage": "CORRECT",
+    "peak_active": 0.9999977804705591,
+    "mean_active": 0.9960376263061129,
+    "active_rows": 11,
+    "first_active_offset": 0,
+    "event_span": [
+     346,
+     365
+    ],
+    "states": "PPP|AAAAAAAAAAA|AAA",
+    "actions": [
+     "START_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE"
+    ],
+    "word_top1": "HELLO",
+    "word_p1": 0.9274353981018066
+   },
+   "ARM_I_E28:R2_CB70_PRE_EXIT_POST": {
+    "stage": "CORRECT",
+    "peak_active": 0.9999977804705591,
+    "mean_active": 0.9960376263061129,
+    "active_rows": 11,
+    "first_active_offset": 0,
+    "event_span": [
+     346,
+     365
+    ],
+    "states": "PPP|AAAAAAAAAAA|AAA",
+    "actions": [
+     "START_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE"
+    ],
+    "word_top1": "HELLO",
+    "word_p1": 0.9274353981018066
+   }
+  },
+  {
+   "session": "SEP27_TRANSITION",
+   "sign": "B_HANDS_UP:HOME#2",
+   "gloss": "HOME",
+   "rows": 15,
+   "hand_fraction": 1.0,
+   "both_hands_fraction": 0.0,
+   "body_fraction": 0.0,
+   "motion_wrist_travel_per_s": 0.08948609771231515,
+   "motion_shape_change": 0.06889410663803787,
+   "motion_pairs": 14.0,
+   "ARM_A_E10:CONFIRM_BOUNDARY_70": {
+    "stage": "CORRECT",
+    "peak_active": 0.9440636824983691,
+    "mean_active": 0.48303157780004274,
+    "active_rows": 6,
+    "first_active_offset": 2,
+    "event_span": [
+     362,
+     365
+    ],
+    "states": "AAA|OOAAAAOOOOOAOAO|AOO",
+    "actions": [
+     "BEGIN_POST_CANDIDATE",
+     "SPLIT_SHORT_POST",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "BEGIN_POST_CANDIDATE",
+     "EMIT_SIGN_EVENT",
+     "RESET_REARM_PRE",
+     "BEGIN_REARM_PRE",
+     "RESET_REARM_PRE",
+     "BEGIN_REARM_PRE",
+     "RESET_REARM_PRE",
+     "BEGIN_REARM_PRE"
+    ],
+    "word_top1": "HOME",
+    "word_p1": 0.8699912428855896
+   },
+   "ARM_I_E28:R1_CB70": {
+    "stage": "WRONG_WORD",
+    "peak_active": 0.9700121038504917,
+    "mean_active": 0.4587190180030701,
+    "active_rows": 7,
+    "first_active_offset": 0,
+    "event_span": [
+     368,
+     370
+    ],
+    "states": "AAA|AAAOOAOOAAAOOOO|AOO",
+    "actions": [
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "BEGIN_POST_CANDIDATE",
+     "CANCEL_POST_ACTIVE_AT_CONFIRM_BOUNDARY",
+     "BEGIN_POST_CANDIDATE",
+     "SPLIT_SHORT_POST",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "BEGIN_POST_CANDIDATE",
+     "EMIT_SIGN_EVENT",
+     "SPLIT_REENTRY_ACTIVE",
+     "BEGIN_POST_CANDIDATE"
+    ],
+    "word_top1": "WHY",
+    "word_p1": 0.4016992449760437
+   },
+   "ARM_I_E28:R2_CB70_PRE_EXIT_POST": {
+    "stage": "WRONG_WORD",
+    "peak_active": 0.9700121038504917,
+    "mean_active": 0.4587190180030701,
+    "active_rows": 7,
+    "first_active_offset": 0,
+    "event_span": [
+     368,
+     370
+    ],
+    "states": "AAA|AAAOOAOOAAAOOOO|AOO",
+    "actions": [
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "BEGIN_POST_CANDIDATE",
+     "CANCEL_POST_ACTIVE_AT_CONFIRM_BOUNDARY",
+     "BEGIN_POST_CANDIDATE",
+     "SPLIT_SHORT_POST",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "BEGIN_POST_CANDIDATE",
+     "EMIT_SIGN_EVENT",
+     "SPLIT_REENTRY_ACTIVE",
+     "BEGIN_POST_CANDIDATE"
+    ],
+    "word_top1": "WHY",
+    "word_p1": 0.4016992449760437
+   }
+  },
+  {
+   "session": "SEP27_TRANSITION",
+   "sign": "B_HANDS_UP:TABLE#3",
+   "gloss": "TABLE",
+   "rows": 14,
+   "hand_fraction": 0.0,
+   "both_hands_fraction": 0.0,
+   "body_fraction": 0.7857142857142857,
+   "motion_wrist_travel_per_s": 0.0,
+   "motion_shape_change": 0.0,
+   "motion_pairs": 0.0,
+   "ARM_A_E10:CONFIRM_BOUNDARY_70": {
+    "stage": "NOT_ACQUIRED",
+    "peak_active": 0.002363100370760067,
+    "mean_active": 0.0002906615500810228,
+    "active_rows": 0,
+    "first_active_offset": null,
+    "event_span": null,
+    "states": "AOO|OOOOOOOOOOOOOO|OOO",
+    "actions": [
+     "REARM_COMPLETE"
+    ]
+   },
+   "ARM_I_E28:R1_CB70": {
+    "stage": "NOT_ACQUIRED",
+    "peak_active": 0.076595549004409,
+    "mean_active": 0.017819380727475694,
+    "active_rows": 0,
+    "first_active_offset": null,
+    "event_span": null,
+    "states": "AOO|OOOOOOOOOOOOOO|OOO",
+    "actions": [
+     "DISCARD_TOO_SHORT"
+    ]
+   },
+   "ARM_I_E28:R2_CB70_PRE_EXIT_POST": {
+    "stage": "NOT_ACQUIRED",
+    "peak_active": 0.076595549004409,
+    "mean_active": 0.017819380727475694,
+    "active_rows": 0,
+    "first_active_offset": null,
+    "event_span": null,
+    "states": "AOO|OOOOOOOOOOOOOO|OOO",
+    "actions": [
+     "DISCARD_TOO_SHORT"
+    ]
+   }
+  },
+  {
+   "session": "SEP27_TRANSITION",
+   "sign": "B_HANDS_UP:HELLO#4",
+   "gloss": "HELLO",
+   "rows": 7,
+   "hand_fraction": 0.8571428571428571,
+   "both_hands_fraction": 0.0,
+   "body_fraction": 0.0,
+   "motion_wrist_travel_per_s": 0.07560650494956249,
+   "motion_shape_change": 0.06604608562699102,
+   "motion_pairs": 5.0,
+   "ARM_A_E10:CONFIRM_BOUNDARY_70": {
+    "stage": "CORRECT",
+    "peak_active": 0.9997588583514977,
+    "mean_active": 0.859106536561778,
+    "active_rows": 6,
+    "first_active_offset": 0,
+    "event_span": [
+     399,
+     404
+    ],
+    "states": "OPO|AAAAAAO|OOO",
+    "actions": [
+     "START_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "BEGIN_POST_CANDIDATE",
+     "EMIT_SIGN_EVENT",
+     "REARM_COMPLETE"
+    ],
+    "word_top1": "HELLO",
+    "word_p1": 0.975561797618866
+   },
+   "ARM_I_E28:R1_CB70": {
+    "stage": "CORRECT",
+    "peak_active": 0.8473816384511181,
+    "mean_active": 0.4239519580068052,
+    "active_rows": 3,
+    "first_active_offset": 1,
+    "event_span": [
+     400,
+     402
+    ],
+    "states": "OOO|OAOAOAO|OOO",
+    "actions": [
+     "START_ACTIVE_CANDIDATE",
+     "BEGIN_POST_CANDIDATE",
+     "CANCEL_POST_ACTIVE_AT_CONFIRM_BOUNDARY",
+     "BEGIN_POST_CANDIDATE",
+     "SPLIT_SHORT_POST",
+     "BEGIN_POST_CANDIDATE",
+     "DISCARD_TOO_SHORT"
+    ],
+    "word_top1": "HELLO",
+    "word_p1": 0.9069734215736389
+   },
+   "ARM_I_E28:R2_CB70_PRE_EXIT_POST": {
+    "stage": "CORRECT",
+    "peak_active": 0.8473816384511181,
+    "mean_active": 0.4239519580068052,
+    "active_rows": 3,
+    "first_active_offset": 1,
+    "event_span": [
+     400,
+     402
+    ],
+    "states": "OOO|OAOAOAO|OOO",
+    "actions": [
+     "START_ACTIVE_CANDIDATE",
+     "BEGIN_POST_CANDIDATE",
+     "CANCEL_POST_ACTIVE_AT_CONFIRM_BOUNDARY",
+     "BEGIN_POST_CANDIDATE",
+     "SPLIT_SHORT_POST",
+     "BEGIN_POST_CANDIDATE",
+     "DISCARD_TOO_SHORT"
+    ],
+    "word_top1": "HELLO",
+    "word_p1": 0.9069734215736389
+   }
+  },
+  {
+   "session": "OCT15_COMPACT",
+   "sign": "A_HANDS_DOWN:HELLO#1",
+   "gloss": "HELLO",
+   "rows": 7,
+   "hand_fraction": 0.7142857142857143,
+   "both_hands_fraction": 0.0,
+   "body_fraction": 0.42857142857142855,
+   "motion_wrist_travel_per_s": 0.11575699768556767,
+   "motion_shape_change": 0.12297051481652328,
+   "motion_pairs": 3.0,
+   "ARM_A_E10:CONFIRM_BOUNDARY_70": {
+    "stage": "CORRECT",
+    "peak_active": 0.996998829575112,
+    "mean_active": 0.6741977803945922,
+    "active_rows": 5,
+    "first_active_offset": 1,
+    "event_span": [
+     196,
+     200
+    ],
+    "states": "OOO|PAAAAAO|OOO",
+    "actions": [
+     "START_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "BEGIN_POST_CANDIDATE",
+     "EMIT_SIGN_EVENT"
+    ],
+    "word_top1": "HELLO",
+    "word_p1": 0.9674410820007324
+   },
+   "ARM_I_E28:R1_CB70": {
+    "stage": "CORRECT",
+    "peak_active": 0.9061697417320708,
+    "mean_active": 0.44736569592364145,
+    "active_rows": 4,
+    "first_active_offset": 2,
+    "event_span": [
+     197,
+     200
+    ],
+    "states": "PPP|PPAAAAO|POP",
+    "actions": [
+     "START_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "BEGIN_POST_CANDIDATE",
+     "EMIT_SIGN_EVENT"
+    ],
+    "word_top1": "HELLO",
+    "word_p1": 0.9674410820007324
+   },
+   "ARM_I_E28:R2_CB70_PRE_EXIT_POST": {
+    "stage": "CORRECT",
+    "peak_active": 0.9061697417320708,
+    "mean_active": 0.44736569592364145,
+    "active_rows": 4,
+    "first_active_offset": 2,
+    "event_span": [
+     197,
+     200
+    ],
+    "states": "PPP|PPAAAAO|POP",
+    "actions": [
+     "START_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "BEGIN_POST_CANDIDATE",
+     "EMIT_SIGN_EVENT"
+    ],
+    "word_top1": "HELLO",
+    "word_p1": 0.9674410820007324
+   }
+  },
+  {
+   "session": "OCT15_COMPACT",
+   "sign": "B_HANDS_UP:HELLO#1",
+   "gloss": "HELLO",
+   "rows": 10,
+   "hand_fraction": 0.7,
+   "both_hands_fraction": 0.3,
+   "body_fraction": 0.0,
+   "motion_wrist_travel_per_s": 0.04220509855091982,
+   "motion_shape_change": 0.04707611030588926,
+   "motion_pairs": 5.0,
+   "ARM_A_E10:CONFIRM_BOUNDARY_70": {
+    "stage": "CORRECT",
+    "peak_active": 0.9993358249374511,
+    "mean_active": 0.49626812408085,
+    "active_rows": 5,
+    "first_active_offset": 3,
+    "event_span": [
+     232,
+     236
+    ],
+    "states": "OOO|OOPAAAAAOO|OOO",
+    "actions": [
+     "START_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "BEGIN_POST_CANDIDATE",
+     "EMIT_SIGN_EVENT",
+     "REARM_COMPLETE"
+    ],
+    "word_top1": "HELLO",
+    "word_p1": 0.9993815422058105
+   },
+   "ARM_I_E28:R1_CB70": {
+    "stage": "NO_EVENT",
+    "peak_active": 0.9751511927294535,
+    "mean_active": 0.31888360768933194,
+    "active_rows": 3,
+    "first_active_offset": 2,
+    "event_span": null,
+    "states": "PPP|PPAAPAPPPO|PPP",
+    "actions": [
+     "START_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "BEGIN_PRE_GAP",
+     "DISCARD_SUSTAINED_PRE_GAP"
+    ]
+   },
+   "ARM_I_E28:R2_CB70_PRE_EXIT_POST": {
+    "stage": "CORRECT",
+    "peak_active": 0.9751511927294535,
+    "mean_active": 0.31888360768933194,
+    "active_rows": 3,
+    "first_active_offset": 2,
+    "event_span": [
+     231,
+     234
+    ],
+    "states": "PPP|PPAAPAPPPO|PPP",
+    "actions": [
+     "START_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "BEGIN_POST_CANDIDATE",
+     "CANCEL_POST_ACTIVE_AT_CONFIRM_BOUNDARY",
+     "BEGIN_POST_CANDIDATE",
+     "EMIT_SIGN_EVENT",
+     "REARM_COMPLETE"
+    ],
+    "word_top1": "HELLO",
+    "word_p1": 0.994489312171936
+   }
+  },
+  {
+   "session": "OCT15_COMPACT",
+   "sign": "C_REPEAT_HANDS_UP:HELLO#1",
+   "gloss": "HELLO",
+   "rows": 8,
+   "hand_fraction": 1.0,
+   "both_hands_fraction": 0.625,
+   "body_fraction": 0.0,
+   "motion_wrist_travel_per_s": 0.17807230894712642,
+   "motion_shape_change": 0.09708779567671923,
+   "motion_pairs": 10.0,
+   "ARM_A_E10:CONFIRM_BOUNDARY_70": {
+    "stage": "CORRECT",
+    "peak_active": 0.9991814400753586,
+    "mean_active": 0.963699720339406,
+    "active_rows": 8,
+    "first_active_offset": 0,
+    "event_span": [
+     279,
+     289
+    ],
+    "states": "OOP|AAAAAAAA|AAA",
+    "actions": [
+     "START_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE"
+    ],
+    "word_top1": "HELLO",
+    "word_p1": 0.9989745616912842
+   },
+   "ARM_I_E28:R1_CB70": {
+    "stage": "CORRECT",
+    "peak_active": 0.9999994664441134,
+    "mean_active": 0.9987189319966199,
+    "active_rows": 8,
+    "first_active_offset": 0,
+    "event_span": [
+     278,
+     292
+    ],
+    "states": "PPA|AAAAAAAA|AAO",
+    "actions": [
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "BEGIN_POST_CANDIDATE"
+    ],
+    "word_top1": "HELLO",
+    "word_p1": 0.9964876174926758
+   },
+   "ARM_I_E28:R2_CB70_PRE_EXIT_POST": {
+    "stage": "CORRECT",
+    "peak_active": 0.9999994664441134,
+    "mean_active": 0.9987189319966199,
+    "active_rows": 8,
+    "first_active_offset": 0,
+    "event_span": [
+     278,
+     292
+    ],
+    "states": "PPA|AAAAAAAA|AAO",
+    "actions": [
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "BEGIN_POST_CANDIDATE"
+    ],
+    "word_top1": "HELLO",
+    "word_p1": 0.9964876174926758
+   }
+  },
+  {
+   "session": "OCT15_COMPACT",
+   "sign": "D_SIGN_THEN_HOLD:HELLO#1",
+   "gloss": "HELLO",
+   "rows": 37,
+   "hand_fraction": 1.0,
+   "both_hands_fraction": 0.4864864864864865,
+   "body_fraction": 0.0,
+   "motion_wrist_travel_per_s": 0.061090741451068145,
+   "motion_shape_change": 0.05654663580873897,
+   "motion_pairs": 47.0,
+   "ARM_A_E10:CONFIRM_BOUNDARY_70": {
+    "stage": "CORRECT",
+    "peak_active": 0.9996583646795633,
+    "mean_active": 0.485412367737239,
+    "active_rows": 15,
+    "first_active_offset": 1,
+    "event_span": [
+     319,
+     333
+    ],
+    "states": "OOO|OAAAAAAAAAAAAAOAOOOOOOOOOOOOOOAOOOOOO|OOO",
+    "actions": [
+     "START_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "BEGIN_POST_CANDIDATE",
+     "CANCEL_POST_ACTIVE_RESUMED",
+     "BEGIN_POST_CANDIDATE",
+     "EMIT_SIGN_EVENT",
+     "REARM_COMPLETE",
+     "START_ACTIVE_CANDIDATE",
+     "BEGIN_POST_CANDIDATE",
+     "DISCARD_TOO_SHORT"
+    ],
+    "word_top1": "HELLO",
+    "word_p1": 0.9997174143791199
+   },
+   "ARM_I_E28:R1_CB70": {
+    "stage": "CORRECT",
+    "peak_active": 0.9999948341098345,
+    "mean_active": 0.558378545476656,
+    "active_rows": 18,
+    "first_active_offset": 0,
+    "event_span": [
+     317,
+     336
+    ],
+    "states": "POA|AAAAAAAAAAAAAAAAAOAOOOOOOOOOOOOOOOOOO|OOO",
+    "actions": [
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "BEGIN_POST_CANDIDATE",
+     "CANCEL_POST_ACTIVE_RESUMED",
+     "BEGIN_POST_CANDIDATE",
+     "EMIT_SIGN_EVENT",
+     "REARM_COMPLETE"
+    ],
+    "word_top1": "HELLO",
+    "word_p1": 0.9996629953384399
+   },
+   "ARM_I_E28:R2_CB70_PRE_EXIT_POST": {
+    "stage": "CORRECT",
+    "peak_active": 0.9999948341098345,
+    "mean_active": 0.558378545476656,
+    "active_rows": 18,
+    "first_active_offset": 0,
+    "event_span": [
+     317,
+     336
+    ],
+    "states": "POA|AAAAAAAAAAAAAAAAAOAOOOOOOOOOOOOOOOOOO|OOO",
+    "actions": [
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "BEGIN_POST_CANDIDATE",
+     "CANCEL_POST_ACTIVE_RESUMED",
+     "BEGIN_POST_CANDIDATE",
+     "EMIT_SIGN_EVENT",
+     "REARM_COMPLETE"
+    ],
+    "word_top1": "HELLO",
+    "word_p1": 0.9996629953384399
+   }
+  },
+  {
+   "session": "SEP23_INDEPENDENT",
+   "sign": "attempt_001:HELLO",
+   "gloss": "HELLO",
+   "rows": 6,
+   "hand_fraction": 0.8333333333333334,
+   "both_hands_fraction": 0.0,
+   "body_fraction": 1.0,
+   "motion_wrist_travel_per_s": 0.03098611193217485,
+   "motion_shape_change": 0.12728632855017494,
+   "motion_pairs": 3.0,
+   "ARM_A_E10:CONFIRM_BOUNDARY_70": {
+    "stage": "NO_EVENT",
+    "peak_active": 0.8143222500626328,
+    "mean_active": 0.2846055965517698,
+    "active_rows": 1,
+    "first_active_offset": 1,
+    "event_span": null,
+    "states": "OPP|PAPPPP|POO",
+    "actions": [
+     "START_ACTIVE_CANDIDATE",
+     "BEGIN_PRE_GAP",
+     "DISCARD_SUSTAINED_PRE_GAP"
+    ]
+   },
+   "ARM_I_E28:R1_CB70": {
+    "stage": "NOT_ACQUIRED",
+    "peak_active": 0.17281668425110108,
+    "mean_active": 0.03963002622675998,
+    "active_rows": 0,
+    "first_active_offset": null,
+    "event_span": null,
+    "states": "PPP|PPPPPP|PPP",
+    "actions": []
+   },
+   "ARM_I_E28:R2_CB70_PRE_EXIT_POST": {
+    "stage": "NOT_ACQUIRED",
+    "peak_active": 0.17281668425110108,
+    "mean_active": 0.03963002622675998,
+    "active_rows": 0,
+    "first_active_offset": null,
+    "event_span": null,
+    "states": "PPP|PPPPPP|PPP",
+    "actions": []
+   }
+  },
+  {
+   "session": "SEP23_INDEPENDENT",
+   "sign": "attempt_002:HELLO",
+   "gloss": "HELLO",
+   "rows": 7,
+   "hand_fraction": 0.7142857142857143,
+   "both_hands_fraction": 0.0,
+   "body_fraction": 1.0,
+   "motion_wrist_travel_per_s": 0.01927099365891795,
+   "motion_shape_change": 0.12447318973270606,
+   "motion_pairs": 3.0,
+   "ARM_A_E10:CONFIRM_BOUNDARY_70": {
+    "stage": "CORRECT",
+    "peak_active": 0.7948397672434803,
+    "mean_active": 0.30392043070424135,
+    "active_rows": 2,
+    "first_active_offset": 5,
+    "event_span": [
+     157,
+     158
+    ],
+    "states": "OPP|PPPPPAA|OOO",
+    "actions": [
+     "START_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "BEGIN_POST_CANDIDATE",
+     "EMIT_SIGN_EVENT"
+    ],
+    "word_top1": "HELLO",
+    "word_p1": 0.9977468848228455
+   },
+   "ARM_I_E28:R1_CB70": {
+    "stage": "NOT_ACQUIRED",
+    "peak_active": 0.017656868783270687,
+    "mean_active": 0.004963619362188583,
+    "active_rows": 0,
+    "first_active_offset": null,
+    "event_span": null,
+    "states": "PPP|PPPPPPP|PPP",
+    "actions": []
+   },
+   "ARM_I_E28:R2_CB70_PRE_EXIT_POST": {
+    "stage": "NOT_ACQUIRED",
+    "peak_active": 0.017656868783270687,
+    "mean_active": 0.004963619362188583,
+    "active_rows": 0,
+    "first_active_offset": null,
+    "event_span": null,
+    "states": "PPP|PPPPPPP|PPP",
+    "actions": []
+   }
+  },
+  {
+   "session": "SEP23_INDEPENDENT",
+   "sign": "attempt_003:HOME",
+   "gloss": "HOME",
+   "rows": 4,
+   "hand_fraction": 1.0,
+   "both_hands_fraction": 1.0,
+   "body_fraction": 0.0,
+   "motion_wrist_travel_per_s": 0.3249654047999275,
+   "motion_shape_change": 0.28518791242682473,
+   "motion_pairs": 6.0,
+   "ARM_A_E10:CONFIRM_BOUNDARY_70": {
+    "stage": "CORRECT",
+    "peak_active": 0.9999826862742028,
+    "mean_active": 0.7079818271107994,
+    "active_rows": 3,
+    "first_active_offset": 1,
+    "event_span": [
+     239,
+     242
+    ],
+    "states": "OOO|OAAA|AOO",
+    "actions": [
+     "START_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "BEGIN_POST_CANDIDATE",
+     "EMIT_SIGN_EVENT"
+    ],
+    "word_top1": "HOME",
+    "word_p1": 0.9915476441383362
+   },
+   "ARM_I_E28:R1_CB70": {
+    "stage": "NO_EVENT",
+    "peak_active": 0.7576171742765192,
+    "mean_active": 0.4424340544961816,
+    "active_rows": 1,
+    "first_active_offset": 2,
+    "event_span": null,
+    "states": "PPA|PPAP|PPP",
+    "actions": [
+     "BEGIN_PRE_GAP",
+     "DISCARD_SUSTAINED_PRE_GAP",
+     "START_ACTIVE_CANDIDATE",
+     "BEGIN_PRE_GAP",
+     "DISCARD_SUSTAINED_PRE_GAP"
+    ]
+   },
+   "ARM_I_E28:R2_CB70_PRE_EXIT_POST": {
+    "stage": "NO_EVENT",
+    "peak_active": 0.7576171742765192,
+    "mean_active": 0.4424340544961816,
+    "active_rows": 1,
+    "first_active_offset": 2,
+    "event_span": null,
+    "states": "PPA|PPAP|PPP",
+    "actions": [
+     "BEGIN_PRE_GAP",
+     "DISCARD_SUSTAINED_PRE_GAP",
+     "START_ACTIVE_CANDIDATE",
+     "BEGIN_PRE_GAP",
+     "DISCARD_SUSTAINED_PRE_GAP"
+    ]
+   }
+  },
+  {
+   "session": "SEP23_INDEPENDENT",
+   "sign": "attempt_004:HOME",
+   "gloss": "HOME",
+   "rows": 4,
+   "hand_fraction": 1.0,
+   "both_hands_fraction": 1.0,
+   "body_fraction": 0.0,
+   "motion_wrist_travel_per_s": 0.2473009767989802,
+   "motion_shape_change": 0.12653792571526942,
+   "motion_pairs": 6.0,
+   "ARM_A_E10:CONFIRM_BOUNDARY_70": {
+    "stage": "CORRECT",
+    "peak_active": 0.9989830389781984,
+    "mean_active": 0.9629635403262374,
+    "active_rows": 4,
+    "first_active_offset": 0,
+    "event_span": [
+     271,
+     275
+    ],
+    "states": "OOO|AAAA|AOO",
+    "actions": [
+     "START_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "BEGIN_POST_CANDIDATE",
+     "EMIT_SIGN_EVENT"
+    ],
+    "word_top1": "HOME",
+    "word_p1": 0.9940744042396545
+   },
+   "ARM_I_E28:R1_CB70": {
+    "stage": "NOT_ACQUIRED",
+    "peak_active": 0.367112045579788,
+    "mean_active": 0.1767845081434348,
+    "active_rows": 0,
+    "first_active_offset": null,
+    "event_span": null,
+    "states": "PPP|PPPP|AOO",
+    "actions": [
+     "START_ACTIVE_CANDIDATE",
+     "BEGIN_POST_CANDIDATE",
+     "DISCARD_TOO_SHORT"
+    ]
+   },
+   "ARM_I_E28:R2_CB70_PRE_EXIT_POST": {
+    "stage": "NOT_ACQUIRED",
+    "peak_active": 0.367112045579788,
+    "mean_active": 0.1767845081434348,
+    "active_rows": 0,
+    "first_active_offset": null,
+    "event_span": null,
+    "states": "PPP|PPPP|AOO",
+    "actions": [
+     "START_ACTIVE_CANDIDATE",
+     "BEGIN_POST_CANDIDATE",
+     "DISCARD_TOO_SHORT"
+    ]
+   }
+  },
+  {
+   "session": "SEP23_INDEPENDENT",
+   "sign": "attempt_005:TABLE",
+   "gloss": "TABLE",
+   "rows": 5,
+   "hand_fraction": 0.0,
+   "both_hands_fraction": 0.0,
+   "body_fraction": 0.0,
+   "motion_wrist_travel_per_s": 0.0,
+   "motion_shape_change": 0.0,
+   "motion_pairs": 0.0,
+   "ARM_A_E10:CONFIRM_BOUNDARY_70": {
+    "stage": "NOT_ACQUIRED",
+    "peak_active": 0.00040808031356286785,
+    "mean_active": 0.00014654873851994548,
+    "active_rows": 0,
+    "first_active_offset": null,
+    "event_span": null,
+    "states": "OOO|OOOOO|OOO",
+    "actions": [
+     "BEGIN_REARM_PRE",
+     "BEGIN_REARM_PRE",
+     "BEGIN_REARM_PRE",
+     "BEGIN_REARM_PRE",
+     "BEGIN_REARM_PRE",
+     "BEGIN_REARM_PRE",
+     "BEGIN_REARM_PRE",
+     "BEGIN_REARM_PRE"
+    ]
+   },
+   "ARM_I_E28:R1_CB70": {
+    "stage": "NOT_ACQUIRED",
+    "peak_active": 0.16657795862983957,
+    "mean_active": 0.04010403163802121,
+    "active_rows": 0,
+    "first_active_offset": null,
+    "event_span": null,
+    "states": "PPA|PPPPP|PPP",
+    "actions": [
+     "BEGIN_PRE_GAP",
+     "DISCARD_SUSTAINED_PRE_GAP"
+    ]
+   },
+   "ARM_I_E28:R2_CB70_PRE_EXIT_POST": {
+    "stage": "NOT_ACQUIRED",
+    "peak_active": 0.16657795862983957,
+    "mean_active": 0.04010403163802121,
+    "active_rows": 0,
+    "first_active_offset": null,
+    "event_span": null,
+    "states": "PPA|PPPPP|PPP",
+    "actions": [
+     "BEGIN_PRE_GAP",
+     "DISCARD_SUSTAINED_PRE_GAP"
+    ]
+   }
+  },
+  {
+   "session": "SEP23_INDEPENDENT",
+   "sign": "attempt_006:TABLE",
+   "gloss": "TABLE",
+   "rows": 3,
+   "hand_fraction": 0.0,
+   "both_hands_fraction": 0.0,
+   "body_fraction": 0.3333333333333333,
+   "motion_wrist_travel_per_s": 0.0,
+   "motion_shape_change": 0.0,
+   "motion_pairs": 0.0,
+   "ARM_A_E10:CONFIRM_BOUNDARY_70": {
+    "stage": "NOT_ACQUIRED",
+    "peak_active": 0.00026706461594825997,
+    "mean_active": 9.829736778473947e-05,
+    "active_rows": 0,
+    "first_active_offset": null,
+    "event_span": null,
+    "states": "OOO|OOO|OOO",
+    "actions": []
+   },
+   "ARM_I_E28:R1_CB70": {
+    "stage": "NOT_ACQUIRED",
+    "peak_active": 0.007469130054770468,
+    "mean_active": 0.0026507744102637868,
+    "active_rows": 0,
+    "first_active_offset": null,
+    "event_span": null,
+    "states": "PPP|PPP|PPP",
+    "actions": []
+   },
+   "ARM_I_E28:R2_CB70_PRE_EXIT_POST": {
+    "stage": "NOT_ACQUIRED",
+    "peak_active": 0.007469130054770468,
+    "mean_active": 0.0026507744102637868,
+    "active_rows": 0,
+    "first_active_offset": null,
+    "event_span": null,
+    "states": "PPP|PPP|PPP",
+    "actions": []
+   }
+  },
+  {
+   "session": "SEP23_REPRESENTATIVE",
+   "sign": "attempt_001:HELLO",
+   "gloss": "HELLO",
+   "rows": 9,
+   "hand_fraction": 0.8888888888888888,
+   "both_hands_fraction": 0.5555555555555556,
+   "body_fraction": 0.0,
+   "motion_wrist_travel_per_s": 0.23692594961377897,
+   "motion_shape_change": 0.12109257490030739,
+   "motion_pairs": 11.0,
+   "ARM_A_E10:CONFIRM_BOUNDARY_70": {
+    "stage": "CORRECT",
+    "peak_active": 0.9999560439523314,
+    "mean_active": 0.8218317614679201,
+    "active_rows": 8,
+    "first_active_offset": 0,
+    "event_span": [
+     257,
+     264
+    ],
+    "states": "OOO|AAAAAAAAO|OOO",
+    "actions": [
+     "START_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "BEGIN_POST_CANDIDATE",
+     "EMIT_SIGN_EVENT"
+    ],
+    "word_top1": "HELLO",
+    "word_p1": 0.9963420033454895
+   },
+   "ARM_I_E28:R1_CB70": {
+    "stage": "CORRECT",
+    "peak_active": 0.9999745880831067,
+    "mean_active": 0.9800990396329063,
+    "active_rows": 9,
+    "first_active_offset": 0,
+    "event_span": [
+     257,
+     265
+    ],
+    "states": "PPP|AAAAAAAAA|OOO",
+    "actions": [
+     "START_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "BEGIN_POST_CANDIDATE",
+     "EMIT_SIGN_EVENT"
+    ],
+    "word_top1": "HELLO",
+    "word_p1": 0.9967305660247803
+   },
+   "ARM_I_E28:R2_CB70_PRE_EXIT_POST": {
+    "stage": "CORRECT",
+    "peak_active": 0.9999745880831067,
+    "mean_active": 0.9800990396329063,
+    "active_rows": 9,
+    "first_active_offset": 0,
+    "event_span": [
+     257,
+     265
+    ],
+    "states": "PPP|AAAAAAAAA|OOO",
+    "actions": [
+     "START_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "BEGIN_POST_CANDIDATE",
+     "EMIT_SIGN_EVENT"
+    ],
+    "word_top1": "HELLO",
+    "word_p1": 0.9967305660247803
+   }
+  },
+  {
+   "session": "SEP23_REPRESENTATIVE",
+   "sign": "attempt_002:HELLO",
+   "gloss": "HELLO",
+   "rows": 9,
+   "hand_fraction": 1.0,
+   "both_hands_fraction": 0.5555555555555556,
+   "body_fraction": 0.0,
+   "motion_wrist_travel_per_s": 0.20403055097329278,
+   "motion_shape_change": 0.09254149357374274,
+   "motion_pairs": 12.0,
+   "ARM_A_E10:CONFIRM_BOUNDARY_70": {
+    "stage": "CORRECT",
+    "peak_active": 0.9999997152472222,
+    "mean_active": 0.7522348112272874,
+    "active_rows": 7,
+    "first_active_offset": 1,
+    "event_span": [
+     316,
+     322
+    ],
+    "states": "OOP|OAAAAAAAO|OOO",
+    "actions": [
+     "START_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "BEGIN_POST_CANDIDATE",
+     "EMIT_SIGN_EVENT"
+    ],
+    "word_top1": "HELLO",
+    "word_p1": 0.9967777132987976
+   },
+   "ARM_I_E28:R1_CB70": {
+    "stage": "CORRECT",
+    "peak_active": 0.9999999953345702,
+    "mean_active": 0.9992309309008457,
+    "active_rows": 9,
+    "first_active_offset": 0,
+    "event_span": [
+     315,
+     324
+    ],
+    "states": "PPP|AAAAAAAAA|AOO",
+    "actions": [
+     "START_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "BEGIN_POST_CANDIDATE"
+    ],
+    "word_top1": "HELLO",
+    "word_p1": 0.9864787459373474
+   },
+   "ARM_I_E28:R2_CB70_PRE_EXIT_POST": {
+    "stage": "CORRECT",
+    "peak_active": 0.9999999953345702,
+    "mean_active": 0.9992309309008457,
+    "active_rows": 9,
+    "first_active_offset": 0,
+    "event_span": [
+     315,
+     324
+    ],
+    "states": "PPP|AAAAAAAAA|AOO",
+    "actions": [
+     "START_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "BEGIN_POST_CANDIDATE"
+    ],
+    "word_top1": "HELLO",
+    "word_p1": 0.9864787459373474
+   }
+  },
+  {
+   "session": "SEP23_REPRESENTATIVE",
+   "sign": "attempt_003:HOME",
+   "gloss": "HOME",
+   "rows": 8,
+   "hand_fraction": 1.0,
+   "both_hands_fraction": 0.125,
+   "body_fraction": 0.0,
+   "motion_wrist_travel_per_s": 0.15313650962616004,
+   "motion_shape_change": 0.13071607364313037,
+   "motion_pairs": 7.0,
+   "ARM_A_E10:CONFIRM_BOUNDARY_70": {
+    "stage": "CORRECT",
+    "peak_active": 0.9998067630964429,
+    "mean_active": 0.8761078169394068,
+    "active_rows": 7,
+    "first_active_offset": 1,
+    "event_span": [
+     363,
+     370
+    ],
+    "states": "OOO|OAAAAAAA|AOO",
+    "actions": [
+     "START_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "BEGIN_POST_CANDIDATE"
+    ],
+    "word_top1": "HOME",
+    "word_p1": 0.5991243124008179
+   },
+   "ARM_I_E28:R1_CB70": {
+    "stage": "CORRECT",
+    "peak_active": 0.999959396010119,
+    "mean_active": 0.9991246053861984,
+    "active_rows": 8,
+    "first_active_offset": 0,
+    "event_span": [
+     361,
+     370
+    ],
+    "states": "PPA|AAAAAAAA|AOO",
+    "actions": [
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "BEGIN_POST_CANDIDATE"
+    ],
+    "word_top1": "HOME",
+    "word_p1": 0.5596311092376709
+   },
+   "ARM_I_E28:R2_CB70_PRE_EXIT_POST": {
+    "stage": "CORRECT",
+    "peak_active": 0.999959396010119,
+    "mean_active": 0.9991246053861984,
+    "active_rows": 8,
+    "first_active_offset": 0,
+    "event_span": [
+     361,
+     370
+    ],
+    "states": "PPA|AAAAAAAA|AOO",
+    "actions": [
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "BEGIN_POST_CANDIDATE"
+    ],
+    "word_top1": "HOME",
+    "word_p1": 0.5596311092376709
+   }
+  },
+  {
+   "session": "SEP23_REPRESENTATIVE",
+   "sign": "attempt_004:HOME",
+   "gloss": "HOME",
+   "rows": 9,
+   "hand_fraction": 1.0,
+   "both_hands_fraction": 0.2222222222222222,
+   "body_fraction": 0.0,
+   "motion_wrist_travel_per_s": 0.19083474961010266,
+   "motion_shape_change": 0.1499725226471669,
+   "motion_pairs": 9.0,
+   "ARM_A_E10:CONFIRM_BOUNDARY_70": {
+    "stage": "WRONG_WORD",
+    "peak_active": 0.9999949805344579,
+    "mean_active": 0.8818083581443282,
+    "active_rows": 9,
+    "first_active_offset": 0,
+    "event_span": [
+     425,
+     435
+    ],
+    "states": "OOA|AAAAAAAAA|AOO",
+    "actions": [
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "BEGIN_POST_CANDIDATE"
+    ],
+    "word_top1": "THINK",
+    "word_p1": 0.8894332647323608
+   },
+   "ARM_I_E28:R1_CB70": {
+    "stage": "WRONG_WORD",
+    "peak_active": 0.9999995564025073,
+    "mean_active": 0.9929283684805815,
+    "active_rows": 9,
+    "first_active_offset": 0,
+    "event_span": [
+     424,
+     435
+    ],
+    "states": "PAA|AAAAAAAAA|AOO",
+    "actions": [
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "BEGIN_POST_CANDIDATE"
+    ],
+    "word_top1": "THINK",
+    "word_p1": 0.8894332647323608
+   },
+   "ARM_I_E28:R2_CB70_PRE_EXIT_POST": {
+    "stage": "WRONG_WORD",
+    "peak_active": 0.9999995564025073,
+    "mean_active": 0.9929283684805815,
+    "active_rows": 9,
+    "first_active_offset": 0,
+    "event_span": [
+     424,
+     435
+    ],
+    "states": "PAA|AAAAAAAAA|AOO",
+    "actions": [
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "BEGIN_POST_CANDIDATE"
+    ],
+    "word_top1": "THINK",
+    "word_p1": 0.8894332647323608
+   }
+  },
+  {
+   "session": "SEP23_REPRESENTATIVE",
+   "sign": "attempt_005:TABLE",
+   "gloss": "TABLE",
+   "rows": 12,
+   "hand_fraction": 0.08333333333333333,
+   "both_hands_fraction": 0.0,
+   "body_fraction": 0.25,
+   "motion_wrist_travel_per_s": 0.0,
+   "motion_shape_change": 0.0,
+   "motion_pairs": 0.0,
+   "ARM_A_E10:CONFIRM_BOUNDARY_70": {
+    "stage": "NOT_ACQUIRED",
+    "peak_active": 0.2784338102209383,
+    "mean_active": 0.044158681105824577,
+    "active_rows": 0,
+    "first_active_offset": null,
+    "event_span": null,
+    "states": "OOP|OOOOOOOOOOOO|OOO",
+    "actions": []
+   },
+   "ARM_I_E28:R1_CB70": {
+    "stage": "NO_EVENT",
+    "peak_active": 0.9949905805770531,
+    "mean_active": 0.4803211265183121,
+    "active_rows": 5,
+    "first_active_offset": 0,
+    "event_span": null,
+    "states": "PPA|AAAAAPPPPPPP|PPP",
+    "actions": [
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "BEGIN_PRE_GAP",
+     "DISCARD_SUSTAINED_PRE_GAP"
+    ]
+   },
+   "ARM_I_E28:R2_CB70_PRE_EXIT_POST": {
+    "stage": "WRONG_WORD",
+    "peak_active": 0.9949905805770531,
+    "mean_active": 0.4803211265183121,
+    "active_rows": 5,
+    "first_active_offset": 0,
+    "event_span": [
+     497,
+     502
+    ],
+    "states": "PPA|AAAAAPPPPPPP|PPP",
+    "actions": [
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "BEGIN_POST_CANDIDATE",
+     "EMIT_SIGN_EVENT",
+     "REARM_COMPLETE"
+    ],
+    "word_top1": "BABY1",
+    "word_p1": 0.2985859215259552
+   }
+  },
+  {
+   "session": "SEP23_REPRESENTATIVE",
+   "sign": "attempt_006:TABLE",
+   "gloss": "TABLE",
+   "rows": 9,
+   "hand_fraction": 0.0,
+   "both_hands_fraction": 0.0,
+   "body_fraction": 0.5555555555555556,
+   "motion_wrist_travel_per_s": 0.0,
+   "motion_shape_change": 0.0,
+   "motion_pairs": 0.0,
+   "ARM_A_E10:CONFIRM_BOUNDARY_70": {
+    "stage": "NOT_ACQUIRED",
+    "peak_active": 0.0203706573177919,
+    "mean_active": 0.005928947676219215,
+    "active_rows": 0,
+    "first_active_offset": null,
+    "event_span": null,
+    "states": "OPP|POOOOOOOO|OOO",
+    "actions": []
+   },
+   "ARM_I_E28:R1_CB70": {
+    "stage": "NO_EVENT",
+    "peak_active": 0.9999426551673148,
+    "mean_active": 0.727538291386155,
+    "active_rows": 6,
+    "first_active_offset": 0,
+    "event_span": null,
+    "states": "PAA|AAAAAPAPP|POO",
+    "actions": [
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "BEGIN_PRE_GAP",
+     "DISCARD_SUSTAINED_PRE_GAP"
+    ]
+   },
+   "ARM_I_E28:R2_CB70_PRE_EXIT_POST": {
+    "stage": "WRONG_WORD",
+    "peak_active": 0.9999426551673148,
+    "mean_active": 0.727538291386155,
+    "active_rows": 6,
+    "first_active_offset": 0,
+    "event_span": [
+     599,
+     607
+    ],
+    "states": "PAA|AAAAAPAPP|POO",
+    "actions": [
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "BEGIN_POST_CANDIDATE",
+     "CANCEL_POST_ACTIVE_RESUMED",
+     "BEGIN_POST_CANDIDATE",
+     "EMIT_SIGN_EVENT",
+     "REARM_COMPLETE"
+    ],
+    "word_top1": "ON",
+    "word_p1": 0.21947793662548065
+   }
+  },
+  {
+   "session": "SHADOW_023004Z",
+   "sign": "A_HANDS_DOWN:HELLO#1",
+   "gloss": "HELLO",
+   "rows": 7,
+   "hand_fraction": 0.5714285714285714,
+   "both_hands_fraction": 0.0,
+   "body_fraction": 0.0,
+   "motion_wrist_travel_per_s": 0.04612820572179769,
+   "motion_shape_change": 0.0706704754593098,
+   "motion_pairs": 2.0,
+   "ARM_A_E10:CONFIRM_BOUNDARY_70": {
+    "stage": "CORRECT",
+    "peak_active": 0.9932348232073867,
+    "mean_active": 0.39895054121736173,
+    "active_rows": 3,
+    "first_active_offset": 4,
+    "event_span": [
+     106,
+     108
+    ],
+    "states": "OOP|OPOPAAA|OOO",
+    "actions": [
+     "START_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "BEGIN_POST_CANDIDATE",
+     "EMIT_SIGN_EVENT"
+    ],
+    "word_top1": "HELLO",
+    "word_p1": 0.771614670753479
+   },
+   "ARM_I_E28:R1_CB70": {
+    "stage": "CORRECT",
+    "peak_active": 0.9998994189678405,
+    "mean_active": 0.628117747827498,
+    "active_rows": 4,
+    "first_active_offset": 3,
+    "event_span": [
+     105,
+     108
+    ],
+    "states": "PPP|PPPAAAA|OOO",
+    "actions": [
+     "START_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "BEGIN_POST_CANDIDATE",
+     "EMIT_SIGN_EVENT"
+    ],
+    "word_top1": "HELLO",
+    "word_p1": 0.9068714380264282
+   },
+   "ARM_I_E28:R2_CB70_PRE_EXIT_POST": {
+    "stage": "CORRECT",
+    "peak_active": 0.9998994189678405,
+    "mean_active": 0.628117747827498,
+    "active_rows": 4,
+    "first_active_offset": 3,
+    "event_span": [
+     105,
+     108
+    ],
+    "states": "PPP|PPPAAAA|OOO",
+    "actions": [
+     "START_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "BEGIN_POST_CANDIDATE",
+     "EMIT_SIGN_EVENT"
+    ],
+    "word_top1": "HELLO",
+    "word_p1": 0.9068714380264282
+   }
+  },
+  {
+   "session": "SHADOW_023004Z",
+   "sign": "A_HANDS_DOWN:HOME#2",
+   "gloss": "HOME",
+   "rows": 8,
+   "hand_fraction": 0.75,
+   "both_hands_fraction": 0.0,
+   "body_fraction": 0.0,
+   "motion_wrist_travel_per_s": 0.1052238227195047,
+   "motion_shape_change": 0.11432426853465937,
+   "motion_pairs": 4.0,
+   "ARM_A_E10:CONFIRM_BOUNDARY_70": {
+    "stage": "WRONG_WORD",
+    "peak_active": 0.9915624214764257,
+    "mean_active": 0.5236590618008925,
+    "active_rows": 5,
+    "first_active_offset": 3,
+    "event_span": [
+     118,
+     122
+    ],
+    "states": "OOO|OOOAAAAA|OOO",
+    "actions": [
+     "START_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "BEGIN_POST_CANDIDATE",
+     "EMIT_SIGN_EVENT"
+    ],
+    "word_top1": "LUNCH1",
+    "word_p1": 0.7406837344169617
+   },
+   "ARM_I_E28:R1_CB70": {
+    "stage": "NO_EVENT",
+    "peak_active": 0.8174661440968533,
+    "mean_active": 0.3739622607353751,
+    "active_rows": 2,
+    "first_active_offset": 3,
+    "event_span": null,
+    "states": "OOO|OOPAAPPP|PPP",
+    "actions": [
+     "START_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "BEGIN_PRE_GAP",
+     "DISCARD_SUSTAINED_PRE_GAP"
+    ]
+   },
+   "ARM_I_E28:R2_CB70_PRE_EXIT_POST": {
+    "stage": "WRONG_WORD",
+    "peak_active": 0.8174661440968533,
+    "mean_active": 0.3739622607353751,
+    "active_rows": 2,
+    "first_active_offset": 3,
+    "event_span": [
+     118,
+     119
+    ],
+    "states": "OOO|OOPAAPPP|PPP",
+    "actions": [
+     "START_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "BEGIN_POST_CANDIDATE",
+     "EMIT_SIGN_EVENT",
+     "REARM_COMPLETE"
+    ],
+    "word_top1": "HOME",
+    "word_p1": 0.46302759647369385
+   }
+  },
+  {
+   "session": "SHADOW_023004Z",
+   "sign": "B_HANDS_UP:HELLO#1",
+   "gloss": "HELLO",
+   "rows": 5,
+   "hand_fraction": 0.8,
+   "both_hands_fraction": 0.0,
+   "body_fraction": 0.0,
+   "motion_wrist_travel_per_s": 0.046960325759847384,
+   "motion_shape_change": 0.09344720751245339,
+   "motion_pairs": 2.0,
+   "ARM_A_E10:CONFIRM_BOUNDARY_70": {
+    "stage": "CORRECT",
+    "peak_active": 0.9978016091532997,
+    "mean_active": 0.40957048898399745,
+    "active_rows": 2,
+    "first_active_offset": 3,
+    "event_span": [
+     168,
+     170
+    ],
+    "states": "OOO|POPAA|AOA",
+    "actions": [
+     "START_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "BEGIN_POST_CANDIDATE",
+     "SPLIT_SHORT_POST"
+    ],
+    "word_top1": "HELLO",
+    "word_p1": 0.9725760221481323
+   },
+   "ARM_I_E28:R1_CB70": {
+    "stage": "CORRECT",
+    "peak_active": 0.999980873879409,
+    "mean_active": 0.7647018403928129,
+    "active_rows": 4,
+    "first_active_offset": 0,
+    "event_span": [
+     168,
+     170
+    ],
+    "states": "PPP|APAAA|AOO",
+    "actions": [
+     "START_ACTIVE_CANDIDATE",
+     "BEGIN_PRE_GAP",
+     "DISCARD_SUSTAINED_PRE_GAP",
+     "START_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "BEGIN_POST_CANDIDATE",
+     "EMIT_SIGN_EVENT"
+    ],
+    "word_top1": "HELLO",
+    "word_p1": 0.9725760221481323
+   },
+   "ARM_I_E28:R2_CB70_PRE_EXIT_POST": {
+    "stage": "CORRECT",
+    "peak_active": 0.999980873879409,
+    "mean_active": 0.7647018403928129,
+    "active_rows": 4,
+    "first_active_offset": 0,
+    "event_span": [
+     168,
+     170
+    ],
+    "states": "PPP|APAAA|AOO",
+    "actions": [
+     "START_ACTIVE_CANDIDATE",
+     "BEGIN_PRE_GAP",
+     "DISCARD_SUSTAINED_PRE_GAP",
+     "START_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "BEGIN_POST_CANDIDATE",
+     "EMIT_SIGN_EVENT"
+    ],
+    "word_top1": "HELLO",
+    "word_p1": 0.9725760221481323
+   }
+  },
+  {
+   "session": "SHADOW_023004Z",
+   "sign": "B_HANDS_UP:HOME#2",
+   "gloss": "HOME",
+   "rows": 6,
+   "hand_fraction": 0.5,
+   "both_hands_fraction": 0.0,
+   "body_fraction": 0.0,
+   "motion_wrist_travel_per_s": 0.008708777081393736,
+   "motion_shape_change": 0.04086711499428239,
+   "motion_pairs": 1.0,
+   "ARM_A_E10:CONFIRM_BOUNDARY_70": {
+    "stage": "CORRECT",
+    "peak_active": 0.9915316749294121,
+    "mean_active": 0.42480945696055833,
+    "active_rows": 2,
+    "first_active_offset": 0,
+    "event_span": [
+     175,
+     176
+    ],
+    "states": "AOO|AAOOOO|OOO",
+    "actions": [
+     "SPLIT_SHORT_POST",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "BEGIN_POST_CANDIDATE",
+     "EMIT_SIGN_EVENT",
+     "REARM_COMPLETE"
+    ],
+    "word_top1": "HOME",
+    "word_p1": 0.5966800451278687
+   },
+   "ARM_I_E28:R1_CB70": {
+    "stage": "WRONG_WORD",
+    "peak_active": 0.9876800437199018,
+    "mean_active": 0.7732491888677361,
+    "active_rows": 5,
+    "first_active_offset": 0,
+    "event_span": [
+     175,
+     181
+    ],
+    "states": "OOO|AOAAAA|AOO",
+    "actions": [
+     "SPLIT_REENTRY_ACTIVE",
+     "BEGIN_POST_CANDIDATE",
+     "CANCEL_POST_ACTIVE_AT_CONFIRM_BOUNDARY",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "BEGIN_POST_CANDIDATE",
+     "EMIT_SIGN_EVENT"
+    ],
+    "word_top1": "LUNCH1",
+    "word_p1": 0.5725430846214294
+   },
+   "ARM_I_E28:R2_CB70_PRE_EXIT_POST": {
+    "stage": "WRONG_WORD",
+    "peak_active": 0.9876800437199018,
+    "mean_active": 0.7732491888677361,
+    "active_rows": 5,
+    "first_active_offset": 0,
+    "event_span": [
+     175,
+     181
+    ],
+    "states": "OOO|AOAAAA|AOO",
+    "actions": [
+     "SPLIT_REENTRY_ACTIVE",
+     "BEGIN_POST_CANDIDATE",
+     "CANCEL_POST_ACTIVE_AT_CONFIRM_BOUNDARY",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "BEGIN_POST_CANDIDATE",
+     "EMIT_SIGN_EVENT"
+    ],
+    "word_top1": "LUNCH1",
+    "word_p1": 0.5725430846214294
+   }
+  },
+  {
+   "session": "SHADOW_023004Z",
+   "sign": "C_REPEAT_HANDS_UP:HELLO#1",
+   "gloss": "HELLO",
+   "rows": 7,
+   "hand_fraction": 0.7142857142857143,
+   "both_hands_fraction": 0.0,
+   "body_fraction": 0.0,
+   "motion_wrist_travel_per_s": 0.023625471567945967,
+   "motion_shape_change": 0.04198442050767602,
+   "motion_pairs": 4.0,
+   "ARM_A_E10:CONFIRM_BOUNDARY_70": {
+    "stage": "CORRECT",
+    "peak_active": 0.9917465444452693,
+    "mean_active": 0.5473462696986608,
+    "active_rows": 4,
+    "first_active_offset": 3,
+    "event_span": [
+     220,
+     226
+    ],
+    "states": "OOO|OOPAAAA|AOA",
+    "actions": [
+     "START_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "BEGIN_POST_CANDIDATE",
+     "CANCEL_POST_ACTIVE_RESUMED"
+    ],
+    "word_top1": "HELLO",
+    "word_p1": 0.9595470428466797
+   },
+   "ARM_I_E28:R1_CB70": {
+    "stage": "CORRECT",
+    "peak_active": 0.999997780086674,
+    "mean_active": 0.7109779806228064,
+    "active_rows": 5,
+    "first_active_offset": 2,
+    "event_span": [
+     219,
+     224
+    ],
+    "states": "PPP|PPAAAAA|AOO",
+    "actions": [
+     "START_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "BEGIN_POST_CANDIDATE"
+    ],
+    "word_top1": "HELLO",
+    "word_p1": 0.9745843410491943
+   },
+   "ARM_I_E28:R2_CB70_PRE_EXIT_POST": {
+    "stage": "CORRECT",
+    "peak_active": 0.999997780086674,
+    "mean_active": 0.7109779806228064,
+    "active_rows": 5,
+    "first_active_offset": 2,
+    "event_span": [
+     219,
+     224
+    ],
+    "states": "PPP|PPAAAAA|AOO",
+    "actions": [
+     "START_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "BEGIN_POST_CANDIDATE"
+    ],
+    "word_top1": "HELLO",
+    "word_p1": 0.9745843410491943
+   }
+  },
+  {
+   "session": "SHADOW_023004Z",
+   "sign": "D_SIGN_THEN_HOLD:HELLO#1",
+   "gloss": "HELLO",
+   "rows": 22,
+   "hand_fraction": 0.9545454545454546,
+   "both_hands_fraction": 0.0,
+   "body_fraction": 0.0,
+   "motion_wrist_travel_per_s": 0.02095854869817146,
+   "motion_shape_change": 0.017178079561875153,
+   "motion_pairs": 19.0,
+   "ARM_A_E10:CONFIRM_BOUNDARY_70": {
+    "stage": "CORRECT",
+    "peak_active": 0.9963046461987751,
+    "mean_active": 0.8686118533364131,
+    "active_rows": 21,
+    "first_active_offset": 1,
+    "event_span": [
+     272,
+     293
+    ],
+    "states": "OOO|OAAAAAAAAAAAAAAAAAAAAA|AOO",
+    "actions": [
+     "START_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "BEGIN_POST_CANDIDATE",
+     "EMIT_SIGN_EVENT"
+    ],
+    "word_top1": "HELLO",
+    "word_p1": 0.9970117807388306
+   },
+   "ARM_I_E28:R1_CB70": {
+    "stage": "CORRECT",
+    "peak_active": 0.9999374774951986,
+    "mean_active": 0.9979905683718396,
+    "active_rows": 22,
+    "first_active_offset": 0,
+    "event_span": [
+     271,
+     293
+    ],
+    "states": "PPP|AAAAAAAAAAAAAAAAAAAAAA|AOO",
+    "actions": [
+     "START_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "BEGIN_POST_CANDIDATE",
+     "EMIT_SIGN_EVENT"
+    ],
+    "word_top1": "HELLO",
+    "word_p1": 0.9973378777503967
+   },
+   "ARM_I_E28:R2_CB70_PRE_EXIT_POST": {
+    "stage": "CORRECT",
+    "peak_active": 0.9999374774951986,
+    "mean_active": 0.9979905683718396,
+    "active_rows": 22,
+    "first_active_offset": 0,
+    "event_span": [
+     271,
+     293
+    ],
+    "states": "PPP|AAAAAAAAAAAAAAAAAAAAAA|AOO",
+    "actions": [
+     "START_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "EXTEND_ACTIVE_CANDIDATE",
+     "BEGIN_POST_CANDIDATE",
+     "EMIT_SIGN_EVENT"
+    ],
+    "word_top1": "HELLO",
+    "word_p1": 0.9973378777503967
+   }
+  }
+ ]
+}

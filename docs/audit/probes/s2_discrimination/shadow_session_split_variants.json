@@ -1,0 +1,300 @@
+{
+  "S2_R2:BASELINE": {
+    "events": 6,
+    "signs_detected": 4,
+    "frozen_correct": 4,
+    "v2_correct": 2,
+    "events_in_confirmed_nonsign": 1,
+    "uncredited_events": [
+      [
+        "out",
+        "IF"
+      ],
+      [
+        "E",
+        "SICK"
+      ]
+    ],
+    "per_sign": [
+      "A:HELLO->HELLO/HELLO",
+      "A:HOME->-",
+      "B:HELLO->HELLO/LUNCH1",
+      "B:HOME->-",
+      "C:HELLO->HELLO/LUNCH1",
+      "D:HELLO->HELLO/HELLO"
+    ]
+  },
+  "S2_R2:REENTRY_1": {
+    "events": 6,
+    "signs_detected": 4,
+    "frozen_correct": 4,
+    "v2_correct": 2,
+    "events_in_confirmed_nonsign": 1,
+    "uncredited_events": [
+      [
+        "out",
+        "IF"
+      ],
+      [
+        "E",
+        "SICK"
+      ]
+    ],
+    "per_sign": [
+      "A:HELLO->HELLO/HELLO",
+      "A:HOME->-",
+      "B:HELLO->HELLO/LUNCH1",
+      "B:HOME->-",
+      "C:HELLO->HELLO/LUNCH1",
+      "D:HELLO->HELLO/HELLO"
+    ]
+  },
+  "S2_R2:SHORT_POST_50": {
+    "events": 6,
+    "signs_detected": 4,
+    "frozen_correct": 4,
+    "v2_correct": 2,
+    "events_in_confirmed_nonsign": 1,
+    "uncredited_events": [
+      [
+        "out",
+        "IF"
+      ],
+      [
+        "E",
+        "SICK"
+      ]
+    ],
+    "per_sign": [
+      "A:HELLO->HELLO/HELLO",
+      "A:HOME->-",
+      "B:HELLO->HELLO/LUNCH1",
+      "B:HOME->-",
+      "C:HELLO->HELLO/LUNCH1",
+      "D:HELLO->HELLO/HELLO"
+    ]
+  },
+  "S2_R2:SHORT_POST_70": {
+    "events": 6,
+    "signs_detected": 4,
+    "frozen_correct": 4,
+    "v2_correct": 2,
+    "events_in_confirmed_nonsign": 1,
+    "uncredited_events": [
+      [
+        "out",
+        "IF"
+      ],
+      [
+        "E",
+        "SICK"
+      ]
+    ],
+    "per_sign": [
+      "A:HELLO->HELLO/HELLO",
+      "A:HOME->-",
+      "B:HELLO->HELLO/LUNCH1",
+      "B:HOME->-",
+      "C:HELLO->HELLO/LUNCH1",
+      "D:HELLO->HELLO/HELLO"
+    ]
+  },
+  "S2_R2:MAX_ACTIVE_2000": {
+    "events": 8,
+    "signs_detected": 4,
+    "frozen_correct": 4,
+    "v2_correct": 3,
+    "events_in_confirmed_nonsign": 2,
+    "uncredited_events": [
+      [
+        "out",
+        "IF"
+      ],
+      [
+        "C",
+        "HOME"
+      ],
+      [
+        "E",
+        "DONTKNOW"
+      ],
+      [
+        "E",
+        "SLEEP"
+      ]
+    ],
+    "per_sign": [
+      "A:HELLO->HELLO/HELLO",
+      "A:HOME->-",
+      "B:HELLO->HELLO/LUNCH1",
+      "B:HOME->-",
+      "C:HELLO->HELLO/HELLO",
+      "D:HELLO->HELLO/HELLO"
+    ]
+  },
+  "ARM_A_E10:BASELINE": {
+    "events": 8,
+    "signs_detected": 5,
+    "frozen_correct": 2,
+    "v2_correct": 3,
+    "events_in_confirmed_nonsign": 1,
+    "uncredited_events": [
+      [
+        "out",
+        "HAVE"
+      ],
+      [
+        "out",
+        "MORNING"
+      ],
+      [
+        "E",
+        "SICK"
+      ]
+    ],
+    "per_sign": [
+      "A:HELLO->HELLO/HELLO",
+      "A:HOME->LUNCH1/HOME",
+      "B:HELLO->LUNCH1/LUNCH1",
+      "B:HOME->-",
+      "C:HELLO->LUNCH1/LUNCH1",
+      "D:HELLO->HELLO/HELLO"
+    ]
+  },
+  "ARM_A_E10:REENTRY_1": {
+    "events": 8,
+    "signs_detected": 5,
+    "frozen_correct": 2,
+    "v2_correct": 3,
+    "events_in_confirmed_nonsign": 1,
+    "uncredited_events": [
+      [
+        "out",
+        "HAVE"
+      ],
+      [
+        "out",
+        "MORNING"
+      ],
+      [
+        "E",
+        "SICK"
+      ]
+    ],
+    "per_sign": [
+      "A:HELLO->HELLO/HELLO",
+      "A:HOME->LUNCH1/HOME",
+      "B:HELLO->LUNCH1/LUNCH1",
+      "B:HOME->-",
+      "C:HELLO->LUNCH1/LUNCH1",
+      "D:HELLO->HELLO/HELLO"
+    ]
+  },
+  "ARM_A_E10:SHORT_POST_50": {
+    "events": 9,
+    "signs_detected": 5,
+    "frozen_correct": 3,
+    "v2_correct": 4,
+    "events_in_confirmed_nonsign": 1,
+    "uncredited_events": [
+      [
+        "out",
+        "HAVE"
+      ],
+      [
+        "out",
+        "MORNING"
+      ],
+      [
+        "C",
+        "LUNCH1"
+      ],
+      [
+        "E",
+        "SICK"
+      ]
+    ],
+    "per_sign": [
+      "A:HELLO->HELLO/HELLO",
+      "A:HOME->LUNCH1/HOME",
+      "B:HELLO->LUNCH1/LUNCH1",
+      "B:HOME->-",
+      "C:HELLO->HELLO/HELLO",
+      "D:HELLO->HELLO/HELLO"
+    ]
+  },
+  "ARM_A_E10:SHORT_POST_70": {
+    "events": 9,
+    "signs_detected": 5,
+    "frozen_correct": 3,
+    "v2_correct": 4,
+    "events_in_confirmed_nonsign": 1,
+    "uncredited_events": [
+      [
+        "out",
+        "HAVE"
+      ],
+      [
+        "out",
+        "MORNING"
+      ],
+      [
+        "C",
+        "LUNCH1"
+      ],
+      [
+        "E",
+        "SICK"
+      ]
+    ],
+    "per_sign": [
+      "A:HELLO->HELLO/HELLO",
+      "A:HOME->LUNCH1/HOME",
+      "B:HELLO->LUNCH1/LUNCH1",
+      "B:HOME->-",
+      "C:HELLO->HELLO/HELLO",
+      "D:HELLO->HELLO/HELLO"
+    ]
+  },
+  "ARM_A_E10:MAX_ACTIVE_2000": {
+    "events": 11,
+    "signs_detected": 5,
+    "frozen_correct": 3,
+    "v2_correct": 3,
+    "events_in_confirmed_nonsign": 2,
+    "uncredited_events": [
+      [
+        "out",
+        "CAR"
+      ],
+      [
+        "out",
+        "MORNING"
+      ],
+      [
+        "C",
+        "HOME"
+      ],
+      [
+        "D",
+        "HELLO"
+      ],
+      [
+        "E",
+        "DONTKNOW"
+      ],
+      [
+        "E",
+        "BREAKFAST1"
+      ]
+    ],
+    "per_sign": [
+      "A:HELLO->HELLO/HELLO",
+      "A:HOME->LUNCH1/HOME",
+      "B:HELLO->LUNCH1/LUNCH1",
+      "B:HOME->-",
+      "C:HELLO->HELLO/LUNCH1",
+      "D:HELLO->HELLO/HELLO"
+    ]
+  }
+}

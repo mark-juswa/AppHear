@@ -1,0 +1,1237 @@
+{
+  "s2": {
+    "keras_sha256": "17915b023694cec1c85f10f96b44608c95f06ef655c49b7d1453c3a4a47b1c7c",
+    "normalization_sha256": "754e5e0e05e012333cd96170ba63602c26d7ab2a8b87ae8e3af99d76ed1268dc"
+  },
+  "recognizer": "8107accbc621ae5652766fec80d314fe8dc9f94ba0d0548a6aef80ed91729340",
+  "variants": {
+    "BASELINE": {
+      "heldout_dev": {
+        "NATURAL": {
+          "signs": 812.0,
+          "acquired": 664.0,
+          "oracle_correct": 332.0,
+          "detected": 515.0,
+          "correct_words": 236.0,
+          "acquired_no_distinct_event": 150.0,
+          "acquired_inside_shared_event": 7.0,
+          "events": 585.0,
+          "merged_events": 7.0,
+          "split_signs": 0.0,
+          "duplicate_words": 0.0,
+          "extra_events": 70.0,
+          "observations": 8283.0,
+          "minutes": 35.8976758548371,
+          "detection_rate": 0.6342364532019704,
+          "correct_word_rate": 0.29064039408866993,
+          "oracle_word_rate": 0.4088669950738916,
+          "word_precision": 0.40341880341880343,
+          "extra_events_per_minute": 1.9499869652583017
+        },
+        "CONTINUOUS": {
+          "signs": 812.0,
+          "acquired": 695.0,
+          "oracle_correct": 296.0,
+          "detected": 355.0,
+          "correct_words": 125.0,
+          "acquired_no_distinct_event": 340.0,
+          "acquired_inside_shared_event": 130.0,
+          "events": 359.0,
+          "merged_events": 100.0,
+          "split_signs": 0.0,
+          "duplicate_words": 0.0,
+          "extra_events": 4.0,
+          "observations": 5443.0,
+          "minutes": 23.28417734232086,
+          "detection_rate": 0.437192118226601,
+          "correct_word_rate": 0.1539408866995074,
+          "oracle_word_rate": 0.3645320197044335,
+          "word_precision": 0.34818941504178275,
+          "extra_events_per_minute": 0.17179047991228272
+        },
+        "per_signer_correct_word_rate": {
+          "CONTINUOUS:asl_citizen:P12": 0.07352941176470588,
+          "CONTINUOUS:asl_citizen:P21": 0.14166666666666666,
+          "CONTINUOUS:asl_citizen:P26": 0.15086206896551724,
+          "CONTINUOUS:asl_citizen:P39": 0.20081967213114754,
+          "CONTINUOUS:asl_citizen:P5": 0.07142857142857142,
+          "NATURAL:asl_citizen:P12": 0.17647058823529413,
+          "NATURAL:asl_citizen:P21": 0.19583333333333333,
+          "NATURAL:asl_citizen:P26": 0.25,
+          "NATURAL:asl_citizen:P39": 0.45081967213114754,
+          "NATURAL:asl_citizen:P5": 0.32142857142857145
+        }
+      },
+      "tier2_total": {
+        "genuine_signs": 23,
+        "acquired": 17,
+        "signs_with_event": 16,
+        "signs_with_distinct_event": 15,
+        "merged_events": 1,
+        "events": 33,
+        "events_inside_nonsign": 9,
+        "other_events": 9,
+        "nonsign_observations": 676,
+        "nonsign_active_observations": 72
+      },
+      "tier2_continuous": {
+        "genuine_signs": 11,
+        "acquired": 9,
+        "signs_with_event": 9,
+        "signs_with_distinct_event": 8,
+        "merged_events": 1,
+        "events": 21,
+        "events_inside_nonsign": 9,
+        "other_events": 4,
+        "nonsign_observations": 340,
+        "nonsign_active_observations": 71,
+        "post_dwell_events": 21,
+        "post_dwell_median_ms": 4539.61197900027
+      },
+      "phone_correct_words": 13,
+      "phone_unmatched_events": 18,
+      "phone_first_failure": {
+        "ACQUIRED_NO_EVENT": 1,
+        "BAD_WINDOW|RIGHT_CLASS": 5,
+        "CORRECT": 8,
+        "MERGED": 1,
+        "MISCLASSIFIED": 2,
+        "NOT_SEGMENTED|WEAK_OBSERVATION": 6
+      },
+      "phone_runtime_outputs": [
+        [
+          0.7997424602508545,
+          true
+        ],
+        [
+          0.9820220470428467,
+          false
+        ],
+        [
+          0.846994936466217,
+          true
+        ],
+        [
+          0.9810226559638977,
+          true
+        ],
+        [
+          0.9776560068130493,
+          true
+        ],
+        [
+          0.9993785619735718,
+          true
+        ],
+        [
+          0.9988759160041809,
+          true
+        ],
+        [
+          0.9997459053993225,
+          true
+        ],
+        [
+          0.9991443157196045,
+          true
+        ],
+        [
+          0.9660748839378357,
+          true
+        ],
+        [
+          0.9814589023590088,
+          true
+        ],
+        [
+          0.997123658657074,
+          true
+        ],
+        [
+          0.9955203533172607,
+          true
+        ],
+        [
+          0.5163809061050415,
+          true
+        ],
+        [
+          0.8782616257667542,
+          false
+        ],
+        [
+          0.2898668944835663,
+          false
+        ],
+        [
+          0.9977397918701172,
+          false
+        ],
+        [
+          0.40971288084983826,
+          false
+        ],
+        [
+          0.5803017020225525,
+          false
+        ],
+        [
+          0.8551087975502014,
+          false
+        ],
+        [
+          0.5424203872680664,
+          false
+        ],
+        [
+          0.9207322001457214,
+          false
+        ],
+        [
+          0.27692911028862,
+          false
+        ],
+        [
+          0.26232632994651794,
+          false
+        ],
+        [
+          0.8815770149230957,
+          false
+        ],
+        [
+          0.4594954252243042,
+          false
+        ],
+        [
+          0.23730672895908356,
+          false
+        ],
+        [
+          0.6640247702598572,
+          false
+        ],
+        [
+          0.2512456774711609,
+          false
+        ],
+        [
+          0.9415532946586609,
+          false
+        ],
+        [
+          0.9834281802177429,
+          false
+        ],
+        [
+          0.9308791160583496,
+          false
+        ],
+        [
+          0.3426320254802704,
+          false
+        ]
+      ]
+    },
+    "MAX_ACTIVE_2000": {
+      "heldout_dev": {
+        "NATURAL": {
+          "signs": 812.0,
+          "acquired": 664.0,
+          "oracle_correct": 332.0,
+          "detected": 520.0,
+          "correct_words": 237.0,
+          "acquired_no_distinct_event": 145.0,
+          "acquired_inside_shared_event": 2.0,
+          "events": 590.0,
+          "merged_events": 3.0,
+          "split_signs": 1.0,
+          "duplicate_words": 0.0,
+          "extra_events": 70.0,
+          "observations": 8283.0,
+          "minutes": 35.8976758548371,
+          "detection_rate": 0.6403940886699507,
+          "correct_word_rate": 0.291871921182266,
+          "oracle_word_rate": 0.4088669950738916,
+          "word_precision": 0.4016949152542373,
+          "extra_events_per_minute": 1.9499869652583017
+        },
+        "CONTINUOUS": {
+          "signs": 812.0,
+          "acquired": 695.0,
+          "oracle_correct": 296.0,
+          "detected": 398.0,
+          "correct_words": 152.0,
+          "acquired_no_distinct_event": 297.0,
+          "acquired_inside_shared_event": 91.0,
+          "events": 403.0,
+          "merged_events": 101.0,
+          "split_signs": 18.0,
+          "duplicate_words": 1.0,
+          "extra_events": 5.0,
+          "observations": 5443.0,
+          "minutes": 23.28417734232086,
+          "detection_rate": 0.49014778325123154,
+          "correct_word_rate": 0.18719211822660098,
+          "oracle_word_rate": 0.3645320197044335,
+          "word_precision": 0.3771712158808933,
+          "extra_events_per_minute": 0.2147380998903534
+        },
+        "per_signer_correct_word_rate": {
+          "CONTINUOUS:asl_citizen:P12": 0.08823529411764706,
+          "CONTINUOUS:asl_citizen:P21": 0.15,
+          "CONTINUOUS:asl_citizen:P26": 0.1724137931034483,
+          "CONTINUOUS:asl_citizen:P39": 0.2786885245901639,
+          "CONTINUOUS:asl_citizen:P5": 0.07142857142857142,
+          "NATURAL:asl_citizen:P12": 0.17647058823529413,
+          "NATURAL:asl_citizen:P21": 0.2,
+          "NATURAL:asl_citizen:P26": 0.25,
+          "NATURAL:asl_citizen:P39": 0.45081967213114754,
+          "NATURAL:asl_citizen:P5": 0.32142857142857145
+        }
+      },
+      "tier2_total": {
+        "genuine_signs": 23,
+        "acquired": 17,
+        "signs_with_event": 16,
+        "signs_with_distinct_event": 16,
+        "merged_events": 0,
+        "events": 41,
+        "events_inside_nonsign": 11,
+        "other_events": 13,
+        "nonsign_observations": 676,
+        "nonsign_active_observations": 72
+      },
+      "tier2_continuous": {
+        "genuine_signs": 11,
+        "acquired": 9,
+        "signs_with_event": 9,
+        "signs_with_distinct_event": 9,
+        "merged_events": 0,
+        "events": 26,
+        "events_inside_nonsign": 11,
+        "other_events": 5,
+        "nonsign_observations": 340,
+        "nonsign_active_observations": 71,
+        "post_dwell_events": 26,
+        "post_dwell_median_ms": 3235.238985000178
+      },
+      "phone_correct_words": 13,
+      "phone_unmatched_events": 24,
+      "phone_first_failure": {
+        "ACQUIRED_NO_EVENT": 1,
+        "BAD_WINDOW": 1,
+        "BAD_WINDOW|RIGHT_CLASS": 4,
+        "CORRECT": 9,
+        "MISCLASSIFIED": 2,
+        "NOT_SEGMENTED|WEAK_OBSERVATION": 6
+      },
+      "phone_runtime_outputs": [
+        [
+          0.7997424602508545,
+          true
+        ],
+        [
+          0.9820220470428467,
+          false
+        ],
+        [
+          0.9905936121940613,
+          true
+        ],
+        [
+          0.4555288851261139,
+          false
+        ],
+        [
+          0.9810226559638977,
+          true
+        ],
+        [
+          0.9776560068130493,
+          true
+        ],
+        [
+          0.9993785619735718,
+          true
+        ],
+        [
+          0.9985381364822388,
+          true
+        ],
+        [
+          0.9986988306045532,
+          true
+        ],
+        [
+          0.9991443157196045,
+          true
+        ],
+        [
+          0.9660748839378357,
+          true
+        ],
+        [
+          0.9984855055809021,
+          true
+        ],
+        [
+          0.997123658657074,
+          true
+        ],
+        [
+          0.9955203533172607,
+          true
+        ],
+        [
+          0.5163809061050415,
+          true
+        ],
+        [
+          0.6863111257553101,
+          false
+        ],
+        [
+          0.2898668944835663,
+          false
+        ],
+        [
+          0.9977397918701172,
+          false
+        ],
+        [
+          0.40971288084983826,
+          false
+        ],
+        [
+          0.5803017020225525,
+          false
+        ],
+        [
+          0.8451025485992432,
+          false
+        ],
+        [
+          0.6125344634056091,
+          false
+        ],
+        [
+          0.5424203872680664,
+          false
+        ],
+        [
+          0.9298156499862671,
+          false
+        ],
+        [
+          0.6981291770935059,
+          false
+        ],
+        [
+          0.27692911028862,
+          false
+        ],
+        [
+          0.26232632994651794,
+          false
+        ],
+        [
+          0.8815770149230957,
+          false
+        ],
+        [
+          0.4594956636428833,
+          false
+        ],
+        [
+          0.5888904333114624,
+          false
+        ],
+        [
+          0.2373068928718567,
+          false
+        ],
+        [
+          0.6640247702598572,
+          false
+        ],
+        [
+          0.2512456774711609,
+          false
+        ],
+        [
+          0.9415532946586609,
+          false
+        ],
+        [
+          0.9986472725868225,
+          false
+        ],
+        [
+          0.6339158415794373,
+          false
+        ],
+        [
+          0.9308791160583496,
+          false
+        ],
+        [
+          0.24921242892742157,
+          false
+        ],
+        [
+          0.422179639339447,
+          false
+        ],
+        [
+          0.3426322042942047,
+          false
+        ]
+      ]
+    },
+    "REENTRY_1": {
+      "heldout_dev": {
+        "NATURAL": {
+          "signs": 812.0,
+          "acquired": 664.0,
+          "oracle_correct": 332.0,
+          "detected": 577.0,
+          "correct_words": 264.0,
+          "acquired_no_distinct_event": 88.0,
+          "acquired_inside_shared_event": 8.0,
+          "events": 654.0,
+          "merged_events": 8.0,
+          "split_signs": 0.0,
+          "duplicate_words": 0.0,
+          "extra_events": 77.0,
+          "observations": 8283.0,
+          "minutes": 35.8976758548371,
+          "detection_rate": 0.7105911330049262,
+          "correct_word_rate": 0.3251231527093596,
+          "oracle_word_rate": 0.4088669950738916,
+          "word_precision": 0.4036697247706422,
+          "extra_events_per_minute": 2.1449856617841316
+        },
+        "CONTINUOUS": {
+          "signs": 812.0,
+          "acquired": 695.0,
+          "oracle_correct": 296.0,
+          "detected": 445.0,
+          "correct_words": 164.0,
+          "acquired_no_distinct_event": 250.0,
+          "acquired_inside_shared_event": 155.0,
+          "events": 449.0,
+          "merged_events": 122.0,
+          "split_signs": 0.0,
+          "duplicate_words": 0.0,
+          "extra_events": 4.0,
+          "observations": 5443.0,
+          "minutes": 23.28417734232086,
+          "detection_rate": 0.5480295566502463,
+          "correct_word_rate": 0.2019704433497537,
+          "oracle_word_rate": 0.3645320197044335,
+          "word_precision": 0.36525612472160357,
+          "extra_events_per_minute": 0.17179047991228272
+        },
+        "per_signer_correct_word_rate": {
+          "CONTINUOUS:asl_citizen:P12": 0.11764705882352941,
+          "CONTINUOUS:asl_citizen:P21": 0.17083333333333334,
+          "CONTINUOUS:asl_citizen:P26": 0.21120689655172414,
+          "CONTINUOUS:asl_citizen:P39": 0.2581967213114754,
+          "CONTINUOUS:asl_citizen:P5": 0.10714285714285714,
+          "NATURAL:asl_citizen:P12": 0.25,
+          "NATURAL:asl_citizen:P21": 0.2375,
+          "NATURAL:asl_citizen:P26": 0.30603448275862066,
+          "NATURAL:asl_citizen:P39": 0.45081967213114754,
+          "NATURAL:asl_citizen:P5": 0.32142857142857145
+        }
+      },
+      "tier2_total": {
+        "genuine_signs": 23,
+        "acquired": 17,
+        "signs_with_event": 16,
+        "signs_with_distinct_event": 16,
+        "merged_events": 1,
+        "events": 36,
+        "events_inside_nonsign": 11,
+        "other_events": 9,
+        "nonsign_observations": 676,
+        "nonsign_active_observations": 72
+      },
+      "tier2_continuous": {
+        "genuine_signs": 11,
+        "acquired": 9,
+        "signs_with_event": 9,
+        "signs_with_distinct_event": 9,
+        "merged_events": 1,
+        "events": 24,
+        "events_inside_nonsign": 11,
+        "other_events": 4,
+        "nonsign_observations": 340,
+        "nonsign_active_observations": 71,
+        "post_dwell_events": 24,
+        "post_dwell_median_ms": 4005.540026000701
+      },
+      "phone_correct_words": 13,
+      "phone_unmatched_events": 20,
+      "phone_first_failure": {
+        "ACQUIRED_NO_EVENT": 1,
+        "BAD_WINDOW": 1,
+        "BAD_WINDOW|RIGHT_CLASS": 5,
+        "CORRECT": 8,
+        "MISCLASSIFIED": 2,
+        "NOT_SEGMENTED|WEAK_OBSERVATION": 6
+      },
+      "phone_runtime_outputs": [
+        [
+          0.7997424602508545,
+          true
+        ],
+        [
+          0.9820220470428467,
+          false
+        ],
+        [
+          0.846994936466217,
+          true
+        ],
+        [
+          0.4920806884765625,
+          false
+        ],
+        [
+          0.9810226559638977,
+          true
+        ],
+        [
+          0.9776560068130493,
+          true
+        ],
+        [
+          0.9993785619735718,
+          true
+        ],
+        [
+          0.9988759160041809,
+          true
+        ],
+        [
+          0.9997459053993225,
+          true
+        ],
+        [
+          0.9991443157196045,
+          true
+        ],
+        [
+          0.9660748839378357,
+          true
+        ],
+        [
+          0.9814589023590088,
+          true
+        ],
+        [
+          0.997123658657074,
+          true
+        ],
+        [
+          0.9955203533172607,
+          true
+        ],
+        [
+          0.5163809061050415,
+          true
+        ],
+        [
+          0.8782616257667542,
+          false
+        ],
+        [
+          0.2898668944835663,
+          false
+        ],
+        [
+          0.9977397918701172,
+          false
+        ],
+        [
+          0.40971288084983826,
+          false
+        ],
+        [
+          0.5803017020225525,
+          false
+        ],
+        [
+          0.8551087975502014,
+          false
+        ],
+        [
+          0.4517762362957001,
+          false
+        ],
+        [
+          0.5424203872680664,
+          false
+        ],
+        [
+          0.9207322001457214,
+          false
+        ],
+        [
+          0.27692911028862,
+          false
+        ],
+        [
+          0.26232632994651794,
+          false
+        ],
+        [
+          0.8815770149230957,
+          false
+        ],
+        [
+          0.4594954252243042,
+          false
+        ],
+        [
+          0.2373068928718567,
+          false
+        ],
+        [
+          0.8979524374008179,
+          false
+        ],
+        [
+          0.6640247702598572,
+          false
+        ],
+        [
+          0.2512456774711609,
+          false
+        ],
+        [
+          0.9415532946586609,
+          false
+        ],
+        [
+          0.9834281802177429,
+          false
+        ],
+        [
+          0.9308791160583496,
+          false
+        ],
+        [
+          0.3426320254802704,
+          false
+        ]
+      ]
+    },
+    "REENTRY_2": {
+      "heldout_dev": {
+        "NATURAL": {
+          "signs": 812.0,
+          "acquired": 664.0,
+          "oracle_correct": 332.0,
+          "detected": 556.0,
+          "correct_words": 255.0,
+          "acquired_no_distinct_event": 109.0,
+          "acquired_inside_shared_event": 8.0,
+          "events": 633.0,
+          "merged_events": 8.0,
+          "split_signs": 0.0,
+          "duplicate_words": 0.0,
+          "extra_events": 77.0,
+          "observations": 8283.0,
+          "minutes": 35.8976758548371,
+          "detection_rate": 0.6847290640394089,
+          "correct_word_rate": 0.31403940886699505,
+          "oracle_word_rate": 0.4088669950738916,
+          "word_precision": 0.4028436018957346,
+          "extra_events_per_minute": 2.1449856617841316
+        },
+        "CONTINUOUS": {
+          "signs": 812.0,
+          "acquired": 695.0,
+          "oracle_correct": 296.0,
+          "detected": 405.0,
+          "correct_words": 148.0,
+          "acquired_no_distinct_event": 290.0,
+          "acquired_inside_shared_event": 148.0,
+          "events": 409.0,
+          "merged_events": 115.0,
+          "split_signs": 0.0,
+          "duplicate_words": 0.0,
+          "extra_events": 4.0,
+          "observations": 5443.0,
+          "minutes": 23.28417734232086,
+          "detection_rate": 0.4987684729064039,
+          "correct_word_rate": 0.18226600985221675,
+          "oracle_word_rate": 0.3645320197044335,
+          "word_precision": 0.36185819070904646,
+          "extra_events_per_minute": 0.17179047991228272
+        },
+        "per_signer_correct_word_rate": {
+          "CONTINUOUS:asl_citizen:P12": 0.08823529411764706,
+          "CONTINUOUS:asl_citizen:P21": 0.1625,
+          "CONTINUOUS:asl_citizen:P26": 0.1896551724137931,
+          "CONTINUOUS:asl_citizen:P39": 0.22950819672131148,
+          "CONTINUOUS:asl_citizen:P5": 0.10714285714285714,
+          "NATURAL:asl_citizen:P12": 0.22058823529411764,
+          "NATURAL:asl_citizen:P21": 0.22083333333333333,
+          "NATURAL:asl_citizen:P26": 0.29310344827586204,
+          "NATURAL:asl_citizen:P39": 0.45081967213114754,
+          "NATURAL:asl_citizen:P5": 0.32142857142857145
+        }
+      },
+      "tier2_total": {
+        "genuine_signs": 23,
+        "acquired": 17,
+        "signs_with_event": 16,
+        "signs_with_distinct_event": 16,
+        "merged_events": 1,
+        "events": 36,
+        "events_inside_nonsign": 11,
+        "other_events": 9,
+        "nonsign_observations": 676,
+        "nonsign_active_observations": 72
+      },
+      "tier2_continuous": {
+        "genuine_signs": 11,
+        "acquired": 9,
+        "signs_with_event": 9,
+        "signs_with_distinct_event": 9,
+        "merged_events": 1,
+        "events": 24,
+        "events_inside_nonsign": 11,
+        "other_events": 4,
+        "nonsign_observations": 340,
+        "nonsign_active_observations": 71,
+        "post_dwell_events": 24,
+        "post_dwell_median_ms": 4005.540026000701
+      },
+      "phone_correct_words": 13,
+      "phone_unmatched_events": 20,
+      "phone_first_failure": {
+        "ACQUIRED_NO_EVENT": 1,
+        "BAD_WINDOW": 1,
+        "BAD_WINDOW|RIGHT_CLASS": 5,
+        "CORRECT": 8,
+        "MISCLASSIFIED": 2,
+        "NOT_SEGMENTED|WEAK_OBSERVATION": 6
+      },
+      "phone_runtime_outputs": [
+        [
+          0.7997424602508545,
+          true
+        ],
+        [
+          0.9820220470428467,
+          false
+        ],
+        [
+          0.846994936466217,
+          true
+        ],
+        [
+          0.4920806884765625,
+          false
+        ],
+        [
+          0.9810226559638977,
+          true
+        ],
+        [
+          0.9776560068130493,
+          true
+        ],
+        [
+          0.9993785619735718,
+          true
+        ],
+        [
+          0.9988759160041809,
+          true
+        ],
+        [
+          0.9997459053993225,
+          true
+        ],
+        [
+          0.9991443157196045,
+          true
+        ],
+        [
+          0.9660748839378357,
+          true
+        ],
+        [
+          0.9814589023590088,
+          true
+        ],
+        [
+          0.997123658657074,
+          true
+        ],
+        [
+          0.9955203533172607,
+          true
+        ],
+        [
+          0.5163809061050415,
+          true
+        ],
+        [
+          0.8782616257667542,
+          false
+        ],
+        [
+          0.2898668944835663,
+          false
+        ],
+        [
+          0.9977397918701172,
+          false
+        ],
+        [
+          0.40971288084983826,
+          false
+        ],
+        [
+          0.5803017020225525,
+          false
+        ],
+        [
+          0.8551087975502014,
+          false
+        ],
+        [
+          0.4517762362957001,
+          false
+        ],
+        [
+          0.5424203872680664,
+          false
+        ],
+        [
+          0.9207322001457214,
+          false
+        ],
+        [
+          0.27692911028862,
+          false
+        ],
+        [
+          0.26232632994651794,
+          false
+        ],
+        [
+          0.8815770149230957,
+          false
+        ],
+        [
+          0.4594954252243042,
+          false
+        ],
+        [
+          0.2373068928718567,
+          false
+        ],
+        [
+          0.8979524374008179,
+          false
+        ],
+        [
+          0.6640247702598572,
+          false
+        ],
+        [
+          0.2512456774711609,
+          false
+        ],
+        [
+          0.9415532946586609,
+          false
+        ],
+        [
+          0.9834281802177429,
+          false
+        ],
+        [
+          0.9308791160583496,
+          false
+        ],
+        [
+          0.3426320254802704,
+          false
+        ]
+      ]
+    },
+    "R1_SP50_MA2000": {
+      "heldout_dev": {
+        "NATURAL": {
+          "signs": 812.0,
+          "acquired": 664.0,
+          "oracle_correct": 332.0,
+          "detected": 577.0,
+          "correct_words": 264.0,
+          "acquired_no_distinct_event": 88.0,
+          "acquired_inside_shared_event": 3.0,
+          "events": 656.0,
+          "merged_events": 4.0,
+          "split_signs": 1.0,
+          "duplicate_words": 0.0,
+          "extra_events": 79.0,
+          "observations": 8283.0,
+          "minutes": 35.8976758548371,
+          "detection_rate": 0.7105911330049262,
+          "correct_word_rate": 0.3251231527093596,
+          "oracle_word_rate": 0.4088669950738916,
+          "word_precision": 0.4024390243902439,
+          "extra_events_per_minute": 2.200699575077226
+        },
+        "CONTINUOUS": {
+          "signs": 812.0,
+          "acquired": 695.0,
+          "oracle_correct": 296.0,
+          "detected": 499.0,
+          "correct_words": 200.0,
+          "acquired_no_distinct_event": 196.0,
+          "acquired_inside_shared_event": 99.0,
+          "events": 505.0,
+          "merged_events": 104.0,
+          "split_signs": 13.0,
+          "duplicate_words": 1.0,
+          "extra_events": 5.0,
+          "observations": 5443.0,
+          "minutes": 23.28417734232086,
+          "detection_rate": 0.6145320197044335,
+          "correct_word_rate": 0.24630541871921183,
+          "oracle_word_rate": 0.3645320197044335,
+          "word_precision": 0.39603960396039606,
+          "extra_events_per_minute": 0.2147380998903534
+        },
+        "per_signer_correct_word_rate": {
+          "CONTINUOUS:asl_citizen:P12": 0.1323529411764706,
+          "CONTINUOUS:asl_citizen:P21": 0.18333333333333332,
+          "CONTINUOUS:asl_citizen:P26": 0.25,
+          "CONTINUOUS:asl_citizen:P39": 0.3524590163934426,
+          "CONTINUOUS:asl_citizen:P5": 0.10714285714285714,
+          "NATURAL:asl_citizen:P12": 0.25,
+          "NATURAL:asl_citizen:P21": 0.24166666666666667,
+          "NATURAL:asl_citizen:P26": 0.3017241379310345,
+          "NATURAL:asl_citizen:P39": 0.45081967213114754,
+          "NATURAL:asl_citizen:P5": 0.32142857142857145
+        }
+      },
+      "tier2_total": {
+        "genuine_signs": 23,
+        "acquired": 17,
+        "signs_with_event": 16,
+        "signs_with_distinct_event": 16,
+        "merged_events": 0,
+        "events": 43,
+        "events_inside_nonsign": 13,
+        "other_events": 13,
+        "nonsign_observations": 676,
+        "nonsign_active_observations": 72
+      },
+      "tier2_continuous": {
+        "genuine_signs": 11,
+        "acquired": 9,
+        "signs_with_event": 9,
+        "signs_with_distinct_event": 9,
+        "merged_events": 0,
+        "events": 28,
+        "events_inside_nonsign": 13,
+        "other_events": 5,
+        "nonsign_observations": 340,
+        "nonsign_active_observations": 71,
+        "post_dwell_events": 28,
+        "post_dwell_median_ms": 2937.39601550065
+      },
+      "phone_correct_words": 13,
+      "phone_unmatched_events": 26,
+      "phone_first_failure": {
+        "ACQUIRED_NO_EVENT": 1,
+        "BAD_WINDOW": 1,
+        "BAD_WINDOW|RIGHT_CLASS": 4,
+        "CORRECT": 9,
+        "MISCLASSIFIED": 2,
+        "NOT_SEGMENTED|WEAK_OBSERVATION": 6
+      },
+      "phone_runtime_outputs": [
+        [
+          0.7997424602508545,
+          true
+        ],
+        [
+          0.9820220470428467,
+          false
+        ],
+        [
+          0.9905936121940613,
+          true
+        ],
+        [
+          0.4555288851261139,
+          false
+        ],
+        [
+          0.9810226559638977,
+          true
+        ],
+        [
+          0.9776560068130493,
+          true
+        ],
+        [
+          0.9993785619735718,
+          true
+        ],
+        [
+          0.9985381364822388,
+          true
+        ],
+        [
+          0.9986988306045532,
+          true
+        ],
+        [
+          0.9991443157196045,
+          true
+        ],
+        [
+          0.9660748839378357,
+          true
+        ],
+        [
+          0.9984855055809021,
+          true
+        ],
+        [
+          0.997123658657074,
+          true
+        ],
+        [
+          0.9955203533172607,
+          true
+        ],
+        [
+          0.5163809061050415,
+          true
+        ],
+        [
+          0.6863111257553101,
+          false
+        ],
+        [
+          0.31818079948425293,
+          false
+        ],
+        [
+          0.9977397918701172,
+          false
+        ],
+        [
+          0.40971288084983826,
+          false
+        ],
+        [
+          0.5803017020225525,
+          false
+        ],
+        [
+          0.8451025485992432,
+          false
+        ],
+        [
+          0.6125344634056091,
+          false
+        ],
+        [
+          0.4517762362957001,
+          false
+        ],
+        [
+          0.5424203872680664,
+          false
+        ],
+        [
+          0.9298156499862671,
+          false
+        ],
+        [
+          0.6981291770935059,
+          false
+        ],
+        [
+          0.27692911028862,
+          false
+        ],
+        [
+          0.26232632994651794,
+          false
+        ],
+        [
+          0.8815767168998718,
+          false
+        ],
+        [
+          0.4594956636428833,
+          false
+        ],
+        [
+          0.5888910889625549,
+          false
+        ],
+        [
+          0.2373068928718567,
+          false
+        ],
+        [
+          0.897952139377594,
+          false
+        ],
+        [
+          0.6640247702598572,
+          false
+        ],
+        [
+          0.2512456774711609,
+          false
+        ],
+        [
+          0.9415532946586609,
+          false
+        ],
+        [
+          0.9986472725868225,
+          false
+        ],
+        [
+          0.6339158415794373,
+          false
+        ],
+        [
+          0.9308791160583496,
+          false
+        ],
+        [
+          0.24921242892742157,
+          false
+        ],
+        [
+          0.422179639339447,
+          false
+        ],
+        [
+          0.3426322042942047,
+          false
+        ]
+      ]
+    }
+  }
+}

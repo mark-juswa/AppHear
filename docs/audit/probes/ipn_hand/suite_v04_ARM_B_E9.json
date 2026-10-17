@@ -1,0 +1,773 @@
+{
+  "config_sha256": "b042e1109c9ef43e55a6ee686696ee5062a96faa0a14f7a0099794b3a132dfe9",
+  "contract": "v1",
+  "gate": {
+    "lines": [
+      {
+        "id": "T1_NONE_ACQUISITION",
+        "observed": 0.9710144927536232,
+        "op": ">=",
+        "pass": true,
+        "threshold": 0.95
+      },
+      {
+        "id": "T1_NONE_RECALL",
+        "observed": 0.8922015182884747,
+        "op": ">=",
+        "pass": true,
+        "threshold": 0.85
+      },
+      {
+        "id": "T1_NONE_FALSE_ACTIVE",
+        "observed": 0.11361477737604651,
+        "op": "<=",
+        "pass": false,
+        "threshold": 0.1
+      },
+      {
+        "id": "T1_ISOLATED_CONTAINMENT",
+        "observed": 0.5942028985507246,
+        "op": ">=",
+        "pass": false,
+        "threshold": 0.6891304347826086
+      },
+      {
+        "id": "T1_PREV_SIGN_ACQUISITION",
+        "observed": 0.9242424242424242,
+        "op": ">=",
+        "pass": true,
+        "threshold": 0.9
+      },
+      {
+        "id": "T1_DIRECT6_ACQUISITION",
+        "observed": 0.9365079365079365,
+        "op": ">=",
+        "pass": true,
+        "threshold": 0.85
+      },
+      {
+        "id": "T1_HOLD06_ACQUISITION",
+        "observed": 0.9242424242424242,
+        "op": ">=",
+        "pass": true,
+        "threshold": 0.85
+      },
+      {
+        "id": "T1_HOLD12_ACQUISITION",
+        "observed": 0.8181818181818182,
+        "op": ">=",
+        "pass": true,
+        "threshold": 0.75
+      },
+      {
+        "id": "T1_MOVEMENT30_RECALL",
+        "observed": 0.8296871405567057,
+        "op": ">=",
+        "pass": true,
+        "threshold": 0.7
+      },
+      {
+        "id": "T1_MOVEMENT30_HISTORY_FALSE_ACTIVE",
+        "observed": 0.0,
+        "op": "<=",
+        "pass": true,
+        "threshold": 0.1333333333333333
+      },
+      {
+        "id": "T2_SIGNS_WITH_DISTINCT_EVENT",
+        "observed": 9.0,
+        "op": ">=",
+        "pass": false,
+        "threshold": 18.0
+      },
+      {
+        "id": "T2_CONTINUOUS_SIGNS_WITH_DISTINCT_EVENT",
+        "observed": 7.0,
+        "op": ">=",
+        "pass": true,
+        "threshold": 7.0
+      },
+      {
+        "id": "T2_NONSIGN_ACTIVE_OBS",
+        "observed": 55.0,
+        "op": "<=",
+        "pass": true,
+        "threshold": 64.0
+      },
+      {
+        "id": "T2_NONSIGN_EVENTS",
+        "observed": 7.0,
+        "op": "<=",
+        "pass": false,
+        "threshold": 5.0
+      },
+      {
+        "id": "T2_POST_DWELL_MEDIAN_MS",
+        "observed": 1936.0109899993986,
+        "op": "<=",
+        "pass": false,
+        "threshold": 1500.0
+      },
+      {
+        "id": "T2_MERGED_EVENTS",
+        "observed": 0.0,
+        "op": "<=",
+        "pass": true,
+        "threshold": 0.0
+      },
+      {
+        "id": "T1B_HELDOUT_NEG_ACTIVE_RATE",
+        "observed": 0.006519967400162999,
+        "op": "<=",
+        "pass": false,
+        "threshold": 0.0057049714751426246
+      },
+      {
+        "id": "T1B_HELDOUT_NEG_EVENTS_PER_MIN",
+        "observed": 0.23719402160638559,
+        "op": "<=",
+        "pass": true,
+        "threshold": 0.23719402160638559
+      },
+      {
+        "id": "T1C_IPN_NOG_EVENTS_PER_MIN",
+        "observed": 4.741307168903853,
+        "op": "<=",
+        "pass": false,
+        "threshold": 1.0
+      },
+      {
+        "id": "T1C_IPN_NOG_ACTIVE_RATE",
+        "observed": 0.2287434161023326,
+        "op": "<=",
+        "pass": false,
+        "threshold": 0.1
+      }
+    ],
+    "pass": false
+  },
+  "package_id": "ARM_B_E9",
+  "package_identity": {
+    "keras_sha256": "02ee0fa2723c104517fa74d169a1c81ff8d780861b9614a18b9e12e3e0a26c00",
+    "normalization_sha256": "25ad342daefc35e8fa598383a00933d99fa2aa4438e0e15f7340e703311d824d"
+  },
+  "results": {
+    "tier1": {
+      "DIRECT_PLUS_0_POST": {
+        "acquired_count": 59,
+        "acquired_fraction": 0.9365079365079365,
+        "active_recall_mean": 0.8230851599899219,
+        "false_active_mean": 0.11475044563279858,
+        "n": 63
+      },
+      "DIRECT_PLUS_3_POST": {
+        "acquired_count": 60,
+        "acquired_fraction": 0.9523809523809523,
+        "active_recall_mean": 0.8129755605946083,
+        "false_active_mean": 0.1024788703360132,
+        "n": 63
+      },
+      "DIRECT_PLUS_6_POST": {
+        "acquired_count": 59,
+        "acquired_fraction": 0.9365079365079365,
+        "active_recall_mean": 0.7730284706475181,
+        "false_active_mean": 0.09066859066859068,
+        "n": 63
+      },
+      "HOLD_00": {
+        "acquired_count": 66,
+        "acquired_fraction": 1.0,
+        "active_recall_mean": 0.8862313612313613,
+        "false_active_mean": 0.12039671805714587,
+        "history_false_active_mean": 0.0,
+        "n": 66
+      },
+      "HOLD_03": {
+        "acquired_count": 63,
+        "acquired_fraction": 0.9545454545454546,
+        "active_recall_mean": 0.8252946127946128,
+        "false_active_mean": 0.10234099431960395,
+        "history_false_active_mean": 0.0,
+        "n": 66
+      },
+      "HOLD_06": {
+        "acquired_count": 61,
+        "acquired_fraction": 0.9242424242424242,
+        "active_recall_mean": 0.775559163059163,
+        "false_active_mean": 0.08275115654794798,
+        "history_false_active_mean": 0.0,
+        "n": 66
+      },
+      "HOLD_12": {
+        "acquired_count": 54,
+        "acquired_fraction": 0.8181818181818182,
+        "active_recall_mean": 0.6610449735449734,
+        "false_active_mean": 0.05514687332869151,
+        "history_false_active_mean": 0.0,
+        "n": 66
+      },
+      "HOLD_24": {
+        "acquired_count": 52,
+        "acquired_fraction": 0.7878787878787878,
+        "active_recall_mean": 0.6146224146224146,
+        "false_active_mean": 0.03591761773579955,
+        "history_false_active_mean": 0.0,
+        "n": 66
+      },
+      "NONE": {
+        "acquired_count": 67,
+        "acquired_fraction": 0.9710144927536232,
+        "active_recall_mean": 0.8922015182884747,
+        "false_active_mean": 0.11361477737604651,
+        "n": 69
+      },
+      "NONSIGN_MOVEMENT_30": {
+        "acquired_count": 66,
+        "acquired_fraction": 0.9565217391304348,
+        "active_recall_mean": 0.8296871405567057,
+        "false_active_mean": 0.1024240552105698,
+        "history_false_active_mean": 0.0,
+        "n": 69
+      },
+      "NO_SIGN_IDLE_30": {
+        "acquired_count": 66,
+        "acquired_fraction": 0.9565217391304348,
+        "active_recall_mean": 0.8497527030135725,
+        "false_active_mean": 0.09676222574088618,
+        "history_false_active_mean": 0.0,
+        "n": 69
+      },
+      "POST_PHONE_15": {
+        "acquired_count": 63,
+        "acquired_fraction": 0.9130434782608695,
+        "active_recall_mean": 0.7277835288704855,
+        "false_active_mean": 0.0956969658747848,
+        "n": 69
+      },
+      "POST_PHONE_60": {
+        "acquired_count": 66,
+        "acquired_fraction": 0.9565217391304348,
+        "active_recall_mean": 0.776058201058201,
+        "false_active_mean": 0.08858692615604943,
+        "n": 69
+      },
+      "PREV_SIGN_SAME_SIGNER": {
+        "acquired_count": 61,
+        "acquired_fraction": 0.9242424242424242,
+        "active_recall_mean": 0.8143518518518518,
+        "false_active_mean": 0.12021718790308952,
+        "n": 66
+      },
+      "REST_PHONE_60": {
+        "acquired_count": 66,
+        "acquired_fraction": 0.9565217391304348,
+        "active_recall_mean": 0.8420059811364159,
+        "false_active_mean": 0.10535136139874554,
+        "n": 69
+      },
+      "REST_PHONE_60_RAW": {
+        "acquired_count": 66,
+        "acquired_fraction": 0.9565217391304348,
+        "active_recall_mean": 0.848044628479411,
+        "false_active_mean": 0.10535136139874554,
+        "history_false_active_mean": 0.0,
+        "n": 69
+      },
+      "isolated": {
+        "contained": 41,
+        "contained_fraction": 0.5942028985507246,
+        "emitted": 51,
+        "n": 69
+      }
+    },
+    "tier1b": {
+      "participants": {
+        "P05": {
+          "active_observations": 7,
+          "clips": 8,
+          "events": 1,
+          "minutes": 1.987096261111111,
+          "observations": 597,
+          "scored_observations": 567
+        },
+        "P06": {
+          "active_observations": 1,
+          "clips": 9,
+          "events": 0,
+          "minutes": 2.2288616,
+          "observations": 670,
+          "scored_observations": 660
+        }
+      },
+      "total": {
+        "active_observations": 8,
+        "active_rate": 0.006519967400162999,
+        "events": 1,
+        "events_per_minute": 0.23719402160638559,
+        "minutes": 4.215957861111111,
+        "scored_observations": 1227
+      }
+    },
+    "tier1c": {
+      "total": {
+        "gesture_canary": 0.5514018691588785,
+        "hand_visible_nog_chunk_fire_rate": 0.6212121212121212,
+        "nog_active_rate": 0.2287434161023326,
+        "nog_events": 21,
+        "nog_events_per_minute": 4.741307168903853,
+        "nog_minutes": 4.4291583,
+        "nog_observations": 1329,
+        "subjects": [
+          "4CM11_2",
+          "4CM11_24"
+        ]
+      },
+      "videos": {
+        "4CM11_24_L_#61": {
+          "canary_gestures": 13,
+          "canary_gestures_with_event": 4,
+          "hand_visible_nog_chunks": 20,
+          "hand_visible_nog_chunks_fired": 10,
+          "nog_active_observations": 43,
+          "nog_events": 3,
+          "nog_minutes": 0.5865551999999999,
+          "nog_observations": 176,
+          "subject": "4CM11_24"
+        },
+        "4CM11_24_L_#62": {
+          "canary_gestures": 11,
+          "canary_gestures_with_event": 5,
+          "hand_visible_nog_chunks": 13,
+          "hand_visible_nog_chunks_fired": 10,
+          "nog_active_observations": 41,
+          "nog_events": 2,
+          "nog_minutes": 0.4965723,
+          "nog_observations": 149,
+          "subject": "4CM11_24"
+        },
+        "4CM11_24_L_#63": {
+          "canary_gestures": 12,
+          "canary_gestures_with_event": 5,
+          "hand_visible_nog_chunks": 15,
+          "hand_visible_nog_chunks_fired": 13,
+          "nog_active_observations": 53,
+          "nog_events": 4,
+          "nog_minutes": 0.5698917,
+          "nog_observations": 171,
+          "subject": "4CM11_24"
+        },
+        "4CM11_24_L_#64": {
+          "canary_gestures": 12,
+          "canary_gestures_with_event": 8,
+          "hand_visible_nog_chunks": 15,
+          "hand_visible_nog_chunks_fired": 10,
+          "nog_active_observations": 38,
+          "nog_events": 4,
+          "nog_minutes": 0.499905,
+          "nog_observations": 150,
+          "subject": "4CM11_24"
+        },
+        "4CM11_2_R_#37": {
+          "canary_gestures": 18,
+          "canary_gestures_with_event": 12,
+          "hand_visible_nog_chunks": 15,
+          "hand_visible_nog_chunks_fired": 6,
+          "nog_active_observations": 23,
+          "nog_events": 0,
+          "nog_minutes": 0.4699107,
+          "nog_observations": 141,
+          "subject": "4CM11_2"
+        },
+        "4CM11_2_R_#38": {
+          "canary_gestures": 13,
+          "canary_gestures_with_event": 5,
+          "hand_visible_nog_chunks": 14,
+          "hand_visible_nog_chunks_fired": 11,
+          "nog_active_observations": 45,
+          "nog_events": 2,
+          "nog_minutes": 0.5532282,
+          "nog_observations": 166,
+          "subject": "4CM11_2"
+        },
+        "4CM11_2_R_#39": {
+          "canary_gestures": 13,
+          "canary_gestures_with_event": 6,
+          "hand_visible_nog_chunks": 18,
+          "hand_visible_nog_chunks_fired": 10,
+          "nog_active_observations": 30,
+          "nog_events": 3,
+          "nog_minutes": 0.5898878999999999,
+          "nog_observations": 177,
+          "subject": "4CM11_2"
+        },
+        "4CM11_2_R_#40": {
+          "canary_gestures": 15,
+          "canary_gestures_with_event": 14,
+          "hand_visible_nog_chunks": 22,
+          "hand_visible_nog_chunks_fired": 12,
+          "nog_active_observations": 31,
+          "nog_events": 3,
+          "nog_minutes": 0.6632072999999999,
+          "nog_observations": 199,
+          "subject": "4CM11_2"
+        }
+      }
+    },
+    "tier2": {
+      "continuous": {
+        "acquired": 9,
+        "events": 15,
+        "events_inside_nonsign": 7,
+        "genuine_signs": 11,
+        "merged_events": 0,
+        "nonsign_active_observations": 55,
+        "nonsign_observations": 340,
+        "other_events": 1,
+        "post_dwell_events": 15,
+        "post_dwell_median_ms": 1936.0109899993986,
+        "signs_with_distinct_event": 7,
+        "signs_with_event": 7
+      },
+      "sessions": {
+        "OCT15_COMPACT": {
+          "acquired": 4,
+          "continuous": true,
+          "event_identities": [
+            [
+              196,
+              200,
+              203
+            ],
+            [
+              231,
+              236,
+              239
+            ],
+            [
+              279,
+              290,
+              293
+            ],
+            [
+              318,
+              340,
+              343
+            ],
+            [
+              398,
+              402,
+              405
+            ],
+            [
+              411,
+              412,
+              415
+            ]
+          ],
+          "events": 6,
+          "events_inside_nonsign": 2,
+          "genuine_signs": 4,
+          "merged_events": 0,
+          "nonsign_active_observations": 16,
+          "nonsign_observations": 37,
+          "other_events": 0,
+          "per_sign": [
+            {
+              "acquired": true,
+              "name": "A_HANDS_DOWN:HELLO#1",
+              "with_distinct_event": true,
+              "with_event": true
+            },
+            {
+              "acquired": true,
+              "name": "B_HANDS_UP:HELLO#1",
+              "with_distinct_event": true,
+              "with_event": true
+            },
+            {
+              "acquired": true,
+              "name": "C_REPEAT_HANDS_UP:HELLO#1",
+              "with_distinct_event": true,
+              "with_event": true
+            },
+            {
+              "acquired": true,
+              "name": "D_SIGN_THEN_HOLD:HELLO#1",
+              "with_distinct_event": true,
+              "with_event": true
+            }
+          ],
+          "post_dwell_ms": [
+            6132.167968999594,
+            9264.905990000814,
+            6065.513957999647,
+            9131.598021000624,
+            733.1939579993486,
+            466.57802100107074
+          ],
+          "rolling_equivalence_max_abs": 4.1201319045391926e-07,
+          "signs_with_distinct_event": 4,
+          "signs_with_event": 4
+        },
+        "SEP23_INDEPENDENT": {
+          "acquired": 2,
+          "continuous": false,
+          "event_identities": [],
+          "events": 0,
+          "events_inside_nonsign": 0,
+          "genuine_signs": 6,
+          "merged_events": 0,
+          "nonsign_active_observations": 0,
+          "nonsign_observations": 109,
+          "other_events": 0,
+          "per_sign": [
+            {
+              "acquired": false,
+              "name": "attempt_001:HELLO",
+              "with_distinct_event": false,
+              "with_event": false
+            },
+            {
+              "acquired": false,
+              "name": "attempt_002:HELLO",
+              "with_distinct_event": false,
+              "with_event": false
+            },
+            {
+              "acquired": true,
+              "name": "attempt_003:HOME",
+              "with_distinct_event": false,
+              "with_event": false
+            },
+            {
+              "acquired": true,
+              "name": "attempt_004:HOME",
+              "with_distinct_event": false,
+              "with_event": false
+            },
+            {
+              "acquired": false,
+              "name": "attempt_005:TABLE",
+              "with_distinct_event": false,
+              "with_event": false
+            },
+            {
+              "acquired": false,
+              "name": "attempt_006:TABLE",
+              "with_distinct_event": false,
+              "with_event": false
+            }
+          ],
+          "post_dwell_ms": [],
+          "rolling_equivalence_max_abs": 3.4807037563311383e-07,
+          "signs_with_distinct_event": 0,
+          "signs_with_event": 0
+        },
+        "SEP23_REPRESENTATIVE": {
+          "acquired": 4,
+          "continuous": false,
+          "event_identities": [
+            [
+              220,
+              221,
+              225
+            ],
+            [
+              258,
+              264,
+              267
+            ],
+            [
+              316,
+              323,
+              325
+            ]
+          ],
+          "events": 3,
+          "events_inside_nonsign": 0,
+          "genuine_signs": 6,
+          "merged_events": 0,
+          "nonsign_active_observations": 0,
+          "nonsign_observations": 227,
+          "other_events": 1,
+          "per_sign": [
+            {
+              "acquired": true,
+              "name": "attempt_001:HELLO",
+              "with_distinct_event": true,
+              "with_event": true
+            },
+            {
+              "acquired": true,
+              "name": "attempt_002:HELLO",
+              "with_distinct_event": true,
+              "with_event": true
+            },
+            {
+              "acquired": true,
+              "name": "attempt_003:HOME",
+              "with_distinct_event": false,
+              "with_event": false
+            },
+            {
+              "acquired": true,
+              "name": "attempt_004:HOME",
+              "with_distinct_event": false,
+              "with_event": false
+            },
+            {
+              "acquired": false,
+              "name": "attempt_005:TABLE",
+              "with_distinct_event": false,
+              "with_event": false
+            },
+            {
+              "acquired": false,
+              "name": "attempt_006:TABLE",
+              "with_distinct_event": false,
+              "with_event": false
+            }
+          ],
+          "post_dwell_ms": [
+            1666.3500000238419,
+            32580.919324040413,
+            27794.71797001362
+          ],
+          "rolling_equivalence_max_abs": 3.4747531396650544e-07,
+          "signs_with_distinct_event": 2,
+          "signs_with_event": 2
+        },
+        "SEP27_TRANSITION": {
+          "acquired": 5,
+          "continuous": true,
+          "event_identities": [
+            [
+              137,
+              139,
+              141
+            ],
+            [
+              208,
+              214,
+              217
+            ],
+            [
+              352,
+              357,
+              360
+            ],
+            [
+              365,
+              367,
+              370
+            ],
+            [
+              695,
+              699,
+              702
+            ],
+            [
+              753,
+              758,
+              761
+            ],
+            [
+              885,
+              892,
+              894
+            ],
+            [
+              1091,
+              1092,
+              1094
+            ],
+            [
+              1098,
+              1108,
+              1111
+            ]
+          ],
+          "events": 9,
+          "events_inside_nonsign": 5,
+          "genuine_signs": 7,
+          "merged_events": 0,
+          "nonsign_active_observations": 39,
+          "nonsign_observations": 303,
+          "other_events": 1,
+          "per_sign": [
+            {
+              "acquired": true,
+              "name": "A_HANDS_DOWN:HELLO#1",
+              "with_distinct_event": true,
+              "with_event": true
+            },
+            {
+              "acquired": true,
+              "name": "A_HANDS_DOWN:HOME#2",
+              "with_distinct_event": false,
+              "with_event": false
+            },
+            {
+              "acquired": true,
+              "name": "A_HANDS_DOWN:TABLE#3",
+              "with_distinct_event": false,
+              "with_event": false
+            },
+            {
+              "acquired": true,
+              "name": "B_HANDS_UP:HELLO#1",
+              "with_distinct_event": true,
+              "with_event": true
+            },
+            {
+              "acquired": true,
+              "name": "B_HANDS_UP:HOME#2",
+              "with_distinct_event": true,
+              "with_event": true
+            },
+            {
+              "acquired": false,
+              "name": "B_HANDS_UP:TABLE#3",
+              "with_distinct_event": false,
+              "with_event": false
+            },
+            {
+              "acquired": false,
+              "name": "B_HANDS_UP:HELLO#4",
+              "with_distinct_event": false,
+              "with_event": false
+            }
+          ],
+          "post_dwell_ms": [
+            1936.0109899993986,
+            8811.243021000177,
+            867.8669790010899,
+            15354.570000000298,
+            200.27703099884093,
+            467.3129680007696,
+            3586.324323998764,
+            1068.1440110001713,
+            1802.4929689988494
+          ],
+          "rolling_equivalence_max_abs": 6.862043671063134e-07,
+          "signs_with_distinct_event": 3,
+          "signs_with_event": 3
+        }
+      },
+      "total": {
+        "acquired": 15,
+        "events": 18,
+        "events_inside_nonsign": 7,
+        "genuine_signs": 23,
+        "merged_events": 0,
+        "nonsign_active_observations": 55,
+        "nonsign_observations": 676,
+        "other_events": 2,
+        "signs_with_distinct_event": 9,
+        "signs_with_event": 9
+      }
+    }
+  },
+  "schema": "apphear.s2_r3.context_suite_result.v1",
+  "suite_id": "04"
+}

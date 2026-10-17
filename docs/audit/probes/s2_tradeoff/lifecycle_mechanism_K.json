@@ -1,0 +1,42 @@
+{
+ "ARM_K_E23": {
+  "phone": {
+   "no_event_mechanism": {
+    "DISCARD_PRE_GAP": 2,
+    "OTHER": 1,
+    "SWALLOWED_IN_REARM": 1
+   },
+   "exit_after_active_run": {
+    "PRE": 6,
+    "POST": 21
+   },
+   "active_run_length": {
+    "1": 5,
+    "2": 3,
+    "3": 1,
+    "4": 2,
+    "5": 16
+   }
+  },
+  "dev_continuous": {
+   "no_event_mechanism": {
+    "DISCARD_TOO_SHORT": 27,
+    "SWALLOWED_IN_REARM": 197,
+    "OTHER": 46,
+    "DISCARD_PRE_GAP": 36
+   },
+   "exit_after_active_run": {
+    "POST": 681,
+    "PRE": 68,
+    "END": 2
+   },
+   "active_run_length": {
+    "1": 136,
+    "2": 174,
+    "3": 189,
+    "4": 127,
+    "5": 125
+   }
+  }
+ }
+}

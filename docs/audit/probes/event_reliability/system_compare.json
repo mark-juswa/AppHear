@@ -1,0 +1,423 @@
+{
+ "phone": {
+  "PRODUCTION (S2-R2, production decoder)": {
+   "tier2_correct": 8,
+   "tier2_wrong": 3,
+   "tier2_missed": 12,
+   "tier2_merged_away": 0,
+   "tier2_continuous_distinct": 2,
+   "tier2_nonsign": 5,
+   "tier2_unreviewed_or_uncertain": 12,
+   "tier2_duplicates": 0,
+   "tier2_events": 28,
+   "tier2_v2_correct": 9,
+   "shadow_correct": 4,
+   "shadow_wrong": 0,
+   "shadow_nonsign": 1,
+   "shadow_unreviewed": 1,
+   "shadow_events": 6,
+   "shadow_v2_correct": 2
+  },
+  "ARM_A_E10, production decoder": {
+   "tier2_correct": 13,
+   "tier2_wrong": 2,
+   "tier2_missed": 7,
+   "tier2_merged_away": 1,
+   "tier2_continuous_distinct": 8,
+   "tier2_nonsign": 9,
+   "tier2_unreviewed_or_uncertain": 9,
+   "tier2_duplicates": 0,
+   "tier2_events": 33,
+   "tier2_v2_correct": 13,
+   "shadow_correct": 2,
+   "shadow_wrong": 3,
+   "shadow_nonsign": 1,
+   "shadow_unreviewed": 2,
+   "shadow_events": 8,
+   "shadow_v2_correct": 3
+  },
+  "ARM_A_E10 + confirm-boundary": {
+   "tier2_correct": 14,
+   "tier2_wrong": 2,
+   "tier2_missed": 7,
+   "tier2_merged_away": 0,
+   "tier2_continuous_distinct": 9,
+   "tier2_nonsign": 9,
+   "tier2_unreviewed_or_uncertain": 9,
+   "tier2_duplicates": 0,
+   "tier2_events": 34,
+   "tier2_v2_correct": 15,
+   "shadow_correct": 5,
+   "shadow_wrong": 1,
+   "shadow_nonsign": 1,
+   "shadow_unreviewed": 3,
+   "shadow_events": 10,
+   "shadow_v2_correct": 4
+  },
+  "ARM_A_E21 @0.8, production decoder": {
+   "tier2_correct": 9,
+   "tier2_wrong": 2,
+   "tier2_missed": 12,
+   "tier2_merged_away": 0,
+   "tier2_continuous_distinct": 5,
+   "tier2_nonsign": 6,
+   "tier2_unreviewed_or_uncertain": 3,
+   "tier2_duplicates": 0,
+   "tier2_events": 20,
+   "tier2_v2_correct": 10,
+   "shadow_correct": 2,
+   "shadow_wrong": 1,
+   "shadow_nonsign": 2,
+   "shadow_unreviewed": 1,
+   "shadow_events": 6,
+   "shadow_v2_correct": 3
+  },
+  "ARM_A_E21 (IPN-selected) + confirm-boundary": {
+   "tier2_correct": 11,
+   "tier2_wrong": 3,
+   "tier2_missed": 9,
+   "tier2_merged_away": 0,
+   "tier2_continuous_distinct": 7,
+   "tier2_nonsign": 6,
+   "tier2_unreviewed_or_uncertain": 4,
+   "tier2_duplicates": 0,
+   "tier2_events": 24,
+   "tier2_v2_correct": 11,
+   "shadow_correct": 5,
+   "shadow_wrong": 1,
+   "shadow_nonsign": 2,
+   "shadow_unreviewed": 1,
+   "shadow_events": 10,
+   "shadow_v2_correct": 4
+  },
+  "ARM_B_E9 (body dropout) + confirm-boundary": {
+   "tier2_correct": 9,
+   "tier2_wrong": 0,
+   "tier2_missed": 14,
+   "tier2_merged_away": 0,
+   "tier2_continuous_distinct": 7,
+   "tier2_nonsign": 7,
+   "tier2_unreviewed_or_uncertain": 2,
+   "tier2_duplicates": 1,
+   "tier2_events": 19,
+   "tier2_v2_correct": 8,
+   "shadow_correct": 4,
+   "shadow_wrong": 1,
+   "shadow_nonsign": 2,
+   "shadow_unreviewed": 1,
+   "shadow_events": 8,
+   "shadow_v2_correct": 2
+  },
+  "ARM_I_E28 (IPN negatives; canary failed) production decoder": {
+   "tier2_correct": 8,
+   "tier2_wrong": 1,
+   "tier2_missed": 13,
+   "tier2_merged_away": 1,
+   "tier2_continuous_distinct": 5,
+   "tier2_nonsign": 0,
+   "tier2_unreviewed_or_uncertain": 2,
+   "tier2_duplicates": 0,
+   "tier2_events": 11,
+   "tier2_v2_correct": 8,
+   "shadow_correct": 4,
+   "shadow_wrong": 0,
+   "shadow_nonsign": 0,
+   "shadow_unreviewed": 0,
+   "shadow_events": 4,
+   "shadow_v2_correct": 2
+  },
+  "ARM_I_E28 (IPN negatives; canary failed) + confirm-boundary": {
+   "tier2_correct": 8,
+   "tier2_wrong": 2,
+   "tier2_missed": 13,
+   "tier2_merged_away": 0,
+   "tier2_continuous_distinct": 6,
+   "tier2_nonsign": 1,
+   "tier2_unreviewed_or_uncertain": 2,
+   "tier2_duplicates": 0,
+   "tier2_events": 13,
+   "tier2_v2_correct": 9,
+   "shadow_correct": 4,
+   "shadow_wrong": 0,
+   "shadow_nonsign": 0,
+   "shadow_unreviewed": 0,
+   "shadow_events": 4,
+   "shadow_v2_correct": 2
+  },
+  "ARM_P (leave-one-session-out), production decoder": {
+   "tier2_correct": 9,
+   "tier2_wrong": 1,
+   "tier2_missed": 13,
+   "tier2_merged_away": 0,
+   "tier2_continuous_distinct": 4,
+   "tier2_nonsign": 5,
+   "tier2_unreviewed_or_uncertain": 6,
+   "tier2_duplicates": 0,
+   "tier2_events": 21,
+   "tier2_v2_correct": 9,
+   "shadow_correct": 2,
+   "shadow_wrong": 1,
+   "shadow_nonsign": 0,
+   "shadow_unreviewed": 0,
+   "shadow_events": 3,
+   "shadow_v2_correct": 1
+  },
+  "ARM_P (leave-one-session-out), confirm-boundary": {
+   "tier2_correct": 9,
+   "tier2_wrong": 1,
+   "tier2_missed": 13,
+   "tier2_merged_away": 0,
+   "tier2_continuous_distinct": 4,
+   "tier2_nonsign": 4,
+   "tier2_unreviewed_or_uncertain": 7,
+   "tier2_duplicates": 0,
+   "tier2_events": 21,
+   "tier2_v2_correct": 9,
+   "shadow_correct": 2,
+   "shadow_wrong": 1,
+   "shadow_nonsign": 0,
+   "shadow_unreviewed": 0,
+   "shadow_events": 3,
+   "shadow_v2_correct": 1
+  }
+ },
+ "protocol_022535Z": {
+  "PRODUCTION (S2-R2, production decoder)": {
+   "expected_words": 2,
+   "ordinary_movement_words": 1,
+   "other_words": 3,
+   "v2_expected_words": 1
+  },
+  "ARM_A_E10, production decoder": {
+   "expected_words": 4,
+   "ordinary_movement_words": 2,
+   "other_words": 1,
+   "v2_expected_words": 4
+  },
+  "ARM_A_E10 + confirm-boundary": {
+   "expected_words": 5,
+   "ordinary_movement_words": 2,
+   "other_words": 1,
+   "v2_expected_words": 5
+  },
+  "ARM_A_E21 @0.8, production decoder": {
+   "expected_words": 5,
+   "ordinary_movement_words": 1,
+   "other_words": 0,
+   "v2_expected_words": 4
+  },
+  "ARM_A_E21 (IPN-selected) + confirm-boundary": {
+   "expected_words": 5,
+   "ordinary_movement_words": 3,
+   "other_words": 2,
+   "v2_expected_words": 4
+  },
+  "ARM_B_E9 (body dropout) + confirm-boundary": {
+   "expected_words": 4,
+   "ordinary_movement_words": 3,
+   "other_words": 2,
+   "v2_expected_words": 4
+  },
+  "ARM_I_E28 (IPN negatives; canary failed) production decoder": {
+   "expected_words": 2,
+   "ordinary_movement_words": 0,
+   "other_words": 1,
+   "v2_expected_words": 1
+  },
+  "ARM_I_E28 (IPN negatives; canary failed) + confirm-boundary": {
+   "expected_words": 2,
+   "ordinary_movement_words": 0,
+   "other_words": 1,
+   "v2_expected_words": 1
+  },
+  "ARM_P (all sessions), production decoder": {
+   "expected_words": 1,
+   "ordinary_movement_words": 0,
+   "other_words": 0,
+   "v2_expected_words": 1
+  },
+  "ARM_P (all sessions), confirm-boundary": {
+   "expected_words": 2,
+   "ordinary_movement_words": 0,
+   "other_words": 0,
+   "v2_expected_words": 1
+  }
+ },
+ "heldout_and_cal": {
+  "PRODUCTION (S2-R2, production decoder)": {
+   "dev_natural": {
+    "signs": 812,
+    "correct_words": 132,
+    "detected": 313,
+    "fragments_outside_spans": 70,
+    "duplicates": 0,
+    "merged_events": 11
+   },
+   "dev_continuous": {
+    "signs": 812,
+    "correct_words": 78,
+    "detected": 256,
+    "fragments_outside_spans": 5,
+    "duplicates": 0,
+    "merged_events": 61
+   },
+   "cal": {
+    "signs": 1980,
+    "distinct": 853,
+    "nonsign_events_p1": 7,
+    "nonsign_events_n0": 8,
+    "duplicates": 0
+   }
+  },
+  "ARM_A_E10, production decoder": {
+   "dev_natural": {
+    "signs": 812,
+    "correct_words": 236,
+    "detected": 515,
+    "fragments_outside_spans": 70,
+    "duplicates": 0,
+    "merged_events": 7
+   },
+   "dev_continuous": {
+    "signs": 812,
+    "correct_words": 125,
+    "detected": 355,
+    "fragments_outside_spans": 4,
+    "duplicates": 0,
+    "merged_events": 100
+   },
+   "cal": {
+    "signs": 1980,
+    "distinct": 1461,
+    "nonsign_events_p1": 68,
+    "nonsign_events_n0": 17,
+    "duplicates": 0
+   }
+  },
+  "ARM_A_E10 + confirm-boundary": {
+   "dev_natural": {
+    "signs": 812,
+    "correct_words": 238,
+    "detected": 518,
+    "fragments_outside_spans": 75,
+    "duplicates": 0,
+    "merged_events": 2
+   },
+   "dev_continuous": {
+    "signs": 812,
+    "correct_words": 152,
+    "detected": 398,
+    "fragments_outside_spans": 7,
+    "duplicates": 1,
+    "merged_events": 79
+   },
+   "cal": {
+    "signs": 1980,
+    "distinct": 1498,
+    "nonsign_events_p1": 80,
+    "nonsign_events_n0": 16,
+    "duplicates": 7
+   }
+  },
+  "ARM_A_E21 (IPN-selected) + confirm-boundary": {
+   "dev_natural": {
+    "signs": 812,
+    "correct_words": 247,
+    "detected": 552,
+    "fragments_outside_spans": 75,
+    "duplicates": 0,
+    "merged_events": 1
+   },
+   "dev_continuous": {
+    "signs": 812,
+    "correct_words": 159,
+    "detected": 427,
+    "fragments_outside_spans": 5,
+    "duplicates": 0,
+    "merged_events": 71
+   },
+   "cal": {
+    "signs": 1980,
+    "distinct": 1497,
+    "nonsign_events_p1": 63,
+    "nonsign_events_n0": 2,
+    "duplicates": 9
+   }
+  },
+  "ARM_B_E9 (body dropout) + confirm-boundary": {
+   "dev_natural": {
+    "signs": 812,
+    "correct_words": 240,
+    "detected": 519,
+    "fragments_outside_spans": 82,
+    "duplicates": 0,
+    "merged_events": 2
+   },
+   "dev_continuous": {
+    "signs": 812,
+    "correct_words": 143,
+    "detected": 383,
+    "fragments_outside_spans": 8,
+    "duplicates": 0,
+    "merged_events": 64
+   },
+   "cal": {
+    "signs": 1980,
+    "distinct": 1413,
+    "nonsign_events_p1": 72,
+    "nonsign_events_n0": 10,
+    "duplicates": 11
+   }
+  },
+  "ARM_I_E28 (IPN negatives; canary failed) production decoder": {
+   "dev_natural": {
+    "signs": 812,
+    "correct_words": 190,
+    "detected": 414,
+    "fragments_outside_spans": 76,
+    "duplicates": 0,
+    "merged_events": 5
+   },
+   "dev_continuous": {
+    "signs": 812,
+    "correct_words": 109,
+    "detected": 305,
+    "fragments_outside_spans": 5,
+    "duplicates": 0,
+    "merged_events": 64
+   },
+   "cal": {
+    "signs": 1980,
+    "distinct": 1152,
+    "nonsign_events_p1": 38,
+    "nonsign_events_n0": 0,
+    "duplicates": 0
+   }
+  },
+  "ARM_I_E28 (IPN negatives; canary failed) + confirm-boundary": {
+   "dev_natural": {
+    "signs": 812,
+    "correct_words": 192,
+    "detected": 418,
+    "fragments_outside_spans": 77,
+    "duplicates": 0,
+    "merged_events": 2
+   },
+   "dev_continuous": {
+    "signs": 812,
+    "correct_words": 134,
+    "detected": 345,
+    "fragments_outside_spans": 6,
+    "duplicates": 0,
+    "merged_events": 43
+   },
+   "cal": {
+    "signs": 1980,
+    "distinct": 1233,
+    "nonsign_events_p1": 40,
+    "nonsign_events_n0": 0,
+    "duplicates": 0
+   }
+  }
+ }
+}

@@ -16,6 +16,143 @@ provisioning remain open; no automatic new experiment is authorized. See docs/te
 
 # Progress Tracker
 
+**2026-10-17 — Arm I phone deficit diagnosed sign by sign (decoder-only; no new candidate).**
+See `docs/audit/RECOGNITION_V3_REARM_2026-10-17.md` (addendum 2).
+- [x] 7 phone signs lost vs Arm A + CB (0 gained): ~2 reference-epoch luck (Arm A e21 misses them too),
+  1 body dropout, 2 PRE semantics (1 recoverable by PRE_EXIT), 2 consecutive-sign boundary ambiguity.
+- [x] Non-ACTIVE-gated confirm-boundary (R1_CBN70): CAL-eligible but identical results; hypothesis rejected.
+  Decoder-rule line stopped; Arm I keeps R1_CB70. Decisive next step: live capture, replayed offline.
+
+**2026-10-17 — Re-entry with Arm I: first configuration off the old trade-off curve (held-out); phone open.**
+See `docs/audit/RECOGNITION_V3_REARM_2026-10-17.md` (addendum).
+- [x] CAL rule with Arm I e28 as S2 (label-contract count) selects R1_CB70: held-out continuous 196 / natural
+  222 (Arm A + CB 152 / 238), IPN 0.45/min (vs 7.68), CAL P1 48 (vs 80), 0 duplicates; misses natural by 4.
+- [x] Phone (dev-exposed) still favours Arm A on words (12-14 vs 19) with far fewer false events (1-7 vs 10).
+- Next: blinded multi-person phone capture; replay Arm A + CB, Arm A + R1 + CB and Arm I + R1 + CB offline
+  on the exact-parity observations (no Android change needed).
+
+**2026-10-17 — Re-arm swallowing studied (decoder-only): REENTRY_2 selected as research lifecycle candidate.**
+See `docs/audit/RECOGNITION_V3_REARM_2026-10-17.md` (probes: `docs/audit/probes/rearm/`).
+- [x] Re-arm wait swallows 219 CAL / 134 held-out continuous signs (median 540 ms after commit); re-entry
+  events are 218/248 genuine on CAL and 95/95 on held-out; 8 of 14 CAL non-sign re-entries sit on
+  raw-splice rows the label contract already ignores (count corrected for every variant, stated).
+- [x] CAL rule (corrected count) selects REENTRY_2: held-out 125/236 -> 148/255, no duplicates; IPN 6.77 ->
+  7.00/min, CAL P1 68 -> 75. REENTRY_2 + CB: 176/255 (diagnostic; CB alone still not CAL-eligible).
+- Production decoder unchanged; no Android change. Hands-visible false activation remains an S2 problem.
+
+**2026-10-17 — S2 trade-off diagnosed: Arm I loses signs in the lifecycle, not in detection.**
+See `docs/audit/RECOGNITION_V3_S2_TRADEOFF_2026-10-17.md` (probes: `docs/audit/probes/s2_tradeoff/`).
+- [x] Arm I acquires the signs Arm A gets (same peak P(ACTIVE)), then exits ACTIVE into PRE (18% of runs
+  vs 2%); the 133 ms PRE-gap reset discards them (held-out 87 vs 10). Cause: IPN negatives labelled PRE
+  (Arm J, no body dropout, shows it too); body dropout adds a smaller share (Arm B).
+- [x] Arm I's false-event drop = real S2 discrimination (phone AUC 0.885 vs 0.836; held-out 0.90 vs 0.78)
+  plus the same discard (phone non-sign 1 -> 7 when neutralised).
+- [x] Research decoder PRE_EXIT_POST (valid ACTIVE exiting to PRE gets POST confirmation): Arm I + CB
+  held-out 134/192 -> 148/216; neutral for Arm A. Arm K (IPN scored NON_ACTIVE): PRE exits halved but
+  back on Arm A's curve. No candidate meets all pre-fixed criteria; none adopted; no Android change.
+- Next: keep PRE_EXIT_POST with confirm-boundary; decoder-only look at re-arm swallowing (largest
+  continuous loss); phone-framed multi-person capture before any further IPN retrain.
+
+**2026-10-17 — S2 suite v04 frozen: IPN hands-visible tier added; no training, no download.**
+See `docs/audit/RECOGNITION_V3_EXTERNAL_DATA_FEASIBILITY_2026-10-17.md` §8.
+- [x] Tier 1c = 2 held-out IPN subjects (8 videos), hash-pinned; gates NOG events/min <= 1.0 and NOG
+  active rate <= 0.10; tiers 1/1b/2 reproduce v03 exactly; freeze reproduces from source inputs.
+- [x] S2-R2 0.00/min; Arm A e10 6.77/min and Arm B e9 4.74/min fail T1C; Arm I e28 passes T1C but fails
+  acquisition lines. Future S2 candidates must clear both.
+
+**2026-10-17 — IPN Hand feasibility and S2 reliability: data relevant; Arm B/I not adopted.**
+See `docs/audit/RECOGNITION_V3_EXTERNAL_DATA_FEASIBILITY_2026-10-17.md` (probes: `docs/audit/probes/ipn_hand/`).
+- [x] Root cause refined: S2-R3 hands-visible non-sign supervision = one FIT person (P02); CAL P1 person
+  (P01) has accepted hands in 4.7% of rows, so CAL selection could not see the failure; Arm A leans on
+  body pose (no-body counterfactual: CAL AUC 0.99 -> 0.62); phone body availability ~22%.
+- [x] IPN Hand videos05 (40 videos, 10 subjects, CC BY 4.0, approved download) through pinned Candidate01:
+  NOG hands accepted 56%, body 23% (phone-like); Arm A fires 6-9 events/NOG-minute on everyday movement.
+- [x] Arm B (body dropout): no gain. Arm I (+IPN NOG, 6 FIT subjects): phone non-sign 9 -> 0-1, CAL P1
+  80 -> 40, IPN held-out 6.8 -> 0.2/min, but phone words 14 -> 8 and held-out ASL 152 -> 134; gesture
+  canary failed -> no epoch selected. Confirm-boundary gains intact with every S2.
+- Next: suite v04 IPN hands-visible tier (selection blind spot); one lower-weight IPN mix with more
+  subjects; phone-framed positives still need the capture session.
+
+**2026-10-17 — Continuous recognition reliability: confirm-boundary isolated; admission and Arm P not adopted.**
+See `docs/audit/RECOGNITION_V3_CONTINUOUS_RELIABILITY_2026-10-17.md` (probes: `docs/audit/probes/event_reliability/`).
+- [x] Event ledger harness (`eval/runtime_diagnostics/event_reliability.py`, 4 tests) reproduces 8/23, 13/23,
+  14/23 and 5/9/9 non-sign events exactly; three orphan outputs now have scripts.
+- [x] Held-out DEV "extra events" are sign fragments (72/82 within one observation of a span), not
+  ordinary movement; hands-visible non-sign evidence = CAL P1 + phone only.
+- [x] Confirm-boundary vs Arm A alone: held-out continuous words 125 -> 152, phone +4, no added phone
+  non-sign events; CAL +11 events are fragments of existing false activity (1 new). Kept as candidate.
+- [x] Whole-event admission: no commit-time evidence separates movement from signing on held-out data
+  (AUC <= 0.73 on CAL P1); not adopted. Confidence gate remains a precision setting only.
+- [x] Arm P (Arm A + reviewed phone sessions, leave-one-session-out, 6 trainings): Tier-2 non-sign 9 -> 4
+  but correct 14 -> 9 (S2 quiets the phone domain). Not adopted.
+- [x] Best today: Arm A e10 + confirm-boundary (phone 19 vs production 12 correct; 10 vs 6 non-sign);
+  with the held-out-calibrated gate 0.75: 16 correct, 3 non-sign. Production unchanged.
+- Next: blinded multi-person capture (continuous signing + five non-sign behaviours); Arm A TFLite parity.
+
+**2026-10-17 — WORD v2 debug shadow package ready for device; S2-R3 phone discrimination diagnosed.**
+See `docs/audit/RECOGNITION_V3_ANDROID_VALIDATION_2026-10-17.md`. No device attached; on-device runs prepared, not executed.
+- [x] WORD v2 TFLite (debug assets only, `1de85b3c...`): host parity max abs 2.4e-7, 816/816 DEV top-1 agreement.
+- [x] Debug shadow mode (`--es word_shadow_package WORD_V2_CANDIDATE`): v2 classifies the same window/view,
+  logged only; frozen Gate-2 stays primary/default. Main loader gains a default-preserving package spec.
+- [x] assembleDebug + androidTest compile OK; JVM 199/200 (OriginalWordBatchTest hash pin, unrelated).
+- [x] Device-recorded windows (32 events, 32/32 device top-1 parity): genuine 10 -> 11 correct, 0 regressions.
+- [x] S2-R3 phone AUC 0.77-0.83 vs CAL 0.99+: S2-R3 keys on accepted-hand motion; threshold cannot fix it.
+- [x] Device (Xiaomi M2101K7AG): on-device parity tests pass; two signed shadow sessions (device=offline 12/12).
+  Protocol-expected glosses: frozen 6/14, WORD v2 3/14 (HELLO->LUNCH1 x3) -> v2 NOT promotable.
+- Next: human review of both sessions; diagnose v2 HELLO/LUNCH1 confusion; person-split hands-visible negatives.
+- [x] WORD v3 (neighbour-context aug) not adopted: no gain on held-out contamination or phone windows.
+- [x] Decoder confirm-boundary split (research): Tier-2 words 13->14, no added phone false events with
+  Arm A e10; CAL non-sign events +13% (over the +10% rule). Remaining blocker: S2-R3 discrimination.
+
+**2026-10-16 (evening) — V3 iteration: S2-R3 operating point, WORD v2, calibrated gate; decoder rules not adopted.**
+See `docs/audit/RECOGNITION_V3_ITERATION_RESULTS_2026-10-16.md`. Research only; no Android/production change.
+- [x] S2-R3 operating point (Arm A epoch 21, ACTIVE >= 0.8; CAL-selected under the D7 bar): phone non-sign
+  ACTIVE 64 -> 52, hold-12 0.045 -> 0.879, Tier-1 false-ACTIVE passes; still fails 5 gate lines
+  (Tier-2 acquisition: CAL has no phone positives).
+- [x] Event-separation decoder rules (re-entry / short-POST / max-ACTIVE): stitched gains did not appear on
+  genuine phone signing and false events rose; not adopted.
+- [x] WORD aug v2: DEV 3.75 fps 38.6% -> 43.0% (p=0.002), phone oracle 22/29 (no net regression).
+- [x] Gate calibrated on DEV signers P5/P12/P21, validated on P26/P39: candidate 261/348 -> 198/135
+  correct/wrong vs today 135/242.
+- [x] d1 span rule ported to Candidate01 (theta 0.4, DEV IoU median 0.62); Sem-Lex 2,252 clips (65 classes,
+  32 signers) added: covered classes +8-20 pts on held-out signers; uncovered classes need prior correction.
+- Next: small role-split phone capture (FIT/CAL/held-out) to calibrate the S2 operating point on the phone
+  domain and evaluate separation on genuine signing; debug packaging of S2-R3 E21@0.8 + WORD v2.
+
+**2026-10-16 — S2-R3 Arm A/A2 and WORD robustness trained (research artifacts only); none promotable yet.**
+See `docs/audit/S2_R3_AND_WORD_TRACK_RESULTS_2026-10-16.md`. No Android/production change; TEST/E6/Tier 3 unopened.
+- [x] Hands-visible negatives recovered from governed sources (45 P1 intervals; 15 confirmed non-sign
+  windows of phone session 20260920T145710Z, PRE only there, IGNORE elsewhere).
+- [x] S2-R3 Arm A (stitched real-observation streams, D6/D7): no D7-eligible epoch (CAL non-sign >=1.57%
+  vs S2-R2 1.09%). Diagnostic epoch 10: hold-12 acquisition 0.045 -> 0.773, continuous distinct events
+  2 -> 8 of 11, phone correct words 8 -> 13 of 23; but non-sign events 5 -> 9 (fails non-inferiority).
+- [x] Arm A2 (4x non-sign weight): no gain in discrimination; worse containment/movement recall.
+- [x] Held-out benchmark (812 signs, 5 unseen DEV signers, 3.75 fps): Arm A correct words 16.3% -> 29.1%
+  (natural) and 9.6% -> 15.4% (continuous), no extra-event rise; continuous now limited by event lifecycle.
+- [x] WORD cadence/hand-loss augmentation: DEV Top-1 at 3.75 fps 38.6% -> 42.5% (McNemar p=0.007);
+  phone oracle 22 -> 19-20 of 29 (TABLE without hands regressed).
+- Next: R3b capture with more hands-visible non-sign + negative-only participants; Arm A iteration 2;
+  pre-registered confidence gate; WORD aug v2 + Sem-Lex span decision; flat-hand perception.
+
+**2026-10-16 — Full-pipeline bottleneck assessment + suite v03 frozen; no training, no Android change.**
+See `docs/audit/RECOGNITION_PIPELINE_BOTTLENECK_ASSESSMENT_2026-10-16.md` (probe: `docs/audit/probes/pipeline_v3/`).
+- [x] N0 raw-v1 extraction recovered: 57/57 clips (FIT 21 / CAL 19 / HELD_OUT P05+P06 17). The first run
+  stopped after 17 clips with an unrecorded error (filtered stderr); the rerun completed cleanly and a
+  re-extraction is bit-identical, so the 17 preserved clips were reused.
+- [x] Signer-grouped data split frozen (`s2_r3_data_split_01.json`, seed 5103): FIT 83 clips / 22
+  signers, CAL 22 / 6, no overlap; negatives participant-disjoint (P05/P06 held out).
+- [x] Suite v03 frozen (`suite_freeze_03.json`): reproduces v02 exactly; adds held-out N0 tier
+  (S2-R2: 0.57% ACTIVE, 0.24 events/min). 20/20 suite + split tests pass.
+- [x] Phone stage attribution (23 S2-valid reviewed signs): runtime 8/23 correct; S2 never ACTIVE on
+  11 (first failure); merges 0; misclassified 3 (also wrong with oracle). Oracle boundaries: 16/23.
+- [x] Fresh-start S2 recovers 11/11 misses but doubles confirmed non-sign activation (19 -> 39 of 84):
+  the defect is sign/non-sign discrimination; history absorption is its symptom.
+- [x] Recognizer DEV (signer-disjoint, already span-cut) is the boundary-given ceiling: 50.3% dense,
+  40.0% at 5.6 fps, 38.6% at the measured 3.75 fps. Causal hand-loss: 25%/50% removed -> 44.5%/33.3%
+  (from 53.8%) at phone cadence. Materializer windows match the oracle when S2 emits.
+- Decision for project lead: S2-R3 re-aimed at discrimination with a hands-visible held-out negative
+  tier (blocking); parallel recognizer-generalization track; preregistered abstention gate.
+
 **2026-10-16 — S2-R3 readiness review: suite v02 frozen, source audit complete; no training yet.**
 See `docs/audit/S2_R3_READINESS_REVIEW_2026-10-16.md`.
 - [x] Held-out decomposition (69 DEV views):

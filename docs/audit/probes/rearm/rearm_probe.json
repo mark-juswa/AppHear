@@ -1,0 +1,6601 @@
+{
+ "cal": {
+  "swallowed": [
+   {
+    "ms_since_commit": 599.00429848364,
+    "obs_since_commit": 3,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 1
+   },
+   {
+    "ms_since_commit": 396.6548772022579,
+    "obs_since_commit": 2,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 259.48029803165673,
+    "obs_since_commit": 2,
+    "post_rows": 0,
+    "pre_rows": 0,
+    "active_rows_in_gap": 1
+   },
+   {
+    "ms_since_commit": 1046.9666666666672,
+    "obs_since_commit": 8,
+    "post_rows": 5,
+    "pre_rows": 0,
+    "active_rows_in_gap": 2
+   },
+   {
+    "ms_since_commit": 133.0,
+    "obs_since_commit": 1,
+    "post_rows": 0,
+    "pre_rows": 0,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 532.3080000000009,
+    "obs_since_commit": 4,
+    "post_rows": 2,
+    "pre_rows": 0,
+    "active_rows_in_gap": 1
+   },
+   {
+    "ms_since_commit": 801.6159999999982,
+    "obs_since_commit": 3,
+    "post_rows": 0,
+    "pre_rows": 0,
+    "active_rows_in_gap": 2
+   },
+   {
+    "ms_since_commit": 801.6160000000018,
+    "obs_since_commit": 3,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 1
+   },
+   {
+    "ms_since_commit": 399.0422984836405,
+    "obs_since_commit": 2,
+    "post_rows": 0,
+    "pre_rows": 0,
+    "active_rows_in_gap": 1
+   },
+   {
+    "ms_since_commit": 1397.0888954509173,
+    "obs_since_commit": 7,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 5
+   },
+   {
+    "ms_since_commit": 394.08866995073913,
+    "obs_since_commit": 2,
+    "post_rows": 0,
+    "pre_rows": 0,
+    "active_rows_in_gap": 1
+   },
+   {
+    "ms_since_commit": 600.0,
+    "obs_since_commit": 3,
+    "post_rows": 0,
+    "pre_rows": 0,
+    "active_rows_in_gap": 2
+   },
+   {
+    "ms_since_commit": 200.0,
+    "obs_since_commit": 1,
+    "post_rows": 0,
+    "pre_rows": 0,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 600.9619999999995,
+    "obs_since_commit": 3,
+    "post_rows": 0,
+    "pre_rows": 0,
+    "active_rows_in_gap": 2
+   },
+   {
+    "ms_since_commit": 2001.923999999999,
+    "obs_since_commit": 10,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 8
+   },
+   {
+    "ms_since_commit": 407.75475404974713,
+    "obs_since_commit": 2,
+    "post_rows": 0,
+    "pre_rows": 0,
+    "active_rows_in_gap": 1
+   },
+   {
+    "ms_since_commit": 399.04229848363866,
+    "obs_since_commit": 2,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 799.6160000000018,
+    "obs_since_commit": 3,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 1
+   },
+   {
+    "ms_since_commit": 533.0,
+    "obs_since_commit": 2,
+    "post_rows": 0,
+    "pre_rows": 0,
+    "active_rows_in_gap": 1
+   },
+   {
+    "ms_since_commit": 535.0,
+    "obs_since_commit": 2,
+    "post_rows": 0,
+    "pre_rows": 0,
+    "active_rows_in_gap": 1
+   },
+   {
+    "ms_since_commit": 2136.6159999999945,
+    "obs_since_commit": 8,
+    "post_rows": 2,
+    "pre_rows": 0,
+    "active_rows_in_gap": 5
+   },
+   {
+    "ms_since_commit": 409.1700689655172,
+    "obs_since_commit": 3,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 1
+   },
+   {
+    "ms_since_commit": 766.616,
+    "obs_since_commit": 3,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 1
+   },
+   {
+    "ms_since_commit": 2368.231999999999,
+    "obs_since_commit": 9,
+    "post_rows": 2,
+    "pre_rows": 0,
+    "active_rows_in_gap": 6
+   },
+   {
+    "ms_since_commit": 799.6160000000018,
+    "obs_since_commit": 3,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 1
+   },
+   {
+    "ms_since_commit": 800.6160000000018,
+    "obs_since_commit": 3,
+    "post_rows": 0,
+    "pre_rows": 0,
+    "active_rows_in_gap": 2
+   },
+   {
+    "ms_since_commit": 2667.2320000000036,
+    "obs_since_commit": 10,
+    "post_rows": 2,
+    "pre_rows": 0,
+    "active_rows_in_gap": 7
+   },
+   {
+    "ms_since_commit": 1066.052584801495,
+    "obs_since_commit": 4,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 2
+   },
+   {
+    "ms_since_commit": 2668.6685848014895,
+    "obs_since_commit": 10,
+    "post_rows": 4,
+    "pre_rows": 0,
+    "active_rows_in_gap": 5
+   },
+   {
+    "ms_since_commit": 607.7167540497467,
+    "obs_since_commit": 3,
+    "post_rows": 0,
+    "pre_rows": 1,
+    "active_rows_in_gap": 1
+   },
+   {
+    "ms_since_commit": 799.6160000000018,
+    "obs_since_commit": 3,
+    "post_rows": 0,
+    "pre_rows": 0,
+    "active_rows_in_gap": 2
+   },
+   {
+    "ms_since_commit": 518.9605960633126,
+    "obs_since_commit": 2,
+    "post_rows": 0,
+    "pre_rows": 0,
+    "active_rows_in_gap": 1
+   },
+   {
+    "ms_since_commit": 296.33531987751485,
+    "obs_since_commit": 1,
+    "post_rows": 0,
+    "pre_rows": 0,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 799.6160000000018,
+    "obs_since_commit": 3,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 1
+   },
+   {
+    "ms_since_commit": 259.4802980316599,
+    "obs_since_commit": 2,
+    "post_rows": 0,
+    "pre_rows": 0,
+    "active_rows_in_gap": 1
+   },
+   {
+    "ms_since_commit": 135.09999999999854,
+    "obs_since_commit": 1,
+    "post_rows": 0,
+    "pre_rows": 0,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 596.6168772022611,
+    "obs_since_commit": 3,
+    "post_rows": 2,
+    "pre_rows": 0,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 596.6168772022575,
+    "obs_since_commit": 3,
+    "post_rows": 2,
+    "pre_rows": 0,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 540.4444444444443,
+    "obs_since_commit": 2,
+    "post_rows": 0,
+    "pre_rows": 0,
+    "active_rows_in_gap": 1
+   },
+   {
+    "ms_since_commit": 999.9619999999995,
+    "obs_since_commit": 5,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 3
+   },
+   {
+    "ms_since_commit": 666.308,
+    "obs_since_commit": 5,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 3
+   },
+   {
+    "ms_since_commit": 403.53022222222216,
+    "obs_since_commit": 3,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 1
+   },
+   {
+    "ms_since_commit": 135.11111111111313,
+    "obs_since_commit": 1,
+    "post_rows": 0,
+    "pre_rows": 0,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 538.5968888888929,
+    "obs_since_commit": 4,
+    "post_rows": 0,
+    "pre_rows": 0,
+    "active_rows_in_gap": 3
+   },
+   {
+    "ms_since_commit": 532.3502984836391,
+    "obs_since_commit": 4,
+    "post_rows": 2,
+    "pre_rows": 0,
+    "active_rows_in_gap": 1
+   },
+   {
+    "ms_since_commit": 270.2222222222226,
+    "obs_since_commit": 2,
+    "post_rows": 0,
+    "pre_rows": 0,
+    "active_rows_in_gap": 1
+   },
+   {
+    "ms_since_commit": 2294.7524444444443,
+    "obs_since_commit": 17,
+    "post_rows": 6,
+    "pre_rows": 0,
+    "active_rows_in_gap": 10
+   },
+   {
+    "ms_since_commit": 518.5346009852146,
+    "obs_since_commit": 4,
+    "post_rows": 3,
+    "pre_rows": 0,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 801.616,
+    "obs_since_commit": 3,
+    "post_rows": 0,
+    "pre_rows": 0,
+    "active_rows_in_gap": 2
+   },
+   {
+    "ms_since_commit": 799.6160000000018,
+    "obs_since_commit": 3,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 1
+   },
+   {
+    "ms_since_commit": 802.6731111111112,
+    "obs_since_commit": 4,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 2
+   },
+   {
+    "ms_since_commit": 134.0,
+    "obs_since_commit": 1,
+    "post_rows": 0,
+    "pre_rows": 0,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 798.5254477254584,
+    "obs_since_commit": 4,
+    "post_rows": 2,
+    "pre_rows": 0,
+    "active_rows_in_gap": 1
+   },
+   {
+    "ms_since_commit": 399.0422984836405,
+    "obs_since_commit": 2,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 1397.088895450921,
+    "obs_since_commit": 7,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 5
+   },
+   {
+    "ms_since_commit": 592.6706397550297,
+    "obs_since_commit": 3,
+    "post_rows": 2,
+    "pre_rows": 0,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 533.0,
+    "obs_since_commit": 2,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 532.0563979781873,
+    "obs_since_commit": 2,
+    "post_rows": 0,
+    "pre_rows": 0,
+    "active_rows_in_gap": 1
+   },
+   {
+    "ms_since_commit": 599.0042984836391,
+    "obs_since_commit": 3,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 1
+   },
+   {
+    "ms_since_commit": 399.04229848363866,
+    "obs_since_commit": 2,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 798.5254477254584,
+    "obs_since_commit": 4,
+    "post_rows": 2,
+    "pre_rows": 0,
+    "active_rows_in_gap": 1
+   },
+   {
+    "ms_since_commit": 798.5254477254639,
+    "obs_since_commit": 4,
+    "post_rows": 2,
+    "pre_rows": 0,
+    "active_rows_in_gap": 1
+   },
+   {
+    "ms_since_commit": 798.5254477254566,
+    "obs_since_commit": 4,
+    "post_rows": 2,
+    "pre_rows": 0,
+    "active_rows_in_gap": 1
+   },
+   {
+    "ms_since_commit": 399.0422984836405,
+    "obs_since_commit": 2,
+    "post_rows": 0,
+    "pre_rows": 0,
+    "active_rows_in_gap": 1
+   },
+   {
+    "ms_since_commit": 795.4891696030154,
+    "obs_since_commit": 3,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 1
+   },
+   {
+    "ms_since_commit": 795.4891696030099,
+    "obs_since_commit": 3,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 1
+   },
+   {
+    "ms_since_commit": 394.08866995073913,
+    "obs_since_commit": 2,
+    "post_rows": 0,
+    "pre_rows": 0,
+    "active_rows_in_gap": 1
+   },
+   {
+    "ms_since_commit": 1066.616,
+    "obs_since_commit": 4,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 2
+   },
+   {
+    "ms_since_commit": 798.6723979781891,
+    "obs_since_commit": 3,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 1
+   },
+   {
+    "ms_since_commit": 2398.3165969672846,
+    "obs_since_commit": 9,
+    "post_rows": 4,
+    "pre_rows": 0,
+    "active_rows_in_gap": 4
+   },
+   {
+    "ms_since_commit": 3464.9325969672864,
+    "obs_since_commit": 13,
+    "post_rows": 4,
+    "pre_rows": 0,
+    "active_rows_in_gap": 8
+   },
+   {
+    "ms_since_commit": 532.308,
+    "obs_since_commit": 4,
+    "post_rows": 2,
+    "pre_rows": 0,
+    "active_rows_in_gap": 1
+   },
+   {
+    "ms_since_commit": 400.30799999999726,
+    "obs_since_commit": 3,
+    "post_rows": 0,
+    "pre_rows": 0,
+    "active_rows_in_gap": 2
+   },
+   {
+    "ms_since_commit": 540.4444444444453,
+    "obs_since_commit": 2,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 533.0,
+    "obs_since_commit": 2,
+    "post_rows": 0,
+    "pre_rows": 0,
+    "active_rows_in_gap": 1
+   },
+   {
+    "ms_since_commit": 397.7445848015077,
+    "obs_since_commit": 3,
+    "post_rows": 2,
+    "pre_rows": 0,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 600.9619999999995,
+    "obs_since_commit": 3,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 1
+   },
+   {
+    "ms_since_commit": 599.00429848364,
+    "obs_since_commit": 3,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 1
+   },
+   {
+    "ms_since_commit": 1597.0508954509205,
+    "obs_since_commit": 8,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 6
+   },
+   {
+    "ms_since_commit": 296.33531987751485,
+    "obs_since_commit": 2,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 799.6160000000018,
+    "obs_since_commit": 3,
+    "post_rows": 0,
+    "pre_rows": 0,
+    "active_rows_in_gap": 2
+   },
+   {
+    "ms_since_commit": 533.0,
+    "obs_since_commit": 2,
+    "post_rows": 0,
+    "pre_rows": 0,
+    "active_rows_in_gap": 1
+   },
+   {
+    "ms_since_commit": 2932.6159999999945,
+    "obs_since_commit": 11,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 9
+   },
+   {
+    "ms_since_commit": 533.3080000000009,
+    "obs_since_commit": 4,
+    "post_rows": 3,
+    "pre_rows": 0,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 540.4444444444443,
+    "obs_since_commit": 2,
+    "post_rows": 0,
+    "pre_rows": 0,
+    "active_rows_in_gap": 1
+   },
+   {
+    "ms_since_commit": 266.02819898909365,
+    "obs_since_commit": 2,
+    "post_rows": 0,
+    "pre_rows": 0,
+    "active_rows_in_gap": 1
+   },
+   {
+    "ms_since_commit": 405.18888888888614,
+    "obs_since_commit": 2,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 571.5175555555543,
+    "obs_since_commit": 3,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 1
+   },
+   {
+    "ms_since_commit": 533.0,
+    "obs_since_commit": 2,
+    "post_rows": 0,
+    "pre_rows": 0,
+    "active_rows_in_gap": 1
+   },
+   {
+    "ms_since_commit": 798.5254477254603,
+    "obs_since_commit": 4,
+    "post_rows": 2,
+    "pre_rows": 0,
+    "active_rows_in_gap": 1
+   },
+   {
+    "ms_since_commit": 396.65487720226156,
+    "obs_since_commit": 2,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 532.3502984836396,
+    "obs_since_commit": 4,
+    "post_rows": 2,
+    "pre_rows": 0,
+    "active_rows_in_gap": 1
+   },
+   {
+    "ms_since_commit": 200.0,
+    "obs_since_commit": 1,
+    "post_rows": 0,
+    "pre_rows": 0,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 1046.9666666666667,
+    "obs_since_commit": 8,
+    "post_rows": 3,
+    "pre_rows": 0,
+    "active_rows_in_gap": 4
+   },
+   {
+    "ms_since_commit": 401.0,
+    "obs_since_commit": 2,
+    "post_rows": 0,
+    "pre_rows": 0,
+    "active_rows_in_gap": 1
+   },
+   {
+    "ms_since_commit": 396.65487720226156,
+    "obs_since_commit": 2,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 795.4891696030154,
+    "obs_since_commit": 3,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 1
+   },
+   {
+    "ms_since_commit": 2119.8515088090444,
+    "obs_since_commit": 8,
+    "post_rows": 2,
+    "pre_rows": 0,
+    "active_rows_in_gap": 5
+   },
+   {
+    "ms_since_commit": 785.5765960633144,
+    "obs_since_commit": 3,
+    "post_rows": 0,
+    "pre_rows": 0,
+    "active_rows_in_gap": 2
+   },
+   {
+    "ms_since_commit": 600.9619999999995,
+    "obs_since_commit": 3,
+    "post_rows": 0,
+    "pre_rows": 0,
+    "active_rows_in_gap": 2
+   },
+   {
+    "ms_since_commit": 403.5302222222217,
+    "obs_since_commit": 3,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 1
+   },
+   {
+    "ms_since_commit": 529.9628772022588,
+    "obs_since_commit": 4,
+    "post_rows": 3,
+    "pre_rows": 0,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 1203.5695309692856,
+    "obs_since_commit": 9,
+    "post_rows": 3,
+    "pre_rows": 0,
+    "active_rows_in_gap": 5
+   },
+   {
+    "ms_since_commit": 594.0506699507387,
+    "obs_since_commit": 3,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 1
+   },
+   {
+    "ms_since_commit": 296.33531987751485,
+    "obs_since_commit": 2,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 535.0,
+    "obs_since_commit": 2,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 267.0,
+    "obs_since_commit": 2,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 1600.308000000001,
+    "obs_since_commit": 12,
+    "post_rows": 5,
+    "pre_rows": 0,
+    "active_rows_in_gap": 6
+   },
+   {
+    "ms_since_commit": 401.0,
+    "obs_since_commit": 2,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 1600.9619999999995,
+    "obs_since_commit": 8,
+    "post_rows": 2,
+    "pre_rows": 0,
+    "active_rows_in_gap": 5
+   },
+   {
+    "ms_since_commit": 401.0,
+    "obs_since_commit": 2,
+    "post_rows": 0,
+    "pre_rows": 0,
+    "active_rows_in_gap": 1
+   },
+   {
+    "ms_since_commit": 802.0,
+    "obs_since_commit": 3,
+    "post_rows": 0,
+    "pre_rows": 1,
+    "active_rows_in_gap": 1
+   },
+   {
+    "ms_since_commit": 802.0,
+    "obs_since_commit": 3,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 1
+   },
+   {
+    "ms_since_commit": 807.0604444444325,
+    "obs_since_commit": 3,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 1
+   },
+   {
+    "ms_since_commit": 798.6723979781891,
+    "obs_since_commit": 3,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 1
+   },
+   {
+    "ms_since_commit": 532.308,
+    "obs_since_commit": 4,
+    "post_rows": 2,
+    "pre_rows": 0,
+    "active_rows_in_gap": 1
+   },
+   {
+    "ms_since_commit": 267.0,
+    "obs_since_commit": 2,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 133.0,
+    "obs_since_commit": 1,
+    "post_rows": 0,
+    "pre_rows": 0,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 669.0,
+    "obs_since_commit": 5,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 3
+   },
+   {
+    "ms_since_commit": 407.75475404974713,
+    "obs_since_commit": 2,
+    "post_rows": 0,
+    "pre_rows": 0,
+    "active_rows_in_gap": 1
+   },
+   {
+    "ms_since_commit": 532.0563979781855,
+    "obs_since_commit": 2,
+    "post_rows": 0,
+    "pre_rows": 0,
+    "active_rows_in_gap": 1
+   },
+   {
+    "ms_since_commit": 798.6723979781818,
+    "obs_since_commit": 3,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 1
+   },
+   {
+    "ms_since_commit": 798.6723979781818,
+    "obs_since_commit": 3,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 1
+   },
+   {
+    "ms_since_commit": 267.0,
+    "obs_since_commit": 2,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 1867.308000000001,
+    "obs_since_commit": 14,
+    "post_rows": 5,
+    "pre_rows": 0,
+    "active_rows_in_gap": 8
+   },
+   {
+    "ms_since_commit": 407.7547540497453,
+    "obs_since_commit": 2,
+    "post_rows": 0,
+    "pre_rows": 0,
+    "active_rows_in_gap": 1
+   },
+   {
+    "ms_since_commit": 400.0,
+    "obs_since_commit": 2,
+    "post_rows": 0,
+    "pre_rows": 0,
+    "active_rows_in_gap": 1
+   },
+   {
+    "ms_since_commit": 797.3317370847726,
+    "obs_since_commit": 4,
+    "post_rows": 1,
+    "pre_rows": 1,
+    "active_rows_in_gap": 1
+   },
+   {
+    "ms_since_commit": 1179.295333333328,
+    "obs_since_commit": 6,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 4
+   },
+   {
+    "ms_since_commit": 399.3080000000009,
+    "obs_since_commit": 3,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 1
+   },
+   {
+    "ms_since_commit": 199.52114924181842,
+    "obs_since_commit": 1,
+    "post_rows": 0,
+    "pre_rows": 0,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 399.0422984836405,
+    "obs_since_commit": 2,
+    "post_rows": 0,
+    "pre_rows": 0,
+    "active_rows_in_gap": 1
+   },
+   {
+    "ms_since_commit": 400.3079999999991,
+    "obs_since_commit": 3,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 1
+   },
+   {
+    "ms_since_commit": 945.8128078817754,
+    "obs_since_commit": 7,
+    "post_rows": 2,
+    "pre_rows": 1,
+    "active_rows_in_gap": 3
+   },
+   {
+    "ms_since_commit": 259.4802980316599,
+    "obs_since_commit": 2,
+    "post_rows": 0,
+    "pre_rows": 0,
+    "active_rows_in_gap": 1
+   },
+   {
+    "ms_since_commit": 600.9619999999995,
+    "obs_since_commit": 3,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 1
+   },
+   {
+    "ms_since_commit": 1066.616,
+    "obs_since_commit": 4,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 2
+   },
+   {
+    "ms_since_commit": 396.6548772022611,
+    "obs_since_commit": 2,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 401.0,
+    "obs_since_commit": 2,
+    "post_rows": 0,
+    "pre_rows": 0,
+    "active_rows_in_gap": 1
+   },
+   {
+    "ms_since_commit": 401.0,
+    "obs_since_commit": 2,
+    "post_rows": 0,
+    "pre_rows": 0,
+    "active_rows_in_gap": 1
+   },
+   {
+    "ms_since_commit": 532.0125866122289,
+    "obs_since_commit": 4,
+    "post_rows": 2,
+    "pre_rows": 0,
+    "active_rows_in_gap": 1
+   },
+   {
+    "ms_since_commit": 400.3080000000009,
+    "obs_since_commit": 3,
+    "post_rows": 2,
+    "pre_rows": 0,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 399.0422984836405,
+    "obs_since_commit": 2,
+    "post_rows": 0,
+    "pre_rows": 0,
+    "active_rows_in_gap": 1
+   },
+   {
+    "ms_since_commit": 534.3080000000009,
+    "obs_since_commit": 4,
+    "post_rows": 2,
+    "pre_rows": 0,
+    "active_rows_in_gap": 1
+   },
+   {
+    "ms_since_commit": 400.3080000000009,
+    "obs_since_commit": 3,
+    "post_rows": 2,
+    "pre_rows": 0,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 602.0,
+    "obs_since_commit": 3,
+    "post_rows": 0,
+    "pre_rows": 1,
+    "active_rows_in_gap": 1
+   },
+   {
+    "ms_since_commit": 401.0,
+    "obs_since_commit": 2,
+    "post_rows": 0,
+    "pre_rows": 0,
+    "active_rows_in_gap": 1
+   },
+   {
+    "ms_since_commit": 596.6168772022575,
+    "obs_since_commit": 3,
+    "post_rows": 2,
+    "pre_rows": 0,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 405.18888888888887,
+    "obs_since_commit": 2,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 401.0,
+    "obs_since_commit": 2,
+    "post_rows": 0,
+    "pre_rows": 0,
+    "active_rows_in_gap": 1
+   },
+   {
+    "ms_since_commit": 198.3274386011326,
+    "obs_since_commit": 1,
+    "post_rows": 0,
+    "pre_rows": 0,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 401.0,
+    "obs_since_commit": 2,
+    "post_rows": 0,
+    "pre_rows": 0,
+    "active_rows_in_gap": 1
+   },
+   {
+    "ms_since_commit": 602.0,
+    "obs_since_commit": 3,
+    "post_rows": 0,
+    "pre_rows": 1,
+    "active_rows_in_gap": 1
+   },
+   {
+    "ms_since_commit": 540.4444444444453,
+    "obs_since_commit": 2,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 559.7444931019709,
+    "obs_since_commit": 2,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 801.6160000000018,
+    "obs_since_commit": 3,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 1
+   },
+   {
+    "ms_since_commit": 1597.105169603019,
+    "obs_since_commit": 6,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 4
+   },
+   {
+    "ms_since_commit": 798.6723979781818,
+    "obs_since_commit": 3,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 1
+   },
+   {
+    "ms_since_commit": 800.616,
+    "obs_since_commit": 3,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 1
+   },
+   {
+    "ms_since_commit": 400.0,
+    "obs_since_commit": 2,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 401.0,
+    "obs_since_commit": 2,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 400.3080000000009,
+    "obs_since_commit": 3,
+    "post_rows": 2,
+    "pre_rows": 0,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 532.3502984836377,
+    "obs_since_commit": 4,
+    "post_rows": 2,
+    "pre_rows": 0,
+    "active_rows_in_gap": 1
+   },
+   {
+    "ms_since_commit": 135.10000000000218,
+    "obs_since_commit": 1,
+    "post_rows": 0,
+    "pre_rows": 0,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 533.0,
+    "obs_since_commit": 2,
+    "post_rows": 0,
+    "pre_rows": 0,
+    "active_rows_in_gap": 1
+   },
+   {
+    "ms_since_commit": 533.0,
+    "obs_since_commit": 2,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 607.9333333333334,
+    "obs_since_commit": 3,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 1
+   },
+   {
+    "ms_since_commit": 401.0,
+    "obs_since_commit": 2,
+    "post_rows": 0,
+    "pre_rows": 0,
+    "active_rows_in_gap": 1
+   },
+   {
+    "ms_since_commit": 527.8549646983229,
+    "obs_since_commit": 4,
+    "post_rows": 0,
+    "pre_rows": 0,
+    "active_rows_in_gap": 3
+   },
+   {
+    "ms_since_commit": 807.2379032915642,
+    "obs_since_commit": 4,
+    "post_rows": 2,
+    "pre_rows": 0,
+    "active_rows_in_gap": 1
+   },
+   {
+    "ms_since_commit": 807.0604444444443,
+    "obs_since_commit": 3,
+    "post_rows": 0,
+    "pre_rows": 0,
+    "active_rows_in_gap": 2
+   },
+   {
+    "ms_since_commit": 801.616,
+    "obs_since_commit": 3,
+    "post_rows": 0,
+    "pre_rows": 0,
+    "active_rows_in_gap": 2
+   },
+   {
+    "ms_since_commit": 801.6159999999982,
+    "obs_since_commit": 3,
+    "post_rows": 0,
+    "pre_rows": 0,
+    "active_rows_in_gap": 2
+   },
+   {
+    "ms_since_commit": 801.6160000000018,
+    "obs_since_commit": 3,
+    "post_rows": 0,
+    "pre_rows": 0,
+    "active_rows_in_gap": 2
+   },
+   {
+    "ms_since_commit": 2405.2320000000036,
+    "obs_since_commit": 9,
+    "post_rows": 3,
+    "pre_rows": 0,
+    "active_rows_in_gap": 5
+   },
+   {
+    "ms_since_commit": 259.4802980316563,
+    "obs_since_commit": 2,
+    "post_rows": 0,
+    "pre_rows": 0,
+    "active_rows_in_gap": 1
+   },
+   {
+    "ms_since_commit": 267.0,
+    "obs_since_commit": 2,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 400.3080000000009,
+    "obs_since_commit": 3,
+    "post_rows": 2,
+    "pre_rows": 0,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 1347.3493333333317,
+    "obs_since_commit": 5,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 3
+   },
+   {
+    "ms_since_commit": 132.21829240075385,
+    "obs_since_commit": 1,
+    "post_rows": 0,
+    "pre_rows": 0,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 1066.6160000000018,
+    "obs_since_commit": 4,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 2
+   },
+   {
+    "ms_since_commit": 799.6160000000018,
+    "obs_since_commit": 3,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 1
+   },
+   {
+    "ms_since_commit": 399.33619898909456,
+    "obs_since_commit": 3,
+    "post_rows": 0,
+    "pre_rows": 1,
+    "active_rows_in_gap": 1
+   },
+   {
+    "ms_since_commit": 766.616,
+    "obs_since_commit": 3,
+    "post_rows": 0,
+    "pre_rows": 0,
+    "active_rows_in_gap": 2
+   },
+   {
+    "ms_since_commit": 533.0,
+    "obs_since_commit": 2,
+    "post_rows": 0,
+    "pre_rows": 0,
+    "active_rows_in_gap": 1
+   },
+   {
+    "ms_since_commit": 534.0,
+    "obs_since_commit": 2,
+    "post_rows": 0,
+    "pre_rows": 0,
+    "active_rows_in_gap": 1
+   },
+   {
+    "ms_since_commit": 532.3502984836377,
+    "obs_since_commit": 4,
+    "post_rows": 2,
+    "pre_rows": 0,
+    "active_rows_in_gap": 1
+   },
+   {
+    "ms_since_commit": 1066.616,
+    "obs_since_commit": 4,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 2
+   },
+   {
+    "ms_since_commit": 799.616,
+    "obs_since_commit": 3,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 1
+   },
+   {
+    "ms_since_commit": 798.6723979781891,
+    "obs_since_commit": 3,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 1
+   },
+   {
+    "ms_since_commit": 798.6723979781891,
+    "obs_since_commit": 3,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 1
+   },
+   {
+    "ms_since_commit": 135.09999999999854,
+    "obs_since_commit": 1,
+    "post_rows": 0,
+    "pre_rows": 0,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 371.55555555555475,
+    "obs_since_commit": 2,
+    "post_rows": 0,
+    "pre_rows": 0,
+    "active_rows_in_gap": 1
+   },
+   {
+    "ms_since_commit": 799.4831492418198,
+    "obs_since_commit": 4,
+    "post_rows": 2,
+    "pre_rows": 0,
+    "active_rows_in_gap": 1
+   },
+   {
+    "ms_since_commit": 801.6160000000018,
+    "obs_since_commit": 3,
+    "post_rows": 0,
+    "pre_rows": 0,
+    "active_rows_in_gap": 2
+   },
+   {
+    "ms_since_commit": 399.04229848363866,
+    "obs_since_commit": 2,
+    "post_rows": 0,
+    "pre_rows": 0,
+    "active_rows_in_gap": 1
+   },
+   {
+    "ms_since_commit": 1397.0888954509173,
+    "obs_since_commit": 7,
+    "post_rows": 0,
+    "pre_rows": 0,
+    "active_rows_in_gap": 6
+   },
+   {
+    "ms_since_commit": 407.75475404974713,
+    "obs_since_commit": 2,
+    "post_rows": 0,
+    "pre_rows": 0,
+    "active_rows_in_gap": 1
+   },
+   {
+    "ms_since_commit": 599.00429848364,
+    "obs_since_commit": 3,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 1
+   },
+   {
+    "ms_since_commit": 405.14444444443507,
+    "obs_since_commit": 2,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 799.616,
+    "obs_since_commit": 3,
+    "post_rows": 0,
+    "pre_rows": 0,
+    "active_rows_in_gap": 2
+   },
+   {
+    "ms_since_commit": 401.0,
+    "obs_since_commit": 2,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 400.0,
+    "obs_since_commit": 2,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 1999.9619999999995,
+    "obs_since_commit": 10,
+    "post_rows": 3,
+    "pre_rows": 0,
+    "active_rows_in_gap": 6
+   },
+   {
+    "ms_since_commit": 532.0563979781873,
+    "obs_since_commit": 2,
+    "post_rows": 0,
+    "pre_rows": 0,
+    "active_rows_in_gap": 1
+   },
+   {
+    "ms_since_commit": 532.0563979781873,
+    "obs_since_commit": 2,
+    "post_rows": 0,
+    "pre_rows": 0,
+    "active_rows_in_gap": 1
+   },
+   {
+    "ms_since_commit": 532.0563979781873,
+    "obs_since_commit": 2,
+    "post_rows": 0,
+    "pre_rows": 0,
+    "active_rows_in_gap": 1
+   },
+   {
+    "ms_since_commit": 766.616,
+    "obs_since_commit": 3,
+    "post_rows": 0,
+    "pre_rows": 0,
+    "active_rows_in_gap": 2
+   },
+   {
+    "ms_since_commit": 532.0563979781855,
+    "obs_since_commit": 2,
+    "post_rows": 0,
+    "pre_rows": 0,
+    "active_rows_in_gap": 1
+   },
+   {
+    "ms_since_commit": 801.6160000000018,
+    "obs_since_commit": 3,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 1
+   },
+   {
+    "ms_since_commit": 798.6723979781891,
+    "obs_since_commit": 3,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 1
+   },
+   {
+    "ms_since_commit": 532.0563979781855,
+    "obs_since_commit": 2,
+    "post_rows": 0,
+    "pre_rows": 0,
+    "active_rows_in_gap": 1
+   },
+   {
+    "ms_since_commit": 807.0604444444471,
+    "obs_since_commit": 3,
+    "post_rows": 0,
+    "pre_rows": 0,
+    "active_rows_in_gap": 2
+   },
+   {
+    "ms_since_commit": 533.0,
+    "obs_since_commit": 2,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 799.6160000000018,
+    "obs_since_commit": 3,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 1
+   },
+   {
+    "ms_since_commit": 267.0,
+    "obs_since_commit": 2,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 528.8731696030154,
+    "obs_since_commit": 2,
+    "post_rows": 0,
+    "pre_rows": 0,
+    "active_rows_in_gap": 1
+   },
+   {
+    "ms_since_commit": 1347.3493333333336,
+    "obs_since_commit": 5,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 3
+   },
+   {
+    "ms_since_commit": 1077.3048888888952,
+    "obs_since_commit": 4,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 2
+   }
+  ],
+  "reentries": [
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 399.4831492418198,
+    "post_peak": 0.9909143804669218,
+    "pre_peak": 0.005238599318516321,
+    "prev_span_ms": 598.5634477254607,
+    "span_ms": 598.5634477254571,
+    "entry_active": 0.8010906190099255,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 396.6548772022579,
+    "post_peak": 0.5961646156583045,
+    "pre_peak": 9.749759990076981e-05,
+    "prev_span_ms": 1215.6666666666642,
+    "span_ms": 198.3274386011326,
+    "entry_active": 0.9280189599561003,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 0,
+    "gap_ms": 111.20584201356678,
+    "post_peak": 0.0,
+    "pre_peak": 0.0,
+    "prev_span_ms": 266.0,
+    "span_ms": 407.75475404974577,
+    "entry_active": 0.9872847056214042,
+    "prev_category": "DUPLICATE"
+   },
+   {
+    "category": "OTHER",
+    "family": "",
+    "gap_obs": 2,
+    "gap_ms": 405.33333333333394,
+    "post_peak": 0.8329415008449408,
+    "pre_peak": 0.044137577830368604,
+    "prev_span_ms": 291.9583333333321,
+    "span_ms": 135.1111111111113,
+    "entry_active": 0.8532705083044196,
+    "prev_category": "NONSIGN"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 2,
+    "gap_ms": 399.308,
+    "post_peak": 0.9991973114695621,
+    "pre_peak": 0.06322363078207087,
+    "prev_span_ms": 266.0,
+    "span_ms": 2133.308000000001,
+    "entry_active": 0.8163809995944752,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 2,
+    "gap_ms": 399.3080000000009,
+    "post_peak": 0.9999964290083316,
+    "pre_peak": 0.03533170103925263,
+    "prev_span_ms": 1600.0000000000018,
+    "span_ms": 1600.0,
+    "entry_active": 0.8921324345834203,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 0,
+    "gap_ms": 266.61599999999817,
+    "post_peak": 0.0,
+    "pre_peak": 0.0,
+    "prev_span_ms": 802.0,
+    "span_ms": 802.0,
+    "entry_active": 0.8628920182418365,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 533.6160000000018,
+    "post_peak": 0.5698889419892171,
+    "pre_peak": 0.00039636637433140327,
+    "prev_span_ms": 802.0,
+    "span_ms": 535.0,
+    "entry_active": 0.6599391050778906,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 0,
+    "gap_ms": 199.52114924182024,
+    "post_peak": 0.0,
+    "pre_peak": 0.0,
+    "prev_span_ms": 598.5634477254589,
+    "span_ms": 1596.610044692734,
+    "entry_active": 0.7797235021997411,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 2,
+    "gap_ms": 599.00429848364,
+    "post_peak": 0.9999246780969121,
+    "pre_peak": 0.3935376865656163,
+    "prev_span_ms": 1596.610044692734,
+    "span_ms": 598.5634477254571,
+    "entry_active": 0.5841837680460377,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 0,
+    "gap_ms": 197.04433497536957,
+    "post_peak": 0.0,
+    "pre_peak": 0.0,
+    "prev_span_ms": 598.5634477254571,
+    "span_ms": 591.1330049261087,
+    "entry_active": 0.9717197071010417,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 0,
+    "gap_ms": 200.0,
+    "post_peak": 0.0,
+    "pre_peak": 0.0,
+    "prev_span_ms": 166.83333333333576,
+    "span_ms": 1000.0,
+    "entry_active": 0.7108660273773698,
+    "prev_category": "NONSIGN"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 0,
+    "gap_ms": 200.0,
+    "post_peak": 0.0,
+    "pre_peak": 0.0,
+    "prev_span_ms": 1001.0,
+    "span_ms": 1600.0,
+    "entry_active": 0.9961369902488785,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "DUPLICATE",
+    "family": "",
+    "gap_obs": 0,
+    "gap_ms": 135.06666666666752,
+    "post_peak": 0.0,
+    "pre_peak": 0.0,
+    "prev_span_ms": 540.3000000000002,
+    "span_ms": 135.0666666666657,
+    "entry_active": 0.5032353603689083,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 0,
+    "gap_ms": 199.96199999999953,
+    "post_peak": 0.0,
+    "pre_peak": 0.0,
+    "prev_span_ms": 395.11375983668586,
+    "span_ms": 2202.9619999999995,
+    "entry_active": 0.7281018265295244,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 2,
+    "gap_ms": 599.0042984836418,
+    "post_peak": 0.9646411150694368,
+    "pre_peak": 0.0322116478205225,
+    "prev_span_ms": 2202.9619999999995,
+    "span_ms": 399.04229848363684,
+    "entry_active": 0.9917267342911793,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 0,
+    "gap_ms": 222.41168402713083,
+    "post_peak": 0.0,
+    "pre_peak": 0.0,
+    "prev_span_ms": 1201.0,
+    "span_ms": 370.68614004522533,
+    "entry_active": 0.99999981838584,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 399.04229848363866,
+    "post_peak": 0.989597748380816,
+    "pre_peak": 0.00018830194407445756,
+    "prev_span_ms": 2787.9132636339464,
+    "span_ms": 399.0422984836405,
+    "entry_active": 0.9915980987568473,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 532.6160000000018,
+    "post_peak": 0.5749047794093552,
+    "pre_peak": 0.001204200164339823,
+    "prev_span_ms": 800.0,
+    "span_ms": 1867.0,
+    "entry_active": 0.9988561702065083,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 0,
+    "gap_ms": 266.0,
+    "post_peak": 0.0,
+    "pre_peak": 0.0,
+    "prev_span_ms": 1867.0,
+    "span_ms": 2133.6159999999945,
+    "entry_active": 0.9999225931713552,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 0,
+    "gap_ms": 267.0,
+    "post_peak": 0.0,
+    "pre_peak": 0.0,
+    "prev_span_ms": 259.48029803164536,
+    "span_ms": 535.0,
+    "entry_active": 0.9114580565797348,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 0,
+    "gap_ms": 266.61599999999453,
+    "post_peak": 0.0,
+    "pre_peak": 0.0,
+    "prev_span_ms": 535.0,
+    "span_ms": 2133.0,
+    "entry_active": 0.4769761786689991,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 290.94346798029574,
+    "post_peak": 0.988563898839067,
+    "pre_peak": 0.0002450931278267732,
+    "prev_span_ms": 658.5229330611439,
+    "span_ms": 394.08866995073913,
+    "entry_active": 0.993379455215119,
+    "prev_category": "DUPLICATE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 533.616,
+    "post_peak": 0.8290294092948391,
+    "pre_peak": 0.0016705216231347043,
+    "prev_span_ms": 1334.000000000001,
+    "span_ms": 767.0,
+    "entry_active": 0.5991065742275357,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 532.6160000000018,
+    "post_peak": 0.974992935485966,
+    "pre_peak": 0.004193891515111764,
+    "prev_span_ms": 2367.616000000002,
+    "span_ms": 2133.616000000002,
+    "entry_active": 0.999939903072166,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 0,
+    "gap_ms": 266.6160000000018,
+    "post_peak": 0.0,
+    "pre_peak": 0.0,
+    "prev_span_ms": 1034.0,
+    "span_ms": 1334.0,
+    "entry_active": 0.8475038767579929,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 531.052584801495,
+    "post_peak": 0.9999994824744838,
+    "pre_peak": 5.096361735442819e-07,
+    "prev_span_ms": 264.43658480150043,
+    "span_ms": 802.0,
+    "entry_active": 0.5820871802317463,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 422.37368402713037,
+    "post_peak": 0.2661260627269035,
+    "pre_peak": 0.3915324903551016,
+    "prev_span_ms": 197.55687991834566,
+    "span_ms": 370.68614004522533,
+    "entry_active": 0.9999999984985879,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 0,
+    "gap_ms": 266.6160000000018,
+    "post_peak": 0.0,
+    "pre_peak": 0.0,
+    "prev_span_ms": 800.0,
+    "span_ms": 2133.0,
+    "entry_active": 0.8525967531335307,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 0,
+    "gap_ms": 259.4802980316599,
+    "post_peak": 0.0,
+    "pre_peak": 0.0,
+    "prev_span_ms": 1867.0,
+    "span_ms": 259.48029803165264,
+    "entry_active": 0.8271624734298376,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 0,
+    "gap_ms": 296.33531987751485,
+    "post_peak": 0.0,
+    "pre_peak": 0.0,
+    "prev_span_ms": 533.0,
+    "span_ms": 263.4091732244633,
+    "entry_active": 0.6264367832573945,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 532.6160000000018,
+    "post_peak": 0.4019035709094604,
+    "pre_peak": 0.49414927520178425,
+    "prev_span_ms": 263.4091732244633,
+    "span_ms": 800.0,
+    "entry_active": 0.9999999610929595,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 532.6160000000018,
+    "post_peak": 0.8526909010830359,
+    "pre_peak": 0.0377105889911984,
+    "prev_span_ms": 802.0,
+    "span_ms": 800.0,
+    "entry_active": 0.9999961793757426,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "DUPLICATE",
+    "family": "",
+    "gap_obs": 0,
+    "gap_ms": 135.06666666666752,
+    "post_peak": 0.0,
+    "pre_peak": 0.0,
+    "prev_span_ms": 135.06666666666752,
+    "span_ms": 270.1333333333314,
+    "entry_active": 0.5278902868237082,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 268.3746666666684,
+    "post_peak": 0.6991320147591492,
+    "pre_peak": 0.01828392541393051,
+    "prev_span_ms": 270.1333333333314,
+    "span_ms": 1201.0,
+    "entry_active": 0.9679417655151171,
+    "prev_category": "DUPLICATE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 0,
+    "gap_ms": 111.20584201356542,
+    "post_peak": 0.0,
+    "pre_peak": 0.0,
+    "prev_span_ms": 518.9605960633126,
+    "span_ms": 407.75475404974713,
+    "entry_active": 0.9998017109592591,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 0,
+    "gap_ms": 135.09999999999854,
+    "post_peak": 0.0,
+    "pre_peak": 0.0,
+    "prev_span_ms": 528.8731696030154,
+    "span_ms": 135.06666666667297,
+    "entry_active": 0.7460645290290716,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 2,
+    "gap_ms": 596.6168772022611,
+    "post_peak": 0.9999993669725623,
+    "pre_peak": 0.0005492390599796352,
+    "prev_span_ms": 985.2216748768478,
+    "span_ms": 396.6548772022611,
+    "entry_active": 0.9517839754198018,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 2,
+    "gap_ms": 596.6168772022575,
+    "post_peak": 0.9910479656166092,
+    "pre_peak": 0.008889920956756333,
+    "prev_span_ms": 594.9823158033905,
+    "span_ms": 396.6548772022652,
+    "entry_active": 0.9688085677065326,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 0,
+    "gap_ms": 270.2222222222222,
+    "post_peak": 0.0,
+    "pre_peak": 0.0,
+    "prev_span_ms": 798.0845969672787,
+    "span_ms": 1621.0333333333333,
+    "entry_active": 0.927839026112283,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 399.96199999999953,
+    "post_peak": 0.9999995982049636,
+    "pre_peak": 1.7416073233363412e-08,
+    "prev_span_ms": 1789.8666666666686,
+    "span_ms": 1200.0,
+    "entry_active": 0.6900263511067697,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 0,
+    "gap_ms": 133.0,
+    "post_peak": 0.0,
+    "pre_peak": 0.0,
+    "prev_span_ms": 534.0,
+    "span_ms": 1068.308,
+    "entry_active": 0.6960189862277126,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 268.4191111111113,
+    "post_peak": 0.8462372174761573,
+    "pre_peak": 6.53304877270126e-05,
+    "prev_span_ms": 788.1773399014783,
+    "span_ms": 1080.6888888888889,
+    "entry_active": 0.9415011067714252,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 0,
+    "gap_ms": 135.11111111111313,
+    "post_peak": 0.0,
+    "pre_peak": 0.0,
+    "prev_span_ms": 798.0845969672773,
+    "span_ms": 945.5777777777766,
+    "entry_active": 0.9956428608502143,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 0,
+    "gap_ms": 135.06666666666933,
+    "post_peak": 0.0,
+    "pre_peak": 0.0,
+    "prev_span_ms": 1452.155555555557,
+    "span_ms": 1214.0413333333345,
+    "entry_active": 0.7052669904781582,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 2,
+    "gap_ms": 399.33619898909274,
+    "post_peak": 0.9999963724294908,
+    "pre_peak": 0.0018309858590161005,
+    "prev_span_ms": 931.0986964618249,
+    "span_ms": 798.0845969672787,
+    "entry_active": 0.9999999454822514,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 0,
+    "gap_ms": 135.1111111111113,
+    "post_peak": 0.0,
+    "pre_peak": 0.0,
+    "prev_span_ms": 250.2499999999991,
+    "span_ms": 1215.8000000000002,
+    "entry_active": 0.6411096693938002,
+    "prev_category": "NONSIGN"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 0,
+    "gap_ms": 133.308,
+    "post_peak": 0.0,
+    "pre_peak": 0.0,
+    "prev_span_ms": 1215.8000000000002,
+    "span_ms": 1080.7333333333336,
+    "entry_active": 0.9945973177904778,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "OTHER",
+    "family": "",
+    "gap_obs": 0,
+    "gap_ms": 135.0666666666666,
+    "post_peak": 0.0,
+    "pre_peak": 0.0,
+    "prev_span_ms": 1080.7333333333336,
+    "span_ms": 135.0666666666666,
+    "entry_active": 0.5024016407308234,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 3,
+    "gap_ms": 518.5346009852146,
+    "post_peak": 0.9999999835439288,
+    "pre_peak": 0.02672685079300536,
+    "prev_span_ms": 788.1773399014783,
+    "span_ms": 934.0,
+    "entry_active": 0.939499642423584,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 0,
+    "gap_ms": 266.616,
+    "post_peak": 0.0,
+    "pre_peak": 0.0,
+    "prev_span_ms": 802.0,
+    "span_ms": 802.0,
+    "entry_active": 0.8628105667283676,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "NONSIGN",
+    "family": "P1",
+    "gap_obs": 1,
+    "gap_ms": 542.2083333333285,
+    "post_peak": 0.5240335804079088,
+    "pre_peak": 0.23746108556978274,
+    "prev_span_ms": 250.25,
+    "span_ms": 1334.6666666666715,
+    "entry_active": 0.711126203991694,
+    "prev_category": "NONSIGN"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 402.6731111111112,
+    "post_peak": 0.9641584301164654,
+    "pre_peak": 0.008649804647261712,
+    "prev_span_ms": 1620.9444444444416,
+    "span_ms": 2000.0000000000036,
+    "entry_active": 0.5657598591536145,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 0,
+    "gap_ms": 134.0,
+    "post_peak": 0.0,
+    "pre_peak": 0.0,
+    "prev_span_ms": 396.65487720226156,
+    "span_ms": 934.0,
+    "entry_active": 0.8394223186981628,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 264.4365848015077,
+    "post_peak": 0.9588911160304937,
+    "pre_peak": 0.002209653046910855,
+    "prev_span_ms": 934.0,
+    "span_ms": 396.65487720226156,
+    "entry_active": 0.910436460892264,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 2,
+    "gap_ms": 599.0042984836391,
+    "post_peak": 0.9999980128510538,
+    "pre_peak": 0.16967231678616587,
+    "prev_span_ms": 598.5634477254589,
+    "span_ms": 598.5634477254598,
+    "entry_active": 0.8161878156503871,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 399.0422984836405,
+    "post_peak": 0.6852226202097291,
+    "pre_peak": 0.0015544012953670882,
+    "prev_span_ms": 598.5634477254571,
+    "span_ms": 1397.088895450921,
+    "entry_active": 0.9995309773500257,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "NONSIGN",
+    "family": "N0",
+    "gap_obs": 3,
+    "gap_ms": 534.5028656557588,
+    "post_peak": 0.9999798944604077,
+    "pre_peak": 0.052596297068906644,
+    "prev_span_ms": 798.0845969672791,
+    "span_ms": 540.2666666666664,
+    "entry_active": 0.9047534434187317,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 2,
+    "gap_ms": 592.6706397550297,
+    "post_peak": 0.9995118792766239,
+    "pre_peak": 0.1455205557409519,
+    "prev_span_ms": 801.0,
+    "span_ms": 197.55687991834566,
+    "entry_active": 0.9421523405716102,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 533.0,
+    "post_peak": 0.8953658372070242,
+    "pre_peak": 0.055059075052171745,
+    "prev_span_ms": 532.0563979781837,
+    "span_ms": 267.0,
+    "entry_active": 0.8388600465715511,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 0,
+    "gap_ms": 266.02819898909365,
+    "post_peak": 0.0,
+    "pre_peak": 0.0,
+    "prev_span_ms": 532.0563979781873,
+    "span_ms": 532.0563979781873,
+    "entry_active": 0.8749222445541731,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 399.4831492418198,
+    "post_peak": 0.9949593839701916,
+    "pre_peak": 0.0035988947186319543,
+    "prev_span_ms": 798.0845969672791,
+    "span_ms": 598.5634477254598,
+    "entry_active": 0.7635198983342744,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 399.04229848363866,
+    "post_peak": 0.8057536559472999,
+    "pre_peak": 0.004684533498702519,
+    "prev_span_ms": 598.563447725458,
+    "span_ms": 399.0422984836405,
+    "entry_active": 0.9991433138475043,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 2,
+    "gap_ms": 599.00429848364,
+    "post_peak": 0.9999886174542515,
+    "pre_peak": 0.4937436178887821,
+    "prev_span_ms": 598.5634477254589,
+    "span_ms": 598.5634477254589,
+    "entry_active": 0.48784099200689246,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 2,
+    "gap_ms": 599.00429848364,
+    "post_peak": 0.9999967371931482,
+    "pre_peak": 0.19057811305369635,
+    "prev_span_ms": 598.5634477254607,
+    "span_ms": 598.5634477254644,
+    "entry_active": 0.683642144064876,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 2,
+    "gap_ms": 599.0042984836327,
+    "post_peak": 0.9999942673157473,
+    "pre_peak": 0.18960707778828223,
+    "prev_span_ms": 598.5634477254571,
+    "span_ms": 598.5634477254644,
+    "entry_active": 0.7036130651829623,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 0,
+    "gap_ms": 199.5211492418166,
+    "post_peak": 0.0,
+    "pre_peak": 0.0,
+    "prev_span_ms": 598.5634477254571,
+    "span_ms": 598.5634477254644,
+    "entry_active": 0.507686323132824,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 531.0525848015077,
+    "post_peak": 0.9985615631571082,
+    "pre_peak": 0.0006105483997893553,
+    "prev_span_ms": 263.409173224456,
+    "span_ms": 528.8731696030136,
+    "entry_active": 0.8457502815992018,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 531.052584801495,
+    "post_peak": 0.9683998571740267,
+    "pre_peak": 0.02284768594167999,
+    "prev_span_ms": 512.3152709359565,
+    "span_ms": 528.8731696030154,
+    "entry_active": 0.8109523559716132,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 0,
+    "gap_ms": 197.04433497536957,
+    "post_peak": 0.0,
+    "pre_peak": 0.0,
+    "prev_span_ms": 1789.866666666665,
+    "span_ms": 197.04433497536957,
+    "entry_active": 0.9400821420212173,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 533.616,
+    "post_peak": 0.9998495544182355,
+    "pre_peak": 0.00014892098373419106,
+    "prev_span_ms": 800.0,
+    "span_ms": 800.0,
+    "entry_active": 0.9898997104190466,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 0,
+    "gap_ms": 266.6160000000018,
+    "post_peak": 0.0,
+    "pre_peak": 0.0,
+    "prev_span_ms": 2673.9493333333376,
+    "span_ms": 798.084596967281,
+    "entry_active": 0.9749595948170475,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 2,
+    "gap_ms": 399.308,
+    "post_peak": 0.9982741155431292,
+    "pre_peak": 0.11877989501518726,
+    "prev_span_ms": 1333.0,
+    "span_ms": 800.0,
+    "entry_active": 0.7267393522438825,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 0,
+    "gap_ms": 133.30799999999726,
+    "post_peak": 0.0,
+    "pre_peak": 0.0,
+    "prev_span_ms": 1335.0,
+    "span_ms": 1334.0,
+    "entry_active": 0.5671661668007282,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 540.4444444444453,
+    "post_peak": 0.9115585478475161,
+    "pre_peak": 0.00018238968216674755,
+    "prev_span_ms": 1867.0,
+    "span_ms": 1080.5666666666657,
+    "entry_active": 0.9712630931945885,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 0,
+    "gap_ms": 266.0,
+    "post_peak": 0.0,
+    "pre_peak": 0.0,
+    "prev_span_ms": 1867.0,
+    "span_ms": 1867.0,
+    "entry_active": 0.999921442749202,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 2,
+    "gap_ms": 397.7445848015077,
+    "post_peak": 0.9999468788359485,
+    "pre_peak": 1.346886531978044e-05,
+    "prev_span_ms": 1070.0,
+    "span_ms": 396.65487720226065,
+    "entry_active": 0.8886735427095592,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 400.96199999999953,
+    "post_peak": 0.9924019713412179,
+    "pre_peak": 0.003957278420615203,
+    "prev_span_ms": 598.5634477254607,
+    "span_ms": 802.0000000000036,
+    "entry_active": 0.9923631556477241,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 399.48314924181614,
+    "post_peak": 0.9755376668891721,
+    "pre_peak": 0.01449955477918538,
+    "prev_span_ms": 598.5634477254571,
+    "span_ms": 1596.6100446927449,
+    "entry_active": 0.9352578588744453,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 2,
+    "gap_ms": 599.0042984836327,
+    "post_peak": 0.999968351529983,
+    "pre_peak": 0.4602649046347851,
+    "prev_span_ms": 1596.6100446927449,
+    "span_ms": 598.5634477254644,
+    "entry_active": 0.8447382015685346,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 296.33531987751485,
+    "post_peak": 0.8221084310585124,
+    "pre_peak": 0.015817986772633602,
+    "prev_span_ms": 528.8731696030154,
+    "span_ms": 395.11375983668404,
+    "entry_active": 0.5433915181589977,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 244.51384201356632,
+    "post_peak": 0.9560933742182841,
+    "pre_peak": 0.025969882480016197,
+    "prev_span_ms": 395.11375983668404,
+    "span_ms": 407.75475404974713,
+    "entry_active": 0.9903743038887944,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 0,
+    "gap_ms": 266.6160000000018,
+    "post_peak": 0.0,
+    "pre_peak": 0.0,
+    "prev_span_ms": 267.0,
+    "span_ms": 1066.0,
+    "entry_active": 0.718707834189495,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "OTHER",
+    "family": "",
+    "gap_obs": 0,
+    "gap_ms": 270.2444444444409,
+    "post_peak": 0.0,
+    "pre_peak": 0.0,
+    "prev_span_ms": 1317.055555555562,
+    "span_ms": 558.574333333323,
+    "entry_active": 0.6097417767186127,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 2,
+    "gap_ms": 400.0,
+    "post_peak": 0.884955519707929,
+    "pre_peak": 3.403288885663449e-06,
+    "prev_span_ms": 1468.308000000001,
+    "span_ms": 134.0,
+    "entry_active": 0.5694626118745868,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 0,
+    "gap_ms": 270.2222222222222,
+    "post_peak": 0.0,
+    "pre_peak": 0.0,
+    "prev_span_ms": 250.25000000000182,
+    "span_ms": 1621.0333333333333,
+    "entry_active": 0.9569849768568338,
+    "prev_category": "NONSIGN"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 0,
+    "gap_ms": 133.01409949454683,
+    "post_peak": 0.0,
+    "pre_peak": 0.0,
+    "prev_span_ms": 798.0845969672773,
+    "span_ms": 798.0845969672773,
+    "entry_active": 0.999880143171805,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 405.18888888888614,
+    "post_peak": 0.7303923264588434,
+    "pre_peak": 0.005377330145708907,
+    "prev_span_ms": 1805.7770841994716,
+    "span_ms": 405.20000000000437,
+    "entry_active": 0.5577968922286001,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 402.6286666666638,
+    "post_peak": 0.9996176422539048,
+    "pre_peak": 6.24809113154486e-05,
+    "prev_span_ms": 1789.8666666666686,
+    "span_ms": 1384.5555555555547,
+    "entry_active": 0.49495536454818073,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 0,
+    "gap_ms": 266.0,
+    "post_peak": 0.0,
+    "pre_peak": 0.0,
+    "prev_span_ms": 800.0,
+    "span_ms": 800.0,
+    "entry_active": 0.9999999421146069,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "OTHER",
+    "family": "",
+    "gap_obs": 0,
+    "gap_ms": 270.2444444444409,
+    "post_peak": 0.0,
+    "pre_peak": 0.0,
+    "prev_span_ms": 1587.277777777781,
+    "span_ms": 536.793777777777,
+    "entry_active": 0.7803556497240386,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 2,
+    "gap_ms": 599.00429848364,
+    "post_peak": 0.9999965727001725,
+    "pre_peak": 0.2955318416962042,
+    "prev_span_ms": 598.5634477254607,
+    "span_ms": 598.5634477254571,
+    "entry_active": 0.8536084055181036,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 396.65487720226156,
+    "post_peak": 0.7971861506309391,
+    "pre_peak": 0.00037503577223315147,
+    "prev_span_ms": 598.5634477254607,
+    "span_ms": 198.3274386011326,
+    "entry_active": 0.9931058203741908,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 2,
+    "gap_ms": 399.33619898909274,
+    "post_peak": 0.9999693891776229,
+    "pre_peak": 0.01797626988290747,
+    "prev_span_ms": 798.0845969672791,
+    "span_ms": 798.0845969672773,
+    "entry_active": 0.9999975456669431,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 0,
+    "gap_ms": 200.0,
+    "post_peak": 0.0,
+    "pre_peak": 0.0,
+    "prev_span_ms": 1200.0,
+    "span_ms": 801.0,
+    "entry_active": 0.9169332501901858,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 2,
+    "gap_ms": 405.3333333333335,
+    "post_peak": 0.9471801206588086,
+    "pre_peak": 0.0029713522418069903,
+    "prev_span_ms": 417.08333333333394,
+    "span_ms": 641.6333333333332,
+    "entry_active": 0.9758278618393458,
+    "prev_category": "NONSIGN"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 0,
+    "gap_ms": 201.0,
+    "post_peak": 0.0,
+    "pre_peak": 0.0,
+    "prev_span_ms": 370.6861400452217,
+    "span_ms": 601.0,
+    "entry_active": 0.995711630686129,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 396.65487720226156,
+    "post_peak": 0.9871150012225595,
+    "pre_peak": 0.007909657100043254,
+    "prev_span_ms": 800.0,
+    "span_ms": 396.65487720226156,
+    "entry_active": 0.7404153283811592,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 531.0525848015077,
+    "post_peak": 0.9969140959532873,
+    "pre_peak": 3.12863227512722e-05,
+    "prev_span_ms": 802.0,
+    "span_ms": 1853.2355088090444,
+    "entry_active": 0.7079357092200194,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 0,
+    "gap_ms": 266.61599999999453,
+    "post_peak": 0.0,
+    "pre_peak": 0.0,
+    "prev_span_ms": 1066.0,
+    "span_ms": 518.9605960633198,
+    "entry_active": 0.9086854941951549,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 270.2222222222222,
+    "post_peak": 0.9240230039352967,
+    "pre_peak": 0.0004632557553611571,
+    "prev_span_ms": 291.9583333333321,
+    "span_ms": 776.7444444444445,
+    "entry_active": 0.9366715399366309,
+    "prev_category": "NONSIGN"
+   },
+   {
+    "category": "DUPLICATE",
+    "family": "",
+    "gap_obs": 0,
+    "gap_ms": 135.0666666666657,
+    "post_peak": 0.0,
+    "pre_peak": 0.0,
+    "prev_span_ms": 540.2999999999993,
+    "span_ms": 135.0666666666657,
+    "entry_active": 0.5780611383592382,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "NONSIGN",
+    "family": "N0",
+    "gap_obs": 1,
+    "gap_ms": 503.06044444444433,
+    "post_peak": 0.9703014964161968,
+    "pre_peak": 0.005104418229684888,
+    "prev_span_ms": 1034.0,
+    "span_ms": 1350.7555555555564,
+    "entry_active": 0.8873160504400917,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "NONSIGN",
+    "family": "P1",
+    "gap_obs": 1,
+    "gap_ms": 558.5743333333303,
+    "post_peak": 0.7799862683433498,
+    "pre_peak": 0.21968319176950374,
+    "prev_span_ms": 532.0563979781873,
+    "span_ms": 542.2083333333321,
+    "entry_active": 0.7113448417239163,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 0,
+    "gap_ms": 199.96199999999953,
+    "post_peak": 0.0,
+    "pre_peak": 0.0,
+    "prev_span_ms": 1823.655555555556,
+    "span_ms": 802.0,
+    "entry_active": 0.9764566544212434,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 268.4191111111104,
+    "post_peak": 0.8773625545767648,
+    "pre_peak": 0.000550668788549872,
+    "prev_span_ms": 788.1773399014792,
+    "span_ms": 1080.688888888888,
+    "entry_active": 0.8689506335559734,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 3,
+    "gap_ms": 529.9628772022588,
+    "post_peak": 0.9999996203525807,
+    "pre_peak": 0.0004657814232594031,
+    "prev_span_ms": 528.8731696030154,
+    "span_ms": 949.4687227325448,
+    "entry_active": 0.9755620222205548,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 397.0063349753691,
+    "post_peak": 0.5340102052867397,
+    "pre_peak": 0.15322708549743166,
+    "prev_span_ms": 395.11375983668404,
+    "span_ms": 591.1330049261087,
+    "entry_active": 0.9901418562735451,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 296.33531987751485,
+    "post_peak": 0.832143975584085,
+    "pre_peak": 0.004521867054803416,
+    "prev_span_ms": 528.8731696030154,
+    "span_ms": 395.11375983668586,
+    "entry_active": 0.5296584168408588,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 535.0,
+    "post_peak": 0.6041768602312693,
+    "pre_peak": 0.0006125670680158508,
+    "prev_span_ms": 801.9999999999982,
+    "span_ms": 267.0,
+    "entry_active": 0.9988000632644957,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 267.0,
+    "post_peak": 0.9595674046567974,
+    "pre_peak": 0.00010515774123607055,
+    "prev_span_ms": 1335.0,
+    "span_ms": 400.0,
+    "entry_active": 0.9041558354829085,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 267.0,
+    "post_peak": 0.9116007443514446,
+    "pre_peak": 0.002281024160610625,
+    "prev_span_ms": 1700.6160000000018,
+    "span_ms": 534.0,
+    "entry_active": 0.5176810750883125,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "NONSIGN",
+    "family": "P1",
+    "gap_obs": 1,
+    "gap_ms": 417.0833333333285,
+    "post_peak": 0.5688952412480632,
+    "pre_peak": 0.13561591911242285,
+    "prev_span_ms": 625.625,
+    "span_ms": 1584.9166666666679,
+    "entry_active": 0.9834023733855073,
+    "prev_category": "NONSIGN"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 401.0,
+    "post_peak": 0.6926835510877838,
+    "pre_peak": 0.0022282557957486603,
+    "prev_span_ms": 2201.9619999999995,
+    "span_ms": 2000.9619999999995,
+    "entry_active": 0.9999997160423153,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 0,
+    "gap_ms": 201.0,
+    "post_peak": 0.0,
+    "pre_peak": 0.0,
+    "prev_span_ms": 1003.0,
+    "span_ms": 601.0,
+    "entry_active": 0.971819653294171,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 535.0,
+    "post_peak": 0.3955536505609387,
+    "pre_peak": 0.5176364347732461,
+    "prev_span_ms": 250.25,
+    "span_ms": 802.0,
+    "entry_active": 0.9981786911673947,
+    "prev_category": "NONSIGN"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 535.0,
+    "post_peak": 0.903318417876782,
+    "pre_peak": 0.03714846611164274,
+    "prev_span_ms": 1084.4166666666642,
+    "span_ms": 802.0,
+    "entry_active": 0.9146911482176274,
+    "prev_category": "NONSIGN"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 0,
+    "gap_ms": 266.61599999999453,
+    "post_peak": 0.0,
+    "pre_peak": 0.0,
+    "prev_span_ms": 802.0,
+    "span_ms": 1621.0111111111182,
+    "entry_active": 0.48637530495405157,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 532.6441989890955,
+    "post_peak": 0.7634823477032415,
+    "pre_peak": 0.23413129218687778,
+    "prev_span_ms": 532.0563979781837,
+    "span_ms": 532.0563979781837,
+    "entry_active": 0.9779018914708891,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 266.308,
+    "post_peak": 0.9932930317342041,
+    "pre_peak": 1.7302576807467358e-05,
+    "prev_span_ms": 1733.0,
+    "span_ms": 266.0,
+    "entry_active": 0.9286261693443579,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 266.308,
+    "post_peak": 0.8261765440311826,
+    "pre_peak": 1.4834658129961302e-06,
+    "prev_span_ms": 266.0,
+    "span_ms": 800.0,
+    "entry_active": 0.9938785017649608,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 267.0,
+    "post_peak": 0.5547052937555548,
+    "pre_peak": 3.4716852032861006e-06,
+    "prev_span_ms": 2671.308,
+    "span_ms": 401.0,
+    "entry_active": 0.9939748573978697,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 0,
+    "gap_ms": 133.0,
+    "post_peak": 0.0,
+    "pre_peak": 0.0,
+    "prev_span_ms": 1070.0,
+    "span_ms": 535.0,
+    "entry_active": 0.9702864299962806,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 267.0,
+    "post_peak": 0.6738325456293259,
+    "pre_peak": 9.007656504139056e-06,
+    "prev_span_ms": 535.0,
+    "span_ms": 401.0,
+    "entry_active": 0.9811378038234658,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 267.0,
+    "post_peak": 0.9988374729476639,
+    "pre_peak": 0.0006432270338272366,
+    "prev_span_ms": 166.83333333333212,
+    "span_ms": 1070.0,
+    "entry_active": 0.9715151773248253,
+    "prev_category": "NONSIGN"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 0,
+    "gap_ms": 222.41168402713083,
+    "post_peak": 0.0,
+    "pre_peak": 0.0,
+    "prev_span_ms": 598.5634477254644,
+    "span_ms": 370.68614004522533,
+    "entry_active": 0.9999999425753283,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 0,
+    "gap_ms": 266.02819898909365,
+    "post_peak": 0.0,
+    "pre_peak": 0.0,
+    "prev_span_ms": 1068.0,
+    "span_ms": 532.0563979781855,
+    "entry_active": 0.5999130748019762,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 532.6441989890882,
+    "post_peak": 0.716246332447575,
+    "pre_peak": 0.2819986138252097,
+    "prev_span_ms": 532.0563979781873,
+    "span_ms": 532.0563979781873,
+    "entry_active": 0.9735231804222068,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 532.6441989890882,
+    "post_peak": 0.969211084348376,
+    "pre_peak": 0.025989255844814933,
+    "prev_span_ms": 266.02819898909365,
+    "span_ms": 532.0563979781873,
+    "entry_active": 0.5165278742762379,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "NONSIGN",
+    "family": "N0",
+    "gap_obs": 1,
+    "gap_ms": 402.6286666666665,
+    "post_peak": 0.9951526201454771,
+    "pre_peak": 0.0020506319200267777,
+    "prev_span_ms": 1823.6555555555556,
+    "span_ms": 1013.0666666666666,
+    "entry_active": 0.7681568297332392,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "NONSIGN",
+    "family": "N0",
+    "gap_obs": 1,
+    "gap_ms": 536.7160000000003,
+    "post_peak": 0.9703522964636012,
+    "pre_peak": 0.0072194532194294475,
+    "prev_span_ms": 1334.0,
+    "span_ms": 810.4555555555562,
+    "entry_active": 0.9271544123707661,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 267.0,
+    "post_peak": 0.940603747107016,
+    "pre_peak": 0.011847444122312863,
+    "prev_span_ms": 1466.0,
+    "span_ms": 1200.308000000001,
+    "entry_active": 0.5378183271875403,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "NONSIGN",
+    "family": "P1",
+    "gap_obs": 1,
+    "gap_ms": 375.37499999999636,
+    "post_peak": 0.6247462678801906,
+    "pre_peak": 0.11084524181022035,
+    "prev_span_ms": 1001.0,
+    "span_ms": 1001.0000000000036,
+    "entry_active": 0.9738957824875059,
+    "prev_category": "NONSIGN"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 0,
+    "gap_ms": 222.41168402713447,
+    "post_peak": 0.0,
+    "pre_peak": 0.0,
+    "prev_span_ms": 1201.0,
+    "span_ms": 370.6861400452235,
+    "entry_active": 0.99999983803493,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 0,
+    "gap_ms": 200.0,
+    "post_peak": 0.0,
+    "pre_peak": 0.0,
+    "prev_span_ms": 197.55687991834202,
+    "span_ms": 600.0,
+    "entry_active": 0.9957583276146952,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 2,
+    "gap_ms": 597.8105878429487,
+    "post_peak": 0.999992286690676,
+    "pre_peak": 0.885530232970221,
+    "prev_span_ms": 396.6548772022579,
+    "span_ms": 598.5634477254644,
+    "entry_active": 0.865631422279835,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 2,
+    "gap_ms": 621.894833268947,
+    "post_peak": 0.9999679441115323,
+    "pre_peak": 0.6465643811123765,
+    "prev_span_ms": 598.5634477254644,
+    "span_ms": 370.68614004522533,
+    "entry_active": 0.9999999538253562,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 0,
+    "gap_ms": 199.96199999999953,
+    "post_peak": 0.0,
+    "pre_peak": 0.0,
+    "prev_span_ms": 197.55687991833838,
+    "span_ms": 1384.6555555555533,
+    "entry_active": 0.4792474884157892,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 266.3080000000009,
+    "post_peak": 0.6360225469171461,
+    "pre_peak": 0.31560085511854946,
+    "prev_span_ms": 2533.308000000001,
+    "span_ms": 1599.9999999999964,
+    "entry_active": 0.8056636164441175,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 0,
+    "gap_ms": 199.52114924181842,
+    "post_peak": 0.0,
+    "pre_peak": 0.0,
+    "prev_span_ms": 1200.0,
+    "span_ms": 399.0422984836405,
+    "entry_active": 0.9196101474582935,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 0,
+    "gap_ms": 199.52114924182024,
+    "post_peak": 0.0,
+    "pre_peak": 0.0,
+    "prev_span_ms": 598.5634477254607,
+    "span_ms": 598.5634477254571,
+    "entry_active": 0.738279921686479,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 397.0063349753691,
+    "post_peak": 0.9993990049036833,
+    "pre_peak": 0.00017673628377610793,
+    "prev_span_ms": 598.5634477254571,
+    "span_ms": 591.1330049261087,
+    "entry_active": 0.9207724677848894,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 267.3079999999991,
+    "post_peak": 0.6125863586506438,
+    "pre_peak": 0.3095313339812687,
+    "prev_span_ms": 518.9605960633126,
+    "span_ms": 1200.0,
+    "entry_active": 0.8382343063983199,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 3,
+    "gap_ms": 551.7241379310362,
+    "post_peak": 0.9966433003295893,
+    "pre_peak": 0.619418957922425,
+    "prev_span_ms": 157.63546798029347,
+    "span_ms": 788.1773399014783,
+    "entry_active": 0.9167585265438103,
+    "prev_category": "OTHER"
+   },
+   {
+    "category": "OTHER",
+    "family": "",
+    "gap_obs": 2,
+    "gap_ms": 403.53022222222353,
+    "post_peak": 0.9801743182636791,
+    "pre_peak": 0.01696478075616609,
+    "prev_span_ms": 1335.0,
+    "span_ms": 641.6555555555533,
+    "entry_active": 0.4962808367050049,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 400.96199999999953,
+    "post_peak": 0.9994669313286029,
+    "pre_peak": 0.00011657828031492264,
+    "prev_span_ms": 1002.0,
+    "span_ms": 601.0,
+    "entry_active": 0.872284981572728,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 400.96199999999953,
+    "post_peak": 0.9989003327566133,
+    "pre_peak": 0.0009879576704648618,
+    "prev_span_ms": 601.0,
+    "span_ms": 1602.9619999999995,
+    "entry_active": 0.9520535539344482,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 532.616,
+    "post_peak": 0.9957105114200492,
+    "pre_peak": 0.0009057864547184276,
+    "prev_span_ms": 802.0,
+    "span_ms": 1067.0,
+    "entry_active": 0.7169320400111567,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 396.6548772022611,
+    "post_peak": 0.6835606539298295,
+    "pre_peak": 0.0076588227790786115,
+    "prev_span_ms": 395.1137598366863,
+    "span_ms": 396.65487720226065,
+    "entry_active": 0.9951708843931785,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 0,
+    "gap_ms": 201.0,
+    "post_peak": 0.0,
+    "pre_peak": 0.0,
+    "prev_span_ms": 1003.0,
+    "span_ms": 601.0,
+    "entry_active": 0.9810611915705528,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 0,
+    "gap_ms": 201.0,
+    "post_peak": 0.0,
+    "pre_peak": 0.0,
+    "prev_span_ms": 198.32743860113078,
+    "span_ms": 601.0,
+    "entry_active": 0.9542871895334613,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 2,
+    "gap_ms": 399.0125866122289,
+    "post_peak": 0.9999947272954599,
+    "pre_peak": 0.08203826263094718,
+    "prev_span_ms": 526.8183464489148,
+    "span_ms": 668.0,
+    "entry_active": 0.9811077600777867,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 2,
+    "gap_ms": 400.3080000000009,
+    "post_peak": 0.9987498836804926,
+    "pre_peak": 0.04527476503014536,
+    "prev_span_ms": 533.0,
+    "span_ms": 802.0,
+    "entry_active": 0.9167185079705266,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 0,
+    "gap_ms": 199.52114924182024,
+    "post_peak": 0.0,
+    "pre_peak": 0.0,
+    "prev_span_ms": 598.5634477254607,
+    "span_ms": 598.5634477254571,
+    "entry_active": 0.7048572852244683,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 399.4831492418198,
+    "post_peak": 0.9950162525497528,
+    "pre_peak": 0.0036005549654724127,
+    "prev_span_ms": 598.5634477254571,
+    "span_ms": 598.5634477254571,
+    "entry_active": 0.5006365435703953,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 2,
+    "gap_ms": 401.3080000000009,
+    "post_peak": 0.9999999765862334,
+    "pre_peak": 0.003148781603449259,
+    "prev_span_ms": 1070.0,
+    "span_ms": 668.0,
+    "entry_active": 0.6249706103313735,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 2,
+    "gap_ms": 400.3080000000009,
+    "post_peak": 0.9935277915314104,
+    "pre_peak": 0.005771829167875362,
+    "prev_span_ms": 2538.308000000001,
+    "span_ms": 535.0,
+    "entry_active": 0.7574590300232735,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 2,
+    "gap_ms": 400.3080000000009,
+    "post_peak": 0.996054022835042,
+    "pre_peak": 0.0006538499746164094,
+    "prev_span_ms": 535.0,
+    "span_ms": 535.0,
+    "entry_active": 0.9093641498940453,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 401.0,
+    "post_peak": 0.14843168100564577,
+    "pre_peak": 0.46843338129139833,
+    "prev_span_ms": 1209.5416666666679,
+    "span_ms": 802.0,
+    "entry_active": 0.999993794776957,
+    "prev_category": "NONSIGN"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 0,
+    "gap_ms": 201.0,
+    "post_peak": 0.0,
+    "pre_peak": 0.0,
+    "prev_span_ms": 1003.0,
+    "span_ms": 601.0,
+    "entry_active": 0.985111519642567,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 2,
+    "gap_ms": 596.6168772022575,
+    "post_peak": 0.9999926030697229,
+    "pre_peak": 0.0037818383445082427,
+    "prev_span_ms": 1200.0,
+    "span_ms": 396.6548772022652,
+    "entry_active": 0.7981192476466541,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 405.18888888888887,
+    "post_peak": 0.6775754691357567,
+    "pre_peak": 0.008047857722740574,
+    "prev_span_ms": 370.6861400452235,
+    "span_ms": 405.1999999999998,
+    "entry_active": 0.8723563067354295,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 0,
+    "gap_ms": 201.0,
+    "post_peak": 0.0,
+    "pre_peak": 0.0,
+    "prev_span_ms": 1003.0,
+    "span_ms": 601.0,
+    "entry_active": 0.9846501135144522,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 0,
+    "gap_ms": 198.3274386011326,
+    "post_peak": 0.0,
+    "pre_peak": 0.0,
+    "prev_span_ms": 1003.0,
+    "span_ms": 198.3274386011326,
+    "entry_active": 0.9820298660829674,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 0,
+    "gap_ms": 201.0,
+    "post_peak": 0.0,
+    "pre_peak": 0.0,
+    "prev_span_ms": 1002.0,
+    "span_ms": 601.0,
+    "entry_active": 0.6162897944858927,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 401.0,
+    "post_peak": 0.18398267683719477,
+    "pre_peak": 0.4688960441331086,
+    "prev_span_ms": 1209.5416666666642,
+    "span_ms": 802.0,
+    "entry_active": 0.9999964665904887,
+    "prev_category": "NONSIGN"
+   },
+   {
+    "category": "OTHER",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 540.3777777777796,
+    "post_peak": 0.6038190770431414,
+    "pre_peak": 0.03074801114160737,
+    "prev_span_ms": 1853.8715555555536,
+    "span_ms": 536.7937777777806,
+    "entry_active": 0.6009914678945515,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 540.4444444444453,
+    "post_peak": 0.9328592586665855,
+    "pre_peak": 0.0015845856995715167,
+    "prev_span_ms": 1080.5666666666657,
+    "span_ms": 1077.049333333336,
+    "entry_active": 0.9542425508981857,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "OTHER",
+    "family": "",
+    "gap_obs": 0,
+    "gap_ms": 270.2444444444409,
+    "post_peak": 0.0,
+    "pre_peak": 0.0,
+    "prev_span_ms": 1587.277777777781,
+    "span_ms": 266.6160000000018,
+    "entry_active": 0.75174399246288,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 533.6160000000018,
+    "post_peak": 0.5324077998125801,
+    "pre_peak": 0.010950994750871534,
+    "prev_span_ms": 802.0,
+    "span_ms": 1327.925754404525,
+    "entry_active": 0.6887169995712192,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 532.6441989890882,
+    "post_peak": 0.5485041923957582,
+    "pre_peak": 0.40151564718762683,
+    "prev_span_ms": 528.8731696030154,
+    "span_ms": 532.0563979781873,
+    "entry_active": 0.9916661058659328,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 400.0,
+    "post_peak": 0.9563187933645129,
+    "pre_peak": 0.0001336224567154736,
+    "prev_span_ms": 1401.0,
+    "span_ms": 801.0,
+    "entry_active": 0.9706988830097463,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 400.0,
+    "post_peak": 0.7731154214223289,
+    "pre_peak": 0.008773150747805618,
+    "prev_span_ms": 801.0,
+    "span_ms": 1199.9619999999995,
+    "entry_active": 0.975127206859992,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 401.0,
+    "post_peak": 0.9891505959215533,
+    "pre_peak": 9.445323721210128e-08,
+    "prev_span_ms": 2800.9619999999995,
+    "span_ms": 400.0,
+    "entry_active": 0.6956773649077352,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 2,
+    "gap_ms": 400.3080000000009,
+    "post_peak": 0.71622283770833,
+    "pre_peak": 0.00505682728207058,
+    "prev_span_ms": 1070.0,
+    "span_ms": 1067.0,
+    "entry_active": 0.996056511745913,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 2,
+    "gap_ms": 399.3361989890909,
+    "post_peak": 0.9999177667164124,
+    "pre_peak": 0.0734685099556161,
+    "prev_span_ms": 931.0986964618241,
+    "span_ms": 798.0845969672773,
+    "entry_active": 0.9999989449222698,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "DUPLICATE",
+    "family": "",
+    "gap_obs": 0,
+    "gap_ms": 135.0666666666657,
+    "post_peak": 0.0,
+    "pre_peak": 0.0,
+    "prev_span_ms": 270.1333333333332,
+    "span_ms": 135.0666666666657,
+    "entry_active": 0.5117336915339975,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 0,
+    "gap_ms": 266.0,
+    "post_peak": 0.0,
+    "pre_peak": 0.0,
+    "prev_span_ms": 1867.0,
+    "span_ms": 2399.616000000002,
+    "entry_active": 0.9999202861376879,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 533.0,
+    "post_peak": 0.8374455022033129,
+    "pre_peak": 8.917754870871077e-05,
+    "prev_span_ms": 800.0,
+    "span_ms": 267.0,
+    "entry_active": 0.9731813314965855,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 0,
+    "gap_ms": 202.66666666666697,
+    "post_peak": 0.0,
+    "pre_peak": 0.0,
+    "prev_span_ms": 1584.916666666666,
+    "span_ms": 405.2666666666664,
+    "entry_active": 0.5674733364564706,
+    "prev_category": "NONSIGN"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 0,
+    "gap_ms": 201.0,
+    "post_peak": 0.0,
+    "pre_peak": 0.0,
+    "prev_span_ms": 788.1773399014783,
+    "span_ms": 601.0,
+    "entry_active": 0.9882500138743485,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 0,
+    "gap_ms": 201.0,
+    "post_peak": 0.0,
+    "pre_peak": 0.0,
+    "prev_span_ms": 601.0,
+    "span_ms": 601.0,
+    "entry_active": 0.6743066526716639,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "DUPLICATE",
+    "family": "",
+    "gap_obs": 0,
+    "gap_ms": 135.06666666666933,
+    "post_peak": 0.0,
+    "pre_peak": 0.0,
+    "prev_span_ms": 1452.155555555557,
+    "span_ms": 403.4635555555542,
+    "entry_active": 0.6939114558535581,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 0,
+    "gap_ms": 135.0666666666657,
+    "post_peak": 0.0,
+    "pre_peak": 0.0,
+    "prev_span_ms": 1317.044444444451,
+    "span_ms": 652.2685960633098,
+    "entry_active": 0.6461345323918198,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 2,
+    "gap_ms": 621.8948332689533,
+    "post_peak": 0.9999964526960682,
+    "pre_peak": 0.14733956682204205,
+    "prev_span_ms": 798.0845969672791,
+    "span_ms": 370.6861400452235,
+    "entry_active": 0.9999999987547543,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 399.48314924181886,
+    "post_peak": 0.7069688493646779,
+    "pre_peak": 0.2737895780284336,
+    "prev_span_ms": 370.6861400452235,
+    "span_ms": 598.5634477254598,
+    "entry_active": 0.6693427892794022,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 0,
+    "gap_ms": 266.616,
+    "post_peak": 0.0,
+    "pre_peak": 0.0,
+    "prev_span_ms": 802.0,
+    "span_ms": 1891.2555555555555,
+    "entry_active": 0.9421532240671237,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 0,
+    "gap_ms": 266.616,
+    "post_peak": 0.0,
+    "pre_peak": 0.0,
+    "prev_span_ms": 802.0,
+    "span_ms": 802.0,
+    "entry_active": 0.8439658639566324,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 0,
+    "gap_ms": 266.61599999999817,
+    "post_peak": 0.0,
+    "pre_peak": 0.0,
+    "prev_span_ms": 1587.2777777777774,
+    "span_ms": 802.0,
+    "entry_active": 0.9418705935533324,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 0,
+    "gap_ms": 266.6160000000018,
+    "post_peak": 0.0,
+    "pre_peak": 0.0,
+    "prev_span_ms": 802.0,
+    "span_ms": 802.0,
+    "entry_active": 0.8449490550720539,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 0,
+    "gap_ms": 266.6160000000018,
+    "post_peak": 0.0,
+    "pre_peak": 0.0,
+    "prev_span_ms": 802.0,
+    "span_ms": 802.0,
+    "entry_active": 0.5693057831791491,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 0,
+    "gap_ms": 111.20584201356723,
+    "post_peak": 0.0,
+    "pre_peak": 0.0,
+    "prev_span_ms": 1466.0,
+    "span_ms": 407.7547540497453,
+    "entry_active": 0.9814289511531348,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 2,
+    "gap_ms": 400.3079999999991,
+    "post_peak": 0.8357939523831434,
+    "pre_peak": 0.7117246415166495,
+    "prev_span_ms": 407.7547540497453,
+    "span_ms": 1067.0,
+    "entry_active": 0.9873740139544698,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 267.0,
+    "post_peak": 0.9321486173585226,
+    "pre_peak": 6.352184204568008e-05,
+    "prev_span_ms": 1067.0,
+    "span_ms": 800.0,
+    "entry_active": 0.9406423867126671,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 2,
+    "gap_ms": 400.3080000000009,
+    "post_peak": 0.9756214713499358,
+    "pre_peak": 0.01733149793027855,
+    "prev_span_ms": 1467.0,
+    "span_ms": 934.0,
+    "entry_active": 0.8547737963220451,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 2,
+    "gap_ms": 400.3080000000009,
+    "post_peak": 0.9809273230963506,
+    "pre_peak": 0.01683239419476324,
+    "prev_span_ms": 934.0,
+    "span_ms": 934.0,
+    "entry_active": 0.9800136514773143,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "OTHER",
+    "family": "",
+    "gap_obs": 0,
+    "gap_ms": 296.548912036179,
+    "post_peak": 0.0,
+    "pre_peak": 0.0,
+    "prev_span_ms": 526.8183464489155,
+    "span_ms": 259.4802980316563,
+    "entry_active": 0.7893620176882444,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 536.8382222222208,
+    "post_peak": 0.5227852928850887,
+    "pre_peak": 0.2903145977353333,
+    "prev_span_ms": 263.409173224456,
+    "span_ms": 1317.0333333333328,
+    "entry_active": 0.865945241548342,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 0,
+    "gap_ms": 132.21829240075385,
+    "post_peak": 0.0,
+    "pre_peak": 0.0,
+    "prev_span_ms": 1334.999999999999,
+    "span_ms": 396.65487720225974,
+    "entry_active": 0.7227198684252794,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 3,
+    "gap_ms": 529.9628772022606,
+    "post_peak": 0.999623199536648,
+    "pre_peak": 0.0002207489707327174,
+    "prev_span_ms": 396.65487720225974,
+    "span_ms": 264.4365848015059,
+    "entry_active": 0.9863562487203484,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "NONSIGN",
+    "family": "P1",
+    "gap_obs": 0,
+    "gap_ms": 291.95833333333576,
+    "post_peak": 0.0,
+    "pre_peak": 0.0,
+    "prev_span_ms": 250.24999999999636,
+    "span_ms": 1876.8749999999964,
+    "entry_active": 0.43985399166765327,
+    "prev_category": "NONSIGN"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 532.6160000000018,
+    "post_peak": 0.9948368585627215,
+    "pre_peak": 0.0039117913865781475,
+    "prev_span_ms": 802.0,
+    "span_ms": 1067.0,
+    "entry_active": 0.836713768992321,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 532.6160000000018,
+    "post_peak": 0.9249212122316278,
+    "pre_peak": 0.040450799017794845,
+    "prev_span_ms": 267.0,
+    "span_ms": 1867.0,
+    "entry_active": 0.9999799738629175,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "NONSIGN",
+    "family": "N0",
+    "gap_obs": 0,
+    "gap_ms": 266.6160000000018,
+    "post_peak": 0.0,
+    "pre_peak": 0.0,
+    "prev_span_ms": 802.0,
+    "span_ms": 1891.1777777777752,
+    "entry_active": 0.8740033595903446,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 266.32209949454773,
+    "post_peak": 0.3900348434321105,
+    "pre_peak": 0.47329533424441467,
+    "prev_span_ms": 518.9605960633126,
+    "span_ms": 798.0845969672773,
+    "entry_active": 0.9999911962264068,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 0,
+    "gap_ms": 266.616,
+    "post_peak": 0.0,
+    "pre_peak": 0.0,
+    "prev_span_ms": 802.0,
+    "span_ms": 1034.0,
+    "entry_active": 0.983851227615233,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 533.616,
+    "post_peak": 0.6327096034958886,
+    "pre_peak": 0.2549291306493637,
+    "prev_span_ms": 1034.0,
+    "span_ms": 533.0,
+    "entry_active": 0.7960082231144628,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 0,
+    "gap_ms": 266.0,
+    "post_peak": 0.0,
+    "pre_peak": 0.0,
+    "prev_span_ms": 1867.0,
+    "span_ms": 800.0,
+    "entry_active": 0.9999971997553333,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 0,
+    "gap_ms": 267.0,
+    "post_peak": 0.0,
+    "pre_peak": 0.0,
+    "prev_span_ms": 263.40917322445785,
+    "span_ms": 1067.0,
+    "entry_active": 0.9998793398442494,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 528.8731696030136,
+    "post_peak": 0.9059048879504024,
+    "pre_peak": 1.7974422728079824e-08,
+    "prev_span_ms": 1067.0,
+    "span_ms": 264.4365848015077,
+    "entry_active": 0.8417453446830758,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 2,
+    "gap_ms": 399.3361989890909,
+    "post_peak": 0.9999718152851063,
+    "pre_peak": 0.01778202572825363,
+    "prev_span_ms": 798.0845969672773,
+    "span_ms": 798.0845969672773,
+    "entry_active": 0.9999976513138574,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 533.616,
+    "post_peak": 0.9999515674489857,
+    "pre_peak": 4.8383737436322626e-05,
+    "prev_span_ms": 798.0845969672787,
+    "span_ms": 800.0,
+    "entry_active": 0.6956896427800939,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 0,
+    "gap_ms": 296.33531987751485,
+    "post_peak": 0.0,
+    "pre_peak": 0.0,
+    "prev_span_ms": 800.0,
+    "span_ms": 263.40917322445785,
+    "entry_active": 0.6367170866129708,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 532.616,
+    "post_peak": 0.949046222925699,
+    "pre_peak": 0.02727588542836273,
+    "prev_span_ms": 798.0845969672787,
+    "span_ms": 800.0,
+    "entry_active": 0.9999999806170442,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 532.6441989890955,
+    "post_peak": 0.9459566187465642,
+    "pre_peak": 0.002597808128713635,
+    "prev_span_ms": 1600.6723979781855,
+    "span_ms": 532.0563979781873,
+    "entry_active": 0.9212909148337953,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 532.6441989890955,
+    "post_peak": 0.8003039330837081,
+    "pre_peak": 0.19870336984797637,
+    "prev_span_ms": 532.0563979781873,
+    "span_ms": 798.084596967281,
+    "entry_active": 0.9504117428736173,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 532.6441989890955,
+    "post_peak": 0.6024720773079308,
+    "pre_peak": 0.3967827695791303,
+    "prev_span_ms": 798.084596967281,
+    "span_ms": 532.0563979781873,
+    "entry_active": 0.8779782308727834,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "NONSIGN",
+    "family": "P1",
+    "gap_obs": 0,
+    "gap_ms": 291.9583333333285,
+    "post_peak": 0.0,
+    "pre_peak": 0.0,
+    "prev_span_ms": 250.25,
+    "span_ms": 1334.6666666666715,
+    "entry_active": 0.8993114436176399,
+    "prev_category": "NONSIGN"
+   },
+   {
+    "category": "OTHER",
+    "family": "",
+    "gap_obs": 2,
+    "gap_ms": 571.5175555555543,
+    "post_peak": 0.9569444771664942,
+    "pre_peak": 0.011593963267190144,
+    "prev_span_ms": 1200.0,
+    "span_ms": 405.1333333333314,
+    "entry_active": 0.8315559557395341,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 0,
+    "gap_ms": 202.66666666666424,
+    "post_peak": 0.0,
+    "pre_peak": 0.0,
+    "prev_span_ms": 1201.0,
+    "span_ms": 1384.5555555555547,
+    "entry_active": 0.7126346029213209,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 2,
+    "gap_ms": 599.4831492418198,
+    "post_peak": 0.9999980179734302,
+    "pre_peak": 0.036998708413518856,
+    "prev_span_ms": 598.5634477254607,
+    "span_ms": 600.0,
+    "entry_active": 0.9810835358781392,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 0,
+    "gap_ms": 266.6160000000018,
+    "post_peak": 0.0,
+    "pre_peak": 0.0,
+    "prev_span_ms": 1334.6441989890918,
+    "span_ms": 802.0,
+    "entry_active": 0.5571323940812996,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 0,
+    "gap_ms": 199.52114924181933,
+    "post_peak": 0.0,
+    "pre_peak": 0.0,
+    "prev_span_ms": 598.5634477254589,
+    "span_ms": 1596.6100446927385,
+    "entry_active": 0.728577615825452,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 0,
+    "gap_ms": 222.41168402713447,
+    "post_peak": 0.0,
+    "pre_peak": 0.0,
+    "prev_span_ms": 598.5634477254607,
+    "span_ms": 370.6861400452217,
+    "entry_active": 0.9999999818630655,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 399.48314924181614,
+    "post_peak": 0.9916392522277588,
+    "pre_peak": 0.003662691507799207,
+    "prev_span_ms": 598.5634477254571,
+    "span_ms": 598.5634477254644,
+    "entry_active": 0.8839417012659188,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 0,
+    "gap_ms": 266.616,
+    "post_peak": 0.0,
+    "pre_peak": 0.0,
+    "prev_span_ms": 800.0,
+    "span_ms": 1066.0,
+    "entry_active": 0.5292337686566699,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "NONSIGN",
+    "family": "P1",
+    "gap_obs": 1,
+    "gap_ms": 408.5036666666656,
+    "post_peak": 0.6495421393445356,
+    "pre_peak": 0.0032733541596784697,
+    "prev_span_ms": 1789.8666666666668,
+    "span_ms": 208.54166666666788,
+    "entry_active": 0.9857290368461478,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 401.0,
+    "post_peak": 0.9846611671237563,
+    "pre_peak": 1.2599778492832855e-05,
+    "prev_span_ms": 3000.9619999999995,
+    "span_ms": 400.0,
+    "entry_active": 0.6472948878014465,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 400.0,
+    "post_peak": 0.5274055584926973,
+    "pre_peak": 0.046151794724523125,
+    "prev_span_ms": 400.0,
+    "span_ms": 1200.0,
+    "entry_active": 0.9800660201871197,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 400.0,
+    "post_peak": 0.7145620917904196,
+    "pre_peak": 0.0011956309786983227,
+    "prev_span_ms": 1401.0,
+    "span_ms": 2599.9619999999995,
+    "entry_active": 0.9100247394460063,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 0,
+    "gap_ms": 266.02819898909365,
+    "post_peak": 0.0,
+    "pre_peak": 0.0,
+    "prev_span_ms": 798.0845969672737,
+    "span_ms": 532.0563979781873,
+    "entry_active": 0.8407424601026309,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 0,
+    "gap_ms": 266.02819898909365,
+    "post_peak": 0.0,
+    "pre_peak": 0.0,
+    "prev_span_ms": 528.8731696030154,
+    "span_ms": 532.0563979781873,
+    "entry_active": 0.8429073177146983,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 0,
+    "gap_ms": 266.02819898909365,
+    "post_peak": 0.0,
+    "pre_peak": 0.0,
+    "prev_span_ms": 532.0563979781873,
+    "span_ms": 532.0563979781873,
+    "entry_active": 0.8401332120737987,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 0,
+    "gap_ms": 266.616,
+    "post_peak": 0.0,
+    "pre_peak": 0.0,
+    "prev_span_ms": 1334.0000000000005,
+    "span_ms": 1034.0,
+    "entry_active": 0.651917292607096,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 0,
+    "gap_ms": 266.02819898909365,
+    "post_peak": 0.0,
+    "pre_peak": 0.0,
+    "prev_span_ms": 532.0563979781855,
+    "span_ms": 532.0563979781855,
+    "entry_active": 0.9031276692409197,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 533.6160000000018,
+    "post_peak": 0.9872011563442834,
+    "pre_peak": 0.007536157786202447,
+    "prev_span_ms": 532.0563979781837,
+    "span_ms": 535.0,
+    "entry_active": 0.8848835418390899,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 532.6441989890955,
+    "post_peak": 0.7046908184094353,
+    "pre_peak": 0.29330478535948934,
+    "prev_span_ms": 532.0563979781873,
+    "span_ms": 532.0563979781873,
+    "entry_active": 0.9820728147037494,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "OTHER",
+    "family": "",
+    "gap_obs": 2,
+    "gap_ms": 392.7882980316567,
+    "post_peak": 0.9661449827259424,
+    "pre_peak": 0.17171352037563462,
+    "prev_span_ms": 658.5229330611442,
+    "span_ms": 259.4802980316563,
+    "entry_active": 0.40408277811522986,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 0,
+    "gap_ms": 266.02819898909365,
+    "post_peak": 0.0,
+    "pre_peak": 0.0,
+    "prev_span_ms": 532.0563979781855,
+    "span_ms": 532.0563979781855,
+    "entry_active": 0.9461995047275833,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 0,
+    "gap_ms": 266.6160000000018,
+    "post_peak": 0.0,
+    "pre_peak": 0.0,
+    "prev_span_ms": 1066.0,
+    "span_ms": 1621.011111111111,
+    "entry_active": 0.9451235123596875,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "NONSIGN",
+    "family": "P1",
+    "gap_obs": 1,
+    "gap_ms": 542.2083333333321,
+    "post_peak": 0.6498258221524081,
+    "pre_peak": 0.00167145543558266,
+    "prev_span_ms": 1867.0,
+    "span_ms": 291.9583333333321,
+    "entry_active": 0.6595130179971709,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 532.6160000000018,
+    "post_peak": 0.9787066016518786,
+    "pre_peak": 0.005472101622296027,
+    "prev_span_ms": 1034.0,
+    "span_ms": 800.0,
+    "entry_active": 0.9999987562880704,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 267.0,
+    "post_peak": 0.919031658975565,
+    "pre_peak": 3.891270378489164e-05,
+    "prev_span_ms": 2135.3784974727314,
+    "span_ms": 267.0,
+    "entry_active": 0.8822006240538365,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 0,
+    "gap_ms": 264.4365848015077,
+    "post_peak": 0.0,
+    "pre_peak": 0.0,
+    "prev_span_ms": 259.4802980316599,
+    "span_ms": 528.8731696030154,
+    "entry_active": 0.9946759069651312,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "NONSIGN",
+    "family": "P1",
+    "gap_obs": 0,
+    "gap_ms": 125.125,
+    "post_peak": 0.0,
+    "pre_peak": 0.0,
+    "prev_span_ms": 667.3333333333339,
+    "span_ms": 250.25,
+    "entry_active": 0.9697217043804108,
+    "prev_category": "NONSIGN"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 267.0,
+    "post_peak": 0.9990206714137392,
+    "pre_peak": 0.0009066313462109622,
+    "prev_span_ms": 250.25,
+    "span_ms": 1070.0,
+    "entry_active": 0.8473816234848419,
+    "prev_category": "NONSIGN"
+   },
+   {
+    "category": "OTHER",
+    "family": "",
+    "gap_obs": 0,
+    "gap_ms": 270.2444444444427,
+    "post_peak": 0.0,
+    "pre_peak": 0.0,
+    "prev_span_ms": 1317.0555555555557,
+    "span_ms": 536.793777777777,
+    "entry_active": 0.567062439274809,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 536.86044444445,
+    "post_peak": 0.9711957557203813,
+    "pre_peak": 0.0007515395176019481,
+    "prev_span_ms": 3711.349333333339,
+    "span_ms": 1621.011111111111,
+    "entry_active": 0.9162176671993458,
+    "prev_category": "GENUINE"
+   }
+  ]
+ },
+ "dev_continuous": {
+  "swallowed": [
+   {
+    "ms_since_commit": 267.0,
+    "obs_since_commit": 1,
+    "post_rows": 0,
+    "pre_rows": 0,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 1362.4934409888883,
+    "obs_since_commit": 5,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 3
+   },
+   {
+    "ms_since_commit": 267.0,
+    "obs_since_commit": 1,
+    "post_rows": 0,
+    "pre_rows": 0,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 267.0,
+    "obs_since_commit": 1,
+    "post_rows": 0,
+    "pre_rows": 0,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 535.0,
+    "obs_since_commit": 2,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 1334.616,
+    "obs_since_commit": 5,
+    "post_rows": 2,
+    "pre_rows": 0,
+    "active_rows_in_gap": 2
+   },
+   {
+    "ms_since_commit": 268.0,
+    "obs_since_commit": 1,
+    "post_rows": 0,
+    "pre_rows": 0,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 533.0,
+    "obs_since_commit": 2,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 532.9999999999998,
+    "obs_since_commit": 2,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 1600.6159999999998,
+    "obs_since_commit": 6,
+    "post_rows": 2,
+    "pre_rows": 0,
+    "active_rows_in_gap": 3
+   },
+   {
+    "ms_since_commit": 532.9999999999998,
+    "obs_since_commit": 2,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 533.616,
+    "obs_since_commit": 2,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 532.616,
+    "obs_since_commit": 2,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 526.7109346511475,
+    "obs_since_commit": 2,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 1868.504713996168,
+    "obs_since_commit": 7,
+    "post_rows": 3,
+    "pre_rows": 0,
+    "active_rows_in_gap": 3
+   },
+   {
+    "ms_since_commit": 533.0,
+    "obs_since_commit": 2,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 268.0,
+    "obs_since_commit": 1,
+    "post_rows": 0,
+    "pre_rows": 0,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 268.0,
+    "obs_since_commit": 1,
+    "post_rows": 0,
+    "pre_rows": 0,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 1336.616,
+    "obs_since_commit": 5,
+    "post_rows": 0,
+    "pre_rows": 0,
+    "active_rows_in_gap": 4
+   },
+   {
+    "ms_since_commit": 267.0,
+    "obs_since_commit": 1,
+    "post_rows": 0,
+    "pre_rows": 0,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 1333.616,
+    "obs_since_commit": 5,
+    "post_rows": 2,
+    "pre_rows": 0,
+    "active_rows_in_gap": 2
+   },
+   {
+    "ms_since_commit": 267.0,
+    "obs_since_commit": 1,
+    "post_rows": 0,
+    "pre_rows": 0,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 533.9999999999998,
+    "obs_since_commit": 2,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 1601.6159999999998,
+    "obs_since_commit": 6,
+    "post_rows": 3,
+    "pre_rows": 0,
+    "active_rows_in_gap": 2
+   },
+   {
+    "ms_since_commit": 533.616,
+    "obs_since_commit": 2,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 1600.232,
+    "obs_since_commit": 6,
+    "post_rows": 2,
+    "pre_rows": 0,
+    "active_rows_in_gap": 3
+   },
+   {
+    "ms_since_commit": 258.61511605353326,
+    "obs_since_commit": 1,
+    "post_rows": 0,
+    "pre_rows": 0,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 533.616,
+    "obs_since_commit": 2,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 534.0,
+    "obs_since_commit": 2,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 1067.616,
+    "obs_since_commit": 4,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 2
+   },
+   {
+    "ms_since_commit": 533.6159999999998,
+    "obs_since_commit": 2,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 2663.27736505343,
+    "obs_since_commit": 10,
+    "post_rows": 5,
+    "pre_rows": 0,
+    "active_rows_in_gap": 4
+   },
+   {
+    "ms_since_commit": 266.0,
+    "obs_since_commit": 1,
+    "post_rows": 0,
+    "pre_rows": 0,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 267.0,
+    "obs_since_commit": 1,
+    "post_rows": 0,
+    "pre_rows": 0,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 533.616,
+    "obs_since_commit": 2,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 534.0,
+    "obs_since_commit": 2,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 1600.616,
+    "obs_since_commit": 6,
+    "post_rows": 2,
+    "pre_rows": 0,
+    "active_rows_in_gap": 3
+   },
+   {
+    "ms_since_commit": 2668.232,
+    "obs_since_commit": 10,
+    "post_rows": 2,
+    "pre_rows": 0,
+    "active_rows_in_gap": 7
+   },
+   {
+    "ms_since_commit": 533.616,
+    "obs_since_commit": 2,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 266.616,
+    "obs_since_commit": 1,
+    "post_rows": 0,
+    "pre_rows": 0,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 534.0,
+    "obs_since_commit": 2,
+    "post_rows": 0,
+    "pre_rows": 1,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 1334.616,
+    "obs_since_commit": 5,
+    "post_rows": 0,
+    "pre_rows": 1,
+    "active_rows_in_gap": 3
+   },
+   {
+    "ms_since_commit": 532.616,
+    "obs_since_commit": 2,
+    "post_rows": 0,
+    "pre_rows": 1,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 267.0,
+    "obs_since_commit": 1,
+    "post_rows": 0,
+    "pre_rows": 0,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 534.0,
+    "obs_since_commit": 2,
+    "post_rows": 0,
+    "pre_rows": 1,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 267.0,
+    "obs_since_commit": 1,
+    "post_rows": 0,
+    "pre_rows": 0,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 533.6159999999998,
+    "obs_since_commit": 2,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 1066.2319999999997,
+    "obs_since_commit": 4,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 2
+   },
+   {
+    "ms_since_commit": 534.0,
+    "obs_since_commit": 2,
+    "post_rows": 0,
+    "pre_rows": 1,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 533.616,
+    "obs_since_commit": 2,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 1334.232,
+    "obs_since_commit": 5,
+    "post_rows": 2,
+    "pre_rows": 0,
+    "active_rows_in_gap": 2
+   },
+   {
+    "ms_since_commit": 534.0,
+    "obs_since_commit": 2,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 1335.616,
+    "obs_since_commit": 5,
+    "post_rows": 2,
+    "pre_rows": 0,
+    "active_rows_in_gap": 2
+   },
+   {
+    "ms_since_commit": 523.6287472182221,
+    "obs_since_commit": 2,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 533.616,
+    "obs_since_commit": 2,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 533.6159999999998,
+    "obs_since_commit": 2,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 1894.7453548576457,
+    "obs_since_commit": 7,
+    "post_rows": 2,
+    "pre_rows": 0,
+    "active_rows_in_gap": 4
+   },
+   {
+    "ms_since_commit": 533.0,
+    "obs_since_commit": 2,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 1332.616,
+    "obs_since_commit": 5,
+    "post_rows": 2,
+    "pre_rows": 0,
+    "active_rows_in_gap": 2
+   },
+   {
+    "ms_since_commit": 555.083915627245,
+    "obs_since_commit": 2,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 1343.417341243161,
+    "obs_since_commit": 5,
+    "post_rows": 2,
+    "pre_rows": 0,
+    "active_rows_in_gap": 2
+   },
+   {
+    "ms_since_commit": 1870.5348065639037,
+    "obs_since_commit": 7,
+    "post_rows": 2,
+    "pre_rows": 0,
+    "active_rows_in_gap": 4
+   },
+   {
+    "ms_since_commit": 534.0,
+    "obs_since_commit": 2,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 1860.5731517965942,
+    "obs_since_commit": 7,
+    "post_rows": 3,
+    "pre_rows": 0,
+    "active_rows_in_gap": 3
+   },
+   {
+    "ms_since_commit": 526.7142904170923,
+    "obs_since_commit": 2,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 261.83151142239967,
+    "obs_since_commit": 1,
+    "post_rows": 0,
+    "pre_rows": 0,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 534.0000000000002,
+    "obs_since_commit": 2,
+    "post_rows": 0,
+    "pre_rows": 1,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 557.3953244368668,
+    "obs_since_commit": 2,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 263.6174910205291,
+    "obs_since_commit": 1,
+    "post_rows": 0,
+    "pre_rows": 0,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 261.04548717614034,
+    "obs_since_commit": 1,
+    "post_rows": 0,
+    "pre_rows": 0,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 528.396104712042,
+    "obs_since_commit": 2,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 261.3354240167255,
+    "obs_since_commit": 1,
+    "post_rows": 0,
+    "pre_rows": 0,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 263.2791417099984,
+    "obs_since_commit": 1,
+    "post_rows": 0,
+    "pre_rows": 0,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 533.0,
+    "obs_since_commit": 2,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 263.04540821359296,
+    "obs_since_commit": 1,
+    "post_rows": 0,
+    "pre_rows": 0,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 535.0,
+    "obs_since_commit": 2,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 262.9762335228954,
+    "obs_since_commit": 1,
+    "post_rows": 0,
+    "pre_rows": 0,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 268.0,
+    "obs_since_commit": 1,
+    "post_rows": 0,
+    "pre_rows": 0,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 263.80003957000554,
+    "obs_since_commit": 1,
+    "post_rows": 0,
+    "pre_rows": 0,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 797.372552701856,
+    "obs_since_commit": 3,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 1
+   },
+   {
+    "ms_since_commit": 535.0,
+    "obs_since_commit": 2,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 264.6202699126752,
+    "obs_since_commit": 1,
+    "post_rows": 0,
+    "pre_rows": 0,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 267.0,
+    "obs_since_commit": 1,
+    "post_rows": 0,
+    "pre_rows": 0,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 262.80345586544445,
+    "obs_since_commit": 1,
+    "post_rows": 0,
+    "pre_rows": 0,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 524.9516060238197,
+    "obs_since_commit": 2,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 524.5557668349616,
+    "obs_since_commit": 2,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 1581.727533669923,
+    "obs_since_commit": 6,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 4
+   },
+   {
+    "ms_since_commit": 533.0,
+    "obs_since_commit": 2,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 1066.616,
+    "obs_since_commit": 4,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 2
+   },
+   {
+    "ms_since_commit": 2421.0922958055944,
+    "obs_since_commit": 9,
+    "post_rows": 2,
+    "pre_rows": 0,
+    "active_rows_in_gap": 6
+   },
+   {
+    "ms_since_commit": 526.1540223202701,
+    "obs_since_commit": 2,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 527.0960303080219,
+    "obs_since_commit": 2,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 261.60034008044204,
+    "obs_since_commit": 1,
+    "post_rows": 0,
+    "pre_rows": 0,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 534.0,
+    "obs_since_commit": 2,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 533.616,
+    "obs_since_commit": 2,
+    "post_rows": 0,
+    "pre_rows": 0,
+    "active_rows_in_gap": 1
+   },
+   {
+    "ms_since_commit": 266.0,
+    "obs_since_commit": 1,
+    "post_rows": 0,
+    "pre_rows": 0,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 1866.6159999999995,
+    "obs_since_commit": 7,
+    "post_rows": 0,
+    "pre_rows": 0,
+    "active_rows_in_gap": 6
+   },
+   {
+    "ms_since_commit": 533.0,
+    "obs_since_commit": 2,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 1866.616,
+    "obs_since_commit": 7,
+    "post_rows": 2,
+    "pre_rows": 0,
+    "active_rows_in_gap": 4
+   },
+   {
+    "ms_since_commit": 533.0,
+    "obs_since_commit": 2,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 533.616,
+    "obs_since_commit": 2,
+    "post_rows": 0,
+    "pre_rows": 0,
+    "active_rows_in_gap": 1
+   },
+   {
+    "ms_since_commit": 534.0,
+    "obs_since_commit": 2,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 1868.616,
+    "obs_since_commit": 7,
+    "post_rows": 3,
+    "pre_rows": 0,
+    "active_rows_in_gap": 3
+   },
+   {
+    "ms_since_commit": 533.0,
+    "obs_since_commit": 2,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 534.0,
+    "obs_since_commit": 2,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 266.0,
+    "obs_since_commit": 1,
+    "post_rows": 0,
+    "pre_rows": 0,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 267.0,
+    "obs_since_commit": 1,
+    "post_rows": 0,
+    "pre_rows": 0,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 1066.616,
+    "obs_since_commit": 4,
+    "post_rows": 0,
+    "pre_rows": 0,
+    "active_rows_in_gap": 3
+   },
+   {
+    "ms_since_commit": 266.0,
+    "obs_since_commit": 1,
+    "post_rows": 0,
+    "pre_rows": 0,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 2133.616,
+    "obs_since_commit": 8,
+    "post_rows": 2,
+    "pre_rows": 0,
+    "active_rows_in_gap": 5
+   },
+   {
+    "ms_since_commit": 266.0,
+    "obs_since_commit": 1,
+    "post_rows": 0,
+    "pre_rows": 0,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 1066.616,
+    "obs_since_commit": 4,
+    "post_rows": 0,
+    "pre_rows": 0,
+    "active_rows_in_gap": 3
+   },
+   {
+    "ms_since_commit": 267.0,
+    "obs_since_commit": 1,
+    "post_rows": 0,
+    "pre_rows": 0,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 533.0,
+    "obs_since_commit": 2,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 267.0,
+    "obs_since_commit": 1,
+    "post_rows": 0,
+    "pre_rows": 0,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 533.616,
+    "obs_since_commit": 2,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 2134.232,
+    "obs_since_commit": 8,
+    "post_rows": 3,
+    "pre_rows": 0,
+    "active_rows_in_gap": 4
+   },
+   {
+    "ms_since_commit": 266.0,
+    "obs_since_commit": 1,
+    "post_rows": 0,
+    "pre_rows": 0,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 1333.616,
+    "obs_since_commit": 5,
+    "post_rows": 0,
+    "pre_rows": 0,
+    "active_rows_in_gap": 4
+   },
+   {
+    "ms_since_commit": 1333.616,
+    "obs_since_commit": 5,
+    "post_rows": 3,
+    "pre_rows": 0,
+    "active_rows_in_gap": 1
+   },
+   {
+    "ms_since_commit": 533.0,
+    "obs_since_commit": 2,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 1866.616,
+    "obs_since_commit": 7,
+    "post_rows": 3,
+    "pre_rows": 0,
+    "active_rows_in_gap": 3
+   },
+   {
+    "ms_since_commit": 267.0,
+    "obs_since_commit": 1,
+    "post_rows": 0,
+    "pre_rows": 0,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 1333.6159999999995,
+    "obs_since_commit": 5,
+    "post_rows": 2,
+    "pre_rows": 0,
+    "active_rows_in_gap": 2
+   },
+   {
+    "ms_since_commit": 532.616,
+    "obs_since_commit": 2,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 266.0,
+    "obs_since_commit": 1,
+    "post_rows": 0,
+    "pre_rows": 0,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 533.616,
+    "obs_since_commit": 2,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 533.0,
+    "obs_since_commit": 2,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 533.0,
+    "obs_since_commit": 2,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 1600.616,
+    "obs_since_commit": 6,
+    "post_rows": 1,
+    "pre_rows": 1,
+    "active_rows_in_gap": 3
+   },
+   {
+    "ms_since_commit": 267.0,
+    "obs_since_commit": 1,
+    "post_rows": 0,
+    "pre_rows": 0,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 1063.1640151540105,
+    "obs_since_commit": 4,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 2
+   },
+   {
+    "ms_since_commit": 266.9999999999998,
+    "obs_since_commit": 1,
+    "post_rows": 0,
+    "pre_rows": 0,
+    "active_rows_in_gap": 0
+   },
+   {
+    "ms_since_commit": 535.0,
+    "obs_since_commit": 2,
+    "post_rows": 1,
+    "pre_rows": 0,
+    "active_rows_in_gap": 0
+   }
+  ],
+  "reentries": [
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 0,
+    "gap_ms": 267.0,
+    "post_peak": 0.0,
+    "pre_peak": 0.0,
+    "prev_span_ms": 799.616,
+    "span_ms": 1358.4956107567887,
+    "entry_active": 0.5176021146413401,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 0,
+    "gap_ms": 267.0,
+    "post_peak": 0.0,
+    "pre_peak": 0.0,
+    "prev_span_ms": 262.70852489163326,
+    "span_ms": 266.0,
+    "entry_active": 0.9999090625503816,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 534.0,
+    "post_peak": 0.9997310861344391,
+    "pre_peak": 2.780717415366607e-05,
+    "prev_span_ms": 266.0,
+    "span_ms": 533.0,
+    "entry_active": 0.7747372440327094,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 0,
+    "gap_ms": 267.0,
+    "post_peak": 0.0,
+    "pre_peak": 0.0,
+    "prev_span_ms": 1066.616,
+    "span_ms": 1070.0,
+    "entry_active": 0.7277425596012371,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 535.0,
+    "post_peak": 0.9279657362957918,
+    "pre_peak": 0.0015947600948799723,
+    "prev_span_ms": 1062.893883417481,
+    "span_ms": 799.616,
+    "entry_active": 0.9999994241712188,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 532.9999999999998,
+    "post_peak": 0.9669465561263856,
+    "pre_peak": 0.026834025465719863,
+    "prev_span_ms": 533.0,
+    "span_ms": 534.0,
+    "entry_active": 0.9946358551775136,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 532.9999999999998,
+    "post_peak": 0.8792919000229873,
+    "pre_peak": 0.001696354908222041,
+    "prev_span_ms": 799.616,
+    "span_ms": 267.0,
+    "entry_active": 0.999999999987214,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 533.616,
+    "post_peak": 0.9992968243341028,
+    "pre_peak": 0.00031917594380746474,
+    "prev_span_ms": 1332.616,
+    "span_ms": 533.0,
+    "entry_active": 0.9652648981460985,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 532.616,
+    "post_peak": 0.9999976019025555,
+    "pre_peak": 7.011803068464763e-07,
+    "prev_span_ms": 534.0,
+    "span_ms": 534.0,
+    "entry_active": 0.8538505795064343,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 526.7109346511475,
+    "post_peak": 0.9997784364731945,
+    "pre_peak": 0.00022036017853623336,
+    "prev_span_ms": 266.0000000000002,
+    "span_ms": 552.7017361336889,
+    "entry_active": 0.5052848593603563,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 0,
+    "gap_ms": 262.38110856018375,
+    "post_peak": 0.0,
+    "pre_peak": 0.0,
+    "prev_span_ms": 552.7017361336889,
+    "span_ms": 787.1433256805503,
+    "entry_active": 0.9877779151147074,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 533.0,
+    "post_peak": 0.8670603598190729,
+    "pre_peak": 0.10179909621279415,
+    "prev_span_ms": 533.0,
+    "span_ms": 800.0,
+    "entry_active": 0.9999984806390855,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 535.0,
+    "post_peak": 0.9956410940881456,
+    "pre_peak": 0.001082414379880756,
+    "prev_span_ms": 800.0,
+    "span_ms": 268.0,
+    "entry_active": 0.9998875859148457,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 0,
+    "gap_ms": 268.0,
+    "post_peak": 0.0,
+    "pre_peak": 0.0,
+    "prev_span_ms": 268.0,
+    "span_ms": 267.0,
+    "entry_active": 0.7110079412426197,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 0,
+    "gap_ms": 268.0,
+    "post_peak": 0.0,
+    "pre_peak": 0.0,
+    "prev_span_ms": 1600.616,
+    "span_ms": 1068.616,
+    "entry_active": 0.6264914616202072,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 0,
+    "gap_ms": 267.0,
+    "post_peak": 0.0,
+    "pre_peak": 0.0,
+    "prev_span_ms": 267.0,
+    "span_ms": 267.0,
+    "entry_active": 0.9904023453229062,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 0,
+    "gap_ms": 267.0,
+    "post_peak": 0.0,
+    "pre_peak": 0.0,
+    "prev_span_ms": 267.0,
+    "span_ms": 800.0,
+    "entry_active": 0.9650223747600839,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 534.0,
+    "post_peak": 0.6345174587428422,
+    "pre_peak": 0.02692251553235001,
+    "prev_span_ms": 800.0,
+    "span_ms": 267.0,
+    "entry_active": 0.9999999999597504,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 533.9999999999998,
+    "post_peak": 0.9785544460902661,
+    "pre_peak": 0.01921861666422913,
+    "prev_span_ms": 534.0000000000002,
+    "span_ms": 267.0,
+    "entry_active": 0.6874764602507208,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 0,
+    "gap_ms": 267.0,
+    "post_peak": 0.0,
+    "pre_peak": 0.0,
+    "prev_span_ms": 267.0,
+    "span_ms": 801.0,
+    "entry_active": 0.7022980730067991,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 533.616,
+    "post_peak": 0.968813280473262,
+    "pre_peak": 0.00032524776890087317,
+    "prev_span_ms": 1065.616,
+    "span_ms": 1066.616,
+    "entry_active": 0.9956115109116581,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 0,
+    "gap_ms": 258.61511605353326,
+    "post_peak": 0.0,
+    "pre_peak": 0.0,
+    "prev_span_ms": 267.0000000000002,
+    "span_ms": 517.2302321070667,
+    "entry_active": 0.9979666021204473,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 534.0,
+    "post_peak": 0.8765172926781125,
+    "pre_peak": 0.04571618839780639,
+    "prev_span_ms": 533.0000000000002,
+    "span_ms": 1066.616,
+    "entry_active": 0.9999998045009193,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 533.6159999999998,
+    "post_peak": 0.9999667854398849,
+    "pre_peak": 2.986739297839452e-05,
+    "prev_span_ms": 534.0,
+    "span_ms": 534.0,
+    "entry_active": 0.45325021644985547,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 0,
+    "gap_ms": 266.0,
+    "post_peak": 0.0,
+    "pre_peak": 0.0,
+    "prev_span_ms": 533.0,
+    "span_ms": 534.0,
+    "entry_active": 0.8500921637802613,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 0,
+    "gap_ms": 267.0,
+    "post_peak": 0.0,
+    "pre_peak": 0.0,
+    "prev_span_ms": 1362.1186178010473,
+    "span_ms": 500.99999999999955,
+    "entry_active": 0.8006573310245058,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 533.616,
+    "post_peak": 0.8107153713233437,
+    "pre_peak": 0.013316521975800265,
+    "prev_span_ms": 533.0,
+    "span_ms": 267.0,
+    "entry_active": 0.769427908579809,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 534.0,
+    "post_peak": 0.9918161668377952,
+    "pre_peak": 0.006389905962333082,
+    "prev_span_ms": 532.9999999999999,
+    "span_ms": 533.0,
+    "entry_active": 0.9889211151122753,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 0,
+    "gap_ms": 266.616,
+    "post_peak": 0.0,
+    "pre_peak": 0.0,
+    "prev_span_ms": 501.0,
+    "span_ms": 801.616,
+    "entry_active": 0.9999881422757757,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 534.0,
+    "post_peak": 0.0035993774391219497,
+    "pre_peak": 0.908801346819033,
+    "prev_span_ms": 266.9999999999999,
+    "span_ms": 800.616,
+    "entry_active": 0.9999999997156916,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 532.616,
+    "post_peak": 0.11037015314036822,
+    "pre_peak": 0.7485100536614501,
+    "prev_span_ms": 262.04592354810165,
+    "span_ms": 267.0,
+    "entry_active": 0.9859586304910577,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 0,
+    "gap_ms": 267.0,
+    "post_peak": 0.0,
+    "pre_peak": 0.0,
+    "prev_span_ms": 536.0,
+    "span_ms": 501.0,
+    "entry_active": 0.9686727578063312,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 534.0,
+    "post_peak": 7.450900153017207e-14,
+    "pre_peak": 0.9971879461267362,
+    "prev_span_ms": 1056.816680160884,
+    "span_ms": 801.0000000000005,
+    "entry_active": 0.9951160718840569,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 533.6159999999998,
+    "post_peak": 0.9428612671036507,
+    "pre_peak": 0.05595730405035209,
+    "prev_span_ms": 534.9999999999999,
+    "span_ms": 1066.616,
+    "entry_active": 0.9743312969057698,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 534.0,
+    "post_peak": 0.10163591817120302,
+    "pre_peak": 0.8801129550562163,
+    "prev_span_ms": 260.96884684390784,
+    "span_ms": 267.0,
+    "entry_active": 0.8722834607731627,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 533.616,
+    "post_peak": 0.958392624854909,
+    "pre_peak": 0.040731590636245416,
+    "prev_span_ms": 533.0,
+    "span_ms": 267.0,
+    "entry_active": 0.6911469823213711,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 534.0,
+    "post_peak": 0.9646285199224875,
+    "pre_peak": 0.000289415641244715,
+    "prev_span_ms": 1345.964466016877,
+    "span_ms": 267.0,
+    "entry_active": 0.999322271859854,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 523.6287472182221,
+    "post_peak": 0.994971357885267,
+    "pre_peak": 0.0002771044788832105,
+    "prev_span_ms": 1645.476841840432,
+    "span_ms": 556.3555439193615,
+    "entry_active": 0.9987020335651668,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 533.616,
+    "post_peak": 0.9993574221615458,
+    "pre_peak": 0.0004696979428363064,
+    "prev_span_ms": 533.3333333333335,
+    "span_ms": 267.0,
+    "entry_active": 0.932251811929723,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 533.6159999999998,
+    "post_peak": 0.9999953958251638,
+    "pre_peak": 4.116220231565382e-06,
+    "prev_span_ms": 789.8374251299942,
+    "span_ms": 801.0,
+    "entry_active": 0.8722015283321715,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 555.083915627245,
+    "post_peak": 0.9827213827222457,
+    "pre_peak": 0.0005431557901350527,
+    "prev_span_ms": 556.118944028264,
+    "span_ms": 2133.835073207184,
+    "entry_active": 0.9979004205285045,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 534.0,
+    "post_peak": 0.9993890294128521,
+    "pre_peak": 7.723864466692024e-06,
+    "prev_span_ms": 1054.8968907574065,
+    "span_ms": 533.0,
+    "entry_active": 0.9992881730863902,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 534.0000000000002,
+    "post_peak": 0.3017736927695363,
+    "pre_peak": 0.44156048984223506,
+    "prev_span_ms": 525.7278044292567,
+    "span_ms": 534.0,
+    "entry_active": 0.9876181825197132,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 557.3953244368668,
+    "post_peak": 0.45571401145640017,
+    "pre_peak": 0.3893898187836481,
+    "prev_span_ms": 535.0,
+    "span_ms": 524.6073641758749,
+    "entry_active": 0.9995226609846319,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 0,
+    "gap_ms": 263.6174910205291,
+    "post_peak": 0.0,
+    "pre_peak": 0.0,
+    "prev_span_ms": 551.0713475315247,
+    "span_ms": 790.8524730615877,
+    "entry_active": 0.9935149898618816,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 528.396104712042,
+    "post_peak": 0.9548920609488357,
+    "pre_peak": 0.008382351559267863,
+    "prev_span_ms": 1600.0,
+    "span_ms": 261.780104712042,
+    "entry_active": 0.9285301727523203,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 0,
+    "gap_ms": 261.3354240167255,
+    "post_peak": 0.0,
+    "pre_peak": 0.0,
+    "prev_span_ms": 528.174825867362,
+    "span_ms": 784.0062720501764,
+    "entry_active": 0.9865950374242404,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 0,
+    "gap_ms": 263.2791417099984,
+    "post_peak": 0.0,
+    "pre_peak": 0.0,
+    "prev_span_ms": 825.000825000825,
+    "span_ms": 822.7473178437431,
+    "entry_active": 0.9282110702589141,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 533.0,
+    "post_peak": 0.9984462907894726,
+    "pre_peak": 2.1622584943816467e-07,
+    "prev_span_ms": 1047.510123771719,
+    "span_ms": 533.0,
+    "entry_active": 0.7695277321836193,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 0,
+    "gap_ms": 263.04540821359296,
+    "post_peak": 0.0,
+    "pre_peak": 0.0,
+    "prev_span_ms": 267.9999999999999,
+    "span_ms": 295.9260842402921,
+    "entry_active": 0.9971065302266505,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 534.0,
+    "post_peak": 0.9570354775209586,
+    "pre_peak": 0.00875138718898107,
+    "prev_span_ms": 295.9260842402921,
+    "span_ms": 266.0,
+    "entry_active": 0.9612771474174211,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 535.0,
+    "post_peak": 0.7207775571753183,
+    "pre_peak": 0.0006780746662469422,
+    "prev_span_ms": 820.1023487731268,
+    "span_ms": 268.0,
+    "entry_active": 0.9032266540699371,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 0,
+    "gap_ms": 268.0,
+    "post_peak": 0.0,
+    "pre_peak": 0.0,
+    "prev_span_ms": 263.348475870696,
+    "span_ms": 1036.0,
+    "entry_active": 0.9999974588147632,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 0,
+    "gap_ms": 263.80003957000554,
+    "post_peak": 0.0,
+    "pre_peak": 0.0,
+    "prev_span_ms": 1067.0,
+    "span_ms": 1055.200158280024,
+    "entry_active": 0.999981149117916,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 533.616,
+    "post_peak": 0.9998265781746577,
+    "pre_peak": 5.994503595303854e-05,
+    "prev_span_ms": 534.9999999999999,
+    "span_ms": 527.513105403712,
+    "entry_active": 0.8309826890309195,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 0,
+    "gap_ms": 261.9086593550501,
+    "post_peak": 0.0,
+    "pre_peak": 0.0,
+    "prev_span_ms": 527.513105403712,
+    "span_ms": 523.8173187100992,
+    "entry_active": 0.7783326304119726,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 0,
+    "gap_ms": 264.6202699126752,
+    "post_peak": 0.0,
+    "pre_peak": 0.0,
+    "prev_span_ms": 267.0,
+    "span_ms": 793.8608097380261,
+    "entry_active": 0.7708806290708831,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 0,
+    "gap_ms": 267.0,
+    "post_peak": 0.0,
+    "pre_peak": 0.0,
+    "prev_span_ms": 521.8185376035483,
+    "span_ms": 533.0,
+    "entry_active": 0.7461734300147334,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 0,
+    "gap_ms": 262.80345586544445,
+    "post_peak": 0.0,
+    "pre_peak": 0.0,
+    "prev_span_ms": 1876.7063891734742,
+    "span_ms": 262.80345586544445,
+    "entry_active": 0.6924568381966264,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 524.9516060238197,
+    "post_peak": 0.9905759042306501,
+    "pre_peak": 0.006975667114748207,
+    "prev_span_ms": 789.3178977833322,
+    "span_ms": 787.4274090357294,
+    "entry_active": 0.9191417359693321,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 524.5557668349616,
+    "post_peak": 0.9969779720130215,
+    "pre_peak": 0.003008960622261475,
+    "prev_span_ms": 771.604938271605,
+    "span_ms": 1591.1717668349615,
+    "entry_active": 0.9153379851575724,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 533.0,
+    "post_peak": 0.9448557765113433,
+    "pre_peak": 0.00033162374839810235,
+    "prev_span_ms": 532.9999999999999,
+    "span_ms": 1888.0922958055944,
+    "entry_active": 0.9538710401595328,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 526.1540223202701,
+    "post_peak": 0.8166480847370617,
+    "pre_peak": 0.0008886894213590578,
+    "prev_span_ms": 534.0,
+    "span_ms": 551.5182974305735,
+    "entry_active": 0.9987639600637103,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 524.0746806419916,
+    "post_peak": 0.9959678445002293,
+    "pre_peak": 0.0013055028447910275,
+    "prev_span_ms": 551.5182974305735,
+    "span_ms": 262.03734032099555,
+    "entry_active": 0.9975770611917218,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 527.0960303080219,
+    "post_peak": 0.9872911268055223,
+    "pre_peak": 0.012697853593159952,
+    "prev_span_ms": 260.382762661112,
+    "span_ms": 1087.1355625102947,
+    "entry_active": 0.7890225413945691,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 534.0,
+    "post_peak": 0.9983312734012231,
+    "pre_peak": 5.24747803714267e-05,
+    "prev_span_ms": 1066.0,
+    "span_ms": 800.0,
+    "entry_active": 0.8144913690655128,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 0,
+    "gap_ms": 266.616,
+    "post_peak": 0.0,
+    "pre_peak": 0.0,
+    "prev_span_ms": 1066.616,
+    "span_ms": 533.0,
+    "entry_active": 0.8958574430969782,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 0,
+    "gap_ms": 266.0,
+    "post_peak": 0.0,
+    "pre_peak": 0.0,
+    "prev_span_ms": 534.0000000000005,
+    "span_ms": 1600.6159999999995,
+    "entry_active": 0.9869705094515593,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 533.0,
+    "post_peak": 0.9977049544322169,
+    "pre_peak": 1.7349075707498484e-05,
+    "prev_span_ms": 1332.9999999999998,
+    "span_ms": 800.0,
+    "entry_active": 0.9982841289127585,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 0,
+    "gap_ms": 266.616,
+    "post_peak": 0.0,
+    "pre_peak": 0.0,
+    "prev_span_ms": 2399.616,
+    "span_ms": 800.0,
+    "entry_active": 0.774103713779464,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 534.0,
+    "post_peak": 0.6914583773702045,
+    "pre_peak": 0.20167562072623085,
+    "prev_span_ms": 532.9999999999998,
+    "span_ms": 534.0,
+    "entry_active": 0.6279564448323726,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 0,
+    "gap_ms": 267.0,
+    "post_peak": 0.0,
+    "pre_peak": 0.0,
+    "prev_span_ms": 534.0,
+    "span_ms": 1066.0,
+    "entry_active": 0.9017434401897164,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 533.0,
+    "post_peak": 0.9999921718285685,
+    "pre_peak": 2.7784510258151285e-06,
+    "prev_span_ms": 799.9999999999991,
+    "span_ms": 267.0,
+    "entry_active": 0.752443871984472,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 0,
+    "gap_ms": 267.0,
+    "post_peak": 0.0,
+    "pre_peak": 0.0,
+    "prev_span_ms": 267.0,
+    "span_ms": 533.0,
+    "entry_active": 0.9999120027512742,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 534.0,
+    "post_peak": 0.5584933540700754,
+    "pre_peak": 0.002050421118506425,
+    "prev_span_ms": 1066.9999999999998,
+    "span_ms": 266.0,
+    "entry_active": 0.9494193495393108,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 533.0,
+    "post_peak": 0.8260064367473581,
+    "pre_peak": 0.04465540757904446,
+    "prev_span_ms": 266.0,
+    "span_ms": 1599.616,
+    "entry_active": 0.9864416080308717,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 0,
+    "gap_ms": 266.0,
+    "post_peak": 0.0,
+    "pre_peak": 0.0,
+    "prev_span_ms": 534.0,
+    "span_ms": 534.0,
+    "entry_active": 0.98956310998159,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 0,
+    "gap_ms": 267.0,
+    "post_peak": 0.0,
+    "pre_peak": 0.0,
+    "prev_span_ms": 266.0,
+    "span_ms": 799.616,
+    "entry_active": 0.7149707242762741,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 0,
+    "gap_ms": 266.0,
+    "post_peak": 0.0,
+    "pre_peak": 0.0,
+    "prev_span_ms": 533.0,
+    "span_ms": 1067.0,
+    "entry_active": 0.4597109383339657,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 0,
+    "gap_ms": 267.0,
+    "post_peak": 0.0,
+    "pre_peak": 0.0,
+    "prev_span_ms": 1067.0,
+    "span_ms": 801.0,
+    "entry_active": 0.6551293548901728,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 0,
+    "gap_ms": 266.0,
+    "post_peak": 0.0,
+    "pre_peak": 0.0,
+    "prev_span_ms": 1066.0,
+    "span_ms": 1600.616,
+    "entry_active": 0.9222808715897072,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 0,
+    "gap_ms": 267.0,
+    "post_peak": 0.0,
+    "pre_peak": 0.0,
+    "prev_span_ms": 799.616,
+    "span_ms": 1067.0,
+    "entry_active": 0.9921541233250343,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 533.0,
+    "post_peak": 0.9421929237152704,
+    "pre_peak": 0.015041119229768894,
+    "prev_span_ms": 533.0,
+    "span_ms": 267.0,
+    "entry_active": 0.9709981859681418,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 533.0,
+    "post_peak": 0.909029300479954,
+    "pre_peak": 0.014514110743515064,
+    "prev_span_ms": 267.0,
+    "span_ms": 534.0,
+    "entry_active": 0.9293084577967482,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 0,
+    "gap_ms": 267.0,
+    "post_peak": 0.0,
+    "pre_peak": 0.0,
+    "prev_span_ms": 1333.0,
+    "span_ms": 800.0,
+    "entry_active": 0.6437594735608692,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 533.616,
+    "post_peak": 0.9998874270718205,
+    "pre_peak": 8.224238737438097e-05,
+    "prev_span_ms": 800.0000000000005,
+    "span_ms": 800.0,
+    "entry_active": 0.5766563849940662,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 0,
+    "gap_ms": 266.0,
+    "post_peak": 0.0,
+    "pre_peak": 0.0,
+    "prev_span_ms": 1333.616,
+    "span_ms": 1067.616,
+    "entry_active": 0.7618887462839496,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 533.0,
+    "post_peak": 0.9991926748352986,
+    "pre_peak": 0.00015682697948859293,
+    "prev_span_ms": 1333.616,
+    "span_ms": 533.0,
+    "entry_active": 0.9984872152848978,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 0,
+    "gap_ms": 267.0,
+    "post_peak": 0.0,
+    "pre_peak": 0.0,
+    "prev_span_ms": 800.0000000000005,
+    "span_ms": 266.0,
+    "entry_active": 0.9983754178407402,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 0,
+    "gap_ms": 267.0,
+    "post_peak": 0.0,
+    "pre_peak": 0.0,
+    "prev_span_ms": 266.0,
+    "span_ms": 1333.0,
+    "entry_active": 0.9918487801882431,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 0,
+    "gap_ms": 266.0,
+    "post_peak": 0.0,
+    "pre_peak": 0.0,
+    "prev_span_ms": 533.0,
+    "span_ms": 800.0000000000005,
+    "entry_active": 0.9502276525879105,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 533.0,
+    "post_peak": 0.7446376931979206,
+    "pre_peak": 0.011580670728580472,
+    "prev_span_ms": 2132.616,
+    "span_ms": 534.0,
+    "entry_active": 0.9962932341124751,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 0,
+    "gap_ms": 267.0,
+    "post_peak": 0.0,
+    "pre_peak": 0.0,
+    "prev_span_ms": 267.0,
+    "span_ms": 796.1640151540105,
+    "entry_active": 0.8876240624858815,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 0,
+    "gap_ms": 266.9999999999998,
+    "post_peak": 0.0,
+    "pre_peak": 0.0,
+    "prev_span_ms": 266.0,
+    "span_ms": 801.0,
+    "entry_active": 0.8637486197861093,
+    "prev_category": "GENUINE"
+   },
+   {
+    "category": "GENUINE",
+    "family": "",
+    "gap_obs": 1,
+    "gap_ms": 535.0,
+    "post_peak": 0.6997562007034716,
+    "pre_peak": 0.2898752026223705,
+    "prev_span_ms": 533.0,
+    "span_ms": 801.616,
+    "entry_active": 0.827660641249826,
+    "prev_category": "GENUINE"
+   }
+  ]
+ }
+}

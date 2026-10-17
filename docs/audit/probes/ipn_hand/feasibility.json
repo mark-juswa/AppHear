@@ -1,0 +1,466 @@
+{
+ "videos": 10,
+ "margin_ms": 500.0,
+ "descriptors": {
+  "NOG": {
+   "any_hand": 0.5568253968253968,
+   "both_hands": 0.3574603174603175,
+   "proposal": 0.9936507936507937,
+   "body_available": 0.2253968253968254,
+   "rows": 1575,
+   "hand_scale_median_of_videos": 0.08978625542435054
+  },
+  "TRANSITION": {
+   "any_hand": 0.6983695652173914,
+   "both_hands": 0.46467391304347827,
+   "proposal": 0.9972826086956522,
+   "body_available": 0.23505434782608695,
+   "rows": 736,
+   "hand_scale_median_of_videos": 0.10725374221954312
+  },
+  "GESTURE": {
+   "any_hand": 0.7166706992499395,
+   "both_hands": 0.3735785143963223,
+   "proposal": 1.0,
+   "body_available": 0.2949431405758529,
+   "rows": 4133,
+   "hand_scale_median_of_videos": 0.1311273162146136
+  }
+ },
+ "per_video": {
+  "4CM11_19_R_#17": {
+   "NOG": {
+    "rows": 172,
+    "any_hand": 0.36046511627906974,
+    "both_hands": 0.18023255813953487,
+    "proposal": 1.0,
+    "body_available": 0.09302325581395349,
+    "hand_scale_median": 0.09022981864792674
+   },
+   "TRANSITION": {
+    "rows": 26,
+    "any_hand": 0.38461538461538464,
+    "both_hands": 0.038461538461538464,
+    "proposal": 1.0,
+    "body_available": 0.07692307692307693,
+    "hand_scale_median": 0.0837669562270427
+   },
+   "GESTURE": {
+    "rows": 439,
+    "any_hand": 0.744874715261959,
+    "both_hands": 0.1958997722095672,
+    "proposal": 1.0,
+    "body_available": 0.16400911161731208,
+    "hand_scale_median": 0.13047125540199295
+   }
+  },
+  "4CM11_1_R_#13": {
+   "NOG": {
+    "rows": 172,
+    "any_hand": 0.8895348837209303,
+    "both_hands": 0.622093023255814,
+    "proposal": 1.0,
+    "body_available": 0.22674418604651161,
+    "hand_scale_median": 0.09722845428640389
+   },
+   "TRANSITION": {
+    "rows": 101,
+    "any_hand": 0.9702970297029703,
+    "both_hands": 0.7920792079207921,
+    "proposal": 1.0,
+    "body_available": 0.019801980198019802,
+    "hand_scale_median": 0.10853266438978144
+   },
+   "GESTURE": {
+    "rows": 389,
+    "any_hand": 0.8663239074550129,
+    "both_hands": 0.5629820051413882,
+    "proposal": 1.0,
+    "body_available": 0.10025706940874037,
+    "hand_scale_median": 0.13178337702723425
+   }
+  },
+  "4CM11_20_R_#41": {
+   "NOG": {
+    "rows": 169,
+    "any_hand": 0.7869822485207101,
+    "both_hands": 0.47928994082840237,
+    "proposal": 1.0,
+    "body_available": 0.0,
+    "hand_scale_median": 0.09933213038667296
+   },
+   "TRANSITION": {
+    "rows": 53,
+    "any_hand": 0.9056603773584906,
+    "both_hands": 0.3584905660377358,
+    "proposal": 1.0,
+    "body_available": 0.0,
+    "hand_scale_median": 0.1316934202674282
+   },
+   "GESTURE": {
+    "rows": 403,
+    "any_hand": 0.8436724565756824,
+    "both_hands": 0.38461538461538464,
+    "proposal": 1.0,
+    "body_available": 0.03225806451612903,
+    "hand_scale_median": 0.14310812153880054
+   }
+  },
+  "4CM11_23_R_#25": {
+   "NOG": {
+    "rows": 195,
+    "any_hand": 0.48717948717948717,
+    "both_hands": 0.29743589743589743,
+    "proposal": 0.9743589743589743,
+    "body_available": 0.4256410256410256,
+    "hand_scale_median": 0.08087285300271907
+   },
+   "TRANSITION": {
+    "rows": 104,
+    "any_hand": 0.7115384615384616,
+    "both_hands": 0.3942307692307692,
+    "proposal": 1.0,
+    "body_available": 0.5961538461538461,
+    "hand_scale_median": 0.0938481435669667
+   },
+   "GESTURE": {
+    "rows": 321,
+    "any_hand": 0.7538940809968847,
+    "both_hands": 0.5700934579439252,
+    "proposal": 1.0,
+    "body_available": 0.822429906542056,
+    "hand_scale_median": 0.1039770357131035
+   }
+  },
+  "4CM11_24_L_#61": {
+   "NOG": {
+    "rows": 176,
+    "any_hand": 0.6931818181818182,
+    "both_hands": 0.45454545454545453,
+    "proposal": 1.0,
+    "body_available": 0.35795454545454547,
+    "hand_scale_median": 0.08934269220077433
+   },
+   "TRANSITION": {
+    "rows": 104,
+    "any_hand": 0.9807692307692307,
+    "both_hands": 0.7596153846153846,
+    "proposal": 1.0,
+    "body_available": 0.34615384615384615,
+    "hand_scale_median": 0.10597482004930481
+   },
+   "GESTURE": {
+    "rows": 392,
+    "any_hand": 0.8903061224489796,
+    "both_hands": 0.46938775510204084,
+    "proposal": 1.0,
+    "body_available": 0.5867346938775511,
+    "hand_scale_median": 0.12089164808734787
+   }
+  },
+  "4CM11_26_R_#5": {
+   "NOG": {
+    "rows": 232,
+    "any_hand": 0.08620689655172414,
+    "both_hands": 0.04741379310344827,
+    "proposal": 1.0,
+    "body_available": 0.1336206896551724,
+    "hand_scale_median": 0.09037311930804057
+   },
+   "TRANSITION": {
+    "rows": 106,
+    "any_hand": 0.33962264150943394,
+    "both_hands": 0.18867924528301888,
+    "proposal": 1.0,
+    "body_available": 0.1792452830188679,
+    "hand_scale_median": 0.13941355607601
+   },
+   "GESTURE": {
+    "rows": 294,
+    "any_hand": 0.8231292517006803,
+    "both_hands": 0.5952380952380952,
+    "proposal": 1.0,
+    "body_available": 0.2789115646258503,
+    "hand_scale_median": 0.13882490208409257
+   }
+  },
+  "4CM11_29_R_#57": {
+   "NOG": {
+    "rows": 107,
+    "any_hand": 0.5233644859813084,
+    "both_hands": 0.18691588785046728,
+    "proposal": 1.0,
+    "body_available": 0.22429906542056074,
+    "hand_scale_median": 0.07992328195938024
+   },
+   "TRANSITION": {
+    "rows": 35,
+    "any_hand": 0.5142857142857142,
+    "both_hands": 0.37142857142857144,
+    "proposal": 1.0,
+    "body_available": 0.02857142857142857,
+    "hand_scale_median": 0.10911534842378294
+   },
+   "GESTURE": {
+    "rows": 521,
+    "any_hand": 0.6813819577735125,
+    "both_hands": 0.2418426103646833,
+    "proposal": 1.0,
+    "body_available": 0.21113243761996162,
+    "hand_scale_median": 0.1444795040154118
+   }
+  },
+  "4CM11_2_R_#37": {
+   "NOG": {
+    "rows": 141,
+    "any_hand": 0.851063829787234,
+    "both_hands": 0.7872340425531915,
+    "proposal": 1.0,
+    "body_available": 0.07092198581560284,
+    "hand_scale_median": 0.09624312831543794
+   },
+   "TRANSITION": {
+    "rows": 65,
+    "any_hand": 0.9846153846153847,
+    "both_hands": 0.8769230769230769,
+    "proposal": 1.0,
+    "body_available": 0.06153846153846154,
+    "hand_scale_median": 0.10474349601338022
+   },
+   "GESTURE": {
+    "rows": 469,
+    "any_hand": 0.7718550106609808,
+    "both_hands": 0.5948827292110874,
+    "proposal": 1.0,
+    "body_available": 0.2537313432835821,
+    "hand_scale_median": 0.12347953069850962
+   }
+  },
+  "4CM11_5_L_#10": {
+   "NOG": {
+    "rows": 69,
+    "any_hand": 0.8405797101449275,
+    "both_hands": 0.5217391304347826,
+    "proposal": 0.927536231884058,
+    "body_available": 0.028985507246376812,
+    "hand_scale_median": 0.07032731826607505
+   },
+   "TRANSITION": {
+    "rows": 37,
+    "any_hand": 0.2702702702702703,
+    "both_hands": 0.16216216216216217,
+    "proposal": 0.9459459459459459,
+    "body_available": 0.05405405405405406,
+    "hand_scale_median": 0.11946788333896241
+   },
+   "GESTURE": {
+    "rows": 522,
+    "any_hand": 0.2567049808429119,
+    "both_hands": 0.044061302681992334,
+    "proposal": 1.0,
+    "body_available": 0.1475095785440613,
+    "hand_scale_median": 0.1444819159241022
+   }
+  },
+  "4CM11_7_R_#33": {
+   "NOG": {
+    "rows": 142,
+    "any_hand": 0.4084507042253521,
+    "both_hands": 0.19718309859154928,
+    "proposal": 1.0,
+    "body_available": 0.6126760563380281,
+    "hand_scale_median": 0.0791309138339496
+   },
+   "TRANSITION": {
+    "rows": 105,
+    "any_hand": 0.5142857142857142,
+    "both_hands": 0.24761904761904763,
+    "proposal": 1.0,
+    "body_available": 0.42857142857142855,
+    "hand_scale_median": 0.10579457534967468
+   },
+   "GESTURE": {
+    "rows": 383,
+    "any_hand": 0.7154046997389034,
+    "both_hands": 0.29765013054830286,
+    "proposal": 1.0,
+    "body_available": 0.556135770234987,
+    "hand_scale_median": 0.12148237373494425
+   }
+  }
+ },
+ "nog_chunk_peaks": {
+  "S2_R2": {
+   "nog_with_hand": {
+    "n": 133,
+    "fired_at_0.5": 0.06015037593984962,
+    "median": 0.002631077344965656
+   },
+   "nog_no_hand": {
+    "n": 58,
+    "fired_at_0.5": 0.0,
+    "median": 0.0029596635966987472
+   }
+  },
+  "ARM_A_E10": {
+   "nog_with_hand": {
+    "n": 133,
+    "fired_at_0.5": 0.6691729323308271,
+    "median": 0.9221391836723228
+   },
+   "nog_no_hand": {
+    "n": 58,
+    "fired_at_0.5": 0.0,
+    "median": 6.471867034226332e-05
+   }
+  }
+ },
+ "events": {
+  "S2_R2": {
+   "touches_gesture": 25.0,
+   "nog_minutes": 5.25,
+   "inside_nog_per_minute": 0.0
+  },
+  "ARM_A_E10": {
+   "touches_gesture": 224.0,
+   "inside_nog": 38.0,
+   "nog_minutes": 5.25,
+   "transition_or_mixed": 8.0,
+   "inside_nog_per_minute": 7.238095238095238
+  }
+ },
+ "arm_a_nog_events_for_review": [
+  {
+   "video": "4CM11_19_R_#17",
+   "logical": [
+    204,
+    208
+   ],
+   "t_ms": [
+    40800.0,
+    41633.333333333336
+   ]
+  },
+  {
+   "video": "4CM11_19_R_#17",
+   "logical": [
+    219,
+    225
+   ],
+   "t_ms": [
+    43766.666666666664,
+    44966.66666666667
+   ]
+  },
+  {
+   "video": "4CM11_19_R_#17",
+   "logical": [
+    243,
+    247
+   ],
+   "t_ms": [
+    48566.666666666664,
+    49366.666666666664
+   ]
+  },
+  {
+   "video": "4CM11_19_R_#17",
+   "logical": [
+    258,
+    267
+   ],
+   "t_ms": [
+    51633.333333333336,
+    53366.666666666664
+   ]
+  },
+  {
+   "video": "4CM11_19_R_#17",
+   "logical": [
+    449,
+    455
+   ],
+   "t_ms": [
+    89766.66666666667,
+    90966.66666666667
+   ]
+  },
+  {
+   "video": "4CM11_19_R_#17",
+   "logical": [
+    480,
+    482
+   ],
+   "t_ms": [
+    95933.33333333334,
+    96333.33333333333
+   ]
+  },
+  {
+   "video": "4CM11_19_R_#17",
+   "logical": [
+    550,
+    556
+   ],
+   "t_ms": [
+    110000.0,
+    111200.0
+   ]
+  },
+  {
+   "video": "4CM11_1_R_#13",
+   "logical": [
+    116,
+    118
+   ],
+   "t_ms": [
+    23200.0,
+    23600.0
+   ]
+  },
+  {
+   "video": "4CM11_1_R_#13",
+   "logical": [
+    270,
+    272
+   ],
+   "t_ms": [
+    54000.0,
+    54400.0
+   ]
+  },
+  {
+   "video": "4CM11_1_R_#13",
+   "logical": [
+    277,
+    281
+   ],
+   "t_ms": [
+    55333.333333333336,
+    56133.333333333336
+   ]
+  },
+  {
+   "video": "4CM11_1_R_#13",
+   "logical": [
+    567,
+    573
+   ],
+   "t_ms": [
+    113333.33333333333,
+    114533.33333333333
+   ]
+  },
+  {
+   "video": "4CM11_20_R_#41",
+   "logical": [
+    187,
+    191
+   ],
+   "t_ms": [
+    37333.333333333336,
+    38133.333333333336
+   ]
+  }
+ ]
+}

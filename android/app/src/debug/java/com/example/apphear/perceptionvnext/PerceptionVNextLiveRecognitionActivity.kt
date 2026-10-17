@@ -156,6 +156,7 @@ class PerceptionVNextLiveRecognitionActivity : AppCompatActivity() {
     private var phoneCausal: PhoneCausalController? = null
     private var phoneRearmPolicy = PhoneRearmPolicy.PRE_ONLY
     private var phoneS2Package = PhoneS2Package.PHASE7_CONTROL
+    private var wordShadowPackage: RecognizerPackageSpec? = null
     private var phoneS2ExactParityCaptureEnabled = false
     private var transitionDiagnosticMode = false
     private var stage2TransitionProtocol: PhoneStage2TransitionProtocol? = null
@@ -238,6 +239,7 @@ class PerceptionVNextLiveRecognitionActivity : AppCompatActivity() {
                 "PHONE_CAUSAL_UNKNOWN_S2_PACKAGE: $it"
             }
         } ?: PhoneS2Package.PHASE7_CONTROL
+        wordShadowPackage = WordShadowPackages.byName(intent.getStringExtra(EXTRA_WORD_SHADOW_PACKAGE))
         if (phoneCausalMode && phoneS2Package == PhoneS2Package.S2_R2_CANDIDATE) {
             require(transitionDiagnosticMode || intent.getBooleanExtra(EXTRA_S2_R2_VALIDATION_COHORT, false)) {
                 "S2_R2_VALIDATION_COHORT_REQUIRED"
@@ -372,6 +374,7 @@ class PerceptionVNextLiveRecognitionActivity : AppCompatActivity() {
                         ),
                         exactParityCaptureEnabled = phoneS2ExactParityCaptureEnabled,
                         s2Package = phoneS2Package,
+                        wordShadow = wordShadowPackage,
                     )
                 }
                 runOnUiThread { bindCamera() }
@@ -1038,6 +1041,7 @@ class PerceptionVNextLiveRecognitionActivity : AppCompatActivity() {
             .put("experiment_contract_sha256", RecognitionV2LiveRecognizer.sha256(experimentContractBytes))
             .put("s2_exact_parity_capture_enabled", phoneS2ExactParityCaptureEnabled)
             .put("s2_package_id", if (phoneCausalMode) phoneS2Package.name else JSONObject.NULL)
+            .put("word_shadow_package_id", wordShadowPackage?.packageId ?: JSONObject.NULL)
             .put("declared_validation_signer_id", intent.getStringExtra(EXTRA_VALIDATION_SIGNER_ID) ?: JSONObject.NULL)
             .put("targets", JSONArray(targets.mapIndexed { index, t -> JSONObject().put("ordinal", index + 1).put("class_id", t.classId).put("gloss", t.gloss).put("fixture_id", t.fixtureId).put("repetition", t.repetition) }))
             .put(
@@ -1249,6 +1253,7 @@ class PerceptionVNextLiveRecognitionActivity : AppCompatActivity() {
         const val EXTRA_RESTED_ADMISSION_EVIDENCE_COHORT = "rested_admission_evidence_cohort"
         const val EXTRA_S2_EXACT_PARITY_CAPTURE = "s2_exact_parity_capture"
         const val EXTRA_PHONE_S2_PACKAGE = "phone_s2_package"
+        const val EXTRA_WORD_SHADOW_PACKAGE = "word_shadow_package"
         const val EXTRA_S2_R2_VALIDATION_COHORT = "s2_r2_validation_cohort"
         const val EXTRA_VALIDATION_SIGNER_ID = "validation_signer_id"
         const val EXTRA_EXPECTED_GLOSS = "expected_gloss"

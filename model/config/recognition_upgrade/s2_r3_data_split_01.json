@@ -1,0 +1,2020 @@
+{
+  "n0_negatives": [
+    {
+      "clip_id": "n0_p01_01",
+      "device": "phoneA",
+      "duration_seconds": 16.818,
+      "environment": "indoor",
+      "participant": "P01",
+      "role": "CAL",
+      "video_path": "F:\\ASL DATASET\\5. Apphear3\\scratchpad\\e2e_c0_capture\\raw\\n0\\P01\\phoneA\\indoor\\front\\n0_p01_01.mp4",
+      "video_sha256": "5e2a7954f98ef2cab5017d721da51330f9f441ebc43e4e884b256d3c57c22221"
+    },
+    {
+      "clip_id": "n0_p01_010",
+      "device": "phoneA",
+      "duration_seconds": 16.144,
+      "environment": "indoor",
+      "participant": "P01",
+      "role": "CAL",
+      "video_path": "F:\\ASL DATASET\\5. Apphear3\\scratchpad\\e2e_c0_capture\\raw\\n0\\P01\\phoneA\\indoor\\front\\n0_p01_010.mp4",
+      "video_sha256": "5bc933e7da97c23246cb22fd6f5dad382a46be81c93db7381a8a35c683e04b42"
+    },
+    {
+      "clip_id": "n0_p01_02",
+      "device": "phoneA",
+      "duration_seconds": 14.083,
+      "environment": "indoor",
+      "participant": "P01",
+      "role": "CAL",
+      "video_path": "F:\\ASL DATASET\\5. Apphear3\\scratchpad\\e2e_c0_capture\\raw\\n0\\P01\\phoneA\\indoor\\front\\n0_p01_02.mp4",
+      "video_sha256": "1066e190ffb7ebb5938207f03870b20ad5784465f57d448315e15e56838370f3"
+    },
+    {
+      "clip_id": "n0_p01_03",
+      "device": "phoneA",
+      "duration_seconds": 15.13,
+      "environment": "indoor",
+      "participant": "P01",
+      "role": "CAL",
+      "video_path": "F:\\ASL DATASET\\5. Apphear3\\scratchpad\\e2e_c0_capture\\raw\\n0\\P01\\phoneA\\indoor\\front\\n0_p01_03.mp4",
+      "video_sha256": "c2940d9c80d6096fc0977d1400c2d0b4b22c9d5a1aec7e497b3568c5e601fc92"
+    },
+    {
+      "clip_id": "n0_p01_04",
+      "device": "phoneA",
+      "duration_seconds": 15.839,
+      "environment": "indoor",
+      "participant": "P01",
+      "role": "CAL",
+      "video_path": "F:\\ASL DATASET\\5. Apphear3\\scratchpad\\e2e_c0_capture\\raw\\n0\\P01\\phoneA\\indoor\\front\\n0_p01_04.mp4",
+      "video_sha256": "c0d0565c7079675d1f2817d7af3806b299f2f6f0aca20c878ff86b9355bb6eb5"
+    },
+    {
+      "clip_id": "n0_p01_05",
+      "device": "phoneA",
+      "duration_seconds": 14.252,
+      "environment": "indoor",
+      "participant": "P01",
+      "role": "CAL",
+      "video_path": "F:\\ASL DATASET\\5. Apphear3\\scratchpad\\e2e_c0_capture\\raw\\n0\\P01\\phoneA\\indoor\\front\\n0_p01_05.mp4",
+      "video_sha256": "242b6808d37bf81eae8daa5f996e369b4b034c645a95ee940de427238bf9ef80"
+    },
+    {
+      "clip_id": "n0_p01_06",
+      "device": "phoneA",
+      "duration_seconds": 14.387,
+      "environment": "indoor",
+      "participant": "P01",
+      "role": "CAL",
+      "video_path": "F:\\ASL DATASET\\5. Apphear3\\scratchpad\\e2e_c0_capture\\raw\\n0\\P01\\phoneA\\indoor\\front\\n0_p01_06.mp4",
+      "video_sha256": "e44c28d5f557624e529b9b3ac049e83d89830ae36395c87e06a2fc6a0af56072"
+    },
+    {
+      "clip_id": "n0_p01_07",
+      "device": "phoneA",
+      "duration_seconds": 16.279,
+      "environment": "indoor",
+      "participant": "P01",
+      "role": "CAL",
+      "video_path": "F:\\ASL DATASET\\5. Apphear3\\scratchpad\\e2e_c0_capture\\raw\\n0\\P01\\phoneA\\indoor\\front\\n0_p01_07.mp4",
+      "video_sha256": "f2ee7bd5c4464daac2976a8e73d827ad338356806c2f3c45b7267147ddaa4cdc"
+    },
+    {
+      "clip_id": "n0_p01_08",
+      "device": "phoneA",
+      "duration_seconds": 17.224,
+      "environment": "indoor",
+      "participant": "P01",
+      "role": "CAL",
+      "video_path": "F:\\ASL DATASET\\5. Apphear3\\scratchpad\\e2e_c0_capture\\raw\\n0\\P01\\phoneA\\indoor\\front\\n0_p01_08.mp4",
+      "video_sha256": "ea4b6a60979fb5b13d309067c68487935d90b187eab9ea28fa798ffb15a5cb96"
+    },
+    {
+      "clip_id": "n0_p01_09",
+      "device": "phoneA",
+      "duration_seconds": 15.637,
+      "environment": "indoor",
+      "participant": "P01",
+      "role": "CAL",
+      "video_path": "F:\\ASL DATASET\\5. Apphear3\\scratchpad\\e2e_c0_capture\\raw\\n0\\P01\\phoneA\\indoor\\front\\n0_p01_09.mp4",
+      "video_sha256": "fb546631e431d95068f7a17e4120af65cc2ceeb9af6695255f2db6c257c454b5"
+    },
+    {
+      "clip_id": "n0_p02_01",
+      "device": "phoneA",
+      "duration_seconds": 15.468,
+      "environment": "room",
+      "participant": "P02",
+      "role": "FIT",
+      "video_path": "F:\\ASL DATASET\\5. Apphear3\\scratchpad\\e2e_c0_capture\\raw\\n0\\P02\\phoneA\\room\\front\\n0_p02_01.mp4",
+      "video_sha256": "c4a72dee62a01ced42ae8093fd01ee22fee4f330e3468b11a93542a1e6a0c59e"
+    },
+    {
+      "clip_id": "n0_p02_02",
+      "device": "phoneA",
+      "duration_seconds": 17.798,
+      "environment": "room",
+      "participant": "P02",
+      "role": "FIT",
+      "video_path": "F:\\ASL DATASET\\5. Apphear3\\scratchpad\\e2e_c0_capture\\raw\\n0\\P02\\phoneA\\room\\front\\n0_p02_02.mp4",
+      "video_sha256": "b0c1c6b3074c46a2e7fbc3b75f00f3aacfe51faff5821bb3a05bdb54eee7cb0b"
+    },
+    {
+      "clip_id": "n0_p02_03",
+      "device": "phoneA",
+      "duration_seconds": 14.725,
+      "environment": "room",
+      "participant": "P02",
+      "role": "FIT",
+      "video_path": "F:\\ASL DATASET\\5. Apphear3\\scratchpad\\e2e_c0_capture\\raw\\n0\\P02\\phoneA\\room\\front\\n0_p02_03.mp4",
+      "video_sha256": "f01890337bc836e01fe3077975b4c4ba8f5f578d482ab7fd12b3bd946ba45872"
+    },
+    {
+      "clip_id": "n0_p02_04",
+      "device": "phoneA",
+      "duration_seconds": 20.061,
+      "environment": "room",
+      "participant": "P02",
+      "role": "FIT",
+      "video_path": "F:\\ASL DATASET\\5. Apphear3\\scratchpad\\e2e_c0_capture\\raw\\n0\\P02\\phoneA\\room\\front\\n0_p02_04.mp4",
+      "video_sha256": "87e7eb745639884f1f67628a8b56f64aade07778667115a8e99fd12b483f737f"
+    },
+    {
+      "clip_id": "n0_p02_05",
+      "device": "phoneA",
+      "duration_seconds": 17.021,
+      "environment": "room",
+      "participant": "P02",
+      "role": "FIT",
+      "video_path": "F:\\ASL DATASET\\5. Apphear3\\scratchpad\\e2e_c0_capture\\raw\\n0\\P02\\phoneA\\room\\front\\n0_p02_05.mp4",
+      "video_sha256": "bcdc3401ee9d922d504ae58eef6fb480d0cbb2679ab7c692268ac097e3e1f91f"
+    },
+    {
+      "clip_id": "n0_p02_06",
+      "device": "phoneA",
+      "duration_seconds": 17.528,
+      "environment": "room",
+      "participant": "P02",
+      "role": "FIT",
+      "video_path": "F:\\ASL DATASET\\5. Apphear3\\scratchpad\\e2e_c0_capture\\raw\\n0\\P02\\phoneA\\room\\front\\n0_p02_06.mp4",
+      "video_sha256": "5e834f085544ba1d2f16ecb54893642b5110e2606a386f45a3e82e23a2d173a8"
+    },
+    {
+      "clip_id": "n0_p02_07",
+      "device": "phoneA",
+      "duration_seconds": 16.042,
+      "environment": "room",
+      "participant": "P02",
+      "role": "FIT",
+      "video_path": "F:\\ASL DATASET\\5. Apphear3\\scratchpad\\e2e_c0_capture\\raw\\n0\\P02\\phoneA\\room\\front\\n0_p02_07.mp4",
+      "video_sha256": "f9e09474ef9018d11b7e339a1cc36e165bae3bea5fa9f685301f484bc5cc8d66"
+    },
+    {
+      "clip_id": "n0_p02_08",
+      "device": "phoneA",
+      "duration_seconds": 17.562,
+      "environment": "room",
+      "participant": "P02",
+      "role": "FIT",
+      "video_path": "F:\\ASL DATASET\\5. Apphear3\\scratchpad\\e2e_c0_capture\\raw\\n0\\P02\\phoneA\\room\\front\\n0_p02_08.mp4",
+      "video_sha256": "e5aaba9daed976596a4a527e6ca9fe2e397f1d0f2d509df54c3c6fef6600db56"
+    },
+    {
+      "clip_id": "n0_p02_09",
+      "device": "phoneA",
+      "duration_seconds": 15.13,
+      "environment": "room",
+      "participant": "P02",
+      "role": "FIT",
+      "video_path": "F:\\ASL DATASET\\5. Apphear3\\scratchpad\\e2e_c0_capture\\raw\\n0\\P02\\phoneA\\room\\front\\n0_p02_09.mp4",
+      "video_sha256": "51b12e44fe57729542709490bd7a74fbe76519abb87bd31a508929e84f93bc89"
+    },
+    {
+      "clip_id": "n0_p02_10",
+      "device": "phoneA",
+      "duration_seconds": 15.772,
+      "environment": "room",
+      "participant": "P02",
+      "role": "FIT",
+      "video_path": "F:\\ASL DATASET\\5. Apphear3\\scratchpad\\e2e_c0_capture\\raw\\n0\\P02\\phoneA\\room\\front\\n0_p02_10.mp4",
+      "video_sha256": "ae5e4fe712f4c5871d8887b8dddf0688b76eb0dee2268e07732bf1f8153682a0"
+    },
+    {
+      "clip_id": "n0_p02_11",
+      "device": "phoneA",
+      "duration_seconds": 15.806,
+      "environment": "room",
+      "participant": "P02",
+      "role": "FIT",
+      "video_path": "F:\\ASL DATASET\\5. Apphear3\\scratchpad\\e2e_c0_capture\\raw\\n0\\P02\\phoneA\\room\\front\\n0_p02_11.mp4",
+      "video_sha256": "dcba036bea883e2c3103296c9cff1241abeb9fe9dd1f04fdcf9d8aaa1c94ce27"
+    },
+    {
+      "clip_id": "n0_p03_01",
+      "device": "phoneB",
+      "duration_seconds": 14.89,
+      "environment": "indoor",
+      "participant": "P03",
+      "role": "FIT",
+      "video_path": "F:\\ASL DATASET\\5. Apphear3\\scratchpad\\e2e_c0_capture\\raw\\n0\\P03\\phoneB\\indoor\\front\\n0_p03_01.mp4",
+      "video_sha256": "2c227c833c8a69c653261bd36ce6224f5985dab1e08916aee6671da38e1d47f3"
+    },
+    {
+      "clip_id": "n0_p03_02",
+      "device": "phoneB",
+      "duration_seconds": 14.932,
+      "environment": "indoor",
+      "participant": "P03",
+      "role": "FIT",
+      "video_path": "F:\\ASL DATASET\\5. Apphear3\\scratchpad\\e2e_c0_capture\\raw\\n0\\P03\\phoneB\\indoor\\front\\n0_p03_02.mp4",
+      "video_sha256": "26de6d841d384c7cfac91cab64e2df3f1c2b86fb4f699b71a1d2d919de945313"
+    },
+    {
+      "clip_id": "n0_p03_03",
+      "device": "phoneB",
+      "duration_seconds": 14.932,
+      "environment": "indoor",
+      "participant": "P03",
+      "role": "FIT",
+      "video_path": "F:\\ASL DATASET\\5. Apphear3\\scratchpad\\e2e_c0_capture\\raw\\n0\\P03\\phoneB\\indoor\\front\\n0_p03_03.mp4",
+      "video_sha256": "3312995768060f78fdc675e8cf3bb6a6d9921c6679903dc2fbbaa57cb8038305"
+    },
+    {
+      "clip_id": "n0_p03_04",
+      "device": "phoneB",
+      "duration_seconds": 14.932,
+      "environment": "indoor",
+      "participant": "P03",
+      "role": "FIT",
+      "video_path": "F:\\ASL DATASET\\5. Apphear3\\scratchpad\\e2e_c0_capture\\raw\\n0\\P03\\phoneB\\indoor\\front\\n0_p03_04.mp4",
+      "video_sha256": "f75b48013bf2b37563144db398edf377d8601524f7baa3c7c15a18444bfd930d"
+    },
+    {
+      "clip_id": "n0_p03_05",
+      "device": "phoneB",
+      "duration_seconds": 14.932,
+      "environment": "indoor",
+      "participant": "P03",
+      "role": "FIT",
+      "video_path": "F:\\ASL DATASET\\5. Apphear3\\scratchpad\\e2e_c0_capture\\raw\\n0\\P03\\phoneB\\indoor\\front\\n0_p03_05.mp4",
+      "video_sha256": "5eb433418a5efe832a67b454dfff0af140d26d8a6cdcdf6d03d61a7796a1645b"
+    },
+    {
+      "clip_id": "n0_p03_06",
+      "device": "phoneB",
+      "duration_seconds": 14.932,
+      "environment": "indoor",
+      "participant": "P03",
+      "role": "FIT",
+      "video_path": "F:\\ASL DATASET\\5. Apphear3\\scratchpad\\e2e_c0_capture\\raw\\n0\\P03\\phoneB\\indoor\\front\\n0_p03_06.mp4",
+      "video_sha256": "2fa0121cfa3e8e545238362069e53e3a3b106977553c150cdc3865e255144f40"
+    },
+    {
+      "clip_id": "n0_p03_07",
+      "device": "phoneB",
+      "duration_seconds": 14.932,
+      "environment": "indoor",
+      "participant": "P03",
+      "role": "FIT",
+      "video_path": "F:\\ASL DATASET\\5. Apphear3\\scratchpad\\e2e_c0_capture\\raw\\n0\\P03\\phoneB\\indoor\\front\\n0_p03_07.mp4",
+      "video_sha256": "f729f465be106232d76dd11bccf4909e9ec7c1c14eccfb005304e8ca086beaa4"
+    },
+    {
+      "clip_id": "n0_p03_08",
+      "device": "phoneB",
+      "duration_seconds": 14.932,
+      "environment": "indoor",
+      "participant": "P03",
+      "role": "FIT",
+      "video_path": "F:\\ASL DATASET\\5. Apphear3\\scratchpad\\e2e_c0_capture\\raw\\n0\\P03\\phoneB\\indoor\\front\\n0_p03_08.mp4",
+      "video_sha256": "87ca879f745c19d3df05b66c8a0fec0f5eea80fef12090c1a615f803e17ac238"
+    },
+    {
+      "clip_id": "n0_p03_09",
+      "device": "phoneB",
+      "duration_seconds": 14.932,
+      "environment": "indoor",
+      "participant": "P03",
+      "role": "FIT",
+      "video_path": "F:\\ASL DATASET\\5. Apphear3\\scratchpad\\e2e_c0_capture\\raw\\n0\\P03\\phoneB\\indoor\\front\\n0_p03_09.mp4",
+      "video_sha256": "cfdc6276f5f0bf33ef447f64fa06ae7dba3d484fe45aa1cf2c359765b5b7e343"
+    },
+    {
+      "clip_id": "n0_p03_10",
+      "device": "phoneB",
+      "duration_seconds": 14.932,
+      "environment": "indoor",
+      "participant": "P03",
+      "role": "FIT",
+      "video_path": "F:\\ASL DATASET\\5. Apphear3\\scratchpad\\e2e_c0_capture\\raw\\n0\\P03\\phoneB\\indoor\\front\\n0_p03_10.mp4",
+      "video_sha256": "3bb6901e1e5cb9ed8db4a6ea98965af7c794b9eb4708e8b5fa01690c6ac3cdf4"
+    },
+    {
+      "clip_id": "n0_p04_01",
+      "device": "phoneC",
+      "duration_seconds": 14.932,
+      "environment": "DirtyRoom",
+      "participant": "P04",
+      "role": "CAL",
+      "video_path": "F:\\ASL DATASET\\5. Apphear3\\scratchpad\\e2e_c0_capture\\raw\\n0\\P04\\phoneC\\DirtyRoom\\front\\n0_p04_01.mp4",
+      "video_sha256": "b57b0bbea640e0185e7d7a55cbae485cf073aa77738ea67979282a34588ef4f4"
+    },
+    {
+      "clip_id": "n0_p04_02",
+      "device": "phoneC",
+      "duration_seconds": 14.932,
+      "environment": "DirtyRoom",
+      "participant": "P04",
+      "role": "CAL",
+      "video_path": "F:\\ASL DATASET\\5. Apphear3\\scratchpad\\e2e_c0_capture\\raw\\n0\\P04\\phoneC\\DirtyRoom\\front\\n0_p04_02.mp4",
+      "video_sha256": "c836ff3930af472af3f2d65136f49eb7fcc682dd97bbf70dcb0c2b949173dbcd"
+    },
+    {
+      "clip_id": "n0_p04_03",
+      "device": "phoneC",
+      "duration_seconds": 14.932,
+      "environment": "DirtyRoom",
+      "participant": "P04",
+      "role": "CAL",
+      "video_path": "F:\\ASL DATASET\\5. Apphear3\\scratchpad\\e2e_c0_capture\\raw\\n0\\P04\\phoneC\\DirtyRoom\\front\\n0_p04_03.mp4",
+      "video_sha256": "0a25176f793a6d56d8e0e0be49573e780dcc28eecaae2281247625cbdb993535"
+    },
+    {
+      "clip_id": "n0_p04_04",
+      "device": "phoneC",
+      "duration_seconds": 14.932,
+      "environment": "DirtyRoom",
+      "participant": "P04",
+      "role": "CAL",
+      "video_path": "F:\\ASL DATASET\\5. Apphear3\\scratchpad\\e2e_c0_capture\\raw\\n0\\P04\\phoneC\\DirtyRoom\\front\\n0_p04_04.mp4",
+      "video_sha256": "f7f05bbe023dd7c772ffcc042be8c94909b1f7d14c04bbc7e190b2fa37931254"
+    },
+    {
+      "clip_id": "n0_p04_05",
+      "device": "phoneC",
+      "duration_seconds": 14.932,
+      "environment": "DirtyRoom",
+      "participant": "P04",
+      "role": "CAL",
+      "video_path": "F:\\ASL DATASET\\5. Apphear3\\scratchpad\\e2e_c0_capture\\raw\\n0\\P04\\phoneC\\DirtyRoom\\front\\n0_p04_05.mp4",
+      "video_sha256": "d5e4d8883b9b15752a5c49ab5a6e56b0b7a2f27a2583a7493bffaba9b3727181"
+    },
+    {
+      "clip_id": "n0_p04_06",
+      "device": "phoneC",
+      "duration_seconds": 14.932,
+      "environment": "DirtyRoom",
+      "participant": "P04",
+      "role": "CAL",
+      "video_path": "F:\\ASL DATASET\\5. Apphear3\\scratchpad\\e2e_c0_capture\\raw\\n0\\P04\\phoneC\\DirtyRoom\\front\\n0_p04_06.mp4",
+      "video_sha256": "3ca4fc1777911bab28a2f45a950685bea1d08c02bc010a07e63f5c060f7a1d54"
+    },
+    {
+      "clip_id": "n0_p04_07",
+      "device": "phoneC",
+      "duration_seconds": 14.932,
+      "environment": "DirtyRoom",
+      "participant": "P04",
+      "role": "CAL",
+      "video_path": "F:\\ASL DATASET\\5. Apphear3\\scratchpad\\e2e_c0_capture\\raw\\n0\\P04\\phoneC\\DirtyRoom\\front\\n0_p04_07.mp4",
+      "video_sha256": "94e060593c1da7e1eee02fa826f6ddeb4c3dbe36b1ff4353ca6b99d3ff8b27eb"
+    },
+    {
+      "clip_id": "n0_p04_08",
+      "device": "phoneC",
+      "duration_seconds": 14.932,
+      "environment": "DirtyRoom",
+      "participant": "P04",
+      "role": "CAL",
+      "video_path": "F:\\ASL DATASET\\5. Apphear3\\scratchpad\\e2e_c0_capture\\raw\\n0\\P04\\phoneC\\DirtyRoom\\front\\n0_p04_08.mp4",
+      "video_sha256": "7bd1e08aa8a528e846141a4a65534c3295a8cb417e8440832349efa73824eece"
+    },
+    {
+      "clip_id": "n0_p04_09",
+      "device": "phoneC",
+      "duration_seconds": 14.932,
+      "environment": "DirtyRoom",
+      "participant": "P04",
+      "role": "CAL",
+      "video_path": "F:\\ASL DATASET\\5. Apphear3\\scratchpad\\e2e_c0_capture\\raw\\n0\\P04\\phoneC\\DirtyRoom\\front\\n0_p04_09.mp4",
+      "video_sha256": "47ec4412c6470f68bd99b856beb12a1e39db906f2fe51e0cf4ed87cb05e20cbd"
+    },
+    {
+      "clip_id": "n0_p05_01",
+      "device": "phoneE",
+      "duration_seconds": 14.932,
+      "environment": "OUTDOOR",
+      "participant": "P05",
+      "role": "HELD_OUT_EVAL",
+      "video_path": "F:\\ASL DATASET\\5. Apphear3\\scratchpad\\e2e_c0_capture\\raw\\n0\\P05\\phoneE\\OUTDOOR\\front\\n0_p05_01.mp4",
+      "video_sha256": "709619160d029e517f7e2f2f893951c4ea8b8b1391144a8c464e728ab69729f6"
+    },
+    {
+      "clip_id": "n0_p05_02",
+      "device": "phoneE",
+      "duration_seconds": 14.932,
+      "environment": "OUTDOOR",
+      "participant": "P05",
+      "role": "HELD_OUT_EVAL",
+      "video_path": "F:\\ASL DATASET\\5. Apphear3\\scratchpad\\e2e_c0_capture\\raw\\n0\\P05\\phoneE\\OUTDOOR\\front\\n0_p05_02.mp4",
+      "video_sha256": "1960e10d3e6db5206b04ca82138e080f094797b85484083d5c37e6640d7e108d"
+    },
+    {
+      "clip_id": "n0_p05_03",
+      "device": "phoneE",
+      "duration_seconds": 14.932,
+      "environment": "OUTDOOR",
+      "participant": "P05",
+      "role": "HELD_OUT_EVAL",
+      "video_path": "F:\\ASL DATASET\\5. Apphear3\\scratchpad\\e2e_c0_capture\\raw\\n0\\P05\\phoneE\\OUTDOOR\\front\\n0_p05_03.mp4",
+      "video_sha256": "f48b094b347d8a26eabdf8bebb267efaafc95fec03dd5be4e7fc9a200b8abd3e"
+    },
+    {
+      "clip_id": "n0_p05_04",
+      "device": "phoneE",
+      "duration_seconds": 14.932,
+      "environment": "OUTDOOR",
+      "participant": "P05",
+      "role": "HELD_OUT_EVAL",
+      "video_path": "F:\\ASL DATASET\\5. Apphear3\\scratchpad\\e2e_c0_capture\\raw\\n0\\P05\\phoneE\\OUTDOOR\\front\\n0_p05_04.mp4",
+      "video_sha256": "08839a866612b738598bd2f2744b992108371f061aba352eb8fbc8dc4496c260"
+    },
+    {
+      "clip_id": "n0_p05_05",
+      "device": "phoneE",
+      "duration_seconds": 14.932,
+      "environment": "OUTDOOR",
+      "participant": "P05",
+      "role": "HELD_OUT_EVAL",
+      "video_path": "F:\\ASL DATASET\\5. Apphear3\\scratchpad\\e2e_c0_capture\\raw\\n0\\P05\\phoneE\\OUTDOOR\\front\\n0_p05_05.mp4",
+      "video_sha256": "5d1530d467999b9985ff8eb8482061d4778a59f54d2e665e5b9b18f3aa0939d8"
+    },
+    {
+      "clip_id": "n0_p05_06",
+      "device": "phoneE",
+      "duration_seconds": 14.932,
+      "environment": "OUTDOOR",
+      "participant": "P05",
+      "role": "HELD_OUT_EVAL",
+      "video_path": "F:\\ASL DATASET\\5. Apphear3\\scratchpad\\e2e_c0_capture\\raw\\n0\\P05\\phoneE\\OUTDOOR\\front\\n0_p05_06.mp4",
+      "video_sha256": "495ce25d5a5e434ab29e35372839fd6371e53854f1ed8fdce03d7dde94cb62cd"
+    },
+    {
+      "clip_id": "n0_p05_07",
+      "device": "phoneE",
+      "duration_seconds": 14.932,
+      "environment": "OUTDOOR",
+      "participant": "P05",
+      "role": "HELD_OUT_EVAL",
+      "video_path": "F:\\ASL DATASET\\5. Apphear3\\scratchpad\\e2e_c0_capture\\raw\\n0\\P05\\phoneE\\OUTDOOR\\front\\n0_p05_07.mp4",
+      "video_sha256": "2ab6810a4aadb96f8b5dd7db3fabf5f9c9f02c07d72386d1a37fd4648b4948e3"
+    },
+    {
+      "clip_id": "n0_p05_08",
+      "device": "phoneE",
+      "duration_seconds": 14.932,
+      "environment": "OUTDOOR",
+      "participant": "P05",
+      "role": "HELD_OUT_EVAL",
+      "video_path": "F:\\ASL DATASET\\5. Apphear3\\scratchpad\\e2e_c0_capture\\raw\\n0\\P05\\phoneE\\OUTDOOR\\front\\n0_p05_08.mp4",
+      "video_sha256": "db704db4cb97dd34ba671dedec6e010abbc502d7d466ec0cb2f2f896cd2c601f"
+    },
+    {
+      "clip_id": "n0_p06_01",
+      "device": "phoneF",
+      "duration_seconds": 14.932,
+      "environment": "kitchen",
+      "participant": "P06",
+      "role": "HELD_OUT_EVAL",
+      "video_path": "F:\\ASL DATASET\\5. Apphear3\\scratchpad\\e2e_c0_capture\\raw\\n0\\P06\\phoneF\\kitchen\\front\\n0_p06_01.mp4",
+      "video_sha256": "6cfd5c030ef1669b19180cf67df0d5ae50bc187b44f04505825576d055aaa55a"
+    },
+    {
+      "clip_id": "n0_p06_02",
+      "device": "phoneF",
+      "duration_seconds": 14.932,
+      "environment": "kitchen",
+      "participant": "P06",
+      "role": "HELD_OUT_EVAL",
+      "video_path": "F:\\ASL DATASET\\5. Apphear3\\scratchpad\\e2e_c0_capture\\raw\\n0\\P06\\phoneF\\kitchen\\front\\n0_p06_02.mp4",
+      "video_sha256": "db71d917700356193511748a33d1e9765c70403f2dc1533d9895d3d9c33aedd4"
+    },
+    {
+      "clip_id": "n0_p06_03",
+      "device": "phoneF",
+      "duration_seconds": 14.932,
+      "environment": "kitchen",
+      "participant": "P06",
+      "role": "HELD_OUT_EVAL",
+      "video_path": "F:\\ASL DATASET\\5. Apphear3\\scratchpad\\e2e_c0_capture\\raw\\n0\\P06\\phoneF\\kitchen\\front\\n0_p06_03.mp4",
+      "video_sha256": "4c6d62f8444d08bd13cdd3418982f1c8257ded21749128b1bb29467185db1f7f"
+    },
+    {
+      "clip_id": "n0_p06_04",
+      "device": "phoneF",
+      "duration_seconds": 14.932,
+      "environment": "kitchen",
+      "participant": "P06",
+      "role": "HELD_OUT_EVAL",
+      "video_path": "F:\\ASL DATASET\\5. Apphear3\\scratchpad\\e2e_c0_capture\\raw\\n0\\P06\\phoneF\\kitchen\\front\\n0_p06_04.mp4",
+      "video_sha256": "a94628c97fdc74b22c31ab71cb246d5dad3c24fe1bfdda2a4ce6449742a1daa4"
+    },
+    {
+      "clip_id": "n0_p06_05",
+      "device": "phoneF",
+      "duration_seconds": 14.932,
+      "environment": "kitchen",
+      "participant": "P06",
+      "role": "HELD_OUT_EVAL",
+      "video_path": "F:\\ASL DATASET\\5. Apphear3\\scratchpad\\e2e_c0_capture\\raw\\n0\\P06\\phoneF\\kitchen\\front\\n0_p06_05.mp4",
+      "video_sha256": "20764e97a49101da639d94e9eca5681ca61d1019920fc295179f9b6b3334cfc9"
+    },
+    {
+      "clip_id": "n0_p06_06",
+      "device": "phoneF",
+      "duration_seconds": 14.932,
+      "environment": "kitchen",
+      "participant": "P06",
+      "role": "HELD_OUT_EVAL",
+      "video_path": "F:\\ASL DATASET\\5. Apphear3\\scratchpad\\e2e_c0_capture\\raw\\n0\\P06\\phoneF\\kitchen\\front\\n0_p06_06.mp4",
+      "video_sha256": "ae00bd8ef157849164137144eae0bff72d298fc37f4c8c5ce1043bcf33abbb78"
+    },
+    {
+      "clip_id": "n0_p06_07",
+      "device": "phoneF",
+      "duration_seconds": 14.973,
+      "environment": "kitchen",
+      "participant": "P06",
+      "role": "HELD_OUT_EVAL",
+      "video_path": "F:\\ASL DATASET\\5. Apphear3\\scratchpad\\e2e_c0_capture\\raw\\n0\\P06\\phoneF\\kitchen\\front\\n0_p06_07.mp4",
+      "video_sha256": "eea3b68cecfc6b2e0302b818c3dbb3ec8df82136c58d58c42b8179a27376a09b"
+    },
+    {
+      "clip_id": "n0_p06_08",
+      "device": "phoneF",
+      "duration_seconds": 14.973,
+      "environment": "kitchen",
+      "participant": "P06",
+      "role": "HELD_OUT_EVAL",
+      "video_path": "F:\\ASL DATASET\\5. Apphear3\\scratchpad\\e2e_c0_capture\\raw\\n0\\P06\\phoneF\\kitchen\\front\\n0_p06_08.mp4",
+      "video_sha256": "5b3b4af4131c2f314ce66f620e9e7c6aa52a679130df6fe940b6a859da6922c9"
+    },
+    {
+      "clip_id": "n0_p06_09",
+      "device": "phoneF",
+      "duration_seconds": 14.973,
+      "environment": "kitchen",
+      "participant": "P06",
+      "role": "HELD_OUT_EVAL",
+      "video_path": "F:\\ASL DATASET\\5. Apphear3\\scratchpad\\e2e_c0_capture\\raw\\n0\\P06\\phoneF\\kitchen\\front\\n0_p06_09.mp4",
+      "video_sha256": "b66c454561b16f524eb610d61a207432fb8f5219dc1a30be2b64f93208c051cf"
+    }
+  ],
+  "outside_this_split": [
+    "segmentation DEV (suite Tier 1 gate only)",
+    "suite Tier 2 phone sessions (gate only)",
+    "protected TEST",
+    "E6 negative signer 0F747C-S001",
+    "Tier 3 independent qualified signer",
+    "R3b design-signer TRAIN capture (added as FIT when it exists)"
+  ],
+  "p1_negatives": [
+    {
+      "end_ms": 15372.0,
+      "participant": "P02",
+      "role": "FIT",
+      "row_id": "p1::P2_10::001",
+      "start_ms": 2008.0,
+      "video_path": "F:\\ASL DATASET\\5. Apphear3\\scratchpad\\e2e_c0_capture\\raw\\p1\\P02\\phoneB\\indoor\\front\\P2_10.mp4",
+      "video_sha256": "822322dab27ba45166f83a0c4927f846addce7373334f521efcdf12731a60c2a"
+    },
+    {
+      "end_ms": 9180.0,
+      "participant": "P02",
+      "role": "FIT",
+      "row_id": "p1::P2_11::001",
+      "start_ms": 0.0,
+      "video_path": "F:\\ASL DATASET\\5. Apphear3\\scratchpad\\e2e_c0_capture\\raw\\p1\\P02\\phoneB\\indoor\\front\\P2_11.mp4",
+      "video_sha256": "8f2ed602df602fa4b20d23a17bec11add757d6804d9438ab3107c6891b2be836"
+    },
+    {
+      "end_ms": 19739.0,
+      "participant": "P02",
+      "role": "FIT",
+      "row_id": "p1::P2_11::002",
+      "start_ms": 10138.0,
+      "video_path": "F:\\ASL DATASET\\5. Apphear3\\scratchpad\\e2e_c0_capture\\raw\\p1\\P02\\phoneB\\indoor\\front\\P2_11.mp4",
+      "video_sha256": "8f2ed602df602fa4b20d23a17bec11add757d6804d9438ab3107c6891b2be836"
+    },
+    {
+      "end_ms": 18406.0,
+      "participant": "P02",
+      "role": "FIT",
+      "row_id": "p1::P2_12::001",
+      "start_ms": 900.0,
+      "video_path": "F:\\ASL DATASET\\5. Apphear3\\scratchpad\\e2e_c0_capture\\raw\\p1\\P02\\phoneB\\indoor\\front\\P2_12.mp4",
+      "video_sha256": "5c97e3ea340ed26d7af3789a0298e9ac475ebab24a27529ac25cd14720cdb8e1"
+    },
+    {
+      "end_ms": 21041.0,
+      "participant": "P02",
+      "role": "FIT",
+      "row_id": "p1::P2_13::001",
+      "start_ms": 0.0,
+      "video_path": "F:\\ASL DATASET\\5. Apphear3\\scratchpad\\e2e_c0_capture\\raw\\p1\\P02\\phoneB\\indoor\\front\\P2_13.mp4",
+      "video_sha256": "6e89ff0dbd47e7d5dacec9d6b9122761e9abb04ab270e83a848dd04f933c3ead"
+    },
+    {
+      "end_ms": 20102.0,
+      "participant": "P02",
+      "role": "FIT",
+      "row_id": "p1::P2_14::001",
+      "start_ms": 444.0,
+      "video_path": "F:\\ASL DATASET\\5. Apphear3\\scratchpad\\e2e_c0_capture\\raw\\p1\\P02\\phoneB\\indoor\\front\\P2_14.mp4",
+      "video_sha256": "6027a7765018a530a3a1864fa3c5ca8acc288aab1581d09eb103c87d77a2b2a1"
+    },
+    {
+      "end_ms": 19530.0,
+      "participant": "P02",
+      "role": "FIT",
+      "row_id": "p1::P2_15::001",
+      "start_ms": 0.0,
+      "video_path": "F:\\ASL DATASET\\5. Apphear3\\scratchpad\\e2e_c0_capture\\raw\\p1\\P02\\phoneB\\indoor\\front\\P2_15.mp4",
+      "video_sha256": "d58f35a33d90e2fc1c367c09848770df644785155c0c5116e27857d77084e65c"
+    },
+    {
+      "end_ms": 18709.0,
+      "participant": "P02",
+      "role": "FIT",
+      "row_id": "p1::P2_16::001",
+      "start_ms": 1092.0,
+      "video_path": "F:\\ASL DATASET\\5. Apphear3\\scratchpad\\e2e_c0_capture\\raw\\p1\\P02\\phoneB\\indoor\\front\\P2_16.mp4",
+      "video_sha256": "3c64de545fcadf6fb05c1a3f74359d0f100f624861bd8eeaf4e09f573c212d1a"
+    },
+    {
+      "end_ms": 18234.0,
+      "participant": "P02",
+      "role": "FIT",
+      "row_id": "p1::P2_17::001",
+      "start_ms": 512.0,
+      "video_path": "F:\\ASL DATASET\\5. Apphear3\\scratchpad\\e2e_c0_capture\\raw\\p1\\P02\\phoneB\\indoor\\front\\P2_17.mp4",
+      "video_sha256": "d2f50a4f0ac1a0f39170614e4bad4fb49dd44193f166b31d9db9c2b4f9970a1d"
+    },
+    {
+      "end_ms": 18035.0,
+      "participant": "P02",
+      "role": "FIT",
+      "row_id": "p1::P2_18::001",
+      "start_ms": 0.0,
+      "video_path": "F:\\ASL DATASET\\5. Apphear3\\scratchpad\\e2e_c0_capture\\raw\\p1\\P02\\phoneB\\indoor\\front\\P2_18.mp4",
+      "video_sha256": "e162cec49da6b5b767a01004b64ea33916e92e68e6723a61ed455c873383d0bf"
+    },
+    {
+      "end_ms": 19757.0,
+      "participant": "P02",
+      "role": "FIT",
+      "row_id": "p1::P2_19::001",
+      "start_ms": 0.0,
+      "video_path": "F:\\ASL DATASET\\5. Apphear3\\scratchpad\\e2e_c0_capture\\raw\\p1\\P02\\phoneB\\indoor\\front\\P2_19.mp4",
+      "video_sha256": "9820687ff44b2770b8165500dcd55718dd8cd40b87cdc98d4f9fbb2fa1f37ad2"
+    },
+    {
+      "end_ms": 18266.0,
+      "participant": "P02",
+      "role": "FIT",
+      "row_id": "p1::P2_1::001",
+      "start_ms": 867.0,
+      "video_path": "F:\\ASL DATASET\\5. Apphear3\\scratchpad\\e2e_c0_capture\\raw\\p1\\P02\\phoneB\\indoor\\front\\P2_1.mp4",
+      "video_sha256": "544511601e67a8d41f1f49d5896ede827b492c4b8b0854c81b326bf9e00d4902"
+    },
+    {
+      "end_ms": 20691.0,
+      "participant": "P02",
+      "role": "FIT",
+      "row_id": "p1::P2_20::001",
+      "start_ms": 0.0,
+      "video_path": "F:\\ASL DATASET\\5. Apphear3\\scratchpad\\e2e_c0_capture\\raw\\p1\\P02\\phoneB\\indoor\\front\\P2_20.mp4",
+      "video_sha256": "000f9743aa2578c156833467f20ed325305a79c783798d77c502e60087c86ab7"
+    },
+    {
+      "end_ms": 5875.0,
+      "participant": "P02",
+      "role": "FIT",
+      "row_id": "p1::P2_2::001",
+      "start_ms": 456.0,
+      "video_path": "F:\\ASL DATASET\\5. Apphear3\\scratchpad\\e2e_c0_capture\\raw\\p1\\P02\\phoneB\\indoor\\front\\P2_2.mp4",
+      "video_sha256": "5022b5c25a1f16e6b473b05114dda33cdb287a32887bd5ac76dc86eac1cfea64"
+    },
+    {
+      "end_ms": 16103.0,
+      "participant": "P02",
+      "role": "FIT",
+      "row_id": "p1::P2_2::002",
+      "start_ms": 7815.0,
+      "video_path": "F:\\ASL DATASET\\5. Apphear3\\scratchpad\\e2e_c0_capture\\raw\\p1\\P02\\phoneB\\indoor\\front\\P2_2.mp4",
+      "video_sha256": "5022b5c25a1f16e6b473b05114dda33cdb287a32887bd5ac76dc86eac1cfea64"
+    },
+    {
+      "end_ms": 6791.0,
+      "participant": "P02",
+      "role": "FIT",
+      "row_id": "p1::P2_3::001",
+      "start_ms": 602.0,
+      "video_path": "F:\\ASL DATASET\\5. Apphear3\\scratchpad\\e2e_c0_capture\\raw\\p1\\P02\\phoneB\\indoor\\front\\P2_3.mp4",
+      "video_sha256": "57052475c12c925c5da003762514bb422b4087a78d7975766e0e48035f427b55"
+    },
+    {
+      "end_ms": 17001.0,
+      "participant": "P02",
+      "role": "FIT",
+      "row_id": "p1::P2_3::002",
+      "start_ms": 7477.0,
+      "video_path": "F:\\ASL DATASET\\5. Apphear3\\scratchpad\\e2e_c0_capture\\raw\\p1\\P02\\phoneB\\indoor\\front\\P2_3.mp4",
+      "video_sha256": "57052475c12c925c5da003762514bb422b4087a78d7975766e0e48035f427b55"
+    },
+    {
+      "end_ms": 15883.0,
+      "participant": "P02",
+      "role": "FIT",
+      "row_id": "p1::P2_4::001",
+      "start_ms": 1559.0,
+      "video_path": "F:\\ASL DATASET\\5. Apphear3\\scratchpad\\e2e_c0_capture\\raw\\p1\\P02\\phoneB\\indoor\\front\\P2_4.mp4",
+      "video_sha256": "812fadc36779ee60f54fd8beb3ad3a5931028060dba9b78b84e52d1f75ecd33f"
+    },
+    {
+      "end_ms": 19892.0,
+      "participant": "P02",
+      "role": "FIT",
+      "row_id": "p1::P2_4::002",
+      "start_ms": 15927.0,
+      "video_path": "F:\\ASL DATASET\\5. Apphear3\\scratchpad\\e2e_c0_capture\\raw\\p1\\P02\\phoneB\\indoor\\front\\P2_4.mp4",
+      "video_sha256": "812fadc36779ee60f54fd8beb3ad3a5931028060dba9b78b84e52d1f75ecd33f"
+    },
+    {
+      "end_ms": 17824.0,
+      "participant": "P02",
+      "role": "FIT",
+      "row_id": "p1::P2_5::001",
+      "start_ms": 0.0,
+      "video_path": "F:\\ASL DATASET\\5. Apphear3\\scratchpad\\e2e_c0_capture\\raw\\p1\\P02\\phoneB\\indoor\\front\\P2_5.mp4",
+      "video_sha256": "db8b6caacebb84f1f47eceb0c20d44c937919da03c964054d47056b852b064f3"
+    },
+    {
+      "end_ms": 16900.0,
+      "participant": "P02",
+      "role": "FIT",
+      "row_id": "p1::P2_6::001",
+      "start_ms": 392.0,
+      "video_path": "F:\\ASL DATASET\\5. Apphear3\\scratchpad\\e2e_c0_capture\\raw\\p1\\P02\\phoneB\\indoor\\front\\P2_6.mp4",
+      "video_sha256": "35aace9a514c34ac753554043c11753222e338dfe216e9221e67a664fd099c15"
+    },
+    {
+      "end_ms": 18711.0,
+      "participant": "P02",
+      "role": "FIT",
+      "row_id": "p1::P2_7::001",
+      "start_ms": 360.0,
+      "video_path": "F:\\ASL DATASET\\5. Apphear3\\scratchpad\\e2e_c0_capture\\raw\\p1\\P02\\phoneB\\indoor\\front\\P2_7.mp4",
+      "video_sha256": "d19ef902d39dfe9e4b5f46ce0e67e55fba7aae23e4ad766c75e7414dbcf93100"
+    },
+    {
+      "end_ms": 5283.0,
+      "participant": "P02",
+      "role": "FIT",
+      "row_id": "p1::P2_8::001",
+      "start_ms": 0.0,
+      "video_path": "F:\\ASL DATASET\\5. Apphear3\\scratchpad\\e2e_c0_capture\\raw\\p1\\P02\\phoneB\\indoor\\front\\P2_8.mp4",
+      "video_sha256": "73b1e8f37d95f613b26025a190c0ee791180b342314a9e1ed1a3cb6819a4f6a0"
+    },
+    {
+      "end_ms": 19495.0,
+      "participant": "P02",
+      "role": "FIT",
+      "row_id": "p1::P2_8::002",
+      "start_ms": 6815.0,
+      "video_path": "F:\\ASL DATASET\\5. Apphear3\\scratchpad\\e2e_c0_capture\\raw\\p1\\P02\\phoneB\\indoor\\front\\P2_8.mp4",
+      "video_sha256": "73b1e8f37d95f613b26025a190c0ee791180b342314a9e1ed1a3cb6819a4f6a0"
+    },
+    {
+      "end_ms": 4067.0,
+      "participant": "P02",
+      "role": "FIT",
+      "row_id": "p1::P2_9::001",
+      "start_ms": 0.0,
+      "video_path": "F:\\ASL DATASET\\5. Apphear3\\scratchpad\\e2e_c0_capture\\raw\\p1\\P02\\phoneB\\indoor\\front\\P2_9.mp4",
+      "video_sha256": "3b3eb6d6e19fa32fe9fbfdf8fa87f8681d45bb7b2a0109bda53b04db1b41255d"
+    },
+    {
+      "end_ms": 19453.0,
+      "participant": "P02",
+      "role": "FIT",
+      "row_id": "p1::P2_9::002",
+      "start_ms": 4920.0,
+      "video_path": "F:\\ASL DATASET\\5. Apphear3\\scratchpad\\e2e_c0_capture\\raw\\p1\\P02\\phoneB\\indoor\\front\\P2_9.mp4",
+      "video_sha256": "3b3eb6d6e19fa32fe9fbfdf8fa87f8681d45bb7b2a0109bda53b04db1b41255d"
+    },
+    {
+      "end_ms": 29780.0,
+      "participant": "P01",
+      "role": "CAL",
+      "row_id": "p1::p1_10::001",
+      "start_ms": 0.0,
+      "video_path": "F:\\ASL DATASET\\5. Apphear3\\scratchpad\\e2e_c0_capture\\raw\\p1\\P01\\phoneA\\indoor\\front\\p1_10.mp4",
+      "video_sha256": "5e4063f2be3a01b8e0d8f1c0458ac3b14ba3dec955351648fb89fc9fab3effb3"
+    },
+    {
+      "end_ms": 14527.0,
+      "participant": "P01",
+      "role": "CAL",
+      "row_id": "p1::p1_1::001",
+      "start_ms": 0.0,
+      "video_path": "F:\\ASL DATASET\\5. Apphear3\\scratchpad\\e2e_c0_capture\\raw\\p1\\P01\\phoneA\\indoor\\front\\p1_1.mp4",
+      "video_sha256": "037bdbbbfd0e71b5885b6f9b444f9198820520d30d4bf8d536971d1e8ca2eca6"
+    },
+    {
+      "end_ms": 25411.0,
+      "participant": "P01",
+      "role": "CAL",
+      "row_id": "p1::p1_1::002",
+      "start_ms": 15369.0,
+      "video_path": "F:\\ASL DATASET\\5. Apphear3\\scratchpad\\e2e_c0_capture\\raw\\p1\\P01\\phoneA\\indoor\\front\\p1_1.mp4",
+      "video_sha256": "037bdbbbfd0e71b5885b6f9b444f9198820520d30d4bf8d536971d1e8ca2eca6"
+    },
+    {
+      "end_ms": 6313.0,
+      "participant": "P01",
+      "role": "CAL",
+      "row_id": "p1::p1_2::001",
+      "start_ms": 0.0,
+      "video_path": "F:\\ASL DATASET\\5. Apphear3\\scratchpad\\e2e_c0_capture\\raw\\p1\\P01\\phoneA\\indoor\\front\\p1_2.mp4",
+      "video_sha256": "a24fa448871f2bf7a482d22bbe9fa864c541a4acafdf216b3e8f015a6ac28a37"
+    },
+    {
+      "end_ms": 12350.0,
+      "participant": "P01",
+      "role": "CAL",
+      "row_id": "p1::p1_2::002",
+      "start_ms": 6690.0,
+      "video_path": "F:\\ASL DATASET\\5. Apphear3\\scratchpad\\e2e_c0_capture\\raw\\p1\\P01\\phoneA\\indoor\\front\\p1_2.mp4",
+      "video_sha256": "a24fa448871f2bf7a482d22bbe9fa864c541a4acafdf216b3e8f015a6ac28a37"
+    },
+    {
+      "end_ms": 13627.0,
+      "participant": "P01",
+      "role": "CAL",
+      "row_id": "p1::p1_2::003",
+      "start_ms": 12640.0,
+      "video_path": "F:\\ASL DATASET\\5. Apphear3\\scratchpad\\e2e_c0_capture\\raw\\p1\\P01\\phoneA\\indoor\\front\\p1_2.mp4",
+      "video_sha256": "a24fa448871f2bf7a482d22bbe9fa864c541a4acafdf216b3e8f015a6ac28a37"
+    },
+    {
+      "end_ms": 29417.0,
+      "participant": "P01",
+      "role": "CAL",
+      "row_id": "p1::p1_2::004",
+      "start_ms": 14814.0,
+      "video_path": "F:\\ASL DATASET\\5. Apphear3\\scratchpad\\e2e_c0_capture\\raw\\p1\\P01\\phoneA\\indoor\\front\\p1_2.mp4",
+      "video_sha256": "a24fa448871f2bf7a482d22bbe9fa864c541a4acafdf216b3e8f015a6ac28a37"
+    },
+    {
+      "end_ms": 17836.0,
+      "participant": "P01",
+      "role": "CAL",
+      "row_id": "p1::p1_3::001",
+      "start_ms": 0.0,
+      "video_path": "F:\\ASL DATASET\\5. Apphear3\\scratchpad\\e2e_c0_capture\\raw\\p1\\P01\\phoneA\\indoor\\front\\p1_3.mp4",
+      "video_sha256": "7500e7f278f6d380801377f6f0d5450f1512e1982b7a13234e6fe2f3622eb0bc"
+    },
+    {
+      "end_ms": 20477.0,
+      "participant": "P01",
+      "role": "CAL",
+      "row_id": "p1::p1_3::002",
+      "start_ms": 18010.0,
+      "video_path": "F:\\ASL DATASET\\5. Apphear3\\scratchpad\\e2e_c0_capture\\raw\\p1\\P01\\phoneA\\indoor\\front\\p1_3.mp4",
+      "video_sha256": "7500e7f278f6d380801377f6f0d5450f1512e1982b7a13234e6fe2f3622eb0bc"
+    },
+    {
+      "end_ms": 29780.0,
+      "participant": "P01",
+      "role": "CAL",
+      "row_id": "p1::p1_3::003",
+      "start_ms": 20593.0,
+      "video_path": "F:\\ASL DATASET\\5. Apphear3\\scratchpad\\e2e_c0_capture\\raw\\p1\\P01\\phoneA\\indoor\\front\\p1_3.mp4",
+      "video_sha256": "7500e7f278f6d380801377f6f0d5450f1512e1982b7a13234e6fe2f3622eb0bc"
+    },
+    {
+      "end_ms": 6371.0,
+      "participant": "P01",
+      "role": "CAL",
+      "row_id": "p1::p1_4::001",
+      "start_ms": 2395.0,
+      "video_path": "F:\\ASL DATASET\\5. Apphear3\\scratchpad\\e2e_c0_capture\\raw\\p1\\P01\\phoneA\\indoor\\front\\p1_4.mp4",
+      "video_sha256": "673c4e8874a4c39554673f06deabe66462731663fa6e826a9e92c163309c3fbe"
+    },
+    {
+      "end_ms": 8432.0,
+      "participant": "P01",
+      "role": "CAL",
+      "row_id": "p1::p1_4::002",
+      "start_ms": 6371.0,
+      "video_path": "F:\\ASL DATASET\\5. Apphear3\\scratchpad\\e2e_c0_capture\\raw\\p1\\P01\\phoneA\\indoor\\front\\p1_4.mp4",
+      "video_sha256": "673c4e8874a4c39554673f06deabe66462731663fa6e826a9e92c163309c3fbe"
+    },
+    {
+      "end_ms": 29688.0,
+      "participant": "P01",
+      "role": "CAL",
+      "row_id": "p1::p1_4::003",
+      "start_ms": 10289.0,
+      "video_path": "F:\\ASL DATASET\\5. Apphear3\\scratchpad\\e2e_c0_capture\\raw\\p1\\P01\\phoneA\\indoor\\front\\p1_4.mp4",
+      "video_sha256": "673c4e8874a4c39554673f06deabe66462731663fa6e826a9e92c163309c3fbe"
+    },
+    {
+      "end_ms": 29185.0,
+      "participant": "P01",
+      "role": "CAL",
+      "row_id": "p1::p1_5::001",
+      "start_ms": 0.0,
+      "video_path": "F:\\ASL DATASET\\5. Apphear3\\scratchpad\\e2e_c0_capture\\raw\\p1\\P01\\phoneA\\indoor\\front\\p1_5.mp4",
+      "video_sha256": "a94f93535f39b10c7eb9540cd09b88063a47922a77d81be8611c8dc601866fd7"
+    },
+    {
+      "end_ms": 17797.0,
+      "participant": "P01",
+      "role": "CAL",
+      "row_id": "p1::p1_6::001",
+      "start_ms": 0.0,
+      "video_path": "F:\\ASL DATASET\\5. Apphear3\\scratchpad\\e2e_c0_capture\\raw\\p1\\P01\\phoneA\\indoor\\front\\p1_6.mp4",
+      "video_sha256": "08589e38ba55edaf0358e587cc1404bd90facc1898000fa1c2e8180d48f250f4"
+    },
+    {
+      "end_ms": 29504.0,
+      "participant": "P01",
+      "role": "CAL",
+      "row_id": "p1::p1_7::001",
+      "start_ms": 6857.0,
+      "video_path": "F:\\ASL DATASET\\5. Apphear3\\scratchpad\\e2e_c0_capture\\raw\\p1\\P01\\phoneA\\indoor\\front\\p1_7.mp4",
+      "video_sha256": "685aa3e5a15378e5a4f4843bc31dda95114373d9c811d1a1ab8009c42f93ae23"
+    },
+    {
+      "end_ms": 17326.0,
+      "participant": "P01",
+      "role": "CAL",
+      "row_id": "p1::p1_8::001",
+      "start_ms": 0.0,
+      "video_path": "F:\\ASL DATASET\\5. Apphear3\\scratchpad\\e2e_c0_capture\\raw\\p1\\P01\\phoneA\\indoor\\front\\p1_8.mp4",
+      "video_sha256": "715a5c8d65ec873860d0f73c774eaed504ca53f1f9646897092ec9768906c055"
+    },
+    {
+      "end_ms": 29243.0,
+      "participant": "P01",
+      "role": "CAL",
+      "row_id": "p1::p1_8::002",
+      "start_ms": 17807.0,
+      "video_path": "F:\\ASL DATASET\\5. Apphear3\\scratchpad\\e2e_c0_capture\\raw\\p1\\P01\\phoneA\\indoor\\front\\p1_8.mp4",
+      "video_sha256": "715a5c8d65ec873860d0f73c774eaed504ca53f1f9646897092ec9768906c055"
+    },
+    {
+      "end_ms": 29780.0,
+      "participant": "P01",
+      "role": "CAL",
+      "row_id": "p1::p1_9::001",
+      "start_ms": 0.0,
+      "video_path": "F:\\ASL DATASET\\5. Apphear3\\scratchpad\\e2e_c0_capture\\raw\\p1\\P01\\phoneA\\indoor\\front\\p1_9.mp4",
+      "video_sha256": "bce60e12149e40ebda7857ea3fb8fb228ac8b22f7f84177267a56d2b9b6f2739"
+    }
+  ],
+  "phone_positive_design_signer": {
+    "role": "FIT",
+    "sample_ids": [
+      "exact_phone:session_20260921T153138Z:attempt_001",
+      "exact_phone:session_20260921T153138Z:attempt_002",
+      "exact_phone:session_20260921T153138Z:attempt_003",
+      "exact_phone:session_20260921T153138Z:attempt_004",
+      "exact_phone:session_20260921T153138Z:attempt_005",
+      "exact_phone:session_20260921T153138Z:attempt_006"
+    ]
+  },
+  "positives": [
+    {
+      "family": "PHASE7_TRAIN_CLIP",
+      "raw_path": "F:\\ASL DATASET\\5. Apphear3\\artifacts\\recognition_upgrade\\perception_vnext\\recognition_utility_236_01\\phase5_1t_3_first_class_agnostic_segmenter_01\\raw_full_video\\54d8cdd71f07cb100b6bb57c.npz",
+      "raw_sha256": "2c5e8d4d0e8511a361fa9e92aeb346dcaa8dd0460217d2582ab33a69c1305635",
+      "role": "FIT",
+      "sample_id": "asl:train:004673157090680835-SOMETIMES",
+      "signer": "asl_citizen:P28",
+      "source": "ASL_CITIZEN"
+    },
+    {
+      "family": "PHASE7_TRAIN_CLIP",
+      "raw_path": "F:\\ASL DATASET\\5. Apphear3\\artifacts\\recognition_upgrade\\perception_vnext\\recognition_utility_236_01\\phase5_1t_3_first_class_agnostic_segmenter_01\\raw_full_video\\fb460ec65354ecfae466904c.npz",
+      "raw_sha256": "bde7498adce57f2be00d4132ab50cdbbbba6addc209a123158fb769bb8d1d3bf",
+      "role": "FIT",
+      "sample_id": "asl:train:01973467612046309-SEE",
+      "signer": "asl_citizen:P37",
+      "source": "ASL_CITIZEN"
+    },
+    {
+      "family": "PHASE7_TRAIN_CLIP",
+      "raw_path": "F:\\ASL DATASET\\5. Apphear3\\artifacts\\recognition_upgrade\\perception_vnext\\recognition_utility_236_01\\phase5_1t_3_first_class_agnostic_segmenter_01\\raw_full_video\\23d5af2a3f0b75503ad1945c.npz",
+      "raw_sha256": "a932e08b7a5f0664a8880a954e85c9fdc59ad3584b8d97bcb8735ca343e6fa30",
+      "role": "FIT",
+      "sample_id": "asl:train:04562546544928736-STAY",
+      "signer": "asl_citizen:P37",
+      "source": "ASL_CITIZEN"
+    },
+    {
+      "family": "PHASE7_TRAIN_CLIP",
+      "raw_path": "F:\\ASL DATASET\\5. Apphear3\\artifacts\\recognition_upgrade\\perception_vnext\\recognition_utility_236_01\\phase5_1t_3_first_class_agnostic_segmenter_01\\raw_full_video\\df159732c5d3858805cc16b5.npz",
+      "raw_sha256": "0a1b555a7421172c4a91713b70248fbbf64951bccfc18f94f59e3dac51ad502b",
+      "role": "FIT",
+      "sample_id": "asl:train:049689800905120096-seedBROTHER",
+      "signer": "asl_citizen:P52",
+      "source": "ASL_CITIZEN"
+    },
+    {
+      "family": "PHASE7_TRAIN_CLIP",
+      "raw_path": "F:\\ASL DATASET\\5. Apphear3\\artifacts\\recognition_upgrade\\perception_vnext\\recognition_utility_236_01\\phase5_1t_3_first_class_agnostic_segmenter_01\\raw_full_video\\87e1923f4a689aaa86466ef1.npz",
+      "raw_sha256": "f92fd01384e62364dc51afad877a8a3d5b10ab53f1105302ccecc80cce8ec93c",
+      "role": "FIT",
+      "sample_id": "asl:train:051129576627691575-CHILD",
+      "signer": "asl_citizen:P50",
+      "source": "ASL_CITIZEN"
+    },
+    {
+      "family": "PHASE7_TRAIN_CLIP",
+      "raw_path": "F:\\ASL DATASET\\5. Apphear3\\artifacts\\recognition_upgrade\\perception_vnext\\recognition_utility_236_01\\phase5_1t_3_first_class_agnostic_segmenter_01\\raw_full_video\\ab20355180a2039a9082678c.npz",
+      "raw_sha256": "ec9ab99ff1fda02a6ab9a1e0c3f9b39219ecd6b124d771ffad71b96c73cbabf5",
+      "role": "FIT",
+      "sample_id": "asl:train:0809565046350682-PEOPLE",
+      "signer": "asl_citizen:P27",
+      "source": "ASL_CITIZEN"
+    },
+    {
+      "family": "PHASE7_TRAIN_CLIP",
+      "raw_path": "F:\\ASL DATASET\\5. Apphear3\\artifacts\\recognition_upgrade\\perception_vnext\\recognition_utility_236_01\\phase5_1t_3_first_class_agnostic_segmenter_01\\raw_full_video\\75091182c8a1563e600bb6ae.npz",
+      "raw_sha256": "7b7fabe8a69fc17e82b5a0384bb9911b854603daebb9f33e98dc034ec5d76b5d",
+      "role": "CAL",
+      "sample_id": "asl:train:1716101064332085-CONFUSED",
+      "signer": "asl_citizen:P3",
+      "source": "ASL_CITIZEN"
+    },
+    {
+      "family": "PHASE7_TRAIN_CLIP",
+      "raw_path": "F:\\ASL DATASET\\5. Apphear3\\artifacts\\recognition_upgrade\\perception_vnext\\recognition_utility_236_01\\phase5_1t_3_first_class_agnostic_segmenter_01\\raw_full_video\\dfa9525ebb504a660aebea54.npz",
+      "raw_sha256": "d17291a946d7ee36e5cd850490ea604c69b69a3ae7c8fc6a8c44e8e2130cc836",
+      "role": "FIT",
+      "sample_id": "asl:train:1870662845695683-SLOW",
+      "signer": "asl_citizen:P20",
+      "source": "ASL_CITIZEN"
+    },
+    {
+      "family": "PHASE7_TRAIN_CLIP",
+      "raw_path": "F:\\ASL DATASET\\5. Apphear3\\artifacts\\recognition_upgrade\\perception_vnext\\recognition_utility_236_01\\phase5_1t_3_first_class_agnostic_segmenter_01\\raw_full_video\\8b20ab57944261b03bcc2216.npz",
+      "raw_sha256": "0622f9dd507b691dd629e7a96755013369fa857ea6a0e13e59ca6e4b88893946",
+      "role": "FIT",
+      "sample_id": "asl:train:19101165942054377-CHAIR",
+      "signer": "asl_citizen:P20",
+      "source": "ASL_CITIZEN"
+    },
+    {
+      "family": "PHASE7_TRAIN_CLIP",
+      "raw_path": "F:\\ASL DATASET\\5. Apphear3\\artifacts\\recognition_upgrade\\perception_vnext\\recognition_utility_236_01\\phase5_1t_3_first_class_agnostic_segmenter_01\\raw_full_video\\e17546b789c4e9e126fd3cf0.npz",
+      "raw_sha256": "1cc8f83f67cd1f8de5e886600a20e287678e6f06be2b5ce32021d681e1dcca05",
+      "role": "FIT",
+      "sample_id": "asl:train:1911813370069868-DINNER",
+      "signer": "asl_citizen:P28",
+      "source": "ASL_CITIZEN"
+    },
+    {
+      "family": "ENRICHMENT_CLIP",
+      "role": "CAL",
+      "sample_id": "asl:train:19978233231036002-WRITE",
+      "signer": "asl_citizen:P40",
+      "source": "ASL_CITIZEN",
+      "video_available": false,
+      "video_path": "G:\\ASL CITIZEN\\ASL CITIZEN\\ASL_Citizen\\videos\\19978233231036002-WRITE.mp4",
+      "video_sha256": "c685f9f37f0a3107afe05202475cd8a8ed1f05ae9175abb8d9c72136b448c89b"
+    },
+    {
+      "family": "PHASE7_TRAIN_CLIP",
+      "raw_path": "F:\\ASL DATASET\\5. Apphear3\\artifacts\\recognition_upgrade\\perception_vnext\\recognition_utility_236_01\\phase5_1t_3_first_class_agnostic_segmenter_01\\raw_full_video\\7292a2a0d10a6ab30d57aebd.npz",
+      "raw_sha256": "97bf0a0949f63f0139c696a5016a7c594631d83e6d308124fb769ae5f04acfe6",
+      "role": "FIT",
+      "sample_id": "asl:train:2117342026115856-SLEEP",
+      "signer": "asl_citizen:P31",
+      "source": "ASL_CITIZEN"
+    },
+    {
+      "family": "PHASE7_TRAIN_CLIP",
+      "raw_path": "F:\\ASL DATASET\\5. Apphear3\\artifacts\\recognition_upgrade\\perception_vnext\\recognition_utility_236_01\\phase5_1t_3_first_class_agnostic_segmenter_01\\raw_full_video\\abd2928a397ac69eecd69817.npz",
+      "raw_sha256": "1cc7e0ee4c9eacfed91f55de2e402b415d46d3397b0e3d3cdebe614a8e264898",
+      "role": "FIT",
+      "sample_id": "asl:train:2155045647013336-WANT",
+      "signer": "asl_citizen:P44",
+      "source": "ASL_CITIZEN"
+    },
+    {
+      "family": "PHASE7_TRAIN_CLIP",
+      "raw_path": "F:\\ASL DATASET\\5. Apphear3\\artifacts\\recognition_upgrade\\perception_vnext\\recognition_utility_236_01\\phase5_1t_3_first_class_agnostic_segmenter_01\\raw_full_video\\11e2ec61b68adc0cbbe5c1cd.npz",
+      "raw_sha256": "e61734047709cdf28e48d5ecdbea52bdd2a9b2a4b7e972a0a00980bf0de8d0d3",
+      "role": "FIT",
+      "sample_id": "asl:train:21805340389552041-ONE",
+      "signer": "asl_citizen:P20",
+      "source": "ASL_CITIZEN"
+    },
+    {
+      "family": "PHASE7_TRAIN_CLIP",
+      "raw_path": "F:\\ASL DATASET\\5. Apphear3\\artifacts\\recognition_upgrade\\perception_vnext\\recognition_utility_236_01\\phase5_1t_3_first_class_agnostic_segmenter_01\\raw_full_video\\5f8071cc20be0cfc975290cc.npz",
+      "raw_sha256": "fded19d4933369848c26331efc49d54ca23070f501ed493eb81574d0a03aa4e1",
+      "role": "FIT",
+      "sample_id": "asl:train:23296863274555424-CLOSE",
+      "signer": "asl_citizen:P28",
+      "source": "ASL_CITIZEN"
+    },
+    {
+      "family": "PHASE7_TRAIN_CLIP",
+      "raw_path": "F:\\ASL DATASET\\5. Apphear3\\artifacts\\recognition_upgrade\\perception_vnext\\recognition_utility_236_01\\phase5_1t_3_first_class_agnostic_segmenter_01\\raw_full_video\\5fbae2283df69fccb512ccbe.npz",
+      "raw_sha256": "5cab24e29fdb97a34d118a6eec894ce1622f3f9de4811255ce4a676f10aa8edb",
+      "role": "FIT",
+      "sample_id": "asl:train:25802117645943423-HELLO",
+      "signer": "asl_citizen:P41",
+      "source": "ASL_CITIZEN"
+    },
+    {
+      "family": "PHASE7_TRAIN_CLIP",
+      "raw_path": "F:\\ASL DATASET\\5. Apphear3\\artifacts\\recognition_upgrade\\perception_vnext\\recognition_utility_236_01\\phase5_1t_3_first_class_agnostic_segmenter_01\\raw_full_video\\5ee74f6f83d51b856476343d.npz",
+      "raw_sha256": "ff6dd07310867682de2f5aa485cc3a8074a47731b5b740476c9eb7fc0b836f0d",
+      "role": "FIT",
+      "sample_id": "asl:train:2657029779941493-ALWAYS",
+      "signer": "asl_citizen:P46",
+      "source": "ASL_CITIZEN"
+    },
+    {
+      "family": "PHASE7_TRAIN_CLIP",
+      "raw_path": "F:\\ASL DATASET\\5. Apphear3\\artifacts\\recognition_upgrade\\perception_vnext\\recognition_utility_236_01\\phase5_1t_3_first_class_agnostic_segmenter_01\\raw_full_video\\5a02a4f686839866abb0a714.npz",
+      "raw_sha256": "0654859bbabfed0fb6ceb24bb6fa9c7c83303785bb592ceefcad54ab2f11cd63",
+      "role": "FIT",
+      "sample_id": "asl:train:27025335951977025-THEN",
+      "signer": "asl_citizen:P23",
+      "source": "ASL_CITIZEN"
+    },
+    {
+      "family": "PHASE7_TRAIN_CLIP",
+      "raw_path": "F:\\ASL DATASET\\5. Apphear3\\artifacts\\recognition_upgrade\\perception_vnext\\recognition_utility_236_01\\phase5_1t_3_first_class_agnostic_segmenter_01\\raw_full_video\\8afbcbecbd86b44e3eccc202.npz",
+      "raw_sha256": "6d5d7c0e1f7d9901461cdb4bfb99b49602eb3aa90d624db76804970cfac98d6f",
+      "role": "CAL",
+      "sample_id": "asl:train:2957336956191672-MONEY",
+      "signer": "asl_citizen:P16",
+      "source": "ASL_CITIZEN"
+    },
+    {
+      "family": "PHASE7_TRAIN_CLIP",
+      "raw_path": "F:\\ASL DATASET\\5. Apphear3\\artifacts\\recognition_upgrade\\perception_vnext\\recognition_utility_236_01\\phase5_1t_3_first_class_agnostic_segmenter_01\\raw_full_video\\63e289d9ecca1dd0ada984b8.npz",
+      "raw_sha256": "579f7d264637964036a89854981f0719df33361b909f2ed567bdb1f776607b8f",
+      "role": "FIT",
+      "sample_id": "asl:train:33787438904861555-KEY",
+      "signer": "asl_citizen:P11",
+      "source": "ASL_CITIZEN"
+    },
+    {
+      "family": "ENRICHMENT_CLIP",
+      "role": "FIT",
+      "sample_id": "asl:train:345772354898102-seedBOTH",
+      "signer": "asl_citizen:P52",
+      "source": "ASL_CITIZEN",
+      "video_available": false,
+      "video_path": "G:\\ASL CITIZEN\\ASL CITIZEN\\ASL_Citizen\\videos\\345772354898102-seedBOTH.mp4",
+      "video_sha256": "d39ce426cc76ea0ded40694b4e11b77afcc90cb1d2f49875b5914db9be7079a6"
+    },
+    {
+      "family": "PHASE7_TRAIN_CLIP",
+      "raw_path": "F:\\ASL DATASET\\5. Apphear3\\artifacts\\recognition_upgrade\\perception_vnext\\recognition_utility_236_01\\phase5_1t_3_first_class_agnostic_segmenter_01\\raw_full_video\\0f74090020cbc35c1ea61265.npz",
+      "raw_sha256": "ecb86d9d3e2af793264321f4c7ee8915948e04ee274a7cbd8f4b5b1e5b8a520d",
+      "role": "FIT",
+      "sample_id": "asl:train:3622847632586421-BIG",
+      "signer": "asl_citizen:P23",
+      "source": "ASL_CITIZEN"
+    },
+    {
+      "family": "PHASE7_TRAIN_CLIP",
+      "raw_path": "F:\\ASL DATASET\\5. Apphear3\\artifacts\\recognition_upgrade\\perception_vnext\\recognition_utility_236_01\\phase5_1t_3_first_class_agnostic_segmenter_01\\raw_full_video\\e0caef36f99e0cd67c8b10a4.npz",
+      "raw_sha256": "f8c40c6ea46e562c9dd30cd0bbcf4a60c307e8fd69fce1c5722e19057efe09bb",
+      "role": "FIT",
+      "sample_id": "asl:train:3683686933370933-TURN",
+      "signer": "asl_citizen:P27",
+      "source": "ASL_CITIZEN"
+    },
+    {
+      "family": "PHASE7_TRAIN_CLIP",
+      "raw_path": "F:\\ASL DATASET\\5. Apphear3\\artifacts\\recognition_upgrade\\perception_vnext\\recognition_utility_236_01\\phase5_1t_3_first_class_agnostic_segmenter_01\\raw_full_video\\80ba7b2576f812f77a125f84.npz",
+      "raw_sha256": "6ca67af9558a4b4c8019c4236688078c56fdf31ff2a7f82008ff6367cb1c580b",
+      "role": "FIT",
+      "sample_id": "asl:train:36938644349320904-MOUTH",
+      "signer": "asl_citizen:P11",
+      "source": "ASL_CITIZEN"
+    },
+    {
+      "family": "PHASE7_TRAIN_CLIP",
+      "raw_path": "F:\\ASL DATASET\\5. Apphear3\\artifacts\\recognition_upgrade\\perception_vnext\\recognition_utility_236_01\\phase5_1t_3_first_class_agnostic_segmenter_01\\raw_full_video\\eda760eef86a00b764179301.npz",
+      "raw_sha256": "80bafa249ef8f63da0b0223b143d40e75d70ea0561dd688c204ef7a742c3451f",
+      "role": "FIT",
+      "sample_id": "asl:train:3732020617815419-WITH",
+      "signer": "asl_citizen:P46",
+      "source": "ASL_CITIZEN"
+    },
+    {
+      "family": "ENRICHMENT_CLIP",
+      "role": "CAL",
+      "sample_id": "asl:train:3741021155965083-AND",
+      "signer": "asl_citizen:P16",
+      "source": "ASL_CITIZEN",
+      "video_available": false,
+      "video_path": "G:\\ASL CITIZEN\\ASL CITIZEN\\ASL_Citizen\\videos\\3741021155965083-AND.mp4",
+      "video_sha256": "c6588a8fc71c85390dc3e0ddf323a2a5e6a6e53d29b2468cf9b69d908b5da2bb"
+    },
+    {
+      "family": "ENRICHMENT_CLIP",
+      "role": "FIT",
+      "sample_id": "asl:train:38799379375716403-ALWAYS",
+      "signer": "asl_citizen:P43",
+      "source": "ASL_CITIZEN",
+      "video_available": false,
+      "video_path": "G:\\ASL CITIZEN\\ASL CITIZEN\\ASL_Citizen\\videos\\38799379375716403-ALWAYS.mp4",
+      "video_sha256": "9d0e343a2352e270c45a6eefd7694fa826202ea5b2e77032658f3f5c8e9879ec"
+    },
+    {
+      "family": "PHASE7_TRAIN_CLIP",
+      "raw_path": "F:\\ASL DATASET\\5. Apphear3\\artifacts\\recognition_upgrade\\perception_vnext\\recognition_utility_236_01\\phase5_1t_3_first_class_agnostic_segmenter_01\\raw_full_video\\977a4fb2f6ce7d430f2036a1.npz",
+      "raw_sha256": "c1959e72e98f0b6835d9057fefcab8bda51cf3153353e13db87ea091d92f6afe",
+      "role": "FIT",
+      "sample_id": "asl:train:41609856180263693-ALL",
+      "signer": "asl_citizen:P51",
+      "source": "ASL_CITIZEN"
+    },
+    {
+      "family": "PHASE7_TRAIN_CLIP",
+      "raw_path": "F:\\ASL DATASET\\5. Apphear3\\artifacts\\recognition_upgrade\\perception_vnext\\recognition_utility_236_01\\phase5_1t_3_first_class_agnostic_segmenter_01\\raw_full_video\\fd3ba5193b36cea03978d093.npz",
+      "raw_sha256": "6d6536ea0eb55263c7a5cd2c2d7b1f6658cc19391b79b3860362f6ed02c499de",
+      "role": "CAL",
+      "sample_id": "asl:train:43734074730672057-SAD",
+      "signer": "asl_citizen:P7",
+      "source": "ASL_CITIZEN"
+    },
+    {
+      "family": "PHASE7_TRAIN_CLIP",
+      "raw_path": "F:\\ASL DATASET\\5. Apphear3\\artifacts\\recognition_upgrade\\perception_vnext\\recognition_utility_236_01\\phase5_1t_3_first_class_agnostic_segmenter_01\\raw_full_video\\7849e9d7ecae88361ce549fd.npz",
+      "raw_sha256": "22ce62a2484a60a44b4b3b579ea844330ca3de5e6dfc23fedaaa5851df7ffe71",
+      "role": "FIT",
+      "sample_id": "asl:train:43778843855311433-PLEASE",
+      "signer": "asl_citizen:P11",
+      "source": "ASL_CITIZEN"
+    },
+    {
+      "family": "PHASE7_TRAIN_CLIP",
+      "raw_path": "F:\\ASL DATASET\\5. Apphear3\\artifacts\\recognition_upgrade\\perception_vnext\\recognition_utility_236_01\\phase5_1t_3_first_class_agnostic_segmenter_01\\raw_full_video\\3e6d0451065ce6f382fd4826.npz",
+      "raw_sha256": "65e1f53cf6f0db7c16bc982699bf17d0837457dbbb34f429275c4f9e14046365",
+      "role": "CAL",
+      "sample_id": "asl:train:46422340278995167-WINDOW",
+      "signer": "asl_citizen:P40",
+      "source": "ASL_CITIZEN"
+    },
+    {
+      "family": "PHASE7_TRAIN_CLIP",
+      "raw_path": "F:\\ASL DATASET\\5. Apphear3\\artifacts\\recognition_upgrade\\perception_vnext\\recognition_utility_236_01\\phase5_1t_3_first_class_agnostic_segmenter_01\\raw_full_video\\427cadd1caf91d25443e3dfb.npz",
+      "raw_sha256": "4b7480b8fd0cfc3a49829352eed7be1891f11771d469b138f4286f8134ff4f10",
+      "role": "FIT",
+      "sample_id": "asl:train:4898204067224847-PICK 2",
+      "signer": "asl_citizen:P31",
+      "source": "ASL_CITIZEN"
+    },
+    {
+      "family": "PHASE7_TRAIN_CLIP",
+      "raw_path": "F:\\ASL DATASET\\5. Apphear3\\artifacts\\recognition_upgrade\\perception_vnext\\recognition_utility_236_01\\phase5_1t_3_first_class_agnostic_segmenter_01\\raw_full_video\\4a6a925a4b73e566ccf8e432.npz",
+      "raw_sha256": "b4588c5c118b30accf11ca1f67f397d01777e244b33d658e208da28171742466",
+      "role": "FIT",
+      "sample_id": "asl:train:5075246844404044-WATCH",
+      "signer": "asl_citizen:P23",
+      "source": "ASL_CITIZEN"
+    },
+    {
+      "family": "PHASE7_TRAIN_CLIP",
+      "raw_path": "F:\\ASL DATASET\\5. Apphear3\\artifacts\\recognition_upgrade\\perception_vnext\\recognition_utility_236_01\\phase5_1t_3_first_class_agnostic_segmenter_01\\raw_full_video\\0e8a916ad9b67f880745fa9a.npz",
+      "raw_sha256": "f2de86c393281a93472a996f989581f33a4e5fe4f3a69ab73fa800eebd4e005b",
+      "role": "FIT",
+      "sample_id": "asl:train:5087208567483212-BED 2",
+      "signer": "asl_citizen:P25",
+      "source": "ASL_CITIZEN"
+    },
+    {
+      "family": "PHASE7_TRAIN_CLIP",
+      "raw_path": "F:\\ASL DATASET\\5. Apphear3\\artifacts\\recognition_upgrade\\perception_vnext\\recognition_utility_236_01\\phase5_1t_3_first_class_agnostic_segmenter_01\\raw_full_video\\8021a14d428ce0b58b6387b4.npz",
+      "raw_sha256": "6efad29486843768f8386b2ceab7ac0bec24d3f5ed88eaf17e88be234a154fe8",
+      "role": "CAL",
+      "sample_id": "asl:train:5231117289015388-FAMILY",
+      "signer": "asl_citizen:P7",
+      "source": "ASL_CITIZEN"
+    },
+    {
+      "family": "PHASE7_TRAIN_CLIP",
+      "raw_path": "F:\\ASL DATASET\\5. Apphear3\\artifacts\\recognition_upgrade\\perception_vnext\\recognition_utility_236_01\\phase5_1t_3_first_class_agnostic_segmenter_01\\raw_full_video\\e2e299b0bc3ccd72d27400ba.npz",
+      "raw_sha256": "b2235efff9168abda505841350fa65b91dd59ed82e955c09f4dbf6cf67fb3b01",
+      "role": "FIT",
+      "sample_id": "asl:train:5326028430917451-TO",
+      "signer": "asl_citizen:P43",
+      "source": "ASL_CITIZEN"
+    },
+    {
+      "family": "PHASE7_TRAIN_CLIP",
+      "raw_path": "F:\\ASL DATASET\\5. Apphear3\\artifacts\\recognition_upgrade\\perception_vnext\\recognition_utility_236_01\\phase5_1t_3_first_class_agnostic_segmenter_01\\raw_full_video\\a884432fce9c6c2ea63e355c.npz",
+      "raw_sha256": "c5fe1268444d4a2039e016fb8433f4a5ffd28a50c0402f6454847b1a7e1acc26",
+      "role": "FIT",
+      "sample_id": "asl:train:5332916191322321-seedPAPER",
+      "signer": "asl_citizen:P52",
+      "source": "ASL_CITIZEN"
+    },
+    {
+      "family": "PHASE7_TRAIN_CLIP",
+      "raw_path": "F:\\ASL DATASET\\5. Apphear3\\artifacts\\recognition_upgrade\\perception_vnext\\recognition_utility_236_01\\phase5_1t_3_first_class_agnostic_segmenter_01\\raw_full_video\\025038d430d4a694f3dd4a22.npz",
+      "raw_sha256": "a0b7a354d0ed9fe2988709c68ba1cffa87a9b14d3ed250a0bc4d0e2b4151614c",
+      "role": "FIT",
+      "sample_id": "asl:train:5421164488339045-OVER",
+      "signer": "asl_citizen:P31",
+      "source": "ASL_CITIZEN"
+    },
+    {
+      "family": "PHASE7_TRAIN_CLIP",
+      "raw_path": "F:\\ASL DATASET\\5. Apphear3\\artifacts\\recognition_upgrade\\perception_vnext\\recognition_utility_236_01\\phase5_1t_3_first_class_agnostic_segmenter_01\\raw_full_video\\8e5fca3c21bcf5ab8d8e0e25.npz",
+      "raw_sha256": "034417488adfc26374098a97567bb3681f11f93ec33b1006a8c6f8ecbfb844b7",
+      "role": "CAL",
+      "sample_id": "asl:train:551571276638265-DOOR",
+      "signer": "asl_citizen:P16",
+      "source": "ASL_CITIZEN"
+    },
+    {
+      "family": "PHASE7_TRAIN_CLIP",
+      "raw_path": "F:\\ASL DATASET\\5. Apphear3\\artifacts\\recognition_upgrade\\perception_vnext\\recognition_utility_236_01\\phase5_1t_3_first_class_agnostic_segmenter_01\\raw_full_video\\23b75e8fcb66a173ab3afe9d.npz",
+      "raw_sha256": "42a2ac9b0f8f9ec7a0348cb695d426bbdb37fd59419106ae9ed2cf128619d9db",
+      "role": "FIT",
+      "sample_id": "asl:train:5781985412875206-THEY",
+      "signer": "asl_citizen:P27",
+      "source": "ASL_CITIZEN"
+    },
+    {
+      "family": "PHASE7_TRAIN_CLIP",
+      "raw_path": "F:\\ASL DATASET\\5. Apphear3\\artifacts\\recognition_upgrade\\perception_vnext\\recognition_utility_236_01\\phase5_1t_3_first_class_agnostic_segmenter_01\\raw_full_video\\5a702566154d53b17efdaeef.npz",
+      "raw_sha256": "ec4e504dcfb95c94c46c7618de15be746ba61ede101de0f01fc27e9a07c61f3c",
+      "role": "FIT",
+      "sample_id": "asl:train:5868502838396288-PUT",
+      "signer": "asl_citizen:P43",
+      "source": "ASL_CITIZEN"
+    },
+    {
+      "family": "PHASE7_TRAIN_CLIP",
+      "raw_path": "F:\\ASL DATASET\\5. Apphear3\\artifacts\\recognition_upgrade\\perception_vnext\\recognition_utility_236_01\\phase5_1t_3_first_class_agnostic_segmenter_01\\raw_full_video\\ba565f1f381cbf7529559c10.npz",
+      "raw_sha256": "efe387a3ec5f1643be506d8bc1b693adb31c8866effec085b82c739cdf34fef6",
+      "role": "CAL",
+      "sample_id": "asl:train:5919946010475778-RUN 2",
+      "signer": "asl_citizen:P16",
+      "source": "ASL_CITIZEN"
+    },
+    {
+      "family": "PHASE7_TRAIN_CLIP",
+      "raw_path": "F:\\ASL DATASET\\5. Apphear3\\artifacts\\recognition_upgrade\\perception_vnext\\recognition_utility_236_01\\phase5_1t_3_first_class_agnostic_segmenter_01\\raw_full_video\\013bc7ba9cddd6033a54ecd7.npz",
+      "raw_sha256": "e4bf055b1807a51c5087254c4d11ebfa05fd34aba4bd28cdda1829b2d604976e",
+      "role": "FIT",
+      "sample_id": "asl:train:5977123929212114-CAKE",
+      "signer": "asl_citizen:P51",
+      "source": "ASL_CITIZEN"
+    },
+    {
+      "family": "PHASE7_TRAIN_CLIP",
+      "raw_path": "F:\\ASL DATASET\\5. Apphear3\\artifacts\\recognition_upgrade\\perception_vnext\\recognition_utility_236_01\\phase5_1t_3_first_class_agnostic_segmenter_01\\raw_full_video\\16c39f83e09cf4f63453b6c7.npz",
+      "raw_sha256": "b04c33e0e9f5dedacbc5bc272d6dd6a9563813344acbb3c12606205536f8f454",
+      "role": "CAL",
+      "sample_id": "asl:train:6189827252250637-LETTER 2",
+      "signer": "asl_citizen:P7",
+      "source": "ASL_CITIZEN"
+    },
+    {
+      "family": "PHASE7_TRAIN_CLIP",
+      "raw_path": "F:\\ASL DATASET\\5. Apphear3\\artifacts\\recognition_upgrade\\perception_vnext\\recognition_utility_236_01\\phase5_1t_3_first_class_agnostic_segmenter_01\\raw_full_video\\7bc09ff81de122d63ce92bdf.npz",
+      "raw_sha256": "8222bc5d38eebc26dd04680124ee4cfae870748fc64fdd243034a566bd5f1a39",
+      "role": "FIT",
+      "sample_id": "asl:train:6798966757937068-YESTERDAY",
+      "signer": "asl_citizen:P23",
+      "source": "ASL_CITIZEN"
+    },
+    {
+      "family": "PHASE7_TRAIN_CLIP",
+      "raw_path": "F:\\ASL DATASET\\5. Apphear3\\artifacts\\recognition_upgrade\\perception_vnext\\recognition_utility_236_01\\phase5_1t_3_first_class_agnostic_segmenter_01\\raw_full_video\\9eeb8ce6b54c2d6c4a086e05.npz",
+      "raw_sha256": "68cbe92d28e86dcae1e8b9c457f007d6d1c09a5a3d01e6226205476e10dc34db",
+      "role": "CAL",
+      "sample_id": "asl:train:6849051691440626-COUNTRY",
+      "signer": "asl_citizen:P40",
+      "source": "ASL_CITIZEN"
+    },
+    {
+      "family": "PHASE7_TRAIN_CLIP",
+      "raw_path": "F:\\ASL DATASET\\5. Apphear3\\artifacts\\recognition_upgrade\\perception_vnext\\recognition_utility_236_01\\phase5_1t_3_first_class_agnostic_segmenter_01\\raw_full_video\\d6b8c50a2b6f5bcd55290d2a.npz",
+      "raw_sha256": "8f8e0202323038dc3e6e29d07327ac56f7a7ffba2660fdbc30e43c3db336c8cc",
+      "role": "FIT",
+      "sample_id": "asl:train:7021264748199698-PERSON",
+      "signer": "asl_citizen:P51",
+      "source": "ASL_CITIZEN"
+    },
+    {
+      "family": "PHASE7_TRAIN_CLIP",
+      "raw_path": "F:\\ASL DATASET\\5. Apphear3\\artifacts\\recognition_upgrade\\perception_vnext\\recognition_utility_236_01\\phase5_1t_3_first_class_agnostic_segmenter_01\\raw_full_video\\252e1acbaec69bfee82f2602.npz",
+      "raw_sha256": "52c4dcbdcb1ec86eb1d6738a7c543e6c7d2c557f32757d30f86a2347990130bc",
+      "role": "FIT",
+      "sample_id": "asl:train:7100079576099068-seedTEACHER",
+      "signer": "asl_citizen:P52",
+      "source": "ASL_CITIZEN"
+    },
+    {
+      "family": "PHASE7_TRAIN_CLIP",
+      "raw_path": "F:\\ASL DATASET\\5. Apphear3\\artifacts\\recognition_upgrade\\perception_vnext\\recognition_utility_236_01\\phase5_1t_3_first_class_agnostic_segmenter_01\\raw_full_video\\375bc11a7ba4757bdd604199.npz",
+      "raw_sha256": "b8f36e6f84085c9fdfbfb0621b71af45fac53ae34f7bcd676ec11b9319abad6a",
+      "role": "FIT",
+      "sample_id": "asl:train:7106513553022424-RIGHT 3",
+      "signer": "asl_citizen:P45",
+      "source": "ASL_CITIZEN"
+    },
+    {
+      "family": "PHASE7_TRAIN_CLIP",
+      "raw_path": "F:\\ASL DATASET\\5. Apphear3\\artifacts\\recognition_upgrade\\perception_vnext\\recognition_utility_236_01\\phase5_1t_3_first_class_agnostic_segmenter_01\\raw_full_video\\7e6348c42d1ae6a88cef4742.npz",
+      "raw_sha256": "cddff3843c495fa87785bd4b3b8c231b235fe41e3bee9c7c8bfc6ef301387277",
+      "role": "CAL",
+      "sample_id": "asl:train:7190341808730427-IN",
+      "signer": "asl_citizen:P32",
+      "source": "ASL_CITIZEN"
+    },
+    {
+      "family": "PHASE7_TRAIN_CLIP",
+      "raw_path": "F:\\ASL DATASET\\5. Apphear3\\artifacts\\recognition_upgrade\\perception_vnext\\recognition_utility_236_01\\phase5_1t_3_first_class_agnostic_segmenter_01\\raw_full_video\\13f744873d91942da78047df.npz",
+      "raw_sha256": "a6996701258498d8f9964e6615c367412f657c16f74ae26c2085edcebe465463",
+      "role": "FIT",
+      "sample_id": "asl:train:7190654182684957-BREAKFAST",
+      "signer": "asl_citizen:P10",
+      "source": "ASL_CITIZEN"
+    },
+    {
+      "family": "PHASE7_TRAIN_CLIP",
+      "raw_path": "F:\\ASL DATASET\\5. Apphear3\\artifacts\\recognition_upgrade\\perception_vnext\\recognition_utility_236_01\\phase5_1t_3_first_class_agnostic_segmenter_01\\raw_full_video\\cea4f40c53571b0e9c06df47.npz",
+      "raw_sha256": "467401930e3b4cd1f83b18d23e5139814fdc4218a850b08de4b9c758ae1f8df9",
+      "role": "FIT",
+      "sample_id": "asl:train:7267728609354669-AND",
+      "signer": "asl_citizen:P51",
+      "source": "ASL_CITIZEN"
+    },
+    {
+      "family": "PHASE7_TRAIN_CLIP",
+      "raw_path": "F:\\ASL DATASET\\5. Apphear3\\artifacts\\recognition_upgrade\\perception_vnext\\recognition_utility_236_01\\phase5_1t_3_first_class_agnostic_segmenter_01\\raw_full_video\\f4f1050096561b6d539bd29e.npz",
+      "raw_sha256": "f6715463422b6a30324303d5d5bd51a809bd4fd3220bbe183a2dfe3e77dea147",
+      "role": "CAL",
+      "sample_id": "asl:train:7468545549250416-SICK",
+      "signer": "asl_citizen:P7",
+      "source": "ASL_CITIZEN"
+    },
+    {
+      "family": "PHASE7_TRAIN_CLIP",
+      "raw_path": "F:\\ASL DATASET\\5. Apphear3\\artifacts\\recognition_upgrade\\perception_vnext\\recognition_utility_236_01\\phase5_1t_3_first_class_agnostic_segmenter_01\\raw_full_video\\b39e3321480cec3a82e4ab06.npz",
+      "raw_sha256": "b1f124a6be384496abcee88886dd5161c4e7a8511be4ac755858133387fde5ff",
+      "role": "FIT",
+      "sample_id": "asl:train:8133817031037549-ABOUT 2",
+      "signer": "asl_citizen:P50",
+      "source": "ASL_CITIZEN"
+    },
+    {
+      "family": "PHASE7_TRAIN_CLIP",
+      "raw_path": "F:\\ASL DATASET\\5. Apphear3\\artifacts\\recognition_upgrade\\perception_vnext\\recognition_utility_236_01\\phase5_1t_3_first_class_agnostic_segmenter_01\\raw_full_video\\9cd20b9e3470ccb880072917.npz",
+      "raw_sha256": "7a0fa8093d8398c57a0526d556db69152d51d075cd064a41d8f12becae294fa9",
+      "role": "FIT",
+      "sample_id": "asl:train:8314316147465439-HATE",
+      "signer": "asl_citizen:P14",
+      "source": "ASL_CITIZEN"
+    },
+    {
+      "family": "PHASE7_TRAIN_CLIP",
+      "raw_path": "F:\\ASL DATASET\\5. Apphear3\\artifacts\\recognition_upgrade\\perception_vnext\\recognition_utility_236_01\\phase5_1t_3_first_class_agnostic_segmenter_01\\raw_full_video\\1900a88f23d7ecb2739ddb7e.npz",
+      "raw_sha256": "35109e08bd40fdcd019b86df9b75b3ca52c3189e794b0da84c3f1c8639b94939",
+      "role": "FIT",
+      "sample_id": "asl:train:8529861223088788-BUSY",
+      "signer": "asl_citizen:P14",
+      "source": "ASL_CITIZEN"
+    },
+    {
+      "family": "ENRICHMENT_CLIP",
+      "role": "FIT",
+      "sample_id": "asl:train:8618961603650133-FIND",
+      "signer": "asl_citizen:P37",
+      "source": "ASL_CITIZEN",
+      "video_available": false,
+      "video_path": "G:\\ASL CITIZEN\\ASL CITIZEN\\ASL_Citizen\\videos\\8618961603650133-FIND.mp4",
+      "video_sha256": "594037a26ef0c43f89151968be0251ce30916d3c18801841c7d083e20520897e"
+    },
+    {
+      "family": "PHASE7_TRAIN_CLIP",
+      "raw_path": "F:\\ASL DATASET\\5. Apphear3\\artifacts\\recognition_upgrade\\perception_vnext\\recognition_utility_236_01\\phase5_1t_3_first_class_agnostic_segmenter_01\\raw_full_video\\f027ee7ad3141de9a678dafb.npz",
+      "raw_sha256": "6f65d4470b309b2583d7dcccaf91caef5e135da584bc2624ccebe4dc9faf3856",
+      "role": "FIT",
+      "sample_id": "asl:train:8692185557777687-VISIT",
+      "signer": "asl_citizen:P36",
+      "source": "ASL_CITIZEN"
+    },
+    {
+      "family": "PHASE7_TRAIN_CLIP",
+      "raw_path": "F:\\ASL DATASET\\5. Apphear3\\artifacts\\recognition_upgrade\\perception_vnext\\recognition_utility_236_01\\phase5_1t_3_first_class_agnostic_segmenter_01\\raw_full_video\\0499ed38f3d0209b540b9797.npz",
+      "raw_sha256": "78435789cbe04db6c485a55d3e937f93bc40fa6afccf39ed031dabe5fef3cafe",
+      "role": "FIT",
+      "sample_id": "asl:train:8956498621741975-ENOUGH",
+      "signer": "asl_citizen:P45",
+      "source": "ASL_CITIZEN"
+    },
+    {
+      "family": "PHASE7_TRAIN_CLIP",
+      "raw_path": "F:\\ASL DATASET\\5. Apphear3\\artifacts\\recognition_upgrade\\perception_vnext\\recognition_utility_236_01\\phase5_1t_3_first_class_agnostic_segmenter_01\\raw_full_video\\3071b71fc95263a8b5f6338c.npz",
+      "raw_sha256": "d9a07d207f1b6360a1b69a8c01239e37a43d3df08a2065d61e186eb88b97643b",
+      "role": "FIT",
+      "sample_id": "asl:train:8999787253278997-GIFT",
+      "signer": "asl_citizen:P31",
+      "source": "ASL_CITIZEN"
+    },
+    {
+      "family": "PHASE7_TRAIN_CLIP",
+      "raw_path": "F:\\ASL DATASET\\5. Apphear3\\artifacts\\recognition_upgrade\\perception_vnext\\recognition_utility_236_01\\phase5_1t_3_first_class_agnostic_segmenter_01\\raw_full_video\\b360234a4824f13820f3ec9e.npz",
+      "raw_sha256": "611624a28d6296e325985740e91e0fe781cb0d142744dc02a4b57608ec7cbe01",
+      "role": "FIT",
+      "sample_id": "asl:train:9055897783856317-DIFFERENT",
+      "signer": "asl_citizen:P10",
+      "source": "ASL_CITIZEN"
+    },
+    {
+      "family": "ENRICHMENT_CLIP",
+      "role": "FIT",
+      "sample_id": "asl:train:9116897977316643-IF",
+      "signer": "asl_citizen:P46",
+      "source": "ASL_CITIZEN",
+      "video_available": false,
+      "video_path": "G:\\ASL CITIZEN\\ASL CITIZEN\\ASL_Citizen\\videos\\9116897977316643-IF.mp4",
+      "video_sha256": "29ef4859ec3f6ccabbd55d24c0c1bfb940bd458116f63d9747074752215eeb09"
+    },
+    {
+      "family": "PHASE7_TRAIN_CLIP",
+      "raw_path": "F:\\ASL DATASET\\5. Apphear3\\artifacts\\recognition_upgrade\\perception_vnext\\recognition_utility_236_01\\phase5_1t_3_first_class_agnostic_segmenter_01\\raw_full_video\\91e97f453730cb12ccbf6115.npz",
+      "raw_sha256": "a070587df9df63fe5a33046ea009a21347b930ad639fd4e07a720d7bcd8efad7",
+      "role": "FIT",
+      "sample_id": "asl:train:928754171543865-OR",
+      "signer": "asl_citizen:P50",
+      "source": "ASL_CITIZEN"
+    },
+    {
+      "family": "PHASE7_TRAIN_CLIP",
+      "raw_path": "F:\\ASL DATASET\\5. Apphear3\\artifacts\\recognition_upgrade\\perception_vnext\\recognition_utility_236_01\\phase5_1t_3_first_class_agnostic_segmenter_01\\raw_full_video\\d80829f404874a840664c6da.npz",
+      "raw_sha256": "88c53e62f59194e1efca4283928e0904b1cf5d45ee7c997579f03cc738535c4e",
+      "role": "CAL",
+      "sample_id": "asl:train:9369570449056734-WORLD",
+      "signer": "asl_citizen:P40",
+      "source": "ASL_CITIZEN"
+    },
+    {
+      "family": "PHASE7_TRAIN_CLIP",
+      "raw_path": "F:\\ASL DATASET\\5. Apphear3\\artifacts\\recognition_upgrade\\perception_vnext\\recognition_utility_236_01\\phase5_1t_3_first_class_agnostic_segmenter_01\\raw_full_video\\702d774c9ba0d55771d795f8.npz",
+      "raw_sha256": "10cff852ba73e75ed0278b8941b9ad62c255e4404b657a2a2b3965b403dd0c4e",
+      "role": "FIT",
+      "sample_id": "asl:train:9387720840122951-PICK 2",
+      "signer": "asl_citizen:P25",
+      "source": "ASL_CITIZEN"
+    },
+    {
+      "family": "PHASE7_TRAIN_CLIP",
+      "raw_path": "F:\\ASL DATASET\\5. Apphear3\\artifacts\\recognition_upgrade\\perception_vnext\\recognition_utility_236_01\\phase5_1t_3_first_class_agnostic_segmenter_01\\raw_full_video\\76bc08c222c882954e39c340.npz",
+      "raw_sha256": "90c8f352e5044f65c3ba65a7641be23f9f3c13fedb5a24421cb6b4d0e3eaea54",
+      "role": "FIT",
+      "sample_id": "asl:train:945208701210648-TIME",
+      "signer": "asl_citizen:P36",
+      "source": "ASL_CITIZEN"
+    },
+    {
+      "family": "PHASE7_TRAIN_CLIP",
+      "raw_path": "F:\\ASL DATASET\\5. Apphear3\\artifacts\\recognition_upgrade\\perception_vnext\\recognition_utility_236_01\\phase5_1t_3_first_class_agnostic_segmenter_01\\raw_full_video\\af960ad935ea7d38b15164c0.npz",
+      "raw_sha256": "cdfa8c18dfcf02a11f405fb501bb82488d031ea5bc10ecbc2e600fa318e06390",
+      "role": "FIT",
+      "sample_id": "asl:train:9502956975879617-DOWNLOAD",
+      "signer": "asl_citizen:P45",
+      "source": "ASL_CITIZEN"
+    },
+    {
+      "family": "PHASE7_TRAIN_CLIP",
+      "raw_path": "F:\\ASL DATASET\\5. Apphear3\\artifacts\\recognition_upgrade\\perception_vnext\\recognition_utility_236_01\\phase5_1t_3_first_class_agnostic_segmenter_01\\raw_full_video\\a0f1fd1d5d3d9d78cf7c67dc.npz",
+      "raw_sha256": "7b08f635310f667baf4ed9ebdc2947c626742f241454990cc96aa8d461d8bb89",
+      "role": "FIT",
+      "sample_id": "asl:train:9765152100966505-STUDENT",
+      "signer": "asl_citizen:P50",
+      "source": "ASL_CITIZEN"
+    },
+    {
+      "family": "PHASE7_TRAIN_CLIP",
+      "raw_path": "F:\\ASL DATASET\\5. Apphear3\\artifacts\\recognition_upgrade\\perception_vnext\\recognition_utility_236_01\\phase5_1t_3_first_class_agnostic_segmenter_01\\raw_full_video\\56ee764c9f97379a0efccdec.npz",
+      "raw_sha256": "d19d93dea3cacaa764e763cfe4f927e0d8a788e8766912a82bb8f1a733e1cba0",
+      "role": "CAL",
+      "sample_id": "asl:train:9898878205464519-SOME",
+      "signer": "asl_citizen:P16",
+      "source": "ASL_CITIZEN"
+    },
+    {
+      "family": "PHASE7_TRAIN_CLIP",
+      "raw_path": "F:\\ASL DATASET\\5. Apphear3\\artifacts\\recognition_upgrade\\perception_vnext\\recognition_utility_236_01\\phase5_1t_3_first_class_agnostic_segmenter_01\\raw_full_video\\0e7dd08103f470f2f5a3cc14.npz",
+      "raw_sha256": "7c631e6f0be68032cf7eb8ce2536f6593f7fbf25c52791d0538393b5338072fe",
+      "role": "FIT",
+      "sample_id": "asl:train:9937921981224223-BECOME",
+      "signer": "asl_citizen:P43",
+      "source": "ASL_CITIZEN"
+    },
+    {
+      "family": "PHASE7_TRAIN_CLIP",
+      "raw_path": "F:\\ASL DATASET\\5. Apphear3\\artifacts\\recognition_upgrade\\perception_vnext\\recognition_utility_236_01\\phase5_1t_3_first_class_agnostic_segmenter_01\\raw_full_video\\209cf4249371ddaab7aab0d7.npz",
+      "raw_sha256": "c4ad9a6981058b5b88d73e486a8aa1f772c704055dbf321db59229a8fa471e0c",
+      "role": "FIT",
+      "sample_id": "asl:train:9994083500664277-OFFICE",
+      "signer": "asl_citizen:P28",
+      "source": "ASL_CITIZEN"
+    },
+    {
+      "family": "PHASE7_TRAIN_CLIP",
+      "raw_path": "F:\\ASL DATASET\\5. Apphear3\\artifacts\\recognition_upgrade\\perception_vnext\\recognition_utility_236_01\\phase5_1t_3_first_class_agnostic_segmenter_01\\raw_full_video\\8f380c3a703f794c5d319fd2.npz",
+      "raw_sha256": "1454241916d7ef16f005fbe68d43e62c76aeba4d438fd79363556e74fc3d53e6",
+      "role": "FIT",
+      "sample_id": "e6:e6p_00387",
+      "signer": "local_recorder:6CC240-S001",
+      "source": "APPHEAR_CAPTURE"
+    },
+    {
+      "family": "ENRICHMENT_CLIP",
+      "role": "FIT",
+      "sample_id": "e6:e6p_00389",
+      "signer": "local_recorder:6CC240-S001",
+      "source": "APPHEAR_CAPTURE",
+      "video_available": true,
+      "video_path": "F:\\ASL DATASET\\5. Apphear3\\scratchpad\\e6_product_core_collection\\raw\\positive\\GOOD\\P_NEW01\\phoneA\\indoor\\front\\6CC240-S001_002_good_0011.mp4",
+      "video_sha256": "bdf9da08d2fdc0855963db9d9a4dac2540b629893dd0b83c6777068c856689bc"
+    },
+    {
+      "family": "ENRICHMENT_CLIP",
+      "role": "CAL",
+      "sample_id": "e6:e6p_00440",
+      "signer": "local_recorder:6F7328-S001",
+      "source": "LOCAL",
+      "video_available": true,
+      "video_path": "E:\\local\\1\\signs\\good\\6F7328-S001_012_good_0002.mp4",
+      "video_sha256": "69795c62b4a66592daa5f77d88ce08f98c78934971de4cf41315abf978f98d97"
+    },
+    {
+      "family": "PHASE7_TRAIN_CLIP",
+      "raw_path": "F:\\ASL DATASET\\5. Apphear3\\artifacts\\recognition_upgrade\\perception_vnext\\recognition_utility_236_01\\phase5_1t_3_first_class_agnostic_segmenter_01\\raw_full_video\\61fa3e11cd57ed9c936bb4a1.npz",
+      "raw_sha256": "4eef6e169ac4a419b07ee763496f43ec5cd9a99b17de0e7817d6392b76e4824f",
+      "role": "FIT",
+      "sample_id": "e6:e6p_00471",
+      "signer": "local_recorder:3B96F6-S001",
+      "source": "LOCAL"
+    },
+    {
+      "family": "ENRICHMENT_CLIP",
+      "role": "FIT",
+      "sample_id": "e6:e6p_00515",
+      "signer": "local_recorder:6CC240-S001",
+      "source": "APPHEAR_CAPTURE",
+      "video_available": true,
+      "video_path": "F:\\ASL DATASET\\5. Apphear3\\scratchpad\\e6_product_core_collection\\raw\\positive\\HAVE\\P_NEW01\\phoneA\\indoor\\front\\6CC240-S001_007_have_0013.mp4",
+      "video_sha256": "f0bde28f53377088c170b302ac5347bc322f0266bd0d754fe48bf47f9095a4cb"
+    },
+    {
+      "family": "PHASE7_TRAIN_CLIP",
+      "raw_path": "F:\\ASL DATASET\\5. Apphear3\\artifacts\\recognition_upgrade\\perception_vnext\\recognition_utility_236_01\\phase5_1t_3_first_class_agnostic_segmenter_01\\raw_full_video\\c8798e0ca0d69e63e2126a7b.npz",
+      "raw_sha256": "9f16281587a3e23667cd1b5687fda36d0d1b446107d724464ae1c2e14471efb8",
+      "role": "FIT",
+      "sample_id": "e6:e6p_00528",
+      "signer": "local_recorder:6CC240-S001",
+      "source": "APPHEAR_CAPTURE"
+    },
+    {
+      "family": "PHASE7_TRAIN_CLIP",
+      "raw_path": "F:\\ASL DATASET\\5. Apphear3\\artifacts\\recognition_upgrade\\perception_vnext\\recognition_utility_236_01\\phase5_1t_3_first_class_agnostic_segmenter_01\\raw_full_video\\a84d336b6af1a4093fd3e0d9.npz",
+      "raw_sha256": "129bf40cc8da33f95462e2c92cbb24ab7b6bd6416aebcbf11aa5851fd97d090b",
+      "role": "FIT",
+      "sample_id": "e6:e6p_00544",
+      "signer": "local_recorder:6CC240-S001",
+      "source": "APPHEAR_CAPTURE"
+    },
+    {
+      "family": "PHASE7_TRAIN_CLIP",
+      "raw_path": "F:\\ASL DATASET\\5. Apphear3\\artifacts\\recognition_upgrade\\perception_vnext\\recognition_utility_236_01\\phase5_1t_3_first_class_agnostic_segmenter_01\\raw_full_video\\917ce13355a79b456579ebd8.npz",
+      "raw_sha256": "ecb4bdf8f6f4a806e43f3b791011d4fa3e951f0d40c88702ec44272354c35aaf",
+      "role": "FIT",
+      "sample_id": "e6:e6p_00547",
+      "signer": "local_recorder:6CC240-S001",
+      "source": "APPHEAR_CAPTURE"
+    },
+    {
+      "family": "PHASE7_TRAIN_CLIP",
+      "raw_path": "F:\\ASL DATASET\\5. Apphear3\\artifacts\\recognition_upgrade\\perception_vnext\\recognition_utility_236_01\\phase5_1t_3_first_class_agnostic_segmenter_01\\raw_full_video\\b079f42ddaddfbc4ae516d50.npz",
+      "raw_sha256": "f23ffd4f0c6d245beeb05d46bd8610923fad21fff5a6486ab493e0c580817a63",
+      "role": "FIT",
+      "sample_id": "e6:e6p_00606",
+      "signer": "local_recorder:3B96F6-S001",
+      "source": "LOCAL"
+    },
+    {
+      "family": "PHASE7_TRAIN_CLIP",
+      "raw_path": "F:\\ASL DATASET\\5. Apphear3\\artifacts\\recognition_upgrade\\perception_vnext\\recognition_utility_236_01\\phase5_1t_3_first_class_agnostic_segmenter_01\\raw_full_video\\8d95d48c5a70a0da45e6f169.npz",
+      "raw_sha256": "eab222b56b4686739e6a257cf217cb0311babac08f66d8b59330e29293cb9347",
+      "role": "FIT",
+      "sample_id": "e6:e6p_00637",
+      "signer": "local_recorder:6CC240-S001",
+      "source": "APPHEAR_CAPTURE"
+    },
+    {
+      "family": "ENRICHMENT_CLIP",
+      "role": "FIT",
+      "sample_id": "e6:e6p_00642",
+      "signer": "local_recorder:6CC240-S001",
+      "source": "APPHEAR_CAPTURE",
+      "video_available": true,
+      "video_path": "F:\\ASL DATASET\\5. Apphear3\\scratchpad\\e6_product_core_collection\\raw\\positive\\HELLO\\P_NEW01\\phoneA\\indoor\\front\\6CC240-S001_001_hello_0016.mp4",
+      "video_sha256": "83869fd966ef06bcff134f77db815326f885ac2adb1c7665fd821b4ab48858ac"
+    },
+    {
+      "family": "ENRICHMENT_CLIP",
+      "role": "FIT",
+      "sample_id": "e6:e6p_00675",
+      "signer": "local_recorder:6CC240-S001",
+      "source": "APPHEAR_CAPTURE",
+      "video_available": true,
+      "video_path": "F:\\ASL DATASET\\5. Apphear3\\scratchpad\\e6_product_core_collection\\raw\\positive\\HELLO\\P_NEW01\\phoneA\\indoor\\front\\6CC240-S001_001_hello_0049.mp4",
+      "video_sha256": "b60f94f5a1a3d5f1f07ea1887499e79519a4111d8fa6b8225b9f395d174ea532"
+    },
+    {
+      "family": "PHASE7_TRAIN_CLIP",
+      "raw_path": "F:\\ASL DATASET\\5. Apphear3\\artifacts\\recognition_upgrade\\perception_vnext\\recognition_utility_236_01\\phase5_1t_3_first_class_agnostic_segmenter_01\\raw_full_video\\3478d92972fb1e3822281d34.npz",
+      "raw_sha256": "f7ebeed07a8338ba21d38d1a9c0a59c59c2ce4f86d19cb56a65d82aeb14c6733",
+      "role": "FIT",
+      "sample_id": "e6:e6p_00683",
+      "signer": "local_recorder:6CC240-S001",
+      "source": "APPHEAR_CAPTURE"
+    },
+    {
+      "family": "ENRICHMENT_CLIP",
+      "role": "CAL",
+      "sample_id": "e6:e6p_00701",
+      "signer": "local_recorder:6F7328-S001",
+      "source": "LOCAL",
+      "video_available": true,
+      "video_path": "E:\\local\\1\\signs\\hello\\6F7328-S001_002_hello_0015.mp4",
+      "video_sha256": "dfa1466a86bc59048234dccffb1528d2b6eba81b953d03a3ed5d5d23f130e4f5"
+    },
+    {
+      "family": "PHASE7_TRAIN_CLIP",
+      "raw_path": "F:\\ASL DATASET\\5. Apphear3\\artifacts\\recognition_upgrade\\perception_vnext\\recognition_utility_236_01\\phase5_1t_3_first_class_agnostic_segmenter_01\\raw_full_video\\90628cb8b9843e456423e086.npz",
+      "raw_sha256": "c3d4117a82e19030dbfffcc54a6de05fff624bcd635c5518947177176c817b9a",
+      "role": "FIT",
+      "sample_id": "e6:e6p_00787",
+      "signer": "local_recorder:93EB89-S001",
+      "source": "LOCAL"
+    },
+    {
+      "family": "PHASE7_TRAIN_CLIP",
+      "raw_path": "F:\\ASL DATASET\\5. Apphear3\\artifacts\\recognition_upgrade\\perception_vnext\\recognition_utility_236_01\\phase5_1t_3_first_class_agnostic_segmenter_01\\raw_full_video\\f3e09ae6f44193d951fc5776.npz",
+      "raw_sha256": "ed923f8a493ba833f76b2c9ae020c5d9c062c025629a4c6fac5cdfc2e451c83a",
+      "role": "FIT",
+      "sample_id": "e6:e6p_00795",
+      "signer": "local_recorder:93EB89-S001",
+      "source": "LOCAL"
+    },
+    {
+      "family": "PHASE7_TRAIN_CLIP",
+      "raw_path": "F:\\ASL DATASET\\5. Apphear3\\artifacts\\recognition_upgrade\\perception_vnext\\recognition_utility_236_01\\phase5_1t_3_first_class_agnostic_segmenter_01\\raw_full_video\\7bdbffd497a11177940e6614.npz",
+      "raw_sha256": "99a31c5b4397ced8a2356e69d1dd568a83f3eb1946a6e9cba9fcb4ffe60c7d3c",
+      "role": "FIT",
+      "sample_id": "e6:e6p_00799",
+      "signer": "local_recorder:93EB89-S001",
+      "source": "LOCAL"
+    },
+    {
+      "family": "PHASE7_TRAIN_CLIP",
+      "raw_path": "F:\\ASL DATASET\\5. Apphear3\\artifacts\\recognition_upgrade\\perception_vnext\\recognition_utility_236_01\\phase5_1t_3_first_class_agnostic_segmenter_01\\raw_full_video\\8ea4290d1bd70bd91375752f.npz",
+      "raw_sha256": "9926ddb1ee6a78e0ac5bc5be1799f0a3b6bfe274c74aaa7a8e80ee0be08225db",
+      "role": "FIT",
+      "sample_id": "e6:e6p_00803",
+      "signer": "local_recorder:93EB89-S001",
+      "source": "LOCAL"
+    },
+    {
+      "family": "PHASE7_TRAIN_CLIP",
+      "raw_path": "F:\\ASL DATASET\\5. Apphear3\\artifacts\\recognition_upgrade\\perception_vnext\\recognition_utility_236_01\\phase5_1t_3_first_class_agnostic_segmenter_01\\raw_full_video\\86bb9041ac999129e2d581aa.npz",
+      "raw_sha256": "d8aeb307092e49f4b69c2b97181e420eeaf49cd534ef95e2b53a6c19f2b8d1e2",
+      "role": "FIT",
+      "sample_id": "e6:e6p_00855",
+      "signer": "local_recorder:6CC240-S001",
+      "source": "APPHEAR_CAPTURE"
+    },
+    {
+      "family": "PHASE7_TRAIN_CLIP",
+      "raw_path": "F:\\ASL DATASET\\5. Apphear3\\artifacts\\recognition_upgrade\\perception_vnext\\recognition_utility_236_01\\phase5_1t_3_first_class_agnostic_segmenter_01\\raw_full_video\\1049af7821bfb9d2ace938b6.npz",
+      "raw_sha256": "82f7b64ae5ca008756b5b30860703d8aa43b1045f2d8085070ed4e9243da4209",
+      "role": "FIT",
+      "sample_id": "e6:e6p_00856",
+      "signer": "local_recorder:6CC240-S001",
+      "source": "APPHEAR_CAPTURE"
+    },
+    {
+      "family": "PHASE7_TRAIN_CLIP",
+      "raw_path": "F:\\ASL DATASET\\5. Apphear3\\artifacts\\recognition_upgrade\\perception_vnext\\recognition_utility_236_01\\phase5_1t_3_first_class_agnostic_segmenter_01\\raw_full_video\\2e35c2f31f7f59116c783982.npz",
+      "raw_sha256": "f8b9a7633cb470ee3076e1e67567dd5c83d82dc0e21897fd4df56f4e34330952",
+      "role": "FIT",
+      "sample_id": "e6:e6p_00858",
+      "signer": "local_recorder:6CC240-S001",
+      "source": "APPHEAR_CAPTURE"
+    },
+    {
+      "family": "ENRICHMENT_CLIP",
+      "role": "FIT",
+      "sample_id": "e6:e6p_00869",
+      "signer": "local_recorder:6CC240-S001",
+      "source": "APPHEAR_CAPTURE",
+      "video_available": true,
+      "video_path": "F:\\ASL DATASET\\5. Apphear3\\scratchpad\\e6_product_core_collection\\raw\\positive\\KNOW\\P_NEW01\\phoneA\\indoor\\front\\6CC240-S001_004_know_0054.mp4",
+      "video_sha256": "00135fa6a2c417782a44ba8e8fd77f1791e922f86b32ffe3b1326d923192cbad"
+    },
+    {
+      "family": "PHASE7_TRAIN_CLIP",
+      "raw_path": "F:\\ASL DATASET\\5. Apphear3\\artifacts\\recognition_upgrade\\perception_vnext\\recognition_utility_236_01\\phase5_1t_3_first_class_agnostic_segmenter_01\\raw_full_video\\06308554551055a9ce1e399c.npz",
+      "raw_sha256": "4f78b6bf2143a0014f46b05d1da65225d9caf99dc213f57d796a7cee16909aec",
+      "role": "FIT",
+      "sample_id": "e6:e6p_00875",
+      "signer": "local_recorder:6CC240-S001",
+      "source": "APPHEAR_CAPTURE"
+    },
+    {
+      "family": "ENRICHMENT_CLIP",
+      "role": "CAL",
+      "sample_id": "e6:e6p_00885",
+      "signer": "local_recorder:6F7328-S001",
+      "source": "LOCAL",
+      "video_available": true,
+      "video_path": "E:\\local\\1\\signs\\know\\6F7328-S001_018_know_0010.mp4",
+      "video_sha256": "1f36993376d75f5f4794076f7cc81b7ee3ff27553d8a217573d6a3cee0780f00"
+    },
+    {
+      "family": "ENRICHMENT_CLIP",
+      "role": "CAL",
+      "sample_id": "e6:e6p_00887",
+      "signer": "local_recorder:6F7328-S001",
+      "source": "LOCAL",
+      "video_available": true,
+      "video_path": "E:\\local\\1\\signs\\know\\6F7328-S001_018_know_0012.mp4",
+      "video_sha256": "ae2bcce0d12da882ed92d79644e9fc905587a3eaca3a272ed673af5ab4284a92"
+    },
+    {
+      "family": "PHASE7_TRAIN_CLIP",
+      "raw_path": "F:\\ASL DATASET\\5. Apphear3\\artifacts\\recognition_upgrade\\perception_vnext\\recognition_utility_236_01\\phase5_1t_3_first_class_agnostic_segmenter_01\\raw_full_video\\ebc26bfab53ecdc0346d1c5b.npz",
+      "raw_sha256": "7ea6f03927684597b900ac3fe3d237c12faab9531b50b4c3f1360993f5c51577",
+      "role": "CAL",
+      "sample_id": "e6:e6p_00901",
+      "signer": "local_recorder:6F7328-S001",
+      "source": "LOCAL"
+    },
+    {
+      "family": "PHASE7_TRAIN_CLIP",
+      "raw_path": "F:\\ASL DATASET\\5. Apphear3\\artifacts\\recognition_upgrade\\perception_vnext\\recognition_utility_236_01\\phase5_1t_3_first_class_agnostic_segmenter_01\\raw_full_video\\d66f7bf1d408161cd6401fea.npz",
+      "raw_sha256": "825af593f2495bec31aa0c4cb52ac512bdccb26fafb99d6107d6bbbe6637f3ff",
+      "role": "FIT",
+      "sample_id": "e6:e6p_00912",
+      "signer": "local_recorder:3B96F6-S001",
+      "source": "LOCAL"
+    },
+    {
+      "family": "PHASE7_TRAIN_CLIP",
+      "raw_path": "F:\\ASL DATASET\\5. Apphear3\\artifacts\\recognition_upgrade\\perception_vnext\\recognition_utility_236_01\\phase5_1t_3_first_class_agnostic_segmenter_01\\raw_full_video\\5d5d6806bf979896b733f496.npz",
+      "raw_sha256": "c3cb2e1cfb34cdbdfd2fccad5d22fc6892b8a9d8784c75ceee027b1da845c882",
+      "role": "FIT",
+      "sample_id": "e6:e6p_00923",
+      "signer": "local_recorder:3B96F6-S001",
+      "source": "LOCAL"
+    },
+    {
+      "family": "PHASE7_TRAIN_CLIP",
+      "raw_path": "F:\\ASL DATASET\\5. Apphear3\\artifacts\\recognition_upgrade\\perception_vnext\\recognition_utility_236_01\\phase5_1t_3_first_class_agnostic_segmenter_01\\raw_full_video\\11711457411c6a2a747fff71.npz",
+      "raw_sha256": "71a55247a95869ba0375eece225ed18db98a3b1ecb03bc105ea9fa936daf970e",
+      "role": "FIT",
+      "sample_id": "e6:e6p_00924",
+      "signer": "local_recorder:3B96F6-S001",
+      "source": "LOCAL"
+    },
+    {
+      "family": "PHASE7_TRAIN_CLIP",
+      "raw_path": "F:\\ASL DATASET\\5. Apphear3\\artifacts\\recognition_upgrade\\perception_vnext\\recognition_utility_236_01\\phase5_1t_3_first_class_agnostic_segmenter_01\\raw_full_video\\c155a0212289497735cc55a1.npz",
+      "raw_sha256": "e162d885e79c90d2998260677fa28f2500b71aa60a39ab7a9e470a234ff3ffd4",
+      "role": "FIT",
+      "sample_id": "e6:e6p_00956",
+      "signer": "local_recorder:6CC240-S001",
+      "source": "APPHEAR_CAPTURE"
+    },
+    {
+      "family": "ENRICHMENT_CLIP",
+      "role": "FIT",
+      "sample_id": "e6:e6p_00975",
+      "signer": "local_recorder:6CC240-S001",
+      "source": "APPHEAR_CAPTURE",
+      "video_available": true,
+      "video_path": "F:\\ASL DATASET\\5. Apphear3\\scratchpad\\e6_product_core_collection\\raw\\positive\\SORRY\\P_NEW01\\phoneA\\indoor\\front\\6CC240-S001_003_sorry_0038.mp4",
+      "video_sha256": "16f725433149b452cc2c40440ab9d48282f226bc955a7f295f91bafe0d46f786"
+    },
+    {
+      "family": "PHASE7_TRAIN_CLIP",
+      "raw_path": "F:\\ASL DATASET\\5. Apphear3\\artifacts\\recognition_upgrade\\perception_vnext\\recognition_utility_236_01\\phase5_1t_3_first_class_agnostic_segmenter_01\\raw_full_video\\785569236683874a6f8daa0b.npz",
+      "raw_sha256": "3898f7f67e12dfd107805c0c49f4fcecd01cf80fa087bee4a02da00cd730d8d1",
+      "role": "FIT",
+      "sample_id": "e6:e6p_00994",
+      "signer": "local_recorder:6CC240-S001",
+      "source": "APPHEAR_CAPTURE"
+    },
+    {
+      "family": "PHASE7_TRAIN_CLIP",
+      "raw_path": "F:\\ASL DATASET\\5. Apphear3\\artifacts\\recognition_upgrade\\perception_vnext\\recognition_utility_236_01\\phase5_1t_3_first_class_agnostic_segmenter_01\\raw_full_video\\f64e59302843d244af77bb7b.npz",
+      "raw_sha256": "a9f69574716eccadf88bc23581757023191bdf83bbb1e39e1af393b8495a2a0f",
+      "role": "CAL",
+      "sample_id": "e6:e6p_01007",
+      "signer": "local_recorder:6F7328-S001",
+      "source": "LOCAL"
+    },
+    {
+      "family": "PHASE7_TRAIN_CLIP",
+      "raw_path": "F:\\ASL DATASET\\5. Apphear3\\artifacts\\recognition_upgrade\\perception_vnext\\recognition_utility_236_01\\phase5_1t_3_first_class_agnostic_segmenter_01\\raw_full_video\\7f812e90a5255a08f9fefd4f.npz",
+      "raw_sha256": "3f2c08be16c280659bb14241abbeaf71dc3616b0a3cd9df4288744c1c1dc6082",
+      "role": "CAL",
+      "sample_id": "e6:e6p_01008",
+      "signer": "local_recorder:6F7328-S001",
+      "source": "LOCAL"
+    }
+  ],
+  "rules_sha256": "4ce75b82b378421a10a70cee5d0a60fed6136420042f73f3cf723b1b04d82f94",
+  "schema": "apphear.s2_r3.data_split.v1",
+  "source_identity": {
+    "n0_capture_manifest": "e3ecc8c6f08704d868992d551ecfbd0059cbc144a3d718c61b537f3659e48e1a",
+    "p1_intervals": "75786979a6d60dda1699e10bffbd3d3435183edac5f68fd7e490e338189feeb7",
+    "phase7_sparse_view_manifest": "24416e605ebed74c89dccaf4702bb4014b87d4a8e13186a73b496b8131a68be5",
+    "s2_r2_dataset_manifest": "8c831dfd404cca935ae7356f4da10ec8dc0c1d6d08700b57bbc27a1ac00acf71"
+  },
+  "summary": {
+    "dev_signer_overlap": [],
+    "enrichment_clips_video_unavailable": [
+      "asl:train:19978233231036002-WRITE",
+      "asl:train:345772354898102-seedBOTH",
+      "asl:train:3741021155965083-AND",
+      "asl:train:38799379375716403-ALWAYS",
+      "asl:train:8618961603650133-FIND",
+      "asl:train:9116897977316643-IF"
+    ],
+    "fit_cal_signer_overlap": [],
+    "negatives": {
+      "CAL": {
+        "n0_clips": 19,
+        "n0_seconds": 290.181,
+        "p1_rows": 19,
+        "participants": [
+          "P01",
+          "P04"
+        ]
+      },
+      "FIT": {
+        "n0_clips": 21,
+        "n0_seconds": 332.191,
+        "p1_rows": 26,
+        "participants": [
+          "P02",
+          "P03"
+        ]
+      },
+      "HELD_OUT_EVAL": {
+        "n0_clips": 17,
+        "n0_seconds": 253.967,
+        "p1_rows": 0,
+        "participants": [
+          "P05",
+          "P06"
+        ]
+      }
+    },
+    "positive_clips": {
+      "CAL": 22,
+      "FIT": 83
+    },
+    "positive_signers": {
+      "CAL": 6,
+      "FIT": 22
+    }
+  }
+}

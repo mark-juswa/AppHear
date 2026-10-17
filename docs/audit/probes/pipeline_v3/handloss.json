@@ -1,0 +1,27 @@
+{
+  "handloss": {
+    "dense:motion:0": 0.6083916083916084,
+    "dense:motion:25": 0.5804195804195804,
+    "dense:motion:50": 0.5314685314685315,
+    "dense:motion:75": 0.27972027972027974,
+    "dense:random:0": 0.6083916083916084,
+    "dense:random:25": 0.6013986013986014,
+    "dense:random:50": 0.4918414918414919,
+    "dense:random:75": 0.2657342657342658,
+    "n_clips": 143,
+    "phone_01_sparse:motion:0": 0.5384615384615384,
+    "phone_01_sparse:motion:25": 0.4405594405594406,
+    "phone_01_sparse:motion:50": 0.3356643356643357,
+    "phone_01_sparse:motion:75": 0.23776223776223776,
+    "phone_01_sparse:random:0": 0.5384615384615384,
+    "phone_01_sparse:random:25": 0.4452214452214453,
+    "phone_01_sparse:random:50": 0.3333333333333333,
+    "phone_01_sparse:random:75": 0.17016317016317015,
+    "population": "DEV clips with hand_fraction>=0.75"
+  },
+  "recognizer_sha256": "8107accbc621ae5652766fec80d314fe8dc9f94ba0d0548a6aef80ed91729340",
+  "s2_package": {
+    "keras_sha256": "b6f8b52cece72f0b6f5b802a4ea583060d923e90a6b951059e7013114c8fc151",
+    "normalization_sha256": "65d885f62eaca6f11a596302d304f63149795ddaf01e702f1e6a36dd7da5c005"
+  }
+}

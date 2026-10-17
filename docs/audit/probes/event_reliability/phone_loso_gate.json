@@ -1,0 +1,91 @@
+{
+ "folds": {
+  "SEP27_TRANSITION": {
+   "threshold": 0.5,
+   "gated": [
+    4,
+    1,
+    4,
+    2
+   ],
+   "ungated": [
+    4,
+    1,
+    7,
+    4
+   ]
+  },
+  "OCT15_COMPACT": {
+   "threshold": 0.5,
+   "gated": [
+    4,
+    0,
+    1,
+    0
+   ],
+   "ungated": [
+    4,
+    0,
+    2,
+    0
+   ]
+  },
+  "SEP23_INDEPENDENT": {
+   "threshold": 0.7,
+   "gated": [
+    3,
+    0,
+    0,
+    3
+   ],
+   "ungated": [
+    3,
+    0,
+    0,
+    4
+   ]
+  },
+  "SEP23_REPRESENTATIVE": {
+   "threshold": 0.7,
+   "gated": [
+    2,
+    1,
+    0,
+    0
+   ],
+   "ungated": [
+    3,
+    1,
+    0,
+    1
+   ]
+  },
+  "SHADOW_023004Z": {
+   "threshold": 0.95,
+   "gated": [
+    1,
+    0,
+    0,
+    0
+   ],
+   "ungated": [
+    5,
+    1,
+    1,
+    3
+   ]
+  }
+ },
+ "total_gated": [
+  14,
+  2,
+  5,
+  5
+ ],
+ "total_ungated": [
+  19,
+  3,
+  10,
+  12
+ ]
+}

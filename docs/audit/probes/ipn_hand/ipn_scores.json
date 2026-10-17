@@ -1,0 +1,159 @@
+{
+ "candidates": {
+  "PRODUCTION_S2_R2": "S2_R2",
+  "ARM_A_E10": "ARM_A_E10",
+  "ARM_A_SELECTED": "ARM_A_E21",
+  "ARM_B_SELECTED": "ARM_B_E9",
+  "ARM_I_DIAGNOSTIC_NO_CANARY": "ARM_I_E28"
+ },
+ "scores": {
+  "PRODUCTION_S2_R2": {
+   "HELD_OUT_EVAL": {
+    "nog_events_per_min": 0.0,
+    "nog_events": 0,
+    "nog_minutes": 4.430000000000001,
+    "nog_chunk_fire": 0.030303030303030304,
+    "gesture_canary": 0.08411214953271028,
+    "gesture_segments": 107
+   },
+   "CAL": {
+    "nog_events_per_min": 0.0,
+    "nog_events": 0,
+    "nog_minutes": 4.340000000000001,
+    "nog_chunk_fire": 0.05714285714285714,
+    "gesture_canary": 0.08695652173913043,
+    "gesture_segments": 115
+   },
+   "FIT": {
+    "nog_events_per_min": 0.2909796314258002,
+    "nog_events": 4,
+    "nog_minutes": 13.746666666666668,
+    "nog_chunk_fire": 0.08163265306122448,
+    "gesture_canary": 0.17002881844380405,
+    "gesture_segments": 347
+   }
+  },
+  "ARM_A_E10": {
+   "HELD_OUT_EVAL": {
+    "nog_events_per_min": 6.772009029345371,
+    "nog_events": 30,
+    "nog_minutes": 4.430000000000001,
+    "nog_chunk_fire": 0.6136363636363636,
+    "gesture_canary": 0.6448598130841121,
+    "gesture_segments": 107
+   },
+   "CAL": {
+    "nog_events_per_min": 8.755760368663593,
+    "nog_events": 38,
+    "nog_minutes": 4.340000000000001,
+    "nog_chunk_fire": 0.7,
+    "gesture_canary": 0.6608695652173913,
+    "gesture_segments": 115
+   },
+   "FIT": {
+    "nog_events_per_min": 6.328806983511154,
+    "nog_events": 87,
+    "nog_minutes": 13.746666666666668,
+    "nog_chunk_fire": 0.7006802721088435,
+    "gesture_canary": 0.7118155619596542,
+    "gesture_segments": 347
+   }
+  },
+  "ARM_A_SELECTED": {
+   "HELD_OUT_EVAL": {
+    "nog_events_per_min": 4.514672686230248,
+    "nog_events": 20,
+    "nog_minutes": 4.430000000000001,
+    "nog_chunk_fire": 0.7348484848484849,
+    "gesture_canary": 0.6448598130841121,
+    "gesture_segments": 107
+   },
+   "CAL": {
+    "nog_events_per_min": 2.5345622119815663,
+    "nog_events": 11,
+    "nog_minutes": 4.340000000000001,
+    "nog_chunk_fire": 0.8714285714285714,
+    "gesture_canary": 0.591304347826087,
+    "gesture_segments": 115
+   },
+   "FIT": {
+    "nog_events_per_min": 3.491755577109602,
+    "nog_events": 48,
+    "nog_minutes": 13.746666666666668,
+    "nog_chunk_fire": 0.7551020408163265,
+    "gesture_canary": 0.7060518731988472,
+    "gesture_segments": 347
+   }
+  },
+  "ARM_B_SELECTED": {
+   "HELD_OUT_EVAL": {
+    "nog_events_per_min": 4.74040632054176,
+    "nog_events": 21,
+    "nog_minutes": 4.430000000000001,
+    "nog_chunk_fire": 0.6212121212121212,
+    "gesture_canary": 0.5514018691588785,
+    "gesture_segments": 107
+   },
+   "CAL": {
+    "nog_events_per_min": 2.073732718894009,
+    "nog_events": 9,
+    "nog_minutes": 4.340000000000001,
+    "nog_chunk_fire": 0.8714285714285714,
+    "gesture_canary": 0.5652173913043478,
+    "gesture_segments": 115
+   },
+   "FIT": {
+    "nog_events_per_min": 3.637245392822502,
+    "nog_events": 50,
+    "nog_minutes": 13.746666666666668,
+    "nog_chunk_fire": 0.6904761904761905,
+    "gesture_canary": 0.7146974063400576,
+    "gesture_segments": 347
+   }
+  },
+  "ARM_I_DIAGNOSTIC_NO_CANARY": {
+   "HELD_OUT_EVAL": {
+    "nog_events_per_min": 0.2257336343115124,
+    "nog_events": 1,
+    "nog_minutes": 4.430000000000001,
+    "nog_chunk_fire": 0.2878787878787879,
+    "gesture_canary": 0.14953271028037382,
+    "gesture_segments": 107
+   },
+   "CAL": {
+    "nog_events_per_min": 0.0,
+    "nog_events": 0,
+    "nog_minutes": 4.340000000000001,
+    "nog_chunk_fire": 0.2714285714285714,
+    "gesture_canary": 0.10434782608695652,
+    "gesture_segments": 115
+   },
+   "FIT": {
+    "nog_events_per_min": 0.2909796314258002,
+    "nog_events": 4,
+    "nog_minutes": 13.746666666666668,
+    "nog_chunk_fire": 0.20068027210884354,
+    "gesture_canary": 0.276657060518732,
+    "gesture_segments": 347
+   }
+  }
+ },
+ "sensitivity_ARM_I_E29_not_selected": {
+  "HELD_OUT_EVAL": {
+   "nog_events_per_min": 0.4514672686230248,
+   "nog_events": 2,
+   "nog_minutes": 4.430000000000001,
+   "nog_chunk_fire": 0.4090909090909091,
+   "gesture_canary": 0.32710280373831774,
+   "gesture_segments": 107
+  },
+  "CAL": {
+   "nog_events_per_min": 0.23041474654377878,
+   "nog_events": 1,
+   "nog_minutes": 4.340000000000001,
+   "nog_chunk_fire": 0.4,
+   "gesture_canary": 0.22608695652173913,
+   "gesture_segments": 115
+  }
+ }
+}

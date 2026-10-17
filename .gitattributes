@@ -31,3 +31,6 @@ docs/az-*.md -text whitespace=cr-at-eol
 
 # S2-R3 frozen evaluation suite config: its file hash is recorded in the freeze evidence.
 model/config/recognition_upgrade/s2_r3_context_suite_*.json -text whitespace=cr-at-eol
+model/config/recognition_upgrade/s2_r3_data_split*.json -text whitespace=cr-at-eol
+# IPN Hand subject split: its file hash is pinned by suite v04.
+model/config/recognition_upgrade/ipn_hand_split*.json -text whitespace=cr-at-eol

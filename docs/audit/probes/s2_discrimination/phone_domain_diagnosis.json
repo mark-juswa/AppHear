@@ -1,0 +1,764 @@
+{
+  "S2_R2": {
+    "phone": {
+      "genuine_n": 23,
+      "nonsign_chunks_n": 76,
+      "auc": 0.7700228832951944,
+      "genuine_peak_q": [
+        0.021,
+        0.058,
+        0.854,
+        0.998,
+        1.0
+      ],
+      "nonsign_peak_q": [
+        0.0,
+        0.002,
+        0.019,
+        0.391,
+        0.965
+      ]
+    },
+    "cal": {
+      "sign_n": 1980,
+      "nonsign_chunks_n": 3613,
+      "auc": 0.92188030317009,
+      "sign_peak_q": [
+        0.011,
+        0.138,
+        0.884,
+        0.998,
+        1.0
+      ],
+      "nonsign_peak_q": [
+        0.0,
+        0.0,
+        0.001,
+        0.013,
+        0.168
+      ]
+    },
+    "phone_genuine_detected_at": {
+      "0.5": 0.5217391304347826,
+      "0.8": 0.5217391304347826
+    },
+    "phone_nonsign_fired_at": {
+      "0.5": 0.23684210526315788,
+      "0.8": 0.15789473684210525
+    },
+    "cal_sign_detected_at": {
+      "0.5": 0.6424242424242425,
+      "0.8": 0.5484848484848485
+    },
+    "cal_nonsign_fired_at": {
+      "0.5": 0.046498754497647385,
+      "0.8": 0.020204815942430114
+    },
+    "phone_signs": [
+      {
+        "session": "SEP27_TRANSITION",
+        "sign": "A_HANDS_DOWN:HELLO#1",
+        "peak_active": 0.14910675123604852,
+        "hand_fraction": 0.5,
+        "proposal_fraction": 1.0,
+        "body_fraction": 1.0
+      },
+      {
+        "session": "SEP27_TRANSITION",
+        "sign": "A_HANDS_DOWN:HOME#2",
+        "peak_active": 0.04722616798144483,
+        "hand_fraction": 0.7777777777777778,
+        "proposal_fraction": 1.0,
+        "body_fraction": 1.0
+      },
+      {
+        "session": "SEP27_TRANSITION",
+        "sign": "A_HANDS_DOWN:TABLE#3",
+        "peak_active": 0.010967921038656623,
+        "hand_fraction": 0.0,
+        "proposal_fraction": 1.0,
+        "body_fraction": 1.0
+      },
+      {
+        "session": "SEP27_TRANSITION",
+        "sign": "B_HANDS_UP:HELLO#1",
+        "peak_active": 0.9955068019126995,
+        "hand_fraction": 1.0,
+        "proposal_fraction": 1.0,
+        "body_fraction": 0.0
+      },
+      {
+        "session": "SEP27_TRANSITION",
+        "sign": "B_HANDS_UP:HOME#2",
+        "peak_active": 0.062339306058024534,
+        "hand_fraction": 1.0,
+        "proposal_fraction": 1.0,
+        "body_fraction": 0.0
+      },
+      {
+        "session": "SEP27_TRANSITION",
+        "sign": "B_HANDS_UP:TABLE#3",
+        "peak_active": 0.054530716123938644,
+        "hand_fraction": 0.0,
+        "proposal_fraction": 1.0,
+        "body_fraction": 0.7857142857142857
+      },
+      {
+        "session": "SEP27_TRANSITION",
+        "sign": "B_HANDS_UP:HELLO#4",
+        "peak_active": 0.24463192229088293,
+        "hand_fraction": 0.8571428571428571,
+        "proposal_fraction": 1.0,
+        "body_fraction": 0.0
+      },
+      {
+        "session": "OCT15_COMPACT",
+        "sign": "A_HANDS_DOWN:HELLO#1",
+        "peak_active": 0.14342465378187308,
+        "hand_fraction": 0.7142857142857143,
+        "proposal_fraction": 1.0,
+        "body_fraction": 0.42857142857142855
+      },
+      {
+        "session": "OCT15_COMPACT",
+        "sign": "B_HANDS_UP:HELLO#1",
+        "peak_active": 0.014174923423299535,
+        "hand_fraction": 0.7,
+        "proposal_fraction": 1.0,
+        "body_fraction": 0.0
+      },
+      {
+        "session": "OCT15_COMPACT",
+        "sign": "C_REPEAT_HANDS_UP:HELLO#1",
+        "peak_active": 0.9530295986836483,
+        "hand_fraction": 1.0,
+        "proposal_fraction": 1.0,
+        "body_fraction": 0.0
+      },
+      {
+        "session": "OCT15_COMPACT",
+        "sign": "D_SIGN_THEN_HOLD:HELLO#1",
+        "peak_active": 0.3620710810211949,
+        "hand_fraction": 1.0,
+        "proposal_fraction": 1.0,
+        "body_fraction": 0.0
+      },
+      {
+        "session": "SEP23_INDEPENDENT",
+        "sign": "attempt_001:HELLO",
+        "peak_active": 0.8536587811460222,
+        "hand_fraction": 0.8333333333333334,
+        "proposal_fraction": 1.0,
+        "body_fraction": 1.0
+      },
+      {
+        "session": "SEP23_INDEPENDENT",
+        "sign": "attempt_002:HELLO",
+        "peak_active": 0.9417394724061201,
+        "hand_fraction": 0.7142857142857143,
+        "proposal_fraction": 1.0,
+        "body_fraction": 1.0
+      },
+      {
+        "session": "SEP23_INDEPENDENT",
+        "sign": "attempt_003:HOME",
+        "peak_active": 0.9871147032352565,
+        "hand_fraction": 1.0,
+        "proposal_fraction": 1.0,
+        "body_fraction": 0.0
+      },
+      {
+        "session": "SEP23_INDEPENDENT",
+        "sign": "attempt_004:HOME",
+        "peak_active": 0.9650001485691138,
+        "hand_fraction": 1.0,
+        "proposal_fraction": 1.0,
+        "body_fraction": 0.0
+      },
+      {
+        "session": "SEP23_INDEPENDENT",
+        "sign": "attempt_005:TABLE",
+        "peak_active": 0.04697532102170459,
+        "hand_fraction": 0.0,
+        "proposal_fraction": 1.0,
+        "body_fraction": 0.0
+      },
+      {
+        "session": "SEP23_INDEPENDENT",
+        "sign": "attempt_006:TABLE",
+        "peak_active": 0.0036114670548878093,
+        "hand_fraction": 0.0,
+        "proposal_fraction": 1.0,
+        "body_fraction": 0.3333333333333333
+      },
+      {
+        "session": "SEP23_REPRESENTATIVE",
+        "sign": "attempt_001:HELLO",
+        "peak_active": 0.9998546976311584,
+        "hand_fraction": 0.8888888888888888,
+        "proposal_fraction": 1.0,
+        "body_fraction": 0.0
+      },
+      {
+        "session": "SEP23_REPRESENTATIVE",
+        "sign": "attempt_002:HELLO",
+        "peak_active": 0.9999737522903701,
+        "hand_fraction": 1.0,
+        "proposal_fraction": 1.0,
+        "body_fraction": 0.0
+      },
+      {
+        "session": "SEP23_REPRESENTATIVE",
+        "sign": "attempt_003:HOME",
+        "peak_active": 0.9998140363118561,
+        "hand_fraction": 1.0,
+        "proposal_fraction": 1.0,
+        "body_fraction": 0.0
+      },
+      {
+        "session": "SEP23_REPRESENTATIVE",
+        "sign": "attempt_004:HOME",
+        "peak_active": 0.9999073714784181,
+        "hand_fraction": 1.0,
+        "proposal_fraction": 1.0,
+        "body_fraction": 0.0
+      },
+      {
+        "session": "SEP23_REPRESENTATIVE",
+        "sign": "attempt_005:TABLE",
+        "peak_active": 0.9998082131942145,
+        "hand_fraction": 0.08333333333333333,
+        "proposal_fraction": 1.0,
+        "body_fraction": 0.25
+      },
+      {
+        "session": "SEP23_REPRESENTATIVE",
+        "sign": "attempt_006:TABLE",
+        "peak_active": 0.9995833863436154,
+        "hand_fraction": 0.0,
+        "proposal_fraction": 1.0,
+        "body_fraction": 0.5555555555555556
+      }
+    ],
+    "evidence_by_peak": {
+      "peak<0.8": {
+        "n": 11,
+        "hand_fraction_mean": 0.5044733044733044,
+        "body_fraction_mean": 0.4134199134199134
+      },
+      "peak>=0.8": {
+        "n": 12,
+        "hand_fraction_mean": 0.7933201058201059,
+        "body_fraction_mean": 0.23379629629629628
+      }
+    }
+  },
+  "ARM_A_E10": {
+    "phone": {
+      "genuine_n": 23,
+      "nonsign_chunks_n": 76,
+      "auc": 0.8323798627002289,
+      "genuine_peak_q": [
+        0.004,
+        0.537,
+        0.999,
+        1.0,
+        1.0
+      ],
+      "nonsign_peak_q": [
+        0.0,
+        0.0,
+        0.001,
+        0.583,
+        0.985
+      ]
+    },
+    "cal": {
+      "sign_n": 1980,
+      "nonsign_chunks_n": 3613,
+      "auc": 0.9913473232183445,
+      "sign_peak_q": [
+        0.903,
+        0.994,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "nonsign_peak_q": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.02
+      ]
+    },
+    "phone_genuine_detected_at": {
+      "0.5": 0.7391304347826086,
+      "0.8": 0.6956521739130435
+    },
+    "phone_nonsign_fired_at": {
+      "0.5": 0.27631578947368424,
+      "0.8": 0.2236842105263158
+    },
+    "cal_sign_detected_at": {
+      "0.5": 0.9585858585858585,
+      "0.8": 0.9257575757575758
+    },
+    "cal_nonsign_fired_at": {
+      "0.5": 0.047052311098809856,
+      "0.8": 0.0337669526709106
+    },
+    "phone_signs": [
+      {
+        "session": "SEP27_TRANSITION",
+        "sign": "A_HANDS_DOWN:HELLO#1",
+        "peak_active": 0.990841863829523,
+        "hand_fraction": 0.5,
+        "proposal_fraction": 1.0,
+        "body_fraction": 1.0
+      },
+      {
+        "session": "SEP27_TRANSITION",
+        "sign": "A_HANDS_DOWN:HOME#2",
+        "peak_active": 0.9988338091927574,
+        "hand_fraction": 0.7777777777777778,
+        "proposal_fraction": 1.0,
+        "body_fraction": 1.0
+      },
+      {
+        "session": "SEP27_TRANSITION",
+        "sign": "A_HANDS_DOWN:TABLE#3",
+        "peak_active": 0.009832103130878813,
+        "hand_fraction": 0.0,
+        "proposal_fraction": 1.0,
+        "body_fraction": 1.0
+      },
+      {
+        "session": "SEP27_TRANSITION",
+        "sign": "B_HANDS_UP:HELLO#1",
+        "peak_active": 0.9992076756531817,
+        "hand_fraction": 1.0,
+        "proposal_fraction": 1.0,
+        "body_fraction": 0.0
+      },
+      {
+        "session": "SEP27_TRANSITION",
+        "sign": "B_HANDS_UP:HOME#2",
+        "peak_active": 0.9440636824983691,
+        "hand_fraction": 1.0,
+        "proposal_fraction": 1.0,
+        "body_fraction": 0.0
+      },
+      {
+        "session": "SEP27_TRANSITION",
+        "sign": "B_HANDS_UP:TABLE#3",
+        "peak_active": 0.002363100370760067,
+        "hand_fraction": 0.0,
+        "proposal_fraction": 1.0,
+        "body_fraction": 0.7857142857142857
+      },
+      {
+        "session": "SEP27_TRANSITION",
+        "sign": "B_HANDS_UP:HELLO#4",
+        "peak_active": 0.9997588583514977,
+        "hand_fraction": 0.8571428571428571,
+        "proposal_fraction": 1.0,
+        "body_fraction": 0.0
+      },
+      {
+        "session": "OCT15_COMPACT",
+        "sign": "A_HANDS_DOWN:HELLO#1",
+        "peak_active": 0.996998829575112,
+        "hand_fraction": 0.7142857142857143,
+        "proposal_fraction": 1.0,
+        "body_fraction": 0.42857142857142855
+      },
+      {
+        "session": "OCT15_COMPACT",
+        "sign": "B_HANDS_UP:HELLO#1",
+        "peak_active": 0.9993358249374511,
+        "hand_fraction": 0.7,
+        "proposal_fraction": 1.0,
+        "body_fraction": 0.0
+      },
+      {
+        "session": "OCT15_COMPACT",
+        "sign": "C_REPEAT_HANDS_UP:HELLO#1",
+        "peak_active": 0.9991814400753586,
+        "hand_fraction": 1.0,
+        "proposal_fraction": 1.0,
+        "body_fraction": 0.0
+      },
+      {
+        "session": "OCT15_COMPACT",
+        "sign": "D_SIGN_THEN_HOLD:HELLO#1",
+        "peak_active": 0.9996583646795633,
+        "hand_fraction": 1.0,
+        "proposal_fraction": 1.0,
+        "body_fraction": 0.0
+      },
+      {
+        "session": "SEP23_INDEPENDENT",
+        "sign": "attempt_001:HELLO",
+        "peak_active": 0.8143222500626328,
+        "hand_fraction": 0.8333333333333334,
+        "proposal_fraction": 1.0,
+        "body_fraction": 1.0
+      },
+      {
+        "session": "SEP23_INDEPENDENT",
+        "sign": "attempt_002:HELLO",
+        "peak_active": 0.7948397672434803,
+        "hand_fraction": 0.7142857142857143,
+        "proposal_fraction": 1.0,
+        "body_fraction": 1.0
+      },
+      {
+        "session": "SEP23_INDEPENDENT",
+        "sign": "attempt_003:HOME",
+        "peak_active": 0.9999826862742028,
+        "hand_fraction": 1.0,
+        "proposal_fraction": 1.0,
+        "body_fraction": 0.0
+      },
+      {
+        "session": "SEP23_INDEPENDENT",
+        "sign": "attempt_004:HOME",
+        "peak_active": 0.9989830389781984,
+        "hand_fraction": 1.0,
+        "proposal_fraction": 1.0,
+        "body_fraction": 0.0
+      },
+      {
+        "session": "SEP23_INDEPENDENT",
+        "sign": "attempt_005:TABLE",
+        "peak_active": 0.00040808031356286785,
+        "hand_fraction": 0.0,
+        "proposal_fraction": 1.0,
+        "body_fraction": 0.0
+      },
+      {
+        "session": "SEP23_INDEPENDENT",
+        "sign": "attempt_006:TABLE",
+        "peak_active": 0.00026706461594825997,
+        "hand_fraction": 0.0,
+        "proposal_fraction": 1.0,
+        "body_fraction": 0.3333333333333333
+      },
+      {
+        "session": "SEP23_REPRESENTATIVE",
+        "sign": "attempt_001:HELLO",
+        "peak_active": 0.9999560439523314,
+        "hand_fraction": 0.8888888888888888,
+        "proposal_fraction": 1.0,
+        "body_fraction": 0.0
+      },
+      {
+        "session": "SEP23_REPRESENTATIVE",
+        "sign": "attempt_002:HELLO",
+        "peak_active": 0.9999997152472222,
+        "hand_fraction": 1.0,
+        "proposal_fraction": 1.0,
+        "body_fraction": 0.0
+      },
+      {
+        "session": "SEP23_REPRESENTATIVE",
+        "sign": "attempt_003:HOME",
+        "peak_active": 0.9998067630964429,
+        "hand_fraction": 1.0,
+        "proposal_fraction": 1.0,
+        "body_fraction": 0.0
+      },
+      {
+        "session": "SEP23_REPRESENTATIVE",
+        "sign": "attempt_004:HOME",
+        "peak_active": 0.9999949805344579,
+        "hand_fraction": 1.0,
+        "proposal_fraction": 1.0,
+        "body_fraction": 0.0
+      },
+      {
+        "session": "SEP23_REPRESENTATIVE",
+        "sign": "attempt_005:TABLE",
+        "peak_active": 0.2784338102209383,
+        "hand_fraction": 0.08333333333333333,
+        "proposal_fraction": 1.0,
+        "body_fraction": 0.25
+      },
+      {
+        "session": "SEP23_REPRESENTATIVE",
+        "sign": "attempt_006:TABLE",
+        "peak_active": 0.0203706573177919,
+        "hand_fraction": 0.0,
+        "proposal_fraction": 1.0,
+        "body_fraction": 0.5555555555555556
+      }
+    ],
+    "evidence_by_peak": {
+      "peak<0.8": {
+        "n": 7,
+        "hand_fraction_mean": 0.11394557823129252,
+        "body_fraction_mean": 0.5606575963718822
+      },
+      "peak>=0.8": {
+        "n": 16,
+        "hand_fraction_mean": 0.8919642857142858,
+        "body_fraction_mean": 0.21428571428571427
+      }
+    }
+  },
+  "ARM_A_E21": {
+    "phone": {
+      "genuine_n": 23,
+      "nonsign_chunks_n": 76,
+      "auc": 0.7728832951945079,
+      "genuine_peak_q": [
+        0.003,
+        0.122,
+        0.92,
+        0.996,
+        1.0
+      ],
+      "nonsign_peak_q": [
+        0.0,
+        0.001,
+        0.004,
+        0.454,
+        0.977
+      ]
+    },
+    "cal": {
+      "sign_n": 1980,
+      "nonsign_chunks_n": 3613,
+      "auc": 0.996464786251667,
+      "sign_peak_q": [
+        0.978,
+        0.998,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "nonsign_peak_q": [
+        0.001,
+        0.001,
+        0.011,
+        0.039,
+        0.125
+      ]
+    },
+    "phone_genuine_detected_at": {
+      "0.5": 0.6521739130434783,
+      "0.8": 0.6086956521739131
+    },
+    "phone_nonsign_fired_at": {
+      "0.5": 0.23684210526315788,
+      "0.8": 0.19736842105263158
+    },
+    "cal_sign_detected_at": {
+      "0.5": 0.9994949494949495,
+      "0.8": 0.9878787878787879
+    },
+    "cal_nonsign_fired_at": {
+      "0.5": 0.043177414890672575,
+      "0.8": 0.0337669526709106
+    },
+    "phone_signs": [
+      {
+        "session": "SEP27_TRANSITION",
+        "sign": "A_HANDS_DOWN:HELLO#1",
+        "peak_active": 0.15735403774233034,
+        "hand_fraction": 0.5,
+        "proposal_fraction": 1.0,
+        "body_fraction": 1.0
+      },
+      {
+        "session": "SEP27_TRANSITION",
+        "sign": "A_HANDS_DOWN:HOME#2",
+        "peak_active": 0.9486656284703104,
+        "hand_fraction": 0.7777777777777778,
+        "proposal_fraction": 1.0,
+        "body_fraction": 1.0
+      },
+      {
+        "session": "SEP27_TRANSITION",
+        "sign": "A_HANDS_DOWN:TABLE#3",
+        "peak_active": 0.08708560940221066,
+        "hand_fraction": 0.0,
+        "proposal_fraction": 1.0,
+        "body_fraction": 1.0
+      },
+      {
+        "session": "SEP27_TRANSITION",
+        "sign": "B_HANDS_UP:HELLO#1",
+        "peak_active": 0.9923791393101459,
+        "hand_fraction": 1.0,
+        "proposal_fraction": 1.0,
+        "body_fraction": 0.0
+      },
+      {
+        "session": "SEP27_TRANSITION",
+        "sign": "B_HANDS_UP:HOME#2",
+        "peak_active": 0.20284922586785703,
+        "hand_fraction": 1.0,
+        "proposal_fraction": 1.0,
+        "body_fraction": 0.0
+      },
+      {
+        "session": "SEP27_TRANSITION",
+        "sign": "B_HANDS_UP:TABLE#3",
+        "peak_active": 0.0017275775791534527,
+        "hand_fraction": 0.0,
+        "proposal_fraction": 1.0,
+        "body_fraction": 0.7857142857142857
+      },
+      {
+        "session": "SEP27_TRANSITION",
+        "sign": "B_HANDS_UP:HELLO#4",
+        "peak_active": 0.9142976969390593,
+        "hand_fraction": 0.8571428571428571,
+        "proposal_fraction": 1.0,
+        "body_fraction": 0.0
+      },
+      {
+        "session": "OCT15_COMPACT",
+        "sign": "A_HANDS_DOWN:HELLO#1",
+        "peak_active": 0.9851162703196078,
+        "hand_fraction": 0.7142857142857143,
+        "proposal_fraction": 1.0,
+        "body_fraction": 0.42857142857142855
+      },
+      {
+        "session": "OCT15_COMPACT",
+        "sign": "B_HANDS_UP:HELLO#1",
+        "peak_active": 0.9203731126828324,
+        "hand_fraction": 0.7,
+        "proposal_fraction": 1.0,
+        "body_fraction": 0.0
+      },
+      {
+        "session": "OCT15_COMPACT",
+        "sign": "C_REPEAT_HANDS_UP:HELLO#1",
+        "peak_active": 0.9774457075772591,
+        "hand_fraction": 1.0,
+        "proposal_fraction": 1.0,
+        "body_fraction": 0.0
+      },
+      {
+        "session": "OCT15_COMPACT",
+        "sign": "D_SIGN_THEN_HOLD:HELLO#1",
+        "peak_active": 0.9993012026291982,
+        "hand_fraction": 1.0,
+        "proposal_fraction": 1.0,
+        "body_fraction": 0.0
+      },
+      {
+        "session": "SEP23_INDEPENDENT",
+        "sign": "attempt_001:HELLO",
+        "peak_active": 0.00033565500928568097,
+        "hand_fraction": 0.8333333333333334,
+        "proposal_fraction": 1.0,
+        "body_fraction": 1.0
+      },
+      {
+        "session": "SEP23_INDEPENDENT",
+        "sign": "attempt_002:HELLO",
+        "peak_active": 0.006916683742615051,
+        "hand_fraction": 0.7142857142857143,
+        "proposal_fraction": 1.0,
+        "body_fraction": 1.0
+      },
+      {
+        "session": "SEP23_INDEPENDENT",
+        "sign": "attempt_003:HOME",
+        "peak_active": 0.9999065032763426,
+        "hand_fraction": 1.0,
+        "proposal_fraction": 1.0,
+        "body_fraction": 0.0
+      },
+      {
+        "session": "SEP23_INDEPENDENT",
+        "sign": "attempt_004:HOME",
+        "peak_active": 0.9919958277384328,
+        "hand_fraction": 1.0,
+        "proposal_fraction": 1.0,
+        "body_fraction": 0.0
+      },
+      {
+        "session": "SEP23_INDEPENDENT",
+        "sign": "attempt_005:TABLE",
+        "peak_active": 0.00687985695235005,
+        "hand_fraction": 0.0,
+        "proposal_fraction": 1.0,
+        "body_fraction": 0.0
+      },
+      {
+        "session": "SEP23_INDEPENDENT",
+        "sign": "attempt_006:TABLE",
+        "peak_active": 0.001559118038742155,
+        "hand_fraction": 0.0,
+        "proposal_fraction": 1.0,
+        "body_fraction": 0.3333333333333333
+      },
+      {
+        "session": "SEP23_REPRESENTATIVE",
+        "sign": "attempt_001:HELLO",
+        "peak_active": 0.999996190639856,
+        "hand_fraction": 0.8888888888888888,
+        "proposal_fraction": 1.0,
+        "body_fraction": 0.0
+      },
+      {
+        "session": "SEP23_REPRESENTATIVE",
+        "sign": "attempt_002:HELLO",
+        "peak_active": 0.999994470327123,
+        "hand_fraction": 1.0,
+        "proposal_fraction": 1.0,
+        "body_fraction": 0.0
+      },
+      {
+        "session": "SEP23_REPRESENTATIVE",
+        "sign": "attempt_003:HOME",
+        "peak_active": 0.9997152362459344,
+        "hand_fraction": 1.0,
+        "proposal_fraction": 1.0,
+        "body_fraction": 0.0
+      },
+      {
+        "session": "SEP23_REPRESENTATIVE",
+        "sign": "attempt_004:HOME",
+        "peak_active": 0.9999977477396461,
+        "hand_fraction": 1.0,
+        "proposal_fraction": 1.0,
+        "body_fraction": 0.0
+      },
+      {
+        "session": "SEP23_REPRESENTATIVE",
+        "sign": "attempt_005:TABLE",
+        "peak_active": 0.9054756982974355,
+        "hand_fraction": 0.08333333333333333,
+        "proposal_fraction": 1.0,
+        "body_fraction": 0.25
+      },
+      {
+        "session": "SEP23_REPRESENTATIVE",
+        "sign": "attempt_006:TABLE",
+        "peak_active": 0.5336467358870198,
+        "hand_fraction": 0.0,
+        "proposal_fraction": 1.0,
+        "body_fraction": 0.5555555555555556
+      }
+    ],
+    "evidence_by_peak": {
+      "peak<0.8": {
+        "n": 9,
+        "hand_fraction_mean": 0.3386243386243386,
+        "body_fraction_mean": 0.6305114638447971
+      },
+      "peak>=0.8": {
+        "n": 14,
+        "hand_fraction_mean": 0.8586734693877551,
+        "body_fraction_mean": 0.11989795918367348
+      }
+    }
+  }
+}

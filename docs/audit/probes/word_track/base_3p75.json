@@ -1,0 +1,231 @@
+{
+  "dev": {
+    "conditions": {
+      "dense:head0:tail0": {
+        "by_signer": {
+          "asl_citizen:P12": 0.3043,
+          "asl_citizen:P21": 0.5826,
+          "asl_citizen:P26": 0.5279,
+          "asl_citizen:P39": 0.4918,
+          "asl_citizen:P5": 0.1786
+        },
+        "top1": 0.5024509803921569,
+        "top5": 0.7622549019607843
+      },
+      "dense:head0:tail10": {
+        "by_signer": {
+          "asl_citizen:P12": 0.3043,
+          "asl_citizen:P21": 0.5785,
+          "asl_citizen:P26": 0.5365,
+          "asl_citizen:P39": 0.4631,
+          "asl_citizen:P5": 0.1786
+        },
+        "top1": 0.4950980392156863,
+        "top5": 0.7781862745098039
+      },
+      "dense:head0:tail20": {
+        "by_signer": {
+          "asl_citizen:P12": 0.2899,
+          "asl_citizen:P21": 0.5372,
+          "asl_citizen:P26": 0.5236,
+          "asl_citizen:P39": 0.4262,
+          "asl_citizen:P5": 0.1071
+        },
+        "top1": 0.4644607843137255,
+        "top5": 0.7598039215686274
+      },
+      "dense:head0:tail30": {
+        "by_signer": {
+          "asl_citizen:P12": 0.2754,
+          "asl_citizen:P21": 0.4835,
+          "asl_citizen:P26": 0.5064,
+          "asl_citizen:P39": 0.3648,
+          "asl_citizen:P5": 0.1071
+        },
+        "top1": 0.42401960784313725,
+        "top5": 0.7340686274509803
+      },
+      "dense:head10:tail0": {
+        "by_signer": {
+          "asl_citizen:P12": 0.2899,
+          "asl_citizen:P21": 0.562,
+          "asl_citizen:P26": 0.5365,
+          "asl_citizen:P39": 0.4877,
+          "asl_citizen:P5": 0.1786
+        },
+        "top1": 0.4963235294117647,
+        "top5": 0.7549019607843137
+      },
+      "dense:head20:tail0": {
+        "by_signer": {
+          "asl_citizen:P12": 0.3333,
+          "asl_citizen:P21": 0.5083,
+          "asl_citizen:P26": 0.485,
+          "asl_citizen:P39": 0.4344,
+          "asl_citizen:P5": 0.1429
+        },
+        "top1": 0.4522058823529412,
+        "top5": 0.7193627450980392
+      },
+      "dense:head20:tail20": {
+        "by_signer": {
+          "asl_citizen:P12": 0.2754,
+          "asl_citizen:P21": 0.4917,
+          "asl_citizen:P26": 0.4764,
+          "asl_citizen:P39": 0.373,
+          "asl_citizen:P5": 0.0714
+        },
+        "top1": 0.41911764705882354,
+        "top5": 0.7009803921568627
+      },
+      "dense:head30:tail0": {
+        "by_signer": {
+          "asl_citizen:P12": 0.2609,
+          "asl_citizen:P21": 0.4959,
+          "asl_citizen:P26": 0.4206,
+          "asl_citizen:P39": 0.4303,
+          "asl_citizen:P5": 0.1429
+        },
+        "top1": 0.4227941176470588,
+        "top5": 0.6887254901960784
+      },
+      "phone_01_sparse:head0:tail0": {
+        "by_signer": {
+          "asl_citizen:P12": 0.2319,
+          "asl_citizen:P21": 0.405,
+          "asl_citizen:P26": 0.3991,
+          "asl_citizen:P39": 0.4303,
+          "asl_citizen:P5": 0.1071
+        },
+        "top1": 0.3860294117647059,
+        "top5": 0.696078431372549
+      },
+      "phone_01_sparse:head0:tail10": {
+        "by_signer": {
+          "asl_citizen:P12": 0.2319,
+          "asl_citizen:P21": 0.376,
+          "asl_citizen:P26": 0.3648,
+          "asl_citizen:P39": 0.3811,
+          "asl_citizen:P5": 0.0714
+        },
+        "top1": 0.35171568627450983,
+        "top5": 0.6593137254901961
+      },
+      "phone_01_sparse:head0:tail20": {
+        "by_signer": {
+          "asl_citizen:P12": 0.2319,
+          "asl_citizen:P21": 0.343,
+          "asl_citizen:P26": 0.3734,
+          "asl_citizen:P39": 0.3443,
+          "asl_citizen:P5": 0.0357
+        },
+        "top1": 0.3321078431372549,
+        "top5": 0.6200980392156863
+      },
+      "phone_01_sparse:head0:tail30": {
+        "by_signer": {
+          "asl_citizen:P12": 0.2319,
+          "asl_citizen:P21": 0.3347,
+          "asl_citizen:P26": 0.3562,
+          "asl_citizen:P39": 0.3115,
+          "asl_citizen:P5": 0.0357
+        },
+        "top1": 0.31495098039215685,
+        "top5": 0.5968137254901961
+      },
+      "phone_01_sparse:head10:tail0": {
+        "by_signer": {
+          "asl_citizen:P12": 0.2464,
+          "asl_citizen:P21": 0.376,
+          "asl_citizen:P26": 0.3777,
+          "asl_citizen:P39": 0.4057,
+          "asl_citizen:P5": 0.1429
+        },
+        "top1": 0.36642156862745096,
+        "top5": 0.6433823529411765
+      },
+      "phone_01_sparse:head20:tail0": {
+        "by_signer": {
+          "asl_citizen:P12": 0.2609,
+          "asl_citizen:P21": 0.3182,
+          "asl_citizen:P26": 0.382,
+          "asl_citizen:P39": 0.377,
+          "asl_citizen:P5": 0.0357
+        },
+        "top1": 0.3394607843137255,
+        "top5": 0.6066176470588235
+      },
+      "phone_01_sparse:head20:tail20": {
+        "by_signer": {
+          "asl_citizen:P12": 0.2029,
+          "asl_citizen:P21": 0.2893,
+          "asl_citizen:P26": 0.3476,
+          "asl_citizen:P39": 0.2992,
+          "asl_citizen:P5": 0.0357
+        },
+        "top1": 0.2928921568627451,
+        "top5": 0.5490196078431373
+      },
+      "phone_01_sparse:head30:tail0": {
+        "by_signer": {
+          "asl_citizen:P12": 0.2029,
+          "asl_citizen:P21": 0.3595,
+          "asl_citizen:P26": 0.3047,
+          "asl_citizen:P39": 0.3525,
+          "asl_citizen:P5": 0.0714
+        },
+        "top1": 0.31862745098039214,
+        "top5": 0.5821078431372549
+      }
+    },
+    "n": 816,
+    "sparse_observations_median": 4.0,
+    "sparse_top1_by_hand_fraction": {
+      "0.25-0.5": {
+        "n": 229,
+        "top1": 0.25327510917030566
+      },
+      "0.5-0.75": {
+        "n": 396,
+        "top1": 0.43434343434343436
+      },
+      "0.75-0.9": {
+        "n": 120,
+        "top1": 0.5083333333333333
+      },
+      "<0.25": {
+        "n": 48,
+        "top1": 0.20833333333333334
+      },
+      ">=0.9": {
+        "n": 23,
+        "top1": 0.6086956521739131
+      }
+    }
+  },
+  "handloss": {
+    "dense:motion:0": 0.6083916083916084,
+    "dense:motion:25": 0.5804195804195804,
+    "dense:motion:50": 0.5314685314685315,
+    "dense:motion:75": 0.27972027972027974,
+    "dense:random:0": 0.6083916083916084,
+    "dense:random:25": 0.6013986013986014,
+    "dense:random:50": 0.4918414918414919,
+    "dense:random:75": 0.2657342657342658,
+    "n_clips": 143,
+    "phone_01_sparse:motion:0": 0.5244755244755245,
+    "phone_01_sparse:motion:25": 0.45454545454545453,
+    "phone_01_sparse:motion:50": 0.36363636363636365,
+    "phone_01_sparse:motion:75": 0.22377622377622378,
+    "phone_01_sparse:random:0": 0.5244755244755245,
+    "phone_01_sparse:random:25": 0.44755244755244755,
+    "phone_01_sparse:random:50": 0.31468531468531463,
+    "phone_01_sparse:random:75": 0.1724941724941725,
+    "population": "DEV clips with hand_fraction>=0.75"
+  },
+  "recognizer_sha256": "8107accbc621ae5652766fec80d314fe8dc9f94ba0d0548a6aef80ed91729340",
+  "s2_package": {
+    "keras_sha256": "b6f8b52cece72f0b6f5b802a4ea583060d923e90a6b951059e7013114c8fc151",
+    "normalization_sha256": "65d885f62eaca6f11a596302d304f63149795ddaf01e702f1e6a36dd7da5c005"
+  }
+}

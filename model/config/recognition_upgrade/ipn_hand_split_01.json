@@ -1,0 +1,19 @@
+{
+ "schema": "apphear.ipn_hand.subject_split.v1",
+ "seed": 6301,
+ "rule": "rank subjects by SHA-256('6301:'+subject); first 2 HELD_OUT_EVAL, next 2 CAL, rest FIT. Subject = first two video-name tokens.",
+ "source": "IPN Hand videos05.tgz (40 videos, 10 subjects, recording group 4CM11), CC BY 4.0",
+ "labels": "IPN HandS temporal_annotations (1-based inclusive, ffmpeg fps=30 timeline; time-mapped). NOG rows >= 500 ms from any gesture segment = PRE candidates; gestures never used as ASL positives.",
+ "roles": {
+  "4CM11_2": "HELD_OUT_EVAL",
+  "4CM11_24": "HELD_OUT_EVAL",
+  "4CM11_1": "CAL",
+  "4CM11_29": "CAL",
+  "4CM11_7": "FIT",
+  "4CM11_19": "FIT",
+  "4CM11_5": "FIT",
+  "4CM11_23": "FIT",
+  "4CM11_20": "FIT",
+  "4CM11_26": "FIT"
+ }
+}

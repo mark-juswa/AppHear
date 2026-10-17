@@ -1,0 +1,111 @@
+{
+ "cal": {
+  "baseline": {
+   "GENUINE": 1461,
+   "NONSIGN": 85,
+   "OTHER": 10,
+   "correct_words": 0
+  },
+  "confirm_boundary_70": {
+   "GENUINE": 1498,
+   "NONSIGN": 96,
+   "OTHER": 18,
+   "DUPLICATE": 7,
+   "correct_words": 0
+  },
+  "changes": {
+   "NEW:GENUINE:parent=-": 2,
+   "NEW:NONSIGN:parent=-": 1,
+   "REPLACED_BASELINE:GENUINE": 75,
+   "REPLACED_BASELINE:NONSIGN": 12,
+   "REPLACED_BASELINE:OTHER": 1,
+   "SPLIT_PIECE:DUPLICATE:parent=GENUINE": 7,
+   "SPLIT_PIECE:GENUINE:parent=GENUINE": 110,
+   "SPLIT_PIECE:NONSIGN:parent=GENUINE": 2,
+   "SPLIT_PIECE:NONSIGN:parent=NONSIGN": 19,
+   "SPLIT_PIECE:NONSIGN:parent=OTHER": 1,
+   "SPLIT_PIECE:OTHER:parent=GENUINE": 8,
+   "SPLIT_PIECE:OTHER:parent=OTHER": 1
+  }
+ },
+ "dev": {
+  "baseline": {
+   "GENUINE": 870,
+   "NONSIGN": 74,
+   "correct_words": 361
+  },
+  "confirm_boundary_70": {
+   "GENUINE": 916,
+   "NONSIGN": 82,
+   "DUPLICATE": 1,
+   "correct_words": 390
+  },
+  "changes": {
+   "NEW:GENUINE:parent=-": 6,
+   "NEW:NONSIGN:parent=-": 1,
+   "REPLACED_BASELINE:GENUINE": 67,
+   "REPLACED_BASELINE:NONSIGN": 1,
+   "SPLIT_PIECE:DUPLICATE:parent=GENUINE": 1,
+   "SPLIT_PIECE:GENUINE:parent=GENUINE": 107,
+   "SPLIT_PIECE:NONSIGN:parent=GENUINE": 7,
+   "SPLIT_PIECE:NONSIGN:parent=NONSIGN": 1
+  }
+ },
+ "dev_natural": {
+  "baseline": {
+   "GENUINE": 515,
+   "NONSIGN": 70,
+   "correct_words": 236
+  },
+  "confirm_boundary_70": {
+   "GENUINE": 518,
+   "NONSIGN": 75,
+   "correct_words": 238
+  }
+ },
+ "dev_continuous": {
+  "baseline": {
+   "GENUINE": 355,
+   "NONSIGN": 4,
+   "correct_words": 125
+  },
+  "confirm_boundary_70": {
+   "GENUINE": 398,
+   "NONSIGN": 7,
+   "DUPLICATE": 1,
+   "correct_words": 152
+  }
+ },
+ "phone": {
+  "baseline": {
+   "UNREVIEWED": 9,
+   "GENUINE": 20,
+   "UNCERTAIN": 1,
+   "CONFIRMED_NONSIGN": 10,
+   "PARTIAL_NONSIGN": 1,
+   "PROTOCOL_SIGN_BLOCK": 5,
+   "PROTOCOL_ORDINARY_MOVEMENT": 2,
+   "correct_words": 15
+  },
+  "confirm_boundary_70": {
+   "UNREVIEWED": 11,
+   "GENUINE": 22,
+   "UNCERTAIN": 1,
+   "CONFIRMED_NONSIGN": 10,
+   "PROTOCOL_SIGN_BLOCK": 6,
+   "PROTOCOL_ORDINARY_MOVEMENT": 2,
+   "correct_words": 19
+  },
+  "changes": {
+   "REPLACED_BASELINE:GENUINE": 3,
+   "REPLACED_BASELINE:PARTIAL_NONSIGN": 1,
+   "REPLACED_BASELINE:PROTOCOL_SIGN_BLOCK": 1,
+   "REPLACED_BASELINE:UNREVIEWED": 1,
+   "SPLIT_PIECE:GENUINE:parent=GENUINE": 5,
+   "SPLIT_PIECE:PROTOCOL_SIGN_BLOCK:parent=PROTOCOL_SIGN_BLOCK": 2,
+   "SPLIT_PIECE:UNREVIEWED:parent=GENUINE": 1,
+   "SPLIT_PIECE:UNREVIEWED:parent=PARTIAL_NONSIGN": 1,
+   "SPLIT_PIECE:UNREVIEWED:parent=UNREVIEWED": 1
+  }
+ }
+}

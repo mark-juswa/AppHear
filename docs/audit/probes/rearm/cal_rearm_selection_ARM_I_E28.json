@@ -1,0 +1,156 @@
+{
+ "s2": "ARM_A_E10",
+ "results": {
+  "BASELINE": {
+   "signs": 1980.0,
+   "split": 0.0,
+   "distinct": 1152.0,
+   "merged": 131.0,
+   "neg_ev": 38.0,
+   "neg_ev_scored": 22.0,
+   "events": 1190.0,
+   "distinct_rate": 0.5818181818181818,
+   "split_rate": 0.0
+  },
+  "CONFIRM_BOUNDARY_70": {
+   "signs": 1980.0,
+   "split": 0.0,
+   "distinct": 1233.0,
+   "merged": 80.0,
+   "neg_ev": 40.0,
+   "neg_ev_scored": 24.0,
+   "events": 1273.0,
+   "distinct_rate": 0.6227272727272727,
+   "split_rate": 0.0
+  },
+  "REENTRY_1": {
+   "signs": 1980.0,
+   "split": 0.0,
+   "distinct": 1325.0,
+   "merged": 143.0,
+   "neg_ev": 45.0,
+   "neg_ev_scored": 22.0,
+   "events": 1370.0,
+   "distinct_rate": 0.6691919191919192,
+   "split_rate": 0.0
+  },
+  "REENTRY_2": {
+   "signs": 1980.0,
+   "split": 0.0,
+   "distinct": 1251.0,
+   "merged": 137.0,
+   "neg_ev": 45.0,
+   "neg_ev_scored": 22.0,
+   "events": 1296.0,
+   "distinct_rate": 0.6318181818181818,
+   "split_rate": 0.0
+  },
+  "R1_CB70": {
+   "signs": 1980.0,
+   "split": 0.0,
+   "distinct": 1410.0,
+   "merged": 88.0,
+   "neg_ev": 49.0,
+   "neg_ev_scored": 24.0,
+   "events": 1459.0,
+   "distinct_rate": 0.7121212121212122,
+   "split_rate": 0.0
+  },
+  "R2_CB70": {
+   "signs": 1980.0,
+   "split": 0.0,
+   "distinct": 1334.0,
+   "merged": 84.0,
+   "neg_ev": 48.0,
+   "neg_ev_scored": 24.0,
+   "events": 1382.0,
+   "distinct_rate": 0.6737373737373737,
+   "split_rate": 0.0
+  },
+  "PRE_EXIT_POST": {
+   "signs": 1980.0,
+   "split": 0.0,
+   "distinct": 1296.0,
+   "merged": 167.0,
+   "neg_ev": 61.0,
+   "neg_ev_scored": 33.0,
+   "events": 1367.0,
+   "distinct_rate": 0.6545454545454545,
+   "split_rate": 0.0
+  },
+  "CB70_PRE_EXIT_POST": {
+   "signs": 1980.0,
+   "split": 0.0,
+   "distinct": 1374.0,
+   "merged": 105.0,
+   "neg_ev": 64.0,
+   "neg_ev_scored": 36.0,
+   "events": 1449.0,
+   "distinct_rate": 0.693939393939394,
+   "split_rate": 0.0
+  },
+  "R2_PRE_EXIT_POST": {
+   "signs": 1980.0,
+   "split": 0.0,
+   "distinct": 1416.0,
+   "merged": 178.0,
+   "neg_ev": 72.0,
+   "neg_ev_scored": 34.0,
+   "events": 1499.0,
+   "distinct_rate": 0.7151515151515152,
+   "split_rate": 0.0
+  },
+  "R2_CB70_PRE_EXIT_POST": {
+   "signs": 1980.0,
+   "split": 0.0,
+   "distinct": 1499.0,
+   "merged": 112.0,
+   "neg_ev": 76.0,
+   "neg_ev_scored": 37.0,
+   "events": 1587.0,
+   "distinct_rate": 0.7570707070707071,
+   "split_rate": 0.0
+  },
+  "R1_CBN70": {
+   "signs": 1980.0,
+   "split": 0.0,
+   "distinct": 1412.0,
+   "merged": 88.0,
+   "neg_ev": 49.0,
+   "neg_ev_scored": 24.0,
+   "events": 1461.0,
+   "distinct_rate": 0.7131313131313132,
+   "split_rate": 0.0
+  },
+  "R1_CBN70_PRE_EXIT_POST": {
+   "signs": 1980.0,
+   "split": 37.0,
+   "distinct": 1600.0,
+   "merged": 110.0,
+   "neg_ev": 83.0,
+   "neg_ev_scored": 40.0,
+   "events": 1744.0,
+   "distinct_rate": 0.8080808080808081,
+   "split_rate": 0.018686868686868686
+  }
+ },
+ "original_rule": {
+  "eligible": [
+   "BASELINE",
+   "CONFIRM_BOUNDARY_70"
+  ],
+  "selected": "CONFIRM_BOUNDARY_70"
+ },
+ "label_contract_rule": {
+  "eligible": [
+   "BASELINE",
+   "CONFIRM_BOUNDARY_70",
+   "REENTRY_1",
+   "REENTRY_2",
+   "R1_CB70",
+   "R2_CB70",
+   "R1_CBN70"
+  ],
+  "selected": "R1_CBN70"
+ }
+}
