@@ -188,7 +188,8 @@ window.preloadSign = function(url) {
   if (viewers[activeIndex].src === url) return;
   if (pendingRequest !== null || releaseTimer !== null) {queuedPreload = url; return;}
   const next = viewers[1 - activeIndex];
-  if (next.src === pinnedSource && url !== pinnedSource) return;
+  // A cold viewer's src is null like an unset pin; only a real pin blocks the preload.
+  if (pinnedSource && next.src === pinnedSource && url !== pinnedSource) return;
   next.pause();
   if (next.src !== url) {next.loadedSource = null; next.failedUrl = null; next.src = url;}
 };

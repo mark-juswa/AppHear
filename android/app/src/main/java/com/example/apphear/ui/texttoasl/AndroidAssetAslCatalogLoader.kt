@@ -72,12 +72,7 @@ class AndroidAssetAslCatalogLoader(
                 root.getString("asset") == AslFingerspellingBundle.PATH &&
                 root.getString("status") == "UNREVIEWED_RETARGETED_PREVIEW" &&
                 root.getString("sha256") == AslFingerspellingBundle.SHA256)
-            val digest = MessageDigest.getInstance("SHA-256")
-            context.assets.open(AslFingerspellingBundle.PATH).use { input ->
-                val buffer = ByteArray(64 * 1024)
-                while (true) { val count = input.read(buffer); if (count < 0) break; digest.update(buffer, 0, count) }
-            }
-            require(digest.digest().joinToString("") { "%02x".format(it) } == AslFingerspellingBundle.SHA256)
+            require(AslAssetDigests.of(context, AslFingerspellingBundle.PATH).sha256 == AslFingerspellingBundle.SHA256)
             val raw = root.getJSONArray("letters")
             val alphabet = AslFingerspellingBundle.letters((0 until raw.length()).map { index ->
                 val e = raw.getJSONObject(index)
@@ -109,12 +104,7 @@ class AndroidAssetAslCatalogLoader(
         require(root.getInt("schemaVersion") == 1 && root.getString("language") == "ASL" &&
             root.getString("avatarProfile") == "ORIGINAL_HUMAN" && root.getString("asset") == AslResidentAvatarBundle.PATH)
         require(root.getString("sha256") == AslResidentAvatarBundle.SHA256)
-        val digest = MessageDigest.getInstance("SHA-256")
-        context.assets.open(AslResidentAvatarBundle.PATH).use { input ->
-            val bytes = ByteArray(64 * 1024)
-            while (true) { val n = input.read(bytes); if (n < 0) break; digest.update(bytes, 0, n) }
-        }
-        require(digest.digest().joinToString("") { "%02x".format(it) } == AslResidentAvatarBundle.SHA256)
+        require(AslAssetDigests.of(context, AslResidentAvatarBundle.PATH).sha256 == AslResidentAvatarBundle.SHA256)
         val entries = root.getJSONArray("animations")
         val motions = (0 until entries.length()).map {
             val e = entries.getJSONObject(it)
@@ -314,19 +304,9 @@ class AndroidAssetAslCatalogLoader(
             fun verify(clip: JSONObject) {
                 val path = clip.getString("asset")
                 OriginalWordBatchCatalog.validatePath(path)
-                val digest = MessageDigest.getInstance("SHA-256")
-                var total = 0L
-                context.assets.open(path).use { input ->
-                    val buffer = ByteArray(64 * 1024)
-                    while (true) {
-                        val count = input.read(buffer)
-                        if (count < 0) break
-                        digest.update(buffer, 0, count)
-                        total += count
-                    }
-                }
-                require(total == clip.getLong("bytes"))
-                require(digest.digest().joinToString("") { "%02x".format(it) } == clip.getString("sha256"))
+                val digest = AslAssetDigests.of(context, path)
+                require(digest.bytes == clip.getLong("bytes"))
+                require(digest.sha256 == clip.getString("sha256"))
             }
             val rawOverrides = root.getJSONArray("replacements")
             val rawAdditions = root.getJSONArray("newClips")

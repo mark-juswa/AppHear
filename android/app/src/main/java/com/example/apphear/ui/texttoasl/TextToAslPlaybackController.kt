@@ -44,6 +44,7 @@ class TextToAslPlaybackController(
         .build()
 
     private var pendingAsset: AslAnimationAsset? = null
+    private var warmUpPath: String? = null
     private var playingAsset: AslAnimationAsset? = null
     private var readyCallback: ReadyCallback? = null
     private var playbackCallback: PlaybackCallback? = null
@@ -104,6 +105,16 @@ class TextToAslPlaybackController(
         if (asset == null || !isReady || destroyed) return
         if (!AslSingleAvatarPolicy.permits(asset) || !AslAvatarCatalogPolicy.permits(asset, lockedAvatarProfile)) return
         webView.evaluateJavascript("preloadSign(${JSONObject.quote(BASE_URL + asset.assetPath)})", null)
+    }
+
+    /** Starts fetching the resident avatar model while the catalog is still loading. */
+    fun warmUp(assetPath: String) {
+        if (destroyed || playingAsset != null) return
+        if (!isReady) {
+            warmUpPath = assetPath
+            return
+        }
+        webView.evaluateJavascript("preloadSign(${JSONObject.quote(BASE_URL + assetPath)})", null)
     }
 
     fun pause() {
@@ -174,6 +185,10 @@ class TextToAslPlaybackController(
                 pendingAsset?.let { asset ->
                     pendingAsset = null
                     play(asset)
+                }
+                warmUpPath?.let { path ->
+                    warmUpPath = null
+                    if (playingAsset == null) warmUp(path)
                 }
             }
         }

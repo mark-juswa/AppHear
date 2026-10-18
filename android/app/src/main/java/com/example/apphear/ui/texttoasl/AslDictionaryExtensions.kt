@@ -10,7 +10,6 @@ import com.example.apphear.domain.texttoasl.ExistingAslAlias
 import org.json.JSONObject
 import java.nio.ByteBuffer
 import java.nio.ByteOrder
-import java.security.MessageDigest
 
 /** Optional reviewed additions. Built-in previews retain UNREVIEWED status. */
 class AslDictionaryExtensions(private val context: Context) {
@@ -43,13 +42,7 @@ class AslDictionaryExtensions(private val context: Context) {
                     require(it.matches(Regex("asl_animations/(?:[a-zA-Z0-9_-]+/)*[a-zA-Z0-9_-]+\\.glb")))
                 }
                 val animation = entry.getString("animationName").also { require(it.isNotBlank()) }
-                val digest = MessageDigest.getInstance("SHA-256")
-                context.assets.open(path).use { input ->
-                    val buffer = ByteArray(64 * 1024)
-                    while (true) { val n = input.read(buffer); if (n < 0) break; digest.update(buffer, 0, n) }
-                }
-                val actualHash = digest.digest().joinToString("") { "%02x".format(it) }
-                require(actualHash == entry.getString("sha256"))
+                require(AslAssetDigests.of(context, path).sha256 == entry.getString("sha256"))
                 context.assets.open(path).use { input ->
                     val header = ByteArray(20)
                     java.io.DataInputStream(input).readFully(header)
@@ -111,12 +104,7 @@ class AslDictionaryExtensions(private val context: Context) {
                         entry.getString("asset"), entry.getString("sha256"), entry.getString("reference"))
                     val target = requireNotNull(result.find { it.id == alias.signId })
                     require(target.assetPath == alias.assetPath) // Open only a previously accepted catalog path.
-                    val digest = MessageDigest.getInstance("SHA-256")
-                    context.assets.open(target.assetPath).use { input ->
-                        val bytes = ByteArray(64 * 1024)
-                        while (true) { val n = input.read(bytes); if (n < 0) break; digest.update(bytes, 0, n) }
-                    }
-                    result = alias.apply(result, digest.digest().joinToString("") { "%02x".format(it) })
+                    result = alias.apply(result, AslAssetDigests.of(context, target.assetPath).sha256)
                 } catch (error: Exception) {
                     Log.w("TextToAslAssets", "Existing alias $index rejected: ${error.message}")
                 }

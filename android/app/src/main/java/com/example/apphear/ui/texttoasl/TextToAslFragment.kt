@@ -6,6 +6,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.os.SystemClock
 import android.util.Log
 import android.speech.RecognizerIntent
 import android.view.View
@@ -25,11 +26,12 @@ import com.example.apphear.databinding.FragmentTextToAslBinding
 import com.example.apphear.contextassist.ConversationPhraseAssist
 import com.example.apphear.contextassist.ConversationSource
 import com.example.apphear.domain.texttoasl.AslSingleAvatarPolicy
+import com.example.apphear.domain.texttoasl.AslFingerspellingBundle
+import com.example.apphear.domain.texttoasl.AslResidentAvatarBundle
 import com.example.apphear.domain.texttoasl.AslCharacterChoice
 import com.example.apphear.domain.texttoasl.AslAnimationAsset
 import com.example.apphear.domain.texttoasl.AslAnimationCatalog
 import com.example.apphear.domain.texttoasl.AslPhrasePlanner
-import com.example.apphear.domain.texttoasl.TextToAslPlan
 import com.example.apphear.domain.texttoasl.SignDictionaryMetadata
 import com.example.apphear.domain.texttoasl.AslTranslationPlanner
 import com.example.apphear.domain.texttoasl.AslGrammarRegistry
@@ -53,7 +55,6 @@ class TextToAslFragment : Fragment(R.layout.fragment_text_to_asl) {
     private var unsupportedWords: List<String> = emptyList()
     private var currentIndex: Int = 0
     private var lastInputText: String = ""
-    private var playbackDescription: String = "ASL dictionary preview"
     private var translationNotice: String? = null
     private var speechPlayer: AppHearSpeechPlayer? = null
     private var avatarReady: Boolean = false
@@ -119,19 +120,6 @@ class TextToAslFragment : Fragment(R.layout.fragment_text_to_asl) {
                     "Single human avatar requires the existing OriginalWords build configuration"
                 }
                 val appContext = requireContext().applicationContext
-                val (catalog, grammar) = withContext(Dispatchers.IO) {
-                    AndroidAssetAslCatalogLoader(appContext, choice == AslCharacterChoice.NEW).load() to
-                        if (BuildConfig.ASL_ASSET_PILOT_ENABLED) AndroidAslGrammarLoader(appContext).load()
-                        else AslGrammarRegistry(enabled = false)
-                }
-                if (binding !== fragmentBinding) return@launch
-                animationCatalog = catalog
-                phrasePlanner = AslPhrasePlanner(catalog,
-                    completeWordFallback = BuildConfig.ASL_ALPHABET_FALLBACK_ENABLED,
-                    dictionarySequenceMode = BuildConfig.ASL_ASSET_PILOT_ENABLED)
-                translationPlanner = AslTranslationPlanner(catalog, grammar, requireNotNull(phrasePlanner))
-                idleAsset = catalog.findByAlias("idle")
-                Log.d("TextToAslAssets", "Character=${choice.preferenceValue} entries=${catalog.getAssets().size}")
                 val profile = if (choice == AslCharacterChoice.NEW) SignDictionaryMetadata.AvatarProfile.NEW_HUMAN
                     else SignDictionaryMetadata.AvatarProfile.ORIGINAL_HUMAN
                 avatarController = TextToAslPlaybackController(requireContext(), fragmentBinding.avatarWebView, profile).also { controller ->
@@ -195,6 +183,30 @@ class TextToAslFragment : Fragment(R.layout.fragment_text_to_asl) {
                             }
                         },
                     )
+                }
+                // Start the viewer and the resident avatar download while the catalog verifies.
+                avatarController?.warmUp(if (BuildConfig.ASL_ALPHABET_FALLBACK_ENABLED) AslFingerspellingBundle.PATH
+                    else AslResidentAvatarBundle.PATH)
+                val catalogStartMs = SystemClock.elapsedRealtime()
+                val (catalog, grammar) = withContext(Dispatchers.IO) {
+                    AndroidAssetAslCatalogLoader(appContext, choice == AslCharacterChoice.NEW).load() to
+                        if (BuildConfig.ASL_ASSET_PILOT_ENABLED) AndroidAslGrammarLoader(appContext).load()
+                        else AslGrammarRegistry(enabled = false)
+                }
+                if (binding !== fragmentBinding) return@launch
+                animationCatalog = catalog
+                phrasePlanner = AslPhrasePlanner(catalog,
+                    completeWordFallback = BuildConfig.ASL_ALPHABET_FALLBACK_ENABLED,
+                    dictionarySequenceMode = BuildConfig.ASL_ASSET_PILOT_ENABLED)
+                translationPlanner = AslTranslationPlanner(catalog, grammar, requireNotNull(phrasePlanner))
+                idleAsset = catalog.findByAlias("idle")
+                Log.d("TextToAslAssets", "Character=${choice.preferenceValue} entries=${catalog.getAssets().size} " +
+                    "catalogMs=${SystemClock.elapsedRealtime() - catalogStartMs}")
+                // The viewer may already be ready; the idle pose needed the catalog.
+                if (avatarController?.isReady == true &&
+                    viewLifecycleOwner.lifecycle.currentState.isAtLeast(Lifecycle.State.STARTED)) {
+                    showIdleAvatar()
+                    consumePendingAutoSubmitIfReady()
                 }
             } catch (exception: Exception) {
                 if (exception is CancellationException) throw exception
@@ -326,15 +338,6 @@ class TextToAslFragment : Fragment(R.layout.fragment_text_to_asl) {
         val plan = if (BuildConfig.ASL_ASSET_PILOT_ENABLED) translationPlanner?.plan(requestedText)
             ?: planner.plan(requestedText) else planner.plan(requestedText)
         translationNotice = plan.translationNotice
-        playbackDescription = when (plan.mode) {
-            TextToAslPlan.Mode.VALIDATED_PHRASE -> "Reviewed ASL phrase"
-            TextToAslPlan.Mode.WORD_SEQUENCE -> "ASL word sequence"
-            TextToAslPlan.Mode.MIXED_FINGERSPELLING -> "Word signs + fingerspelling"
-            TextToAslPlan.Mode.BLOCKED_MEANING -> "No signing output"
-            else -> "ASL dictionary preview"
-        }
-        if (plan.queue.any { !it.metadata.isLinguisticallyValidated })
-            playbackDescription += " (unreviewed clips)"
         if (recordTurn) ConversationPhraseAssist.recordHearingMessage(
             requireContext().applicationContext, requestedText, source)
         lastInputText = requestedText
@@ -442,12 +445,11 @@ class TextToAslFragment : Fragment(R.layout.fragment_text_to_asl) {
     }
 
     private fun progressWithUnsupported(progress: String): String {
-        val notice = translationNotice?.let { " · $it" }.orEmpty()
-        val description = if (BuildConfig.ASL_ASSET_PILOT_ENABLED) "$playbackDescription$notice · $progress" else progress
+        // The status pill shows playback progress only; preview/notice labels stay out of the UI.
         return if (unsupportedWords.isNotEmpty()) {
-            "$description • Unsupported for this avatar: ${unsupportedWords.joinToString(", ")}"
+            "$progress • Unsupported: ${unsupportedWords.joinToString(", ")}"
         } else {
-            description
+            progress
         }
     }
 
