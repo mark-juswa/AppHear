@@ -18,45 +18,28 @@ import org.junit.runner.RunWith
 @RunWith(AndroidJUnit4::class)
 class AslCharacterSettingsInstrumentedTest {
     @Test
-    fun selectedCatalogPreservesOriginalAndAddsOnlyApprovedNewEntries() {
-        assumeTrue(BuildConfig.ASL_CHARACTER_SELECTION_ENABLED && !BuildConfig.ASL_ORIGINAL_WORDS_ENABLED)
+    fun selectedCatalogUsesOneHumanRigAndNeverFallsBack() {
+        assumeTrue(BuildConfig.ASL_CHARACTER_SELECTION_ENABLED && BuildConfig.ASL_ORIGINAL_WORDS_ENABLED && BuildConfig.ASL_ASSET_PILOT_ENABLED)
         val context = InstrumentationRegistry.getInstrumentation().targetContext
         val original = AndroidAssetAslCatalogLoader(context, false).load()
         val expanded = AndroidAssetAslCatalogLoader(context, true).load()
-        assertEquals(102, original.getAssets().size)
-        assertEquals(122, expanded.getAssets().size)
-        assertTrue(original.getAssets().all { it.replacement == null })
-        assertNull(original.findByAlias("big horizontally"))
-        val sharedPath = when {
-            BuildConfig.ASL_ALPHABET_FALLBACK_ENABLED -> "asl_animations/vnext/shared-alphabet.glb"
-            BuildConfig.ASL_NEW_IDLE_ENABLED -> "asl_animations/vnext/shared-words-idle.glb"
-            else -> "asl_animations/vnext/shared-words.glb"
-        }
-        assertEquals(sharedPath, expanded.findByAlias("all")?.assetPath)
-        val idle = expanded.findByAlias("idle")!!
-        if (BuildConfig.ASL_NEW_IDLE_ENABLED) {
-            assertEquals(sharedPath, idle.assetPath)
-            assertEquals("IDLE_NEUTRAL_FEMALEASL", idle.replacement?.animationName)
-            assertEquals(AslAnimationAsset.Type.POSE, idle.type)
-            assertEquals(original.findByAlias("idle"), idle.originalFallback())
-        } else {
-            assertEquals(original.findByAlias("idle"), idle)
-        }
-        assertEquals(original.findByAlias("request"), expanded.findByAlias("request"))
-        assertEquals(original.findByAlias("come to here"), expanded.findByAlias("come to here"))
-        if (BuildConfig.ASL_ALPHABET_FALLBACK_ENABLED) {
-            assertEquals(null, original.findLetter('c'))
-            assertEquals("SIGN_LETTER_C_FEMALEASL", expanded.findLetter('c')?.replacement?.animationName)
-            assertEquals("SIGN_LETTER_Z_FEMALEASL", expanded.findLetter('z')?.replacement?.animationName)
-            assertEquals(listOf("letter_c", "a", "letter_t"),
-                AslPhrasePlanner(expanded, completeWordFallback = true).plan("cat").queue.map { it.id })
-            assertEquals(listOf("hello"), AslPhrasePlanner(expanded).plan("hello").queue.map { it.id })
-        }
-        assertEquals(listOf("big_horizontally", "call_by_phone", "call_someones_name", "pay_me"),
-            AslPhrasePlanner(expanded).plan("big horizontally call by phone call someone's name pay me")
-                .queue.map { it.id })
+        assertEquals(204, original.getAssets().size)
+        assertEquals(28, expanded.getAssets().size)
+        assertTrue(original.getAssets().all { it.metadata.avatarProfile == com.example.apphear.domain.texttoasl.SignDictionaryMetadata.AvatarProfile.ORIGINAL_HUMAN })
+        assertTrue(expanded.getAssets().all { it.metadata.avatarProfile == com.example.apphear.domain.texttoasl.SignDictionaryMetadata.AvatarProfile.NEW_HUMAN })
+        assertTrue((original.getAssets() + expanded.getAssets()).all { it.replacement?.fallbackAssetPath == null })
+        assertNull(expanded.findByAlias("hello"))
+        assertEquals(0.0, original.findByAlias("idle")!!.neutralFrameSeconds)
+        assertEquals("IDLE_NEUTRAL_FEMALEASL", expanded.findByAlias("idle")!!.replacement?.animationName)
+        assertEquals(AslAnimationAsset.Type.POSE, expanded.findByAlias("idle")!!.type)
+        val originalPlan = AslPhrasePlanner(original, dictionarySequenceMode = true).plan("HELLO BEAUTIFUL")
+        assertEquals(listOf("hello", "beautiful"), originalPlan.queue.map { it.id })
+        val newPlan = AslPhrasePlanner(expanded, dictionarySequenceMode = true).plan("HELLO BEAUTIFUL")
+        assertEquals(listOf("beautiful"), newPlan.queue.map { it.id })
+        assertEquals(listOf("hello"), newPlan.unsupportedTokens)
+        assertEquals(listOf("cat"), AslPhrasePlanner(expanded, completeWordFallback = true,
+            dictionarySequenceMode = true).plan("cat").unsupportedTokens)
     }
-
     @Test
     fun characterChoicePersistsAcrossRepositoryRecreationAndDefaultsSafely() {
         assumeTrue(BuildConfig.ASL_CHARACTER_SELECTION_ENABLED)

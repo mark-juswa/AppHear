@@ -8,11 +8,15 @@ let releaseTimer = null;
 let completionFrame = null;
 let pinnedSource = null;
 const LOAD_TIMEOUT_MS = 20_000;
-const FADE_MS = 280;
+const FADE_MS = 0;
 
 function finishSign(viewer) {
-  if (viewer.playLoop || viewer !== viewers[activeIndex] || viewer.playRequest !== lastRequest) return;
+  if (viewer.playLoop || viewer !== viewers[activeIndex] || viewer.playRequest == null ||
+      viewer.playRequest !== lastRequest) return;
+  // Late/early mixer events cannot finish the current named clip.
+  if (!(viewer.duration > 0) || viewer.currentTime + 0.001 < viewer.duration) return;
   const token = viewer.playRequest;
+  viewer.pause();
   viewer.playRequest = null;
   cancelAnimationFrame(completionFrame);
   completionFrame = null;
@@ -20,7 +24,7 @@ function finishSign(viewer) {
 }
 
 function watchCompletion(viewer, options) {
-  if (options.loop) return;
+  if (options.loop || options.neutralFrame != null) return;
   // Model-viewer 4.3.1 subscribes to mixers before they exist. Use its public
   // animation timeline, not elapsed wall time, when its finished event is absent.
   const check = () => {
@@ -60,7 +64,10 @@ viewers.forEach(viewer => {
 
 function waitForModel(viewer, url) {
   if (viewer.src === url && viewer.loaded && viewer.loadedSource === url) return Promise.resolve();
-  if (viewer.src === url && viewer.failedUrl === url) return Promise.reject(new Error('Previous load failed'));
+  // An explicit Repeat may retry a failed load; keep the visible character intact.
+  if (viewer.src === url && viewer.failedUrl === url) {
+    viewer.removeAttribute('src'); viewer.failedUrl = null; viewer.loadedSource = null;
+  }
   return new Promise((resolve, reject) => {
     const clean = () => {
       clearTimeout(timer);
@@ -80,17 +87,44 @@ function waitForModel(viewer, url) {
 
 async function replay(viewer, options) {
   const animations = viewer.availableAnimations || [];
-  const name = options.animationName || animations[0];
+  // Shared bundles supply a name; unnamed legacy files must have one action.
+  const neutral = options.neutralFrame != null;
+  const relaxed = neutral && animations.includes('SIGN_RELAXED_NEUTRAL');
+  const name = relaxed ? 'SIGN_RELAXED_NEUTRAL' : options.animationName || (animations.length === 1 ? animations[0] : null);
   if (!name || !animations.includes(name)) throw new Error('Expected animation missing');
+  const previous = viewer.animationName;
+  const held = viewer.currentTime;
+  const previousDuration = viewer.duration;
+  const transition = options.fingerspelling ? 0.12 : relaxed && viewer.lastSigningLetter ? 0.22 : 0;
+  // In bundled model-viewer 4.3.1, currentTime resets the entire mixer clock.
+  // Scheduling a crossfade BEFORE that seek leaves the new letter at weight 0
+  // and old idle/letters at weight 1. Clear cached actions while paused, seek,
+  // then schedule a bounded outgoing-pose fade using the public append API.
   viewer.pause();
+  viewer.animationCrossfadeDuration = 0;
+  if (viewer.animationName === name) {
+    // A repeated letter must reset cached actions too; Lit skips equal names.
+    viewer.animationName = undefined;
+    await viewer.updateComplete;
+  }
   viewer.animationName = name;
   // Lit's animationName update otherwise replaces explicit loop settings with Infinity.
   await viewer.updateComplete;
   if (lastRequest !== options.requestId) return false;
-  viewer.currentTime = 0;
-  viewer.playLoop = Boolean(options.loop);
-  viewer.playRequest = options.requestId;
-  viewer.play({repetitions: options.loop ? Infinity : 1});
+  viewer.currentTime = neutral ? options.neutralFrame : 0;
+  viewer.playLoop = Boolean(options.loop) || neutral;
+  viewer.playRequest = neutral ? null : options.requestId;
+  if (!neutral || relaxed) {
+    viewer.play({repetitions: options.loop || relaxed ? Infinity : 1});
+    if (transition && previous && previous !== name && animations.includes(previous)) {
+      // Clamp the outgoing clip at its own endpoint. Do not freeze its cached
+      // timeScale: that would prevent that letter moving on a later request.
+      viewer.appendAnimation(previous, {time: Math.min(held, previousDuration - 0.0001),
+        timeScale: 1, repetitions: 1, weight: 1, fade: false});
+      viewer.detachAnimation(previous, {fade: transition});
+    }
+  }
+  viewer.lastSigningLetter = Boolean(options.fingerspelling);
   if (options.pinSource) pinnedSource = viewer.src;
   if (window.Android) Android.onPlaybackStarted(viewer.src, options.requestId);
   return true;
@@ -167,6 +201,7 @@ window.pausePlayback = function() {
   queuedPreload = null;
   clearTimeout(releaseTimer);
   releaseTimer = null;
-  pinnedSource = null;
-  viewers.forEach(v => {v.cancelWait?.(); v.pause(); v.loadedSource = null; v.removeAttribute('src');});
+  // Pause invalidates callbacks, but retains the two bounded resident models.
+  // Only WebView destruction releases them; unsupported input cannot change character.
+  viewers.forEach(v => {v.cancelWait?.(); v.pause(); v.playRequest = null;});
 };

@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "sourceSha256": "9e38ec284ff4e25da46e580f2b3b7b1c772bc5c6ba1da1a905ac712c897c3c68",
+  "status": "UNREVIEWED_FLEXION_AXIS_CORRECTION",
+  "profiles": [
+    {"animationName": "SIGN_LOVE", "sides": ["Left", "Right"], "fingers": ["Index", "Middle", "Ring", "Pinky"], "joints": [1, 2, 3], "reference": "https://www.lifeprint.com/asl101/pages-signs/l/love.htm", "reason": "Closing fingers extend backward instead of folding into the crossed-hand fist."},
+    {"animationName": "SIGN_HUSBAND", "sides": ["Left"], "fingers": ["Index", "Middle", "Ring", "Pinky"], "joints": [1, 2, 3], "reference": "https://www.lifeprint.com/asl101/pages-signs/h/husband.htm", "reason": "Supporting hand fingers reverse-bend rather than forming the source cupped/clasping hand."},
+    {"animationName": "SIGN_WIFE", "sides": ["Left"], "fingers": ["Index", "Middle", "Ring", "Pinky"], "joints": [1, 2, 3], "reference": "https://www.lifeprint.com/asl101/pages-signs/w/wife.htm", "reason": "Supporting hand fingers reverse-bend rather than forming the source cupped/clasping hand."}
+  ]
+}

@@ -1,0 +1,2139 @@
+{
+  "schemaVersion": 1,
+  "retargetVersion": 2,
+  "distalCalibration": "segment-axis-and-palm-normal",
+  "language": "ASL",
+  "avatarProfile": "ORIGINAL_HUMAN",
+  "asset": "asl_animations/original_words_v1/fingerspelling-avatar.glb",
+  "sha256": "e9079308b6780e180528e4b893e64bdb77e46b33b6ad2cd99355bec03df57b18",
+  "sourceSha256": "645da29f5e8a24dc7da2f4b6e23ca2e87fb91254958f5053ba0281080ec0a524",
+  "status": "UNREVIEWED_RETARGETED_PREVIEW",
+  "source": "Existing AppHear FemaleASL alphabet; motion rights/provenance unresolved",
+  "reference": "https://www.lifeprint.com/asl101/fingerspelling/fingerspelling.htm",
+  "letters": [
+    {
+      "letter": "a",
+      "id": "letter_a",
+      "animationName": "SIGN_LETTER_A_WOLF3D_PREVIEW",
+      "durationMs": 980
+    },
+    {
+      "letter": "b",
+      "id": "letter_b",
+      "animationName": "SIGN_LETTER_B_WOLF3D_PREVIEW",
+      "durationMs": 1013
+    },
+    {
+      "letter": "c",
+      "id": "letter_c",
+      "animationName": "SIGN_LETTER_C_WOLF3D_PREVIEW",
+      "durationMs": 1047
+    },
+    {
+      "letter": "d",
+      "id": "letter_d",
+      "animationName": "SIGN_LETTER_D_WOLF3D_PREVIEW",
+      "durationMs": 980
+    },
+    {
+      "letter": "e",
+      "id": "letter_e",
+      "animationName": "SIGN_LETTER_E_WOLF3D_PREVIEW",
+      "durationMs": 1047
+    },
+    {
+      "letter": "f",
+      "id": "letter_f",
+      "animationName": "SIGN_LETTER_F_WOLF3D_PREVIEW",
+      "durationMs": 1013
+    },
+    {
+      "letter": "g",
+      "id": "letter_g",
+      "animationName": "SIGN_LETTER_G_WOLF3D_PREVIEW",
+      "durationMs": 1047
+    },
+    {
+      "letter": "h",
+      "id": "letter_h",
+      "animationName": "SIGN_LETTER_H_WOLF3D_PREVIEW",
+      "durationMs": 1047
+    },
+    {
+      "letter": "i",
+      "id": "letter_i",
+      "animationName": "SIGN_LETTER_I_WOLF3D_PREVIEW",
+      "durationMs": 1013
+    },
+    {
+      "letter": "j",
+      "id": "letter_j",
+      "animationName": "SIGN_LETTER_J_WOLF3D_PREVIEW",
+      "durationMs": 2380
+    },
+    {
+      "letter": "k",
+      "id": "letter_k",
+      "animationName": "SIGN_LETTER_K_WOLF3D_PREVIEW",
+      "durationMs": 1047
+    },
+    {
+      "letter": "l",
+      "id": "letter_l",
+      "animationName": "SIGN_LETTER_L_WOLF3D_PREVIEW",
+      "durationMs": 980
+    },
+    {
+      "letter": "m",
+      "id": "letter_m",
+      "animationName": "SIGN_LETTER_M_WOLF3D_PREVIEW",
+      "durationMs": 1047
+    },
+    {
+      "letter": "n",
+      "id": "letter_n",
+      "animationName": "SIGN_LETTER_N_WOLF3D_PREVIEW",
+      "durationMs": 980
+    },
+    {
+      "letter": "o",
+      "id": "letter_o",
+      "animationName": "SIGN_LETTER_O_WOLF3D_PREVIEW",
+      "durationMs": 1047
+    },
+    {
+      "letter": "p",
+      "id": "letter_p",
+      "animationName": "SIGN_LETTER_P_WOLF3D_PREVIEW",
+      "durationMs": 980
+    },
+    {
+      "letter": "q",
+      "id": "letter_q",
+      "animationName": "SIGN_LETTER_Q_WOLF3D_PREVIEW",
+      "durationMs": 980
+    },
+    {
+      "letter": "r",
+      "id": "letter_r",
+      "animationName": "SIGN_LETTER_R_WOLF3D_PREVIEW",
+      "durationMs": 980
+    },
+    {
+      "letter": "s",
+      "id": "letter_s",
+      "animationName": "SIGN_LETTER_S_WOLF3D_PREVIEW",
+      "durationMs": 1013
+    },
+    {
+      "letter": "t",
+      "id": "letter_t",
+      "animationName": "SIGN_LETTER_T_WOLF3D_PREVIEW",
+      "durationMs": 980
+    },
+    {
+      "letter": "u",
+      "id": "letter_u",
+      "animationName": "SIGN_LETTER_U_WOLF3D_PREVIEW",
+      "durationMs": 1013
+    },
+    {
+      "letter": "v",
+      "id": "letter_v",
+      "animationName": "SIGN_LETTER_V_WOLF3D_PREVIEW",
+      "durationMs": 980
+    },
+    {
+      "letter": "w",
+      "id": "letter_w",
+      "animationName": "SIGN_LETTER_W_WOLF3D_PREVIEW",
+      "durationMs": 1047
+    },
+    {
+      "letter": "x",
+      "id": "letter_x",
+      "animationName": "SIGN_LETTER_X_WOLF3D_PREVIEW",
+      "durationMs": 1047
+    },
+    {
+      "letter": "y",
+      "id": "letter_y",
+      "animationName": "SIGN_LETTER_Y_WOLF3D_PREVIEW",
+      "durationMs": 1013
+    },
+    {
+      "letter": "z",
+      "id": "letter_z",
+      "animationName": "SIGN_LETTER_Z_WOLF3D_PREVIEW",
+      "durationMs": 2480
+    }
+  ],
+  "audit": [
+    {
+      "letter": "A",
+      "sourceHandMotionSpan": [
+        0.1761417149310292,
+        0.3639802784425744,
+        0.32118670293959356
+      ],
+      "rotationFrameError": 9.225953334635051e-14,
+      "sourceSamples": 40,
+      "sourceDurationMs": 1300
+    },
+    {
+      "letter": "B",
+      "sourceHandMotionSpan": [
+        0.19935739076372613,
+        0.3518610411874866,
+        0.31026333463821193
+      ],
+      "rotationFrameError": 8.37108160567368e-14,
+      "sourceSamples": 41,
+      "sourceDurationMs": 1333
+    },
+    {
+      "letter": "C",
+      "sourceHandMotionSpan": [
+        0.18300553502691275,
+        0.3144975927648198,
+        0.30537063099909895
+      ],
+      "rotationFrameError": 9.392486788328824e-14,
+      "sourceSamples": 42,
+      "sourceDurationMs": 1367
+    },
+    {
+      "letter": "D",
+      "sourceHandMotionSpan": [
+        0.177904145865283,
+        0.33997427862054963,
+        0.2942063393543841
+      ],
+      "rotationFrameError": 9.336975637097567e-14,
+      "sourceSamples": 40,
+      "sourceDurationMs": 1300
+    },
+    {
+      "letter": "E",
+      "sourceHandMotionSpan": [
+        0.1932740200135017,
+        0.3202278479726587,
+        0.3097798750140949
+      ],
+      "rotationFrameError": 1.1146639167236572e-13,
+      "sourceSamples": 42,
+      "sourceDurationMs": 1367
+    },
+    {
+      "letter": "F",
+      "sourceHandMotionSpan": [
+        0.1835063082223589,
+        0.3429916589629217,
+        0.3250902104553975
+      ],
+      "rotationFrameError": 9.592326932761353e-14,
+      "sourceSamples": 41,
+      "sourceDurationMs": 1333
+    },
+    {
+      "letter": "G",
+      "sourceHandMotionSpan": [
+        0.19126430399599834,
+        0.3083391194100026,
+        0.28643511052755494
+      ],
+      "rotationFrameError": 8.482103908136196e-14,
+      "sourceSamples": 42,
+      "sourceDurationMs": 1367
+    },
+    {
+      "letter": "H",
+      "sourceHandMotionSpan": [
+        0.18491442152848492,
+        0.3285585042928697,
+        0.2848564699663531
+      ],
+      "rotationFrameError": 8.848477506262498e-14,
+      "sourceSamples": 42,
+      "sourceDurationMs": 1367
+    },
+    {
+      "letter": "I",
+      "sourceHandMotionSpan": [
+        0.17255766426907992,
+        0.3406548761091043,
+        0.3030910432406668
+      ],
+      "rotationFrameError": 9.681144774731365e-14,
+      "sourceSamples": 41,
+      "sourceDurationMs": 1333
+    },
+    {
+      "letter": "J",
+      "sourceHandMotionSpan": [
+        0.1846900389729601,
+        0.4034598481561932,
+        0.35229533347089936
+      ],
+      "rotationFrameError": 1.0025313912365164e-13,
+      "sourceSamples": 82,
+      "sourceDurationMs": 2700
+    },
+    {
+      "letter": "K",
+      "sourceHandMotionSpan": [
+        0.19474803956660153,
+        0.29970753206653156,
+        0.2939534741552456
+      ],
+      "rotationFrameError": 8.637535131583718e-14,
+      "sourceSamples": 42,
+      "sourceDurationMs": 1367
+    },
+    {
+      "letter": "L",
+      "sourceHandMotionSpan": [
+        0.16185227060953739,
+        0.3280405897324826,
+        0.3106524465219749
+      ],
+      "rotationFrameError": 8.693046282814976e-14,
+      "sourceSamples": 40,
+      "sourceDurationMs": 1300
+    },
+    {
+      "letter": "M",
+      "sourceHandMotionSpan": [
+        0.182722938639261,
+        0.33920873928827266,
+        0.3287617685293627
+      ],
+      "rotationFrameError": 1.0014211682118912e-13,
+      "sourceSamples": 42,
+      "sourceDurationMs": 1367
+    },
+    {
+      "letter": "N",
+      "sourceHandMotionSpan": [
+        0.1720884680025674,
+        0.3429673645580139,
+        0.3220791036384199
+      ],
+      "rotationFrameError": 8.870681966755001e-14,
+      "sourceSamples": 40,
+      "sourceDurationMs": 1300
+    },
+    {
+      "letter": "O",
+      "sourceHandMotionSpan": [
+        0.17195474004093747,
+        0.3249159275943446,
+        0.31521630524925004
+      ],
+      "rotationFrameError": 9.625633623500107e-14,
+      "sourceSamples": 42,
+      "sourceDurationMs": 1367
+    },
+    {
+      "letter": "P",
+      "sourceHandMotionSpan": [
+        0.17969920589772814,
+        0.3228311975591108,
+        0.3230594133862471
+      ],
+      "rotationFrameError": 9.847678228425139e-14,
+      "sourceSamples": 40,
+      "sourceDurationMs": 1300
+    },
+    {
+      "letter": "Q",
+      "sourceHandMotionSpan": [
+        0.1743525969285443,
+        0.3311810741311557,
+        0.32398322921189543
+      ],
+      "rotationFrameError": 1.0114131754335176e-13,
+      "sourceSamples": 40,
+      "sourceDurationMs": 1300
+    },
+    {
+      "letter": "R",
+      "sourceHandMotionSpan": [
+        0.19808144050763754,
+        0.3048943735324109,
+        0.2907223161134755
+      ],
+      "rotationFrameError": 1.0136336214827679e-13,
+      "sourceSamples": 40,
+      "sourceDurationMs": 1300
+    },
+    {
+      "letter": "S",
+      "sourceHandMotionSpan": [
+        0.18354155434234498,
+        0.3164804841874326,
+        0.3035579531296924
+      ],
+      "rotationFrameError": 9.71445146547012e-14,
+      "sourceSamples": 41,
+      "sourceDurationMs": 1333
+    },
+    {
+      "letter": "T",
+      "sourceHandMotionSpan": [
+        0.18282033870930578,
+        0.3224224359859488,
+        0.3106707800239957
+      ],
+      "rotationFrameError": 1.0014211682118912e-13,
+      "sourceSamples": 40,
+      "sourceDurationMs": 1300
+    },
+    {
+      "letter": "U",
+      "sourceHandMotionSpan": [
+        0.20044077062017246,
+        0.3187779226677484,
+        0.3065577571741119
+      ],
+      "rotationFrameError": 8.859579736508749e-14,
+      "sourceSamples": 41,
+      "sourceDurationMs": 1333
+    },
+    {
+      "letter": "V",
+      "sourceHandMotionSpan": [
+        0.19509158322418294,
+        0.3161595583659452,
+        0.31201187450033785
+      ],
+      "rotationFrameError": 8.670841822322473e-14,
+      "sourceSamples": 40,
+      "sourceDurationMs": 1300
+    },
+    {
+      "letter": "W",
+      "sourceHandMotionSpan": [
+        0.20362450757566164,
+        0.31264657772009985,
+        0.28346349125679243
+      ],
+      "rotationFrameError": 9.137135492665038e-14,
+      "sourceSamples": 42,
+      "sourceDurationMs": 1367
+    },
+    {
+      "letter": "X",
+      "sourceHandMotionSpan": [
+        0.19596769681045034,
+        0.301236839534074,
+        0.29434387097346654
+      ],
+      "rotationFrameError": 9.880984919163893e-14,
+      "sourceSamples": 42,
+      "sourceDurationMs": 1367
+    },
+    {
+      "letter": "Y",
+      "sourceHandMotionSpan": [
+        0.19705119359774825,
+        0.3220615798795313,
+        0.28793855123318546
+      ],
+      "rotationFrameError": 8.237854842718662e-14,
+      "sourceSamples": 41,
+      "sourceDurationMs": 1333
+    },
+    {
+      "letter": "Z",
+      "sourceHandMotionSpan": [
+        0.18316323934743953,
+        0.34373361268746916,
+        0.3188534147760863
+      ],
+      "rotationFrameError": 9.348077867343818e-14,
+      "sourceSamples": 85,
+      "sourceDurationMs": 2800
+    }
+  ],
+  "nameLexicalStatus": "NAME reuses existing CALL_TO_CALL_SOMEONES_NAME form as unreviewed noun/verb preview alias; qualified ASL review pending",
+  "loveCorrection": {
+    "animationName": "SIGN_LOVE",
+    "status": "UNREVIEWED_CONTACT_CORRECTION",
+    "sourceBundleSha256": "54b4e4882ff8d1d3d104f9835b74fce7d5ac6db67a5ef73835e83196a3816c86",
+    "correctedNodes": [
+      "RightArm",
+      "RightForeArm",
+      "RightHand",
+      "LeftArm",
+      "LeftForeArm",
+      "LeftHand"
+    ],
+    "samples": 521,
+    "durationSeconds": 2.1666667461395264,
+    "approachReleaseSeconds": 0.3,
+    "crossingXYHeldBetweenSeconds": [
+      0.3,
+      1.8666667461395263
+    ],
+    "reference": "https://www.lifeprint.com/asl101/pages-signs/l/love.htm",
+    "method": "LOVE-only actual torso front surface and two-bone arm IK; unchanged finger tracks and wrist world orientation",
+    "beforeDepthMeters": {
+      "hand": 0.2680458237234982,
+      "forearm": 0.23160976742409622
+    },
+    "afterDepthMeters": {
+      "hand": 0.0,
+      "forearm": 0.0019162973119051518
+    },
+    "wristXYErrorMeters": 0.2030548582617156,
+    "wristOrientationMatrixError": 3.2307490016592055e-14,
+    "nearestHandSurfaceGapRangeMeters": [
+      0.007377154883539072,
+      0.14973125401049048
+    ],
+    "limitations": "Front-surface proxy, not all-mesh closed-volume or arm-arm collision; requires device and qualified ASL review"
+  },
+  "signingPosture": {
+    "status": "UNREVIEWED_SIGNING_WINDOW",
+    "sourceSha256": "bcd0e4b634b267baf3979f3193958520469ba91f69cd265406b76e9873d07d11",
+    "method": "Remove per-letter rest/raising/lowering; preserve signing-span poses; append held release for transitions",
+    "letters": [
+      {
+        "letter": "a",
+        "sourceStartSeconds": 0.5,
+        "sourceEndSeconds": 1.3000000715255737,
+        "holdSeconds": 0.18,
+        "durationSeconds": 0.9800000715255737
+      },
+      {
+        "letter": "b",
+        "sourceStartSeconds": 0.5,
+        "sourceEndSeconds": 1.3333333730697632,
+        "holdSeconds": 0.18,
+        "durationSeconds": 1.0133333730697631
+      },
+      {
+        "letter": "c",
+        "sourceStartSeconds": 0.5,
+        "sourceEndSeconds": 1.3666666746139526,
+        "holdSeconds": 0.18,
+        "durationSeconds": 1.0466666746139526
+      },
+      {
+        "letter": "d",
+        "sourceStartSeconds": 0.5,
+        "sourceEndSeconds": 1.3000000715255737,
+        "holdSeconds": 0.18,
+        "durationSeconds": 0.9800000715255737
+      },
+      {
+        "letter": "e",
+        "sourceStartSeconds": 0.5,
+        "sourceEndSeconds": 1.3666666746139526,
+        "holdSeconds": 0.18,
+        "durationSeconds": 1.0466666746139526
+      },
+      {
+        "letter": "f",
+        "sourceStartSeconds": 0.5,
+        "sourceEndSeconds": 1.3333333730697632,
+        "holdSeconds": 0.18,
+        "durationSeconds": 1.0133333730697631
+      },
+      {
+        "letter": "g",
+        "sourceStartSeconds": 0.5,
+        "sourceEndSeconds": 1.3666666746139526,
+        "holdSeconds": 0.18,
+        "durationSeconds": 1.0466666746139526
+      },
+      {
+        "letter": "h",
+        "sourceStartSeconds": 0.5,
+        "sourceEndSeconds": 1.3666666746139526,
+        "holdSeconds": 0.18,
+        "durationSeconds": 1.0466666746139526
+      },
+      {
+        "letter": "i",
+        "sourceStartSeconds": 0.5,
+        "sourceEndSeconds": 1.3333333730697632,
+        "holdSeconds": 0.18,
+        "durationSeconds": 1.0133333730697631
+      },
+      {
+        "letter": "j",
+        "sourceStartSeconds": 0.5,
+        "sourceEndSeconds": 2.700000047683716,
+        "holdSeconds": 0.18,
+        "durationSeconds": 2.380000047683716
+      },
+      {
+        "letter": "k",
+        "sourceStartSeconds": 0.5,
+        "sourceEndSeconds": 1.3666666746139526,
+        "holdSeconds": 0.18,
+        "durationSeconds": 1.0466666746139526
+      },
+      {
+        "letter": "l",
+        "sourceStartSeconds": 0.5,
+        "sourceEndSeconds": 1.3000000715255737,
+        "holdSeconds": 0.18,
+        "durationSeconds": 0.9800000715255737
+      },
+      {
+        "letter": "m",
+        "sourceStartSeconds": 0.5,
+        "sourceEndSeconds": 1.3666666746139526,
+        "holdSeconds": 0.18,
+        "durationSeconds": 1.0466666746139526
+      },
+      {
+        "letter": "n",
+        "sourceStartSeconds": 0.5,
+        "sourceEndSeconds": 1.3000000715255737,
+        "holdSeconds": 0.18,
+        "durationSeconds": 0.9800000715255737
+      },
+      {
+        "letter": "o",
+        "sourceStartSeconds": 0.5,
+        "sourceEndSeconds": 1.3666666746139526,
+        "holdSeconds": 0.18,
+        "durationSeconds": 1.0466666746139526
+      },
+      {
+        "letter": "p",
+        "sourceStartSeconds": 0.5,
+        "sourceEndSeconds": 1.3000000715255737,
+        "holdSeconds": 0.18,
+        "durationSeconds": 0.9800000715255737
+      },
+      {
+        "letter": "q",
+        "sourceStartSeconds": 0.5,
+        "sourceEndSeconds": 1.3000000715255737,
+        "holdSeconds": 0.18,
+        "durationSeconds": 0.9800000715255737
+      },
+      {
+        "letter": "r",
+        "sourceStartSeconds": 0.5,
+        "sourceEndSeconds": 1.3000000715255737,
+        "holdSeconds": 0.18,
+        "durationSeconds": 0.9800000715255737
+      },
+      {
+        "letter": "s",
+        "sourceStartSeconds": 0.5,
+        "sourceEndSeconds": 1.3333333730697632,
+        "holdSeconds": 0.18,
+        "durationSeconds": 1.0133333730697631
+      },
+      {
+        "letter": "t",
+        "sourceStartSeconds": 0.5,
+        "sourceEndSeconds": 1.3000000715255737,
+        "holdSeconds": 0.18,
+        "durationSeconds": 0.9800000715255737
+      },
+      {
+        "letter": "u",
+        "sourceStartSeconds": 0.5,
+        "sourceEndSeconds": 1.3333333730697632,
+        "holdSeconds": 0.18,
+        "durationSeconds": 1.0133333730697631
+      },
+      {
+        "letter": "v",
+        "sourceStartSeconds": 0.5,
+        "sourceEndSeconds": 1.3000000715255737,
+        "holdSeconds": 0.18,
+        "durationSeconds": 0.9800000715255737
+      },
+      {
+        "letter": "w",
+        "sourceStartSeconds": 0.5,
+        "sourceEndSeconds": 1.3666666746139526,
+        "holdSeconds": 0.18,
+        "durationSeconds": 1.0466666746139526
+      },
+      {
+        "letter": "x",
+        "sourceStartSeconds": 0.5,
+        "sourceEndSeconds": 1.3666666746139526,
+        "holdSeconds": 0.18,
+        "durationSeconds": 1.0466666746139526
+      },
+      {
+        "letter": "y",
+        "sourceStartSeconds": 0.5,
+        "sourceEndSeconds": 1.3333333730697632,
+        "holdSeconds": 0.18,
+        "durationSeconds": 1.0133333730697631
+      },
+      {
+        "letter": "z",
+        "sourceStartSeconds": 0.5,
+        "sourceEndSeconds": 2.799999952316284,
+        "holdSeconds": 0.18,
+        "durationSeconds": 2.4799999523162843
+      }
+    ]
+  },
+  "wordFingerCorrection": {
+    "status": "UNREVIEWED_FLEXION_AXIS_CORRECTION",
+    "sourceSha256": "9e38ec284ff4e25da46e580f2b3b7b1c772bc5c6ba1da1a905ac712c897c3c68",
+    "profiles": [
+      {
+        "animationName": "SIGN_LOVE",
+        "sides": [
+          "Left",
+          "Right"
+        ],
+        "fingers": [
+          "Index",
+          "Middle",
+          "Ring",
+          "Pinky"
+        ],
+        "joints": [
+          1,
+          2,
+          3
+        ],
+        "reference": "https://www.lifeprint.com/asl101/pages-signs/l/love.htm",
+        "reason": "Closing fingers extend backward instead of folding into the crossed-hand fist.",
+        "correctedNodes": [
+          "LeftHandIndex1",
+          "LeftHandIndex2",
+          "LeftHandIndex3",
+          "LeftHandMiddle1",
+          "LeftHandMiddle2",
+          "LeftHandMiddle3",
+          "LeftHandRing1",
+          "LeftHandRing2",
+          "LeftHandRing3",
+          "LeftHandPinky1",
+          "LeftHandPinky2",
+          "LeftHandPinky3",
+          "RightHandIndex1",
+          "RightHandIndex2",
+          "RightHandIndex3",
+          "RightHandMiddle1",
+          "RightHandMiddle2",
+          "RightHandMiddle3",
+          "RightHandRing1",
+          "RightHandRing2",
+          "RightHandRing3",
+          "RightHandPinky1",
+          "RightHandPinky2",
+          "RightHandPinky3"
+        ]
+      },
+      {
+        "animationName": "SIGN_HUSBAND",
+        "sides": [
+          "Left"
+        ],
+        "fingers": [
+          "Index",
+          "Middle",
+          "Ring",
+          "Pinky"
+        ],
+        "joints": [
+          1,
+          2,
+          3
+        ],
+        "reference": "https://www.lifeprint.com/asl101/pages-signs/h/husband.htm",
+        "reason": "Supporting hand fingers reverse-bend rather than forming the source cupped/clasping hand.",
+        "correctedNodes": [
+          "LeftHandIndex1",
+          "LeftHandIndex2",
+          "LeftHandIndex3",
+          "LeftHandMiddle1",
+          "LeftHandMiddle2",
+          "LeftHandMiddle3",
+          "LeftHandRing1",
+          "LeftHandRing2",
+          "LeftHandRing3",
+          "LeftHandPinky1",
+          "LeftHandPinky2",
+          "LeftHandPinky3"
+        ]
+      },
+      {
+        "animationName": "SIGN_WIFE",
+        "sides": [
+          "Left"
+        ],
+        "fingers": [
+          "Index",
+          "Middle",
+          "Ring",
+          "Pinky"
+        ],
+        "joints": [
+          1,
+          2,
+          3
+        ],
+        "reference": "https://www.lifeprint.com/asl101/pages-signs/w/wife.htm",
+        "reason": "Supporting hand fingers reverse-bend rather than forming the source cupped/clasping hand.",
+        "correctedNodes": [
+          "LeftHandIndex1",
+          "LeftHandIndex2",
+          "LeftHandIndex3",
+          "LeftHandMiddle1",
+          "LeftHandMiddle2",
+          "LeftHandMiddle3",
+          "LeftHandRing1",
+          "LeftHandRing2",
+          "LeftHandRing3",
+          "LeftHandPinky1",
+          "LeftHandPinky2",
+          "LeftHandPinky3"
+        ]
+      }
+    ],
+    "method": "Bind-relative negative local-X finger-flexion reflection; exact source times/endpoints, 180ms correction envelope; thumbs and all non-profile channels unchanged",
+    "qualifiedASLValidation": false
+  },
+  "wordAdditions": [
+    {
+      "id": "you",
+      "english": [
+        "you"
+      ],
+      "animationName": "SIGN_YOU_HUMAN_RETARGETED_PREVIEW",
+      "durationMs": 2692,
+      "sourceAsset": "asl_animations/you.glb",
+      "sourceSha256": "30776015bef1cbcf450647bbdf042740452d78b7f6e07d1ebc1a5968ebe33f26",
+      "reference": "https://www.lifeprint.com/asl101/pages-signs/y/you.htm",
+      "meaning": "Second-person singular addressee",
+      "status": "UNREVIEWED_RETARGETED_PREVIEW",
+      "license": "Existing AppHear motion/rig provenance unresolved; reference link only, no reference media copied"
+    },
+    {
+      "id": "you_all",
+      "english": [
+        "you all",
+        "all of you"
+      ],
+      "animationName": "SIGN_YOU_ALL_HUMAN_RETARGETED_PREVIEW",
+      "durationMs": 3192,
+      "sourceAsset": "asl_animations/you-all.glb",
+      "sourceSha256": "d1ccd66a763c1d3a3c8bda0b16b8646786d890f32b56be26b5778614a30e6e2e",
+      "reference": "https://www.lifeprint.com/asl101/pages-signs/y/you.htm",
+      "meaning": "Plural addressees",
+      "status": "UNREVIEWED_RETARGETED_PREVIEW",
+      "license": "Existing AppHear motion/rig provenance unresolved; reference link only, no reference media copied"
+    },
+    {
+      "id": "name",
+      "english": [
+        "name"
+      ],
+      "animationName": "SIGN_CALL__TO_CALL_SOMEONE_S_NAME",
+      "durationMs": 2267,
+      "sourceAsset": "asl_animations/original_words_v1/call__to_call_someone_s_name.glb",
+      "sourceSha256": "7a40c3c63303088bd4568652ffcf587fd2c41a22886c83c64579d482823daf6d",
+      "reference": "https://www.lifeprint.com/asl101/pages-signs/n/name.htm",
+      "meaning": "NAME noun / NAMED verb form; unreviewed movement variant",
+      "status": "UNREVIEWED_NATIVE_VARIANT_PREVIEW",
+      "variantOf": "call_someones_name",
+      "license": "Existing AppHear human motion retained; provenance unresolved. Reference link only, no reference media copied"
+    },
+    {
+      "id": "best",
+      "english": [
+        "best"
+      ],
+      "animationName": "SIGN_BEST_HUMAN_RETARGETED_PREVIEW",
+      "durationMs": 3408,
+      "sourceAsset": "asl_animations/best.glb",
+      "sourceSha256": "72224c0054dbac6cf203114bf0b11514cea83abe3d14db1c0ca14000d500b7f2",
+      "reference": "https://www.lifeprint.com/asl101/pages-signs/b/best.htm",
+      "meaning": "Best in a comparison; GOOD-derived upward movement",
+      "status": "UNREVIEWED_RETARGETED_PREVIEW",
+      "language": "ASL",
+      "gloss": [
+        "BEST"
+      ],
+      "license": "Existing AppHear motion/rig provenance unresolved; local development preview only. Reference links only, no reference media copied.",
+      "linguisticValidationStatus": "UNREVIEWED",
+      "technicalPlaybackStatus": "Candidate: device review required",
+      "correctionNotes": "Reference-guided handshape/contact keyframes on resident rig; independent anatomical curl axes; unvalidated timing/style. Original source action retained in repository."
+    },
+    {
+      "id": "better",
+      "english": [
+        "better"
+      ],
+      "animationName": "SIGN_BETTER_HUMAN_RETARGETED_PREVIEW",
+      "durationMs": 3492,
+      "sourceAsset": "asl_animations/better.glb",
+      "sourceSha256": "390cbd36bb858524c9c442599e9980a9dbf6f7888df9ea01bcfd65d081153e4b",
+      "reference": "https://www.lifeprint.com/asl101/pages-signs/b/better.htm",
+      "meaning": "Better in a comparison; GOOD-derived outward movement",
+      "status": "UNREVIEWED_RETARGETED_PREVIEW",
+      "language": "ASL",
+      "gloss": [
+        "BETTER"
+      ],
+      "license": "Existing AppHear motion/rig provenance unresolved; local development preview only. Reference links only, no reference media copied.",
+      "linguisticValidationStatus": "UNREVIEWED",
+      "technicalPlaybackStatus": "Candidate: device review required",
+      "correctionNotes": "Reference-guided handshape/contact keyframes on resident rig; independent anatomical curl axes; unvalidated timing/style. Original source action retained in repository."
+    },
+    {
+      "id": "divorce",
+      "english": [
+        "divorce"
+      ],
+      "animationName": "SIGN_DIVORCE_HUMAN_RETARGETED_PREVIEW",
+      "durationMs": 3158,
+      "sourceAsset": "asl_animations/divorce.glb",
+      "sourceSha256": "dbac0088195b71327400e8a7b653577eff9a29da91fab84f952e27d8ec221c40",
+      "reference": "https://www.lifeprint.com/asl101/pages-signs/d/divorce.htm",
+      "meaning": "Divorce; two D hands separate with outward palm rotation",
+      "status": "UNREVIEWED_RETARGETED_PREVIEW",
+      "language": "ASL",
+      "gloss": [
+        "DIVORCE"
+      ],
+      "license": "Existing AppHear motion/rig provenance unresolved; local development preview only. Reference links only, no reference media copied.",
+      "linguisticValidationStatus": "UNREVIEWED",
+      "technicalPlaybackStatus": "Candidate: device review required",
+      "correctionNotes": "Reference-guided handshape/contact keyframes on resident rig; independent anatomical curl axes; unvalidated timing/style. Original source action retained in repository."
+    },
+    {
+      "id": "from",
+      "english": [
+        "from"
+      ],
+      "animationName": "SIGN_FROM_HUMAN_RETARGETED_PREVIEW",
+      "durationMs": 3075,
+      "sourceAsset": "asl_animations/from.glb",
+      "sourceSha256": "357368b6d849aa48cf6db4e3b718d4fb853d14a8ce5fb454586c9fd0dcd37a10",
+      "reference": "https://www.lifeprint.com/asl101/pages-signs/f/from.htm",
+      "meaning": "Origin or source; dominant index changes to X while pulling away",
+      "status": "UNREVIEWED_RETARGETED_PREVIEW",
+      "language": "ASL",
+      "gloss": [
+        "FROM"
+      ],
+      "license": "Existing AppHear motion/rig provenance unresolved; local development preview only. Reference links only, no reference media copied.",
+      "linguisticValidationStatus": "UNREVIEWED",
+      "technicalPlaybackStatus": "Candidate: device review required",
+      "correctionNotes": "Reference-guided handshape/contact keyframes on resident rig; independent anatomical curl axes; unvalidated timing/style. Original source action retained in repository."
+    },
+    {
+      "id": "grandma",
+      "english": [
+        "grandma",
+        "grandmother"
+      ],
+      "animationName": "SIGN_GRANDMA_HUMAN_RETARGETED_PREVIEW",
+      "durationMs": 3658,
+      "sourceAsset": "asl_animations/grandma.glb",
+      "sourceSha256": "3615d0e70761a82c1f1570a5ff46b1e77fb4b31777aaa5cc9f114549bdc5dffe",
+      "reference": "https://www.lifeprint.com/asl101/pages-signs/g/grandma.htm",
+      "meaning": "Grandmother; open hand moves forward from chin",
+      "status": "UNREVIEWED_RETARGETED_PREVIEW",
+      "language": "ASL",
+      "gloss": [
+        "GRANDMA"
+      ],
+      "license": "Existing AppHear motion/rig provenance unresolved; local development preview only. Reference links only, no reference media copied.",
+      "linguisticValidationStatus": "UNREVIEWED",
+      "technicalPlaybackStatus": "Candidate: device review required",
+      "correctionNotes": "Reference-guided handshape/contact keyframes on resident rig; independent anatomical curl axes; unvalidated timing/style. Original source action retained in repository."
+    },
+    {
+      "id": "grandpa",
+      "english": [
+        "grandpa",
+        "grandfather"
+      ],
+      "animationName": "SIGN_GRANDPA_HUMAN_RETARGETED_PREVIEW",
+      "durationMs": 3033,
+      "sourceAsset": "asl_animations/grandpa.glb",
+      "sourceSha256": "a2958f9a4c0f9fca0eb4e5efa856a5612382d7c39b0de62779433ea8313ddd49",
+      "reference": "https://www.lifeprint.com/asl101/pages-signs/g/grandpa.htm",
+      "meaning": "Grandfather; open hand moves forward from forehead",
+      "status": "UNREVIEWED_RETARGETED_PREVIEW",
+      "language": "ASL",
+      "gloss": [
+        "GRANDPA"
+      ],
+      "license": "Existing AppHear motion/rig provenance unresolved; local development preview only. Reference links only, no reference media copied.",
+      "linguisticValidationStatus": "UNREVIEWED",
+      "technicalPlaybackStatus": "Candidate: device review required",
+      "correctionNotes": "Reference-guided handshape/contact keyframes on resident rig; independent anatomical curl axes; unvalidated timing/style. Original source action retained in repository."
+    },
+    {
+      "id": "here",
+      "english": [
+        "here"
+      ],
+      "animationName": "SIGN_HERE_HUMAN_RETARGETED_PREVIEW",
+      "durationMs": 4825,
+      "sourceAsset": "asl_animations/here.glb",
+      "sourceSha256": "815a3cc03f326126196c220e93af0657f2cf5a9cee286878c5d2c553ff98f236",
+      "reference": "https://www.lifeprint.com/asl101/pages-signs/h/here.htm",
+      "meaning": "This location; palms-up relaxed hands circle near waist",
+      "status": "UNREVIEWED_RETARGETED_PREVIEW",
+      "language": "ASL",
+      "gloss": [
+        "HERE"
+      ],
+      "license": "Existing AppHear motion/rig provenance unresolved; local development preview only. Reference links only, no reference media copied.",
+      "linguisticValidationStatus": "UNREVIEWED",
+      "technicalPlaybackStatus": "Candidate: device review required",
+      "correctionNotes": "Reference-guided handshape/contact keyframes on resident rig; independent anatomical curl axes; unvalidated timing/style. Original source action retained in repository."
+    },
+    {
+      "id": "parents",
+      "english": [
+        "parents"
+      ],
+      "animationName": "SIGN_PARENTS_HUMAN_RETARGETED_PREVIEW",
+      "durationMs": 3242,
+      "sourceAsset": "asl_animations/parents.glb",
+      "sourceSha256": "ef4b54fa2ceb97fdf64ad6e37d9dc2e30904f069283c51eab6e7f48201e5b624",
+      "reference": "https://www.lifeprint.com/asl101/pages-signs/p/parents.htm",
+      "meaning": "Parents; successive mother/father locations",
+      "status": "UNREVIEWED_RETARGETED_PREVIEW",
+      "language": "ASL",
+      "gloss": [
+        "PARENTS"
+      ],
+      "license": "Existing AppHear motion/rig provenance unresolved; local development preview only. Reference links only, no reference media copied.",
+      "linguisticValidationStatus": "UNREVIEWED",
+      "technicalPlaybackStatus": "Candidate: device review required",
+      "correctionNotes": "Reference-guided handshape/contact keyframes on resident rig; independent anatomical curl axes; unvalidated timing/style. Original source action retained in repository."
+    },
+    {
+      "id": "prefer",
+      "english": [
+        "prefer",
+        "favorite"
+      ],
+      "animationName": "SIGN_PREFER_HUMAN_RETARGETED_PREVIEW",
+      "durationMs": 2825,
+      "sourceAsset": "asl_animations/prefer-favorite.glb",
+      "sourceSha256": "01a15a6361a9cc74ad96e7a4bafb30ed31fcc379e6c6416ceab70ec9cb1ca023",
+      "reference": "https://www.lifeprint.com/asl101/pages-signs/p/prefer.htm",
+      "meaning": "Preference / favorite; middle finger taps chin, not lips",
+      "status": "UNREVIEWED_RETARGETED_PREVIEW",
+      "language": "ASL",
+      "gloss": [
+        "PREFER"
+      ],
+      "license": "Existing AppHear motion/rig provenance unresolved; local development preview only. Reference links only, no reference media copied.",
+      "linguisticValidationStatus": "UNREVIEWED",
+      "technicalPlaybackStatus": "Candidate: device review required",
+      "correctionNotes": "Reference-guided handshape/contact keyframes on resident rig; independent anatomical curl axes; unvalidated timing/style. Original source action retained in repository."
+    },
+    {
+      "id": "single",
+      "english": [
+        "single"
+      ],
+      "animationName": "SIGN_SINGLE_HUMAN_RETARGETED_PREVIEW",
+      "durationMs": 3450,
+      "sourceAsset": "asl_animations/single-alone-something-someone.glb",
+      "sourceSha256": "5af40c421cb0b3ac95cb4f4c00424cae61f88d670ae39f5482d9391d0c596a88",
+      "reference": "https://www.lifeprint.com/asl101/pages-signs/s/single.htm",
+      "meaning": "Single / alone context-dependent index-circle variation",
+      "status": "UNREVIEWED_RETARGETED_PREVIEW",
+      "language": "ASL",
+      "gloss": [
+        "SINGLE"
+      ],
+      "license": "Existing AppHear motion/rig provenance unresolved; local development preview only. Reference links only, no reference media copied.",
+      "linguisticValidationStatus": "UNREVIEWED",
+      "technicalPlaybackStatus": "Candidate: device review required",
+      "correctionNotes": "Reference-guided handshape/contact keyframes on resident rig; independent anatomical curl axes; unvalidated timing/style. Original source action retained in repository."
+    },
+    {
+      "id": "again",
+      "english": [
+        "again",
+        "repeat",
+        "do over"
+      ],
+      "animationName": "SIGN_AGAIN_HUMAN_RETARGETED_PREVIEW",
+      "durationMs": 3658,
+      "sourceAsset": "asl_animations/again.glb",
+      "sourceSha256": "d355028630aa5d9959448230f8c1b09832d0c699280e781cb1e5462eeb0cc0ba",
+      "reference": "https://www.lifeprint.com/asl101/pages-signs/a/again.htm",
+      "meaning": "Repeat or do again; bent fingertips arc into flat non-dominant palm",
+      "status": "UNREVIEWED_RETARGETED_PREVIEW",
+      "language": "ASL",
+      "gloss": [
+        "AGAIN"
+      ],
+      "license": "Existing AppHear motion/rig provenance unresolved; local development preview only. Reference links only, no reference media copied.",
+      "linguisticValidationStatus": "UNREVIEWED",
+      "technicalPlaybackStatus": "Candidate: device review required",
+      "correctionNotes": "Actual source arm/wrist motion with equivalent resident-rig B/C/X handshapes, a dominant bent hand for AGAIN, and source-driven independent flexion without axial twist for FINGERSPELL. AGAIN/CLASS have scoped shared placement corrections and fixed-length arm IK. No global finger limits or changes to old words/alphabet. Qualified ASL review still required."
+    },
+    {
+      "id": "class",
+      "english": [
+        "class"
+      ],
+      "animationName": "SIGN_CLASS_HUMAN_RETARGETED_PREVIEW",
+      "durationMs": 2867,
+      "sourceAsset": "asl_animations/class.glb",
+      "sourceSha256": "49f02a3cd5b504bdf7fcaabbb9172509696e0dbce9c96906287530c35665d025",
+      "reference": "https://www.lifeprint.com/asl101/pages-signs/c/class.htm",
+      "meaning": "Educational class; two C hands outline a group, not social status",
+      "status": "UNREVIEWED_RETARGETED_PREVIEW",
+      "language": "ASL",
+      "gloss": [
+        "CLASS"
+      ],
+      "license": "Existing AppHear motion/rig provenance unresolved; local development preview only. Reference links only, no reference media copied.",
+      "linguisticValidationStatus": "UNREVIEWED",
+      "technicalPlaybackStatus": "Candidate: device review required",
+      "correctionNotes": "Actual source arm/wrist motion with equivalent resident-rig B/C/X handshapes, a dominant bent hand for AGAIN, and source-driven independent flexion without axial twist for FINGERSPELL. AGAIN/CLASS have scoped shared placement corrections and fixed-length arm IK. No global finger limits or changes to old words/alphabet. Qualified ASL review still required."
+    },
+    {
+      "id": "must",
+      "english": [
+        "must"
+      ],
+      "animationName": "SIGN_MUST_HUMAN_RETARGETED_PREVIEW",
+      "durationMs": 3200,
+      "sourceAsset": "asl_animations/critical-must.glb",
+      "sourceSha256": "54fd010b087ccc8d4165a8a69297fbe418d890a3edb947b046f33fcd7b26820f",
+      "reference": "https://www.lifeprint.com/asl101/pages-signs/m/must.htm",
+      "meaning": "Obligation or necessity; source MUST variant, not every meaning of critical",
+      "status": "UNREVIEWED_RETARGETED_PREVIEW",
+      "language": "ASL",
+      "gloss": [
+        "MUST"
+      ],
+      "license": "Existing AppHear motion/rig provenance unresolved; local development preview only. Reference links only, no reference media copied.",
+      "linguisticValidationStatus": "UNREVIEWED",
+      "technicalPlaybackStatus": "Candidate: device review required",
+      "correctionNotes": "Actual source arm/wrist motion with equivalent resident-rig B/C/X handshapes, a dominant bent hand for AGAIN, and source-driven independent flexion without axial twist for FINGERSPELL. AGAIN/CLASS have scoped shared placement corrections and fixed-length arm IK. No global finger limits or changes to old words/alphabet. Qualified ASL review still required."
+    },
+    {
+      "id": "fingerspell",
+      "english": [
+        "fingerspell",
+        "fingerspelling",
+        "spell"
+      ],
+      "animationName": "SIGN_FINGERSPELL_HUMAN_RETARGETED_PREVIEW",
+      "durationMs": 4117,
+      "sourceAsset": "asl_animations/fingerspell.glb",
+      "sourceSha256": "9f5284e57787780e2070a65a0ef9428c2c62704eff571c5e5e7549b2140b39d4",
+      "reference": "https://www.lifeprint.com/asl101/pages-signs/f/fingerspell.htm",
+      "meaning": "Lexical sign about spelling; this does not change the alphabet fallback controller",
+      "status": "UNREVIEWED_RETARGETED_PREVIEW",
+      "language": "ASL",
+      "gloss": [
+        "FINGERSPELL"
+      ],
+      "license": "Existing AppHear motion/rig provenance unresolved; local development preview only. Reference links only, no reference media copied.",
+      "linguisticValidationStatus": "UNREVIEWED",
+      "technicalPlaybackStatus": "Candidate: device review required",
+      "correctionNotes": "Actual source arm/wrist motion with equivalent resident-rig B/C/X handshapes, a dominant bent hand for AGAIN, and source-driven independent flexion without axial twist for FINGERSPELL. AGAIN/CLASS have scoped shared placement corrections and fixed-length arm IK. No global finger limits or changes to old words/alphabet. Qualified ASL review still required."
+    },
+    {
+      "id": "so_so",
+      "english": [
+        "so so",
+        "so-so"
+      ],
+      "animationName": "SIGN_SO_SO_HUMAN_RETARGETED_PREVIEW",
+      "durationMs": 2617,
+      "sourceAsset": "asl_animations/so-so.glb",
+      "sourceSha256": "361e2b9ec331a12dab6bd063df679673f92aeef9010bcb864aca97cd7c8ef5cb",
+      "reference": "https://www.lifeprint.com/asl101/pages-signs/s/so-so.htm",
+      "meaning": "Middling condition/so-so; palm-down hand rocks side to side",
+      "status": "UNREVIEWED_RETARGETED_PREVIEW",
+      "language": "ASL",
+      "gloss": [
+        "SO_SO"
+      ],
+      "license": "Existing AppHear motion/rig provenance unresolved; local development preview only. Reference links only, no reference media copied.",
+      "linguisticValidationStatus": "UNREVIEWED",
+      "technicalPlaybackStatus": "Candidate: device review required",
+      "correctionNotes": "Actual source arm/wrist motion with equivalent resident-rig B/C/X handshapes, a dominant bent hand for AGAIN, and source-driven independent flexion without axial twist for FINGERSPELL. AGAIN/CLASS have scoped shared placement corrections and fixed-length arm IK. No global finger limits or changes to old words/alphabet. Qualified ASL review still required."
+    },
+    {
+      "id": "grow_up",
+      "english": [
+        "grow up"
+      ],
+      "animationName": "SIGN_GROW_UP_HUMAN_RETARGETED_PREVIEW",
+      "durationMs": 2867,
+      "sourceAsset": "asl_animations/grow-up-raised.glb",
+      "sourceSha256": "fff31a427aa9d0e4fb53358b7e937527ff0827184b52908b15798c41aae2347c",
+      "reference": "https://www.lifeprint.com/asl101/pages-signs/g/grow-up.htm",
+      "meaning": "Growing from childhood to adulthood; not every sense of raised",
+      "status": "UNREVIEWED_RETARGETED_PREVIEW",
+      "language": "ASL",
+      "gloss": [
+        "GROW_UP"
+      ],
+      "license": "Existing AppHear motion/rig provenance unresolved; local development preview only. Reference links only, no reference media copied.",
+      "linguisticValidationStatus": "UNREVIEWED",
+      "technicalPlaybackStatus": "Candidate: device review required",
+      "correctionNotes": "Actual source arm/wrist motion with equivalent resident-rig B/C/X handshapes, a dominant bent hand for AGAIN, and source-driven independent flexion without axial twist for FINGERSPELL. AGAIN/CLASS have scoped shared placement corrections and fixed-length arm IK. No global finger limits or changes to old words/alphabet. Qualified ASL review still required."
+    },
+    {
+      "id": "stop",
+      "english": [
+        "stop"
+      ],
+      "animationName": "SIGN_STOP_HUMAN_AUTHORED_PREVIEW",
+      "durationMs": 2600,
+      "sourceAsset": "asl_animations/original_words_v1/resident-avatar.glb",
+      "sourceSha256": "4af1e10c9448d33db03cede4705dd2e7f851f12bb8394669b77d847bf885d3bf",
+      "sourceRole": "Resident rig/mesh provenance only; NOT an imported animation for this word",
+      "construction": "REFERENCE_AUTHORED_PREVIEW",
+      "status": "UNREVIEWED_NATIVE_VARIANT_PREVIEW",
+      "language": "ASL",
+      "gloss": [
+        "STOP"
+      ],
+      "reference": "https://www.lifeprint.com/asl101/pages-signs/s/stop.htm",
+      "meaning": "Cease an activity; dominant flat hand edge meets upward other palm, not traffic stop or FINISH",
+      "license": "New local reference-authored keyframes; existing AppHear human rig provenance unresolved. No reference media copied; no redistribution rights asserted.",
+      "linguisticValidationStatus": "UNREVIEWED",
+      "technicalPlaybackStatus": "Candidate: Android visual review required",
+      "correctionNotes": "Sign-specific trajectory and handshape on actual rig; no global joint clamps or edits to old animations. Non-manual grammar not certified."
+    },
+    {
+      "id": "understand",
+      "english": [
+        "understand"
+      ],
+      "animationName": "SIGN_UNDERSTAND_HUMAN_AUTHORED_PREVIEW",
+      "durationMs": 2600,
+      "sourceAsset": "asl_animations/original_words_v1/resident-avatar.glb",
+      "sourceSha256": "4af1e10c9448d33db03cede4705dd2e7f851f12bb8394669b77d847bf885d3bf",
+      "sourceRole": "Resident rig/mesh provenance only; NOT an imported animation for this word",
+      "construction": "REFERENCE_AUTHORED_PREVIEW",
+      "status": "UNREVIEWED_NATIVE_VARIANT_PREVIEW",
+      "language": "ASL",
+      "gloss": [
+        "UNDERSTAND"
+      ],
+      "reference": "https://www.lifeprint.com/asl101/pages-signs/u/understand.htm",
+      "meaning": "Comprehend; index opens near forehead; no automatic negation/headshake translation",
+      "license": "New local reference-authored keyframes; existing AppHear human rig provenance unresolved. No reference media copied; no redistribution rights asserted.",
+      "linguisticValidationStatus": "UNREVIEWED",
+      "technicalPlaybackStatus": "Candidate: Android visual review required",
+      "correctionNotes": "Sign-specific trajectory and handshape on actual rig; no global joint clamps or edits to old animations. Non-manual grammar not certified."
+    },
+    {
+      "id": "hungry",
+      "english": [
+        "hungry"
+      ],
+      "animationName": "SIGN_HUNGRY_HUMAN_AUTHORED_PREVIEW",
+      "durationMs": 2600,
+      "sourceAsset": "asl_animations/original_words_v1/resident-avatar.glb",
+      "sourceSha256": "4af1e10c9448d33db03cede4705dd2e7f851f12bb8394669b77d847bf885d3bf",
+      "sourceRole": "Resident rig/mesh provenance only; NOT an imported animation for this word",
+      "construction": "REFERENCE_AUTHORED_PREVIEW",
+      "status": "UNREVIEWED_NATIVE_VARIANT_PREVIEW",
+      "language": "ASL",
+      "gloss": [
+        "HUNGRY"
+      ],
+      "reference": "https://www.lifeprint.com/asl101/pages-signs/h/hungry.htm",
+      "meaning": "Hunger; C hand moves down central chest, no intensity or wish alias",
+      "license": "New local reference-authored keyframes; existing AppHear human rig provenance unresolved. No reference media copied; no redistribution rights asserted.",
+      "linguisticValidationStatus": "UNREVIEWED",
+      "technicalPlaybackStatus": "Candidate: Android visual review required",
+      "correctionNotes": "Sign-specific trajectory and handshape on actual rig; no global joint clamps or edits to old animations. Non-manual grammar not certified."
+    },
+    {
+      "id": "finish",
+      "english": [
+        "finish"
+      ],
+      "animationName": "SIGN_FINISH_HUMAN_AUTHORED_PREVIEW",
+      "durationMs": 2600,
+      "sourceAsset": "asl_animations/original_words_v1/resident-avatar.glb",
+      "sourceSha256": "4af1e10c9448d33db03cede4705dd2e7f851f12bb8394669b77d847bf885d3bf",
+      "sourceRole": "Resident rig/mesh provenance only; NOT an imported animation for this word",
+      "construction": "REFERENCE_AUTHORED_PREVIEW",
+      "status": "UNREVIEWED_NATIVE_VARIANT_PREVIEW",
+      "language": "ASL",
+      "gloss": [
+        "FINISH"
+      ],
+      "reference": "https://www.lifeprint.com/asl101/pages-signs/f/finish.htm",
+      "meaning": "Completion; two five-hands turn outward while separating; no automatic tense/conjunction translation",
+      "license": "New local reference-authored keyframes; existing AppHear human rig provenance unresolved. No reference media copied; no redistribution rights asserted.",
+      "linguisticValidationStatus": "UNREVIEWED",
+      "technicalPlaybackStatus": "Candidate: Android visual review required",
+      "correctionNotes": "Sign-specific trajectory and handshape on actual rig; no global joint clamps or edits to old animations. Non-manual grammar not certified."
+    },
+    {
+      "id": "tired",
+      "english": [
+        "tired"
+      ],
+      "animationName": "SIGN_TIRED_HUMAN_AUTHORED_PREVIEW",
+      "durationMs": 2600,
+      "sourceAsset": "asl_animations/original_words_v1/resident-avatar.glb",
+      "sourceSha256": "4af1e10c9448d33db03cede4705dd2e7f851f12bb8394669b77d847bf885d3bf",
+      "sourceRole": "Resident rig/mesh provenance only; NOT an imported animation for this word",
+      "construction": "REFERENCE_AUTHORED_PREVIEW",
+      "status": "UNREVIEWED_NATIVE_VARIANT_PREVIEW",
+      "language": "ASL",
+      "gloss": [
+        "TIRED"
+      ],
+      "reference": "https://www.lifeprint.com/asl101/pages-signs/t/tired.htm",
+      "meaning": "Fatigued; bent hands at chest rotate/slump, not a downward chest slide",
+      "license": "New local reference-authored keyframes; existing AppHear human rig provenance unresolved. No reference media copied; no redistribution rights asserted.",
+      "linguisticValidationStatus": "UNREVIEWED",
+      "technicalPlaybackStatus": "Candidate: Android visual review required",
+      "correctionNotes": "Sign-specific trajectory and handshape on actual rig; no global joint clamps or edits to old animations. Non-manual grammar not certified."
+    },
+    {
+      "id": "deaf",
+      "english": [
+        "deaf"
+      ],
+      "animationName": "SIGN_DEAF_HUMAN_AUTHORED_PREVIEW",
+      "durationMs": 3000,
+      "sourceAsset": "asl_animations/original_words_v1/resident-avatar.glb",
+      "sourceSha256": "4af1e10c9448d33db03cede4705dd2e7f851f12bb8394669b77d847bf885d3bf",
+      "sourceRole": "Resident rig/mesh provenance only; NOT an imported animation for this word",
+      "construction": "REFERENCE_AUTHORED_PREVIEW",
+      "status": "UNREVIEWED_NATIVE_VARIANT_PREVIEW",
+      "language": "ASL",
+      "gloss": [
+        "DEAF"
+      ],
+      "reference": "https://www.lifeprint.com/asl101/pages-signs/d/deaf.htm",
+      "meaning": "Deaf; index arcs between cheek near ear and cheek near mouth; not ear/lip contact",
+      "license": "New local reference-authored keyframes; existing AppHear human rig provenance unresolved. No reference media copied; no redistribution rights asserted.",
+      "linguisticValidationStatus": "UNREVIEWED",
+      "technicalPlaybackStatus": "Candidate: Android visual review required",
+      "correctionNotes": "Sign-specific trajectory and handshape on actual rig; no global joint clamps or edits to old animations. Non-manual grammar not certified."
+    },
+    {
+      "id": "hearing",
+      "english": [
+        "hearing"
+      ],
+      "animationName": "SIGN_HEARING_HUMAN_AUTHORED_PREVIEW",
+      "durationMs": 2600,
+      "sourceAsset": "asl_animations/original_words_v1/resident-avatar.glb",
+      "sourceSha256": "4af1e10c9448d33db03cede4705dd2e7f851f12bb8394669b77d847bf885d3bf",
+      "sourceRole": "Resident rig/mesh provenance only; NOT an imported animation for this word",
+      "construction": "REFERENCE_AUTHORED_PREVIEW",
+      "status": "UNREVIEWED_NATIVE_VARIANT_PREVIEW",
+      "language": "ASL",
+      "gloss": [
+        "HEARING"
+      ],
+      "reference": "https://www.lifeprint.com/asl101/pages-signs/h/hearing.htm",
+      "meaning": "Hearing person/community; index circles near mouth, distinct from physical HEAR",
+      "license": "New local reference-authored keyframes; existing AppHear human rig provenance unresolved. No reference media copied; no redistribution rights asserted.",
+      "linguisticValidationStatus": "UNREVIEWED",
+      "technicalPlaybackStatus": "Candidate: Android visual review required",
+      "correctionNotes": "Sign-specific trajectory and handshape on actual rig; no global joint clamps or edits to old animations. Non-manual grammar not certified."
+    },
+    {
+      "id": "learn",
+      "english": [
+        "learn"
+      ],
+      "animationName": "SIGN_LEARN_HUMAN_AUTHORED_PREVIEW",
+      "durationMs": 3000,
+      "sourceAsset": "asl_animations/original_words_v1/resident-avatar.glb",
+      "sourceSha256": "4af1e10c9448d33db03cede4705dd2e7f851f12bb8394669b77d847bf885d3bf",
+      "sourceRole": "Resident rig/mesh provenance only; NOT an imported animation for this word",
+      "construction": "REFERENCE_AUTHORED_PREVIEW",
+      "status": "UNREVIEWED_NATIVE_VARIANT_PREVIEW",
+      "language": "ASL",
+      "gloss": [
+        "LEARN"
+      ],
+      "reference": "https://www.lifeprint.com/asl101/pages-signs/l/learn.htm",
+      "meaning": "Acquire knowledge; fingertips gather from upward palm and lift toward forehead, no agent suffix",
+      "license": "New local reference-authored keyframes; existing AppHear human rig provenance unresolved. No reference media copied; no redistribution rights asserted.",
+      "linguisticValidationStatus": "UNREVIEWED",
+      "technicalPlaybackStatus": "Candidate: Android visual review required",
+      "correctionNotes": "Sign-specific trajectory and handshape on actual rig; no global joint clamps or edits to old animations. Non-manual grammar not certified."
+    },
+    {
+      "id": "rain",
+      "english": [
+        "rain"
+      ],
+      "animationName": "SIGN_RAIN_HUMAN_AUTHORED_PREVIEW",
+      "durationMs": 3000,
+      "sourceAsset": "asl_animations/original_words_v1/resident-avatar.glb",
+      "sourceSha256": "4af1e10c9448d33db03cede4705dd2e7f851f12bb8394669b77d847bf885d3bf",
+      "sourceRole": "Resident rig/mesh provenance only; NOT an imported animation for this word",
+      "construction": "REFERENCE_AUTHORED_PREVIEW",
+      "status": "UNREVIEWED_NATIVE_VARIANT_PREVIEW",
+      "language": "ASL",
+      "gloss": [
+        "RAIN"
+      ],
+      "reference": "https://www.lifeprint.com/asl101/pages-signs/r/rain.htm",
+      "meaning": "Ordinary rain; two bent/splayed hands descend twice, no wind/storm intensity",
+      "license": "New local reference-authored keyframes; existing AppHear human rig provenance unresolved. No reference media copied; no redistribution rights asserted.",
+      "linguisticValidationStatus": "UNREVIEWED",
+      "technicalPlaybackStatus": "Candidate: Android visual review required",
+      "correctionNotes": "Sign-specific trajectory and handshape on actual rig; no global joint clamps or edits to old animations. Non-manual grammar not certified."
+    },
+    {
+      "id": "now",
+      "english": [
+        "now"
+      ],
+      "animationName": "SIGN_NOW_HUMAN_AUTHORED_PREVIEW",
+      "durationMs": 2600,
+      "sourceAsset": "asl_animations/original_words_v1/resident-avatar.glb",
+      "sourceSha256": "4af1e10c9448d33db03cede4705dd2e7f851f12bb8394669b77d847bf885d3bf",
+      "sourceRole": "Resident rig/mesh provenance only; NOT an imported animation for this word",
+      "construction": "REFERENCE_AUTHORED_PREVIEW",
+      "status": "UNREVIEWED_NATIVE_VARIANT_PREVIEW",
+      "language": "ASL",
+      "gloss": [
+        "NOW"
+      ],
+      "reference": "https://www.lifeprint.com/asl101/pages-signs/n/now.htm",
+      "meaning": "Present time; palms-up Y hands descend ONCE, distinct from repeated TODAY",
+      "license": "New local reference-authored keyframes; existing AppHear human rig provenance unresolved. No reference media copied; no redistribution rights asserted.",
+      "linguisticValidationStatus": "UNREVIEWED",
+      "technicalPlaybackStatus": "Candidate: Android visual review required",
+      "correctionNotes": "Sign-specific trajectory and handshape on actual rig; no global joint clamps or edits to old animations. Non-manual grammar not certified."
+    }
+  ],
+  "vocabularyExpansion": {
+    "version": 1,
+    "preservedActions": 230,
+    "lastSourceFrames": 68,
+    "anatomicalFrameError": 1.0769163338864018e-13,
+    "qualifiedAslValidation": false,
+    "sourceGeometryUnchanged": true
+  },
+  "flatBaseHandCorrection": {
+    "status": "UNREVIEWED_REFERENCE_GUIDED_FLAT_BASE_HAND_REPAIR",
+    "sourceSha256": "e83e16d0d0ca1e19777b913304566d8dfcfdd39ed5acaa020846963d6a9d8170",
+    "profiles": [
+      {
+        "animationName": "SIGN_COOK",
+        "side": "Left",
+        "reference": "https://www.lifeprint.com/asl101/pages-signs/c/cook.htm",
+        "reason": "Base palm supports the turning dominant flat hand; backward PIP/DIP curls prevent a flat supporting surface.",
+        "correctedNodes": [
+          "LeftHandIndex1",
+          "LeftHandIndex2",
+          "LeftHandIndex3",
+          "LeftHandMiddle1",
+          "LeftHandMiddle2",
+          "LeftHandMiddle3",
+          "LeftHandRing1",
+          "LeftHandRing2",
+          "LeftHandRing3",
+          "LeftHandPinky1",
+          "LeftHandPinky2",
+          "LeftHandPinky3"
+        ]
+      },
+      {
+        "animationName": "SIGN_BECOME",
+        "side": "Left",
+        "reference": "https://www.lifeprint.com/asl101/pages-signs/b/become.htm",
+        "reason": "Reference specifies two flat hands reversing orientation; left PIP/DIP back-bends contradict that surface.",
+        "correctedNodes": [
+          "LeftHandIndex1",
+          "LeftHandIndex2",
+          "LeftHandIndex3",
+          "LeftHandMiddle1",
+          "LeftHandMiddle2",
+          "LeftHandMiddle3",
+          "LeftHandRing1",
+          "LeftHandRing2",
+          "LeftHandRing3",
+          "LeftHandPinky1",
+          "LeftHandPinky2",
+          "LeftHandPinky3"
+        ]
+      },
+      {
+        "animationName": "SIGN_MONEY",
+        "side": "Left",
+        "reference": "https://www.lifeprint.com/asl101/pages-signs/m/money.htm",
+        "reason": "Preserve dominant flattened-O and taps; remove backward curls only in the receiving base hand.",
+        "correctedNodes": [
+          "LeftHandIndex1",
+          "LeftHandIndex2",
+          "LeftHandIndex3",
+          "LeftHandMiddle1",
+          "LeftHandMiddle2",
+          "LeftHandMiddle3",
+          "LeftHandRing1",
+          "LeftHandRing2",
+          "LeftHandRing3",
+          "LeftHandPinky1",
+          "LeftHandPinky2",
+          "LeftHandPinky3"
+        ]
+      },
+      {
+        "animationName": "SIGN_NEW",
+        "side": "Left",
+        "reference": "https://www.lifeprint.com/asl101/pages-signs/n/new.htm",
+        "reason": "Preserve dominant skimming trajectory; base palm must remain an open supporting surface.",
+        "correctedNodes": [
+          "LeftHandIndex1",
+          "LeftHandIndex2",
+          "LeftHandIndex3",
+          "LeftHandMiddle1",
+          "LeftHandMiddle2",
+          "LeftHandMiddle3",
+          "LeftHandRing1",
+          "LeftHandRing2",
+          "LeftHandRing3",
+          "LeftHandPinky1",
+          "LeftHandPinky2",
+          "LeftHandPinky3"
+        ]
+      },
+      {
+        "animationName": "SIGN_SOME",
+        "side": "Left",
+        "reference": "https://www.lifeprint.com/asl101/pages-signs/s/some.htm",
+        "reason": "Preserve dominant slicing motion and stationary base hand; remove backward curls in the receiving surface.",
+        "correctedNodes": [
+          "LeftHandIndex1",
+          "LeftHandIndex2",
+          "LeftHandIndex3",
+          "LeftHandMiddle1",
+          "LeftHandMiddle2",
+          "LeftHandMiddle3",
+          "LeftHandRing1",
+          "LeftHandRing2",
+          "LeftHandRing3",
+          "LeftHandPinky1",
+          "LeftHandPinky2",
+          "LeftHandPinky3"
+        ]
+      },
+      {
+        "animationName": "SIGN_DAY",
+        "side": "Left",
+        "reference": "https://www.lifeprint.com/asl101/pages-signs/d/day.htm",
+        "reason": "Keep horizontal base forearm/hand and dominant sweeping index; remove reverse curls only in base PIP/DIP joints.",
+        "correctedNodes": [
+          "LeftHandIndex1",
+          "LeftHandIndex2",
+          "LeftHandIndex3",
+          "LeftHandMiddle1",
+          "LeftHandMiddle2",
+          "LeftHandMiddle3",
+          "LeftHandRing1",
+          "LeftHandRing2",
+          "LeftHandRing3",
+          "LeftHandPinky1",
+          "LeftHandPinky2",
+          "LeftHandPinky3"
+        ]
+      }
+    ],
+    "qualifiedASLValidation": false,
+    "method": "Scoped bind-relative straight-finger pose in six reference-required flat base hands; no runtime constraints; source endpoints/times, thumbs, dominant hands and all other joints preserved"
+  },
+  "closedFistCorrection": {
+    "profileVersion": 2,
+    "sourceSha256": "266a7dff1531221ef4482d8ed6242ac9f3cab9fde2f92ebb1f71d82020e14554",
+    "donorAnimation": "SIGN_YES",
+    "donorTimeSeconds": 0.7599999904632568,
+    "profiles": [
+      {
+        "animationName": "SIGN_LOVE",
+        "correctedNodes": [
+          "LeftHandThumb1",
+          "LeftHandThumb2",
+          "LeftHandThumb3",
+          "LeftHandIndex1",
+          "LeftHandIndex2",
+          "LeftHandIndex3",
+          "LeftHandMiddle1",
+          "LeftHandMiddle2",
+          "LeftHandMiddle3",
+          "LeftHandRing1",
+          "LeftHandRing2",
+          "LeftHandRing3",
+          "LeftHandPinky1",
+          "LeftHandPinky2",
+          "LeftHandPinky3",
+          "RightHandThumb1",
+          "RightHandThumb2",
+          "RightHandThumb3",
+          "RightHandIndex1",
+          "RightHandIndex2",
+          "RightHandIndex3",
+          "RightHandMiddle1",
+          "RightHandMiddle2",
+          "RightHandMiddle3",
+          "RightHandRing1",
+          "RightHandRing2",
+          "RightHandRing3",
+          "RightHandPinky1",
+          "RightHandPinky2",
+          "RightHandPinky3"
+        ]
+      },
+      {
+        "animationName": "SIGN_I",
+        "correctedNodes": [
+          "RightHandThumb1",
+          "RightHandThumb2",
+          "RightHandThumb3",
+          "RightHandMiddle1",
+          "RightHandMiddle2",
+          "RightHandMiddle3",
+          "RightHandRing1",
+          "RightHandRing2",
+          "RightHandRing3",
+          "RightHandPinky1",
+          "RightHandPinky2",
+          "RightHandPinky3"
+        ]
+      }
+    ],
+    "qualifiedASLValidation": false,
+    "method": "Scoped existing YES finger/thumb articulation; rest-frame left-hand mirroring; 180ms entry/release; source timestamps/endpoints retained; ME index, wrists/arms/body and all other actions unchanged",
+    "references": [
+      "https://www.lifeprint.com/asl101/pages-signs/l/love.htm",
+      "https://www.lifeprint.com/asl101/pages-signs/m/me.htm",
+      "https://www.lifeprint.com/asl101/pages-signs/y/yes.htm"
+    ]
+  },
+  "loveWristFistCorrection": {
+    "sourceSha256": "907944cee4c3ea684d4eddc8b734db75a1c21e06e04d3092f9fbdab7cbdd7fd1",
+    "sha256": "c04f873aa44d7c31fdf688d423d18100843535067acab0223418ea9340fa34b5",
+    "animationName": "SIGN_LOVE",
+    "changedNodes": [
+      "LeftArm",
+      "LeftForeArm",
+      "LeftHand",
+      "LeftHandIndex1",
+      "LeftHandIndex2",
+      "LeftHandIndex3",
+      "LeftHandMiddle1",
+      "LeftHandMiddle2",
+      "LeftHandMiddle3",
+      "LeftHandPinky1",
+      "LeftHandPinky2",
+      "LeftHandPinky3",
+      "LeftHandRing1",
+      "LeftHandRing2",
+      "LeftHandRing3",
+      "RightArm",
+      "RightForeArm",
+      "RightHand",
+      "RightHandIndex1",
+      "RightHandIndex2",
+      "RightHandIndex3",
+      "RightHandMiddle1",
+      "RightHandMiddle2",
+      "RightHandMiddle3",
+      "RightHandPinky1",
+      "RightHandPinky2",
+      "RightHandPinky3",
+      "RightHandRing1",
+      "RightHandRing2",
+      "RightHandRing3"
+    ],
+    "unchangedActions": 231,
+    "qualifiedASLValidation": false,
+    "status": "UNREVIEWED_REFERENCE_GUIDED_PREVIEW",
+    "reference": "https://www.lifeprint.com/asl101/pages-signs/l/love.htm",
+    "preservedFingerEntryReleaseSeconds": 0.3,
+    "transitionSeconds": 0.25,
+    "fingerFlexionDegrees": [
+      80,
+      95,
+      50
+    ],
+    "maximumAdditionalClearanceMeters": {
+      "Left": 0.0,
+      "Right": 0.0223123373417034
+    },
+    "samples": [
+      {
+        "side": "Left",
+        "version": "before",
+        "metrics": {
+          "edgeStretch99": 1.465327264823494,
+          "edgeStretchMax": 1.7418173384945024
+        }
+      },
+      {
+        "side": "Left",
+        "version": "prototype",
+        "metrics": {
+          "edgeStretch99": 1.5548065484117715,
+          "edgeStretchMax": 1.821134000553192
+        }
+      },
+      {
+        "side": "Right",
+        "version": "before",
+        "metrics": {
+          "edgeStretch99": 1.6267583338426161,
+          "edgeStretchMax": 1.9574102601807812
+        }
+      },
+      {
+        "side": "Right",
+        "version": "prototype",
+        "metrics": {
+          "edgeStretch99": 1.6322637876670025,
+          "edgeStretchMax": 2.012206797863316
+        }
+      }
+    ],
+    "maxWristDisplacementMeters": 0.12765419786049284,
+    "maxFrontTorsoHandDepthMeters": 0.0,
+    "maxFrontTorsoForearmDepthMeters": 0.001891694406008268,
+    "heldForearmRollDegrees": {
+      "Left": -22.196289357345748,
+      "Right": -9.374195453465648
+    },
+    "surfaceSamples": 641,
+    "limitations": "Front-surface torso proxy only; not full mesh or arm-arm collision. Low-poly mesh and thumb articulation remain. Requires Android visual testing and qualified ASL review.",
+    "surfaceGatePassed": true
+  },
+  "pointingCorrection": {
+    "sourceSha256": "c04f873aa44d7c31fdf688d423d18100843535067acab0223418ea9340fa34b5",
+    "sha256": "82fab0b6693c5bdaef8433e25d4f417a51f0ede522ab9e9154e4f8cff7fddeb8",
+    "qualifiedASLValidation": false,
+    "status": "UNREVIEWED_POINTING_PREVIEW",
+    "unchangedActions": 230,
+    "profiles": [
+      {
+        "animationName": "SIGN_I",
+        "changedNodes": [
+          "RightArm",
+          "RightForeArm",
+          "RightHand",
+          "RightHandIndex1",
+          "RightHandIndex2",
+          "RightHandIndex3",
+          "RightHandMiddle1",
+          "RightHandMiddle2",
+          "RightHandMiddle3",
+          "RightHandPinky1",
+          "RightHandPinky2",
+          "RightHandPinky3",
+          "RightHandRing1",
+          "RightHandRing2",
+          "RightHandRing3",
+          "RightHandThumb1",
+          "RightHandThumb2",
+          "RightHandThumb3"
+        ],
+        "desiredIndexDirection": [
+          0.7996402428178934,
+          -0.029986509105670998,
+          -0.59973018211342
+        ],
+        "wristTargetMeters": [
+          -0.19458346324361603,
+          1.2987838618674337,
+          0.24963043159581028
+        ],
+        "chestTipTargetMeters": [
+          -0.01,
+          1.3,
+          0.17455745465778913
+        ],
+        "frontTorsoDepthMeters": {
+          "hand": 0.0,
+          "forearm": 0.0
+        },
+        "heldDirectionCosine": 0.9999999999795659,
+        "heldTipMeters": [
+          -0.010002070303895608,
+          1.3000000525709456,
+          0.17455881005179508
+        ],
+        "technicallyPassed": true
+      },
+      {
+        "animationName": "SIGN_YOU_HUMAN_RETARGETED_PREVIEW",
+        "changedNodes": [
+          "LeftArm",
+          "LeftForeArm",
+          "LeftHand",
+          "LeftShoulder",
+          "RightArm",
+          "RightForeArm",
+          "RightHand",
+          "RightHandIndex1",
+          "RightHandIndex2",
+          "RightHandIndex3",
+          "RightHandMiddle1",
+          "RightHandMiddle2",
+          "RightHandMiddle3",
+          "RightHandPinky1",
+          "RightHandPinky2",
+          "RightHandPinky3",
+          "RightHandRing1",
+          "RightHandRing2",
+          "RightHandRing3",
+          "RightHandThumb1",
+          "RightHandThumb2",
+          "RightHandThumb3"
+        ],
+        "desiredIndexDirection": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "wristTargetMeters": [
+          -0.12,
+          1.25,
+          0.38
+        ],
+        "chestTipTargetMeters": null,
+        "frontTorsoDepthMeters": {
+          "hand": 0.0,
+          "forearm": 0.0
+        },
+        "heldDirectionCosine": 0.9999999999999996,
+        "heldTipMeters": [
+          -0.11300569871651349,
+          1.3006916808156357,
+          0.5725875752328276
+        ],
+        "technicallyPassed": true
+      }
+    ],
+    "transitionSeconds": 0.35,
+    "surfaceSamples": 401,
+    "references": [
+      "https://www.lifeprint.com/asl101/pages-signs/m/me.htm",
+      "https://www.lifeprint.com/asl101/pages-signs/y/you.htm"
+    ],
+    "limitations": "Front torso proxy only; requires Android inspection and qualified ASL review. Thumb reuses existing YES. No imported images or motion data.",
+    "preservedAnimationHashes": {
+      "SIGN_HELP": "119b7cb3bca86105cf1693e8ca2e776300986b9a72a34a3a868e1fe61dae09a6",
+      "SIGN_LETTER__MAIL": "b76f2891edebdad851e9c89a39b2ea1a14ad3ede0cd8435c53b6d3b9ea33e68f",
+      "SIGN_LOVE": "d03b630f05d02a6c9e33ebe500856fdfad300c9a35e74576280a701ade38f984",
+      "SIGN_YES": "bc01a054bf47054f16216029f93bcaa40983985a0b69d732ff6077b1429d3b90",
+      "SIGN_LETTER_A_WOLF3D_PREVIEW": "9cee97c81bc84ebe46b524afe2b136af3d157145f78812415ef8fe3fdf101a72",
+      "SIGN_LETTER_B_WOLF3D_PREVIEW": "7d0617158a11066ccecfbfc4bcc3a78de79fb11922aadd16c795b926807e7257",
+      "SIGN_LETTER_C_WOLF3D_PREVIEW": "5513582bd4e537fc649a27cbf5975fd51f9888ee7d45e7c49946246535d58933",
+      "SIGN_LETTER_D_WOLF3D_PREVIEW": "da2ee4dcf5dc18751b47f3cd05132bc4ecb851050f57356a6a7f6181a1128136",
+      "SIGN_LETTER_E_WOLF3D_PREVIEW": "25f30e5316a5afa2a7c85117a8cc15277618b932249358d95011eeb98faa496e",
+      "SIGN_LETTER_F_WOLF3D_PREVIEW": "10dc50c15059b0423284a455af1e0246e191bece17868fc3a82396feedce2810",
+      "SIGN_LETTER_G_WOLF3D_PREVIEW": "0ace3d9fdacf1461690189c4a8d238d31788295c5c465ca2a1094e351abd5f3d",
+      "SIGN_LETTER_H_WOLF3D_PREVIEW": "742a56a6c63f77b454de85e1f83bef64d2613183ea54a16584d20819c2a27d6c",
+      "SIGN_LETTER_I_WOLF3D_PREVIEW": "3421a84b573b7005bbd6ef7bab5dd429e698970e4089b47f48f590289257e5e3",
+      "SIGN_LETTER_J_WOLF3D_PREVIEW": "26b7d6a7fc49d93d1f27ea1e1e2b935d29f6bbd5d7813762fdf189d83bbc8b1c",
+      "SIGN_LETTER_K_WOLF3D_PREVIEW": "e9df8553bfda7db671568a5c02d8d0e94bc3ef141ec75a9c42f1c3d0a8c31f17",
+      "SIGN_LETTER_L_WOLF3D_PREVIEW": "c77f1489be71b3fb0cea2426530cc644c5de91758aa6f6a7ffb1bf978e3f87fe",
+      "SIGN_LETTER_M_WOLF3D_PREVIEW": "f558daca79a44211ed31c1f1fc8c1ffa1020b997b5158dad22fcc107cbbdccec",
+      "SIGN_LETTER_N_WOLF3D_PREVIEW": "102448d9b5fd61db73a16992b1911d1eca8a9db54f319b1f8b8cbe346b3f4110",
+      "SIGN_LETTER_O_WOLF3D_PREVIEW": "76999b47d0aa4d00f9cf6eaccc4dc964f14677ae09565a3bb525679753c71dc8",
+      "SIGN_LETTER_P_WOLF3D_PREVIEW": "d841ff4945f544210f5eaa658197c8786022f550bcee2207d3e3169cb5ba6b31",
+      "SIGN_LETTER_Q_WOLF3D_PREVIEW": "6a3ad40dd1c9fe3e574d126448ee5a94e0310a386142d6d9a13710b9a3fceece",
+      "SIGN_LETTER_R_WOLF3D_PREVIEW": "bfb28d0d68415a700df1e80e7fe38327d3a9e2d2f28713d0fa6cf050a47c7cc8",
+      "SIGN_LETTER_S_WOLF3D_PREVIEW": "245ce827f03d790d94f00da60d77fd3c79d08f4830ed61ad8273a0448395c6ef",
+      "SIGN_LETTER_T_WOLF3D_PREVIEW": "ccfb18665efbf26d5929f724c322031d7577936200faddb2b3d54b779bd6f34e",
+      "SIGN_LETTER_U_WOLF3D_PREVIEW": "ceb8c50f6a80923e844e1d113413f88cc6e7f1642c0ccde1ba41715a233ba967",
+      "SIGN_LETTER_V_WOLF3D_PREVIEW": "b01fa8b8a544340c7e59a96eb3372008e9a6bdfc2f30097e401492b958e197b5",
+      "SIGN_LETTER_W_WOLF3D_PREVIEW": "f6352b482c45e7d8ba1e79b7d1f50d04aa7d75c09c1a5f5c559f6124ce9d347f",
+      "SIGN_LETTER_X_WOLF3D_PREVIEW": "9cd7c1543bdc09c4ff5922a16905a1f16f9df2930512aaa0ef89edd717f00806",
+      "SIGN_LETTER_Y_WOLF3D_PREVIEW": "418672ce4a0671e5ff525245d41ffc279f9c438beccea5d7ca77c8df9555d506",
+      "SIGN_LETTER_Z_WOLF3D_PREVIEW": "aa033de20a9360221e2c22d6509d5f3fa883c39402560b91d5ef4d2b66e6ea9f"
+    }
+  },
+  "everydayExpansion": {
+    "version": 1,
+    "baselineSha256": "82fab0b6693c5bdaef8433e25d4f417a51f0ede522ab9e9154e4f8cff7fddeb8",
+    "preservedActions": 232,
+    "newLexicalActions": 10,
+    "sourceGeometryUnchanged": true,
+    "qualifiedAslValidations": 0,
+    "checks": [
+      {
+        "id": "best",
+        "sourceAction": "best_N0sg_yIVULo",
+        "sourceSha256": "72224c0054dbac6cf203114bf0b11514cea83abe3d14db1c0ca14000d500b7f2",
+        "frames": 66,
+        "anatomicalFrameError": 1.9262369477246466e-13,
+        "mappedNodes": 36,
+        "reference": "https://www.lifeprint.com/asl101/pages-signs/b/best.htm",
+        "qualifiedAslValidation": false
+      },
+      {
+        "id": "better",
+        "sourceAction": "BETTER_sQ_ABcs0n0A",
+        "sourceSha256": "390cbd36bb858524c9c442599e9980a9dbf6f7888df9ea01bcfd65d081153e4b",
+        "frames": 68,
+        "anatomicalFrameError": 1.3389289676979388e-13,
+        "mappedNodes": 36,
+        "reference": "https://www.lifeprint.com/asl101/pages-signs/b/better.htm",
+        "qualifiedAslValidation": false
+      },
+      {
+        "id": "divorce",
+        "sourceAction": "DIVORCE_JCTgLJFs4c8",
+        "sourceSha256": "dbac0088195b71327400e8a7b653577eff9a29da91fab84f952e27d8ec221c40",
+        "frames": 60,
+        "anatomicalFrameError": 1.346700528870315e-13,
+        "mappedNodes": 36,
+        "reference": "https://www.lifeprint.com/asl101/pages-signs/d/divorce.htm",
+        "qualifiedAslValidation": false
+      },
+      {
+        "id": "from",
+        "sourceAction": "FROM_7OEW40vhX68",
+        "sourceSha256": "357368b6d849aa48cf6db4e3b718d4fb853d14a8ce5fb454586c9fd0dcd37a10",
+        "frames": 58,
+        "anatomicalFrameError": 1.822986206434507e-13,
+        "mappedNodes": 36,
+        "reference": "https://www.lifeprint.com/asl101/pages-signs/f/from.htm",
+        "qualifiedAslValidation": false
+      },
+      {
+        "id": "grandma",
+        "sourceAction": "GRANDMA_r8yvyGMnrYk",
+        "sourceSha256": "3615d0e70761a82c1f1570a5ff46b1e77fb4b31777aaa5cc9f114549bdc5dffe",
+        "frames": 72,
+        "anatomicalFrameError": 1.6397994073713562e-13,
+        "mappedNodes": 36,
+        "reference": "https://www.lifeprint.com/asl101/pages-signs/g/grandma.htm",
+        "qualifiedAslValidation": false
+      },
+      {
+        "id": "grandpa",
+        "sourceAction": "GRANDPA_D8OW3lFL_54",
+        "sourceSha256": "a2958f9a4c0f9fca0eb4e5efa856a5612382d7c39b0de62779433ea8313ddd49",
+        "frames": 57,
+        "anatomicalFrameError": 1.5132339825640884e-13,
+        "mappedNodes": 36,
+        "reference": "https://www.lifeprint.com/asl101/pages-signs/g/grandpa.htm",
+        "qualifiedAslValidation": false
+      },
+      {
+        "id": "here",
+        "sourceAction": "HERE_2dALbgMQWmk",
+        "sourceSha256": "815a3cc03f326126196c220e93af0657f2cf5a9cee286878c5d2c553ff98f236",
+        "frames": 100,
+        "anatomicalFrameError": 1.638689184346731e-13,
+        "mappedNodes": 36,
+        "reference": "https://www.lifeprint.com/asl101/pages-signs/h/here.htm",
+        "qualifiedAslValidation": false
+      },
+      {
+        "id": "parents",
+        "sourceAction": "PARENTS_jlqHVbCS4H0",
+        "sourceSha256": "ef4b54fa2ceb97fdf64ad6e37d9dc2e30904f069283c51eab6e7f48201e5b624",
+        "frames": 62,
+        "anatomicalFrameError": 1.7197354651443675e-13,
+        "mappedNodes": 36,
+        "reference": "https://www.lifeprint.com/asl101/pages-signs/p/parents.htm",
+        "qualifiedAslValidation": false
+      },
+      {
+        "id": "prefer",
+        "sourceAction": "prefer,_favorite_wOqbSro7riQ",
+        "sourceSha256": "01a15a6361a9cc74ad96e7a4bafb30ed31fcc379e6c6416ceab70ec9cb1ca023",
+        "frames": 52,
+        "anatomicalFrameError": 1.333377852574813e-13,
+        "mappedNodes": 36,
+        "reference": "https://www.lifeprint.com/asl101/pages-signs/p/prefer.htm",
+        "qualifiedAslValidation": false
+      },
+      {
+        "id": "single",
+        "sourceAction": "SINGLE-alone-something-someone_QVPcK3bcFo0",
+        "sourceSha256": "5af40c421cb0b3ac95cb4f4c00424cae61f88d670ae39f5482d9391d0c596a88",
+        "frames": 67,
+        "anatomicalFrameError": 1.4455103780619538e-13,
+        "mappedNodes": 36,
+        "reference": "https://www.lifeprint.com/asl101/pages-signs/s/single.htm",
+        "qualifiedAslValidation": false
+      }
+    ],
+    "preferForearmRefinement": {
+      "sourceSha256": "53d72bd7d1598d35883aca6b22858c78ac6c40dd0349ca54d515623178984cdc",
+      "animationName": "SIGN_PREFER_HUMAN_RETARGETED_PREVIEW",
+      "changedNodes": [
+        "RightArm",
+        "RightForeArm",
+        "RightHand"
+      ],
+      "calibratedChinHeightMeters": 1.51,
+      "contactShiftMeters": [
+        0.0,
+        0.03499999999999992,
+        0.06676824079795683
+      ],
+      "maxFingerRelativePositionErrorMeters": 1.3381394734317908e-08,
+      "maxWorldHandRotationMatrixChange": 9.652001420334955e-15,
+      "otherActionsPreserved": 241,
+      "fingerChannelsUnchanged": true,
+      "qualifiedAslValidation": false
+    }
+  },
+  "everydayExpansion2": {
+    "version": 1,
+    "baselineSha256": "11b50d333dae036132515c535bea9b9adbf0d42f43be901bb7c4b36b3bb1e43c",
+    "preservedActions": 242,
+    "newLexicalActions": 6,
+    "sourceGeometryUnchanged": true,
+    "qualifiedAslValidations": 0,
+    "checks": [
+      {
+        "id": "again",
+        "sourceAction": "again",
+        "sourceSha256": "d355028630aa5d9959448230f8c1b09832d0c699280e781cb1e5462eeb0cc0ba",
+        "frames": 72,
+        "anatomicalFrameError": 1.446620601086579e-13,
+        "mappedNodes": 36,
+        "reference": "https://www.lifeprint.com/asl101/pages-signs/a/again.htm",
+        "qualifiedAslValidation": false
+      },
+      {
+        "id": "class",
+        "sourceAction": "CLASS_zYsmQgZRW0g",
+        "sourceSha256": "49f02a3cd5b504bdf7fcaabbb9172509696e0dbce9c96906287530c35665d025",
+        "frames": 53,
+        "anatomicalFrameError": 1.5987211554602254e-13,
+        "mappedNodes": 36,
+        "reference": "https://www.lifeprint.com/asl101/pages-signs/c/class.htm",
+        "qualifiedAslValidation": false
+      },
+      {
+        "id": "must",
+        "sourceAction": "critical-must_Ti9-UQ7u0fY",
+        "sourceSha256": "54fd010b087ccc8d4165a8a69297fbe418d890a3edb947b046f33fcd7b26820f",
+        "frames": 61,
+        "anatomicalFrameError": 1.4299672557172016e-13,
+        "mappedNodes": 36,
+        "reference": "https://www.lifeprint.com/asl101/pages-signs/m/must.htm",
+        "qualifiedAslValidation": false
+      },
+      {
+        "id": "fingerspell",
+        "sourceAction": "FINGERSPELL",
+        "sourceSha256": "9f5284e57787780e2070a65a0ef9428c2c62704eff571c5e5e7549b2140b39d4",
+        "frames": 83,
+        "anatomicalFrameError": 1.4088730182493236e-13,
+        "mappedNodes": 36,
+        "reference": "https://www.lifeprint.com/asl101/pages-signs/f/fingerspell.htm",
+        "qualifiedAslValidation": false
+      },
+      {
+        "id": "so_so",
+        "sourceAction": "SO-SO_fhhBx_WQGAo",
+        "sourceSha256": "361e2b9ec331a12dab6bd063df679673f92aeef9010bcb864aca97cd7c8ef5cb",
+        "frames": 47,
+        "anatomicalFrameError": 1.532107773982716e-13,
+        "mappedNodes": 36,
+        "reference": "https://www.lifeprint.com/asl101/pages-signs/s/so-so.htm",
+        "qualifiedAslValidation": false
+      },
+      {
+        "id": "grow_up",
+        "sourceAction": "GROW-UP-RAISED_hNj04ToIMkg",
+        "sourceSha256": "fff31a427aa9d0e4fb53358b7e937527ff0827184b52908b15798c41aae2347c",
+        "frames": 53,
+        "anatomicalFrameError": 1.667554982986985e-13,
+        "mappedNodes": 36,
+        "reference": "https://www.lifeprint.com/asl101/pages-signs/g/grow-up.htm",
+        "qualifiedAslValidation": false
+      }
+    ],
+    "againContactCorrection": {
+      "contactTimeSeconds": 2.433333158493042,
+      "previousTipToPalmSurfaceGapMeters": 0.07126209807746009,
+      "maxFingerRigidShiftErrorMeters": 1.8772255317089788e-08,
+      "fingerChannelsUnchanged": true,
+      "otherActionsUnchanged": 247,
+      "qualifiedAslValidation": false
+    }
+  },
+  "everydayExpansion3": {
+    "version": 1,
+    "baselineSha256": "c8e86f065acd1bb0fe39ee7524daad73324106a53fb8b455bf89744e4a1a778d",
+    "preservedActions": 248,
+    "newLexicalActions": 10,
+    "sourceGeometryUnchanged": true,
+    "qualifiedAslValidations": 0,
+    "construction": "REFERENCE_AUTHORED_PREVIEW",
+    "checks": [
+      {
+        "id": "stop",
+        "reference": "https://www.lifeprint.com/asl101/pages-signs/s/stop.htm"
+      },
+      {
+        "id": "understand",
+        "reference": "https://www.lifeprint.com/asl101/pages-signs/u/understand.htm"
+      },
+      {
+        "id": "hungry",
+        "reference": "https://www.lifeprint.com/asl101/pages-signs/h/hungry.htm"
+      },
+      {
+        "id": "finish",
+        "reference": "https://www.lifeprint.com/asl101/pages-signs/f/finish.htm"
+      },
+      {
+        "id": "tired",
+        "reference": "https://www.lifeprint.com/asl101/pages-signs/t/tired.htm"
+      },
+      {
+        "id": "deaf",
+        "reference": "https://www.lifeprint.com/asl101/pages-signs/d/deaf.htm"
+      },
+      {
+        "id": "hearing",
+        "reference": "https://www.lifeprint.com/asl101/pages-signs/h/hearing.htm"
+      },
+      {
+        "id": "learn",
+        "reference": "https://www.lifeprint.com/asl101/pages-signs/l/learn.htm"
+      },
+      {
+        "id": "rain",
+        "reference": "https://www.lifeprint.com/asl101/pages-signs/r/rain.htm"
+      },
+      {
+        "id": "now",
+        "reference": "https://www.lifeprint.com/asl101/pages-signs/n/now.htm"
+      }
+    ],
+    "tiredCorrection": {
+      "sourceBundleSha256": "9abc31e5eed7597c96e4cded055176427ea25fb8fd8999a32966409961208990",
+      "changedRotationChannels": 6,
+      "unchangedActions": 257,
+      "fingerChannelsUnchanged": true,
+      "sourceGeometryUnchanged": true,
+      "qualifiedAslValidation": false,
+      "correction": "Bent hands slump downward through wrist rotation around stable chest-area MCP anchors; no downward sliding of the whole hand."
+    }
+  }
+}

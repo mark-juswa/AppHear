@@ -7,6 +7,8 @@ data class AslAnimationAsset(
     val type: Type,
     val aliases: List<String>,
     val replacement: Replacement? = null,
+    val metadata: SignDictionaryMetadata = SignDictionaryMetadata(),
+    val neutralFrameSeconds: Double? = null,
 ) {
     fun originalFallback(): AslAnimationAsset? = replacement?.fallbackAssetPath?.let { path ->
         copy(assetPath = path, replacement = null)

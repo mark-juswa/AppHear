@@ -1,0 +1,74 @@
+{
+  "schemaVersion": 1,
+  "language": "ASL",
+  "aliases": [
+    {
+      "signId": "bye",
+      "english": [
+        "goodbye"
+      ],
+      "gloss": [
+        "BYE"
+      ],
+      "asset": "asl_animations/original_words_v1/bye.glb",
+      "sha256": "12ceb5ed534b4eccc9dd4fc3336885cb55a4f1967ac08d22df10adb5a99ad5ba",
+      "reference": "https://www.lifeprint.com/asl101/pages-signs/b/bye.htm",
+      "license": "Existing AppHear clip retained; motion provenance unresolved. Reference link only, no reference media copied.",
+      "status": "UNREVIEWED_PREVIEW_ALIAS",
+      "technicalPlaybackStatus": "Requires device playback evaluation",
+      "linguisticValidationStatus": "UNREVIEWED"
+    },
+    {
+      "signId": "mother",
+      "english": [
+        "mom",
+        "mum"
+      ],
+      "gloss": [
+        "MOTHER"
+      ],
+      "asset": "asl_animations/original_words_v1/mother.glb",
+      "sha256": "54d2935e4ac0f4a65b0f3aa397b0e5ddff0bdce5a333587a7dfbaab4f9f1e07f",
+      "reference": "https://www.lifeprint.com/asl101/pages-signs/m/mom.htm",
+      "license": "Existing AppHear motion retained; provenance unresolved. Reference link only, no reference media copied.",
+      "status": "UNREVIEWED_PREVIEW_ALIAS",
+      "technicalPlaybackStatus": "Technical review required; not qualified ASL review",
+      "linguisticValidationStatus": "UNREVIEWED",
+      "usageNotes": "Everyday English alternatives for MOTHER."
+    },
+    {
+      "signId": "father",
+      "english": [
+        "dad"
+      ],
+      "gloss": [
+        "FATHER"
+      ],
+      "asset": "asl_animations/original_words_v1/father.glb",
+      "sha256": "12f452cb6592b86b697b33f0c0d2049b758441150b395136bd0cf493da21b275",
+      "reference": "https://www.lifeprint.com/asl101/pages-signs/d/dad.htm",
+      "license": "Existing AppHear motion retained; provenance unresolved. Reference link only, no reference media copied.",
+      "status": "UNREVIEWED_PREVIEW_ALIAS",
+      "technicalPlaybackStatus": "Technical review required; not qualified ASL review",
+      "linguisticValidationStatus": "UNREVIEWED",
+      "usageNotes": "Everyday English alternative for FATHER."
+    },
+    {
+      "signId": "ok",
+      "english": [
+        "okay"
+      ],
+      "gloss": [
+        "OK"
+      ],
+      "asset": "asl_animations/original_words_v1/ok.glb",
+      "sha256": "63115a7d3ed0af3cb57f08a38d8f1e6da53bbd9e2cc28c586d2a8b1ae754c462",
+      "reference": "https://www.lifeprint.com/asl101/pages-signs/o/okay.htm",
+      "license": "Existing AppHear motion retained; provenance unresolved. Reference link only, no reference media copied.",
+      "status": "UNREVIEWED_PREVIEW_ALIAS",
+      "technicalPlaybackStatus": "Technical review required; not qualified ASL review",
+      "linguisticValidationStatus": "UNREVIEWED",
+      "usageNotes": "Alternative spelling for the existing OK expression."
+    }
+  ]
+}

@@ -6,6 +6,11 @@ import com.example.apphear.BuildConfig
 import com.example.apphear.domain.texttoasl.AslAnimationAsset
 import com.example.apphear.domain.texttoasl.AslAnimationCatalog
 import com.example.apphear.domain.texttoasl.OriginalWordBatchCatalog
+import com.example.apphear.domain.texttoasl.AslAvatarCatalogPolicy
+import com.example.apphear.domain.texttoasl.SignDictionaryMetadata
+import com.example.apphear.domain.texttoasl.AslResidentAvatarBundle
+import com.example.apphear.domain.texttoasl.AslFingerspellingBundle
+import com.example.apphear.domain.texttoasl.AslVocabularyExpansion
 import org.json.JSONObject
 import java.io.BufferedReader
 import java.io.InputStreamReader
@@ -48,12 +53,76 @@ class AndroidAssetAslCatalogLoader(
         } else {
             PilotCatalog(assets)
         }
-        return try {
-            AslAnimationCatalog.fromAssets(selected.assets, selected.letters)
-        } catch (exception: IllegalArgumentException) {
-            Log.w("TextToAslAssets", "Pilot aliases rejected; using original catalog", exception)
-            AslAnimationCatalog.fromAssets(assets)
+        if (!BuildConfig.ASL_ASSET_PILOT_ENABLED) return AslAnimationCatalog.fromAssets(selected.assets, selected.letters)
+        val compatible = if (useNewCharacter) AslAvatarCatalogPolicy.newHuman(selected.assets)
+            else AslAvatarCatalogPolicy.originalHuman(selected.assets)
+        val profile = if (useNewCharacter) SignDictionaryMetadata.AvatarProfile.NEW_HUMAN
+            else SignDictionaryMetadata.AvatarProfile.ORIGINAL_HUMAN
+        val letters = selected.letters.mapValues { (_, asset) -> asset.copy(
+            metadata = asset.metadata.copy(avatarProfile = profile,
+                source = "asl_animations/vnext/manifest.json")) }
+        // Catalog errors fail visibly; they must never silently change character.
+        val expanded = AslDictionaryExtensions(context).load(compatible, profile)
+        val resident = if (profile == SignDictionaryMetadata.AvatarProfile.ORIGINAL_HUMAN) loadResidentBundle(expanded) else expanded
+        if (profile == SignDictionaryMetadata.AvatarProfile.ORIGINAL_HUMAN && BuildConfig.ASL_ALPHABET_FALLBACK_ENABLED) {
+            // Fail visibly on corrupt alphabet data. Never load a second character to spell.
+            val root = JSONObject(readAssetText(AslFingerspellingBundle.MANIFEST))
+            require(root.getInt("schemaVersion") == 1 && root.getString("language") == "ASL" &&
+                root.getString("avatarProfile") == "ORIGINAL_HUMAN" &&
+                root.getString("asset") == AslFingerspellingBundle.PATH &&
+                root.getString("status") == "UNREVIEWED_RETARGETED_PREVIEW" &&
+                root.getString("sha256") == AslFingerspellingBundle.SHA256)
+            val digest = MessageDigest.getInstance("SHA-256")
+            context.assets.open(AslFingerspellingBundle.PATH).use { input ->
+                val buffer = ByteArray(64 * 1024)
+                while (true) { val count = input.read(buffer); if (count < 0) break; digest.update(buffer, 0, count) }
+            }
+            require(digest.digest().joinToString("") { "%02x".format(it) } == AslFingerspellingBundle.SHA256)
+            val raw = root.getJSONArray("letters")
+            val alphabet = AslFingerspellingBundle.letters((0 until raw.length()).map { index ->
+                val e = raw.getJSONObject(index)
+                val character = e.getString("letter")
+                require(character.length == 1)
+                AslFingerspellingBundle.Letter(character.single(), e.getString("animationName"), e.getLong("durationMs"))
+            })
+            val words = root.optJSONArray("wordAdditions")
+            val additions = if (words == null) emptyList() else (0 until words.length()).map { index ->
+                val entry = words.getJSONObject(index)
+                require(entry.getString("status") in setOf("UNREVIEWED_RETARGETED_PREVIEW", "UNREVIEWED_NATIVE_VARIANT_PREVIEW"))
+                val forms = entry.getJSONArray("english")
+                validateAssetExists(entry.getString("sourceAsset"))
+                AslVocabularyExpansion.Word(entry.getString("id"),
+                    (0 until forms.length()).map(forms::getString), entry.getString("animationName"),
+                    entry.getLong("durationMs"), entry.getString("sourceAsset"), entry.getString("sourceSha256"),
+                    entry.getString("reference"), entry.getString("meaning"), entry.getString("license"),
+                    entry.optString("variantOf").takeIf { it.isNotBlank() },
+                    entry.optString("construction", "RETARGETED_PREVIEW"))
+            }
+            val unified = AslVocabularyExpansion.merge(resident.map { it.copy(assetPath = AslFingerspellingBundle.PATH) }, additions)
+            return AslAnimationCatalog.fromAssets(unified, alphabet)
         }
+        return AslAnimationCatalog.fromAssets(resident, letters)
+    }
+
+    private fun loadResidentBundle(base: List<AslAnimationAsset>): List<AslAnimationAsset> {
+        val root = JSONObject(readAssetText(AslResidentAvatarBundle.MANIFEST))
+        require(root.getInt("schemaVersion") == 1 && root.getString("language") == "ASL" &&
+            root.getString("avatarProfile") == "ORIGINAL_HUMAN" && root.getString("asset") == AslResidentAvatarBundle.PATH)
+        require(root.getString("sha256") == AslResidentAvatarBundle.SHA256)
+        val digest = MessageDigest.getInstance("SHA-256")
+        context.assets.open(AslResidentAvatarBundle.PATH).use { input ->
+            val bytes = ByteArray(64 * 1024)
+            while (true) { val n = input.read(bytes); if (n < 0) break; digest.update(bytes, 0, n) }
+        }
+        require(digest.digest().joinToString("") { "%02x".format(it) } == AslResidentAvatarBundle.SHA256)
+        val entries = root.getJSONArray("animations")
+        val motions = (0 until entries.length()).map {
+            val e = entries.getJSONObject(it)
+            AslResidentAvatarBundle.Motion(e.getString("id"), e.getString("animationName"),
+                e.getLong("durationMs"), e.getString("sourceAsset"))
+        }
+        // Missing/corrupt bundle fails visibly; never switch to individual legacy models.
+        return AslResidentAvatarBundle.map(base, motions)
     }
 
     private data class PilotCatalog(

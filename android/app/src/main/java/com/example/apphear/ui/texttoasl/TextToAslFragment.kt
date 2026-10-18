@@ -24,11 +24,15 @@ import com.example.apphear.TextToAslArgument
 import com.example.apphear.databinding.FragmentTextToAslBinding
 import com.example.apphear.contextassist.ConversationPhraseAssist
 import com.example.apphear.contextassist.ConversationSource
-import com.example.apphear.data.settings.AslCharacterSettings
+import com.example.apphear.domain.texttoasl.AslSingleAvatarPolicy
 import com.example.apphear.domain.texttoasl.AslCharacterChoice
 import com.example.apphear.domain.texttoasl.AslAnimationAsset
 import com.example.apphear.domain.texttoasl.AslAnimationCatalog
 import com.example.apphear.domain.texttoasl.AslPhrasePlanner
+import com.example.apphear.domain.texttoasl.TextToAslPlan
+import com.example.apphear.domain.texttoasl.SignDictionaryMetadata
+import com.example.apphear.domain.texttoasl.AslTranslationPlanner
+import com.example.apphear.domain.texttoasl.AslGrammarRegistry
 import com.example.apphear.ui.speech.AppHearSpeechPlayer
 import com.example.apphear.ui.speech.SpeechInputHelper
 import java.util.Locale
@@ -42,12 +46,15 @@ class TextToAslFragment : Fragment(R.layout.fragment_text_to_asl) {
     private var binding: FragmentTextToAslBinding? = null
     private var animationCatalog: AslAnimationCatalog? = null
     private var phrasePlanner: AslPhrasePlanner? = null
+    private var translationPlanner: AslTranslationPlanner? = null
     private var avatarController: TextToAslPlaybackController? = null
     private var idleAsset: AslAnimationAsset? = null
     private var currentQueue: List<AslAnimationAsset> = emptyList()
     private var unsupportedWords: List<String> = emptyList()
     private var currentIndex: Int = 0
     private var lastInputText: String = ""
+    private var playbackDescription: String = "ASL dictionary preview"
+    private var translationNotice: String? = null
     private var speechPlayer: AppHearSpeechPlayer? = null
     private var avatarReady: Boolean = false
     private var queuedSubmitUntilReady: Boolean = false
@@ -79,9 +86,10 @@ class TextToAslFragment : Fragment(R.layout.fragment_text_to_asl) {
     private val playHandler = Handler(Looper.getMainLooper())
     private val advanceRunnable = Runnable {
         if (BuildConfig.ASL_ASSET_PILOT_ENABLED) {
-            Log.w("TextToAslPlayback", "Pilot watchdog advance id=${currentQueue.getOrNull(currentIndex)?.id}")
+            failPlayback("Playback stopped responding. Tap Repeat to retry.")
+        } else {
+            advancePlayback()
         }
-        advancePlayback()
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -98,7 +106,8 @@ class TextToAslFragment : Fragment(R.layout.fragment_text_to_asl) {
     }
 
     private fun setupTextToAslEngine(fragmentBinding: FragmentTextToAslBinding) {
-        val choice = AslCharacterSettings(requireContext()).current()
+        // Keep existing settings/storage intact; this module uses one human avatar only.
+        val choice = AslSingleAvatarPolicy.choice
         if (activeCharacter != null && activeCharacter != choice) {
             resetQueueForCharacterChange(fragmentBinding)
         }
@@ -106,17 +115,26 @@ class TextToAslFragment : Fragment(R.layout.fragment_text_to_asl) {
         engineJob?.cancel()
         engineJob = viewLifecycleOwner.lifecycleScope.launch {
             try {
+                require(BuildConfig.ASL_ASSET_PILOT_ENABLED && BuildConfig.ASL_ORIGINAL_WORDS_ENABLED) {
+                    "Single human avatar requires the existing OriginalWords build configuration"
+                }
                 val appContext = requireContext().applicationContext
-                val catalog = withContext(Dispatchers.IO) {
-                    AndroidAssetAslCatalogLoader(appContext, choice == AslCharacterChoice.NEW).load()
+                val (catalog, grammar) = withContext(Dispatchers.IO) {
+                    AndroidAssetAslCatalogLoader(appContext, choice == AslCharacterChoice.NEW).load() to
+                        if (BuildConfig.ASL_ASSET_PILOT_ENABLED) AndroidAslGrammarLoader(appContext).load()
+                        else AslGrammarRegistry(enabled = false)
                 }
                 if (binding !== fragmentBinding) return@launch
                 animationCatalog = catalog
                 phrasePlanner = AslPhrasePlanner(catalog,
-                    completeWordFallback = BuildConfig.ASL_ALPHABET_FALLBACK_ENABLED)
+                    completeWordFallback = BuildConfig.ASL_ALPHABET_FALLBACK_ENABLED,
+                    dictionarySequenceMode = BuildConfig.ASL_ASSET_PILOT_ENABLED)
+                translationPlanner = AslTranslationPlanner(catalog, grammar, requireNotNull(phrasePlanner))
                 idleAsset = catalog.findByAlias("idle")
                 Log.d("TextToAslAssets", "Character=${choice.preferenceValue} entries=${catalog.getAssets().size}")
-                avatarController = TextToAslPlaybackController(requireContext(), fragmentBinding.avatarWebView).also { controller ->
+                val profile = if (choice == AslCharacterChoice.NEW) SignDictionaryMetadata.AvatarProfile.NEW_HUMAN
+                    else SignDictionaryMetadata.AvatarProfile.ORIGINAL_HUMAN
+                avatarController = TextToAslPlaybackController(requireContext(), fragmentBinding.avatarWebView, profile).also { controller ->
                     controller.setReadyCallback(
                         object : TextToAslPlaybackController.ReadyCallback {
                             override fun onReady() {
@@ -127,8 +145,7 @@ class TextToAslFragment : Fragment(R.layout.fragment_text_to_asl) {
                                     binding?.avatarPlaceholder?.setText(R.string.asl_character_loading)
                                 }
                                 binding?.currentProgressText?.text = "Ready"
-                                avatarReady = !(BuildConfig.ASL_ALPHABET_FALLBACK_ENABLED &&
-                                    choice == AslCharacterChoice.NEW)
+                                avatarReady = !BuildConfig.ASL_ASSET_PILOT_ENABLED
                                 if (!BuildConfig.ASL_ASSET_PILOT_ENABLED ||
                                     viewLifecycleOwner.lifecycle.currentState.isAtLeast(Lifecycle.State.STARTED)) {
                                     showIdleAvatar()
@@ -143,8 +160,7 @@ class TextToAslFragment : Fragment(R.layout.fragment_text_to_asl) {
                                 if (BuildConfig.ASL_NEW_IDLE_ENABLED && activeCharacter == AslCharacterChoice.NEW) {
                                     binding?.avatarPlaceholder?.isVisible = false
                                 }
-                                if (BuildConfig.ASL_ALPHABET_FALLBACK_ENABLED &&
-                                    activeCharacter == AslCharacterChoice.NEW && asset.id == "idle" && !avatarReady) {
+                                if (BuildConfig.ASL_ASSET_PILOT_ENABLED && asset.id == "idle" && !avatarReady) {
                                     avatarReady = true
                                     resumeColdIdle = false
                                     if (queuedSubmitUntilReady) {
@@ -163,9 +179,12 @@ class TextToAslFragment : Fragment(R.layout.fragment_text_to_asl) {
                             }
 
                             override fun onFailed(asset: AslAnimationAsset) {
+                                if (asset.id == "idle") {
+                                    binding?.currentProgressText?.text = "Selected avatar unavailable. Tap Repeat to retry."
+                                    avatarReady = false
+                                }
                                 if (currentQueue.getOrNull(currentIndex)?.id == asset.id) {
-                                    Toast.makeText(requireContext(), "Unable to play ${asset.displayText}", Toast.LENGTH_SHORT).show()
-                                    advancePlayback()
+                                    failPlayback("Unable to play " + asset.displayText + ". Tap Repeat to retry.")
                                 }
                             }
 
@@ -287,12 +306,12 @@ class TextToAslFragment : Fragment(R.layout.fragment_text_to_asl) {
             return
         }
 
-        if (BuildConfig.ASL_ALPHABET_FALLBACK_ENABLED &&
-            activeCharacter == AslCharacterChoice.NEW && !avatarReady) {
+        if (BuildConfig.ASL_ASSET_PILOT_ENABLED && !avatarReady) {
             queuedSubmitUntilReady = true
             queuedSubmitSource = source
             queuedSubmitRecordTurn = recordTurn
             fragmentBinding.currentProgressText.setText(R.string.asl_character_loading)
+            avatarController?.let { if (it.isReady) showIdleAvatar() }
             return
         }
 
@@ -303,7 +322,19 @@ class TextToAslFragment : Fragment(R.layout.fragment_text_to_asl) {
         }
 
         playHandler.removeCallbacks(advanceRunnable)
-        val plan = planner.plan(requestedText)
+        avatarController?.pause() // Invalidate the old request before replacing its queue.
+        val plan = if (BuildConfig.ASL_ASSET_PILOT_ENABLED) translationPlanner?.plan(requestedText)
+            ?: planner.plan(requestedText) else planner.plan(requestedText)
+        translationNotice = plan.translationNotice
+        playbackDescription = when (plan.mode) {
+            TextToAslPlan.Mode.VALIDATED_PHRASE -> "Reviewed ASL phrase"
+            TextToAslPlan.Mode.WORD_SEQUENCE -> "ASL word sequence"
+            TextToAslPlan.Mode.MIXED_FINGERSPELLING -> "Word signs + fingerspelling"
+            TextToAslPlan.Mode.BLOCKED_MEANING -> "No signing output"
+            else -> "ASL dictionary preview"
+        }
+        if (plan.queue.any { !it.metadata.isLinguisticallyValidated })
+            playbackDescription += " (unreviewed clips)"
         if (recordTurn) ConversationPhraseAssist.recordHearingMessage(
             requireContext().applicationContext, requestedText, source)
         lastInputText = requestedText
@@ -319,7 +350,9 @@ class TextToAslFragment : Fragment(R.layout.fragment_text_to_asl) {
 
         if (currentQueue.isEmpty()) {
             fragmentBinding.currentSignText.setText(R.string.text_to_asl_current_sign_placeholder)
-            if (plan.unsupportedTokens.isEmpty()) {
+            if (translationNotice != null) {
+                fragmentBinding.currentProgressText.text = progressWithUnsupported("Unavailable")
+            } else if (plan.unsupportedTokens.isEmpty()) {
                 fragmentBinding.currentProgressText.setText(R.string.text_to_asl_no_animation)
             }
             showIdleAvatar()
@@ -340,6 +373,7 @@ class TextToAslFragment : Fragment(R.layout.fragment_text_to_asl) {
             return
         }
         playHandler.removeCallbacks(advanceRunnable)
+        avatarController?.pause()
         currentIndex = 0
         playCurrentAsset()
     }
@@ -348,6 +382,7 @@ class TextToAslFragment : Fragment(R.layout.fragment_text_to_asl) {
         val fragmentBinding = binding ?: return
         ConversationPhraseAssist.clearPendingHearingReply()
         playHandler.removeCallbacks(advanceRunnable)
+        avatarController?.pause()
         currentQueue = emptyList()
         unsupportedWords = emptyList()
         queuedSubmitUntilReady = false
@@ -355,6 +390,7 @@ class TextToAslFragment : Fragment(R.layout.fragment_text_to_asl) {
         queuedSubmitRecordTurn = true
         currentIndex = 0
         lastInputText = ""
+        translationNotice = null
         fragmentBinding.inputText.text?.clear()
         fragmentBinding.signedText.setText(R.string.text_to_asl_idle_text)
         fragmentBinding.signedText.isVisible = !fragmentBinding.expandableContent.isVisible
@@ -379,6 +415,13 @@ class TextToAslFragment : Fragment(R.layout.fragment_text_to_asl) {
         }
     }
 
+    private fun failPlayback(message: String) {
+        playHandler.removeCallbacks(advanceRunnable)
+        avatarController?.pause()
+        binding?.currentProgressText?.text = progressWithUnsupported(message)
+        // Keep the plan for the existing Repeat action; failure never means success.
+    }
+
     private fun advancePlayback() {
         playHandler.removeCallbacks(advanceRunnable)
         currentIndex++
@@ -399,10 +442,12 @@ class TextToAslFragment : Fragment(R.layout.fragment_text_to_asl) {
     }
 
     private fun progressWithUnsupported(progress: String): String {
-        return if (BuildConfig.ASL_ALPHABET_FALLBACK_ENABLED && unsupportedWords.isNotEmpty()) {
-            "$progress • Unsupported: ${unsupportedWords.joinToString(", ")}"
+        val notice = translationNotice?.let { " · $it" }.orEmpty()
+        val description = if (BuildConfig.ASL_ASSET_PILOT_ENABLED) "$playbackDescription$notice · $progress" else progress
+        return if (unsupportedWords.isNotEmpty()) {
+            "$description • Unsupported for this avatar: ${unsupportedWords.joinToString(", ")}"
         } else {
-            progress
+            description
         }
     }
 
@@ -449,21 +494,7 @@ class TextToAslFragment : Fragment(R.layout.fragment_text_to_asl) {
     override fun onStart() {
         super.onStart()
         val fragmentBinding = binding ?: return
-        val settings = AslCharacterSettings(requireContext())
-        if (settings.selectionAvailable && activeCharacter != settings.current()) {
-            playHandler.removeCallbacks(advanceRunnable)
-            engineJob?.cancel()
-            avatarController?.destroy(releaseWebView = false)
-            avatarController = null
-            avatarReady = false
-            animationCatalog = null
-            phrasePlanner = null
-            idleAsset = null
-            resetQueueForCharacterChange(fragmentBinding)
-            fragmentBinding.currentProgressText.setText(R.string.asl_character_loading)
-            setupTextToAslEngine(fragmentBinding)
-            return
-        }
+        // Returning from settings must not recreate the resident engine or change its rig.
         if (resumeColdIdle && BuildConfig.ASL_ALPHABET_FALLBACK_ENABLED &&
             activeCharacter == AslCharacterChoice.NEW && idleAsset != null) {
             resumeColdIdle = false
@@ -496,6 +527,7 @@ class TextToAslFragment : Fragment(R.layout.fragment_text_to_asl) {
         resumeColdIdle = false
         animationCatalog = null
         phrasePlanner = null
+        translationPlanner = null
         idleAsset = null
         speechPlayer?.close()
         speechPlayer = null

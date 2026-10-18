@@ -1,0 +1,1431 @@
+{
+  "schemaVersion": 1,
+  "language": "ASL",
+  "avatarProfile": "ORIGINAL_HUMAN",
+  "asset": "asl_animations/original_words_v1/resident-avatar.glb",
+  "sha256": "4af1e10c9448d33db03cede4705dd2e7f851f12bb8394669b77d847bf885d3bf",
+  "bytes": 19998976,
+  "animations": [
+    {
+      "id": "all",
+      "animationName": "SIGN_ALL",
+      "durationMs": 2333,
+      "sourceAsset": "asl_animations/original_words_v1/all.glb",
+      "sourceSha256": "83897130a536ad30de8dbe4489bd55c4c6342ee02729fe4ca95a397f2236e684"
+    },
+    {
+      "id": "brother",
+      "animationName": "SIGN_BROTHER",
+      "durationMs": 1733,
+      "sourceAsset": "asl_animations/original_words_v1/brother.glb",
+      "sourceSha256": "7e2456d95988cf33db024929efd7f186aa9f62562f6e632101d27e4ba88ed0bf"
+    },
+    {
+      "id": "child",
+      "animationName": "SIGN_CHILD",
+      "durationMs": 2033,
+      "sourceAsset": "asl_animations/original_words_v1/child.glb",
+      "sourceSha256": "a947014f902330a36dfdab2b7dff6574d59fa3e0c1bc4293073e54869387f5a5"
+    },
+    {
+      "id": "city",
+      "animationName": "SIGN_CITY",
+      "durationMs": 2533,
+      "sourceAsset": "asl_animations/original_words_v1/city.glb",
+      "sourceSha256": "0b7578cf338f93442ecd084053a0f251827f37421a7535477d03b479b8540e84"
+    },
+    {
+      "id": "family",
+      "animationName": "SIGN_FAMILY",
+      "durationMs": 2533,
+      "sourceAsset": "asl_animations/original_words_v1/family.glb",
+      "sourceSha256": "3c5c3a474e0b7fee102c17abb331747e8145abe6886d89c272d88c26e79bf827"
+    },
+    {
+      "id": "good",
+      "animationName": "SIGN_GOOD",
+      "durationMs": 1500,
+      "sourceAsset": "asl_animations/original_words_v1/good.glb",
+      "sourceSha256": "67e41eafdc59a976378ae77db82ff8b92a7a468b31b713795b5d9c8f43d1961b"
+    },
+    {
+      "id": "male_boy",
+      "animationName": "SIGN_GUY",
+      "durationMs": 2233,
+      "sourceAsset": "asl_animations/original_words_v1/guy.glb",
+      "sourceSha256": "04442e570a1dd4d330c681214bf99988e02a05a3c66e8230b4feba42ca44736b"
+    },
+    {
+      "id": "have",
+      "animationName": "SIGN_HAVE",
+      "durationMs": 1867,
+      "sourceAsset": "asl_animations/original_words_v1/have.glb",
+      "sourceSha256": "87e47697503a93dd1fde1a99b6da07a1452f2ac425f0d6c010a55ea5a919b771"
+    },
+    {
+      "id": "he_she",
+      "animationName": "SIGN_HE",
+      "durationMs": 2400,
+      "sourceAsset": "asl_animations/original_words_v1/he.glb",
+      "sourceSha256": "527fde034e298ed1a2d7d99ceef4116d8e282987d3cc0291db25f76387c3889f"
+    },
+    {
+      "id": "hello",
+      "animationName": "SIGN_HELLO",
+      "durationMs": 2067,
+      "sourceAsset": "asl_animations/original_words_v1/hello.glb",
+      "sourceSha256": "5d0766b258b6d886a16d64d1844c25d123ada73c91b4f505bca3e1fc0a8cacae"
+    },
+    {
+      "id": "house",
+      "animationName": "SIGN_HOUSE",
+      "durationMs": 1833,
+      "sourceAsset": "asl_animations/original_words_v1/house.glb",
+      "sourceSha256": "2579594e2ccd2480aa6a7ed56bedcbd57356d4ea4aa5e39e77225c1fc2b61738"
+    },
+    {
+      "id": "husband",
+      "animationName": "SIGN_HUSBAND",
+      "durationMs": 1867,
+      "sourceAsset": "asl_animations/original_words_v1/husband.glb",
+      "sourceSha256": "6c4b02ac8d7956fdd4f82bdc9ed025888a04efc4458867b54962d9166285b132"
+    },
+    {
+      "id": "i_me",
+      "animationName": "SIGN_I",
+      "durationMs": 2267,
+      "sourceAsset": "asl_animations/original_words_v1/i.glb",
+      "sourceSha256": "d74e2b93e9d032c473f90d550a379228a0aad40b25282093cf409ff4d377fe51"
+    },
+    {
+      "id": "like_affection_for",
+      "animationName": "SIGN_LIKE",
+      "durationMs": 2433,
+      "sourceAsset": "asl_animations/original_words_v1/like.glb",
+      "sourceSha256": "d483f5e0e750e16d3168006c90463dd79de20a538d365edc766955135611a132"
+    },
+    {
+      "id": "little_small",
+      "animationName": "SIGN_LITTLE",
+      "durationMs": 3167,
+      "sourceAsset": "asl_animations/original_words_v1/little.glb",
+      "sourceSha256": "8cd64075ea6c90ed4590724073ed086bc1d688a687853b845dc233969f237ec0"
+    },
+    {
+      "id": "live",
+      "animationName": "SIGN_LIVE",
+      "durationMs": 1900,
+      "sourceAsset": "asl_animations/original_words_v1/live.glb",
+      "sourceSha256": "9db4fe9999fa9a7adb0494700be465ac9fc0b3ec634d3f822b61f7980c9aa591"
+    },
+    {
+      "id": "man",
+      "animationName": "SIGN_MAN",
+      "durationMs": 1800,
+      "sourceAsset": "asl_animations/original_words_v1/man.glb",
+      "sourceSha256": "81e3a8fbbacb16e3985a620df62f218ca2b5f8ee035f392498ef0dcb31252650"
+    },
+    {
+      "id": "more",
+      "animationName": "SIGN_MORE",
+      "durationMs": 2133,
+      "sourceAsset": "asl_animations/original_words_v1/more.glb",
+      "sourceSha256": "ecc1b2b111b21e8efebb70b4059e8ee26cadb1f76bfd82a60ba5df4d4d9785f1"
+    },
+    {
+      "id": "morning",
+      "animationName": "SIGN_MORNING",
+      "durationMs": 2133,
+      "sourceAsset": "asl_animations/original_words_v1/morning.glb",
+      "sourceSha256": "71ceef52bcfae870a51baaab4800304f6b4a74d8a2bee722159eaab6d8db1a81"
+    },
+    {
+      "id": "my_mine",
+      "animationName": "SIGN_MY",
+      "durationMs": 1367,
+      "sourceAsset": "asl_animations/original_words_v1/my.glb",
+      "sourceSha256": "1c4df248963d0ef046620127abff2e7a0459cefcd75cd7a856c32ecdf2d71f9a"
+    },
+    {
+      "id": "need",
+      "animationName": "SIGN_NEED",
+      "durationMs": 2533,
+      "sourceAsset": "asl_animations/original_words_v1/need.glb",
+      "sourceSha256": "3e54a685cc7217753ba849826fb4ecd3264e1c362444c5857cdf35aa3d796c71"
+    },
+    {
+      "id": "no",
+      "animationName": "SIGN_NO",
+      "durationMs": 3000,
+      "sourceAsset": "asl_animations/original_words_v1/no.glb",
+      "sourceSha256": "11a86eeba1c14d268da06bc841902cc13096d404315903b809ec86f0276dc0a0"
+    },
+    {
+      "id": "our",
+      "animationName": "SIGN_OUR",
+      "durationMs": 2600,
+      "sourceAsset": "asl_animations/original_words_v1/our.glb",
+      "sourceSha256": "c592e4a1d12aba810af98f6a7d334f3921b905d31e7f3195f1842650c8da13fb"
+    },
+    {
+      "id": "school",
+      "animationName": "SIGN_SCHOOL",
+      "durationMs": 2833,
+      "sourceAsset": "asl_animations/original_words_v1/school.glb",
+      "sourceSha256": "a016f2617bd4baa1a399cf086778b83183dd02a7b9ffa021392b7f6d0d13e036"
+    },
+    {
+      "id": "sister",
+      "animationName": "SIGN_SISTER",
+      "durationMs": 1600,
+      "sourceAsset": "asl_animations/original_words_v1/sister.glb",
+      "sourceSha256": "84d453b3836ab284a29993c01281be447d836612e11212c41cb102e8c2463eac"
+    },
+    {
+      "id": "thank_you",
+      "animationName": "SIGN_THANKS",
+      "durationMs": 2567,
+      "sourceAsset": "asl_animations/original_words_v1/thanks.glb",
+      "sourceSha256": "956f7789584652ba9c3174b4f739152bf807f3d03712370853e356b97bf763a0"
+    },
+    {
+      "id": "them",
+      "animationName": "SIGN_THEM",
+      "durationMs": 2433,
+      "sourceAsset": "asl_animations/original_words_v1/them.glb",
+      "sourceSha256": "ae2588d977d25cc5587d066c267c5cee4d611eb57d107752f037e54d36e8f85a"
+    },
+    {
+      "id": "think",
+      "animationName": "SIGN_THINK",
+      "durationMs": 1900,
+      "sourceAsset": "asl_animations/original_words_v1/think.glb",
+      "sourceSha256": "2d052e9156dff6e395c343725514fd6d4058d4d8b02977fdda0f198eff8f2969"
+    },
+    {
+      "id": "us",
+      "animationName": "SIGN_US",
+      "durationMs": 2167,
+      "sourceAsset": "asl_animations/original_words_v1/us.glb",
+      "sourceSha256": "5fb3facb9f121c909acd199a315de6d06e94a1b14221d493819a858e5bfd1122"
+    },
+    {
+      "id": "what",
+      "animationName": "SIGN_WHAT",
+      "durationMs": 2100,
+      "sourceAsset": "asl_animations/original_words_v1/what.glb",
+      "sourceSha256": "fe7c3fa5b49f20fb551970b49afab98509f127ca15b018ada6ecd12a4620d910"
+    },
+    {
+      "id": "lady_woman",
+      "animationName": "SIGN_WOMAN",
+      "durationMs": 2300,
+      "sourceAsset": "asl_animations/original_words_v1/woman.glb",
+      "sourceSha256": "99b4d7cdf50c2898bbe2bc5f2c727a05410d6184fdc060cdc9729d34ad5a7724"
+    },
+    {
+      "id": "your_yours",
+      "animationName": "SIGN_YOUR",
+      "durationMs": 1967,
+      "sourceAsset": "asl_animations/original_words_v1/your.glb",
+      "sourceSha256": "e4605a42d94da2dbf4951960e14a33721242f0e20a09641e8f82fb3234c4bab5"
+    },
+    {
+      "id": "afternoon",
+      "animationName": "SIGN_AFTERNOON",
+      "durationMs": 2333,
+      "sourceAsset": "asl_animations/original_words_v1/afternoon.glb",
+      "sourceSha256": "7bd594e28efb26e38829b311908110d3c276b232574c8ebd7034fd828186476b"
+    },
+    {
+      "id": "any",
+      "animationName": "SIGN_ANY",
+      "durationMs": 2900,
+      "sourceAsset": "asl_animations/original_words_v1/any.glb",
+      "sourceSha256": "bcfc8adb5690067b0eaa052f42b0a581026772f8e5e6ed03f476b77bbf54f34d"
+    },
+    {
+      "id": "ask",
+      "animationName": "SIGN_ASK",
+      "durationMs": 2567,
+      "sourceAsset": "asl_animations/original_words_v1/ask.glb",
+      "sourceSha256": "481a2ee8ea08f22805c5817acf883c55c33576bac36dd893ceb11ffa2e184513"
+    },
+    {
+      "id": "baby",
+      "animationName": "SIGN_BABY",
+      "durationMs": 3300,
+      "sourceAsset": "asl_animations/original_words_v1/baby.glb",
+      "sourceSha256": "9b80195ea4f6aa76dfc5593294a9ed6df7f99b5c4feef363a41161b9f2d7c371"
+    },
+    {
+      "id": "bad",
+      "animationName": "SIGN_BAD",
+      "durationMs": 2067,
+      "sourceAsset": "asl_animations/original_words_v1/bad.glb",
+      "sourceSha256": "e0b91aea8e8c41442659bc1a015025008ae3bb7c7abe497a841a700c776e43b3"
+    },
+    {
+      "id": "bag",
+      "animationName": "SIGN_BAG",
+      "durationMs": 2400,
+      "sourceAsset": "asl_animations/original_words_v1/bag.glb",
+      "sourceSha256": "e86d6153b3a2f0512d7ef34d1acdafc899e673abbd5a784d3f09199c1702bf8d"
+    },
+    {
+      "id": "be",
+      "animationName": "SIGN_BE",
+      "durationMs": 2033,
+      "sourceAsset": "asl_animations/original_words_v1/be.glb",
+      "sourceSha256": "b31ebe4a9ac098f1c212fac241292b68851e9abccdc2ab6fa9007abd9fa92a89"
+    },
+    {
+      "id": "beautiful",
+      "animationName": "SIGN_BEAUTIFUL",
+      "durationMs": 2567,
+      "sourceAsset": "asl_animations/original_words_v1/beautiful.glb",
+      "sourceSha256": "1f8dc2d0701c28b3ce06298681c0b7279b5901f20f270ff56ced610c4416dd94"
+    },
+    {
+      "id": "become",
+      "animationName": "SIGN_BECOME",
+      "durationMs": 2567,
+      "sourceAsset": "asl_animations/original_words_v1/become.glb",
+      "sourceSha256": "9464dd41a0c91f9394036c09c8bf88f16b483d3ced033c4ddb06898915b8c3fb"
+    },
+    {
+      "id": "bed",
+      "animationName": "SIGN_BED",
+      "durationMs": 2000,
+      "sourceAsset": "asl_animations/original_words_v1/bed.glb",
+      "sourceSha256": "d6ed3912f3cca000b8f3de3fa69bdd49fc5a80d89c376c43a53f363ecd469721"
+    },
+    {
+      "id": "begin",
+      "animationName": "SIGN_BEGIN",
+      "durationMs": 2167,
+      "sourceAsset": "asl_animations/original_words_v1/begin.glb",
+      "sourceSha256": "965260dcbf063df2e55ca9b64852152d00af47e3af7570836a1d70dc4e209a80"
+    },
+    {
+      "id": "big",
+      "animationName": "SIGN_BIG",
+      "durationMs": 2200,
+      "sourceAsset": "asl_animations/original_words_v1/big.glb",
+      "sourceSha256": "38405a5453a7776aa2696719025990870af20542ca10f0e6201e2599122fae66"
+    },
+    {
+      "id": "book",
+      "animationName": "SIGN_BOOK",
+      "durationMs": 2300,
+      "sourceAsset": "asl_animations/original_words_v1/book.glb",
+      "sourceSha256": "ddb0a43528f5a08e56b82c670ec7eb1176bbc08b7c1bfe522192e86fd690f5b9"
+    },
+    {
+      "id": "boss",
+      "animationName": "SIGN_BOSS",
+      "durationMs": 2100,
+      "sourceAsset": "asl_animations/original_words_v1/boss.glb",
+      "sourceSha256": "042aef638a2f1dcff9de678c63dce830bc0f928e07f4fcfd8ab335544acc33fd"
+    },
+    {
+      "id": "busy",
+      "animationName": "SIGN_BUSY",
+      "durationMs": 2333,
+      "sourceAsset": "asl_animations/original_words_v1/busy.glb",
+      "sourceSha256": "44523906431aa30f671d257db305f18071987a1d2532ca7f720b6a8be3159a55"
+    },
+    {
+      "id": "buy",
+      "animationName": "SIGN_BUY",
+      "durationMs": 2100,
+      "sourceAsset": "asl_animations/original_words_v1/buy.glb",
+      "sourceSha256": "583af587d2dafcf73bbafb3143f860453ca33c243c5b36e2a414593fd2a02cd9"
+    },
+    {
+      "id": "bye",
+      "animationName": "SIGN_BYE",
+      "durationMs": 2367,
+      "sourceAsset": "asl_animations/original_words_v1/bye.glb",
+      "sourceSha256": "12ceb5ed534b4eccc9dd4fc3336885cb55a4f1967ac08d22df10adb5a99ad5ba"
+    },
+    {
+      "id": "call",
+      "animationName": "SIGN_CALL",
+      "durationMs": 2367,
+      "sourceAsset": "asl_animations/original_words_v1/call.glb",
+      "sourceSha256": "e5c73cf2950a917f305fe01aa8ba7d169bba2497750ab0d85a617566e94223ae"
+    },
+    {
+      "id": "call_someones_name",
+      "animationName": "SIGN_CALL__TO_CALL_SOMEONE_S_NAME",
+      "durationMs": 2267,
+      "sourceAsset": "asl_animations/original_words_v1/call__to_call_someone_s_name.glb",
+      "sourceSha256": "7a40c3c63303088bd4568652ffcf587fd2c41a22886c83c64579d482823daf6d"
+    },
+    {
+      "id": "car",
+      "animationName": "SIGN_CAR",
+      "durationMs": 2267,
+      "sourceAsset": "asl_animations/original_words_v1/car.glb",
+      "sourceSha256": "60139272a9c29eb7b7d47f29a9ff3e1e2624883da3619dd7bf45ea300111e3e3"
+    },
+    {
+      "id": "chair",
+      "animationName": "SIGN_CHAIR",
+      "durationMs": 3000,
+      "sourceAsset": "asl_animations/original_words_v1/chair.glb",
+      "sourceSha256": "ab69ccd5d8ff595cb271390c7166e903a2c92427641967bcd368ad75a030f102"
+    },
+    {
+      "id": "clean",
+      "animationName": "SIGN_CLEAN",
+      "durationMs": 2567,
+      "sourceAsset": "asl_animations/original_words_v1/clean.glb",
+      "sourceSha256": "52ccd25df258ec054cc507afa41618422cc2e30353973ea7f3142728bc015b12"
+    },
+    {
+      "id": "close",
+      "animationName": "SIGN_CLOSE",
+      "durationMs": 2533,
+      "sourceAsset": "asl_animations/original_words_v1/close.glb",
+      "sourceSha256": "404300d02ba795f0b58abe3f424a0a5f5b02056aa48555d212df966277714e08"
+    },
+    {
+      "id": "clothes",
+      "animationName": "SIGN_CLOTHES",
+      "durationMs": 2133,
+      "sourceAsset": "asl_animations/original_words_v1/clothes.glb",
+      "sourceSha256": "1265d045779981908c4dde2145346351a2dfb55a0dfeb1bc55cfd08679291ff5"
+    },
+    {
+      "id": "cold",
+      "animationName": "SIGN_COLD",
+      "durationMs": 1967,
+      "sourceAsset": "asl_animations/original_words_v1/cold.glb",
+      "sourceSha256": "2422eaa2b72751bef6b27f5d11e279232587d2bc073d9af167966b4c01cd82c2"
+    },
+    {
+      "id": "come",
+      "animationName": "SIGN_COME",
+      "durationMs": 2300,
+      "sourceAsset": "asl_animations/original_words_v1/come.glb",
+      "sourceSha256": "92a809115331c802ee42cac1953dc86110cf1b74e2d1b27b8f6bdd6a599b19d8"
+    },
+    {
+      "id": "computer",
+      "animationName": "SIGN_COMPUTER",
+      "durationMs": 2633,
+      "sourceAsset": "asl_animations/original_words_v1/computer.glb",
+      "sourceSha256": "e5909e8bb5d62dc3cdb259db21653bdf460ddcf0a10f0636a44b66d08561f6a0"
+    },
+    {
+      "id": "congratulations",
+      "animationName": "SIGN_CONGRATULATIONS",
+      "durationMs": 2800,
+      "sourceAsset": "asl_animations/original_words_v1/congratulations.glb",
+      "sourceSha256": "3909d9c95a01fe3902f22b940d2618ee09ec86d94162dca367f75dad8130c88a"
+    },
+    {
+      "id": "cook",
+      "animationName": "SIGN_COOK",
+      "durationMs": 2267,
+      "sourceAsset": "asl_animations/original_words_v1/cook.glb",
+      "sourceSha256": "54948515c3b241b007d15fba7a098cd2295729f4afc995e79ac1089ec13d0c45"
+    },
+    {
+      "id": "country",
+      "animationName": "SIGN_COUNTRY",
+      "durationMs": 2767,
+      "sourceAsset": "asl_animations/original_words_v1/country.glb",
+      "sourceSha256": "8b59f421e86d7e6ddede53c3c8481f636eccedd1c2e50d8e6be67ba822b023b2"
+    },
+    {
+      "id": "day",
+      "animationName": "SIGN_DAY",
+      "durationMs": 1867,
+      "sourceAsset": "asl_animations/original_words_v1/day.glb",
+      "sourceSha256": "48af8465ebc135d2f0d11f290a8551ae5eeafa2976959947cd57455ea08dce7d"
+    },
+    {
+      "id": "different",
+      "animationName": "SIGN_DIFFERENT",
+      "durationMs": 1867,
+      "sourceAsset": "asl_animations/original_words_v1/different.glb",
+      "sourceSha256": "979217aa6547ebb11e2fb8b998b56d2878967bb1e5a421b059ae166e2bf15780"
+    },
+    {
+      "id": "do",
+      "animationName": "SIGN_DO",
+      "durationMs": 3100,
+      "sourceAsset": "asl_animations/original_words_v1/do.glb",
+      "sourceSha256": "1a1b3919e3cf5f31e9d963a569e13ee76af3f64063e54c787e060e1f13a4e65f"
+    },
+    {
+      "id": "door",
+      "animationName": "SIGN_DOOR",
+      "durationMs": 3167,
+      "sourceAsset": "asl_animations/original_words_v1/door.glb",
+      "sourceSha256": "93914d71a1f37782916afc609bb6fb12088cc6e2e9697e43a534177529cc68d4"
+    },
+    {
+      "id": "drink",
+      "animationName": "SIGN_DRINK",
+      "durationMs": 2200,
+      "sourceAsset": "asl_animations/original_words_v1/drink.glb",
+      "sourceSha256": "0acd0bc9f8cd075d50ab8787dbff63ba021a3bd6a52a28c5c1ed1ab2c5ea3ea1"
+    },
+    {
+      "id": "drive",
+      "animationName": "SIGN_DRIVE",
+      "durationMs": 1967,
+      "sourceAsset": "asl_animations/original_words_v1/drive.glb",
+      "sourceSha256": "6bb149869b11fa5d628c99168aadd312aa073d9f3c2e4d26bbc7c36808a1b2e7"
+    },
+    {
+      "id": "easy",
+      "animationName": "SIGN_EASY",
+      "durationMs": 3200,
+      "sourceAsset": "asl_animations/original_words_v1/easy.glb",
+      "sourceSha256": "be35af4be61e6cd7778d02f1f291db550f66d84cf4f9fb00ea5e6c29555a846c"
+    },
+    {
+      "id": "eat",
+      "animationName": "SIGN_EAT",
+      "durationMs": 2400,
+      "sourceAsset": "asl_animations/original_words_v1/eat.glb",
+      "sourceSha256": "ae8fdbae6e4cde0dfc530af8595fcb68025477ae2bae1a3b95005dd525ce3605"
+    },
+    {
+      "id": "evening",
+      "animationName": "SIGN_EVENING",
+      "durationMs": 2500,
+      "sourceAsset": "asl_animations/original_words_v1/evening.glb",
+      "sourceSha256": "19a8bd235d0c045ae44ef7f45bffcd3f6a2cf0d3f7a4409a13bae74889714604"
+    },
+    {
+      "id": "every",
+      "animationName": "SIGN_EVERY",
+      "durationMs": 2933,
+      "sourceAsset": "asl_animations/original_words_v1/every.glb",
+      "sourceSha256": "e46dd103f454fb36d110075c569152abe6cade713574cc57ca17da8e947987a9"
+    },
+    {
+      "id": "excuse_me",
+      "animationName": "SIGN_EXCUSE_ME",
+      "durationMs": 2433,
+      "sourceAsset": "asl_animations/original_words_v1/excuse_me.glb",
+      "sourceSha256": "1dc234810ff55ab273bde07a9b59559c0fd6c41967ec82a252c3b6bb8a2cbaa8"
+    },
+    {
+      "id": "exhausted",
+      "animationName": "SIGN_EXHAUSTED",
+      "durationMs": 2700,
+      "sourceAsset": "asl_animations/original_words_v1/exhausted.glb",
+      "sourceSha256": "e3b1c68b92473b44948307af70c9488c5dc66d690e87f54a244ce15bf25db972"
+    },
+    {
+      "id": "fast",
+      "animationName": "SIGN_FAST",
+      "durationMs": 1667,
+      "sourceAsset": "asl_animations/original_words_v1/fast.glb",
+      "sourceSha256": "f36cb002215e84ee75396d0f1e7894d0265105e20a79dd5f0b2bb0a765a3921f"
+    },
+    {
+      "id": "father",
+      "animationName": "SIGN_FATHER",
+      "durationMs": 2133,
+      "sourceAsset": "asl_animations/original_words_v1/father.glb",
+      "sourceSha256": "12f452cb6592b86b697b33f0c0d2049b758441150b395136bd0cf493da21b275"
+    },
+    {
+      "id": "feel",
+      "animationName": "SIGN_FEEL",
+      "durationMs": 2300,
+      "sourceAsset": "asl_animations/original_words_v1/feel.glb",
+      "sourceSha256": "1b9efd5e5ed00f5d2e9737b8b3ce89b789316a06b804841c6f456c3b44926ff6"
+    },
+    {
+      "id": "few",
+      "animationName": "SIGN_FEW",
+      "durationMs": 2733,
+      "sourceAsset": "asl_animations/original_words_v1/few.glb",
+      "sourceSha256": "347d469f88f4e10a061939f2b1d47101dd9cbc4f5cb4fb215c85304745871a10"
+    },
+    {
+      "id": "find",
+      "animationName": "SIGN_FIND",
+      "durationMs": 2300,
+      "sourceAsset": "asl_animations/original_words_v1/find.glb",
+      "sourceSha256": "1b84703b383c6aac79249f6010f9dc4e657a8343173f665cf27c72e93ad5a4da"
+    },
+    {
+      "id": "free",
+      "animationName": "SIGN_FREE",
+      "durationMs": 2467,
+      "sourceAsset": "asl_animations/original_words_v1/free.glb",
+      "sourceSha256": "5200181ce090f84dcc8b5edafe329e84c06c18565b7809086b94b8b8e9559689"
+    },
+    {
+      "id": "friend",
+      "animationName": "SIGN_FRIEND",
+      "durationMs": 1767,
+      "sourceAsset": "asl_animations/original_words_v1/friend.glb",
+      "sourceSha256": "51ec98569c786bdbf07e99ab86c5cffc5759d54204a535782abce6d390a90f8a"
+    },
+    {
+      "id": "get",
+      "animationName": "SIGN_GET",
+      "durationMs": 1933,
+      "sourceAsset": "asl_animations/original_words_v1/get.glb",
+      "sourceSha256": "ab7bb45f17af606a8a78f2af7596a3ee83b357958b44a9ffc107b29ebe357fd3"
+    },
+    {
+      "id": "give",
+      "animationName": "SIGN_GIVE",
+      "durationMs": 2600,
+      "sourceAsset": "asl_animations/original_words_v1/give.glb",
+      "sourceSha256": "04c2d3c861e265f27a29fd96c30e64d317ad5cd9be3976c7535a68c680d270f1"
+    },
+    {
+      "id": "go",
+      "animationName": "SIGN_GO",
+      "durationMs": 2333,
+      "sourceAsset": "asl_animations/original_words_v1/go.glb",
+      "sourceSha256": "1b835cd85e1b758ae5d1d84f800e7a3686bb9a1130fd6207544a2e413dbae6b9"
+    },
+    {
+      "id": "happy",
+      "animationName": "SIGN_HAPPY",
+      "durationMs": 2533,
+      "sourceAsset": "asl_animations/original_words_v1/happy.glb",
+      "sourceSha256": "fa3a04e9ff6c59ecbeec4554f1fa78b16d57b3796f25ffd6587c74cb8b47c4be"
+    },
+    {
+      "id": "hard",
+      "animationName": "SIGN_HARD",
+      "durationMs": 2033,
+      "sourceAsset": "asl_animations/original_words_v1/hard.glb",
+      "sourceSha256": "10f1d2adfab11e0f219cfa52547e00a1ab259878bef0b039f955e2bc007ef032"
+    },
+    {
+      "id": "hard_solid",
+      "animationName": "SIGN_HARD__SOLID",
+      "durationMs": 2167,
+      "sourceAsset": "asl_animations/original_words_v1/hard__solid.glb",
+      "sourceSha256": "fc6318fc48ae309711e8d83af228573349e8ccea1807ff2cfd7d97ee4f509dd6"
+    },
+    {
+      "id": "hear",
+      "animationName": "SIGN_HEAR",
+      "durationMs": 1933,
+      "sourceAsset": "asl_animations/original_words_v1/hear.glb",
+      "sourceSha256": "b0d20f9eb6b6ecca850b8e5ba6036e56994a0ecc41b71a2d4a202fa30b5d5f24"
+    },
+    {
+      "id": "help",
+      "animationName": "SIGN_HELP",
+      "durationMs": 2033,
+      "sourceAsset": "asl_animations/original_words_v1/help.glb",
+      "sourceSha256": "c620c7941ffd55fe7fab28e70ac17f91a95af5862200ac21f3812a483e6870b3"
+    },
+    {
+      "id": "home",
+      "animationName": "SIGN_HOME",
+      "durationMs": 2133,
+      "sourceAsset": "asl_animations/original_words_v1/home.glb",
+      "sourceSha256": "a5d64a9774d867cb2d0fcd4c180881b0690d8ec44426f93d5a6dcf846990578a"
+    },
+    {
+      "id": "hospital",
+      "animationName": "SIGN_HOSPITAL",
+      "durationMs": 2233,
+      "sourceAsset": "asl_animations/original_words_v1/hospital.glb",
+      "sourceSha256": "4a9363bfe83d3b0bb17ebdb6c876e51888b729bb3b20417b48bd29ba7b74cbac"
+    },
+    {
+      "id": "hot",
+      "animationName": "SIGN_HOT",
+      "durationMs": 2133,
+      "sourceAsset": "asl_animations/original_words_v1/hot.glb",
+      "sourceSha256": "d0ff8e5e593b43746426907fb694bf15f310d67465b56539fe34eef1e75541f4"
+    },
+    {
+      "id": "hour",
+      "animationName": "SIGN_HOUR",
+      "durationMs": 2067,
+      "sourceAsset": "asl_animations/original_words_v1/hour.glb",
+      "sourceSha256": "0a6607eed0f2d0fe4d0a060e9d33b6eec6bbcac4148e5858e01c703e4c9c0b74"
+    },
+    {
+      "id": "how",
+      "animationName": "SIGN_HOW",
+      "durationMs": 1767,
+      "sourceAsset": "asl_animations/original_words_v1/how.glb",
+      "sourceSha256": "fec4bbc9ed4e7305d4915d154e3147d5915952dbcae57f6b94fa6e54e985f3de"
+    },
+    {
+      "id": "important",
+      "animationName": "SIGN_IMPORTANT",
+      "durationMs": 2933,
+      "sourceAsset": "asl_animations/original_words_v1/important.glb",
+      "sourceSha256": "3a2f2675edbb137b44c8d31f160582122d9502ec1873c2cd5bbb6c9ffc814ec7"
+    },
+    {
+      "id": "in",
+      "animationName": "SIGN_IN",
+      "durationMs": 2033,
+      "sourceAsset": "asl_animations/original_words_v1/in.glb",
+      "sourceSha256": "567a5c8316a6f9b0a6ef8f842797cd9bc7c1a31a3fcb94f15b0edd794b4441b2"
+    },
+    {
+      "id": "keep",
+      "animationName": "SIGN_KEEP",
+      "durationMs": 2000,
+      "sourceAsset": "asl_animations/original_words_v1/keep.glb",
+      "sourceSha256": "99e123764455b183c6166c0e8dd090c57309d631884f20792b9a9b8bcd8aa1dc"
+    },
+    {
+      "id": "keep_preserve",
+      "animationName": "SIGN_KEEP__PRESERVE",
+      "durationMs": 2433,
+      "sourceAsset": "asl_animations/original_words_v1/keep__preserve.glb",
+      "sourceSha256": "786fa67c8d96dcbc2bdbda577b20825b9834aeb4962547519d3d43788b0134f7"
+    },
+    {
+      "id": "key",
+      "animationName": "SIGN_KEY",
+      "durationMs": 2167,
+      "sourceAsset": "asl_animations/original_words_v1/key.glb",
+      "sourceSha256": "45980504a9c225d7469108342cc5b2ca8dc2bf81a84f026768b63e98eadb1994"
+    },
+    {
+      "id": "know",
+      "animationName": "SIGN_KNOW",
+      "durationMs": 1633,
+      "sourceAsset": "asl_animations/original_words_v1/know.glb",
+      "sourceSha256": "299b1d6b084cb1794ffcc4cf4f1b18a78a12a31687ab5338c8b19c21c4e53a72"
+    },
+    {
+      "id": "leave",
+      "animationName": "SIGN_LEAVE",
+      "durationMs": 1467,
+      "sourceAsset": "asl_animations/original_words_v1/leave.glb",
+      "sourceSha256": "ef92dbb182bad9240868d6cfe6201523434e8c0e20b97fc41b069ea39336307c"
+    },
+    {
+      "id": "let",
+      "animationName": "SIGN_LET",
+      "durationMs": 2200,
+      "sourceAsset": "asl_animations/original_words_v1/let.glb",
+      "sourceSha256": "c19c6df8853e8dbe030e497375599f1bb8d1aa34e36c8fe9b64d1a51f0ce1400"
+    },
+    {
+      "id": "letter",
+      "animationName": "SIGN_LETTER",
+      "durationMs": 2367,
+      "sourceAsset": "asl_animations/original_words_v1/letter.glb",
+      "sourceSha256": "8bb39e005f747e4c2ebf344e288d1a90a5cfc7f1a1d7b6d50596e756a067ac37"
+    },
+    {
+      "id": "letter_mail",
+      "animationName": "SIGN_LETTER__MAIL",
+      "durationMs": 2533,
+      "sourceAsset": "asl_animations/original_words_v1/letter__mail.glb",
+      "sourceSha256": "2fac70de538b8e9b706547b29ef581e5c44dc845fd1dfa06b1773bd1ef0ce1c3"
+    },
+    {
+      "id": "listen",
+      "animationName": "SIGN_LISTEN",
+      "durationMs": 1533,
+      "sourceAsset": "asl_animations/original_words_v1/listen.glb",
+      "sourceSha256": "f4b15a47c127b162933fe2734ad6f8046194941c1b65ac873a82a296b111296e"
+    },
+    {
+      "id": "look",
+      "animationName": "SIGN_LOOK",
+      "durationMs": 2433,
+      "sourceAsset": "asl_animations/original_words_v1/look.glb",
+      "sourceSha256": "85f6efd3a18b3cc6230dc83808b4dcecbc67be0febb669d5853a981d1de83cdb"
+    },
+    {
+      "id": "love",
+      "animationName": "SIGN_LOVE",
+      "durationMs": 2133,
+      "sourceAsset": "asl_animations/original_words_v1/love.glb",
+      "sourceSha256": "88316cb2c54ca4013d61a00f1f0dc6a5d41ca978f176fc516a1517dfded7b377"
+    },
+    {
+      "id": "make",
+      "animationName": "SIGN_MAKE",
+      "durationMs": 1600,
+      "sourceAsset": "asl_animations/original_words_v1/make.glb",
+      "sourceSha256": "efa3c255762fd05959f4e33b02274cc9d9063ccb9f6ba89ce38094535ac6c5ff"
+    },
+    {
+      "id": "many",
+      "animationName": "SIGN_MANY",
+      "durationMs": 2333,
+      "sourceAsset": "asl_animations/original_words_v1/many.glb",
+      "sourceSha256": "e4376610356d00cf75a35b13eaeb36b57e2d6aa34d6a859bdb42623f12fc835f"
+    },
+    {
+      "id": "mean",
+      "animationName": "SIGN_MEAN",
+      "durationMs": 2100,
+      "sourceAsset": "asl_animations/original_words_v1/mean.glb",
+      "sourceSha256": "df1a73652fdf3dffcd9b5476e116fbda950c45465b9eac828ee026da8f77265a"
+    },
+    {
+      "id": "mean_meaning",
+      "animationName": "SIGN_MEAN__MEANING_OR_DEFINITION_OF_SOMETHING",
+      "durationMs": 2067,
+      "sourceAsset": "asl_animations/original_words_v1/mean__meaning_or_definition_of_something.glb",
+      "sourceSha256": "a9af21785b2b97ee9377a83fc411feaf8232591bb8ce41a5120daf58527ca981"
+    },
+    {
+      "id": "meet",
+      "animationName": "SIGN_MEET",
+      "durationMs": 1567,
+      "sourceAsset": "asl_animations/original_words_v1/meet.glb",
+      "sourceSha256": "29d87053a83aad8f13698715b6e565926ebec499ae620219a5692369bb73878b"
+    },
+    {
+      "id": "meet_many_people",
+      "animationName": "SIGN_MEET__TO_MEET_MANY_PEOPLE",
+      "durationMs": 3033,
+      "sourceAsset": "asl_animations/original_words_v1/meet__to_meet_many_people.glb",
+      "sourceSha256": "451defd0fd146449a79913a72f35efb61f28f18c021f1a401e2a5b9b2351e53b"
+    },
+    {
+      "id": "minute",
+      "animationName": "SIGN_MINUTE",
+      "durationMs": 2233,
+      "sourceAsset": "asl_animations/original_words_v1/minute.glb",
+      "sourceSha256": "2465150fbd378870656e9067275b1309c2fc997d8484eedf7215bb37af9c1c96"
+    },
+    {
+      "id": "moment",
+      "animationName": "SIGN_MOMENT",
+      "durationMs": 2000,
+      "sourceAsset": "asl_animations/original_words_v1/moment.glb",
+      "sourceSha256": "db8944357ab78f89ba2df867548796dc9fcd2fdfa82831bba4dade3e37db1c88"
+    },
+    {
+      "id": "money",
+      "animationName": "SIGN_MONEY",
+      "durationMs": 1767,
+      "sourceAsset": "asl_animations/original_words_v1/money.glb",
+      "sourceSha256": "e51e84b4f06603a73fae2692685df6c1883f6fa910643ccaa25e251eb4356b5c"
+    },
+    {
+      "id": "month",
+      "animationName": "SIGN_MONTH",
+      "durationMs": 2567,
+      "sourceAsset": "asl_animations/original_words_v1/month.glb",
+      "sourceSha256": "9c8b20c1a54eb3879218b5bd31f3c19018237756dadd16261aa9b106595f89a7"
+    },
+    {
+      "id": "most",
+      "animationName": "SIGN_MOST",
+      "durationMs": 1833,
+      "sourceAsset": "asl_animations/original_words_v1/most.glb",
+      "sourceSha256": "eb43837ae87b8fbc3fefa5783db2072b46b504197f2e11fd0264d8a9ea49767a"
+    },
+    {
+      "id": "mother",
+      "animationName": "SIGN_MOTHER",
+      "durationMs": 2267,
+      "sourceAsset": "asl_animations/original_words_v1/mother.glb",
+      "sourceSha256": "54d2935e4ac0f4a65b0f3aa397b0e5ddff0bdce5a333587a7dfbaab4f9f1e07f"
+    },
+    {
+      "id": "move",
+      "animationName": "SIGN_MOVE",
+      "durationMs": 2567,
+      "sourceAsset": "asl_animations/original_words_v1/move.glb",
+      "sourceSha256": "dfe7d74d6c002381f978985873a79124540264eb97782ee7cfc2c5734141fc5b"
+    },
+    {
+      "id": "move_new_location",
+      "animationName": "SIGN_MOVE__TO_MOVE_TO_NEW_LOCATION",
+      "durationMs": 2633,
+      "sourceAsset": "asl_animations/original_words_v1/move__to_move_to_new_location.glb",
+      "sourceSha256": "6c6d5357e613bf1284b08eec289e87dbecb47dd77a3d20eaa3f5667a025ae75c"
+    },
+    {
+      "id": "much",
+      "animationName": "SIGN_MUCH",
+      "durationMs": 2100,
+      "sourceAsset": "asl_animations/original_words_v1/much.glb",
+      "sourceSha256": "7a977c3bc81c82b059e108ef9f07b01372df4e1c61d7e746ade7194e437c39c1"
+    },
+    {
+      "id": "neighbor",
+      "animationName": "SIGN_NEIGHBOR",
+      "durationMs": 2633,
+      "sourceAsset": "asl_animations/original_words_v1/neighbor.glb",
+      "sourceSha256": "ddb911b0276221efec9ca0c3afbbfb0e501228bdfbb6467bcc823015d33f93da"
+    },
+    {
+      "id": "new",
+      "animationName": "SIGN_NEW",
+      "durationMs": 2367,
+      "sourceAsset": "asl_animations/original_words_v1/new.glb",
+      "sourceSha256": "55793e6a65b5b8efa62b5f237d590e1b5e950e71978cdd799b3f609bdbf839d3"
+    },
+    {
+      "id": "office",
+      "animationName": "SIGN_OFFICE",
+      "durationMs": 2167,
+      "sourceAsset": "asl_animations/original_words_v1/office.glb",
+      "sourceSha256": "f1f506da39fac058c94bddfd74009791e6467dfd5c6df6c9240a30121a30254d"
+    },
+    {
+      "id": "ok",
+      "animationName": "SIGN_OK",
+      "durationMs": 2400,
+      "sourceAsset": "asl_animations/original_words_v1/ok.glb",
+      "sourceSha256": "63115a7d3ed0af3cb57f08a38d8f1e6da53bbd9e2cc28c586d2a8b1ae754c462"
+    },
+    {
+      "id": "old",
+      "animationName": "SIGN_OLD",
+      "durationMs": 2433,
+      "sourceAsset": "asl_animations/original_words_v1/old.glb",
+      "sourceSha256": "a040b752cffba3482b4b70d12f1538b9728ffc7957e5548a32735e02f27c6d18"
+    },
+    {
+      "id": "open",
+      "animationName": "SIGN_OPEN",
+      "durationMs": 2200,
+      "sourceAsset": "asl_animations/original_words_v1/open.glb",
+      "sourceSha256": "f3225dc9429e87481a509ec7136559ef256f8df032ae430094750f376dc18d43"
+    },
+    {
+      "id": "paper",
+      "animationName": "SIGN_PAPER",
+      "durationMs": 2200,
+      "sourceAsset": "asl_animations/original_words_v1/paper.glb",
+      "sourceSha256": "2d8255cdf6e3e754ff8ea4caa2068d2d050853ee8ced0f882b873d2851c4f4b8"
+    },
+    {
+      "id": "pay",
+      "animationName": "SIGN_PAY",
+      "durationMs": 2700,
+      "sourceAsset": "asl_animations/original_words_v1/pay.glb",
+      "sourceSha256": "7b87fde52a533e3e78c8ae2fd79026f5f39d133433b995f8f4832cbb1127f775"
+    },
+    {
+      "id": "pay_someone",
+      "animationName": "SIGN_PAY__TO_PAY_SOMEONE",
+      "durationMs": 1300,
+      "sourceAsset": "asl_animations/original_words_v1/pay__to_pay_someone.glb",
+      "sourceSha256": "d672e21c7f09ae8def99d046a76cc4da2c5f042568c54dc065bc27cba261a9e3"
+    },
+    {
+      "id": "people",
+      "animationName": "SIGN_PEOPLE",
+      "durationMs": 3067,
+      "sourceAsset": "asl_animations/original_words_v1/people.glb",
+      "sourceSha256": "8a0c5099b0871032cf4fc52482365b5234f7321c2828ec3c9ebf151e5b07f65c"
+    },
+    {
+      "id": "person",
+      "animationName": "SIGN_PERSON",
+      "durationMs": 2067,
+      "sourceAsset": "asl_animations/original_words_v1/person.glb",
+      "sourceSha256": "716b68d94a301d08577745b7b58099222826c4a15c5bc7acadf1740839b0f5ff"
+    },
+    {
+      "id": "phone",
+      "animationName": "SIGN_PHONE",
+      "durationMs": 2233,
+      "sourceAsset": "asl_animations/original_words_v1/phone.glb",
+      "sourceSha256": "10b97e617760b062de27b55aeee21bfea670155518c9fd9d5a6d6b93e8c7bb85"
+    },
+    {
+      "id": "play",
+      "animationName": "SIGN_PLAY",
+      "durationMs": 2267,
+      "sourceAsset": "asl_animations/original_words_v1/play.glb",
+      "sourceSha256": "f853f5074e5ea595c76509fcc592153a36e76a7c8e57b7b4ce6e83305e7bf235"
+    },
+    {
+      "id": "play_game",
+      "animationName": "SIGN_PLAY__TO_PLAY_A_GAME",
+      "durationMs": 2200,
+      "sourceAsset": "asl_animations/original_words_v1/play__to_play_a_game.glb",
+      "sourceSha256": "0d32af9df808266f0afdafefeabb7531d9e0ab52170f646e427c1f598e1cab2f"
+    },
+    {
+      "id": "please",
+      "animationName": "SIGN_PLEASE",
+      "durationMs": 2067,
+      "sourceAsset": "asl_animations/original_words_v1/please.glb",
+      "sourceSha256": "44071425f427119a18ec24056b20d4ed8774d5a92019e60b7fb48b34d5b138e6"
+    },
+    {
+      "id": "read",
+      "animationName": "SIGN_READ",
+      "durationMs": 2300,
+      "sourceAsset": "asl_animations/original_words_v1/read.glb",
+      "sourceSha256": "3a65d00662ff3d6a4fc59c3a55d453120e28732bfaae01a629f94b10e5beeeb1"
+    },
+    {
+      "id": "ready",
+      "animationName": "SIGN_READY",
+      "durationMs": 2833,
+      "sourceAsset": "asl_animations/original_words_v1/ready.glb",
+      "sourceSha256": "df713af1f723c3c6e23cc47751b682f116bdb3f89521b6a9b002337e1e764307"
+    },
+    {
+      "id": "restaurant",
+      "animationName": "SIGN_RESTAURANT",
+      "durationMs": 2433,
+      "sourceAsset": "asl_animations/original_words_v1/restaurant.glb",
+      "sourceSha256": "ec365494fe80a6fc56e89304e87c96353a76b2c7d84d11854859560614acecdc"
+    },
+    {
+      "id": "right",
+      "animationName": "SIGN_RIGHT",
+      "durationMs": 2367,
+      "sourceAsset": "asl_animations/original_words_v1/right.glb",
+      "sourceSha256": "904792406709e6ab0af5a66e7344e28863b7bc71497b87f2e2a64f3b92500bcd"
+    },
+    {
+      "id": "right_direction",
+      "animationName": "SIGN_RIGHT__DIRECTION",
+      "durationMs": 2000,
+      "sourceAsset": "asl_animations/original_words_v1/right__direction.glb",
+      "sourceSha256": "9c88a7781b9feb9bcec3a463eb24bc13fa9606710538db2e3c195cab475fc22b"
+    },
+    {
+      "id": "road",
+      "animationName": "SIGN_ROAD",
+      "durationMs": 2067,
+      "sourceAsset": "asl_animations/original_words_v1/road.glb",
+      "sourceSha256": "d6a4360e5b8a389496cc74e61dd6759a8e3c93fb1682e4b64bd2009c9f3facff"
+    },
+    {
+      "id": "room",
+      "animationName": "SIGN_ROOM",
+      "durationMs": 2500,
+      "sourceAsset": "asl_animations/original_words_v1/room.glb",
+      "sourceSha256": "d875c81ce95af69a6d1f576c0251dbed57b9b1c2fa2fb891a92b4bb88733a2e4"
+    },
+    {
+      "id": "run",
+      "animationName": "SIGN_RUN",
+      "durationMs": 2500,
+      "sourceAsset": "asl_animations/original_words_v1/run.glb",
+      "sourceSha256": "80e8ddd64060362ac7a97b9de3c8800b464de6312cbec616e172c4278d698f81"
+    },
+    {
+      "id": "sad",
+      "animationName": "SIGN_SAD",
+      "durationMs": 1833,
+      "sourceAsset": "asl_animations/original_words_v1/sad.glb",
+      "sourceSha256": "8c234ee77bc17f5680d87abc8c10ce6028bc92dd6a3db894e0b19f401eea1f59"
+    },
+    {
+      "id": "same",
+      "animationName": "SIGN_SAME",
+      "durationMs": 2667,
+      "sourceAsset": "asl_animations/original_words_v1/same.glb",
+      "sourceSha256": "56dbc6fcea89b2db89da895fb94ee92cb119b87c8d727900e96ffc37ffa32bc3"
+    },
+    {
+      "id": "see",
+      "animationName": "SIGN_SEE",
+      "durationMs": 2167,
+      "sourceAsset": "asl_animations/original_words_v1/see.glb",
+      "sourceSha256": "82a97fd86c0285a29763b64990ff83ccc2d8ec6fcab4758266757606fe5226b1"
+    },
+    {
+      "id": "seem",
+      "animationName": "SIGN_SEEM",
+      "durationMs": 2533,
+      "sourceAsset": "asl_animations/original_words_v1/seem.glb",
+      "sourceSha256": "a269a35114456bdae4dafbb397ab0f2595ef64279e5d46f5472d2b43cb5739b2"
+    },
+    {
+      "id": "sell",
+      "animationName": "SIGN_SELL",
+      "durationMs": 2133,
+      "sourceAsset": "asl_animations/original_words_v1/sell.glb",
+      "sourceSha256": "543b4b3a229563e66e9c2a14ea4112d2b73e3cffbe0fc5ac006a948d95233ee4"
+    },
+    {
+      "id": "send",
+      "animationName": "SIGN_SEND",
+      "durationMs": 2500,
+      "sourceAsset": "asl_animations/original_words_v1/send.glb",
+      "sourceSha256": "96d1da3b800a871243d1b593aa9be96dbe88a3b19e8738970f3c016d59224a07"
+    },
+    {
+      "id": "shoes",
+      "animationName": "SIGN_SHOES",
+      "durationMs": 2033,
+      "sourceAsset": "asl_animations/original_words_v1/shoes.glb",
+      "sourceSha256": "b0ddef48e16228c9df98c68a8335cab0d3da87958a1f1865ac6a2b1832c18ffa"
+    },
+    {
+      "id": "shop",
+      "animationName": "SIGN_SHOP__GOING_TO_STORE_TO_BUY_GOODS",
+      "durationMs": 2700,
+      "sourceAsset": "asl_animations/original_words_v1/shop__going_to_store_to_buy_goods.glb",
+      "sourceSha256": "c436512bc1a105b3aa5fbd30d2d74dd178ea99e7d5a2f6eac856814ee8296845"
+    },
+    {
+      "id": "show_someone",
+      "animationName": "SIGN_SHOW__TO_SHOW_SOMEONE",
+      "durationMs": 2967,
+      "sourceAsset": "asl_animations/original_words_v1/show__to_show_someone.glb",
+      "sourceSha256": "e4b82545cb222d74f506a71baccdca881b116d5130fb6da125b1403e45961294"
+    },
+    {
+      "id": "sick",
+      "animationName": "SIGN_SICK",
+      "durationMs": 2533,
+      "sourceAsset": "asl_animations/original_words_v1/sick.glb",
+      "sourceSha256": "f8f973299dad7a5ca384cf78d9f7d64cd97f4d4aa50e25bd7c395fea44ddb2f6"
+    },
+    {
+      "id": "sit",
+      "animationName": "SIGN_SIT",
+      "durationMs": 2433,
+      "sourceAsset": "asl_animations/original_words_v1/sit.glb",
+      "sourceSha256": "f3dacc04f09a0372d169b300c3dec69b6ef1f7805b8510c4bfbcae9be08113ba"
+    },
+    {
+      "id": "sleep",
+      "animationName": "SIGN_SLEEP",
+      "durationMs": 2367,
+      "sourceAsset": "asl_animations/original_words_v1/sleep.glb",
+      "sourceSha256": "361638854d2ca563d2ce43b6db595ddc1652faef44b67d53cd54ae6ca6f9d46a"
+    },
+    {
+      "id": "slow",
+      "animationName": "SIGN_SLOW",
+      "durationMs": 2567,
+      "sourceAsset": "asl_animations/original_words_v1/slow.glb",
+      "sourceSha256": "4120f01f4796ce534640dcb69e704cfa54aa4c4ed2e9a0f1a79397256264b71e"
+    },
+    {
+      "id": "some",
+      "animationName": "SIGN_SOME",
+      "durationMs": 2033,
+      "sourceAsset": "asl_animations/original_words_v1/some.glb",
+      "sourceSha256": "f9c34af717b572456e06ccb640332fa3294956030023a3f0a6fc87c4083ea185"
+    },
+    {
+      "id": "sorry",
+      "animationName": "SIGN_SORRY",
+      "durationMs": 2267,
+      "sourceAsset": "asl_animations/original_words_v1/sorry.glb",
+      "sourceSha256": "39e993ff67c2cf8b2e3f08302e4115a1bb74370f26190b44bfed4f2c1ef5d55d"
+    },
+    {
+      "id": "speak",
+      "animationName": "SIGN_SPEAK",
+      "durationMs": 2167,
+      "sourceAsset": "asl_animations/original_words_v1/speak.glb",
+      "sourceSha256": "9067aba8058e639dff2279825308f5f7f978bb2abd786ce66b731bd5748907cb"
+    },
+    {
+      "id": "stay",
+      "animationName": "SIGN_STAY",
+      "durationMs": 2333,
+      "sourceAsset": "asl_animations/original_words_v1/stay.glb",
+      "sourceSha256": "2eaf4994269e3fa6507a4ce896a1120b577947d3320b366125dc6d69a332d67b"
+    },
+    {
+      "id": "store_save",
+      "animationName": "SIGN_STORE__TO_SAVE",
+      "durationMs": 1967,
+      "sourceAsset": "asl_animations/original_words_v1/store__to_save.glb",
+      "sourceSha256": "c829ba04433fb77efecefd0a2715e68b5175ba05ff600de23c308b833c1dd25f"
+    },
+    {
+      "id": "strong",
+      "animationName": "SIGN_STRONG",
+      "durationMs": 2567,
+      "sourceAsset": "asl_animations/original_words_v1/strong.glb",
+      "sourceSha256": "7cb025a4b227c417fe05b4b1bcaa19ff57fea783cf77f21652590d1451459fc2"
+    },
+    {
+      "id": "student",
+      "animationName": "SIGN_STUDENT",
+      "durationMs": 2100,
+      "sourceAsset": "asl_animations/original_words_v1/student.glb",
+      "sourceSha256": "576b82b660733e02eed86d81cf3da361c22523887bcb26353ead64197b568f0f"
+    },
+    {
+      "id": "sure",
+      "animationName": "SIGN_SURE",
+      "durationMs": 1667,
+      "sourceAsset": "asl_animations/original_words_v1/sure.glb",
+      "sourceSha256": "081b44ce50a00ae2f5c4163ae8c71a5eb5ab1e04e60ce40c85bb9cfef3fd7d2b"
+    },
+    {
+      "id": "table",
+      "animationName": "SIGN_TABLE",
+      "durationMs": 2200,
+      "sourceAsset": "asl_animations/original_words_v1/table.glb",
+      "sourceSha256": "a492e2a40e1d688ddbd3640ef86b21a376db2b6f7145dc06ab095966e1491ecc"
+    },
+    {
+      "id": "take",
+      "animationName": "SIGN_TAKE",
+      "durationMs": 2100,
+      "sourceAsset": "asl_animations/original_words_v1/take.glb",
+      "sourceSha256": "0a8aeece3a99279d203e1f0fe0f28e32d6109140c5d8f539f89f2bad38262d78"
+    },
+    {
+      "id": "teacher",
+      "animationName": "SIGN_TEACHER",
+      "durationMs": 3033,
+      "sourceAsset": "asl_animations/original_words_v1/teacher.glb",
+      "sourceSha256": "fd7a184d34c09ccc9be19afe6245382c35eed0c6400600caff89a2f0f1196b81"
+    },
+    {
+      "id": "tell",
+      "animationName": "SIGN_TELL",
+      "durationMs": 2567,
+      "sourceAsset": "asl_animations/original_words_v1/tell.glb",
+      "sourceSha256": "71b04fd0df385e0ec94eff31465b91514ebd92c0a8f7ccaff25edf684a4a8a07"
+    },
+    {
+      "id": "thing",
+      "animationName": "SIGN_THING",
+      "durationMs": 2433,
+      "sourceAsset": "asl_animations/original_words_v1/thing.glb",
+      "sourceSha256": "a626ed5fabe84a8648ae413d951fbece6a1028fd8ef2951b6d239e1c1c6679fa"
+    },
+    {
+      "id": "time",
+      "animationName": "SIGN_TIME",
+      "durationMs": 2067,
+      "sourceAsset": "asl_animations/original_words_v1/time.glb",
+      "sourceSha256": "292667bbd0a00eac2934a92d80cec28bbede7e163edd0ad42a1a956ef2c89633"
+    },
+    {
+      "id": "today",
+      "animationName": "SIGN_TODAY",
+      "durationMs": 2300,
+      "sourceAsset": "asl_animations/original_words_v1/today.glb",
+      "sourceSha256": "5b2bdf8cedeecf8164ce737d17b5ef53c4922b83aa5431ffc43c38a21f6e75e8"
+    },
+    {
+      "id": "tomorrow",
+      "animationName": "SIGN_TOMORROW",
+      "durationMs": 2367,
+      "sourceAsset": "asl_animations/original_words_v1/tomorrow.glb",
+      "sourceSha256": "a67e2ef8263201db41f193151ce953d337cc277fd8d2045e81e74b6ad1e1e157"
+    },
+    {
+      "id": "try",
+      "animationName": "SIGN_TRY",
+      "durationMs": 2000,
+      "sourceAsset": "asl_animations/original_words_v1/try.glb",
+      "sourceSha256": "e0e609cdb613529cb73fc74b453c0d998b3fd8769e5b5c135f445ef016cd43e8"
+    },
+    {
+      "id": "turn",
+      "animationName": "SIGN_TURN",
+      "durationMs": 1833,
+      "sourceAsset": "asl_animations/original_words_v1/turn.glb",
+      "sourceSha256": "dbe1ffc86247ac674196080ccc8368cfed83ed018b2074a85a65e4c35ff917e6"
+    },
+    {
+      "id": "turn_around",
+      "animationName": "SIGN_TURN__TURN_AROUND",
+      "durationMs": 1967,
+      "sourceAsset": "asl_animations/original_words_v1/turn__turn_around.glb",
+      "sourceSha256": "5d7b3a8f30d8511fe8d7af6881ba6df45b24a2da729af58349eb0c8b98705f13"
+    },
+    {
+      "id": "use",
+      "animationName": "SIGN_USE",
+      "durationMs": 2433,
+      "sourceAsset": "asl_animations/original_words_v1/use.glb",
+      "sourceSha256": "9af3a9e8c1a088def9612485924bcb2b6d0df87fa4251d3af846e2b02189b1be"
+    },
+    {
+      "id": "visit",
+      "animationName": "SIGN_VISIT",
+      "durationMs": 2867,
+      "sourceAsset": "asl_animations/original_words_v1/visit.glb",
+      "sourceSha256": "c13e9be59d8a3b955a41d58473e5e013a451aaffa55dc41343944531f5ad8c4a"
+    },
+    {
+      "id": "wait",
+      "animationName": "SIGN_WAIT",
+      "durationMs": 2667,
+      "sourceAsset": "asl_animations/original_words_v1/wait.glb",
+      "sourceSha256": "963dbda4d28dffdd0b72450e87cdf86e2290fa1cd9090a61c13387cc4eba385a"
+    },
+    {
+      "id": "wake",
+      "animationName": "SIGN_WAKE",
+      "durationMs": 2467,
+      "sourceAsset": "asl_animations/original_words_v1/wake.glb",
+      "sourceSha256": "fa07a8719a3f9a61331a9113c0185698ca0d2dcbed808629d714a7980dd10c3e"
+    },
+    {
+      "id": "walk",
+      "animationName": "SIGN_WALK",
+      "durationMs": 2233,
+      "sourceAsset": "asl_animations/original_words_v1/walk.glb",
+      "sourceSha256": "ee369c645434bef83cbb87b39a2449ea5b6ce2d9107ad05b313e224e3db4315a"
+    },
+    {
+      "id": "want",
+      "animationName": "SIGN_WANT",
+      "durationMs": 2433,
+      "sourceAsset": "asl_animations/original_words_v1/want.glb",
+      "sourceSha256": "2e65a19738bbbb754b719b4b3e779bf89ac7350974ce059cca27e416f86b6aa1"
+    },
+    {
+      "id": "wash",
+      "animationName": "SIGN_WASH",
+      "durationMs": 1967,
+      "sourceAsset": "asl_animations/original_words_v1/wash.glb",
+      "sourceSha256": "f6638bfe0c3a40973340ee3a823fabbe7c3837feee44c260bb0f25d7f37c49e3"
+    },
+    {
+      "id": "watch",
+      "animationName": "SIGN_WATCH",
+      "durationMs": 2167,
+      "sourceAsset": "asl_animations/original_words_v1/watch.glb",
+      "sourceSha256": "e4105d073c7db6785b4fdce3b8aaea0cacd045074ed3f91bb587d64135de0e83"
+    },
+    {
+      "id": "water",
+      "animationName": "SIGN_WATER",
+      "durationMs": 2000,
+      "sourceAsset": "asl_animations/original_words_v1/water.glb",
+      "sourceSha256": "2768cfecede0db7e6bc62bf7bd84d9518c381c18e46ea8bbf9d4e31477f117d8"
+    },
+    {
+      "id": "week",
+      "animationName": "SIGN_WEEK",
+      "durationMs": 2167,
+      "sourceAsset": "asl_animations/original_words_v1/week.glb",
+      "sourceSha256": "8c924412514da2a7f44d53cdf7abae56f9eaa391c441114c639fcac5637eb0e1"
+    },
+    {
+      "id": "welcome",
+      "animationName": "SIGN_WELCOME",
+      "durationMs": 2733,
+      "sourceAsset": "asl_animations/original_words_v1/welcome.glb",
+      "sourceSha256": "8ab18fe1cd02cc2ac7d36bdf65e61bc49ec28c17590cee2147f7d542a051c33a"
+    },
+    {
+      "id": "what_rhetorical",
+      "animationName": "SIGN_WHAT__RHETORICAL_WHAT",
+      "durationMs": 2100,
+      "sourceAsset": "asl_animations/original_words_v1/what__rhetorical_what.glb",
+      "sourceSha256": "89bd40f5a96c54bdeaba9a6e856e58c838a2d8662f0d60b970ef0ae4a4f5cb36"
+    },
+    {
+      "id": "when",
+      "animationName": "SIGN_WHEN",
+      "durationMs": 1867,
+      "sourceAsset": "asl_animations/original_words_v1/when.glb",
+      "sourceSha256": "b5881cda4fb12f264d8e9096c62dbedb8edfb2b77f3dc1037cc1283efcbf1694"
+    },
+    {
+      "id": "where",
+      "animationName": "SIGN_WHERE",
+      "durationMs": 2700,
+      "sourceAsset": "asl_animations/original_words_v1/where.glb",
+      "sourceSha256": "112e2cc72dd60d9eee7515ea7069516ece35c029b1a8671ebd56172ff5f1c73f"
+    },
+    {
+      "id": "which",
+      "animationName": "SIGN_WHICH",
+      "durationMs": 1967,
+      "sourceAsset": "asl_animations/original_words_v1/which.glb",
+      "sourceSha256": "457bc00ce6cd1643a4b460add3ba1cf0b4f5c3133f402f7557e13891cd424d5b"
+    },
+    {
+      "id": "who",
+      "animationName": "SIGN_WHO",
+      "durationMs": 1567,
+      "sourceAsset": "asl_animations/original_words_v1/who.glb",
+      "sourceSha256": "4586a4c3da070da6ca42b6f94f747a5b382609376bf4048d0c1c7d4f37b9d192"
+    },
+    {
+      "id": "why",
+      "animationName": "SIGN_WHY",
+      "durationMs": 2000,
+      "sourceAsset": "asl_animations/original_words_v1/why.glb",
+      "sourceSha256": "cd159da7ba078ee06700795d147e46746fcaec1aedf8deb13f70db97e81e32f4"
+    },
+    {
+      "id": "wife",
+      "animationName": "SIGN_WIFE",
+      "durationMs": 2033,
+      "sourceAsset": "asl_animations/original_words_v1/wife.glb",
+      "sourceSha256": "7b36067c0a2901abda1edd9fc83c74a6de9ab666feeb063997be0f3a6f5a7362"
+    },
+    {
+      "id": "window",
+      "animationName": "SIGN_WINDOW",
+      "durationMs": 2733,
+      "sourceAsset": "asl_animations/original_words_v1/window.glb",
+      "sourceSha256": "4bab9915d179ded0a4f5411d3a057caea9e06e3c7cca8d45011ed2f96ac127e7"
+    },
+    {
+      "id": "work",
+      "animationName": "SIGN_WORK",
+      "durationMs": 3067,
+      "sourceAsset": "asl_animations/original_words_v1/work.glb",
+      "sourceSha256": "acab9b5eaff03912f52a213ae55d78154024b095b49a7ca88d0f0f37cad7c234"
+    },
+    {
+      "id": "world",
+      "animationName": "SIGN_WORLD",
+      "durationMs": 3067,
+      "sourceAsset": "asl_animations/original_words_v1/world.glb",
+      "sourceSha256": "fd02780796b695ecabb93cd2bc08688b95b9374d9f23f9d8c6e2b710836b7915"
+    },
+    {
+      "id": "write",
+      "animationName": "SIGN_WRITE",
+      "durationMs": 1867,
+      "sourceAsset": "asl_animations/original_words_v1/write.glb",
+      "sourceSha256": "9983e1aaa17dd37c48ca4d19596693d107aacdc377d674f2d2ec926e383d7f5d"
+    },
+    {
+      "id": "wrong",
+      "animationName": "SIGN_WRONG",
+      "durationMs": 1800,
+      "sourceAsset": "asl_animations/original_words_v1/wrong.glb",
+      "sourceSha256": "336e1dc6d48b3151ba71c5e12ac5ad0e81fe9982e8eef85dc56137c713ef77fc"
+    },
+    {
+      "id": "year",
+      "animationName": "SIGN_YEAR",
+      "durationMs": 2567,
+      "sourceAsset": "asl_animations/original_words_v1/year.glb",
+      "sourceSha256": "8424c1ef8aec71a4ebfe5eaf7065e20cc703e5e697a1aa0e764c7f42cd2d3279"
+    },
+    {
+      "id": "yes",
+      "animationName": "SIGN_YES",
+      "durationMs": 1867,
+      "sourceAsset": "asl_animations/original_words_v1/yes.glb",
+      "sourceSha256": "197a8167f3d1e9db2be2486439337974c9be15dcaa74cd10c3abef1fe782ec33"
+    },
+    {
+      "id": "yesterday",
+      "animationName": "SIGN_YESTERDAY",
+      "durationMs": 1933,
+      "sourceAsset": "asl_animations/original_words_v1/yesterday.glb",
+      "sourceSha256": "2e223eb3873c56e62e91b0bbcd3281312766e42fb1178ca18e65427b0b2b8080"
+    }
+  ]
+}
