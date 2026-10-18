@@ -16,6 +16,47 @@ provisioning remain open; no automatic new experiment is authorized. See docs/te
 
 # Progress Tracker
 
+**2026-10-18 - WORD priorities after WORD_BLEND_02; review package 03 prepared; no new model trained.**
+See `docs/audit/WORD_PRIORITIES_2026-10-18.md`. Research only; Android, S2, decoder and Candidate01 unchanged.
+- [x] Locks verified: DEBUG_WORD_BLEND_02 (APK 9b2f6bd9..., on-device hash equal), LIVE_WORD_BLEND, LIVE_EXPERIMENTAL.
+- [x] 64 classes remain hard for WORD_BLEND_02 (78 for BLEND_01, 98 frozen); 45 of them already have reviewed
+  Sem-Lex signers and are mostly not fittable at phone cadence; 16 are uncovered and reviewable.
+- [x] Heavy-class attraction now ~1.3% of rows; source-rebalance experiment rejected (small gain, phone risk).
+- [x] Review package 03 (30 classes, 63 forms, 274 videos) prepared in `artifacts/semlex_review_03/`.
+- Next: human review of package 03; isolated perception-cadence investigation (+3 to +5 pts at 7.5-10 obs/s).
+
+**2026-10-18 - WORD_BLEND_02: reviewed Sem-Lex package 02 (40 classes) added; debug engine installed.**
+See `docs/audit/WORD_ROBUSTNESS_2026-10-18.md` sections 8-8.1.
+- [x] 87 human form decisions (56 accepted); 2,239 clips extracted; ENRICH signers only, cap 2 clips/signer/class.
+- [x] vs WORD_BLEND_01 (identical windows): new 40 classes +11.1 on 13 untouched Sem-Lex signers (102 fixed / 0
+  broken), DEV +3.1 at 200 ms; old Sem-Lex classes -1.0; phone unchanged (development-exposed).
+- [x] Debug engine EXPERIMENTAL_WORD_BLEND_02 (paired log: WORD_BLEND_01); installed with -r; parity 7/7 on device.
+- [x] Sparse-only training negative (information-limited at 4-5 obs/sign); synthetic dim light -8.9 pts via hands.
+
+**2026-10-18 - Experimental + WORD Blend 01 debug engine live on the phone; user reports clearly better.**
+See `docs/audit/WORD_ACCURACY_236_2026-10-17.md`. 236-class evaluation bank, frozen 41.5% -> blend 48.6% (DEV runtime
+windows), Sem-Lex EVAL 29.4% -> 45.8%; in-app blend 10 ms per committed word.
+
+**2026-10-17 — Live Experimental recognition deployed to the debug app (STABLE stays default).**
+Debug Settings "Recognition engine (debug)": STABLE = S2-R2 + production lifecycle; EXPERIMENTAL = Arm A e10 + confirm-boundary 0.7.
+- [x] Same materializer, frozen WORD and SentenceBuilder; one session per screen, only the selected engine commits; failure falls back to STABLE.
+- [x] JVM: Kotlin lifecycle = Python decoder (303/320 events, 46 streams); PhoneCausalCoreTest and transition tests pass.
+- [x] Device (Xiaomi M2101K7AG, `adb install -r`, data kept): S2 parity 4/4 incl. Arm A; STABLE and EXPERIMENTAL loaded
+  live with fallback=false and committed words; event ids restart per session. SPLIT_CONFIRM_BOUNDARY not yet seen live.
+- Next: blinded A/B capture on both engines; live accuracy is not claimed (developer signing, unblinded).
+
+**2026-10-17 — Phone-first diagnosis: remaining phone losses are perception and WORD, not S2/decoder.**
+See `docs/audit/RECOGNITION_V3_PHONE_FIRST_2026-10-17.md`; tool `eval/runtime_diagnostics/phone_replay_compare.py`.
+- [x] Paired matrix, 29 reviewed phone signs: Arm A + CB 19 correct (production 12); its 10 failures = 6
+  perception (TABLE: DWPose proposes, refiner presence ~0.03; threshold cannot fix), 3 classifier (HOME,
+  wrong even on ideal windows), 1 lifecycle; 0 S2 misses, 0 swallowed, 0 merged.
+- [x] Re-entry: no phone gain (no swallowed signs in this protocol); +2 non-sign, +1 duplicate. Arm I: 12
+  correct, 1 non-sign. WORD v2 ties on runtime windows (19 vs 19).
+- [x] phone_replay_compare.py: any exact-parity capture (or the registry) -> per-sign earliest failing stage
+  for any S2:decoder set, with label provenance; reproduces the matrix exactly; 4 tests.
+- Next: one blinded capture (new signer, existing protocol) scored with the tool; perception track for
+  overlapping/flat hands; optional phrase-block protocol for re-entry (needs approval).
+
 **2026-10-17 — Arm I phone deficit diagnosed sign by sign (decoder-only; no new candidate).**
 See `docs/audit/RECOGNITION_V3_REARM_2026-10-17.md` (addendum 2).
 - [x] 7 phone signs lost vs Arm A + CB (0 gained): ~2 reference-epoch luck (Arm A e21 misses them too),
