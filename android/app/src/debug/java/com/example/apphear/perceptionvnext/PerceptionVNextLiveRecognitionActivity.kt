@@ -252,8 +252,21 @@ class PerceptionVNextLiveRecognitionActivity : AppCompatActivity() {
                 "S2_R2_DECLARED_VALIDATION_SIGNER_REQUIRED"
             }
         }
+        // Research-only S2-R3 Arm A e10: same explicit opt-ins as S2-R2, never a default.
+        if (phoneCausalMode && phoneS2Package == PhoneS2Package.ARM_A_E10_CANDIDATE) {
+            require(transitionDiagnosticMode || intent.getBooleanExtra(EXTRA_S2_R2_VALIDATION_COHORT, false)) {
+                "ARM_A_E10_VALIDATION_COHORT_REQUIRED"
+            }
+            require(phoneS2ExactParityCaptureEnabled) { "ARM_A_E10_EXACT_EVIDENCE_REQUIRED" }
+            require(phoneRearmPolicy == PhoneRearmPolicy.PRE_OR_POST_EXPERIMENTAL) {
+                "ARM_A_E10_FROZEN_REARM_POLICY_REQUIRED"
+            }
+            require(!intent.getStringExtra(EXTRA_VALIDATION_SIGNER_ID).isNullOrBlank()) {
+                "ARM_A_E10_DECLARED_VALIDATION_SIGNER_REQUIRED"
+            }
+        }
         if (transitionDiagnosticMode) {
-            require(phoneS2Package == PhoneS2Package.S2_R2_CANDIDATE && phoneS2ExactParityCaptureEnabled &&
+            require(phoneS2Package in TRANSITION_DIAGNOSTIC_S2_PACKAGES && phoneS2ExactParityCaptureEnabled &&
                 phoneRearmPolicy == PhoneRearmPolicy.PRE_OR_POST_EXPERIMENTAL) {
                 "TRANSITION_DIAGNOSTICS_REQUIRE_FROZEN_PACKAGE_AND_EXACT_EVIDENCE"
             }
@@ -1271,5 +1284,7 @@ class PerceptionVNextLiveRecognitionActivity : AppCompatActivity() {
         private const val EVENT_EVIDENCE_PRE_OBSERVATIONS = 24
         private const val EVENT_EVIDENCE_POST_OBSERVATIONS = 12
         private const val TAG = "Gate4A1Live"
+        private val TRANSITION_DIAGNOSTIC_S2_PACKAGES =
+            setOf(PhoneS2Package.S2_R2_CANDIDATE, PhoneS2Package.ARM_A_E10_CANDIDATE)
     }
 }

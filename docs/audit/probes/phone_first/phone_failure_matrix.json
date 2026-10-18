@@ -1,0 +1,1512 @@
+{
+ "configs": {
+  "PRODUCTION": [
+   "S2_R2",
+   "BASELINE"
+  ],
+  "ARM_A_CB": [
+   "ARM_A_E10",
+   "CONFIRM_BOUNDARY_70"
+  ],
+  "ARM_A_R1_CB": [
+   "ARM_A_E10",
+   "R1_CB70"
+  ],
+  "ARM_I_R1_CB": [
+   "ARM_I_E28",
+   "R1_CB70"
+  ]
+ },
+ "signs": [
+  {
+   "session": "SEP27_TRANSITION",
+   "sign": "A_HANDS_DOWN:HELLO#1",
+   "gloss": "HELLO",
+   "observations": 6,
+   "hand_fraction": 0.5,
+   "proposal_fraction": 1.0,
+   "body_fraction": 1.0,
+   "cadence_ms": 467.31296900101006,
+   "perception_adequate": true,
+   "oracle_top1": "HELLO",
+   "oracle_correct": true,
+   "PRODUCTION": {
+    "peak_active": 0.14910675123604852,
+    "stage": "S2_NOT_ACQUIRED"
+   },
+   "ARM_A_CB": {
+    "peak_active": 0.990841863829523,
+    "word": "HELLO",
+    "word_p1": 0.7997424602508545,
+    "window": [
+     136,
+     141
+    ],
+    "window_contaminated": false,
+    "commit_latency_ms": 801.1080210004002,
+    "stage": "CORRECT"
+   },
+   "ARM_A_R1_CB": {
+    "peak_active": 0.990841863829523,
+    "word": "HELLO",
+    "word_p1": 0.7997424602508545,
+    "window": [
+     136,
+     141
+    ],
+    "window_contaminated": false,
+    "commit_latency_ms": 801.1080210004002,
+    "stage": "CORRECT"
+   },
+   "ARM_I_R1_CB": {
+    "peak_active": 0.31749781016390255,
+    "stage": "S2_NOT_ACQUIRED"
+   }
+  },
+  {
+   "session": "SEP27_TRANSITION",
+   "sign": "A_HANDS_DOWN:HOME#2",
+   "gloss": "HOME",
+   "observations": 9,
+   "hand_fraction": 0.7777777777777778,
+   "proposal_fraction": 1.0,
+   "body_fraction": 1.0,
+   "cadence_ms": 267.0359899997711,
+   "perception_adequate": true,
+   "oracle_top1": "KNOW",
+   "oracle_correct": false,
+   "PRODUCTION": {
+    "peak_active": 0.04722616798144483,
+    "stage": "S2_NOT_ACQUIRED"
+   },
+   "ARM_A_CB": {
+    "peak_active": 0.9988338091927574,
+    "word": "KNOW",
+    "word_p1": 0.9820220470428467,
+    "window": [
+     150,
+     160
+    ],
+    "window_contaminated": false,
+    "commit_latency_ms": 467.31302099861205,
+    "stage": "CLASSIFIER"
+   },
+   "ARM_A_R1_CB": {
+    "peak_active": 0.9988338091927574,
+    "word": "KNOW",
+    "word_p1": 0.9820220470428467,
+    "window": [
+     150,
+     160
+    ],
+    "window_contaminated": false,
+    "commit_latency_ms": 467.31302099861205,
+    "stage": "CLASSIFIER"
+   },
+   "ARM_I_R1_CB": {
+    "peak_active": 0.5082339816797894,
+    "stage": "LIFECYCLE_DISCARDED"
+   }
+  },
+  {
+   "session": "SEP27_TRANSITION",
+   "sign": "A_HANDS_DOWN:TABLE#3",
+   "gloss": "TABLE",
+   "observations": 10,
+   "hand_fraction": 0.0,
+   "proposal_fraction": 1.0,
+   "body_fraction": 1.0,
+   "cadence_ms": 200.27703100070357,
+   "perception_adequate": false,
+   "oracle_top1": "TABLE",
+   "oracle_correct": true,
+   "PRODUCTION": {
+    "peak_active": 0.010967921038656623,
+    "stage": "PERCEPTION"
+   },
+   "ARM_A_CB": {
+    "peak_active": 0.009832103130878813,
+    "stage": "PERCEPTION"
+   },
+   "ARM_A_R1_CB": {
+    "peak_active": 0.009832103130878813,
+    "stage": "PERCEPTION"
+   },
+   "ARM_I_R1_CB": {
+    "peak_active": 0.7495186630816898,
+    "stage": "PERCEPTION"
+   }
+  },
+  {
+   "session": "SEP27_TRANSITION",
+   "sign": "B_HANDS_UP:HELLO#1",
+   "gloss": "HELLO",
+   "observations": 11,
+   "hand_fraction": 1.0,
+   "proposal_fraction": 1.0,
+   "body_fraction": 0.0,
+   "cadence_ms": 200.2769789993763,
+   "perception_adequate": true,
+   "oracle_top1": "HELLO",
+   "oracle_correct": true,
+   "PRODUCTION": {
+    "peak_active": 0.9955068019126995,
+    "word": "HELLO",
+    "word_p1": 0.9920296669006348,
+    "window": [
+     342,
+     359
+    ],
+    "window_contaminated": false,
+    "commit_latency_ms": 600.8309899996966,
+    "stage": "CORRECT"
+   },
+   "ARM_A_CB": {
+    "peak_active": 0.9992076756531817,
+    "word": "HELLO",
+    "word_p1": 0.9804849028587341,
+    "window": [
+     345,
+     362
+    ],
+    "window_contaminated": false,
+    "commit_latency_ms": 1134.902969000861,
+    "stage": "CORRECT"
+   },
+   "ARM_A_R1_CB": {
+    "peak_active": 0.9992076756531817,
+    "word": "HELLO",
+    "word_p1": 0.9804849028587341,
+    "window": [
+     345,
+     362
+    ],
+    "window_contaminated": false,
+    "commit_latency_ms": 1134.902969000861,
+    "stage": "CORRECT"
+   },
+   "ARM_I_R1_CB": {
+    "peak_active": 0.9999977804705591,
+    "word": "HELLO",
+    "word_p1": 0.8546745777130127,
+    "window": [
+     344,
+     368
+    ],
+    "window_contaminated": true,
+    "commit_latency_ms": 2269.8059900011867,
+    "stage": "CORRECT"
+   }
+  },
+  {
+   "session": "SEP27_TRANSITION",
+   "sign": "B_HANDS_UP:HOME#2",
+   "gloss": "HOME",
+   "observations": 15,
+   "hand_fraction": 1.0,
+   "proposal_fraction": 1.0,
+   "body_fraction": 0.0,
+   "cadence_ms": 200.2769789993763,
+   "perception_adequate": true,
+   "oracle_top1": "WHY",
+   "oracle_correct": false,
+   "PRODUCTION": {
+    "peak_active": 0.062339306058024534,
+    "stage": "S2_NOT_ACQUIRED"
+   },
+   "ARM_A_CB": {
+    "peak_active": 0.9440636824983691,
+    "word": "HOME",
+    "word_p1": 0.7466694712638855,
+    "window": [
+     360,
+     368
+    ],
+    "window_contaminated": false,
+    "commit_latency_ms": -1068.1440099999309,
+    "stage": "CORRECT"
+   },
+   "ARM_A_R1_CB": {
+    "peak_active": 0.9440636824983691,
+    "word": "HOME",
+    "word_p1": 0.7466694712638855,
+    "window": [
+     360,
+     368
+    ],
+    "window_contaminated": false,
+    "commit_latency_ms": -1068.1440099999309,
+    "stage": "CORRECT"
+   },
+   "ARM_I_R1_CB": {
+    "peak_active": 0.9700121038504917,
+    "word": "WHY",
+    "word_p1": 0.44527390599250793,
+    "window": [
+     366,
+     373
+    ],
+    "window_contaminated": false,
+    "commit_latency_ms": -133.5180210005492,
+    "stage": "CLASSIFIER"
+   }
+  },
+  {
+   "session": "SEP27_TRANSITION",
+   "sign": "B_HANDS_UP:TABLE#3",
+   "gloss": "TABLE",
+   "observations": 14,
+   "hand_fraction": 0.0,
+   "proposal_fraction": 1.0,
+   "body_fraction": 0.7857142857142857,
+   "cadence_ms": 267.0359889995307,
+   "perception_adequate": false,
+   "oracle_top1": "TABLE",
+   "oracle_correct": true,
+   "PRODUCTION": {
+    "peak_active": 0.054530716123938644,
+    "stage": "PERCEPTION"
+   },
+   "ARM_A_CB": {
+    "peak_active": 0.002363100370760067,
+    "stage": "PERCEPTION"
+   },
+   "ARM_A_R1_CB": {
+    "peak_active": 0.002363100370760067,
+    "stage": "PERCEPTION"
+   },
+   "ARM_I_R1_CB": {
+    "peak_active": 0.076595549004409,
+    "stage": "PERCEPTION"
+   }
+  },
+  {
+   "session": "SEP27_TRANSITION",
+   "sign": "B_HANDS_UP:HELLO#4",
+   "gloss": "HELLO",
+   "observations": 7,
+   "hand_fraction": 0.8571428571428571,
+   "proposal_fraction": 1.0,
+   "body_fraction": 0.0,
+   "cadence_ms": 267.0359895005822,
+   "perception_adequate": true,
+   "oracle_top1": "HELLO",
+   "oracle_correct": true,
+   "PRODUCTION": {
+    "peak_active": 0.24463192229088293,
+    "stage": "S2_NOT_ACQUIRED"
+   },
+   "ARM_A_CB": {
+    "peak_active": 0.9997588583514977,
+    "word": "HELLO",
+    "word_p1": 0.9810226559638977,
+    "window": [
+     398,
+     406
+    ],
+    "window_contaminated": false,
+    "commit_latency_ms": 267.0359899997711,
+    "stage": "CORRECT"
+   },
+   "ARM_A_R1_CB": {
+    "peak_active": 0.9997588583514977,
+    "word": "HELLO",
+    "word_p1": 0.9810226559638977,
+    "window": [
+     398,
+     406
+    ],
+    "window_contaminated": false,
+    "commit_latency_ms": 267.0359899997711,
+    "stage": "CORRECT"
+   },
+   "ARM_I_R1_CB": {
+    "peak_active": 0.8473816384511181,
+    "word": "HELLO",
+    "word_p1": 0.9630497097969055,
+    "window": [
+     399,
+     404
+    ],
+    "window_contaminated": false,
+    "commit_latency_ms": -267.0359890013933,
+    "stage": "CORRECT"
+   }
+  },
+  {
+   "session": "OCT15_COMPACT",
+   "sign": "A_HANDS_DOWN:HELLO#1",
+   "gloss": "HELLO",
+   "observations": 7,
+   "hand_fraction": 0.7142857142857143,
+   "proposal_fraction": 1.0,
+   "body_fraction": 0.42857142857142855,
+   "cadence_ms": 233.28901000041515,
+   "perception_adequate": true,
+   "oracle_top1": "HELLO",
+   "oracle_correct": true,
+   "PRODUCTION": {
+    "peak_active": 0.14342465378187308,
+    "stage": "S2_NOT_ACQUIRED"
+   },
+   "ARM_A_CB": {
+    "peak_active": 0.996998829575112,
+    "word": "HELLO",
+    "word_p1": 0.9776560068130493,
+    "window": [
+     195,
+     203
+    ],
+    "window_contaminated": false,
+    "commit_latency_ms": 399.92401000112295,
+    "stage": "CORRECT"
+   },
+   "ARM_A_R1_CB": {
+    "peak_active": 0.996998829575112,
+    "word": "HELLO",
+    "word_p1": 0.9776560068130493,
+    "window": [
+     195,
+     203
+    ],
+    "window_contaminated": false,
+    "commit_latency_ms": 399.92401000112295,
+    "stage": "CORRECT"
+   },
+   "ARM_I_R1_CB": {
+    "peak_active": 0.9061697417320708,
+    "word": "HELLO",
+    "word_p1": 0.9776560068130493,
+    "window": [
+     195,
+     203
+    ],
+    "window_contaminated": false,
+    "commit_latency_ms": 399.92401000112295,
+    "stage": "CORRECT"
+   }
+  },
+  {
+   "session": "OCT15_COMPACT",
+   "sign": "B_HANDS_UP:HELLO#1",
+   "gloss": "HELLO",
+   "observations": 10,
+   "hand_fraction": 0.7,
+   "proposal_fraction": 1.0,
+   "body_fraction": 0.0,
+   "cadence_ms": 266.6160420011729,
+   "perception_adequate": true,
+   "oracle_top1": "HELLO",
+   "oracle_correct": true,
+   "PRODUCTION": {
+    "peak_active": 0.014174923423299535,
+    "stage": "S2_NOT_ACQUIRED"
+   },
+   "ARM_A_CB": {
+    "peak_active": 0.9993358249374511,
+    "word": "HELLO",
+    "word_p1": 0.9993785619735718,
+    "window": [
+     231,
+     238
+    ],
+    "window_contaminated": false,
+    "commit_latency_ms": 199.96197899989784,
+    "stage": "CORRECT"
+   },
+   "ARM_A_R1_CB": {
+    "peak_active": 0.9993358249374511,
+    "word": "HELLO",
+    "word_p1": 0.9993785619735718,
+    "window": [
+     231,
+     238
+    ],
+    "window_contaminated": false,
+    "commit_latency_ms": 199.96197899989784,
+    "stage": "CORRECT"
+   },
+   "ARM_I_R1_CB": {
+    "peak_active": 0.9751511927294535,
+    "stage": "LIFECYCLE_DISCARDED"
+   }
+  },
+  {
+   "session": "OCT15_COMPACT",
+   "sign": "C_REPEAT_HANDS_UP:HELLO#1",
+   "gloss": "HELLO",
+   "observations": 8,
+   "hand_fraction": 1.0,
+   "proposal_fraction": 1.0,
+   "body_fraction": 0.0,
+   "cadence_ms": 199.9620310012251,
+   "perception_adequate": true,
+   "oracle_top1": "HELLO",
+   "oracle_correct": true,
+   "PRODUCTION": {
+    "peak_active": 0.9530295986836483,
+    "word": "HELLO",
+    "word_p1": 0.9929848313331604,
+    "window": [
+     278,
+     283
+    ],
+    "window_contaminated": false,
+    "commit_latency_ms": -466.5780209992081,
+    "stage": "CORRECT"
+   },
+   "ARM_A_CB": {
+    "peak_active": 0.9991814400753586,
+    "word": "HELLO",
+    "word_p1": 0.9988759160041809,
+    "window": [
+     278,
+     292
+    ],
+    "window_contaminated": false,
+    "commit_latency_ms": 1466.3879680000246,
+    "stage": "CORRECT"
+   },
+   "ARM_A_R1_CB": {
+    "peak_active": 0.9991814400753586,
+    "word": "HELLO",
+    "word_p1": 0.9988759160041809,
+    "window": [
+     278,
+     292
+    ],
+    "window_contaminated": false,
+    "commit_latency_ms": 1466.3879680000246,
+    "stage": "CORRECT"
+   },
+   "ARM_I_R1_CB": {
+    "peak_active": 0.9999994664441134,
+    "word": "HELLO",
+    "word_p1": 0.9946656227111816,
+    "window": [
+     276,
+     295
+    ],
+    "window_contaminated": false,
+    "commit_latency_ms": 2199.581979000941,
+    "stage": "CORRECT"
+   }
+  },
+  {
+   "session": "OCT15_COMPACT",
+   "sign": "D_SIGN_THEN_HOLD:HELLO#1",
+   "gloss": "HELLO",
+   "observations": 37,
+   "hand_fraction": 1.0,
+   "proposal_fraction": 1.0,
+   "body_fraction": 0.0,
+   "cadence_ms": 266.6159890005365,
+   "perception_adequate": true,
+   "oracle_top1": "HELLO",
+   "oracle_correct": true,
+   "PRODUCTION": {
+    "peak_active": 0.3620710810211949,
+    "stage": "S2_NOT_ACQUIRED"
+   },
+   "ARM_A_CB": {
+    "peak_active": 0.9996583646795633,
+    "word": "HELLO",
+    "word_p1": 0.9997459053993225,
+    "window": [
+     317,
+     335
+    ],
+    "window_contaminated": false,
+    "commit_latency_ms": -4665.779947999865,
+    "stage": "CORRECT"
+   },
+   "ARM_A_R1_CB": {
+    "peak_active": 0.9996583646795633,
+    "word": "HELLO",
+    "word_p1": 0.9997459053993225,
+    "window": [
+     317,
+     335
+    ],
+    "window_contaminated": false,
+    "commit_latency_ms": -4665.779947999865,
+    "stage": "CORRECT"
+   },
+   "ARM_I_R1_CB": {
+    "peak_active": 0.9999948341098345,
+    "word": "HELLO",
+    "word_p1": 0.9996814727783203,
+    "window": [
+     316,
+     339
+    ],
+    "window_contaminated": false,
+    "commit_latency_ms": -3665.969999998808,
+    "stage": "CORRECT"
+   }
+  },
+  {
+   "session": "SEP23_INDEPENDENT",
+   "sign": "attempt_001:HELLO",
+   "gloss": "HELLO",
+   "observations": 6,
+   "hand_fraction": 0.8333333333333334,
+   "proposal_fraction": 1.0,
+   "body_fraction": 1.0,
+   "cadence_ms": 402.1014229655266,
+   "perception_adequate": true,
+   "oracle_top1": "HELLO",
+   "oracle_correct": true,
+   "PRODUCTION": {
+    "peak_active": 0.8536587811460222,
+    "word": "HELLO",
+    "word_p1": 0.9989882111549377,
+    "window": [
+     93,
+     100
+    ],
+    "window_contaminated": false,
+    "commit_latency_ms": 938.7900370359421,
+    "stage": "CORRECT"
+   },
+   "ARM_A_CB": {
+    "peak_active": 0.8143222500626328,
+    "stage": "LIFECYCLE_DISCARDED"
+   },
+   "ARM_A_R1_CB": {
+    "peak_active": 0.8143222500626328,
+    "stage": "LIFECYCLE_DISCARDED"
+   },
+   "ARM_I_R1_CB": {
+    "peak_active": 0.17281668425110108,
+    "stage": "S2_NOT_ACQUIRED"
+   }
+  },
+  {
+   "session": "SEP23_INDEPENDENT",
+   "sign": "attempt_002:HELLO",
+   "gloss": "HELLO",
+   "observations": 7,
+   "hand_fraction": 0.7142857142857143,
+   "proposal_fraction": 1.0,
+   "body_fraction": 1.0,
+   "cadence_ms": 402.35467249155045,
+   "perception_adequate": true,
+   "oracle_top1": "HELLO",
+   "oracle_correct": true,
+   "PRODUCTION": {
+    "peak_active": 0.9417394724061201,
+    "word": "HELLO",
+    "word_p1": 0.9971822500228882,
+    "window": [
+     154,
+     162
+    ],
+    "window_contaminated": false,
+    "commit_latency_ms": 1408.2268449664116,
+    "stage": "CORRECT"
+   },
+   "ARM_A_CB": {
+    "peak_active": 0.7948397672434803,
+    "word": "HELLO",
+    "word_p1": 0.9991443157196045,
+    "window": [
+     156,
+     160
+    ],
+    "window_contaminated": false,
+    "commit_latency_ms": 938.7971919775009,
+    "stage": "CORRECT"
+   },
+   "ARM_A_R1_CB": {
+    "peak_active": 0.7948397672434803,
+    "word": "HELLO",
+    "word_p1": 0.9991443157196045,
+    "window": [
+     156,
+     160
+    ],
+    "window_contaminated": false,
+    "commit_latency_ms": 938.7971919775009,
+    "stage": "CORRECT"
+   },
+   "ARM_I_R1_CB": {
+    "peak_active": 0.017656868783270687,
+    "stage": "S2_NOT_ACQUIRED"
+   }
+  },
+  {
+   "session": "SEP23_INDEPENDENT",
+   "sign": "attempt_003:HOME",
+   "gloss": "HOME",
+   "observations": 4,
+   "hand_fraction": 1.0,
+   "proposal_fraction": 1.0,
+   "body_fraction": 0.0,
+   "cadence_ms": 536.2114989757538,
+   "perception_adequate": true,
+   "oracle_top1": "HOME",
+   "oracle_correct": true,
+   "PRODUCTION": {
+    "peak_active": 0.9871147032352565,
+    "stage": "LIFECYCLE_SWALLOWED"
+   },
+   "ARM_A_CB": {
+    "peak_active": 0.9999826862742028,
+    "word": "HOME",
+    "word_p1": 0.9660750031471252,
+    "window": [
+     238,
+     244
+    ],
+    "window_contaminated": false,
+    "commit_latency_ms": 1609.4205760359764,
+    "stage": "CORRECT"
+   },
+   "ARM_A_R1_CB": {
+    "peak_active": 0.9999826862742028,
+    "word": "HOME",
+    "word_p1": 0.9660750031471252,
+    "window": [
+     238,
+     244
+    ],
+    "window_contaminated": false,
+    "commit_latency_ms": 1609.4205760359764,
+    "stage": "CORRECT"
+   },
+   "ARM_I_R1_CB": {
+    "peak_active": 0.7576171742765192,
+    "stage": "LIFECYCLE_DISCARDED"
+   }
+  },
+  {
+   "session": "SEP23_INDEPENDENT",
+   "sign": "attempt_004:HOME",
+   "gloss": "HOME",
+   "observations": 4,
+   "hand_fraction": 1.0,
+   "proposal_fraction": 1.0,
+   "body_fraction": 0.0,
+   "cadence_ms": 536.4676920175552,
+   "perception_adequate": true,
+   "oracle_top1": "HOME",
+   "oracle_correct": true,
+   "PRODUCTION": {
+    "peak_active": 0.9650001485691138,
+    "word": "HOME",
+    "word_p1": 0.994074285030365,
+    "window": [
+     270,
+     276
+    ],
+    "window_contaminated": false,
+    "commit_latency_ms": 1073.2105759978294,
+    "stage": "CORRECT"
+   },
+   "ARM_A_CB": {
+    "peak_active": 0.9989830389781984,
+    "word": "HOME",
+    "word_p1": 0.9814589023590088,
+    "window": [
+     270,
+     277
+    ],
+    "window_contaminated": false,
+    "commit_latency_ms": 1676.4606910347939,
+    "stage": "CORRECT"
+   },
+   "ARM_A_R1_CB": {
+    "peak_active": 0.9989830389781984,
+    "word": "HOME",
+    "word_p1": 0.9814589023590088,
+    "window": [
+     270,
+     277
+    ],
+    "window_contaminated": false,
+    "commit_latency_ms": 1676.4606910347939,
+    "stage": "CORRECT"
+   },
+   "ARM_I_R1_CB": {
+    "peak_active": 0.367112045579788,
+    "stage": "S2_NOT_ACQUIRED"
+   }
+  },
+  {
+   "session": "SEP23_INDEPENDENT",
+   "sign": "attempt_005:TABLE",
+   "gloss": "TABLE",
+   "observations": 5,
+   "hand_fraction": 0.0,
+   "proposal_fraction": 1.0,
+   "body_fraction": 0.0,
+   "cadence_ms": 536.4733455181122,
+   "perception_adequate": false,
+   "oracle_top1": "MONEY1",
+   "oracle_correct": false,
+   "PRODUCTION": {
+    "peak_active": 0.04697532102170459,
+    "stage": "PERCEPTION"
+   },
+   "ARM_A_CB": {
+    "peak_active": 0.00040808031356286785,
+    "stage": "PERCEPTION"
+   },
+   "ARM_A_R1_CB": {
+    "peak_active": 0.00040808031356286785,
+    "stage": "PERCEPTION"
+   },
+   "ARM_I_R1_CB": {
+    "peak_active": 0.16657795862983957,
+    "stage": "PERCEPTION"
+   }
+  },
+  {
+   "session": "SEP23_INDEPENDENT",
+   "sign": "attempt_006:TABLE",
+   "gloss": "TABLE",
+   "observations": 3,
+   "hand_fraction": 0.0,
+   "proposal_fraction": 1.0,
+   "body_fraction": 0.3333333333333333,
+   "cadence_ms": 502.94349950551987,
+   "perception_adequate": false,
+   "oracle_top1": "CLOTHES",
+   "oracle_correct": false,
+   "PRODUCTION": {
+    "peak_active": 0.0036114670548878093,
+    "stage": "PERCEPTION"
+   },
+   "ARM_A_CB": {
+    "peak_active": 0.00026706461594825997,
+    "stage": "PERCEPTION"
+   },
+   "ARM_A_R1_CB": {
+    "peak_active": 0.00026706461594825997,
+    "stage": "PERCEPTION"
+   },
+   "ARM_I_R1_CB": {
+    "peak_active": 0.007469130054770468,
+    "stage": "PERCEPTION"
+   }
+  },
+  {
+   "session": "SEP23_REPRESENTATIVE",
+   "sign": "attempt_001:HELLO",
+   "gloss": "HELLO",
+   "observations": 9,
+   "hand_fraction": 0.8888888888888888,
+   "proposal_fraction": 1.0,
+   "body_fraction": 0.0,
+   "cadence_ms": 266.6159890294075,
+   "perception_adequate": true,
+   "oracle_top1": "HELLO",
+   "oracle_correct": true,
+   "PRODUCTION": {
+    "peak_active": 0.9998546976311584,
+    "word": "HELLO",
+    "word_p1": 0.997123658657074,
+    "window": [
+     256,
+     267
+    ],
+    "window_contaminated": false,
+    "commit_latency_ms": 466.5780209302902,
+    "stage": "CORRECT"
+   },
+   "ARM_A_CB": {
+    "peak_active": 0.9999560439523314,
+    "word": "HELLO",
+    "word_p1": 0.997123658657074,
+    "window": [
+     256,
+     267
+    ],
+    "window_contaminated": false,
+    "commit_latency_ms": 466.5780209302902,
+    "stage": "CORRECT"
+   },
+   "ARM_A_R1_CB": {
+    "peak_active": 0.9999560439523314,
+    "word": "HELLO",
+    "word_p1": 0.997123658657074,
+    "window": [
+     256,
+     267
+    ],
+    "window_contaminated": false,
+    "commit_latency_ms": 466.5780209302902,
+    "stage": "CORRECT"
+   },
+   "ARM_I_R1_CB": {
+    "peak_active": 0.9999745880831067,
+    "word": "HELLO",
+    "word_p1": 0.997123658657074,
+    "window": [
+     256,
+     267
+    ],
+    "window_contaminated": false,
+    "commit_latency_ms": 466.5780209302902,
+    "stage": "CORRECT"
+   }
+  },
+  {
+   "session": "SEP23_REPRESENTATIVE",
+   "sign": "attempt_002:HELLO",
+   "gloss": "HELLO",
+   "observations": 9,
+   "hand_fraction": 1.0,
+   "proposal_fraction": 1.0,
+   "body_fraction": 0.0,
+   "cadence_ms": 266.61598896980286,
+   "perception_adequate": true,
+   "oracle_top1": "HELLO",
+   "oracle_correct": true,
+   "PRODUCTION": {
+    "peak_active": 0.9999737522903701,
+    "word": "HELLO",
+    "word_p1": 0.9728617072105408,
+    "window": [
+     312,
+     325
+    ],
+    "window_contaminated": false,
+    "commit_latency_ms": 466.57796895504,
+    "stage": "CORRECT"
+   },
+   "ARM_A_CB": {
+    "peak_active": 0.9999997152472222,
+    "word": "HELLO",
+    "word_p1": 0.9955203533172607,
+    "window": [
+     315,
+     325
+    ],
+    "window_contaminated": false,
+    "commit_latency_ms": 466.57796895504,
+    "stage": "CORRECT"
+   },
+   "ARM_A_R1_CB": {
+    "peak_active": 0.9999997152472222,
+    "word": "HELLO",
+    "word_p1": 0.9955203533172607,
+    "window": [
+     315,
+     325
+    ],
+    "window_contaminated": false,
+    "commit_latency_ms": 466.57796895504,
+    "stage": "CORRECT"
+   },
+   "ARM_I_R1_CB": {
+    "peak_active": 0.9999999953345702,
+    "word": "HELLO",
+    "word_p1": 0.9867970943450928,
+    "window": [
+     313,
+     326
+    ],
+    "window_contaminated": false,
+    "commit_latency_ms": 933.1559889316559,
+    "stage": "CORRECT"
+   }
+  },
+  {
+   "session": "SEP23_REPRESENTATIVE",
+   "sign": "attempt_003:HOME",
+   "gloss": "HOME",
+   "observations": 8,
+   "hand_fraction": 1.0,
+   "proposal_fraction": 1.0,
+   "body_fraction": 0.0,
+   "cadence_ms": 199.96203207969666,
+   "perception_adequate": true,
+   "oracle_top1": "HOME",
+   "oracle_correct": true,
+   "PRODUCTION": {
+    "peak_active": 0.9998140363118561,
+    "word": "HOME",
+    "word_p1": 0.5309491753578186,
+    "window": [
+     358,
+     372
+    ],
+    "window_contaminated": false,
+    "commit_latency_ms": 666.5400000810623,
+    "stage": "CORRECT"
+   },
+   "ARM_A_CB": {
+    "peak_active": 0.9998067630964429,
+    "word": "HOME",
+    "word_p1": 0.5163809061050415,
+    "window": [
+     361,
+     372
+    ],
+    "window_contaminated": false,
+    "commit_latency_ms": 933.1559890508652,
+    "stage": "CORRECT"
+   },
+   "ARM_A_R1_CB": {
+    "peak_active": 0.9998067630964429,
+    "word": "HOME",
+    "word_p1": 0.5163809061050415,
+    "window": [
+     361,
+     372
+    ],
+    "window_contaminated": false,
+    "commit_latency_ms": 933.1559890508652,
+    "stage": "CORRECT"
+   },
+   "ARM_I_R1_CB": {
+    "peak_active": 0.999959396010119,
+    "word": "HOME",
+    "word_p1": 0.4939116835594177,
+    "window": [
+     360,
+     372
+    ],
+    "window_contaminated": false,
+    "commit_latency_ms": 933.1559890508652,
+    "stage": "CORRECT"
+   }
+  },
+  {
+   "session": "SEP23_REPRESENTATIVE",
+   "sign": "attempt_004:HOME",
+   "gloss": "HOME",
+   "observations": 9,
+   "hand_fraction": 1.0,
+   "proposal_fraction": 1.0,
+   "body_fraction": 0.0,
+   "cadence_ms": 199.96200549602509,
+   "perception_adequate": true,
+   "oracle_top1": "THINK",
+   "oracle_correct": false,
+   "PRODUCTION": {
+    "peak_active": 0.9999073714784181,
+    "word": "THINK",
+    "word_p1": 0.9177258610725403,
+    "window": [
+     423,
+     435
+    ],
+    "window_contaminated": false,
+    "commit_latency_ms": 199.96203196048737,
+    "stage": "CLASSIFIER"
+   },
+   "ARM_A_CB": {
+    "peak_active": 0.9999949805344579,
+    "word": "THINK",
+    "word_p1": 0.8782616257667542,
+    "window": [
+     423,
+     437
+    ],
+    "window_contaminated": false,
+    "commit_latency_ms": 933.1560419797897,
+    "stage": "CLASSIFIER"
+   },
+   "ARM_A_R1_CB": {
+    "peak_active": 0.9999949805344579,
+    "word": "THINK",
+    "word_p1": 0.8782616257667542,
+    "window": [
+     423,
+     437
+    ],
+    "window_contaminated": false,
+    "commit_latency_ms": 933.1560419797897,
+    "stage": "CLASSIFIER"
+   },
+   "ARM_I_R1_CB": {
+    "peak_active": 0.9999995564025073,
+    "word": "THINK",
+    "word_p1": 0.8782616257667542,
+    "window": [
+     423,
+     437
+    ],
+    "window_contaminated": false,
+    "commit_latency_ms": 933.1560419797897,
+    "stage": "CLASSIFIER"
+   }
+  },
+  {
+   "session": "SEP23_REPRESENTATIVE",
+   "sign": "attempt_005:TABLE",
+   "gloss": "TABLE",
+   "observations": 12,
+   "hand_fraction": 0.08333333333333333,
+   "proposal_fraction": 1.0,
+   "body_fraction": 0.25,
+   "cadence_ms": 266.6159899234772,
+   "perception_adequate": false,
+   "oracle_top1": "NICE",
+   "oracle_correct": false,
+   "PRODUCTION": {
+    "peak_active": 0.9998082131942145,
+    "word": "BABY1",
+    "word_p1": 0.45060235261917114,
+    "window": [
+     494,
+     511
+    ],
+    "window_contaminated": false,
+    "commit_latency_ms": 733.1939580440521,
+    "stage": "PERCEPTION"
+   },
+   "ARM_A_CB": {
+    "peak_active": 0.2784338102209383,
+    "stage": "PERCEPTION"
+   },
+   "ARM_A_R1_CB": {
+    "peak_active": 0.2784338102209383,
+    "stage": "PERCEPTION"
+   },
+   "ARM_I_R1_CB": {
+    "peak_active": 0.9949905805770531,
+    "stage": "PERCEPTION"
+   }
+  },
+  {
+   "session": "SEP23_REPRESENTATIVE",
+   "sign": "attempt_006:TABLE",
+   "gloss": "TABLE",
+   "observations": 9,
+   "hand_fraction": 0.0,
+   "proposal_fraction": 1.0,
+   "body_fraction": 0.5555555555555556,
+   "cadence_ms": 266.6159899234772,
+   "perception_adequate": false,
+   "oracle_top1": "NICE",
+   "oracle_correct": false,
+   "PRODUCTION": {
+    "peak_active": 0.9995833863436154,
+    "word": "ON",
+    "word_p1": 0.19680668413639069,
+    "window": [
+     597,
+     613
+    ],
+    "window_contaminated": false,
+    "commit_latency_ms": 999.8100520372391,
+    "stage": "PERCEPTION"
+   },
+   "ARM_A_CB": {
+    "peak_active": 0.0203706573177919,
+    "stage": "PERCEPTION"
+   },
+   "ARM_A_R1_CB": {
+    "peak_active": 0.0203706573177919,
+    "stage": "PERCEPTION"
+   },
+   "ARM_I_R1_CB": {
+    "peak_active": 0.9999426551673148,
+    "stage": "PERCEPTION"
+   }
+  },
+  {
+   "session": "SHADOW_023004Z",
+   "sign": "A_HANDS_DOWN:HELLO#1",
+   "gloss": "HELLO",
+   "observations": 7,
+   "hand_fraction": 0.5714285714285714,
+   "proposal_fraction": 1.0,
+   "body_fraction": 0.0,
+   "cadence_ms": 200.2769789993763,
+   "perception_adequate": true,
+   "oracle_top1": "HELLO",
+   "oracle_correct": true,
+   "PRODUCTION": {
+    "peak_active": 0.9986268764831554,
+    "word": "HELLO",
+    "word_p1": 0.9678812026977539,
+    "window": [
+     100,
+     111
+    ],
+    "window_contaminated": false,
+    "commit_latency_ms": 541.8803120031953,
+    "stage": "CORRECT"
+   },
+   "ARM_A_CB": {
+    "peak_active": 0.9932348232073867,
+    "word": "HELLO",
+    "word_p1": 0.8831717371940613,
+    "window": [
+     104,
+     111
+    ],
+    "window_contaminated": false,
+    "commit_latency_ms": 541.8803120031953,
+    "stage": "CORRECT"
+   },
+   "ARM_A_R1_CB": {
+    "peak_active": 0.9932348232073867,
+    "word": "HELLO",
+    "word_p1": 0.8831717371940613,
+    "window": [
+     104,
+     111
+    ],
+    "window_contaminated": false,
+    "commit_latency_ms": 541.8803120031953,
+    "stage": "CORRECT"
+   },
+   "ARM_I_R1_CB": {
+    "peak_active": 0.9998994189678405,
+    "word": "HELLO",
+    "word_p1": 0.9529743194580078,
+    "window": [
+     103,
+     111
+    ],
+    "window_contaminated": false,
+    "commit_latency_ms": 541.8803120031953,
+    "stage": "CORRECT"
+   }
+  },
+  {
+   "session": "SHADOW_023004Z",
+   "sign": "A_HANDS_DOWN:HOME#2",
+   "gloss": "HOME",
+   "observations": 8,
+   "hand_fraction": 0.75,
+   "proposal_fraction": 1.0,
+   "body_fraction": 0.0,
+   "cadence_ms": 200.2769789993763,
+   "perception_adequate": true,
+   "oracle_top1": "LUNCH1",
+   "oracle_correct": false,
+   "PRODUCTION": {
+    "peak_active": 0.6740367216027505,
+    "stage": "LIFECYCLE_DISCARDED"
+   },
+   "ARM_A_CB": {
+    "peak_active": 0.9915624214764257,
+    "word": "LUNCH1",
+    "word_p1": 0.7667527794837952,
+    "window": [
+     116,
+     125
+    ],
+    "window_contaminated": false,
+    "commit_latency_ms": 600.8309890031815,
+    "stage": "CLASSIFIER"
+   },
+   "ARM_A_R1_CB": {
+    "peak_active": 0.9915624214764257,
+    "word": "LUNCH1",
+    "word_p1": 0.7667527794837952,
+    "window": [
+     116,
+     125
+    ],
+    "window_contaminated": false,
+    "commit_latency_ms": 600.8309890031815,
+    "stage": "CLASSIFIER"
+   },
+   "ARM_I_R1_CB": {
+    "peak_active": 0.8174661440968533,
+    "stage": "LIFECYCLE_DISCARDED"
+   }
+  },
+  {
+   "session": "SHADOW_023004Z",
+   "sign": "B_HANDS_UP:HELLO#1",
+   "gloss": "HELLO",
+   "observations": 5,
+   "hand_fraction": 0.8,
+   "proposal_fraction": 1.0,
+   "body_fraction": 0.0,
+   "cadence_ms": 200.27700550109148,
+   "perception_adequate": true,
+   "oracle_top1": "HELLO",
+   "oracle_correct": true,
+   "PRODUCTION": {
+    "peak_active": 0.9995882052353641,
+    "word": "HELLO",
+    "word_p1": 0.8538774251937866,
+    "window": [
+     163,
+     176
+    ],
+    "window_contaminated": false,
+    "commit_latency_ms": 1468.6980209946632,
+    "stage": "CORRECT"
+   },
+   "ARM_A_CB": {
+    "peak_active": 0.9978016091532997,
+    "word": "HELLO",
+    "word_p1": 0.935097873210907,
+    "window": [
+     167,
+     172
+    ],
+    "window_contaminated": false,
+    "commit_latency_ms": 734.3490099981427,
+    "stage": "CORRECT"
+   },
+   "ARM_A_R1_CB": {
+    "peak_active": 0.9978016091532997,
+    "word": "HELLO",
+    "word_p1": 0.935097873210907,
+    "window": [
+     167,
+     172
+    ],
+    "window_contaminated": false,
+    "commit_latency_ms": 734.3490099981427,
+    "stage": "CORRECT"
+   },
+   "ARM_I_R1_CB": {
+    "peak_active": 0.999980873879409,
+    "word": "HELLO",
+    "word_p1": 0.935097873210907,
+    "window": [
+     167,
+     172
+    ],
+    "window_contaminated": false,
+    "commit_latency_ms": 734.3490099981427,
+    "stage": "CORRECT"
+   }
+  },
+  {
+   "session": "SHADOW_023004Z",
+   "sign": "B_HANDS_UP:HOME#2",
+   "gloss": "HOME",
+   "observations": 6,
+   "hand_fraction": 0.5,
+   "proposal_fraction": 1.0,
+   "body_fraction": 0.0,
+   "cadence_ms": 200.2769789993763,
+   "perception_adequate": true,
+   "oracle_top1": "LUNCH1",
+   "oracle_correct": false,
+   "PRODUCTION": {
+    "peak_active": 0.3696365277609803,
+    "stage": "S2_NOT_ACQUIRED"
+   },
+   "ARM_A_CB": {
+    "peak_active": 0.9915316749294121,
+    "word": "HOME",
+    "word_p1": 0.742405891418457,
+    "window": [
+     173,
+     179
+    ],
+    "window_contaminated": false,
+    "commit_latency_ms": -200.2769789993763,
+    "stage": "CORRECT"
+   },
+   "ARM_A_R1_CB": {
+    "peak_active": 0.9915316749294121,
+    "word": "HOME",
+    "word_p1": 0.742405891418457,
+    "window": [
+     173,
+     179
+    ],
+    "window_contaminated": false,
+    "commit_latency_ms": -200.2769789993763,
+    "stage": "CORRECT"
+   },
+   "ARM_I_R1_CB": {
+    "peak_active": 0.9876800437199018,
+    "word": "LUNCH1",
+    "word_p1": 0.6148509383201599,
+    "window": [
+     173,
+     183
+    ],
+    "window_contaminated": false,
+    "commit_latency_ms": 667.5900000035763,
+    "stage": "CLASSIFIER"
+   }
+  },
+  {
+   "session": "SHADOW_023004Z",
+   "sign": "C_REPEAT_HANDS_UP:HELLO#1",
+   "gloss": "HELLO",
+   "observations": 7,
+   "hand_fraction": 0.7142857142857143,
+   "proposal_fraction": 1.0,
+   "body_fraction": 0.0,
+   "cadence_ms": 233.6565105021,
+   "perception_adequate": true,
+   "oracle_top1": "HELLO",
+   "oracle_correct": true,
+   "PRODUCTION": {
+    "peak_active": 0.9988571708130521,
+    "word": "HELLO",
+    "word_p1": 0.44571587443351746,
+    "window": [
+     216,
+     233
+    ],
+    "window_contaminated": false,
+    "commit_latency_ms": 2069.5290099978447,
+    "stage": "CORRECT"
+   },
+   "ARM_A_CB": {
+    "peak_active": 0.9917465444452693,
+    "word": "HELLO",
+    "word_p1": 0.8512815237045288,
+    "window": [
+     219,
+     229
+    ],
+    "window_contaminated": false,
+    "commit_latency_ms": 1134.9030210003257,
+    "stage": "CORRECT"
+   },
+   "ARM_A_R1_CB": {
+    "peak_active": 0.9917465444452693,
+    "word": "HELLO",
+    "word_p1": 0.8512815237045288,
+    "window": [
+     219,
+     229
+    ],
+    "window_contaminated": false,
+    "commit_latency_ms": 1134.9030210003257,
+    "stage": "CORRECT"
+   },
+   "ARM_I_R1_CB": {
+    "peak_active": 0.999997780086674,
+    "word": "HELLO",
+    "word_p1": 0.9446372389793396,
+    "window": [
+     218,
+     227
+    ],
+    "window_contaminated": false,
+    "commit_latency_ms": 734.3490099981427,
+    "stage": "CORRECT"
+   }
+  },
+  {
+   "session": "SHADOW_023004Z",
+   "sign": "D_SIGN_THEN_HOLD:HELLO#1",
+   "gloss": "HELLO",
+   "observations": 22,
+   "hand_fraction": 0.9545454545454546,
+   "proposal_fraction": 1.0,
+   "body_fraction": 0.0,
+   "cadence_ms": 200.27697900682688,
+   "perception_adequate": true,
+   "oracle_top1": "HELLO",
+   "oracle_correct": true,
+   "PRODUCTION": {
+    "peak_active": 0.9988534209917791,
+    "word": "HELLO",
+    "word_p1": 0.9946186542510986,
+    "window": [
+     268,
+     283
+    ],
+    "window_contaminated": false,
+    "commit_latency_ms": -1936.0110419988632,
+    "stage": "CORRECT"
+   },
+   "ARM_A_CB": {
+    "peak_active": 0.9963046461987751,
+    "word": "HELLO",
+    "word_p1": 0.9968582391738892,
+    "window": [
+     271,
+     295
+    ],
+    "window_contaminated": false,
+    "commit_latency_ms": 667.5899479985237,
+    "stage": "CORRECT"
+   },
+   "ARM_A_R1_CB": {
+    "peak_active": 0.9963046461987751,
+    "word": "HELLO",
+    "word_p1": 0.9968582391738892,
+    "window": [
+     271,
+     295
+    ],
+    "window_contaminated": false,
+    "commit_latency_ms": 667.5899479985237,
+    "stage": "CORRECT"
+   },
+   "ARM_I_R1_CB": {
+    "peak_active": 0.9999374774951986,
+    "word": "HELLO",
+    "word_p1": 0.9972543120384216,
+    "window": [
+     269,
+     295
+    ],
+    "window_contaminated": false,
+    "commit_latency_ms": 667.5899479985237,
+    "stage": "CORRECT"
+   }
+  }
+ ],
+ "stage_counts": {
+  "PRODUCTION": {
+   "S2_NOT_ACQUIRED": 8,
+   "PERCEPTION": 6,
+   "CORRECT": 12,
+   "LIFECYCLE_SWALLOWED": 1,
+   "CLASSIFIER": 1,
+   "LIFECYCLE_DISCARDED": 1
+  },
+  "ARM_A_CB": {
+   "CORRECT": 19,
+   "CLASSIFIER": 3,
+   "PERCEPTION": 6,
+   "LIFECYCLE_DISCARDED": 1
+  },
+  "ARM_A_R1_CB": {
+   "CORRECT": 19,
+   "CLASSIFIER": 3,
+   "PERCEPTION": 6,
+   "LIFECYCLE_DISCARDED": 1
+  },
+  "ARM_I_R1_CB": {
+   "S2_NOT_ACQUIRED": 4,
+   "LIFECYCLE_DISCARDED": 4,
+   "PERCEPTION": 6,
+   "CORRECT": 12,
+   "CLASSIFIER": 3
+  }
+ },
+ "perception_inadequate": [
+  "A_HANDS_DOWN:TABLE#3@SEP27_TRANSITION",
+  "B_HANDS_UP:TABLE#3@SEP27_TRANSITION",
+  "attempt_005:TABLE@SEP23_INDEPENDENT",
+  "attempt_006:TABLE@SEP23_INDEPENDENT",
+  "attempt_005:TABLE@SEP23_REPRESENTATIVE",
+  "attempt_006:TABLE@SEP23_REPRESENTATIVE"
+ ],
+ "oracle_correct": 20,
+ "commit_latency_ms_median": {
+  "PRODUCTION": 666.5400000810623,
+  "ARM_A_CB": 634.2104685008526,
+  "ARM_A_R1_CB": 634.2104685008526,
+  "ARM_I_R1_CB": 667.5900000035763
+ },
+ "contaminated_windows": {
+  "PRODUCTION": 0,
+  "ARM_A_CB": 0,
+  "ARM_A_R1_CB": 0,
+  "ARM_I_R1_CB": 1
+ },
+ "cadence_ms_median_by_session": {
+  "SEP27_TRANSITION": 267.0359889995307,
+  "OCT15_COMPACT": 249.95249950047582,
+  "SEP23_INDEPENDENT": 519.5774992406368,
+  "SEP23_REPRESENTATIVE": 266.6159889996052,
+  "SHADOW_023004Z": 200.2769790031016
+ }
+}

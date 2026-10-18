@@ -1,0 +1,54 @@
+{
+  "causal_runtime": "bounded rolling prefix; last output only",
+  "feature_schema": "apphear.perception_vnext.segmentation_features.v1",
+  "feature_width": 378,
+  "fixture": {
+    "argmax_state_mismatches": 0,
+    "features_asset": "phone_parity_normalized_features.f32",
+    "features_sha256": "9bd82ccaf70e77cf6fe29fdec81e087612979d4077e61e897453afaa3b65f8c8",
+    "maximum_abs_probability_difference_keras_vs_tflite": 1.3113021850585938e-06,
+    "observation_count": 669,
+    "probabilities_asset": "phone_parity_probabilities.f32",
+    "probabilities_sha256": "f6c60cf06ce2f9c8186c7db7f880fdf3dd0bf3abf91bd074db4ba4aa09d83c41",
+    "raw_features_asset_path": "phone_causal_recognition_01/s2_r2_candidate/phone_parity_raw_features.f32",
+    "raw_features_sha256": "17ed546b61bdb3750dcdc130166211484b8fe45ae210df88325fa972079f7618",
+    "source_feature_sha256": "17ed546b61bdb3750dcdc130166211484b8fe45ae210df88325fa972079f7618",
+    "source_session": "session_20260921T153138Z",
+    "tflite_argmax_state_counts": [
+      20,
+      64,
+      585
+    ]
+  },
+  "input_dtype": "FLOAT32",
+  "input_shape_signature": [
+    1,
+    -1,
+    378
+  ],
+  "milestone": "S2_R3_ARM_A_E10_PHONE_DEBUG_PACKAGE_01",
+  "normalization_asset_sha256": "35473a783fd9340480c72a0c9b028871ca98eeb132b3bca6b4341b38e97914c0",
+  "output_dtype": "FLOAT32",
+  "output_shape_signature": [
+    1,
+    3
+  ],
+  "package_id": "ARM_A_E10_CANDIDATE",
+  "quantization": "NONE_FP32",
+  "receptive_field_observations": 61,
+  "research_only": true,
+  "schema": "apphear.phone_causal_recognition.s2_mobile_contract.v1",
+  "source_checkpoint_sha256": "17915b023694cec1c85f10f96b44608c95f06ef655c49b7d1453c3a4a47b1c7c",
+  "source_normalization_sha256": "754e5e0e05e012333cd96170ba63602c26d7ab2a8b87ae8e3af99d76ed1268dc",
+  "source_selected_epoch": 10,
+  "source_selection_basis": "diagnostic_fallback_epoch",
+  "source_training_milestone": "S2_R3_ARM_A_01",
+  "source_training_status": "NO_ELIGIBLE_EPOCH",
+  "state_order": [
+    "PRE_IDLE",
+    "ACTIVE_SIGN",
+    "POST_RECOVERY"
+  ],
+  "tflite_sha256": "e7725ef2602b83aedac8c2bfdab3ab2293b7e471061f9d4019f4454f6f68f295",
+  "training_executed": false
+}

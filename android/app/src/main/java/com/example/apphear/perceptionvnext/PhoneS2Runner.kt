@@ -30,6 +30,14 @@ internal enum class PhoneS2Package(
         "normalization.json",
         "b6f8b52cece72f0b6f5b802a4ea583060d923e90a6b951059e7013114c8fc151",
         "65d885f62eaca6f11a596302d304f63149795ddaf01e702f1e6a36dd7da5c005",
+    ),
+    /** Research-only S2-R3 Arm A epoch 10; assets ship in the debug source set only. */
+    ARM_A_E10_CANDIDATE(
+        "phone_causal_recognition_01/s2_r3_arm_a_e10_candidate",
+        "s2_r3_arm_a_e10_fp32.tflite",
+        "normalization.json",
+        "17915b023694cec1c85f10f96b44608c95f06ef655c49b7d1453c3a4a47b1c7c",
+        "754e5e0e05e012333cd96170ba63602c26d7ab2a8b87ae8e3af99d76ed1268dc",
     );
 
     val contractPath: String get() = "$assetRoot/contract.json"
@@ -68,6 +76,10 @@ internal class PhoneS2Runner(
         require(contract.getString("source_normalization_sha256") == packageId.normalizationSha256)
         if (packageId == PhoneS2Package.S2_R2_CANDIDATE) {
             require(contract.getString("package_id") == packageId.name)
+        }
+        if (packageId == PhoneS2Package.ARM_A_E10_CANDIDATE) {
+            require(contract.getString("package_id") == packageId.name)
+            require(contract.getBoolean("research_only"))
         }
         val states = contract.getJSONArray("state_order")
         require(states.length() == 3 && states.getString(0) == "PRE_IDLE" &&
