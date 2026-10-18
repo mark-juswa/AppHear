@@ -530,6 +530,7 @@ class RecognitionActivity : AppCompatActivity() {
                     renderRuntimeError("Fingerspell unavailable", "Select WORD in Settings to use word recognition.")
                 }
                 Log.i(TAG, "normal backend=Candidate01 package=${session.packageId}")
+                if (BuildConfig.DEBUG) Toast.makeText(this@RecognitionActivity, "Recognition: ${session.displayLabel}", Toast.LENGTH_LONG).show()
                 bindCamera()
             }.onFailure { failure ->
                 modelLoadError = failure.message ?: "Causal recognition unavailable"

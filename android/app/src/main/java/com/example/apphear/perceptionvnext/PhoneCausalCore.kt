@@ -279,8 +279,14 @@ internal data class PhoneDecoderConfig(
     // Twice the frozen slow-cadence target interval. A longer observation gap is missing
     // evidence, not continuous recovery time, and therefore resets recovery persistence.
     val maximumContinuousObservationGapMs: Double = 533.232,
+    // Experimental confirm-boundary split (research decoder CONFIRM_BOUNDARY_70; null = off,
+    // production behaviour unchanged). When ACTIVE arrives after POST has lasted the full
+    // confirmation time and P(POST) peaked at or above this value, the open sign is committed
+    // and the ACTIVE observation starts the next sign instead of extending the current one.
+    val confirmBoundaryPostPeak: Double? = null,
 ) {
     init {
+        require(confirmBoundaryPostPeak == null || confirmBoundaryPostPeak in 0.0..1.0)
         require(minimumActiveMs > 0.0)
         require(preGapResetMs > 0.0)
         require(postConfirmMs > 0.0)
@@ -333,10 +339,16 @@ internal class PhoneCausalEventProducer(private val config: PhoneDecoderConfig =
     private val admission = PhoneNewSignAdmission(config.admissionPolicy)
     private var rearmStartMs: Double? = null
     private var rearmCandidateState: Int? = null
+    private var postPeak = 0.0
 
-    fun consume(timestampMs: Double, argmaxState: Int): PhoneDecoderUpdate {
+    /** [postProbability] is required only when the experimental confirm-boundary split is on. */
+    fun consume(timestampMs: Double, argmaxState: Int, postProbability: Double? = null): PhoneDecoderUpdate {
         require(timestampMs.isFinite() && (lastTimestampMs == null || timestampMs > lastTimestampMs!!))
         require(argmaxState in PRE_IDLE..POST_RECOVERY)
+        val splitPeak = config.confirmBoundaryPostPeak
+        require(splitPeak == null || (postProbability != null && postProbability.isFinite())) {
+            "PHONE_DECODER_CONFIRM_BOUNDARY_REQUIRES_POST_PROBABILITY"
+        }
         val index = nextIndex++
         val observationGapMs = lastTimestampMs?.let { timestampMs - it }
         lastTimestampMs = timestampMs
@@ -360,7 +372,10 @@ internal class PhoneCausalEventProducer(private val config: PhoneDecoderConfig =
             }
             PhoneDecoderState.ACTIVE_CANDIDATE -> when (argmaxState) {
                 ACTIVE_SIGN -> { lastActiveIndex = index; lastActiveMs = timestampMs; action = "EXTEND_ACTIVE_CANDIDATE" }
-                POST_RECOVERY -> { enterPost(index, timestampMs); action = "BEGIN_POST_CANDIDATE" }
+                POST_RECOVERY -> {
+                    enterPost(index, timestampMs); action = "BEGIN_POST_CANDIDATE"
+                    if (splitPeak != null) postPeak = checkNotNull(postProbability)
+                }
                 else -> { preGapStartMs = timestampMs; state = PhoneDecoderState.PRE_GAP; action = "BEGIN_PRE_GAP" }
             }
             PhoneDecoderState.PRE_GAP -> {
@@ -378,7 +393,27 @@ internal class PhoneCausalEventProducer(private val config: PhoneDecoderConfig =
             }
             PhoneDecoderState.POST_CANDIDATE -> {
                 val elapsed = timestampMs - checkNotNull(firstPostMs)
+                if (splitPeak != null) postPeak = maxOf(postPeak, checkNotNull(postProbability))
                 when {
+                    splitPeak != null && argmaxState == ACTIVE_SIGN &&
+                        elapsed >= config.postConfirmMs && postPeak >= splitPeak -> {
+                        val activeSpan = checkNotNull(lastActiveMs) - checkNotNull(candidateStartMs)
+                        if (activeSpan < config.minimumActiveMs) {
+                            action = "SPLIT_CONFIRM_BOUNDARY_DISCARD_TOO_SHORT"
+                        } else {
+                            eventCount++
+                            event = PhoneLogicalSignEvent(
+                                eventCount,
+                                checkNotNull(candidateStartIndex), checkNotNull(lastActiveIndex),
+                                checkNotNull(candidateStartMs), checkNotNull(lastActiveMs),
+                                checkNotNull(firstPostIndex), checkNotNull(firstPostMs), index, timestampMs,
+                            )
+                            action = "SPLIT_CONFIRM_BOUNDARY"
+                        }
+                        resetRearm()
+                        startCandidate(index, timestampMs)
+                        postPeak = 0.0
+                    }
                     argmaxState == ACTIVE_SIGN -> {
                         lastActiveIndex = index; lastActiveMs = timestampMs
                         firstPostIndex = null; firstPostMs = null
@@ -484,6 +519,7 @@ internal class PhoneCausalEventProducer(private val config: PhoneDecoderConfig =
         lastTimestampMs = null
         nextIndex = 0
         eventCount = 0
+        postPeak = 0.0
         resetRearm()
         clearCandidate()
     }

@@ -153,4 +153,9 @@
     <string name="recognition_mode_word">WORD</string>
     <string name="recognition_mode_fingerspell">FINGERSPELL · experimental</string>
     <string name="recognition_mode_accessibility">Recognition mode: %1$s</string>
+    <string name="recognition_engine_title">Recognition engine (debug)</string>
+    <string name="recognition_engine_body">Only the selected engine recognizes and commits words. Reopen ASL Recognition after changing it.</string>
+    <string name="recognition_engine_stable">Stable - S2-R2</string>
+    <string name="recognition_engine_experimental">Experimental - Arm A e10 + confirm-boundary</string>
+    <string name="recognition_engine_accessibility">Recognition engine: %1$s</string>
 </resources>

@@ -14,11 +14,37 @@ import com.example.apphear.data.profile.AccountServices
 class SettingsContent(private val context: Context, private val view: View) {
     private var characterDialog: AlertDialog? = null
     private var recognitionDialog: AlertDialog? = null
+    private var engineDialog: AlertDialog? = null
 
     fun render() {
         renderSettings(view)
         setupCharacterChoice(view)
         setupRecognitionChoice()
+        setupRecognitionEngineChoice()
+    }
+
+    /** Debug builds only: Stable (production) or Experimental live recognition. */
+    private fun setupRecognitionEngineChoice() {
+        val settings = com.example.apphear.data.settings.RecognitionEngineSettings(context)
+        val row = view.findViewById<View>(R.id.recognitionEngineRow) ?: return
+        row.isVisible = settings.selectionAvailable
+        if (!settings.selectionAvailable) return
+        val choices = com.example.apphear.perceptionvnext.PhoneRecognitionConfiguration.entries
+        val labels = arrayOf(context.getString(R.string.recognition_engine_stable),
+            context.getString(R.string.recognition_engine_experimental))
+        val value = view.findViewById<TextView>(R.id.recognitionEngineValue)
+        fun renderChoice() {
+            value.text = labels[choices.indexOf(settings.current())]
+            row.contentDescription = context.getString(R.string.recognition_engine_accessibility, value.text)
+        }
+        renderChoice()
+        row.setOnClickListener {
+            engineDialog?.dismiss()
+            engineDialog = AlertDialog.Builder(context).setTitle(R.string.recognition_engine_title)
+                .setSingleChoiceItems(labels, choices.indexOf(settings.current())) { dialog, index ->
+                    settings.select(choices[index]); renderChoice(); dialog.dismiss()
+                }.setNegativeButton(android.R.string.cancel, null).show()
+        }
     }
 
     private fun setupCharacterChoice(view: View) {
@@ -113,5 +139,6 @@ class SettingsContent(private val context: Context, private val view: View) {
         characterDialog?.dismiss()
         characterDialog = null
         recognitionDialog?.dismiss(); recognitionDialog = null
+        engineDialog?.dismiss(); engineDialog = null
     }
 }

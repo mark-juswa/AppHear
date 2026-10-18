@@ -238,6 +238,7 @@
                 android:padding="14dp">
 
                 <include layout="@layout/row_setting_recognition_mode" />
+                <include layout="@layout/row_setting_recognition_engine" />
                 <include layout="@layout/row_setting_asl_character" />
                 <include layout="@layout/row_setting_account_type" />
                 <include layout="@layout/row_setting_voice" />
