@@ -34,6 +34,9 @@ VOCAB = Path("artifacts/recognition_upgrade/phase1_full_vocab/dataset_v1/vocab.j
 ASSET_DIR = "word_v2_candidate"
 ANDROID_ASSETS = ROOT / "android/app/src/debug/assets" / ASSET_DIR
 MODEL_NAME = "word_v2_fp32.tflite"
+PACKAGE_ID = "WORD_V2_CANDIDATE"
+MILESTONE = "WORD_V2_SHADOW_CANDIDATE_01"
+ROLE = "DEBUG_SHADOW_ONLY"
 FROZEN_MANIFEST = ROOT / "android/app/src/main/assets/phase4a_gate2_recognizer_parity/manifest.json"
 DATASET_INDEX = RU / "dataset/index.jsonl"
 
@@ -45,7 +48,28 @@ def sha256(path: Path) -> str:
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--evidence-root", type=Path, required=True)
+    parser.add_argument("--checkpoint", type=Path, help="relative to the evidence root")
+    parser.add_argument("--checkpoint-sha", help="required with --checkpoint")
+    parser.add_argument("--asset-dir", help="debug asset directory (default word_v2_candidate)")
+    parser.add_argument("--model-name", help="TFLite file name inside the asset directory")
+    parser.add_argument("--package-id", help="package id written to the manifest")
+    parser.add_argument("--milestone", help="milestone written to the manifest")
+    parser.add_argument("--role", help="manifest role (default: DEBUG_SHADOW_ONLY)")
+    parser.add_argument("--expected-params", type=int, default=192556, help="blends: larger")
     args = parser.parse_args()
+    global CHECKPOINT, CHECKPOINT_SHA, ASSET_DIR, ANDROID_ASSETS, MODEL_NAME
+    global PACKAGE_ID, MILESTONE, ROLE
+    if args.checkpoint is not None:
+        if not args.checkpoint_sha:
+            parser.error("--checkpoint needs --checkpoint-sha")
+        CHECKPOINT, CHECKPOINT_SHA = args.checkpoint, args.checkpoint_sha
+    if args.asset_dir:
+        ASSET_DIR = args.asset_dir
+        ANDROID_ASSETS = ROOT / "android/app/src/debug/assets" / ASSET_DIR
+    MODEL_NAME = args.model_name or MODEL_NAME
+    PACKAGE_ID = args.package_id or PACKAGE_ID
+    MILESTONE = args.milestone or MILESTONE
+    ROLE = args.role or ROLE
     root = args.evidence_root
     import tensorflow as tf
 
@@ -61,7 +85,7 @@ def main() -> None:
     ):
         raise RuntimeError("WORD_V2_VOCABULARY_DRIFT")
     model = tf.keras.models.load_model(checkpoint, compile=False, safe_mode=True)
-    if model.count_params() != 192556:
+    if model.count_params() != args.expected_params:
         raise RuntimeError("WORD_V2_PARAMETER_COUNT")
     converter = tf.lite.TFLiteConverter.from_keras_model(model)
     converter.optimizations = []
@@ -170,9 +194,9 @@ def main() -> None:
         and agree == len(dev)
     )
     manifest = {
-        "milestone": "WORD_V2_SHADOW_CANDIDATE_01",
-        "package_id": "WORD_V2_CANDIDATE",
-        "role": "DEBUG_SHADOW_ONLY",
+        "milestone": MILESTONE,
+        "package_id": PACKAGE_ID,
+        "role": ROLE,
         "feature_schema": frozen["feature_schema"],
         "source_checkpoint_sha256": CHECKPOINT_SHA,
         "model_asset": f"{ASSET_DIR}/{MODEL_NAME}",

@@ -1,0 +1,1611 @@
+{
+ "covered_classes": 64,
+ "models": {
+  "frozen": {
+   "dev_realistic": 0.4148,
+   "dev_realistic:covered": 0.3489,
+   "dev_realistic:uncovered": 0.4407,
+   "dev_dense": 0.5025,
+   "dev_200ms": 0.4455,
+   "dev_rt_natural": 0.4595,
+   "dev_rt_natural:covered": 0.3972,
+   "dev_rt_natural:uncovered": 0.4828,
+   "dev_rt_continuous": 0.3819,
+   "dev_rt_continuous:covered": 0.3525,
+   "dev_rt_continuous:uncovered": 0.3949,
+   "dev_hand50": 0.2525,
+   "semlex_eval_realistic": 0.2941,
+   "semlex_eval_realistic:covered": 0.2945,
+   "semlex_eval_realistic:uncovered": 0.0,
+   "semlex_eval_dense": 0.4054,
+   "phone_oracle": 0.6897,
+   "phone_oracle:count": "20/29",
+   "phone_runtime": 0.8636,
+   "phone_runtime:count": "19/22"
+  },
+  "C101": {
+   "dev_realistic": 0.4452,
+   "dev_realistic:covered": 0.3848,
+   "dev_realistic:uncovered": 0.4689,
+   "dev_dense": 0.5221,
+   "dev_200ms": 0.4688,
+   "dev_rt_natural": 0.4807,
+   "dev_rt_natural:covered": 0.3688,
+   "dev_rt_natural:uncovered": 0.5225,
+   "dev_rt_continuous": 0.4171,
+   "dev_rt_continuous:covered": 0.3361,
+   "dev_rt_continuous:uncovered": 0.4529,
+   "dev_hand50": 0.2776,
+   "semlex_eval_realistic": 0.3147,
+   "semlex_eval_realistic:covered": 0.3151,
+   "semlex_eval_realistic:uncovered": 0.0,
+   "semlex_eval_dense": 0.3848,
+   "phone_oracle": 0.7931,
+   "phone_oracle:count": "23/29",
+   "phone_runtime": 0.8636,
+   "phone_runtime:count": "19/22"
+  },
+  "C202": {
+   "dev_realistic": 0.4553,
+   "dev_realistic:covered": 0.3587,
+   "dev_realistic:uncovered": 0.4932,
+   "dev_dense": 0.5123,
+   "dev_200ms": 0.4688,
+   "dev_rt_natural": 0.4903,
+   "dev_rt_natural:covered": 0.383,
+   "dev_rt_natural:uncovered": 0.5305,
+   "dev_rt_continuous": 0.407,
+   "dev_rt_continuous:covered": 0.3443,
+   "dev_rt_continuous:uncovered": 0.4348,
+   "dev_hand50": 0.2776,
+   "semlex_eval_realistic": 0.2947,
+   "semlex_eval_realistic:covered": 0.2951,
+   "semlex_eval_realistic:uncovered": 0.0,
+   "semlex_eval_dense": 0.3526,
+   "phone_oracle": 0.6552,
+   "phone_oracle:count": "19/29",
+   "phone_runtime": 0.7727,
+   "phone_runtime:count": "17/22"
+  },
+  "C303": {
+   "dev_realistic": 0.4464,
+   "dev_realistic:covered": 0.3652,
+   "dev_realistic:uncovered": 0.4782,
+   "dev_dense": 0.5123,
+   "dev_200ms": 0.4773,
+   "dev_rt_natural": 0.4884,
+   "dev_rt_natural:covered": 0.383,
+   "dev_rt_natural:uncovered": 0.5279,
+   "dev_rt_continuous": 0.4196,
+   "dev_rt_continuous:covered": 0.3852,
+   "dev_rt_continuous:uncovered": 0.4348,
+   "dev_hand50": 0.2739,
+   "semlex_eval_realistic": 0.3024,
+   "semlex_eval_realistic:covered": 0.3028,
+   "semlex_eval_realistic:uncovered": 0.0,
+   "semlex_eval_dense": 0.3642,
+   "phone_oracle": 0.7586,
+   "phone_oracle:count": "22/29",
+   "phone_runtime": 0.9091,
+   "phone_runtime:count": "20/22"
+  },
+  "EC101": {
+   "dev_realistic": 0.4409,
+   "dev_realistic:covered": 0.3587,
+   "dev_realistic:uncovered": 0.4731,
+   "dev_dense": 0.5086,
+   "dev_200ms": 0.4681,
+   "dev_rt_natural": 0.4884,
+   "dev_rt_natural:covered": 0.4184,
+   "dev_rt_natural:uncovered": 0.5146,
+   "dev_rt_continuous": 0.4171,
+   "dev_rt_continuous:covered": 0.4262,
+   "dev_rt_continuous:uncovered": 0.413,
+   "dev_hand50": 0.2714,
+   "semlex_eval_realistic": 0.3665,
+   "semlex_eval_realistic:covered": 0.3669,
+   "semlex_eval_realistic:uncovered": 0.0,
+   "semlex_eval_dense": 0.5071,
+   "phone_oracle": 0.7586,
+   "phone_oracle:count": "22/29",
+   "phone_runtime": 0.8636,
+   "phone_runtime:count": "19/22"
+  },
+  "EC202": {
+   "dev_realistic": 0.4547,
+   "dev_realistic:covered": 0.3946,
+   "dev_realistic:uncovered": 0.4782,
+   "dev_dense": 0.5196,
+   "dev_200ms": 0.481,
+   "dev_rt_natural": 0.4961,
+   "dev_rt_natural:covered": 0.4255,
+   "dev_rt_natural:uncovered": 0.5225,
+   "dev_rt_continuous": 0.4171,
+   "dev_rt_continuous:covered": 0.4098,
+   "dev_rt_continuous:uncovered": 0.4203,
+   "dev_hand50": 0.2806,
+   "semlex_eval_realistic": 0.3488,
+   "semlex_eval_realistic:covered": 0.3492,
+   "semlex_eval_realistic:uncovered": 0.0,
+   "semlex_eval_dense": 0.4916,
+   "phone_oracle": 0.7931,
+   "phone_oracle:count": "23/29",
+   "phone_runtime": 0.9091,
+   "phone_runtime:count": "20/22"
+  },
+  "EC303": {
+   "dev_realistic": 0.4455,
+   "dev_realistic:covered": 0.3804,
+   "dev_realistic:uncovered": 0.471,
+   "dev_dense": 0.5025,
+   "dev_200ms": 0.4755,
+   "dev_rt_natural": 0.473,
+   "dev_rt_natural:covered": 0.4113,
+   "dev_rt_natural:uncovered": 0.496,
+   "dev_rt_continuous": 0.4171,
+   "dev_rt_continuous:covered": 0.4016,
+   "dev_rt_continuous:uncovered": 0.4239,
+   "dev_hand50": 0.2714,
+   "semlex_eval_realistic": 0.3626,
+   "semlex_eval_realistic:covered": 0.3631,
+   "semlex_eval_realistic:uncovered": 0.0,
+   "semlex_eval_dense": 0.4633,
+   "phone_oracle": 0.7586,
+   "phone_oracle:count": "22/29",
+   "phone_runtime": 0.8636,
+   "phone_runtime:count": "19/22"
+  },
+  "NAIVE101": {
+   "dev_realistic": 0.47,
+   "dev_realistic:covered": 0.4707,
+   "dev_realistic:uncovered": 0.4697,
+   "dev_dense": 0.5257,
+   "dev_200ms": 0.5025,
+   "dev_rt_natural": 0.5193,
+   "dev_rt_natural:covered": 0.5248,
+   "dev_rt_natural:uncovered": 0.5172,
+   "dev_rt_continuous": 0.4347,
+   "dev_rt_continuous:covered": 0.4754,
+   "dev_rt_continuous:uncovered": 0.4167,
+   "dev_hand50": 0.2929,
+   "semlex_eval_realistic": 0.5064,
+   "semlex_eval_realistic:covered": 0.5071,
+   "semlex_eval_realistic:uncovered": 0.0,
+   "semlex_eval_dense": 0.6268,
+   "phone_oracle": 0.7241,
+   "phone_oracle:count": "21/29",
+   "phone_runtime": 0.8182,
+   "phone_runtime:count": "18/22"
+  },
+  "NAIVE202": {
+   "dev_realistic": 0.4721,
+   "dev_realistic:covered": 0.5087,
+   "dev_realistic:uncovered": 0.4578,
+   "dev_dense": 0.5245,
+   "dev_200ms": 0.4957,
+   "dev_rt_natural": 0.5,
+   "dev_rt_natural:covered": 0.5461,
+   "dev_rt_natural:uncovered": 0.4828,
+   "dev_rt_continuous": 0.4372,
+   "dev_rt_continuous:covered": 0.5164,
+   "dev_rt_continuous:uncovered": 0.4022,
+   "dev_hand50": 0.2862,
+   "semlex_eval_realistic": 0.5106,
+   "semlex_eval_realistic:covered": 0.5113,
+   "semlex_eval_realistic:uncovered": 0.0,
+   "semlex_eval_dense": 0.6126,
+   "phone_oracle": 0.7931,
+   "phone_oracle:count": "23/29",
+   "phone_runtime": 0.9091,
+   "phone_runtime:count": "20/22"
+  },
+  "NAIVE303": {
+   "dev_realistic": 0.4599,
+   "dev_realistic:covered": 0.5,
+   "dev_realistic:uncovered": 0.4441,
+   "dev_dense": 0.5306,
+   "dev_200ms": 0.4963,
+   "dev_rt_natural": 0.5193,
+   "dev_rt_natural:covered": 0.617,
+   "dev_rt_natural:uncovered": 0.4828,
+   "dev_rt_continuous": 0.3995,
+   "dev_rt_continuous:covered": 0.5082,
+   "dev_rt_continuous:uncovered": 0.3514,
+   "dev_hand50": 0.2825,
+   "semlex_eval_realistic": 0.5367,
+   "semlex_eval_realistic:covered": 0.5374,
+   "semlex_eval_realistic:uncovered": 0.0,
+   "semlex_eval_dense": 0.6345,
+   "phone_oracle": 0.6552,
+   "phone_oracle:count": "19/29",
+   "phone_runtime": 0.7273,
+   "phone_runtime:count": "16/22"
+  },
+  "BLEND": {
+   "dev_realistic": 0.4856,
+   "dev_realistic:covered": 0.475,
+   "dev_realistic:uncovered": 0.4898,
+   "dev_dense": 0.5588,
+   "dev_200ms": 0.5049,
+   "dev_rt_natural": 0.5251,
+   "dev_rt_natural:covered": 0.5035,
+   "dev_rt_natural:uncovered": 0.5332,
+   "dev_rt_continuous": 0.4472,
+   "dev_rt_continuous:covered": 0.4508,
+   "dev_rt_continuous:uncovered": 0.4457,
+   "dev_hand50": 0.299,
+   "semlex_eval_realistic": 0.4575,
+   "semlex_eval_realistic:covered": 0.4581,
+   "semlex_eval_realistic:uncovered": 0.0,
+   "semlex_eval_dense": 0.5817,
+   "phone_oracle": 0.8276,
+   "phone_oracle:count": "24/29",
+   "phone_runtime": 0.9091,
+   "phone_runtime:count": "20/22"
+  },
+  "F+EC101": {
+   "dev_realistic": 0.4504,
+   "dev_realistic:covered": 0.3707,
+   "dev_realistic:uncovered": 0.4817,
+   "dev_dense": 0.5306,
+   "dev_200ms": 0.4804,
+   "dev_rt_natural": 0.5019,
+   "dev_rt_natural:covered": 0.4255,
+   "dev_rt_natural:uncovered": 0.5305,
+   "dev_rt_continuous": 0.4221,
+   "dev_rt_continuous:covered": 0.3934,
+   "dev_rt_continuous:uncovered": 0.4348,
+   "dev_hand50": 0.2721,
+   "semlex_eval_realistic": 0.3433,
+   "semlex_eval_realistic:covered": 0.3438,
+   "semlex_eval_realistic:uncovered": 0.0,
+   "semlex_eval_dense": 0.4685,
+   "phone_oracle": 0.7931,
+   "phone_oracle:count": "23/29",
+   "phone_runtime": 0.8636,
+   "phone_runtime:count": "19/22"
+  },
+  "F+EC202": {
+   "dev_realistic": 0.462,
+   "dev_realistic:covered": 0.3859,
+   "dev_realistic:uncovered": 0.4919,
+   "dev_dense": 0.549,
+   "dev_200ms": 0.4963,
+   "dev_rt_natural": 0.5058,
+   "dev_rt_natural:covered": 0.4184,
+   "dev_rt_natural:uncovered": 0.5385,
+   "dev_rt_continuous": 0.4146,
+   "dev_rt_continuous:covered": 0.4098,
+   "dev_rt_continuous:uncovered": 0.4167,
+   "dev_hand50": 0.2825,
+   "semlex_eval_realistic": 0.3433,
+   "semlex_eval_realistic:covered": 0.3438,
+   "semlex_eval_realistic:uncovered": 0.0,
+   "semlex_eval_dense": 0.4505,
+   "phone_oracle": 0.7931,
+   "phone_oracle:count": "23/29",
+   "phone_runtime": 0.9091,
+   "phone_runtime:count": "20/22"
+  },
+  "F+EC303": {
+   "dev_realistic": 0.4589,
+   "dev_realistic:covered": 0.3924,
+   "dev_realistic:uncovered": 0.4851,
+   "dev_dense": 0.5343,
+   "dev_200ms": 0.5018,
+   "dev_rt_natural": 0.5058,
+   "dev_rt_natural:covered": 0.4043,
+   "dev_rt_natural:uncovered": 0.5438,
+   "dev_rt_continuous": 0.4221,
+   "dev_rt_continuous:covered": 0.4016,
+   "dev_rt_continuous:uncovered": 0.4312,
+   "dev_hand50": 0.2904,
+   "semlex_eval_realistic": 0.3459,
+   "semlex_eval_realistic:covered": 0.3463,
+   "semlex_eval_realistic:uncovered": 0.0,
+   "semlex_eval_dense": 0.4479,
+   "phone_oracle": 0.7931,
+   "phone_oracle:count": "23/29",
+   "phone_runtime": 0.9091,
+   "phone_runtime:count": "20/22"
+  }
+ },
+ "paired": {
+  "C101->EC101": {
+   "dev_realistic": {
+    "fixed": 260,
+    "broken": 274,
+    "p": 0.573772
+   },
+   "dev_realistic:uncovered": {
+    "fixed": 179,
+    "broken": 169,
+    "p": 0.629549
+   },
+   "dev_realistic:covered": {
+    "fixed": 81,
+    "broken": 105,
+    "p": 0.091442
+   },
+   "dev_dense": {
+    "fixed": 59,
+    "broken": 70,
+    "p": 0.378688
+   },
+   "dev_200ms": {
+    "fixed": 143,
+    "broken": 144,
+    "p": 1.0
+   },
+   "dev_rt_natural": {
+    "fixed": 43,
+    "broken": 39,
+    "p": 0.740653
+   },
+   "dev_rt_continuous": {
+    "fixed": 37,
+    "broken": 37,
+    "p": 1.0
+   },
+   "dev_hand50": {
+    "fixed": 123,
+    "broken": 133,
+    "p": 0.573861
+   },
+   "semlex_eval_realistic": {
+    "fixed": 358,
+    "broken": 197,
+    "p": 0.0
+   },
+   "semlex_eval_realistic:uncovered": {
+    "fixed": 0,
+    "broken": 0,
+    "p": 1.0
+   },
+   "semlex_eval_realistic:covered": {
+    "fixed": 358,
+    "broken": 197,
+    "p": 0.0
+   },
+   "semlex_eval_dense": {
+    "fixed": 137,
+    "broken": 42,
+    "p": 0.0
+   },
+   "phone_oracle": {
+    "fixed": 0,
+    "broken": 1,
+    "p": 1.0
+   },
+   "phone_runtime": {
+    "fixed": 1,
+    "broken": 1,
+    "p": 1.0
+   }
+  },
+  "C202->EC202": {
+   "dev_realistic": {
+    "fixed": 275,
+    "broken": 277,
+    "p": 0.966055
+   },
+   "dev_realistic:uncovered": {
+    "fixed": 174,
+    "broken": 209,
+    "p": 0.082196
+   },
+   "dev_realistic:covered": {
+    "fixed": 101,
+    "broken": 68,
+    "p": 0.013596
+   },
+   "dev_dense": {
+    "fixed": 81,
+    "broken": 75,
+    "p": 0.689054
+   },
+   "dev_200ms": {
+    "fixed": 168,
+    "broken": 148,
+    "p": 0.285127
+   },
+   "dev_rt_natural": {
+    "fixed": 44,
+    "broken": 41,
+    "p": 0.828423
+   },
+   "dev_rt_continuous": {
+    "fixed": 34,
+    "broken": 30,
+    "p": 0.707981
+   },
+   "dev_hand50": {
+    "fixed": 146,
+    "broken": 141,
+    "p": 0.813396
+   },
+   "semlex_eval_realistic": {
+    "fixed": 378,
+    "broken": 210,
+    "p": 0.0
+   },
+   "semlex_eval_realistic:uncovered": {
+    "fixed": 0,
+    "broken": 0,
+    "p": 1.0
+   },
+   "semlex_eval_realistic:covered": {
+    "fixed": 378,
+    "broken": 210,
+    "p": 0.0
+   },
+   "semlex_eval_dense": {
+    "fixed": 149,
+    "broken": 41,
+    "p": 0.0
+   },
+   "phone_oracle": {
+    "fixed": 4,
+    "broken": 0,
+    "p": 0.125
+   },
+   "phone_runtime": {
+    "fixed": 3,
+    "broken": 0,
+    "p": 0.25
+   }
+  },
+  "C303->EC303": {
+   "dev_realistic": {
+    "fixed": 270,
+    "broken": 273,
+    "p": 0.931613
+   },
+   "dev_realistic:uncovered": {
+    "fixed": 173,
+    "broken": 190,
+    "p": 0.401063
+   },
+   "dev_realistic:covered": {
+    "fixed": 97,
+    "broken": 83,
+    "p": 0.332579
+   },
+   "dev_dense": {
+    "fixed": 73,
+    "broken": 81,
+    "p": 0.572846
+   },
+   "dev_200ms": {
+    "fixed": 145,
+    "broken": 148,
+    "p": 0.907012
+   },
+   "dev_rt_natural": {
+    "fixed": 35,
+    "broken": 43,
+    "p": 0.428207
+   },
+   "dev_rt_continuous": {
+    "fixed": 31,
+    "broken": 32,
+    "p": 1.0
+   },
+   "dev_hand50": {
+    "fixed": 114,
+    "broken": 118,
+    "p": 0.843913
+   },
+   "semlex_eval_realistic": {
+    "fixed": 365,
+    "broken": 178,
+    "p": 0.0
+   },
+   "semlex_eval_realistic:uncovered": {
+    "fixed": 0,
+    "broken": 0,
+    "p": 1.0
+   },
+   "semlex_eval_realistic:covered": {
+    "fixed": 365,
+    "broken": 178,
+    "p": 0.0
+   },
+   "semlex_eval_dense": {
+    "fixed": 111,
+    "broken": 34,
+    "p": 0.0
+   },
+   "phone_oracle": {
+    "fixed": 1,
+    "broken": 1,
+    "p": 1.0
+   },
+   "phone_runtime": {
+    "fixed": 0,
+    "broken": 1,
+    "p": 1.0
+   }
+  },
+  "frozen->EC101": {
+   "dev_realistic": {
+    "fixed": 325,
+    "broken": 240,
+    "p": 0.0004
+   },
+   "dev_realistic:uncovered": {
+    "fixed": 228,
+    "broken": 152,
+    "p": 0.000114
+   },
+   "dev_realistic:covered": {
+    "fixed": 97,
+    "broken": 88,
+    "p": 0.556535
+   },
+   "dev_dense": {
+    "fixed": 79,
+    "broken": 74,
+    "p": 0.746528
+   },
+   "dev_200ms": {
+    "fixed": 171,
+    "broken": 134,
+    "p": 0.039094
+   },
+   "dev_rt_natural": {
+    "fixed": 48,
+    "broken": 33,
+    "p": 0.119274
+   },
+   "dev_rt_continuous": {
+    "fixed": 35,
+    "broken": 21,
+    "p": 0.081427
+   },
+   "dev_hand50": {
+    "fixed": 140,
+    "broken": 109,
+    "p": 0.057061
+   },
+   "semlex_eval_realistic": {
+    "fixed": 407,
+    "broken": 182,
+    "p": 0.0
+   },
+   "semlex_eval_realistic:uncovered": {
+    "fixed": 0,
+    "broken": 0,
+    "p": 1.0
+   },
+   "semlex_eval_realistic:covered": {
+    "fixed": 407,
+    "broken": 182,
+    "p": 0.0
+   },
+   "semlex_eval_dense": {
+    "fixed": 132,
+    "broken": 53,
+    "p": 0.0
+   },
+   "phone_oracle": {
+    "fixed": 4,
+    "broken": 2,
+    "p": 0.6875
+   },
+   "phone_runtime": {
+    "fixed": 1,
+    "broken": 1,
+    "p": 1.0
+   }
+  },
+  "frozen->EC202": {
+   "dev_realistic": {
+    "fixed": 410,
+    "broken": 280,
+    "p": 1e-06
+   },
+   "dev_realistic:uncovered": {
+    "fixed": 284,
+    "broken": 196,
+    "p": 6.9e-05
+   },
+   "dev_realistic:covered": {
+    "fixed": 126,
+    "broken": 84,
+    "p": 0.004551
+   },
+   "dev_dense": {
+    "fixed": 99,
+    "broken": 85,
+    "p": 0.337894
+   },
+   "dev_200ms": {
+    "fixed": 198,
+    "broken": 140,
+    "p": 0.00189
+   },
+   "dev_rt_natural": {
+    "fixed": 52,
+    "broken": 33,
+    "p": 0.050251
+   },
+   "dev_rt_continuous": {
+    "fixed": 44,
+    "broken": 30,
+    "p": 0.130178
+   },
+   "dev_hand50": {
+    "fixed": 170,
+    "broken": 124,
+    "p": 0.008567
+   },
+   "semlex_eval_realistic": {
+    "fixed": 403,
+    "broken": 233,
+    "p": 0.0
+   },
+   "semlex_eval_realistic:uncovered": {
+    "fixed": 0,
+    "broken": 0,
+    "p": 1.0
+   },
+   "semlex_eval_realistic:covered": {
+    "fixed": 403,
+    "broken": 233,
+    "p": 0.0
+   },
+   "semlex_eval_dense": {
+    "fixed": 129,
+    "broken": 62,
+    "p": 1e-06
+   },
+   "phone_oracle": {
+    "fixed": 4,
+    "broken": 1,
+    "p": 0.375
+   },
+   "phone_runtime": {
+    "fixed": 1,
+    "broken": 0,
+    "p": 1.0
+   }
+  },
+  "frozen->EC303": {
+   "dev_realistic": {
+    "fixed": 405,
+    "broken": 305,
+    "p": 0.000198
+   },
+   "dev_realistic:uncovered": {
+    "fixed": 283,
+    "broken": 212,
+    "p": 0.001627
+   },
+   "dev_realistic:covered": {
+    "fixed": 122,
+    "broken": 93,
+    "p": 0.055934
+   },
+   "dev_dense": {
+    "fixed": 94,
+    "broken": 94,
+    "p": 1.0
+   },
+   "dev_200ms": {
+    "fixed": 201,
+    "broken": 152,
+    "p": 0.010523
+   },
+   "dev_rt_natural": {
+    "fixed": 59,
+    "broken": 52,
+    "p": 0.56922
+   },
+   "dev_rt_continuous": {
+    "fixed": 46,
+    "broken": 32,
+    "p": 0.140538
+   },
+   "dev_hand50": {
+    "fixed": 158,
+    "broken": 127,
+    "p": 0.075376
+   },
+   "semlex_eval_realistic": {
+    "fixed": 405,
+    "broken": 192,
+    "p": 0.0
+   },
+   "semlex_eval_realistic:uncovered": {
+    "fixed": 0,
+    "broken": 0,
+    "p": 1.0
+   },
+   "semlex_eval_realistic:covered": {
+    "fixed": 405,
+    "broken": 192,
+    "p": 0.0
+   },
+   "semlex_eval_dense": {
+    "fixed": 109,
+    "broken": 64,
+    "p": 0.000774
+   },
+   "phone_oracle": {
+    "fixed": 3,
+    "broken": 1,
+    "p": 0.625
+   },
+   "phone_runtime": {
+    "fixed": 1,
+    "broken": 1,
+    "p": 1.0
+   }
+  },
+  "frozen->F+EC101": {
+   "dev_realistic": {
+    "fixed": 190,
+    "broken": 74,
+    "p": 0.0
+   },
+   "dev_realistic:uncovered": {
+    "fixed": 141,
+    "broken": 45,
+    "p": 0.0
+   },
+   "dev_realistic:covered": {
+    "fixed": 49,
+    "broken": 29,
+    "p": 0.030786
+   },
+   "dev_dense": {
+    "fixed": 46,
+    "broken": 23,
+    "p": 0.007621
+   },
+   "dev_200ms": {
+    "fixed": 94,
+    "broken": 37,
+    "p": 1e-06
+   },
+   "dev_rt_natural": {
+    "fixed": 32,
+    "broken": 10,
+    "p": 0.000941
+   },
+   "dev_rt_continuous": {
+    "fixed": 21,
+    "broken": 5,
+    "p": 0.002494
+   },
+   "dev_hand50": {
+    "fixed": 74,
+    "broken": 42,
+    "p": 0.003807
+   },
+   "semlex_eval_realistic": {
+    "fixed": 217,
+    "broken": 64,
+    "p": 0.0
+   },
+   "semlex_eval_realistic:uncovered": {
+    "fixed": 0,
+    "broken": 0,
+    "p": 1.0
+   },
+   "semlex_eval_realistic:covered": {
+    "fixed": 217,
+    "broken": 64,
+    "p": 0.0
+   },
+   "semlex_eval_dense": {
+    "fixed": 65,
+    "broken": 16,
+    "p": 0.0
+   },
+   "phone_oracle": {
+    "fixed": 3,
+    "broken": 0,
+    "p": 0.25
+   },
+   "phone_runtime": {
+    "fixed": 0,
+    "broken": 0,
+    "p": 1.0
+   }
+  },
+  "frozen->F+EC202": {
+   "dev_realistic": {
+    "fixed": 244,
+    "broken": 90,
+    "p": 0.0
+   },
+   "dev_realistic:uncovered": {
+    "fixed": 169,
+    "broken": 49,
+    "p": 0.0
+   },
+   "dev_realistic:covered": {
+    "fixed": 75,
+    "broken": 41,
+    "p": 0.002049
+   },
+   "dev_dense": {
+    "fixed": 68,
+    "broken": 30,
+    "p": 0.000156
+   },
+   "dev_200ms": {
+    "fixed": 122,
+    "broken": 39,
+    "p": 0.0
+   },
+   "dev_rt_natural": {
+    "fixed": 36,
+    "broken": 12,
+    "p": 0.000717
+   },
+   "dev_rt_continuous": {
+    "fixed": 20,
+    "broken": 7,
+    "p": 0.019157
+   },
+   "dev_hand50": {
+    "fixed": 90,
+    "broken": 41,
+    "p": 2.2e-05
+   },
+   "semlex_eval_realistic": {
+    "fixed": 223,
+    "broken": 70,
+    "p": 0.0
+   },
+   "semlex_eval_realistic:uncovered": {
+    "fixed": 0,
+    "broken": 0,
+    "p": 1.0
+   },
+   "semlex_eval_realistic:covered": {
+    "fixed": 223,
+    "broken": 70,
+    "p": 0.0
+   },
+   "semlex_eval_dense": {
+    "fixed": 61,
+    "broken": 26,
+    "p": 0.000224
+   },
+   "phone_oracle": {
+    "fixed": 3,
+    "broken": 0,
+    "p": 0.25
+   },
+   "phone_runtime": {
+    "fixed": 1,
+    "broken": 0,
+    "p": 1.0
+   }
+  },
+  "frozen->F+EC303": {
+   "dev_realistic": {
+    "fixed": 236,
+    "broken": 92,
+    "p": 0.0
+   },
+   "dev_realistic:uncovered": {
+    "fixed": 164,
+    "broken": 60,
+    "p": 0.0
+   },
+   "dev_realistic:covered": {
+    "fixed": 72,
+    "broken": 32,
+    "p": 0.00011
+   },
+   "dev_dense": {
+    "fixed": 57,
+    "broken": 31,
+    "p": 0.007343
+   },
+   "dev_200ms": {
+    "fixed": 133,
+    "broken": 41,
+    "p": 0.0
+   },
+   "dev_rt_natural": {
+    "fixed": 39,
+    "broken": 15,
+    "p": 0.001496
+   },
+   "dev_rt_continuous": {
+    "fixed": 27,
+    "broken": 11,
+    "p": 0.013853
+   },
+   "dev_hand50": {
+    "fixed": 100,
+    "broken": 38,
+    "p": 0.0
+   },
+   "semlex_eval_realistic": {
+    "fixed": 222,
+    "broken": 61,
+    "p": 0.0
+   },
+   "semlex_eval_realistic:uncovered": {
+    "fixed": 0,
+    "broken": 0,
+    "p": 1.0
+   },
+   "semlex_eval_realistic:covered": {
+    "fixed": 222,
+    "broken": 61,
+    "p": 0.0
+   },
+   "semlex_eval_dense": {
+    "fixed": 56,
+    "broken": 23,
+    "p": 0.000264
+   },
+   "phone_oracle": {
+    "fixed": 3,
+    "broken": 0,
+    "p": 0.25
+   },
+   "phone_runtime": {
+    "fixed": 1,
+    "broken": 0,
+    "p": 1.0
+   }
+  },
+  "C101->NAIVE101": {
+   "dev_realistic": {
+    "fixed": 378,
+    "broken": 297,
+    "p": 0.002053
+   },
+   "dev_realistic:uncovered": {
+    "fixed": 219,
+    "broken": 217,
+    "p": 0.96181
+   },
+   "dev_realistic:covered": {
+    "fixed": 159,
+    "broken": 80,
+    "p": 0.0
+   },
+   "dev_dense": {
+    "fixed": 80,
+    "broken": 77,
+    "p": 0.873248
+   },
+   "dev_200ms": {
+    "fixed": 185,
+    "broken": 130,
+    "p": 0.002294
+   },
+   "dev_rt_natural": {
+    "fixed": 66,
+    "broken": 46,
+    "p": 0.072126
+   },
+   "dev_rt_continuous": {
+    "fixed": 46,
+    "broken": 39,
+    "p": 0.515426
+   },
+   "dev_hand50": {
+    "fixed": 153,
+    "broken": 128,
+    "p": 0.152097
+   },
+   "semlex_eval_realistic": {
+    "fixed": 703,
+    "broken": 107,
+    "p": 0.0
+   },
+   "semlex_eval_realistic:uncovered": {
+    "fixed": 0,
+    "broken": 0,
+    "p": 1.0
+   },
+   "semlex_eval_realistic:covered": {
+    "fixed": 703,
+    "broken": 107,
+    "p": 0.0
+   },
+   "semlex_eval_dense": {
+    "fixed": 220,
+    "broken": 32,
+    "p": 0.0
+   },
+   "phone_oracle": {
+    "fixed": 0,
+    "broken": 2,
+    "p": 0.5
+   },
+   "phone_runtime": {
+    "fixed": 1,
+    "broken": 2,
+    "p": 1.0
+   }
+  },
+  "C202->NAIVE202": {
+   "dev_realistic": {
+    "fixed": 343,
+    "broken": 288,
+    "p": 0.031497
+   },
+   "dev_realistic:uncovered": {
+    "fixed": 162,
+    "broken": 245,
+    "p": 4.5e-05
+   },
+   "dev_realistic:covered": {
+    "fixed": 181,
+    "broken": 43,
+    "p": 0.0
+   },
+   "dev_dense": {
+    "fixed": 90,
+    "broken": 80,
+    "p": 0.490139
+   },
+   "dev_200ms": {
+    "fixed": 191,
+    "broken": 147,
+    "p": 0.019207
+   },
+   "dev_rt_natural": {
+    "fixed": 62,
+    "broken": 57,
+    "p": 0.714026
+   },
+   "dev_rt_continuous": {
+    "fixed": 44,
+    "broken": 32,
+    "p": 0.206737
+   },
+   "dev_hand50": {
+    "fixed": 161,
+    "broken": 147,
+    "p": 0.458904
+   },
+   "semlex_eval_realistic": {
+    "fixed": 756,
+    "broken": 85,
+    "p": 0.0
+   },
+   "semlex_eval_realistic:uncovered": {
+    "fixed": 0,
+    "broken": 0,
+    "p": 1.0
+   },
+   "semlex_eval_realistic:covered": {
+    "fixed": 756,
+    "broken": 85,
+    "p": 0.0
+   },
+   "semlex_eval_dense": {
+    "fixed": 226,
+    "broken": 24,
+    "p": 0.0
+   },
+   "phone_oracle": {
+    "fixed": 4,
+    "broken": 0,
+    "p": 0.125
+   },
+   "phone_runtime": {
+    "fixed": 4,
+    "broken": 1,
+    "p": 0.375
+   }
+  },
+  "C303->NAIVE303": {
+   "dev_realistic": {
+    "fixed": 350,
+    "broken": 306,
+    "p": 0.093102
+   },
+   "dev_realistic:uncovered": {
+    "fixed": 166,
+    "broken": 246,
+    "p": 9.5e-05
+   },
+   "dev_realistic:covered": {
+    "fixed": 184,
+    "broken": 60,
+    "p": 0.0
+   },
+   "dev_dense": {
+    "fixed": 91,
+    "broken": 76,
+    "p": 0.278612
+   },
+   "dev_200ms": {
+    "fixed": 175,
+    "broken": 144,
+    "p": 0.092864
+   },
+   "dev_rt_natural": {
+    "fixed": 61,
+    "broken": 45,
+    "p": 0.144782
+   },
+   "dev_rt_continuous": {
+    "fixed": 34,
+    "broken": 42,
+    "p": 0.422191
+   },
+   "dev_hand50": {
+    "fixed": 168,
+    "broken": 154,
+    "p": 0.468838
+   },
+   "semlex_eval_realistic": {
+    "fixed": 817,
+    "broken": 89,
+    "p": 0.0
+   },
+   "semlex_eval_realistic:uncovered": {
+    "fixed": 0,
+    "broken": 0,
+    "p": 1.0
+   },
+   "semlex_eval_realistic:covered": {
+    "fixed": 817,
+    "broken": 89,
+    "p": 0.0
+   },
+   "semlex_eval_dense": {
+    "fixed": 222,
+    "broken": 12,
+    "p": 0.0
+   },
+   "phone_oracle": {
+    "fixed": 1,
+    "broken": 4,
+    "p": 0.375
+   },
+   "phone_runtime": {
+    "fixed": 0,
+    "broken": 4,
+    "p": 0.125
+   }
+  },
+  "frozen->NAIVE101": {
+   "dev_realistic": {
+    "fixed": 434,
+    "broken": 254,
+    "p": 0.0
+   },
+   "dev_realistic:uncovered": {
+    "fixed": 255,
+    "broken": 187,
+    "p": 0.001411
+   },
+   "dev_realistic:covered": {
+    "fixed": 179,
+    "broken": 67,
+    "p": 0.0
+   },
+   "dev_dense": {
+    "fixed": 101,
+    "broken": 82,
+    "p": 0.183168
+   },
+   "dev_200ms": {
+    "fixed": 211,
+    "broken": 118,
+    "p": 0.0
+   },
+   "dev_rt_natural": {
+    "fixed": 65,
+    "broken": 34,
+    "p": 0.002395
+   },
+   "dev_rt_continuous": {
+    "fixed": 53,
+    "broken": 32,
+    "p": 0.029456
+   },
+   "dev_hand50": {
+    "fixed": 176,
+    "broken": 110,
+    "p": 0.000114
+   },
+   "semlex_eval_realistic": {
+    "fixed": 770,
+    "broken": 110,
+    "p": 0.0
+   },
+   "semlex_eval_realistic:uncovered": {
+    "fixed": 0,
+    "broken": 0,
+    "p": 1.0
+   },
+   "semlex_eval_realistic:covered": {
+    "fixed": 770,
+    "broken": 110,
+    "p": 0.0
+   },
+   "semlex_eval_dense": {
+    "fixed": 208,
+    "broken": 36,
+    "p": 0.0
+   },
+   "phone_oracle": {
+    "fixed": 4,
+    "broken": 3,
+    "p": 1.0
+   },
+   "phone_runtime": {
+    "fixed": 1,
+    "broken": 2,
+    "p": 1.0
+   }
+  },
+  "frozen->NAIVE202": {
+   "dev_realistic": {
+    "fixed": 455,
+    "broken": 268,
+    "p": 0.0
+   },
+   "dev_realistic:uncovered": {
+    "fixed": 253,
+    "broken": 213,
+    "p": 0.070704
+   },
+   "dev_realistic:covered": {
+    "fixed": 202,
+    "broken": 55,
+    "p": 0.0
+   },
+   "dev_dense": {
+    "fixed": 94,
+    "broken": 76,
+    "p": 0.192136
+   },
+   "dev_200ms": {
+    "fixed": 215,
+    "broken": 133,
+    "p": 1.3e-05
+   },
+   "dev_rt_natural": {
+    "fixed": 66,
+    "broken": 45,
+    "p": 0.057164
+   },
+   "dev_rt_continuous": {
+    "fixed": 59,
+    "broken": 37,
+    "p": 0.031548
+   },
+   "dev_hand50": {
+    "fixed": 180,
+    "broken": 125,
+    "p": 0.001939
+   },
+   "semlex_eval_realistic": {
+    "fixed": 778,
+    "broken": 105,
+    "p": 0.0
+   },
+   "semlex_eval_realistic:uncovered": {
+    "fixed": 0,
+    "broken": 0,
+    "p": 1.0
+   },
+   "semlex_eval_realistic:covered": {
+    "fixed": 778,
+    "broken": 105,
+    "p": 0.0
+   },
+   "semlex_eval_dense": {
+    "fixed": 200,
+    "broken": 39,
+    "p": 0.0
+   },
+   "phone_oracle": {
+    "fixed": 4,
+    "broken": 1,
+    "p": 0.375
+   },
+   "phone_runtime": {
+    "fixed": 2,
+    "broken": 1,
+    "p": 1.0
+   }
+  },
+  "frozen->NAIVE303": {
+   "dev_realistic": {
+    "fixed": 437,
+    "broken": 290,
+    "p": 0.0
+   },
+   "dev_realistic:uncovered": {
+    "fixed": 246,
+    "broken": 238,
+    "p": 0.750384
+   },
+   "dev_realistic:covered": {
+    "fixed": 191,
+    "broken": 52,
+    "p": 0.0
+   },
+   "dev_dense": {
+    "fixed": 99,
+    "broken": 76,
+    "p": 0.096024
+   },
+   "dev_200ms": {
+    "fixed": 224,
+    "broken": 141,
+    "p": 1.6e-05
+   },
+   "dev_rt_natural": {
+    "fixed": 71,
+    "broken": 40,
+    "p": 0.004196
+   },
+   "dev_rt_continuous": {
+    "fixed": 45,
+    "broken": 38,
+    "p": 0.51041
+   },
+   "dev_hand50": {
+    "fixed": 195,
+    "broken": 146,
+    "p": 0.00924
+   },
+   "semlex_eval_realistic": {
+    "fixed": 845,
+    "broken": 91,
+    "p": 0.0
+   },
+   "semlex_eval_realistic:uncovered": {
+    "fixed": 0,
+    "broken": 0,
+    "p": 1.0
+   },
+   "semlex_eval_realistic:covered": {
+    "fixed": 845,
+    "broken": 91,
+    "p": 0.0
+   },
+   "semlex_eval_dense": {
+    "fixed": 206,
+    "broken": 28,
+    "p": 0.0
+   },
+   "phone_oracle": {
+    "fixed": 4,
+    "broken": 5,
+    "p": 1.0
+   },
+   "phone_runtime": {
+    "fixed": 1,
+    "broken": 4,
+    "p": 0.375
+   }
+  },
+  "frozen->BLEND": {
+   "dev_realistic": {
+    "fixed": 281,
+    "broken": 50,
+    "p": 0.0
+   },
+   "dev_realistic:uncovered": {
+    "fixed": 153,
+    "broken": 38,
+    "p": 0.0
+   },
+   "dev_realistic:covered": {
+    "fixed": 128,
+    "broken": 12,
+    "p": 0.0
+   },
+   "dev_dense": {
+    "fixed": 61,
+    "broken": 15,
+    "p": 0.0
+   },
+   "dev_200ms": {
+    "fixed": 129,
+    "broken": 32,
+    "p": 0.0
+   },
+   "dev_rt_natural": {
+    "fixed": 39,
+    "broken": 5,
+    "p": 0.0
+   },
+   "dev_rt_continuous": {
+    "fixed": 33,
+    "broken": 7,
+    "p": 4.2e-05
+   },
+   "dev_hand50": {
+    "fixed": 102,
+    "broken": 26,
+    "p": 0.0
+   },
+   "semlex_eval_realistic": {
+    "fixed": 531,
+    "broken": 23,
+    "p": 0.0
+   },
+   "semlex_eval_realistic:uncovered": {
+    "fixed": 0,
+    "broken": 0,
+    "p": 1.0
+   },
+   "semlex_eval_realistic:covered": {
+    "fixed": 531,
+    "broken": 23,
+    "p": 0.0
+   },
+   "semlex_eval_dense": {
+    "fixed": 146,
+    "broken": 9,
+    "p": 0.0
+   },
+   "phone_oracle": {
+    "fixed": 4,
+    "broken": 0,
+    "p": 0.125
+   },
+   "phone_runtime": {
+    "fixed": 1,
+    "broken": 0,
+    "p": 1.0
+   }
+  },
+  "NAIVE101->EC101": {
+   "dev_realistic": {
+    "fixed": 243,
+    "broken": 338,
+    "p": 9.3e-05
+   },
+   "dev_realistic:uncovered": {
+    "fixed": 195,
+    "broken": 187,
+    "p": 0.720281
+   },
+   "dev_realistic:covered": {
+    "fixed": 48,
+    "broken": 151,
+    "p": 0.0
+   },
+   "dev_dense": {
+    "fixed": 67,
+    "broken": 81,
+    "p": 0.285217
+   },
+   "dev_200ms": {
+    "fixed": 124,
+    "broken": 180,
+    "p": 0.001565
+   },
+   "dev_rt_natural": {
+    "fixed": 38,
+    "broken": 54,
+    "p": 0.11737
+   },
+   "dev_rt_continuous": {
+    "fixed": 28,
+    "broken": 35,
+    "p": 0.449963
+   },
+   "dev_hand50": {
+    "fixed": 117,
+    "broken": 152,
+    "p": 0.037973
+   },
+   "semlex_eval_realistic": {
+    "fixed": 114,
+    "broken": 549,
+    "p": 0.0
+   },
+   "semlex_eval_realistic:uncovered": {
+    "fixed": 0,
+    "broken": 0,
+    "p": 1.0
+   },
+   "semlex_eval_realistic:covered": {
+    "fixed": 114,
+    "broken": 549,
+    "p": 0.0
+   },
+   "semlex_eval_dense": {
+    "fixed": 37,
+    "broken": 130,
+    "p": 0.0
+   },
+   "phone_oracle": {
+    "fixed": 1,
+    "broken": 0,
+    "p": 1.0
+   },
+   "phone_runtime": {
+    "fixed": 1,
+    "broken": 0,
+    "p": 1.0
+   }
+  },
+  "C101->BLEND": {
+   "dev_realistic": {
+    "fixed": 307,
+    "broken": 175,
+    "p": 0.0
+   },
+   "dev_realistic:uncovered": {
+    "fixed": 184,
+    "broken": 135,
+    "p": 0.007105
+   },
+   "dev_realistic:covered": {
+    "fixed": 123,
+    "broken": 40,
+    "p": 0.0
+   },
+   "dev_dense": {
+    "fixed": 70,
+    "broken": 40,
+    "p": 0.005447
+   },
+   "dev_200ms": {
+    "fixed": 146,
+    "broken": 87,
+    "p": 0.000134
+   },
+   "dev_rt_natural": {
+    "fixed": 50,
+    "broken": 27,
+    "p": 0.011673
+   },
+   "dev_rt_continuous": {
+    "fixed": 39,
+    "broken": 27,
+    "p": 0.175286
+   },
+   "dev_hand50": {
+    "fixed": 121,
+    "broken": 86,
+    "p": 0.017906
+   },
+   "semlex_eval_realistic": {
+    "fixed": 517,
+    "broken": 73,
+    "p": 0.0
+   },
+   "semlex_eval_realistic:uncovered": {
+    "fixed": 0,
+    "broken": 0,
+    "p": 1.0
+   },
+   "semlex_eval_realistic:covered": {
+    "fixed": 517,
+    "broken": 73,
+    "p": 0.0
+   },
+   "semlex_eval_dense": {
+    "fixed": 165,
+    "broken": 12,
+    "p": 0.0
+   },
+   "phone_oracle": {
+    "fixed": 1,
+    "broken": 0,
+    "p": 1.0
+   },
+   "phone_runtime": {
+    "fixed": 2,
+    "broken": 1,
+    "p": 1.0
+   }
+  }
+ }
+}

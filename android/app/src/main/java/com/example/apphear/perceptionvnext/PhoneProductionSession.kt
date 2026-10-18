@@ -13,6 +13,8 @@ import java.security.MessageDigest
 internal class PhoneProductionSession private constructor(
     private val s2: PhoneS2Runner,
     private val recognizer: RecognitionV2LiveRecognizer,
+    /** Debug comparison recognizer on the identical view (logged only); null outside WORD_BLEND. */
+    private val pairedRecognizer: RecognitionV2LiveRecognizer?,
     val packageId: PhoneS2Package,
     val configuration: PhoneRecognitionConfiguration,
     /** Set when EXPERIMENTAL was selected but could not load, so STABLE is running instead. */
@@ -63,6 +65,7 @@ internal class PhoneProductionSession private constructor(
             val top1 = prediction.top5.first()
             val gloss = recognizer.glosses[top1]
             val candidates = prediction.top5.map { recognizer.glosses[it] }
+            val paired = pairedRecognizer?.invoke(view, RecognitionV2.FEATURE_SCHEMA)
             val evidence = RecognitionEvidence.fromExistingTop5(event.eventId, event.commitMs.toLong(),
                 prediction.top5, prediction.probabilities, recognizer.glosses)
             sentence.add(gloss)
@@ -72,7 +75,9 @@ internal class PhoneProductionSession private constructor(
                 "event=${event.eventId} action=${decision.action} " +
                 "window=${window.selectedStartIndex}..${window.selectedEndIndex} " +
                 "observations=${window.observations.size} gloss=$gloss " +
-                "probability=${prediction.probabilities[top1]}")
+                "probability=${prediction.probabilities[top1]} word=${configuration.wordPackage().packageId} " +
+                "wordMs=${"%.2f".format(prediction.invocationMs)} top5=${candidates.joinToString("|")}" +
+                pairedLog(paired))
             return Update(
                 checkNotNull(heldCommit), episode.state, event.eventId, window.observations.size,
                 prediction.probabilities[top1], state.invocationMs, prediction.invocationMs, evidence,
@@ -89,6 +94,16 @@ internal class PhoneProductionSession private constructor(
         return Update(uiState, episode.state, null, null, null, state.invocationMs, null)
     }
 
+    private fun pairedLog(paired: RecognitionV2LiveRecognizer.Prediction?): String {
+        val other = pairedRecognizer ?: return ""
+        val p = paired ?: return ""
+        val p1 = p.top5.first()
+        return " paired=${checkNotNull(configuration.pairedWordPackage()).packageId} " +
+            "pairedGloss=${other.glosses[p1]} pairedProbability=${p.probabilities[p1]} " +
+            "pairedMs=${"%.2f".format(p.invocationMs)} " +
+            "pairedTop5=${p.top5.joinToString("|") { other.glosses[it] }}"
+    }
+
     /** A new camera generation must not inherit stale temporal or perception evidence. */
     @Synchronized fun resetTemporalSession() {
         features.reset()
@@ -101,6 +116,7 @@ internal class PhoneProductionSession private constructor(
     }
 
     override fun close() {
+        pairedRecognizer?.close()
         recognizer.close()
         s2.close()
     }
@@ -129,7 +145,7 @@ internal class PhoneProductionSession private constructor(
             return try {
                 open(context, requested, null)
             } catch (error: Throwable) {
-                Log.e(TAG, "EXPERIMENTAL recognition failed to load; running STABLE", error)
+                Log.e(TAG, "${requested.name} recognition failed to load; running STABLE", error)
                 open(context, PhoneRecognitionConfiguration.STABLE, error.message ?: error.javaClass.simpleName)
             }
         }
@@ -141,13 +157,19 @@ internal class PhoneProductionSession private constructor(
         ): PhoneProductionSession {
             val packageId = configuration.s2Package()
             val s2 = PhoneS2Runner(context, packageId)
+            var recognizer: RecognitionV2LiveRecognizer? = null
             return try {
-                val recognizer = RecognitionV2LiveRecognizer(context)
-                PhoneProductionSession(s2, recognizer, packageId, configuration, fallbackReason).also {
+                recognizer = RecognitionV2LiveRecognizer(context, configuration.wordPackage())
+                val paired = configuration.pairedWordPackage()?.let { RecognitionV2LiveRecognizer(context, it) }
+                PhoneProductionSession(s2, recognizer, paired, packageId, configuration, fallbackReason).also {
                     Log.i(TAG, "configuration=${configuration.name} package=${packageId.name} " +
+                        "word=${configuration.wordPackage().packageId} " +
+                        "wordModel=${configuration.wordPackage().modelSha256.take(12)} " +
+                        "paired=${configuration.pairedWordPackage()?.packageId ?: "none"} " +
                         "fallback=${fallbackReason != null}")
                 }
             } catch (error: Throwable) {
+                recognizer?.close()
                 s2.close()
                 throw error
             }

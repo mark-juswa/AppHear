@@ -44,6 +44,11 @@ ROOT = Path(__file__).resolve().parents[2]
 RU = Path("artifacts/recognition_upgrade/perception_vnext/recognition_utility_236_01")
 RAW_INDEX = RU / "dataset/index.jsonl"
 SEMLEX = RU / "semlex_candidate_raw_01"
+# 2026-10-18: forms accepted in human review package 02 (40 further classes)
+SEMLEX_02 = RU / "semlex_candidate_raw_02"
+# Pre-registered before training: the new classes keep at most two clips per signer, so they gain
+# signer diversity without a large class-prior shift (MONEY1 alone has 195 accepted clips).
+SEMLEX_02_CAP_PER_SIGNER_CLASS = 2
 V2_DATASET = RU / "representation_v2_236_production_01/dataset"
 CONFIG = (
     ROOT
@@ -206,15 +211,40 @@ def pad(features: np.ndarray) -> tuple[np.ndarray, np.ndarray]:
     return tensor, mask
 
 
-def semlex_rows(root: Path, theta_scale: float) -> tuple[list[dict[str, Any]], dict[str, Any]]:
-    """Sem-Lex candidates cut with the Candidate01 d1 port (theta fit on TRAIN, checked on DEV)."""
+def semlex_rows(
+    root: Path,
+    theta_scale: float,
+    role: str | None = None,
+    source: Path = SEMLEX,
+    cap_per_signer_class: int | None = None,
+) -> tuple[list[dict[str, Any]], dict[str, Any]]:
+    """Sem-Lex candidates cut with the Candidate01 d1 port (theta fit on TRAIN, checked on DEV).
+
+    ``role="ENRICH"`` keeps only the signers that word_vocabulary_eval reserves for training; the
+    EVAL-role signers are then an untouched held-out set for every candidate.
+    """
+    from eval.runtime_diagnostics.word_vocabulary_eval import semlex_role
     from pipeline.detect.candidate01_span import candidate01_span
     from pipeline.detect.config import load_config
 
     cfg = load_config(ROOT / "pipeline/config/detect.yaml")
-    manifest = json.loads((root / SEMLEX / "manifest.json").read_text(encoding="utf-8"))
-    rows, invalid = [], 0
-    for clip in manifest["clips"]:
+    manifest = json.loads((root / source / "manifest.json").read_text(encoding="utf-8"))
+    clips_in = manifest["clips"]
+    if cap_per_signer_class is not None:
+        by_key: dict[tuple[str, int], list[dict[str, Any]]] = {}
+        for clip in sorted(clips_in, key=lambda c: c["semlex_sample_id"]):
+            by_key.setdefault((clip["signer"], int(clip["class_id"])), []).append(clip)
+        rng = np.random.default_rng(7206)
+        clips_in = []
+        for key in sorted(by_key):
+            group = by_key[key]
+            keep = rng.choice(len(group), size=min(cap_per_signer_class, len(group)), replace=False)
+            clips_in += [group[int(i)] for i in sorted(keep)]
+    rows, invalid, skipped_role = [], 0, 0
+    for clip in clips_in:
+        if role is not None and semlex_role(clip["signer"]) != role:
+            skipped_role += 1
+            continue
         span = candidate01_span(load_raw_sequence(root / clip["raw_path"]), cfg, theta_scale)
         if not span.valid:
             invalid += 1
@@ -235,17 +265,46 @@ def semlex_rows(root: Path, theta_scale: float) -> tuple[list[dict[str, Any]], d
         "classes": len({r["class_id"] for r in rows}),
         "signers": len({r["signer_id"] for r in rows}),
         "theta_scale": theta_scale,
+        "role": role,
+        "skipped_other_role": skipped_role,
+        "source": str(source).replace("\\", "/"),
+        "cap_per_signer_class": cap_per_signer_class,
     }
     return rows, audit
 
 
-def train(root: Path, output: Path, extra: str | None = None) -> dict[str, Any]:
+def exposure_exact_order(
+    labels: np.ndarray, base_count: dict[int, int], rng: np.random.Generator
+) -> np.ndarray:
+    """One epoch of (row, view) items with every class drawn exactly as often as in the baseline.
+
+    Each class contributes its baseline clip count, drawn without replacement from all of its rows
+    (governed TRAIN plus any extra source), each with one dense and one sparse view. The class prior
+    and the number of optimizer steps are therefore identical to the baseline; only which clips
+    represent a class changes (P5-D11 EC_P3 on the current V2 recognizer).
+    """
+    items = []
+    for c, n in sorted(base_count.items()):
+        pool = np.flatnonzero(labels == c)
+        chosen = rng.choice(pool, size=n, replace=False)
+        items.extend([2 * int(k) for k in chosen] + [2 * int(k) + 1 for k in chosen])
+    return rng.permutation(np.asarray(items, np.int64))
+
+
+def train(
+    root: Path,
+    output: Path,
+    extra: str | None = None,
+    seed_override: int | None = None,
+    exposure: str = "natural",
+    views: str = "dense_sparse",
+) -> dict[str, Any]:
     import tensorflow as tf
 
     from model.perception_vnext import recognition_v2_236 as base
 
     config = json.loads(CONFIG.read_text(encoding="utf-8-sig"))
-    seed = int(config["seed"])
+    seed = int(config["seed"]) if seed_override is None else int(seed_override)
     tf.keras.utils.set_random_seed(seed)
     raw_rows = {
         r["sample_id"]: r
@@ -262,13 +321,32 @@ def train(root: Path, output: Path, extra: str | None = None) -> dict[str, Any]:
         raise RuntimeError("AUG_SIGNER_LEAKAGE")
     for r in train_rows:
         r["raw_path"] = raw_rows[r["sample_id"]]["raw_path"]
+    base_count = {
+        int(c): int(n)
+        for c, n in zip(
+            *np.unique([int(r["class_id"]) for r in train_rows], return_counts=True), strict=True
+        )
+    }
+    base_steps_items = len(train_rows) * 2
     extra_audit = None
-    if extra == "semlex":
-        added, extra_audit = semlex_rows(root, 0.4)
+    if extra in ("semlex", "semlex_enrich", "semlex2_enrich"):
+        added, extra_audit = semlex_rows(root, 0.4, "ENRICH" if extra != "semlex" else None)
+        if extra == "semlex2_enrich":
+            more, more_audit = semlex_rows(
+                root, 0.4, "ENRICH", SEMLEX_02, SEMLEX_02_CAP_PER_SIGNER_CLASS
+            )
+            if {r["class_id"] for r in more} & {r["class_id"] for r in added}:
+                raise RuntimeError("SEMLEX_02_OVERLAPS_SEMLEX_01_CLASSES")
+            added += more
+            extra_audit = {"semlex_01": extra_audit, "semlex_02": more_audit}
         if {r["signer_id"] for r in added} & {r["signer_id"] for r in dev_rows}:
             raise RuntimeError("AUG_EXTRA_SIGNER_LEAKAGE")
         train_rows = train_rows + added
         print(f"[aug] extra {extra_audit}", flush=True)
+    if exposure not in ("natural", "exact"):
+        raise ValueError(f"unknown exposure policy {exposure}")
+    if views not in ("dense_sparse", "sparse_only"):
+        raise ValueError(f"unknown training views {views}")
     output.mkdir(parents=True, exist_ok=False)
     write_json(
         output / "run_identity.json",
@@ -278,6 +356,9 @@ def train(root: Path, output: Path, extra: str | None = None) -> dict[str, Any]:
             "config_sha256": sha256(CONFIG),
             "augmentation": AUG,
             "extra_training_source": extra_audit,
+            "class_exposure": exposure,
+            "training_views": views,
+            "selection_views": "sparse" if views == "sparse_only" else "dense+sparse",
             "seed": seed,
             "scientific_delta": "per-epoch sparse view drawn from a cadence/phase/hand-loss pool",
             "selection": "DEV val_loss on precomputed dense+PHONE_01 sparse views (as baseline)",
@@ -290,10 +371,13 @@ def train(root: Path, output: Path, extra: str | None = None) -> dict[str, Any]:
 
     def generator() -> Any:
         rng = np.random.default_rng([seed, state["epoch"]])
-        order = rng.permutation(len(train_rows) * 2)
+        if exposure == "exact":
+            order = exposure_exact_order(labels, base_count, rng)
+        else:
+            order = rng.permutation(len(train_rows) * 2)
         for item in order:
             k, kind = divmod(int(item), 2)
-            if kind == 0:
+            if kind == 0 and views == "dense_sparse":
                 features = dense[k]
             elif rng.random() < AUG["original_view_fraction"]:
                 features = pool[k][0]
@@ -303,7 +387,8 @@ def train(root: Path, output: Path, extra: str | None = None) -> dict[str, Any]:
             yield (tensor, mask), labels[k]
 
     batch = int(config["training"]["batch_size"])
-    steps = math.ceil(len(train_rows) * 2 / batch)
+    items = base_steps_items if exposure == "exact" else len(train_rows) * 2
+    steps = math.ceil(items / batch)
     train_data = (
         tf.data.Dataset.from_generator(
             generator,
@@ -319,7 +404,10 @@ def train(root: Path, output: Path, extra: str | None = None) -> dict[str, Any]:
         .apply(tf.data.experimental.assert_cardinality(steps))
         .prefetch(2)
     )
-    dev_data = base._dataset(dev_rows, ("dense", "sparse"), batch, seed, training=False)
+    # sparse_only: the runtime never sees a dense 30 fps view, so neither training nor checkpoint
+    # selection uses one; every item is a sparse pool view (same steps per epoch).
+    val_views = ("sparse",) if views == "sparse_only" else ("dense", "sparse")
+    dev_data = base._dataset(dev_rows, val_views, batch, seed, training=False)
 
     class Epoch(tf.keras.callbacks.Callback):
         def on_epoch_end(self, epoch: int, logs: dict[str, float] | None = None) -> None:
@@ -361,13 +449,34 @@ def main() -> None:
     parser.add_argument("--evidence-root", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--variant", choices=["v1", "v2", "v3"], default="v1")
-    parser.add_argument("--extra", choices=["semlex"], default=None)
+    parser.add_argument(
+        "--extra",
+        choices=["semlex", "semlex_enrich", "semlex2_enrich"],
+        default=None,
+        help="semlex: every Sem-Lex signer; semlex_enrich: only the ENRICH-role signers",
+    )
+    parser.add_argument("--seed", type=int, default=None, help="override the config seed")
+    parser.add_argument(
+        "--exposure",
+        choices=["natural", "exact"],
+        default="natural",
+        help="exact: per-class draws per epoch identical to the governed TRAIN (EC_P3)",
+    )
+    parser.add_argument(
+        "--views",
+        choices=["dense_sparse", "sparse_only"],
+        default="dense_sparse",
+        help="sparse_only: no dense view in training or checkpoint selection",
+    )
     args = parser.parse_args()
     if args.variant == "v2":
         AUG.update(AUG_V2)
     elif args.variant == "v3":
         AUG.update(AUG_V3)
-    print(json.dumps(train(args.evidence_root, args.output, args.extra), indent=2))
+    result = train(
+        args.evidence_root, args.output, args.extra, args.seed, args.exposure, args.views
+    )
+    print(json.dumps(result, indent=2))
 
 
 if __name__ == "__main__":

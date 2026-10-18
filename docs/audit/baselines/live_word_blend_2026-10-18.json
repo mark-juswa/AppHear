@@ -1,0 +1,517 @@
+{
+  "schema": "apphear.live_baseline_lock.v1",
+  "baseline_id": "LIVE_WORD_BLEND_2026-10-18",
+  "git": {
+    "base_commit": "e2444ebb7910a8e17de22b3b17678fecfaf8f5be",
+    "branch": "claude/s2-r3-eval-suite",
+    "head_at_lock": "e2444ebb7910a8e17de22b3b17678fecfaf8f5be",
+    "state": "uncommitted working tree on base_commit (commit awaits approval)"
+  },
+  "engines": {
+    "STABLE": {
+      "default": true,
+      "s2_package": "S2_R2_CANDIDATE (BuildConfig.APP_PHONE_S2_PACKAGE, debug default)",
+      "decoder": "PhoneDecoderConfig(rearm=PRE_OR_POST_EXPERIMENTAL, admission=PASS_THROUGH, confirmBoundaryPostPeak=null)"
+    },
+    "EXPERIMENTAL": {
+      "default": false,
+      "debug_only": true,
+      "s2_package": "ARM_A_E10_CANDIDATE (debug asset s2_r3_arm_a_e10_candidate)",
+      "decoder": "PhoneDecoderConfig(rearm=PRE_OR_POST_EXPERIMENTAL, admission=PASS_THROUGH, confirmBoundaryPostPeak=0.7)",
+      "fallback": "load failure -> STABLE (fallbackReason set, logged)"
+    },
+    "shared": [
+      "Candidate01 (DWPose-T + MediaPipe hand refiner, presence>=0.50, >=18 joints)",
+      "decoder timings minActive 133.308 / preGapReset 133.308 / postConfirm 266.616 / rearm 399.924 ms",
+      "Recognition Window Materializer +/-250 ms",
+      "Recognition V2 [96,350] -> ordinary_v2_tcn_fp32.tflite, 236 classes (sha 1ccf0afa...)",
+      "SentenceBuilder, Context Assist and FINGERSPELL unchanged"
+    ],
+    "selection": "debug Settings 'Recognition engine (debug)'; SharedPreferences recognition_engine/selected; read once per ASL Recognition screen open (one PhoneProductionSession)",
+    "EXPERIMENTAL_WORD_BLEND": {
+      "default": false,
+      "debug_only": true,
+      "s2_package": "ARM_A_E10_CANDIDATE (identical to EXPERIMENTAL)",
+      "decoder": "identical to EXPERIMENTAL (confirmBoundaryPostPeak=0.7)",
+      "word": "WORD_BLEND_01 (debug asset word_blend_candidate_01, model bc8a6c91...) displayed and committed; frozen GATE2 runs on the identical view and is logged only",
+      "fallback": "load failure -> STABLE"
+    }
+  },
+  "build": {
+    "working_directory": "android/ (PowerShell; Bash cannot run gradlew.bat with the space in the path)",
+    "tasks": [
+      "testDebugUnitTest",
+      "assembleDebug",
+      "assembleDebugAndroidTest",
+      "--continue"
+    ],
+    "properties": [
+      "-Pandroid.useAndroidX=true",
+      "-Pfingerspell=true",
+      "-PfingerspellContinuous=true",
+      "-PfingerspellArtifactDir=<data root>/packages/fingerspelling_continuous_v2_1_01",
+      "-PrecognitionRearCamera=true",
+      "-PrecognitionCoordination=true",
+      "-PcontextPhraseAssist=true",
+      "-PcontextPhraseAssistProvider=fake",
+      "-PaslAssetPilot=true",
+      "-PaslSharedCharacter=true",
+      "-PaslMoreWords=true",
+      "-PaslCharacterSelection=true",
+      "-PaslNewIdle=true",
+      "-PaslAlphabetFallback=true",
+      "-PaslOriginalWords=true",
+      "-PperceptionVNext=true",
+      "-PphoneCausalRecognition=true",
+      "-PrecognitionV3ParallelHands=false",
+      "-PrecognitionV3Profile=false"
+    ],
+    "blank_credentials": [
+      "SUPABASE_URL",
+      "SUPABASE_ANON_KEY",
+      "APPHEAR_SUPABASE_URL",
+      "APPHEAR_SUPABASE_ANON_KEY",
+      "APPHEAR_ELEVENLABS_MODEL_ID",
+      "APPHEAR_ELEVENLABS_VOICE_ID",
+      "APPHEAR_ELEVENLABS_API_KEY",
+      "APPHEAR_CONTEXT_ASSIST_API_KEY",
+      "APPHEAR_GEMINI_API_KEY"
+    ],
+    "note": "every credential is passed as -P<name>= (blank); the worktree gradle.properties holds no keys"
+  },
+  "apk": {
+    "debug": {
+      "sha256": "3aa0b4df755d52c956ec024aefb4fd811fe799f6b529f4934a573607af3147a7",
+      "bytes": 827813776
+    },
+    "android_test": {
+      "sha256": "7d77243dc91258eb8d5a9a7fca88bbf04f0e1d6de7d73ba9b29c5ad3f2c03280",
+      "bytes": 7582871
+    }
+  },
+  "apk_recognition_assets": {
+    "assets/context_phrase_assist_policy.json": {
+      "sha256": "ca8193ac0d5971a2146a384f2e29dca2894592deac864eb8f253b0a0dd2a83b7",
+      "bytes": 179,
+      "source": "android/app/src/main/assets/context_phrase_assist_policy.json",
+      "source_matches": true
+    },
+    "assets/perception_vnext/dwpose_t_singlepass.onnx": {
+      "sha256": "37b0f265200f8e249adba1cc9b62925f5e1252245580ed1f66f583d7bce239c0",
+      "bytes": 22105540,
+      "source": "android/app/src/main/assets/perception_vnext/dwpose_t_singlepass.onnx",
+      "source_matches": true
+    },
+    "assets/perception_vnext/hand_landmarks_detector.tflite": {
+      "sha256": "6acda74af3fbf40e68265c20c7394b2bad81a16a481dcd79ad7a081887c3d6b9",
+      "bytes": 5478949,
+      "source": "android/app/src/main/assets/perception_vnext/hand_landmarks_detector.tflite",
+      "source_matches": true
+    },
+    "assets/phase4a_gate2_recognizer_parity/manifest.json": {
+      "sha256": "bfe8bec13a646eb6fa733c3bee6a421a44b5e58ed6dbb0dd59d88804e397d019",
+      "bytes": 119305,
+      "source": "android/app/src/main/assets/phase4a_gate2_recognizer_parity/manifest.json",
+      "source_matches": true
+    },
+    "assets/phase4a_gate2_recognizer_parity/ordinary_v2_tcn_fp32.tflite": {
+      "sha256": "1ccf0afa9af9aa602aa0de33c9635f5cffd7feec7d9b4e32382bc5e3fa02880c",
+      "bytes": 814068,
+      "source": "android/app/src/main/assets/phase4a_gate2_recognizer_parity/ordinary_v2_tcn_fp32.tflite",
+      "source_matches": true
+    },
+    "assets/phase4a_gate4a1_live/contract.json": {
+      "sha256": "d45cabf506a3e3040bd33bef308538bd7130934f770d7b8bd71dbb83cb2494ff",
+      "bytes": 2700,
+      "source": "android/app/src/main/assets/phase4a_gate4a1_live/contract.json",
+      "source_matches": true
+    },
+    "assets/phone_causal_recognition_01/cadence_aligned_normalization_stats.json": {
+      "sha256": "d1f3b47ea9cf67578ea13e528a444d87be2246bfa62a0067b70f96393c39f1eb",
+      "bytes": 20025,
+      "source": "android/app/src/main/assets/phone_causal_recognition_01/cadence_aligned_normalization_stats.json",
+      "source_matches": true
+    },
+    "assets/phone_causal_recognition_01/contract.json": {
+      "sha256": "b7d5e7b770f101b51c18bf8a4b22838086731703fd0b9af3701ecf1270c91bb6",
+      "bytes": 2042,
+      "source": "android/app/src/main/assets/phone_causal_recognition_01/contract.json",
+      "source_matches": true
+    },
+    "assets/phone_causal_recognition_01/materializer_contract_frozen.json": {
+      "sha256": "0a59dc80fe54cb37e09fbce8aa108dbfce32bc4b5cb48b98e61619b5b3b34971",
+      "bytes": 1406,
+      "source": "android/app/src/main/assets/phone_causal_recognition_01/materializer_contract_frozen.json",
+      "source_matches": true
+    },
+    "assets/phone_causal_recognition_01/s2_parity_normalized_features.f32": {
+      "sha256": "ea3a8b0cef457ac3674d55991e5855bacf7540147076afb2bf378fb3d90e90d7",
+      "bytes": 198072,
+      "source": "android/app/src/debug/assets/phone_causal_recognition_01/s2_parity_normalized_features.f32",
+      "source_matches": true
+    },
+    "assets/phone_causal_recognition_01/s2_parity_probabilities.f32": {
+      "sha256": "d107d85188fd8c0701a7d1771d1714a5afadb0603392684cb5ead61c0e690dd2",
+      "bytes": 1572,
+      "source": "android/app/src/debug/assets/phone_causal_recognition_01/s2_parity_probabilities.f32",
+      "source_matches": true
+    },
+    "assets/phone_causal_recognition_01/s2_phase7_fp32.tflite": {
+      "sha256": "820023d15c98dab2fb8f21914906ccd637d32bce7b825cbd1d89a58c80cd4ed7",
+      "bytes": 539580,
+      "source": "android/app/src/main/assets/phone_causal_recognition_01/s2_phase7_fp32.tflite",
+      "source_matches": true
+    },
+    "assets/phone_causal_recognition_01/s2_r2_candidate/contract.json": {
+      "sha256": "2f1ff03dcb352117cf9c84a30d5bcd40ede9984a21cf31df834c2e2d086aa6aa",
+      "bytes": 1885,
+      "source": "android/app/src/main/assets/phone_causal_recognition_01/s2_r2_candidate/contract.json",
+      "source_matches": true
+    },
+    "assets/phone_causal_recognition_01/s2_r2_candidate/normalization.json": {
+      "sha256": "76253b7eaa5d8e05cd546eecfb6602340b5a936eb0fc21e1fcbc7be4fb9786ac",
+      "bytes": 19928,
+      "source": "android/app/src/main/assets/phone_causal_recognition_01/s2_r2_candidate/normalization.json",
+      "source_matches": true
+    },
+    "assets/phone_causal_recognition_01/s2_r2_candidate/phone_parity_normalized_features.f32": {
+      "sha256": "f094e217a3e7e2cf1f2e35a9fea66a79960a950d6d9302ecaa9d3c09e3bd8ef8",
+      "bytes": 1011528,
+      "source": "android/app/src/debug/assets/phone_causal_recognition_01/s2_r2_candidate/phone_parity_normalized_features.f32",
+      "source_matches": true
+    },
+    "assets/phone_causal_recognition_01/s2_r2_candidate/phone_parity_probabilities.f32": {
+      "sha256": "e3c4b3289db7cf77d1e8b5b3b1550e3509f67ab312b0c5902abff0ecf70ad5e5",
+      "bytes": 8028,
+      "source": "android/app/src/debug/assets/phone_causal_recognition_01/s2_r2_candidate/phone_parity_probabilities.f32",
+      "source_matches": true
+    },
+    "assets/phone_causal_recognition_01/s2_r2_candidate/phone_parity_raw_features.f32": {
+      "sha256": "17ed546b61bdb3750dcdc130166211484b8fe45ae210df88325fa972079f7618",
+      "bytes": 1011528,
+      "source": "android/app/src/debug/assets/phone_causal_recognition_01/s2_r2_candidate/phone_parity_raw_features.f32",
+      "source_matches": true
+    },
+    "assets/phone_causal_recognition_01/s2_r2_candidate/s2_r2_fp32.tflite": {
+      "sha256": "7d26c896db1a00e7a41ff3e02b02033428cbd2ae4b5cbf3e4d279d45f529d3d7",
+      "bytes": 538560,
+      "source": "android/app/src/main/assets/phone_causal_recognition_01/s2_r2_candidate/s2_r2_fp32.tflite",
+      "source_matches": true
+    },
+    "assets/phone_causal_recognition_01/segmentation_feature_parity_expected.f32": {
+      "sha256": "935db38e086780d9b8d5cd31b4d3a9cb01ed43f81ccb8218661887c4e9aa689f",
+      "bytes": 6048,
+      "source": "android/app/src/debug/assets/phone_causal_recognition_01/segmentation_feature_parity_expected.f32",
+      "source_matches": true
+    },
+    "assets/phone_causal_recognition_01/segmentation_feature_parity_raw.json": {
+      "sha256": "1aae3fe6360d6f3696f541c79e32e511624ba7c701b40e2baba2c03b3487743e",
+      "bytes": 26769,
+      "source": "android/app/src/debug/assets/phone_causal_recognition_01/segmentation_feature_parity_raw.json",
+      "source_matches": true
+    },
+    "assets/phone_causal_recognition_01/stage2_transition_protocol.json": {
+      "sha256": "500e4c43f8d64a01d55fb861b73c11604e2b32464f846071d029903bafa9100c",
+      "bytes": 1958,
+      "source": "android/app/src/debug/assets/phone_causal_recognition_01/stage2_transition_protocol.json",
+      "source_matches": true
+    },
+    "assets/recognition_config.json": {
+      "sha256": "270c1a9f28bde604a06de100197f6490642d79fdce8afac99155fa7824d6567e",
+      "bytes": 3096,
+      "source": "android/app/src/main/assets/recognition_config.json",
+      "source_matches": true
+    },
+    "assets/recognition_coordination_policy.json": {
+      "sha256": "7482d5471d92e72f74af1a042e1e243bb952229d3524cdb68792c3b1b4a1f5c1",
+      "bytes": 902,
+      "source": "android/app/src/main/assets/recognition_coordination_policy.json",
+      "source_matches": true
+    },
+    "assets/vocab.json": {
+      "sha256": "a7d7b08d1c9ff52455aaa93cefee40e744b86a11fa5047dce08d2dd23fc0539b",
+      "bytes": 3852,
+      "source": "android/app/src/main/assets/vocab.json",
+      "source_matches": true
+    },
+    "assets/phone_causal_recognition_01/s2_r3_arm_a_e10_candidate/contract.json": {
+      "sha256": "d5f4e2b17c16f92db779d16621660af7681d7c2d26cca41a23279b5f75393e15",
+      "bytes": 2219,
+      "source": "android/app/src/debug/assets/phone_causal_recognition_01/s2_r3_arm_a_e10_candidate/contract.json",
+      "source_matches": true
+    },
+    "assets/phone_causal_recognition_01/s2_r3_arm_a_e10_candidate/normalization.json": {
+      "sha256": "35473a783fd9340480c72a0c9b028871ca98eeb132b3bca6b4341b38e97914c0",
+      "bytes": 19971,
+      "source": "android/app/src/debug/assets/phone_causal_recognition_01/s2_r3_arm_a_e10_candidate/normalization.json",
+      "source_matches": true
+    },
+    "assets/phone_causal_recognition_01/s2_r3_arm_a_e10_candidate/phone_parity_normalized_features.f32": {
+      "sha256": "9bd82ccaf70e77cf6fe29fdec81e087612979d4077e61e897453afaa3b65f8c8",
+      "bytes": 1011528,
+      "source": "android/app/src/debug/assets/phone_causal_recognition_01/s2_r3_arm_a_e10_candidate/phone_parity_normalized_features.f32",
+      "source_matches": true
+    },
+    "assets/phone_causal_recognition_01/s2_r3_arm_a_e10_candidate/phone_parity_probabilities.f32": {
+      "sha256": "f6c60cf06ce2f9c8186c7db7f880fdf3dd0bf3abf91bd074db4ba4aa09d83c41",
+      "bytes": 8028,
+      "source": "android/app/src/debug/assets/phone_causal_recognition_01/s2_r3_arm_a_e10_candidate/phone_parity_probabilities.f32",
+      "source_matches": true
+    },
+    "assets/phone_causal_recognition_01/s2_r3_arm_a_e10_candidate/s2_r3_arm_a_e10_fp32.tflite": {
+      "sha256": "e7725ef2602b83aedac8c2bfdab3ab2293b7e471061f9d4019f4454f6f68f295",
+      "bytes": 540028,
+      "source": "android/app/src/debug/assets/phone_causal_recognition_01/s2_r3_arm_a_e10_candidate/s2_r3_arm_a_e10_fp32.tflite",
+      "source_matches": true
+    },
+    "assets/word_blend_candidate_01/manifest.json": {
+      "sha256": "a76d01e078a08454dc0dac2444a34d0ce1a89b07ce0c7850b99efa332339c651",
+      "bytes": 49490,
+      "source": "android/app/src/debug/assets/word_blend_candidate_01/manifest.json",
+      "source_matches": true
+    },
+    "assets/word_blend_candidate_01/p4a_v2_01_dense_keras_output.f32": {
+      "sha256": "3797b57665c52a51ca9d85a8f267daee92848a724926d03fc06515928fac84b8",
+      "bytes": 944,
+      "source": "android/app/src/debug/assets/word_blend_candidate_01/p4a_v2_01_dense_keras_output.f32",
+      "source_matches": true
+    },
+    "assets/word_blend_candidate_01/p4a_v2_01_phone_01_sparse_keras_output.f32": {
+      "sha256": "6ef5366f55abc8977d18a662e8719740e2ed5723617b8e158ac6a28d7c4e0124",
+      "bytes": 944,
+      "source": "android/app/src/debug/assets/word_blend_candidate_01/p4a_v2_01_phone_01_sparse_keras_output.f32",
+      "source_matches": true
+    },
+    "assets/word_blend_candidate_01/p4a_v2_02_dense_keras_output.f32": {
+      "sha256": "d15ffd603f86349fa718c91fd00ed97f3f568d89411aa7fa01a87f54a27340a8",
+      "bytes": 944,
+      "source": "android/app/src/debug/assets/word_blend_candidate_01/p4a_v2_02_dense_keras_output.f32",
+      "source_matches": true
+    },
+    "assets/word_blend_candidate_01/p4a_v2_02_phone_01_sparse_keras_output.f32": {
+      "sha256": "bafe260b2a097fa756c6a75b50180d063bebbdd541933d6039381ce879e0ea71",
+      "bytes": 944,
+      "source": "android/app/src/debug/assets/word_blend_candidate_01/p4a_v2_02_phone_01_sparse_keras_output.f32",
+      "source_matches": true
+    },
+    "assets/word_blend_candidate_01/p4a_v2_03_dense_keras_output.f32": {
+      "sha256": "0b7596f5ec86df7e3b00368dbd9a35d7a549c5fc7c61519a1d99c29fc1bf28ab",
+      "bytes": 944,
+      "source": "android/app/src/debug/assets/word_blend_candidate_01/p4a_v2_03_dense_keras_output.f32",
+      "source_matches": true
+    },
+    "assets/word_blend_candidate_01/p4a_v2_03_phone_01_sparse_keras_output.f32": {
+      "sha256": "8212a4ed64961084cf5faf9d582f767183fc7a99b53aa88f1444ba174bec3cac",
+      "bytes": 944,
+      "source": "android/app/src/debug/assets/word_blend_candidate_01/p4a_v2_03_phone_01_sparse_keras_output.f32",
+      "source_matches": true
+    },
+    "assets/word_blend_candidate_01/p4a_v2_04_dense_keras_output.f32": {
+      "sha256": "51dfde160a0f29510620ace232be0871d0c49ea78be04d36bb28a052d08abea9",
+      "bytes": 944,
+      "source": "android/app/src/debug/assets/word_blend_candidate_01/p4a_v2_04_dense_keras_output.f32",
+      "source_matches": true
+    },
+    "assets/word_blend_candidate_01/p4a_v2_04_phone_01_sparse_keras_output.f32": {
+      "sha256": "7880de70703353399c00a7bd3df6ca6528db49b326700d458eba563134f4f73d",
+      "bytes": 944,
+      "source": "android/app/src/debug/assets/word_blend_candidate_01/p4a_v2_04_phone_01_sparse_keras_output.f32",
+      "source_matches": true
+    },
+    "assets/word_blend_candidate_01/p4a_v2_05_dense_keras_output.f32": {
+      "sha256": "8601a32663a4bbb0a23eb476de73e7d5095d00c2dccf77bcf875a71f91b82b92",
+      "bytes": 944,
+      "source": "android/app/src/debug/assets/word_blend_candidate_01/p4a_v2_05_dense_keras_output.f32",
+      "source_matches": true
+    },
+    "assets/word_blend_candidate_01/p4a_v2_05_phone_01_sparse_keras_output.f32": {
+      "sha256": "76013a6ccc86a08f9b277431c3b8bbd694e997ff3f09d43f6ee8071f0a40328e",
+      "bytes": 944,
+      "source": "android/app/src/debug/assets/word_blend_candidate_01/p4a_v2_05_phone_01_sparse_keras_output.f32",
+      "source_matches": true
+    },
+    "assets/word_blend_candidate_01/p4a_v2_06_dense_keras_output.f32": {
+      "sha256": "37b8bb19decc5c0e91e3c7921c3327e76240c56fbe421c4590cd21e66ef46e57",
+      "bytes": 944,
+      "source": "android/app/src/debug/assets/word_blend_candidate_01/p4a_v2_06_dense_keras_output.f32",
+      "source_matches": true
+    },
+    "assets/word_blend_candidate_01/p4a_v2_06_phone_01_sparse_keras_output.f32": {
+      "sha256": "2a7c7f1288438be04806318e32876c4183d8e80f725cb4c9c87379b7494ef331",
+      "bytes": 944,
+      "source": "android/app/src/debug/assets/word_blend_candidate_01/p4a_v2_06_phone_01_sparse_keras_output.f32",
+      "source_matches": true
+    },
+    "assets/word_blend_candidate_01/p4a_v2_07_dense_keras_output.f32": {
+      "sha256": "dfd650c22400a98fd1649e313a6bf4088d91f43bdde5efd188793ce8b1702060",
+      "bytes": 944,
+      "source": "android/app/src/debug/assets/word_blend_candidate_01/p4a_v2_07_dense_keras_output.f32",
+      "source_matches": true
+    },
+    "assets/word_blend_candidate_01/p4a_v2_07_phone_01_sparse_keras_output.f32": {
+      "sha256": "594eeb8531be2e829ff7bd118918e18e1f7d880cb6299eeb71fc0f55cfbd2452",
+      "bytes": 944,
+      "source": "android/app/src/debug/assets/word_blend_candidate_01/p4a_v2_07_phone_01_sparse_keras_output.f32",
+      "source_matches": true
+    },
+    "assets/word_blend_candidate_01/p4a_v2_08_dense_keras_output.f32": {
+      "sha256": "3223f258e02aa8a6ae239067ea4d252c8dba99450579e53b42fb9ed0e978af0a",
+      "bytes": 944,
+      "source": "android/app/src/debug/assets/word_blend_candidate_01/p4a_v2_08_dense_keras_output.f32",
+      "source_matches": true
+    },
+    "assets/word_blend_candidate_01/p4a_v2_08_phone_01_sparse_keras_output.f32": {
+      "sha256": "435f1cb4f34229abfcde93fd7f42750079b280733148f7e7b67c6de312582c63",
+      "bytes": 944,
+      "source": "android/app/src/debug/assets/word_blend_candidate_01/p4a_v2_08_phone_01_sparse_keras_output.f32",
+      "source_matches": true
+    },
+    "assets/word_blend_candidate_01/p4a_v2_09_dense_keras_output.f32": {
+      "sha256": "2fdac6768f3cf436422992ee4de337b3b3dcf99436e1f2ac20b65660b699dda9",
+      "bytes": 944,
+      "source": "android/app/src/debug/assets/word_blend_candidate_01/p4a_v2_09_dense_keras_output.f32",
+      "source_matches": true
+    },
+    "assets/word_blend_candidate_01/p4a_v2_09_phone_01_sparse_keras_output.f32": {
+      "sha256": "960c3a886070b0aadf59b0a7be8ce6588e1f6a3f5f2e13d4b55676e4dfefe180",
+      "bytes": 944,
+      "source": "android/app/src/debug/assets/word_blend_candidate_01/p4a_v2_09_phone_01_sparse_keras_output.f32",
+      "source_matches": true
+    },
+    "assets/word_blend_candidate_01/p4a_v2_10_dense_keras_output.f32": {
+      "sha256": "bf0ccd870d23cf1c9be60de73b472810e47974c9c0d02bef5a3165e63a9cc223",
+      "bytes": 944,
+      "source": "android/app/src/debug/assets/word_blend_candidate_01/p4a_v2_10_dense_keras_output.f32",
+      "source_matches": true
+    },
+    "assets/word_blend_candidate_01/p4a_v2_10_phone_01_sparse_keras_output.f32": {
+      "sha256": "67ef43c803f33f3fb12d1fc4a3430c9c784e179b36275ec55258ab380817839b",
+      "bytes": 944,
+      "source": "android/app/src/debug/assets/word_blend_candidate_01/p4a_v2_10_phone_01_sparse_keras_output.f32",
+      "source_matches": true
+    },
+    "assets/word_blend_candidate_01/word_blend_01_fp32.tflite": {
+      "sha256": "bc8a6c91659eb0c12d3e4a486d6583e4ed7053abff9c7f72611138700e4ea4f1",
+      "bytes": 3232620,
+      "source": "android/app/src/debug/assets/word_blend_candidate_01/word_blend_01_fp32.tflite",
+      "source_matches": true
+    }
+  },
+  "source_files": {
+    "android/app/src/androidTest/java/com/example/apphear/perceptionvnext/PhoneS2ParityInstrumentedTest.kt": "b7026a59abf0280cade3f58c744a150694302e7ae2d20513ce7eac81e222f2e8",
+    "android/app/src/androidTest/java/com/example/apphear/perceptionvnext/WordBlendParityInstrumentedTest.kt": "2a38c9868074b99b3d839d45a29a5e3d52c961ca367bf798c0f357a8fa22383f",
+    "android/app/src/debug/assets/phone_causal_recognition_01/s2_r3_arm_a_e10_candidate/contract.json": "d5f4e2b17c16f92db779d16621660af7681d7c2d26cca41a23279b5f75393e15",
+    "android/app/src/debug/assets/phone_causal_recognition_01/s2_r3_arm_a_e10_candidate/normalization.json": "35473a783fd9340480c72a0c9b028871ca98eeb132b3bca6b4341b38e97914c0",
+    "android/app/src/debug/assets/phone_causal_recognition_01/s2_r3_arm_a_e10_candidate/phone_parity_normalized_features.f32": "9bd82ccaf70e77cf6fe29fdec81e087612979d4077e61e897453afaa3b65f8c8",
+    "android/app/src/debug/assets/phone_causal_recognition_01/s2_r3_arm_a_e10_candidate/phone_parity_probabilities.f32": "f6c60cf06ce2f9c8186c7db7f880fdf3dd0bf3abf91bd074db4ba4aa09d83c41",
+    "android/app/src/debug/assets/phone_causal_recognition_01/s2_r3_arm_a_e10_candidate/s2_r3_arm_a_e10_fp32.tflite": "e7725ef2602b83aedac8c2bfdab3ab2293b7e471061f9d4019f4454f6f68f295",
+    "android/app/src/debug/assets/word_blend_candidate_01/manifest.json": "a76d01e078a08454dc0dac2444a34d0ce1a89b07ce0c7850b99efa332339c651",
+    "android/app/src/debug/assets/word_blend_candidate_01/p4a_v2_01_dense_keras_output.f32": "3797b57665c52a51ca9d85a8f267daee92848a724926d03fc06515928fac84b8",
+    "android/app/src/debug/assets/word_blend_candidate_01/p4a_v2_01_phone_01_sparse_keras_output.f32": "6ef5366f55abc8977d18a662e8719740e2ed5723617b8e158ac6a28d7c4e0124",
+    "android/app/src/debug/assets/word_blend_candidate_01/p4a_v2_02_dense_keras_output.f32": "d15ffd603f86349fa718c91fd00ed97f3f568d89411aa7fa01a87f54a27340a8",
+    "android/app/src/debug/assets/word_blend_candidate_01/p4a_v2_02_phone_01_sparse_keras_output.f32": "bafe260b2a097fa756c6a75b50180d063bebbdd541933d6039381ce879e0ea71",
+    "android/app/src/debug/assets/word_blend_candidate_01/p4a_v2_03_dense_keras_output.f32": "0b7596f5ec86df7e3b00368dbd9a35d7a549c5fc7c61519a1d99c29fc1bf28ab",
+    "android/app/src/debug/assets/word_blend_candidate_01/p4a_v2_03_phone_01_sparse_keras_output.f32": "8212a4ed64961084cf5faf9d582f767183fc7a99b53aa88f1444ba174bec3cac",
+    "android/app/src/debug/assets/word_blend_candidate_01/p4a_v2_04_dense_keras_output.f32": "51dfde160a0f29510620ace232be0871d0c49ea78be04d36bb28a052d08abea9",
+    "android/app/src/debug/assets/word_blend_candidate_01/p4a_v2_04_phone_01_sparse_keras_output.f32": "7880de70703353399c00a7bd3df6ca6528db49b326700d458eba563134f4f73d",
+    "android/app/src/debug/assets/word_blend_candidate_01/p4a_v2_05_dense_keras_output.f32": "8601a32663a4bbb0a23eb476de73e7d5095d00c2dccf77bcf875a71f91b82b92",
+    "android/app/src/debug/assets/word_blend_candidate_01/p4a_v2_05_phone_01_sparse_keras_output.f32": "76013a6ccc86a08f9b277431c3b8bbd694e997ff3f09d43f6ee8071f0a40328e",
+    "android/app/src/debug/assets/word_blend_candidate_01/p4a_v2_06_dense_keras_output.f32": "37b8bb19decc5c0e91e3c7921c3327e76240c56fbe421c4590cd21e66ef46e57",
+    "android/app/src/debug/assets/word_blend_candidate_01/p4a_v2_06_phone_01_sparse_keras_output.f32": "2a7c7f1288438be04806318e32876c4183d8e80f725cb4c9c87379b7494ef331",
+    "android/app/src/debug/assets/word_blend_candidate_01/p4a_v2_07_dense_keras_output.f32": "dfd650c22400a98fd1649e313a6bf4088d91f43bdde5efd188793ce8b1702060",
+    "android/app/src/debug/assets/word_blend_candidate_01/p4a_v2_07_phone_01_sparse_keras_output.f32": "594eeb8531be2e829ff7bd118918e18e1f7d880cb6299eeb71fc0f55cfbd2452",
+    "android/app/src/debug/assets/word_blend_candidate_01/p4a_v2_08_dense_keras_output.f32": "3223f258e02aa8a6ae239067ea4d252c8dba99450579e53b42fb9ed0e978af0a",
+    "android/app/src/debug/assets/word_blend_candidate_01/p4a_v2_08_phone_01_sparse_keras_output.f32": "435f1cb4f34229abfcde93fd7f42750079b280733148f7e7b67c6de312582c63",
+    "android/app/src/debug/assets/word_blend_candidate_01/p4a_v2_09_dense_keras_output.f32": "2fdac6768f3cf436422992ee4de337b3b3dcf99436e1f2ac20b65660b699dda9",
+    "android/app/src/debug/assets/word_blend_candidate_01/p4a_v2_09_phone_01_sparse_keras_output.f32": "960c3a886070b0aadf59b0a7be8ce6588e1f6a3f5f2e13d4b55676e4dfefe180",
+    "android/app/src/debug/assets/word_blend_candidate_01/p4a_v2_10_dense_keras_output.f32": "bf0ccd870d23cf1c9be60de73b472810e47974c9c0d02bef5a3165e63a9cc223",
+    "android/app/src/debug/assets/word_blend_candidate_01/p4a_v2_10_phone_01_sparse_keras_output.f32": "67ef43c803f33f3fb12d1fc4a3430c9c784e179b36275ec55258ab380817839b",
+    "android/app/src/debug/assets/word_blend_candidate_01/word_blend_01_fp32.tflite": "bc8a6c91659eb0c12d3e4a486d6583e4ed7053abff9c7f72611138700e4ea4f1",
+    "android/app/src/debug/java/com/example/apphear/perceptionvnext/PerceptionVNextLiveRecognitionActivity.kt": "7c6b97ee0badf9122436a397f0fa3c47f42b63d6d95b2be094b73b834a4e3eca",
+    "android/app/src/main/java/com/example/apphear/RecognitionActivity.kt": "b3a8fb08c2424b969a6980b052cc6d73c33812d0eb5028461d6dfdb81093d6d6",
+    "android/app/src/main/java/com/example/apphear/data/settings/RecognitionEngineSettings.kt": "213f66dce9c99f716f77e63d41ae37c7bca3e26cdf522c60077935ab4b08b5e6",
+    "android/app/src/main/java/com/example/apphear/perceptionvnext/PhoneCausalCore.kt": "3485b294e2cc34bcfff95090789f2cf63ff1437d8f580733ebba2d19027180c0",
+    "android/app/src/main/java/com/example/apphear/perceptionvnext/PhoneProductionSession.kt": "9b7bf5569be66128762088ba69741435bf1d16d61587a78762acdeaad08730a3",
+    "android/app/src/main/java/com/example/apphear/perceptionvnext/PhoneRecognitionConfiguration.kt": "49bce97dcf55995475b7fe7f8262a904c45d892316d4cc5fdb6c9242ff1fd044",
+    "android/app/src/main/java/com/example/apphear/perceptionvnext/PhoneS2Runner.kt": "f608e1a4210f69ec0ac6691c35096e0afa010b703f1940285be439b3462a95d6",
+    "android/app/src/main/java/com/example/apphear/ui/settings/SettingsContent.kt": "1c547d3a0b60b98759ca3effd02c9b87f82aaa2d1936e0471186e96b1b47fa86",
+    "android/app/src/main/res/layout/fragment_profile.xml": "05b6266ad7ee1e93b779a80644e14b02d541d8f8c227b857f4f810e2c6552c30",
+    "android/app/src/main/res/layout/fragment_settings.xml": "5862123e0cd245842cf9306621994446a240fc94a1ce22a5bdb59d6f364fa452",
+    "android/app/src/main/res/layout/row_setting_recognition_engine.xml": "a9d91528487c2a00dfc64f553e1a86b406b9b3fc461f4206544cf592f373792a",
+    "android/app/src/main/res/values/strings.xml": "4d3cf96806c616fd51eb662d8624fd157e7f6d0bf1edab693938499f1cc1ae75",
+    "android/app/src/test/java/com/example/apphear/perceptionvnext/ExperimentalRecognitionConfigurationTest.kt": "02c217c8f79a50e56b15add010869446239d71cdce8a5f540a16e7809ac23eda",
+    "android/app/src/test/resources/recognition_v3_experimental/confirm_boundary_parity.tsv": "d4660ce156782409ba08afa6faec3b0154b27c10f74817d564ddb1bc5ad828ac",
+    "context/feature-schema.md": "d85eaa6a1147e8330c76e090bbad0ed9065548cd2dc2d0be5c6dff37a08a9bae",
+    "context/progress-tracker.md": "71c6fe48f5e53105958a680f7adddb1a1397f938b370d5e9aeb990e587bcbf70",
+    "deploy/export_confirm_boundary_parity_fixture.py": "8d8b52768b7b13918ffdc2668d08853d7b2b17b5c73ccefb7eae3fcd5d0bd708",
+    "deploy/export_s2_r3_arm_a_phone.py": "b26770c4df4cacc1800e9fa82e9e4535ee12c0b2e0b6b074c426174b3c8115f8",
+    "deploy/export_word_v2_candidate.py": "275d07c7c5b3e71c2489c2ea194ed51c8e08e3925efee3f7bbea85b58658af9b",
+    "docs/audit/RECOGNITION_V3_PHONE_FIRST_2026-10-17.md": "f78665823d2f90c0e83487d76244e89f19591f65964af39b433f7e7c2cbc815a",
+    "docs/audit/S2_R3_ARM_A_E10_PHONE_PACKAGE_2026-10-17.md": "008df1c935fad73d3892bf9b3da0307ecde8bd2c1db6556ebb9900515ac90dbf",
+    "docs/audit/WORD_ACCURACY_236_2026-10-17.md": "6daa343c2efeb97e05581c95a7e47c768fe117c9606a62de863229158a3ef6e0",
+    "docs/audit/baselines/live_experimental_2026-10-17.json": "93a693c5746222b59c80a9c6a57aa35e32b174a910228333a15a2d61537c9aca",
+    "docs/audit/probes/event_reliability/stream_ledger_ARM_A_E10_T09__CONFIRM_BOUNDARY_70.json": "f086cee6f6d85f33c10404d45659e1fbc9c1d87598dc507a9834cb2c3baee0bb",
+    "docs/audit/probes/event_reliability/stream_ledger_ARM_A_E10__BASELINE.json": "1634058653d42da44583e167f1fb4840677276ebf65859745d54e62a2dbaa4f0",
+    "docs/audit/probes/event_reliability/stream_ledger_ARM_A_E10__CB70_PRE_EXIT_POST.json": "a7e8422327dabeb81f1ecadfeaa017dbf6510fc158b219f38e1928874ebd4823",
+    "docs/audit/probes/event_reliability/stream_ledger_ARM_A_E10__CONFIRM_BOUNDARY_70.json": "5faf15d3ab5982dbe427c0a4365eed3023422ec50aaf440ac212eae0fef6e8e9",
+    "docs/audit/probes/event_reliability/stream_ledger_ARM_A_E10__R1_CB70.json": "09ecb7a01e4942fc22b9f8cb5321bc5b9ff24f90a9315b902ff9638b791ec051",
+    "docs/audit/probes/event_reliability/stream_ledger_ARM_A_E10__R1_CBN70.json": "d6c5a4766f80cd4363ca047211666e959c950efd69b60381433be9d86d3c08e3",
+    "docs/audit/probes/event_reliability/stream_ledger_ARM_A_E10__R2_CB70.json": "59efc81c1257503a8ba1b24d25ffff4486c64a493be125a6a2745214b9c9b3ee",
+    "docs/audit/probes/event_reliability/stream_ledger_ARM_A_E10__REENTRY_2.json": "d0a66547106b1d6f8ceaefa7ee873d5f5d8e666604421450a2f9f90d04e524c6",
+    "docs/audit/probes/event_reliability/stream_ledger_ARM_A_E21__CONFIRM_BOUNDARY_70.json": "b197276a39ce4671e69e947ea6b969537ae2886ba70585738ee3e347b07ea0ec",
+    "docs/audit/probes/event_reliability/stream_ledger_ARM_B_E9__CONFIRM_BOUNDARY_70.json": "bf9b9bc4bb9ea613084f21f45793355fed1886d06a28fdca2f14c1304d3e46ec",
+    "docs/audit/probes/event_reliability/stream_ledger_ARM_I_E28__BASELINE.json": "2958d35e4b32bfe5dcef41b0627fe7ef2fa76b7af02016a079b480ace1765db8",
+    "docs/audit/probes/event_reliability/stream_ledger_ARM_I_E28__CB70_PRE_EXIT_POST.json": "8f98225606dddeada9d84a3a838e139efad8d31d9ca7d0c934472882a15a2eb4",
+    "docs/audit/probes/event_reliability/stream_ledger_ARM_I_E28__CONFIRM_BOUNDARY_70.json": "a632c2ed472f4d95f5548fdf1cc5b235afe3983bfd3b22a8ee48b92adb9049bf",
+    "docs/audit/probes/event_reliability/stream_ledger_ARM_I_E28__PRE_EXIT_POST.json": "94f50d4cc4ee2daf4d00c254f58ce0c1362180173adbc695f027117ffe244397",
+    "docs/audit/probes/event_reliability/stream_ledger_ARM_I_E28__R1_CB70.json": "31d51e54178216112ed0be2a4d096831976397ae71f1aa4f2f4d5387106f8148",
+    "docs/audit/probes/event_reliability/stream_ledger_ARM_I_E28__R1_CBN70.json": "1a9da5c6c20c418ca387add59b02cac2db03b9f4f7f090c7c689b6f5d9e6bca3",
+    "docs/audit/probes/event_reliability/stream_ledger_ARM_I_E28__R1_CBN70_PRE_EXIT_POST.json": "fdc58229a63f2672f4e40986b4b48b1ff05bbef3dbec0ac715814c36ba844136",
+    "docs/audit/probes/event_reliability/stream_ledger_ARM_I_E28__R2_CB70_PRE_EXIT_POST.json": "6f36a3605aae0beb9e738346a84945b6aa78a78ebcd5ce2e87eeeacdf89755a0",
+    "docs/audit/probes/event_reliability/stream_ledger_ARM_K_E23__CB70_PRE_EXIT_POST.json": "ea8a07715c1c5211d895edf28d56fb43b461c5130de1055c5c48391ed97f47f9",
+    "docs/audit/probes/event_reliability/stream_ledger_ARM_K_E23__CONFIRM_BOUNDARY_70.json": "1165391eae94b84c51236d32aac304a8e87f3a9da9d8df5b5e50a3ec65953000",
+    "docs/audit/probes/event_reliability/stream_ledger_S2_R2__BASELINE.json": "5bdde81e630e2de9dd5df57072a023cf4e81197c7e02bf6c8b637d4fa07fabfa",
+    "docs/audit/probes/phone_first/phone_failure_matrix.json": "f22a18da4cc32d25fe82ce2ff56caf078cb60ef15567341e679477e5a8b95e86",
+    "docs/audit/probes/phone_first/phone_failure_matrix.py": "b20fff6eb50ef3371935f2b76e8ed42d644d6b6c427c58e44a798bf77989f92a",
+    "docs/audit/probes/phone_first/replay_compare_registry.json": "1b4e1b840809e09b0d1748411b99fa66de94a6b18334de050b9208c99ae72363",
+    "docs/audit/probes/word_accuracy/compare_candidates.json": "dd0506eec6e1d132edce9aebddddb056acc7ef7dbda44f1dd51879d01ccfd79c",
+    "docs/audit/probes/word_accuracy/compare_candidates.py": "adad081bd3d50df355c2ba22d5f588f3e2d3b944e4330b9852a2386f99d21a7b",
+    "docs/audit/probes/word_accuracy/phone_test_subset.py": "ac944b33ec3634012caf6d550b7162263591368efa8c613f0c86275353da86f8",
+    "docs/audit/probes/word_accuracy/score_phone_ab.py": "9e8b8e4ddbee3e00700bf61a186dab868251072754ece93a3f9f1f7ffb8b0090",
+    "eval/runtime_diagnostics/phone_replay_compare.py": "28a77f47a81ffc1eb5a12fad11aad1ab1fd8f3477ab6b42ca67adacd007e5202",
+    "eval/runtime_diagnostics/word_vocabulary_eval.py": "82f22d44878bf119e5928129774c7b930da67c40a0059af2286de8ea9aeb94c9",
+    "eval/runtime_diagnostics/word_vocabulary_report.py": "a661043c4a3943bc13ffa5ef23645aa2396ec3e960023d8e445d393dc342742d",
+    "model/perception_vnext/recognition_v2_robust_aug.py": "888bbb9ae977b17f66220f92d5d9ad321005092f6cf056daad1e2085c31d4ae5",
+    "model/perception_vnext/word_blend.py": "15569bac33c45a0bd2c8245468f820231a96eb48eaa540144a7288262486b749",
+    "tests/test_phone_replay_compare.py": "b8730c31b8276422ea31ac1aef00f8cb95dfdd10aa3223bb68775deb3c83f3e3",
+    "tests/test_s2_r3_arm_a_phone_package.py": "67409ae8bf25d49d3484b29d4b997f910044273b8979d5e3a6fce3b7187abb3f",
+    "tests/test_word_exposure_control.py": "4e9db74baa6b2f42903798ea742fd140f36bbfc88ec3a0b496481602a6c4a5c3"
+  },
+  "device_evidence": {
+    "device": "Xiaomi M2101K7AG (serial 3ab64582), Android 12 / SDK 31",
+    "install": "adb install -r 2026-10-18 09:04:48; firstInstallTime 2026-10-15 20:28:05 unchanged; shared_prefs kept",
+    "instrumented": "am instrument: WordBlendParity, PhoneS2Parity (4), WordV2ShadowParity OK (6 tests); blend max_abs 3.0e-7 vs Keras",
+    "word_ms_isolated": "blend median 5.83 ms (p95 6.08), frozen 1.58 ms (p95 1.71)",
+    "live_word_blend": "configuration=EXPERIMENTAL_WORD_BLEND word=WORD_BLEND_01 paired=GATE2_FROZEN fallback=false; 28 commits; in-app wordMs median 10.2 (max 12.8), pairedMs 2.8; observation fps median 5.0",
+    "not_verified": [
+      "intended-sign accuracy of the live session (labels not available)",
+      "Stable/Experimental re-check after this install (unchanged code paths)"
+    ],
+    "user_feedback_2026-10-18": "substantially better; PLEASE and SORRY still hard; lighting and setup not ideal"
+  },
+  "archive": {
+    "directory": "F:/ASL DATASET/5. Apphear3/artifacts/live_baselines/word_blend_live_20261018",
+    "contents": [
+      "app-debug.apk",
+      "app-debug-androidTest.apk",
+      "source_snapshot.zip",
+      "live_logcat_2026-10-18.txt"
+    ],
+    "sha256": {
+      "app-debug.apk": "3aa0b4df755d52c956ec024aefb4fd811fe799f6b529f4934a573607af3147a7",
+      "app-debug-androidTest.apk": "7d77243dc91258eb8d5a9a7fca88bbf04f0e1d6de7d73ba9b29c5ad3f2c03280",
+      "source_snapshot.zip": "31ad01360e01578a5616c0dd31d0c3dbebf3d7ac76c0c138df55548bc9a90b6c",
+      "live_logcat_2026-10-18.txt": "a101182dac6a5ce35484b3d280b6837c7329857e8462ad0e9c39e1e215108093"
+    }
+  }
+}

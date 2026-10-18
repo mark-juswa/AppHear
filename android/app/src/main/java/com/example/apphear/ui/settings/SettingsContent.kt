@@ -31,7 +31,9 @@ class SettingsContent(private val context: Context, private val view: View) {
         if (!settings.selectionAvailable) return
         val choices = com.example.apphear.perceptionvnext.PhoneRecognitionConfiguration.entries
         val labels = arrayOf(context.getString(R.string.recognition_engine_stable),
-            context.getString(R.string.recognition_engine_experimental))
+            context.getString(R.string.recognition_engine_experimental),
+            context.getString(R.string.recognition_engine_experimental_blend),
+            context.getString(R.string.recognition_engine_experimental_blend_02))
         val value = view.findViewById<TextView>(R.id.recognitionEngineValue)
         fun renderChoice() {
             value.text = labels[choices.indexOf(settings.current())]

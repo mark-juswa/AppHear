@@ -1,0 +1,61 @@
+{
+ "dev_clips": 816,
+ "train_clips": 800,
+ "curve": {
+  "100ms": {
+   "dev_window_observations_median": 16.0,
+   "frozen": {
+    "dev_runtime_window_top1": 0.4963,
+    "train_span_fit": 0.6937
+   },
+   "BLEND_01": {
+    "dev_runtime_window_top1": 0.5668,
+    "train_span_fit": 0.7525
+   }
+  },
+  "133.3ms": {
+   "dev_window_observations_median": 12.0,
+   "frozen": {
+    "dev_runtime_window_top1": 0.4859,
+    "train_span_fit": 0.6444
+   },
+   "BLEND_01": {
+    "dev_runtime_window_top1": 0.5466,
+    "train_span_fit": 0.7137
+   }
+  },
+  "200ms": {
+   "dev_window_observations_median": 9.0,
+   "frozen": {
+    "dev_runtime_window_top1": 0.4369,
+    "train_span_fit": 0.5594
+   },
+   "BLEND_01": {
+    "dev_runtime_window_top1": 0.5141,
+    "train_span_fit": 0.6219
+   }
+  },
+  "266.616ms": {
+   "dev_window_observations_median": 6.0,
+   "frozen": {
+    "dev_runtime_window_top1": 0.4203,
+    "train_span_fit": 0.4537
+   },
+   "BLEND_01": {
+    "dev_runtime_window_top1": 0.4945,
+    "train_span_fit": 0.5131
+   }
+  },
+  "400ms": {
+   "dev_window_observations_median": 5.0,
+   "frozen": {
+    "dev_runtime_window_top1": 0.3382,
+    "train_span_fit": 0.3425
+   },
+   "BLEND_01": {
+    "dev_runtime_window_top1": 0.402,
+    "train_span_fit": 0.3787
+   }
+  }
+ }
+}

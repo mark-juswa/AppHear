@@ -90,6 +90,35 @@ class ExperimentalRecognitionConfigurationTest {
         assertEquals(PhoneRecognitionConfiguration.STABLE, resolve("SOMETHING_ELSE", true))
         assertEquals(PhoneRecognitionConfiguration.STABLE, resolve("EXPERIMENTAL", false))
         assertEquals(PhoneRecognitionConfiguration.EXPERIMENTAL, resolve("EXPERIMENTAL", true))
+        assertEquals(PhoneRecognitionConfiguration.EXPERIMENTAL_WORD_BLEND, resolve("EXPERIMENTAL_WORD_BLEND", true))
+        assertEquals(PhoneRecognitionConfiguration.STABLE, resolve("EXPERIMENTAL_WORD_BLEND", false))
+        assertEquals(PhoneRecognitionConfiguration.STABLE, resolve("STABLE", true))
+    }
+
+    @Test fun wordBlendChangesOnlyTheWordStage() {
+        val experimental = PhoneRecognitionConfiguration.EXPERIMENTAL
+        val blend = PhoneRecognitionConfiguration.EXPERIMENTAL_WORD_BLEND
+        assertEquals(experimental.s2Package(), blend.s2Package())
+        assertEquals(experimental.decoderConfig(), blend.decoderConfig())
+        assertEquals(RecognitionV2LiveRecognizer.FROZEN_GATE2, experimental.wordPackage())
+        assertEquals(RecognitionV2LiveRecognizer.FROZEN_GATE2, PhoneRecognitionConfiguration.STABLE.wordPackage())
+        assertNull(experimental.pairedWordPackage())
+        assertNull(PhoneRecognitionConfiguration.STABLE.pairedWordPackage())
+        assertEquals("WORD_BLEND_01", blend.wordPackage().packageId)
+        assertEquals("bc8a6c91659eb0c12d3e4a486d6583e4ed7053abff9c7f72611138700e4ea4f1", blend.wordPackage().modelSha256)
+        assertEquals(RecognitionV2LiveRecognizer.FROZEN_GATE2, blend.pairedWordPackage())
+    }
+
+    @Test fun wordBlend02ChangesOnlyTheWordStageAndIsComparedAgainstBlend01() {
+        val experimental = PhoneRecognitionConfiguration.EXPERIMENTAL
+        val blend02 = PhoneRecognitionConfiguration.EXPERIMENTAL_WORD_BLEND_02
+        assertEquals(experimental.s2Package(), blend02.s2Package())
+        assertEquals(experimental.decoderConfig(), blend02.decoderConfig())
+        assertEquals("WORD_BLEND_02", blend02.wordPackage().packageId)
+        assertEquals("40533bc38c2c416ae2f48e4955029dbdd11d16325765df7aea66db278aaafb30", blend02.wordPackage().modelSha256)
+        assertEquals(PhoneRecognitionConfiguration.WORD_BLEND_01, blend02.pairedWordPackage())
+        assertEquals(PhoneRecognitionConfiguration.EXPERIMENTAL_WORD_BLEND_02, PhoneRecognitionConfiguration.resolve("EXPERIMENTAL_WORD_BLEND_02", true))
+        assertEquals(PhoneRecognitionConfiguration.STABLE, PhoneRecognitionConfiguration.resolve("EXPERIMENTAL_WORD_BLEND_02", false))
     }
 
     @Test fun confirmBoundaryRefusesToRunWithoutPostProbability() {

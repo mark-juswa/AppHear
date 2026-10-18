@@ -1,0 +1,343 @@
+{
+  "schema": "apphear.live_baseline_lock.v1",
+  "baseline_id": "LIVE_EXPERIMENTAL_2026-10-17",
+  "git": {
+    "base_commit": "e2444ebb7910a8e17de22b3b17678fecfaf8f5be",
+    "branch": "claude/s2-r3-eval-suite",
+    "head_at_lock": "e2444ebb7910a8e17de22b3b17678fecfaf8f5be",
+    "state": "uncommitted working tree on base_commit (commit awaits approval)"
+  },
+  "engines": {
+    "STABLE": {
+      "default": true,
+      "s2_package": "S2_R2_CANDIDATE (BuildConfig.APP_PHONE_S2_PACKAGE, debug default)",
+      "decoder": "PhoneDecoderConfig(rearm=PRE_OR_POST_EXPERIMENTAL, admission=PASS_THROUGH, confirmBoundaryPostPeak=null)"
+    },
+    "EXPERIMENTAL": {
+      "default": false,
+      "debug_only": true,
+      "s2_package": "ARM_A_E10_CANDIDATE (debug asset s2_r3_arm_a_e10_candidate)",
+      "decoder": "PhoneDecoderConfig(rearm=PRE_OR_POST_EXPERIMENTAL, admission=PASS_THROUGH, confirmBoundaryPostPeak=0.7)",
+      "fallback": "load failure -> STABLE (fallbackReason set, logged)"
+    },
+    "shared": [
+      "Candidate01 (DWPose-T + MediaPipe hand refiner, presence>=0.50, >=18 joints)",
+      "decoder timings minActive 133.308 / preGapReset 133.308 / postConfirm 266.616 / rearm 399.924 ms",
+      "Recognition Window Materializer +/-250 ms",
+      "Recognition V2 [96,350] -> ordinary_v2_tcn_fp32.tflite, 236 classes (sha 1ccf0afa...)",
+      "SentenceBuilder, Context Assist and FINGERSPELL unchanged"
+    ],
+    "selection": "debug Settings 'Recognition engine (debug)'; SharedPreferences recognition_engine/selected; read once per ASL Recognition screen open (one PhoneProductionSession)"
+  },
+  "build": {
+    "working_directory": "android/ (PowerShell; Bash cannot run gradlew.bat with the space in the path)",
+    "tasks": [
+      "testDebugUnitTest",
+      "assembleDebug",
+      "assembleDebugAndroidTest",
+      "--continue"
+    ],
+    "properties": [
+      "-Pandroid.useAndroidX=true",
+      "-Pfingerspell=true",
+      "-PfingerspellContinuous=true",
+      "-PfingerspellArtifactDir=<data root>/packages/fingerspelling_continuous_v2_1_01",
+      "-PrecognitionRearCamera=true",
+      "-PrecognitionCoordination=true",
+      "-PcontextPhraseAssist=true",
+      "-PcontextPhraseAssistProvider=fake",
+      "-PaslAssetPilot=true",
+      "-PaslSharedCharacter=true",
+      "-PaslMoreWords=true",
+      "-PaslCharacterSelection=true",
+      "-PaslNewIdle=true",
+      "-PaslAlphabetFallback=true",
+      "-PaslOriginalWords=true",
+      "-PperceptionVNext=true",
+      "-PphoneCausalRecognition=true",
+      "-PrecognitionV3ParallelHands=false",
+      "-PrecognitionV3Profile=false"
+    ],
+    "blank_credentials": [
+      "SUPABASE_URL",
+      "SUPABASE_ANON_KEY",
+      "APPHEAR_SUPABASE_URL",
+      "APPHEAR_SUPABASE_ANON_KEY",
+      "APPHEAR_ELEVENLABS_MODEL_ID",
+      "APPHEAR_ELEVENLABS_VOICE_ID",
+      "APPHEAR_ELEVENLABS_API_KEY",
+      "APPHEAR_CONTEXT_ASSIST_API_KEY",
+      "APPHEAR_GEMINI_API_KEY"
+    ],
+    "note": "every credential is passed as -P<name>= (blank); the worktree gradle.properties holds no keys"
+  },
+  "apk": {
+    "debug": {
+      "sha256": "8ff295464bf5b6fe90d66f2e3805353023eb958520a306bec6fe6faf47eb23d8",
+      "bytes": 824578148
+    },
+    "android_test": {
+      "sha256": "1a592e37bc6d75eed43abe0e8607a03fd1d86fc8cd9eb492256ee77589c3f71d",
+      "bytes": 7580816
+    }
+  },
+  "apk_recognition_assets": {
+    "assets/context_phrase_assist_policy.json": {
+      "sha256": "ca8193ac0d5971a2146a384f2e29dca2894592deac864eb8f253b0a0dd2a83b7",
+      "bytes": 179,
+      "source": "android/app/src/main/assets/context_phrase_assist_policy.json",
+      "source_matches": true
+    },
+    "assets/perception_vnext/dwpose_t_singlepass.onnx": {
+      "sha256": "37b0f265200f8e249adba1cc9b62925f5e1252245580ed1f66f583d7bce239c0",
+      "bytes": 22105540,
+      "source": "android/app/src/main/assets/perception_vnext/dwpose_t_singlepass.onnx",
+      "source_matches": true
+    },
+    "assets/perception_vnext/hand_landmarks_detector.tflite": {
+      "sha256": "6acda74af3fbf40e68265c20c7394b2bad81a16a481dcd79ad7a081887c3d6b9",
+      "bytes": 5478949,
+      "source": "android/app/src/main/assets/perception_vnext/hand_landmarks_detector.tflite",
+      "source_matches": true
+    },
+    "assets/phase4a_gate2_recognizer_parity/manifest.json": {
+      "sha256": "bfe8bec13a646eb6fa733c3bee6a421a44b5e58ed6dbb0dd59d88804e397d019",
+      "bytes": 119305,
+      "source": "android/app/src/main/assets/phase4a_gate2_recognizer_parity/manifest.json",
+      "source_matches": true
+    },
+    "assets/phase4a_gate2_recognizer_parity/ordinary_v2_tcn_fp32.tflite": {
+      "sha256": "1ccf0afa9af9aa602aa0de33c9635f5cffd7feec7d9b4e32382bc5e3fa02880c",
+      "bytes": 814068,
+      "source": "android/app/src/main/assets/phase4a_gate2_recognizer_parity/ordinary_v2_tcn_fp32.tflite",
+      "source_matches": true
+    },
+    "assets/phase4a_gate4a1_live/contract.json": {
+      "sha256": "d45cabf506a3e3040bd33bef308538bd7130934f770d7b8bd71dbb83cb2494ff",
+      "bytes": 2700,
+      "source": "android/app/src/main/assets/phase4a_gate4a1_live/contract.json",
+      "source_matches": true
+    },
+    "assets/phone_causal_recognition_01/cadence_aligned_normalization_stats.json": {
+      "sha256": "d1f3b47ea9cf67578ea13e528a444d87be2246bfa62a0067b70f96393c39f1eb",
+      "bytes": 20025,
+      "source": "android/app/src/main/assets/phone_causal_recognition_01/cadence_aligned_normalization_stats.json",
+      "source_matches": true
+    },
+    "assets/phone_causal_recognition_01/contract.json": {
+      "sha256": "b7d5e7b770f101b51c18bf8a4b22838086731703fd0b9af3701ecf1270c91bb6",
+      "bytes": 2042,
+      "source": "android/app/src/main/assets/phone_causal_recognition_01/contract.json",
+      "source_matches": true
+    },
+    "assets/phone_causal_recognition_01/materializer_contract_frozen.json": {
+      "sha256": "0a59dc80fe54cb37e09fbce8aa108dbfce32bc4b5cb48b98e61619b5b3b34971",
+      "bytes": 1406,
+      "source": "android/app/src/main/assets/phone_causal_recognition_01/materializer_contract_frozen.json",
+      "source_matches": true
+    },
+    "assets/phone_causal_recognition_01/s2_parity_normalized_features.f32": {
+      "sha256": "ea3a8b0cef457ac3674d55991e5855bacf7540147076afb2bf378fb3d90e90d7",
+      "bytes": 198072,
+      "source": "android/app/src/debug/assets/phone_causal_recognition_01/s2_parity_normalized_features.f32",
+      "source_matches": true
+    },
+    "assets/phone_causal_recognition_01/s2_parity_probabilities.f32": {
+      "sha256": "d107d85188fd8c0701a7d1771d1714a5afadb0603392684cb5ead61c0e690dd2",
+      "bytes": 1572,
+      "source": "android/app/src/debug/assets/phone_causal_recognition_01/s2_parity_probabilities.f32",
+      "source_matches": true
+    },
+    "assets/phone_causal_recognition_01/s2_phase7_fp32.tflite": {
+      "sha256": "820023d15c98dab2fb8f21914906ccd637d32bce7b825cbd1d89a58c80cd4ed7",
+      "bytes": 539580,
+      "source": "android/app/src/main/assets/phone_causal_recognition_01/s2_phase7_fp32.tflite",
+      "source_matches": true
+    },
+    "assets/phone_causal_recognition_01/s2_r2_candidate/contract.json": {
+      "sha256": "2f1ff03dcb352117cf9c84a30d5bcd40ede9984a21cf31df834c2e2d086aa6aa",
+      "bytes": 1885,
+      "source": "android/app/src/main/assets/phone_causal_recognition_01/s2_r2_candidate/contract.json",
+      "source_matches": true
+    },
+    "assets/phone_causal_recognition_01/s2_r2_candidate/normalization.json": {
+      "sha256": "76253b7eaa5d8e05cd546eecfb6602340b5a936eb0fc21e1fcbc7be4fb9786ac",
+      "bytes": 19928,
+      "source": "android/app/src/main/assets/phone_causal_recognition_01/s2_r2_candidate/normalization.json",
+      "source_matches": true
+    },
+    "assets/phone_causal_recognition_01/s2_r2_candidate/phone_parity_normalized_features.f32": {
+      "sha256": "f094e217a3e7e2cf1f2e35a9fea66a79960a950d6d9302ecaa9d3c09e3bd8ef8",
+      "bytes": 1011528,
+      "source": "android/app/src/debug/assets/phone_causal_recognition_01/s2_r2_candidate/phone_parity_normalized_features.f32",
+      "source_matches": true
+    },
+    "assets/phone_causal_recognition_01/s2_r2_candidate/phone_parity_probabilities.f32": {
+      "sha256": "e3c4b3289db7cf77d1e8b5b3b1550e3509f67ab312b0c5902abff0ecf70ad5e5",
+      "bytes": 8028,
+      "source": "android/app/src/debug/assets/phone_causal_recognition_01/s2_r2_candidate/phone_parity_probabilities.f32",
+      "source_matches": true
+    },
+    "assets/phone_causal_recognition_01/s2_r2_candidate/phone_parity_raw_features.f32": {
+      "sha256": "17ed546b61bdb3750dcdc130166211484b8fe45ae210df88325fa972079f7618",
+      "bytes": 1011528,
+      "source": "android/app/src/debug/assets/phone_causal_recognition_01/s2_r2_candidate/phone_parity_raw_features.f32",
+      "source_matches": true
+    },
+    "assets/phone_causal_recognition_01/s2_r2_candidate/s2_r2_fp32.tflite": {
+      "sha256": "7d26c896db1a00e7a41ff3e02b02033428cbd2ae4b5cbf3e4d279d45f529d3d7",
+      "bytes": 538560,
+      "source": "android/app/src/main/assets/phone_causal_recognition_01/s2_r2_candidate/s2_r2_fp32.tflite",
+      "source_matches": true
+    },
+    "assets/phone_causal_recognition_01/segmentation_feature_parity_expected.f32": {
+      "sha256": "935db38e086780d9b8d5cd31b4d3a9cb01ed43f81ccb8218661887c4e9aa689f",
+      "bytes": 6048,
+      "source": "android/app/src/debug/assets/phone_causal_recognition_01/segmentation_feature_parity_expected.f32",
+      "source_matches": true
+    },
+    "assets/phone_causal_recognition_01/segmentation_feature_parity_raw.json": {
+      "sha256": "1aae3fe6360d6f3696f541c79e32e511624ba7c701b40e2baba2c03b3487743e",
+      "bytes": 26769,
+      "source": "android/app/src/debug/assets/phone_causal_recognition_01/segmentation_feature_parity_raw.json",
+      "source_matches": true
+    },
+    "assets/phone_causal_recognition_01/stage2_transition_protocol.json": {
+      "sha256": "500e4c43f8d64a01d55fb861b73c11604e2b32464f846071d029903bafa9100c",
+      "bytes": 1958,
+      "source": "android/app/src/debug/assets/phone_causal_recognition_01/stage2_transition_protocol.json",
+      "source_matches": true
+    },
+    "assets/recognition_config.json": {
+      "sha256": "270c1a9f28bde604a06de100197f6490642d79fdce8afac99155fa7824d6567e",
+      "bytes": 3096,
+      "source": "android/app/src/main/assets/recognition_config.json",
+      "source_matches": true
+    },
+    "assets/recognition_coordination_policy.json": {
+      "sha256": "7482d5471d92e72f74af1a042e1e243bb952229d3524cdb68792c3b1b4a1f5c1",
+      "bytes": 902,
+      "source": "android/app/src/main/assets/recognition_coordination_policy.json",
+      "source_matches": true
+    },
+    "assets/vocab.json": {
+      "sha256": "a7d7b08d1c9ff52455aaa93cefee40e744b86a11fa5047dce08d2dd23fc0539b",
+      "bytes": 3852,
+      "source": "android/app/src/main/assets/vocab.json",
+      "source_matches": true
+    },
+    "assets/phone_causal_recognition_01/s2_r3_arm_a_e10_candidate/contract.json": {
+      "sha256": "d5f4e2b17c16f92db779d16621660af7681d7c2d26cca41a23279b5f75393e15",
+      "bytes": 2219,
+      "source": "android/app/src/debug/assets/phone_causal_recognition_01/s2_r3_arm_a_e10_candidate/contract.json",
+      "source_matches": true
+    },
+    "assets/phone_causal_recognition_01/s2_r3_arm_a_e10_candidate/normalization.json": {
+      "sha256": "35473a783fd9340480c72a0c9b028871ca98eeb132b3bca6b4341b38e97914c0",
+      "bytes": 19971,
+      "source": "android/app/src/debug/assets/phone_causal_recognition_01/s2_r3_arm_a_e10_candidate/normalization.json",
+      "source_matches": true
+    },
+    "assets/phone_causal_recognition_01/s2_r3_arm_a_e10_candidate/phone_parity_normalized_features.f32": {
+      "sha256": "9bd82ccaf70e77cf6fe29fdec81e087612979d4077e61e897453afaa3b65f8c8",
+      "bytes": 1011528,
+      "source": "android/app/src/debug/assets/phone_causal_recognition_01/s2_r3_arm_a_e10_candidate/phone_parity_normalized_features.f32",
+      "source_matches": true
+    },
+    "assets/phone_causal_recognition_01/s2_r3_arm_a_e10_candidate/phone_parity_probabilities.f32": {
+      "sha256": "f6c60cf06ce2f9c8186c7db7f880fdf3dd0bf3abf91bd074db4ba4aa09d83c41",
+      "bytes": 8028,
+      "source": "android/app/src/debug/assets/phone_causal_recognition_01/s2_r3_arm_a_e10_candidate/phone_parity_probabilities.f32",
+      "source_matches": true
+    },
+    "assets/phone_causal_recognition_01/s2_r3_arm_a_e10_candidate/s2_r3_arm_a_e10_fp32.tflite": {
+      "sha256": "e7725ef2602b83aedac8c2bfdab3ab2293b7e471061f9d4019f4454f6f68f295",
+      "bytes": 540028,
+      "source": "android/app/src/debug/assets/phone_causal_recognition_01/s2_r3_arm_a_e10_candidate/s2_r3_arm_a_e10_fp32.tflite",
+      "source_matches": true
+    }
+  },
+  "source_files": {
+    "android/app/src/androidTest/java/com/example/apphear/perceptionvnext/PhoneS2ParityInstrumentedTest.kt": "b7026a59abf0280cade3f58c744a150694302e7ae2d20513ce7eac81e222f2e8",
+    "android/app/src/debug/assets/phone_causal_recognition_01/s2_r3_arm_a_e10_candidate/contract.json": "d5f4e2b17c16f92db779d16621660af7681d7c2d26cca41a23279b5f75393e15",
+    "android/app/src/debug/assets/phone_causal_recognition_01/s2_r3_arm_a_e10_candidate/normalization.json": "35473a783fd9340480c72a0c9b028871ca98eeb132b3bca6b4341b38e97914c0",
+    "android/app/src/debug/assets/phone_causal_recognition_01/s2_r3_arm_a_e10_candidate/phone_parity_normalized_features.f32": "9bd82ccaf70e77cf6fe29fdec81e087612979d4077e61e897453afaa3b65f8c8",
+    "android/app/src/debug/assets/phone_causal_recognition_01/s2_r3_arm_a_e10_candidate/phone_parity_probabilities.f32": "f6c60cf06ce2f9c8186c7db7f880fdf3dd0bf3abf91bd074db4ba4aa09d83c41",
+    "android/app/src/debug/assets/phone_causal_recognition_01/s2_r3_arm_a_e10_candidate/s2_r3_arm_a_e10_fp32.tflite": "e7725ef2602b83aedac8c2bfdab3ab2293b7e471061f9d4019f4454f6f68f295",
+    "android/app/src/debug/java/com/example/apphear/perceptionvnext/PerceptionVNextLiveRecognitionActivity.kt": "7c6b97ee0badf9122436a397f0fa3c47f42b63d6d95b2be094b73b834a4e3eca",
+    "android/app/src/main/java/com/example/apphear/RecognitionActivity.kt": "b3a8fb08c2424b969a6980b052cc6d73c33812d0eb5028461d6dfdb81093d6d6",
+    "android/app/src/main/java/com/example/apphear/data/settings/RecognitionEngineSettings.kt": "213f66dce9c99f716f77e63d41ae37c7bca3e26cdf522c60077935ab4b08b5e6",
+    "android/app/src/main/java/com/example/apphear/perceptionvnext/PhoneCausalCore.kt": "3485b294e2cc34bcfff95090789f2cf63ff1437d8f580733ebba2d19027180c0",
+    "android/app/src/main/java/com/example/apphear/perceptionvnext/PhoneProductionSession.kt": "ab8c400e0783f34096d94344cd17bf7b5b1379ce0b30de3628863bc84e291977",
+    "android/app/src/main/java/com/example/apphear/perceptionvnext/PhoneRecognitionConfiguration.kt": "131cfa51e6a674d7942253c67a8893979b25fee3de56749383d8a98c8f25cb04",
+    "android/app/src/main/java/com/example/apphear/perceptionvnext/PhoneS2Runner.kt": "f608e1a4210f69ec0ac6691c35096e0afa010b703f1940285be439b3462a95d6",
+    "android/app/src/main/java/com/example/apphear/ui/settings/SettingsContent.kt": "c6a08e1f7ee484e71bb4c8a44ffd85bc694ce01086140ba12c26ab51c7e7c271",
+    "android/app/src/main/res/layout/fragment_profile.xml": "05b6266ad7ee1e93b779a80644e14b02d541d8f8c227b857f4f810e2c6552c30",
+    "android/app/src/main/res/layout/fragment_settings.xml": "5862123e0cd245842cf9306621994446a240fc94a1ce22a5bdb59d6f364fa452",
+    "android/app/src/main/res/layout/row_setting_recognition_engine.xml": "a9d91528487c2a00dfc64f553e1a86b406b9b3fc461f4206544cf592f373792a",
+    "android/app/src/main/res/values/strings.xml": "524e17c1548d8dedf7662719fd8a9fd805c43bdd3dd037ec14f6be6147c84c67",
+    "android/app/src/test/java/com/example/apphear/perceptionvnext/ExperimentalRecognitionConfigurationTest.kt": "03625b2a43319b8bfa51a9ae99881aa2e8d9ce4820d6e11fb098269dc909d702",
+    "android/app/src/test/resources/recognition_v3_experimental/confirm_boundary_parity.tsv": "d4660ce156782409ba08afa6faec3b0154b27c10f74817d564ddb1bc5ad828ac",
+    "context/feature-schema.md": "d85eaa6a1147e8330c76e090bbad0ed9065548cd2dc2d0be5c6dff37a08a9bae",
+    "context/progress-tracker.md": "71c6fe48f5e53105958a680f7adddb1a1397f938b370d5e9aeb990e587bcbf70",
+    "deploy/export_confirm_boundary_parity_fixture.py": "8d8b52768b7b13918ffdc2668d08853d7b2b17b5c73ccefb7eae3fcd5d0bd708",
+    "deploy/export_s2_r3_arm_a_phone.py": "b26770c4df4cacc1800e9fa82e9e4535ee12c0b2e0b6b074c426174b3c8115f8",
+    "docs/audit/RECOGNITION_V3_PHONE_FIRST_2026-10-17.md": "f78665823d2f90c0e83487d76244e89f19591f65964af39b433f7e7c2cbc815a",
+    "docs/audit/S2_R3_ARM_A_E10_PHONE_PACKAGE_2026-10-17.md": "008df1c935fad73d3892bf9b3da0307ecde8bd2c1db6556ebb9900515ac90dbf",
+    "docs/audit/probes/event_reliability/stream_ledger_ARM_A_E10_T09__CONFIRM_BOUNDARY_70.json": "f086cee6f6d85f33c10404d45659e1fbc9c1d87598dc507a9834cb2c3baee0bb",
+    "docs/audit/probes/event_reliability/stream_ledger_ARM_A_E10__BASELINE.json": "1634058653d42da44583e167f1fb4840677276ebf65859745d54e62a2dbaa4f0",
+    "docs/audit/probes/event_reliability/stream_ledger_ARM_A_E10__CB70_PRE_EXIT_POST.json": "a7e8422327dabeb81f1ecadfeaa017dbf6510fc158b219f38e1928874ebd4823",
+    "docs/audit/probes/event_reliability/stream_ledger_ARM_A_E10__CONFIRM_BOUNDARY_70.json": "5faf15d3ab5982dbe427c0a4365eed3023422ec50aaf440ac212eae0fef6e8e9",
+    "docs/audit/probes/event_reliability/stream_ledger_ARM_A_E10__R1_CB70.json": "09ecb7a01e4942fc22b9f8cb5321bc5b9ff24f90a9315b902ff9638b791ec051",
+    "docs/audit/probes/event_reliability/stream_ledger_ARM_A_E10__R1_CBN70.json": "d6c5a4766f80cd4363ca047211666e959c950efd69b60381433be9d86d3c08e3",
+    "docs/audit/probes/event_reliability/stream_ledger_ARM_A_E10__R2_CB70.json": "59efc81c1257503a8ba1b24d25ffff4486c64a493be125a6a2745214b9c9b3ee",
+    "docs/audit/probes/event_reliability/stream_ledger_ARM_A_E10__REENTRY_2.json": "d0a66547106b1d6f8ceaefa7ee873d5f5d8e666604421450a2f9f90d04e524c6",
+    "docs/audit/probes/event_reliability/stream_ledger_ARM_A_E21__CONFIRM_BOUNDARY_70.json": "b197276a39ce4671e69e947ea6b969537ae2886ba70585738ee3e347b07ea0ec",
+    "docs/audit/probes/event_reliability/stream_ledger_ARM_B_E9__CONFIRM_BOUNDARY_70.json": "bf9b9bc4bb9ea613084f21f45793355fed1886d06a28fdca2f14c1304d3e46ec",
+    "docs/audit/probes/event_reliability/stream_ledger_ARM_I_E28__BASELINE.json": "2958d35e4b32bfe5dcef41b0627fe7ef2fa76b7af02016a079b480ace1765db8",
+    "docs/audit/probes/event_reliability/stream_ledger_ARM_I_E28__CB70_PRE_EXIT_POST.json": "8f98225606dddeada9d84a3a838e139efad8d31d9ca7d0c934472882a15a2eb4",
+    "docs/audit/probes/event_reliability/stream_ledger_ARM_I_E28__CONFIRM_BOUNDARY_70.json": "a632c2ed472f4d95f5548fdf1cc5b235afe3983bfd3b22a8ee48b92adb9049bf",
+    "docs/audit/probes/event_reliability/stream_ledger_ARM_I_E28__PRE_EXIT_POST.json": "94f50d4cc4ee2daf4d00c254f58ce0c1362180173adbc695f027117ffe244397",
+    "docs/audit/probes/event_reliability/stream_ledger_ARM_I_E28__R1_CB70.json": "31d51e54178216112ed0be2a4d096831976397ae71f1aa4f2f4d5387106f8148",
+    "docs/audit/probes/event_reliability/stream_ledger_ARM_I_E28__R1_CBN70.json": "1a9da5c6c20c418ca387add59b02cac2db03b9f4f7f090c7c689b6f5d9e6bca3",
+    "docs/audit/probes/event_reliability/stream_ledger_ARM_I_E28__R1_CBN70_PRE_EXIT_POST.json": "fdc58229a63f2672f4e40986b4b48b1ff05bbef3dbec0ac715814c36ba844136",
+    "docs/audit/probes/event_reliability/stream_ledger_ARM_I_E28__R2_CB70_PRE_EXIT_POST.json": "6f36a3605aae0beb9e738346a84945b6aa78a78ebcd5ce2e87eeeacdf89755a0",
+    "docs/audit/probes/event_reliability/stream_ledger_ARM_K_E23__CB70_PRE_EXIT_POST.json": "ea8a07715c1c5211d895edf28d56fb43b461c5130de1055c5c48391ed97f47f9",
+    "docs/audit/probes/event_reliability/stream_ledger_ARM_K_E23__CONFIRM_BOUNDARY_70.json": "1165391eae94b84c51236d32aac304a8e87f3a9da9d8df5b5e50a3ec65953000",
+    "docs/audit/probes/event_reliability/stream_ledger_S2_R2__BASELINE.json": "5bdde81e630e2de9dd5df57072a023cf4e81197c7e02bf6c8b637d4fa07fabfa",
+    "docs/audit/probes/phone_first/phone_failure_matrix.json": "f22a18da4cc32d25fe82ce2ff56caf078cb60ef15567341e679477e5a8b95e86",
+    "docs/audit/probes/phone_first/phone_failure_matrix.py": "b20fff6eb50ef3371935f2b76e8ed42d644d6b6c427c58e44a798bf77989f92a",
+    "docs/audit/probes/phone_first/replay_compare_registry.json": "1b4e1b840809e09b0d1748411b99fa66de94a6b18334de050b9208c99ae72363",
+    "eval/runtime_diagnostics/phone_replay_compare.py": "28a77f47a81ffc1eb5a12fad11aad1ab1fd8f3477ab6b42ca67adacd007e5202",
+    "tests/test_phone_replay_compare.py": "b8730c31b8276422ea31ac1aef00f8cb95dfdd10aa3223bb68775deb3c83f3e3",
+    "tests/test_s2_r3_arm_a_phone_package.py": "67409ae8bf25d49d3484b29d4b997f910044273b8979d5e3a6fce3b7187abb3f"
+  },
+  "device_evidence": {
+    "device": "Xiaomi M2101K7AG (serial 3ab64582), Android 12 / SDK 31",
+    "install": "adb install -r app-debug.apk and app-debug-androidTest.apk; firstInstallTime 2026-10-15 20:28:05 unchanged, lastUpdateTime 2026-10-17 22:54:11; shared_prefs kept",
+    "instrumented": "am instrument PhoneS2ParityInstrumentedTest: OK (4 tests) incl. armAE10PhonePrefixMatchesKeras...",
+    "live_stable": "configuration=STABLE package=S2_R2_CANDIDATE fallback=false; 2 commits (HELLO, HELLO), 6-8 fps",
+    "live_experimental": "configuration=EXPERIMENTAL package=ARM_A_E10_CANDIDATE fallback=false; 10 commits, event ids restart at 1; 5-7.6 fps",
+    "not_verified": [
+      "SPLIT_CONFIRM_BOUNDARY never fired live (JVM parity only)",
+      "forced Experimental load failure on device",
+      "accuracy (developer signer, unblinded)"
+    ],
+    "user_feedback_2026-10-17": "Experimental substantially more responsive and easier to sign quickly; word accuracy inconsistent"
+  },
+  "archive": {
+    "directory": "F:/ASL DATASET/5. Apphear3/artifacts/live_baselines/experimental_live_20261017",
+    "contents": [
+      "app-debug.apk",
+      "app-debug-androidTest.apk",
+      "source_snapshot.zip",
+      "live_logcat_2026-10-17.txt"
+    ],
+    "sha256": {
+      "app-debug.apk": "8ff295464bf5b6fe90d66f2e3805353023eb958520a306bec6fe6faf47eb23d8",
+      "app-debug-androidTest.apk": "1a592e37bc6d75eed43abe0e8607a03fd1d86fc8cd9eb492256ee77589c3f71d",
+      "source_snapshot.zip": "a554badb10749836e55addbf17a3d01610b0300d43d1b544c11dbf37a2b66b38",
+      "live_logcat_2026-10-17.txt": "7dd37941acf07029a519790175332952a0d2d107cd2fa45a3d15b515492d7319"
+    }
+  }
+}
