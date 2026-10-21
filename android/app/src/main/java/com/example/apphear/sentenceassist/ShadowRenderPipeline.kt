@@ -21,6 +21,17 @@ data class ShadowOutcome(
     val latencyMs: Long,
 ) {
     val chosenSentence: String get() = if (aiStatus == AiStatus.ACCEPTED) aiSentence.orEmpty() else fallbackSentence
+
+    /** Words the AI added that nobody signed (inferred pronouns), for the on-screen note. */
+    val inferredWords: List<String> get() = acceptedWords
+        .filter { it.source == WordSource.INFERRED_PRONOUN }
+        .map { if (it.text == "i") "I" else it.text }
+
+    /** Accepted Top-5 swaps as "RECOGNIZED → USED", for the on-screen note. */
+    val changedSigns: List<String> get() = if (aiStatus != AiStatus.ACCEPTED) emptyList() else
+        aiSubstitutions.mapNotNull { swap ->
+            turn.evidence?.getOrNull(swap.eventIndex)?.let { "${it.originalGloss} → ${swap.gloss}" }
+        }
 }
 
 /** Renders with a hard timeout, validates, and always produces the grounded plain fallback. */

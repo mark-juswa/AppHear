@@ -2,8 +2,11 @@ package com.example.apphear.sentenceassist
 
 import com.example.apphear.BuildConfig
 
-/** Phase 2 mode. SHADOW computes and logs renderings; nothing is shown or spoken. */
-enum class SentenceAssistMode { OFF, SHADOW;
+/**
+ * Phase 2 mode. SHADOW computes and logs renderings only. VISIBLE also shows a grounded
+ * rendering under RECOGNIZED, and Hear speaks exactly that displayed sentence.
+ */
+enum class SentenceAssistMode { OFF, SHADOW, VISIBLE;
     companion object {
         val current: SentenceAssistMode get() = valueOf(BuildConfig.SENTENCE_ASSIST_MODE)
     }

@@ -52,6 +52,18 @@ class ShadowPipelineTest {
     }
 
     @Test
+    fun noteListsAddedWordsAndSwapsOnlyForAcceptedRenderings() = runBlocking {
+        assertEquals(listOf("I"), pipeline { Rendering("I'm tired.") }.run(tired).inferredWords)
+        val hot = RenderRequest(SignedTurn(listOf("HOT"),
+            listOf(event(1, "HOT" to 0.50f, "GOOD" to 0.45f))), "How are you?")
+        val swapped = pipeline { Rendering("I'm good.", listOf(Substitution(0, "GOOD"))) }.run(hot)
+        assertEquals(listOf("HOT → GOOD"), swapped.changedSigns)
+        val rejected = pipeline { Rendering("I'm good today.", listOf(Substitution(0, "GOOD"))) }.run(hot)
+        assertEquals(AiStatus.REJECTED, rejected.aiStatus)
+        assertTrue(rejected.changedSigns.isEmpty() && rejected.inferredWords.isEmpty())
+    }
+
+    @Test
     fun missingAnswerAndTimeoutAreDistinguished() = runBlocking {
         assertEquals(AiStatus.UNAVAILABLE, pipeline { null }.run(tired).aiStatus)
         val slow = pipeline(timeoutMs = 50L) { delay(5_000); Rendering("I'm tired.") }.run(tired)

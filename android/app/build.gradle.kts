@@ -99,9 +99,9 @@ android {
     val recognitionRearCamera = providers.gradleProperty("recognitionRearCamera").map { it.equals("true", ignoreCase=true) }.getOrElse(false)
     // Debug-only conversation-flow timing log (Phase 0); never changes behavior.
     val conversationTimeline = providers.gradleProperty("conversationTimeline").map { it.equals("true", ignoreCase=true) }.getOrElse(false)
-    // Phase 2 evidence-grounded sentence assist: OFF or SHADOW (compute + log only, never shown).
+    // Phase 2 evidence-grounded sentence assist: OFF, SHADOW (log only) or VISIBLE (shown; Hear speaks it).
     val sentenceAssistMode = providers.gradleProperty("sentenceAssist").map { it.uppercase() }.getOrElse("OFF")
-    require(sentenceAssistMode in setOf("OFF", "SHADOW")) { "sentenceAssist must be off or shadow" }
+    require(sentenceAssistMode in setOf("OFF", "SHADOW", "VISIBLE")) { "sentenceAssist must be off, shadow or visible" }
     val recognitionCoordination = providers.gradleProperty("recognitionCoordination").map { it.equals("true",ignoreCase=true) }.getOrElse(false)
     val fingerspellContinuous = providers.gradleProperty("fingerspellContinuous").map { it.equals("true",ignoreCase=true) }.getOrElse(false)
     val fingerspellDebug = providers.gradleProperty("fingerspell")
