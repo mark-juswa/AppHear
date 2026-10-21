@@ -1,6 +1,7 @@
 {
   "schemaVersion": 1,
   "lexiconAsset": "sentence_assist/lexicon_v1.json",
+  "promptAsset": "sentence_assist/prompt_v1.json",
   "substitutionPolicyAsset": "context_phrase_assist_policy.json",
   "debounceMs": 400,
   "renderTimeoutMs": 8000,

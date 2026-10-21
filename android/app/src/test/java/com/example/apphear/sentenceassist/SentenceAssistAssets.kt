@@ -18,6 +18,7 @@ object SentenceAssistAssets {
     fun policy(): SentenceAssistPolicy = policyJson().let {
         SentenceAssistPolicy(
             lexiconAsset = it["lexiconAsset"].asString,
+            promptAsset = it["promptAsset"].asString,
             substitutionPolicyAsset = it["substitutionPolicyAsset"].asString,
             debounceMs = it["debounceMs"].asLong,
             renderTimeoutMs = it["renderTimeoutMs"].asLong,
@@ -53,4 +54,21 @@ object SentenceAssistAssets {
         json(lexiconJson()["vocabularyAsset"].asString)["class_index_to_gloss"].asJsonArray.map { it.asString }
 
     fun validator(): GroundingValidator = GroundingValidator(lexicon(), policy(), substitutionPolicy())
+
+    fun promptJson(): JsonObject = json(policy().promptAsset)
+
+    fun template(): PromptTemplate = promptJson().let {
+        PromptTemplate(
+            promptVersion = it["promptVersion"].asString,
+            model = it["model"].asString,
+            systemInstruction = it["systemInstruction"].asString,
+            inputTemplate = it["inputTemplate"].asString,
+            substitutionRuleWithAlternatives = it["substitutionRuleWithAlternatives"].asString,
+            substitutionRuleWithoutAlternatives = it["substitutionRuleWithoutAlternatives"].asString,
+            noHearingContext = it["noHearingContext"].asString,
+            responseSchemaJson = it["responseSchema"].toString(),
+        )
+    }
+
+    fun prompt(): SentencePrompt = SentencePrompt(template(), lexicon(), policy(), substitutionPolicy())
 }

@@ -12,6 +12,7 @@ enum class SentenceAssistMode { OFF, SHADOW;
 /** Values from `assets/sentence_assist/policy_v1.json`; substitution limits reuse Context Assist's policy. */
 data class SentenceAssistPolicy(
     val lexiconAsset: String,
+    val promptAsset: String,
     val substitutionPolicyAsset: String,
     val debounceMs: Long,
     val renderTimeoutMs: Long,
@@ -20,7 +21,7 @@ data class SentenceAssistPolicy(
     val maxInferredPronouns: Int,
 ) {
     init {
-        require(lexiconAsset.isNotBlank() && substitutionPolicyAsset.isNotBlank())
+        require(lexiconAsset.isNotBlank() && promptAsset.isNotBlank() && substitutionPolicyAsset.isNotBlank())
         require(debounceMs >= 0 && renderTimeoutMs > 0)
         require(maxGlosses > 0 && maxOutputChars > 0 && maxInferredPronouns >= 0)
     }

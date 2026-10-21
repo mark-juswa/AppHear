@@ -25,6 +25,15 @@ class GlossLexicon(
 
     fun formsOf(gloss: String): List<List<String>> = forms[gloss].orEmpty()
 
+    /** Citation English for a gloss: its label without the variant number when that is a form
+     * ("HOW1" -> "how"), else its first listed form ("DONTKNOW" -> "do not know"). */
+    fun displayForm(gloss: String): String {
+        val candidates = formsOf(gloss)
+        val base = gloss.lowercase(java.util.Locale.US).trimEnd { it.isDigit() }
+        return (candidates.firstOrNull { it == listOf(base) } ?: candidates.firstOrNull())
+            ?.joinToString(" ") ?: base
+    }
+
     /** The vocabulary a lexicon was built for must be exactly the recognizer's label set. */
     fun coversExactly(vocabulary: Collection<String>): Boolean = glosses == vocabulary.toSet()
 

@@ -130,14 +130,12 @@ class GroundingValidator(
             val event = evidence.getOrNull(substitution.eventIndex) ?: return "event ${substitution.eventIndex} out of range"
             if (substitution.gloss == event.originalGloss) return "event ${substitution.eventIndex} unchanged"
             if (substitution.gloss !in lexicon.glosses) return "unknown gloss ${substitution.gloss}"
-            val top1 = event.topK.firstOrNull() ?: return "event ${substitution.eventIndex} has no Top-5"
-            val visual = event.topK.firstOrNull { it.gloss == substitution.gloss }
-                ?: return "${substitution.gloss} not in Top-5 of event ${substitution.eventIndex}"
-            // Identical bounds to PhraseMatcher's changed-event checks.
-            if (top1.score > substitutionPolicy.maximumContradictingTop1 ||
-                top1.score - visual.score > substitutionPolicy.maximumChangedScoreGap ||
-                (top1.score > 0f && visual.score / top1.score < substitutionPolicy.minimumChangedScoreRatio)
-            ) return "${substitution.gloss} outside substitution bounds"
+            if (event.topK.none { it.gloss == substitution.gloss }) {
+                return "${substitution.gloss} not in Top-5 of event ${substitution.eventIndex}"
+            }
+            if (!SubstitutionBounds.allows(event, substitution.gloss, substitutionPolicy)) {
+                return "${substitution.gloss} outside substitution bounds"
+            }
         }
         return null
     }
@@ -154,6 +152,25 @@ class GroundingValidator(
     }
 
     private fun reject(reason: RejectReason, detail: String) = GroundingResult.Rejected(reason, detail)
+}
+
+/**
+ * One rule for both the prompt (which alternatives the renderer is offered) and the validator:
+ * identical to PhraseMatcher's changed-event checks, so Context Assist and sentence assist
+ * can never disagree about when a Top-5 alternative may replace the recognized word.
+ */
+object SubstitutionBounds {
+    fun allows(event: RecognitionEvidence, gloss: String, policy: PhraseMatchPolicy): Boolean {
+        val top1 = event.topK.firstOrNull() ?: return false
+        if (gloss == event.originalGloss) return false
+        val visual = event.topK.firstOrNull { it.gloss == gloss } ?: return false
+        return top1.score <= policy.maximumContradictingTop1 &&
+            top1.score - visual.score <= policy.maximumChangedScoreGap &&
+            !(top1.score > 0f && visual.score / top1.score < policy.minimumChangedScoreRatio)
+    }
+
+    fun eligibleAlternatives(event: RecognitionEvidence, policy: PhraseMatchPolicy): List<String> =
+        event.topK.map { it.gloss }.filter { allows(event, it, policy) }
 }
 
 /** SentenceBuilder's rule: a gloss committed twice in a row appears once. */
