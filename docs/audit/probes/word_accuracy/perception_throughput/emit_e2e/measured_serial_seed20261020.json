@@ -1,0 +1,78 @@
+{
+  "camera_frame_ms": 66.654,
+  "decoder_variant": "CONFIRM_BOUNDARY_70",
+  "gap_mix": {
+    "1": 0.0069,
+    "2": 0.4617,
+    "3": 0.4798,
+    "4": 0.0516
+  },
+  "mean_interval_ms": 171.70736939999998,
+  "recognizer_sha256": "7448597f45be392756b9f40c35fe5e95f0e185e046b9e1509e824ea045ded22d",
+  "s2_package": {
+    "keras_sha256": "17915b023694cec1c85f10f96b44608c95f06ef655c49b7d1453c3a4a47b1c7c",
+    "normalization_sha256": "754e5e0e05e012333cd96170ba63602c26d7ab2a8b87ae8e3af99d76ed1268dc"
+  },
+  "schema": "apphear.heldout_dev_e2e_camera_grid.v1",
+  "seed": 20261020,
+  "streams": 406,
+  "summary": {
+    "CONTINUOUS": {
+      "acquired": 734.0,
+      "acquired_inside_shared_event": 83.0,
+      "acquired_no_distinct_event": 311.0,
+      "correct_word_rate": 0.28078817733990147,
+      "correct_words": 228.0,
+      "detected": 423.0,
+      "detection_rate": 0.520935960591133,
+      "duplicate_words": 0.0,
+      "events": 428.0,
+      "extra_events": 5.0,
+      "extra_events_per_minute": 0.2224948037385585,
+      "merged_events": 76.0,
+      "minutes": 22.472434933245573,
+      "observations": 8083.0,
+      "observations_per_second": 5.994751662062561,
+      "oracle_correct": 335.0,
+      "oracle_word_rate": 0.4125615763546798,
+      "signs": 812.0,
+      "split_signs": 3.0,
+      "word_precision": 0.5327102803738317
+    },
+    "NATURAL": {
+      "acquired": 728.0,
+      "acquired_inside_shared_event": 0.0,
+      "acquired_no_distinct_event": 96.0,
+      "correct_word_rate": 0.4482758620689655,
+      "correct_words": 364.0,
+      "detected": 632.0,
+      "detection_rate": 0.7783251231527094,
+      "duplicate_words": 0.0,
+      "events": 682.0,
+      "extra_events": 49.0,
+      "extra_events_per_minute": 1.3563215277906733,
+      "merged_events": 0.0,
+      "minutes": 36.12712693561432,
+      "observations": 12893.0,
+      "observations_per_second": 5.947977366600392,
+      "oracle_correct": 420.0,
+      "oracle_word_rate": 0.5172413793103449,
+      "signs": 812.0,
+      "split_signs": 1.0,
+      "word_precision": 0.533724340175953
+    },
+    "per_signer_correct_word_rate": {
+      "CONTINUOUS:asl_citizen:P12": 0.14705882352941177,
+      "CONTINUOUS:asl_citizen:P21": 0.29583333333333334,
+      "CONTINUOUS:asl_citizen:P26": 0.28448275862068967,
+      "CONTINUOUS:asl_citizen:P39": 0.30327868852459017,
+      "CONTINUOUS:asl_citizen:P5": 0.25,
+      "NATURAL:asl_citizen:P12": 0.23529411764705882,
+      "NATURAL:asl_citizen:P21": 0.375,
+      "NATURAL:asl_citizen:P26": 0.4224137931034483,
+      "NATURAL:asl_citizen:P39": 0.6147540983606558,
+      "NATURAL:asl_citizen:P5": 0.35714285714285715
+    }
+  },
+  "time_scale": 1.0
+}

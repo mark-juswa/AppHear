@@ -1,0 +1,106 @@
+﻿{
+  "schema_version": "apphear.v3.pipeline_trace_summary.v1",
+  "pipelined_pose": true,
+  "emit_on_hands": true,
+  "budget": {
+    "pose_threads": 2,
+    "pose_spinning": false,
+    "hand_threads": 1
+  },
+  "observations": 999,
+  "observations_per_second_capture_span": 6.298703120379419,
+  "observations_per_second_completion_span": 6.298186166986173,
+  "interval_ms": {
+    "p05": 133.307969,
+    "p50": 133.518021,
+    "p95": 200.277031,
+    "max": 333.795,
+    "mean": 158.76284068136286
+  },
+  "camera_frame_ms": 66.68899333333333,
+  "interval_camera_frames": {
+    "1": 0.003006012024048096,
+    "2": 0.6312625250501002,
+    "3": 0.35070140280561124,
+    "4": 0.013026052104208416,
+    "5": 0.002004008016032064
+  },
+  "capture_to_completed_ms": {
+    "p05": 234.101647,
+    "p50": 366.935068,
+    "p95": 443.157935,
+    "max": 640.226501,
+    "mean": 355.1872625135134
+  },
+  "capture_clock_note": "capture and completion clocks may differ by a constant offset; compare arms within one boot, never absolute values across devices",
+  "timing": {
+    "preprocess_ms": {
+      "p50": 2.804896,
+      "p95": 12.3325
+    },
+    "pose_inference_and_output_ms": {
+      "p50": 114.252291,
+      "p95": 156.408073
+    },
+    "hands_wall_ms": {
+      "p50": 110.369739,
+      "p95": 170.281771
+    },
+    "analyzer_ms": {
+      "p50": 266.962343,
+      "p95": 336.535469
+    }
+  },
+  "heap": {
+    "java_heap_bytes": {
+      "first": 18354744,
+      "max": 25203856
+    },
+    "native_heap_bytes": {
+      "first": 159073784,
+      "max": 164026232
+    }
+  },
+  "frame_drops": "NOT_MEASURED_USE_SENSOR_TIMESTAMP_JOIN",
+  "accuracy_claim": "NONE",
+  "pose_wait_ms": {
+    "p05": 0.006979,
+    "p50": 65.159948,
+    "p95": 100.072291,
+    "max": 166.98526,
+    "mean": 58.53796433833835
+  },
+  "delivery_wait_ms": {
+    "p05": 0.153072,
+    "p50": 0.314375,
+    "p95": 0.745312,
+    "max": 77.428489,
+    "mean": 0.6631025305305309
+  },
+  "released_while_busy": {
+    "frames": 1375,
+    "per_observation": 1.377755511022044
+  },
+  "warmup_rows_excluded": 40,
+  "segment": {
+    "selected": 1,
+    "of": 2,
+    "rows_per_segment": [
+      76,
+      1039
+    ]
+  },
+  "cpu": {
+    "process_cpu_percent_of_one_core": 240.9029045608125,
+    "top_threads_percent_of_one_core": {
+      "AppHearV3Pose": 63.71541471547436,
+      "AppHearV3Hands": 53.541510831923574,
+      "DefaultDispatch": 46.60450140993559,
+      "pool-4-thread-1": 41.113643789274086,
+      "RenderThread": 9.795418841797371,
+      "example.apphear": 9.140131306821306,
+      "CameraX-camerax": 3.265139613932457,
+      "Jit thread pool": 2.440381164738445
+    }
+  }
+}

@@ -44,6 +44,8 @@ Population: independent runtime-window recall per class, pooling DEV with the EV
 
 The reviewable 16 are WE, MOUTH, OVER, BYE, LAST, SELL, TOOMUCH, SPECIAL1, TELL, STAND2, GET, INTRODUCE, ON, SORRY, START and TAKE.
 
+> **Correction (2026-10-20, `WORD_TEMPORAL_2026-10-20.md`):** with every real frame, most of these classes stay wrong on new signers although they fit in-sample. Cross-signer generalization, not missing observations, dominates them; the statement below overstated the temporal share.
+
 **The covered-but-hard classes are mostly information-limited, not data-limited.** CLEAN, MONEY1, NIGHT1, MONTH, IN, SOMETIMES, NICE, PLEASE and others cannot be fit even on training clips at four to six observations. The sparse-only training experiment (WORD_ROBUSTNESS §3) showed this is not under-training. Their distinguishing cue is repetition count, a small hand movement, or handshape on the body; at the phone's observation rate that cue is often not in the window.
 
 ### Roles of the four suspected causes

@@ -1,0 +1,98 @@
+﻿{
+    "finished_local":  "2026-10-21T22:34:29.3755518+08:00",
+    "seconds":  170,
+    "arm":  "emit",
+    "label":  "live_l3_20261021",
+    "pss_samples":  [
+                        {
+                            "t_s":  0.2,
+                            "pss_kb":  271499
+                        },
+                        {
+                            "t_s":  10.8,
+                            "pss_kb":  120360
+                        },
+                        {
+                            "t_s":  21.2,
+                            "pss_kb":  285566
+                        },
+                        {
+                            "t_s":  31.5,
+                            "pss_kb":  289077
+                        },
+                        {
+                            "t_s":  41.9,
+                            "pss_kb":  286990
+                        },
+                        {
+                            "t_s":  52.2,
+                            "pss_kb":  288613
+                        },
+                        {
+                            "t_s":  62.6,
+                            "pss_kb":  291438
+                        },
+                        {
+                            "t_s":  73.2,
+                            "pss_kb":  292903
+                        },
+                        {
+                            "t_s":  83.5,
+                            "pss_kb":  290413
+                        },
+                        {
+                            "t_s":  93.9,
+                            "pss_kb":  286581
+                        },
+                        {
+                            "t_s":  104.2,
+                            "pss_kb":  287925
+                        },
+                        {
+                            "t_s":  114.5,
+                            "pss_kb":  286373
+                        },
+                        {
+                            "t_s":  124.9,
+                            "pss_kb":  288265
+                        },
+                        {
+                            "t_s":  135.5,
+                            "pss_kb":  290176
+                        },
+                        {
+                            "t_s":  145.8,
+                            "pss_kb":  293367
+                        },
+                        {
+                            "t_s":  156.1,
+                            "pss_kb":  288997
+                        },
+                        {
+                            "t_s":  166.4,
+                            "pss_kb":  293757
+                        }
+                    ],
+    "warmup_seconds":  10,
+    "cpu_wall_seconds":  177.0215269,
+    "first_install_time":  "2026-10-15 20:28:05",
+    "app_apk_sha256":  "ca8da414e5ef9ae457ae95a22ff11450d417e38356aab062f9aee64a4430509e",
+    "serial":  "3ab64582",
+    "thermal_samples":  [
+                            {
+                                "t_s":  0.2,
+                                "thermal_status":  0,
+                                "battery_temp_c":  42.6
+                            },
+                            {
+                                "t_s":  62.6,
+                                "thermal_status":  0,
+                                "battery_temp_c":  42.7
+                            },
+                            {
+                                "t_s":  124.9,
+                                "thermal_status":  0,
+                                "battery_temp_c":  42.9
+                            }
+                        ]
+}

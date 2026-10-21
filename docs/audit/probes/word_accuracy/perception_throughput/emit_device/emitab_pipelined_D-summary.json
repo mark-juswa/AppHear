@@ -1,0 +1,93 @@
+﻿{
+  "schema_version": "apphear.v3.pipeline_trace_summary.v1",
+  "pipelined_pose": true,
+  "emit_on_hands": false,
+  "budget": {
+    "pose_threads": 2,
+    "pose_spinning": true,
+    "hand_threads": 2
+  },
+  "observations": 728,
+  "observations_per_second_capture_span": 7.159395828570577,
+  "observations_per_second_completion_span": 7.148171127335525,
+  "interval_ms": {
+    "p05": 66.758958,
+    "p50": 133.517969,
+    "p95": 200.277031,
+    "max": 276.615989,
+    "mean": 139.67659058734623
+  },
+  "camera_frame_ms": 66.72399833333338,
+  "interval_camera_frames": {
+    "1": 0.1361760660247593,
+    "2": 0.6547455295735901,
+    "3": 0.18844566712517194,
+    "4": 0.02063273727647868
+  },
+  "capture_to_completed_ms": {
+    "p05": 451.685809,
+    "p50": 539.372817,
+    "p95": 636.884895,
+    "max": 720.358015,
+    "mean": 541.838784754122
+  },
+  "capture_clock_note": "capture and completion clocks may differ by a constant offset; compare arms within one boot, never absolute values across devices",
+  "timing": {
+    "preprocess_ms": {
+      "p50": 2.610417,
+      "p95": 6.816094
+    },
+    "pose_inference_and_output_ms": {
+      "p50": 109.151979,
+      "p95": 146.626927
+    },
+    "hands_wall_ms": {
+      "p50": 113.019166,
+      "p95": 165.86625
+    },
+    "analyzer_ms": {
+      "p50": 271.584323,
+      "p95": 347.231614
+    }
+  },
+  "heap": {
+    "java_heap_bytes": {
+      "first": 22114184,
+      "max": 26144280
+    },
+    "native_heap_bytes": {
+      "first": 197486416,
+      "max": 198892744
+    }
+  },
+  "frame_drops": "NOT_MEASURED_USE_SENSOR_TIMESTAMP_JOIN",
+  "accuracy_claim": "NONE",
+  "pose_wait_ms": {
+    "p05": 0.010364,
+    "p50": 0.012657,
+    "p95": 31.819896,
+    "max": 93.897708,
+    "mean": 4.817106792582417
+  },
+  "warmup_rows_excluded": 40,
+  "segment": {
+    "selected": 0,
+    "of": 1,
+    "rows_per_segment": [
+      768
+    ]
+  },
+  "cpu": {
+    "process_cpu_percent_of_one_core": 308.5423205430163,
+    "top_threads_percent_of_one_core": {
+      "pool-4-thread-1": 111.82503755820704,
+      "DefaultDispatch": 81.60234033904165,
+      "AppHearV3Pose": 75.07542252867235,
+      "example.apphear": 11.953674433901615,
+      "RenderThread": 11.94309596095126,
+      "CameraX-camerax": 3.0254432638016477,
+      "Binder:3622_6": 2.6023043457874313,
+      "Binder:3622_3": 2.3589994679292565
+    }
+  }
+}

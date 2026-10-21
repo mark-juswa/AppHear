@@ -1,0 +1,294 @@
+{
+  "schema": "apphear.v3_pipeline_engine_parity.v1",
+  "accuracy_claim": "NONE",
+  "arms": [
+    {
+      "arm": "STABLE_legacy",
+      "fed_frames": 175,
+      "observations": 175,
+      "raw_v1_sha256_compared_prefix": "e94490508fd05766f4bc6df8c9b26db08737badb7027db2cdf6e700e61bb6249",
+      "input_sha256": "d88fc6a7c2c61918f29bc544caef686afafaaaf73bbf24c86469303fb4c2a381",
+      "wall_ms": 25909.757698,
+      "frames_per_second": 6.754212140451951,
+      "sentence_changes": 2,
+      "matches": null
+    },
+    {
+      "arm": "STABLE_serial",
+      "fed_frames": 175,
+      "observations": 175,
+      "raw_v1_sha256_compared_prefix": "e94490508fd05766f4bc6df8c9b26db08737badb7027db2cdf6e700e61bb6249",
+      "input_sha256": "d88fc6a7c2c61918f29bc544caef686afafaaaf73bbf24c86469303fb4c2a381",
+      "wall_ms": 28344.977177,
+      "frames_per_second": 6.173933353596081,
+      "sentence_changes": 2,
+      "matches": "STABLE_legacy"
+    },
+    {
+      "arm": "STABLE_pipelined",
+      "fed_frames": 175,
+      "observations": 174,
+      "raw_v1_sha256_compared_prefix": "5215e1e272092658b088dfed28ddfe487a2b56676192decc202c865b62c592b3",
+      "input_sha256": "d88fc6a7c2c61918f29bc544caef686afafaaaf73bbf24c86469303fb4c2a381",
+      "wall_ms": 23109.847751,
+      "frames_per_second": 7.572529334055326,
+      "sentence_changes": 2,
+      "matches": "STABLE_serial"
+    },
+    {
+      "arm": "STABLE_emit_p2_spin_h2",
+      "fed_frames": 175,
+      "observations": 175,
+      "raw_v1_sha256_compared_prefix": "e94490508fd05766f4bc6df8c9b26db08737badb7027db2cdf6e700e61bb6249",
+      "input_sha256": "d88fc6a7c2c61918f29bc544caef686afafaaaf73bbf24c86469303fb4c2a381",
+      "wall_ms": 14778.346349,
+      "frames_per_second": 11.841649658714465,
+      "sentence_changes": 2,
+      "matches": "STABLE_serial"
+    },
+    {
+      "arm": "STABLE_emit_p2_nospin_h1",
+      "fed_frames": 175,
+      "observations": 175,
+      "raw_v1_sha256_compared_prefix": "e94490508fd05766f4bc6df8c9b26db08737badb7027db2cdf6e700e61bb6249",
+      "input_sha256": "d88fc6a7c2c61918f29bc544caef686afafaaaf73bbf24c86469303fb4c2a381",
+      "wall_ms": 16065.848796,
+      "frames_per_second": 10.892670671939268,
+      "sentence_changes": 2,
+      "matches": "STABLE_serial"
+    },
+    {
+      "arm": "STABLE_dropfree_p2_nospin_h1",
+      "fed_frames": 175,
+      "observations": 25,
+      "raw_v1_sha256_compared_prefix": "c307d8d3e6888e342741c17c37a493b48d80b50e167caa70b72f4743d5aff048",
+      "input_sha256": "d88fc6a7c2c61918f29bc544caef686afafaaaf73bbf24c86469303fb4c2a381",
+      "wall_ms": 2344.869374,
+      "frames_per_second": 74.63102292196172,
+      "sentence_changes": 1,
+      "matches": "STABLE_dropfree_p2_nospin_h1_subset_serial",
+      "released_unprocessed": 150
+    },
+    {
+      "engine": "STABLE",
+      "sentence_changes": 2,
+      "final_sentence": "CHAIR HELLO"
+    },
+    {
+      "arm": "EXPERIMENTAL_legacy",
+      "fed_frames": 175,
+      "observations": 175,
+      "raw_v1_sha256_compared_prefix": "e94490508fd05766f4bc6df8c9b26db08737badb7027db2cdf6e700e61bb6249",
+      "input_sha256": "d88fc6a7c2c61918f29bc544caef686afafaaaf73bbf24c86469303fb4c2a381",
+      "wall_ms": 28704.260198,
+      "frames_per_second": 6.096655994366763,
+      "sentence_changes": 12,
+      "matches": null
+    },
+    {
+      "arm": "EXPERIMENTAL_serial",
+      "fed_frames": 175,
+      "observations": 175,
+      "raw_v1_sha256_compared_prefix": "e94490508fd05766f4bc6df8c9b26db08737badb7027db2cdf6e700e61bb6249",
+      "input_sha256": "d88fc6a7c2c61918f29bc544caef686afafaaaf73bbf24c86469303fb4c2a381",
+      "wall_ms": 28822.002541,
+      "frames_per_second": 6.071750210661394,
+      "sentence_changes": 12,
+      "matches": "EXPERIMENTAL_legacy"
+    },
+    {
+      "arm": "EXPERIMENTAL_pipelined",
+      "fed_frames": 175,
+      "observations": 174,
+      "raw_v1_sha256_compared_prefix": "5215e1e272092658b088dfed28ddfe487a2b56676192decc202c865b62c592b3",
+      "input_sha256": "d88fc6a7c2c61918f29bc544caef686afafaaaf73bbf24c86469303fb4c2a381",
+      "wall_ms": 21462.532909,
+      "frames_per_second": 8.153744049781576,
+      "sentence_changes": 12,
+      "matches": "EXPERIMENTAL_serial"
+    },
+    {
+      "arm": "EXPERIMENTAL_emit_p2_spin_h2",
+      "fed_frames": 175,
+      "observations": 175,
+      "raw_v1_sha256_compared_prefix": "e94490508fd05766f4bc6df8c9b26db08737badb7027db2cdf6e700e61bb6249",
+      "input_sha256": "d88fc6a7c2c61918f29bc544caef686afafaaaf73bbf24c86469303fb4c2a381",
+      "wall_ms": 14909.068744,
+      "frames_per_second": 11.737822328468834,
+      "sentence_changes": 12,
+      "matches": "EXPERIMENTAL_serial"
+    },
+    {
+      "arm": "EXPERIMENTAL_emit_p2_nospin_h1",
+      "fed_frames": 175,
+      "observations": 175,
+      "raw_v1_sha256_compared_prefix": "e94490508fd05766f4bc6df8c9b26db08737badb7027db2cdf6e700e61bb6249",
+      "input_sha256": "d88fc6a7c2c61918f29bc544caef686afafaaaf73bbf24c86469303fb4c2a381",
+      "wall_ms": 15365.634526,
+      "frames_per_second": 11.389051308221907,
+      "sentence_changes": 12,
+      "matches": "EXPERIMENTAL_serial"
+    },
+    {
+      "arm": "EXPERIMENTAL_dropfree_p2_nospin_h1",
+      "fed_frames": 175,
+      "observations": 29,
+      "raw_v1_sha256_compared_prefix": "9031037fbd60c6218965514943bd1dd2e873515701d4d8f7ddeb84845c441e9b",
+      "input_sha256": "d88fc6a7c2c61918f29bc544caef686afafaaaf73bbf24c86469303fb4c2a381",
+      "wall_ms": 2691.385259,
+      "frames_per_second": 65.02227780835148,
+      "sentence_changes": 2,
+      "matches": "EXPERIMENTAL_dropfree_p2_nospin_h1_subset_serial",
+      "released_unprocessed": 146
+    },
+    {
+      "engine": "EXPERIMENTAL",
+      "sentence_changes": 12,
+      "final_sentence": "CHAIR HELLO ASK TURN HOW1 FATHER ROAD UNDER SOME MEET ROOM WALK2"
+    },
+    {
+      "arm": "EXPERIMENTAL_WORD_BLEND_legacy",
+      "fed_frames": 175,
+      "observations": 175,
+      "raw_v1_sha256_compared_prefix": "e94490508fd05766f4bc6df8c9b26db08737badb7027db2cdf6e700e61bb6249",
+      "input_sha256": "d88fc6a7c2c61918f29bc544caef686afafaaaf73bbf24c86469303fb4c2a381",
+      "wall_ms": 30042.969832,
+      "frames_per_second": 5.824990038554721,
+      "sentence_changes": 12,
+      "matches": null
+    },
+    {
+      "arm": "EXPERIMENTAL_WORD_BLEND_serial",
+      "fed_frames": 175,
+      "observations": 175,
+      "raw_v1_sha256_compared_prefix": "e94490508fd05766f4bc6df8c9b26db08737badb7027db2cdf6e700e61bb6249",
+      "input_sha256": "d88fc6a7c2c61918f29bc544caef686afafaaaf73bbf24c86469303fb4c2a381",
+      "wall_ms": 29595.990197,
+      "frames_per_second": 5.912963169508648,
+      "sentence_changes": 12,
+      "matches": "EXPERIMENTAL_WORD_BLEND_legacy"
+    },
+    {
+      "arm": "EXPERIMENTAL_WORD_BLEND_pipelined",
+      "fed_frames": 175,
+      "observations": 174,
+      "raw_v1_sha256_compared_prefix": "5215e1e272092658b088dfed28ddfe487a2b56676192decc202c865b62c592b3",
+      "input_sha256": "d88fc6a7c2c61918f29bc544caef686afafaaaf73bbf24c86469303fb4c2a381",
+      "wall_ms": 23268.567648,
+      "frames_per_second": 7.520875485218865,
+      "sentence_changes": 12,
+      "matches": "EXPERIMENTAL_WORD_BLEND_serial"
+    },
+    {
+      "arm": "EXPERIMENTAL_WORD_BLEND_emit_p2_spin_h2",
+      "fed_frames": 175,
+      "observations": 175,
+      "raw_v1_sha256_compared_prefix": "e94490508fd05766f4bc6df8c9b26db08737badb7027db2cdf6e700e61bb6249",
+      "input_sha256": "d88fc6a7c2c61918f29bc544caef686afafaaaf73bbf24c86469303fb4c2a381",
+      "wall_ms": 15084.044785,
+      "frames_per_second": 11.601662716755186,
+      "sentence_changes": 12,
+      "matches": "EXPERIMENTAL_WORD_BLEND_serial"
+    },
+    {
+      "arm": "EXPERIMENTAL_WORD_BLEND_emit_p2_nospin_h1",
+      "fed_frames": 175,
+      "observations": 175,
+      "raw_v1_sha256_compared_prefix": "e94490508fd05766f4bc6df8c9b26db08737badb7027db2cdf6e700e61bb6249",
+      "input_sha256": "d88fc6a7c2c61918f29bc544caef686afafaaaf73bbf24c86469303fb4c2a381",
+      "wall_ms": 17257.447337,
+      "frames_per_second": 10.140549560003562,
+      "sentence_changes": 12,
+      "matches": "EXPERIMENTAL_WORD_BLEND_serial"
+    },
+    {
+      "arm": "EXPERIMENTAL_WORD_BLEND_dropfree_p2_nospin_h1",
+      "fed_frames": 175,
+      "observations": 23,
+      "raw_v1_sha256_compared_prefix": "d527fe3d874425b21caa530e45fd8b62e557200e8ae491e7cb64ed1a1fae0de4",
+      "input_sha256": "d88fc6a7c2c61918f29bc544caef686afafaaaf73bbf24c86469303fb4c2a381",
+      "wall_ms": 2433.441458,
+      "frames_per_second": 71.91461270813937,
+      "sentence_changes": 0,
+      "matches": "EXPERIMENTAL_WORD_BLEND_dropfree_p2_nospin_h1_subset_serial",
+      "released_unprocessed": 152
+    },
+    {
+      "engine": "EXPERIMENTAL_WORD_BLEND",
+      "sentence_changes": 12,
+      "final_sentence": "CHAIR HELLO WEEK TURN HOW1 TICKET ROAD UNDER SOME WHILE ROOM WALK2"
+    },
+    {
+      "arm": "EXPERIMENTAL_WORD_BLEND_02_legacy",
+      "fed_frames": 175,
+      "observations": 175,
+      "raw_v1_sha256_compared_prefix": "e94490508fd05766f4bc6df8c9b26db08737badb7027db2cdf6e700e61bb6249",
+      "input_sha256": "d88fc6a7c2c61918f29bc544caef686afafaaaf73bbf24c86469303fb4c2a381",
+      "wall_ms": 32473.983998,
+      "frames_per_second": 5.388929181303343,
+      "sentence_changes": 12,
+      "matches": null
+    },
+    {
+      "arm": "EXPERIMENTAL_WORD_BLEND_02_serial",
+      "fed_frames": 175,
+      "observations": 175,
+      "raw_v1_sha256_compared_prefix": "e94490508fd05766f4bc6df8c9b26db08737badb7027db2cdf6e700e61bb6249",
+      "input_sha256": "d88fc6a7c2c61918f29bc544caef686afafaaaf73bbf24c86469303fb4c2a381",
+      "wall_ms": 32195.333477,
+      "frames_per_second": 5.435570348262369,
+      "sentence_changes": 12,
+      "matches": "EXPERIMENTAL_WORD_BLEND_02_legacy"
+    },
+    {
+      "arm": "EXPERIMENTAL_WORD_BLEND_02_pipelined",
+      "fed_frames": 175,
+      "observations": 174,
+      "raw_v1_sha256_compared_prefix": "5215e1e272092658b088dfed28ddfe487a2b56676192decc202c865b62c592b3",
+      "input_sha256": "d88fc6a7c2c61918f29bc544caef686afafaaaf73bbf24c86469303fb4c2a381",
+      "wall_ms": 23521.04473,
+      "frames_per_second": 7.440145708187682,
+      "sentence_changes": 12,
+      "matches": "EXPERIMENTAL_WORD_BLEND_02_serial"
+    },
+    {
+      "arm": "EXPERIMENTAL_WORD_BLEND_02_emit_p2_spin_h2",
+      "fed_frames": 175,
+      "observations": 175,
+      "raw_v1_sha256_compared_prefix": "e94490508fd05766f4bc6df8c9b26db08737badb7027db2cdf6e700e61bb6249",
+      "input_sha256": "d88fc6a7c2c61918f29bc544caef686afafaaaf73bbf24c86469303fb4c2a381",
+      "wall_ms": 17326.045202,
+      "frames_per_second": 10.100400752723374,
+      "sentence_changes": 12,
+      "matches": "EXPERIMENTAL_WORD_BLEND_02_serial"
+    },
+    {
+      "arm": "EXPERIMENTAL_WORD_BLEND_02_emit_p2_nospin_h1",
+      "fed_frames": 175,
+      "observations": 175,
+      "raw_v1_sha256_compared_prefix": "e94490508fd05766f4bc6df8c9b26db08737badb7027db2cdf6e700e61bb6249",
+      "input_sha256": "d88fc6a7c2c61918f29bc544caef686afafaaaf73bbf24c86469303fb4c2a381",
+      "wall_ms": 17405.807493,
+      "frames_per_second": 10.054115562887779,
+      "sentence_changes": 12,
+      "matches": "EXPERIMENTAL_WORD_BLEND_02_serial"
+    },
+    {
+      "arm": "EXPERIMENTAL_WORD_BLEND_02_dropfree_p2_nospin_h1",
+      "fed_frames": 175,
+      "observations": 24,
+      "raw_v1_sha256_compared_prefix": "22b964a1fceb10ae7d5e5963c7a109fd6d71bb3b7e0132202c4687f32bede905",
+      "input_sha256": "d88fc6a7c2c61918f29bc544caef686afafaaaf73bbf24c86469303fb4c2a381",
+      "wall_ms": 2506.763385,
+      "frames_per_second": 69.81113616353542,
+      "sentence_changes": 1,
+      "matches": "EXPERIMENTAL_WORD_BLEND_02_dropfree_p2_nospin_h1_subset_serial",
+      "released_unprocessed": 151
+    },
+    {
+      "engine": "EXPERIMENTAL_WORD_BLEND_02",
+      "sentence_changes": 12,
+      "final_sentence": "CHAIR HELLO FRIEND TURN HOW1 TICKET ROAD UNDER BOOK WHILE ROOM WALK2"
+    }
+  ]
+}

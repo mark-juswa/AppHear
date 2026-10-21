@@ -1,0 +1,86 @@
+﻿{
+  "schema_version": "apphear.v3.pipeline_trace_summary.v1",
+  "pipelined_pose": false,
+  "emit_on_hands": false,
+  "budget": {
+    "pose_threads": null,
+    "pose_spinning": null,
+    "hand_threads": null
+  },
+  "observations": 575,
+  "observations_per_second_capture_span": 5.724013096614682,
+  "observations_per_second_completion_span": 5.724436615594474,
+  "interval_ms": {
+    "p05": 133.307969,
+    "p50": 199.961979,
+    "p95": 266.615989,
+    "max": 267.036042,
+    "mean": 174.7026051689906
+  },
+  "camera_frame_ms": 66.67150166666666,
+  "interval_camera_frames": {
+    "1": 0.010452961672473868,
+    "2": 0.4146341463414634,
+    "3": 0.5209059233449478,
+    "4": 0.05400696864111498
+  },
+  "capture_to_completed_ms": {
+    "p05": 240.918289,
+    "p50": 302.529525,
+    "p95": 362.330272,
+    "max": 408.159376,
+    "mean": 302.2106101356523
+  },
+  "capture_clock_note": "capture and completion clocks may differ by a constant offset; compare arms within one boot, never absolute values across devices",
+  "timing": {
+    "preprocess_ms": {
+      "p50": 2.600104,
+      "p95": 3.449687
+    },
+    "pose_inference_and_output_ms": {
+      "p50": 71.93599,
+      "p95": 82.327865
+    },
+    "hands_wall_ms": {
+      "p50": 65.149271,
+      "p95": 110.728281
+    },
+    "analyzer_ms": {
+      "p50": 167.634427,
+      "p95": 215.023073
+    }
+  },
+  "heap": {
+    "java_heap_bytes": {
+      "first": 20959440,
+      "max": 23187784
+    },
+    "native_heap_bytes": {
+      "first": 161400984,
+      "max": 161561848
+    }
+  },
+  "frame_drops": "NOT_MEASURED_USE_SENSOR_TIMESTAMP_JOIN",
+  "accuracy_claim": "NONE",
+  "warmup_rows_excluded": 40,
+  "segment": {
+    "selected": 0,
+    "of": 1,
+    "rows_per_segment": [
+      615
+    ]
+  },
+  "cpu": {
+    "process_cpu_percent_of_one_core": 185.8936168489935,
+    "top_threads_percent_of_one_core": {
+      "pool-4-thread-1": 110.6709553794797,
+      "DefaultDispatch": 43.388286578854796,
+      "RenderThread": 8.86473077088802,
+      "example.apphear": 8.57774308406071,
+      "CameraX-camerax": 2.5722600078595934,
+      "Binder:1394_7": 2.465968271997627,
+      "Binder:1394_3": 2.2533848002736936,
+      "CameraX-core_ca": 1.9663971134463833
+    }
+  }
+}

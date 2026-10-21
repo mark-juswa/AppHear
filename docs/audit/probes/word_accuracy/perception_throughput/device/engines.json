@@ -1,0 +1,158 @@
+{
+  "schema": "apphear.v3_pipeline_engine_parity.v1",
+  "accuracy_claim": "NONE",
+  "arms": [
+    {
+      "arm": "STABLE_legacy",
+      "fed_frames": 175,
+      "observations": 175,
+      "raw_v1_sha256_compared_prefix": "e94490508fd05766f4bc6df8c9b26db08737badb7027db2cdf6e700e61bb6249",
+      "input_sha256": "d88fc6a7c2c61918f29bc544caef686afafaaaf73bbf24c86469303fb4c2a381",
+      "wall_ms": 20166.196242,
+      "frames_per_second": 8.677888378152776,
+      "sentence_changes": 2,
+      "matches": null
+    },
+    {
+      "arm": "STABLE_serial",
+      "fed_frames": 175,
+      "observations": 175,
+      "raw_v1_sha256_compared_prefix": "e94490508fd05766f4bc6df8c9b26db08737badb7027db2cdf6e700e61bb6249",
+      "input_sha256": "d88fc6a7c2c61918f29bc544caef686afafaaaf73bbf24c86469303fb4c2a381",
+      "wall_ms": 21047.875669,
+      "frames_per_second": 8.314378265629236,
+      "sentence_changes": 2,
+      "matches": "STABLE_legacy"
+    },
+    {
+      "arm": "STABLE_pipelined",
+      "fed_frames": 175,
+      "observations": 174,
+      "raw_v1_sha256_compared_prefix": "5215e1e272092658b088dfed28ddfe487a2b56676192decc202c865b62c592b3",
+      "input_sha256": "d88fc6a7c2c61918f29bc544caef686afafaaaf73bbf24c86469303fb4c2a381",
+      "wall_ms": 14740.694057,
+      "frames_per_second": 11.871896894630732,
+      "sentence_changes": 2,
+      "matches": "STABLE_serial"
+    },
+    {
+      "engine": "STABLE",
+      "sentence_changes": 2,
+      "final_sentence": "CHAIR HELLO"
+    },
+    {
+      "arm": "EXPERIMENTAL_legacy",
+      "fed_frames": 175,
+      "observations": 175,
+      "raw_v1_sha256_compared_prefix": "e94490508fd05766f4bc6df8c9b26db08737badb7027db2cdf6e700e61bb6249",
+      "input_sha256": "d88fc6a7c2c61918f29bc544caef686afafaaaf73bbf24c86469303fb4c2a381",
+      "wall_ms": 20305.086347,
+      "frames_per_second": 8.61853020515993,
+      "sentence_changes": 12,
+      "matches": null
+    },
+    {
+      "arm": "EXPERIMENTAL_serial",
+      "fed_frames": 175,
+      "observations": 175,
+      "raw_v1_sha256_compared_prefix": "e94490508fd05766f4bc6df8c9b26db08737badb7027db2cdf6e700e61bb6249",
+      "input_sha256": "d88fc6a7c2c61918f29bc544caef686afafaaaf73bbf24c86469303fb4c2a381",
+      "wall_ms": 20215.642753,
+      "frames_per_second": 8.656662671486417,
+      "sentence_changes": 12,
+      "matches": "EXPERIMENTAL_legacy"
+    },
+    {
+      "arm": "EXPERIMENTAL_pipelined",
+      "fed_frames": 175,
+      "observations": 174,
+      "raw_v1_sha256_compared_prefix": "5215e1e272092658b088dfed28ddfe487a2b56676192decc202c865b62c592b3",
+      "input_sha256": "d88fc6a7c2c61918f29bc544caef686afafaaaf73bbf24c86469303fb4c2a381",
+      "wall_ms": 15197.588431,
+      "frames_per_second": 11.514984814500929,
+      "sentence_changes": 12,
+      "matches": "EXPERIMENTAL_serial"
+    },
+    {
+      "engine": "EXPERIMENTAL",
+      "sentence_changes": 12,
+      "final_sentence": "CHAIR HELLO ASK TURN HOW1 FATHER ROAD UNDER SOME MEET ROOM WALK2"
+    },
+    {
+      "arm": "EXPERIMENTAL_WORD_BLEND_legacy",
+      "fed_frames": 175,
+      "observations": 175,
+      "raw_v1_sha256_compared_prefix": "e94490508fd05766f4bc6df8c9b26db08737badb7027db2cdf6e700e61bb6249",
+      "input_sha256": "d88fc6a7c2c61918f29bc544caef686afafaaaf73bbf24c86469303fb4c2a381",
+      "wall_ms": 26136.278376,
+      "frames_per_second": 6.695674016109967,
+      "sentence_changes": 12,
+      "matches": null
+    },
+    {
+      "arm": "EXPERIMENTAL_WORD_BLEND_serial",
+      "fed_frames": 175,
+      "observations": 175,
+      "raw_v1_sha256_compared_prefix": "e94490508fd05766f4bc6df8c9b26db08737badb7027db2cdf6e700e61bb6249",
+      "input_sha256": "d88fc6a7c2c61918f29bc544caef686afafaaaf73bbf24c86469303fb4c2a381",
+      "wall_ms": 24956.473845,
+      "frames_per_second": 7.01220857910025,
+      "sentence_changes": 12,
+      "matches": "EXPERIMENTAL_WORD_BLEND_legacy"
+    },
+    {
+      "arm": "EXPERIMENTAL_WORD_BLEND_pipelined",
+      "fed_frames": 175,
+      "observations": 174,
+      "raw_v1_sha256_compared_prefix": "5215e1e272092658b088dfed28ddfe487a2b56676192decc202c865b62c592b3",
+      "input_sha256": "d88fc6a7c2c61918f29bc544caef686afafaaaf73bbf24c86469303fb4c2a381",
+      "wall_ms": 17708.328691,
+      "frames_per_second": 9.882355531888292,
+      "sentence_changes": 12,
+      "matches": "EXPERIMENTAL_WORD_BLEND_serial"
+    },
+    {
+      "engine": "EXPERIMENTAL_WORD_BLEND",
+      "sentence_changes": 12,
+      "final_sentence": "CHAIR HELLO WEEK TURN HOW1 TICKET ROAD UNDER SOME WHILE ROOM WALK2"
+    },
+    {
+      "arm": "EXPERIMENTAL_WORD_BLEND_02_legacy",
+      "fed_frames": 175,
+      "observations": 175,
+      "raw_v1_sha256_compared_prefix": "e94490508fd05766f4bc6df8c9b26db08737badb7027db2cdf6e700e61bb6249",
+      "input_sha256": "d88fc6a7c2c61918f29bc544caef686afafaaaf73bbf24c86469303fb4c2a381",
+      "wall_ms": 24810.506865,
+      "frames_per_second": 7.05346331504703,
+      "sentence_changes": 12,
+      "matches": null
+    },
+    {
+      "arm": "EXPERIMENTAL_WORD_BLEND_02_serial",
+      "fed_frames": 175,
+      "observations": 175,
+      "raw_v1_sha256_compared_prefix": "e94490508fd05766f4bc6df8c9b26db08737badb7027db2cdf6e700e61bb6249",
+      "input_sha256": "d88fc6a7c2c61918f29bc544caef686afafaaaf73bbf24c86469303fb4c2a381",
+      "wall_ms": 24620.040876,
+      "frames_per_second": 7.108030440785853,
+      "sentence_changes": 12,
+      "matches": "EXPERIMENTAL_WORD_BLEND_02_legacy"
+    },
+    {
+      "arm": "EXPERIMENTAL_WORD_BLEND_02_pipelined",
+      "fed_frames": 175,
+      "observations": 174,
+      "raw_v1_sha256_compared_prefix": "5215e1e272092658b088dfed28ddfe487a2b56676192decc202c865b62c592b3",
+      "input_sha256": "d88fc6a7c2c61918f29bc544caef686afafaaaf73bbf24c86469303fb4c2a381",
+      "wall_ms": 17202.953639,
+      "frames_per_second": 10.172671720934352,
+      "sentence_changes": 12,
+      "matches": "EXPERIMENTAL_WORD_BLEND_02_serial"
+    },
+    {
+      "engine": "EXPERIMENTAL_WORD_BLEND_02",
+      "sentence_changes": 12,
+      "final_sentence": "CHAIR HELLO FRIEND TURN HOW1 TICKET ROAD UNDER BOOK WHILE ROOM WALK2"
+    }
+  ]
+}

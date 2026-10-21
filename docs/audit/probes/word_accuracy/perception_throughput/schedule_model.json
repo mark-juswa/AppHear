@@ -1,0 +1,124 @@
+{
+  "schema": "apphear.v3_schedule_model.v1",
+  "accuracy_claim": "NONE",
+  "frame_ms": 66.654,
+  "camera_delay_ms": 99.721555,
+  "deliver_ms": 11.631966500000011,
+  "calibration": {
+    "serial_replay_live_serial_A-stream": {
+      "schedule": "serial",
+      "observations_per_second": 5.882860482080806,
+      "mean_gap_frames": 2.5502645502645502,
+      "gap_mix": {
+        "1": 0.015873015873015872,
+        "2": 0.4735449735449758,
+        "3": 0.4576719576719598,
+        "4": 0.05026455026455026,
+        "5": 0.0026455026455026454
+      },
+      "latency_p50_ms": 301.7667519999013,
+      "latency_p95_ms": 366.86416449999524
+    },
+    "serial_replay_live_serial_C-buffer": {
+      "schedule": "serial",
+      "observations_per_second": 5.33785629795977,
+      "mean_gap_frames": 2.8106508875739644,
+      "gap_mix": {
+        "2": 0.25246548323471457,
+        "3": 0.6903353057199239,
+        "4": 0.051282051282051315,
+        "5": 0.00591715976331361
+      },
+      "latency_p50_ms": 325.09424550002586,
+      "latency_p95_ms": 367.2538729999942
+    },
+    "pipelined_replay_B": {
+      "schedule": "pipelined",
+      "observations_per_second": 6.750742684306563,
+      "mean_gap_frames": 2.2224,
+      "gap_mix": {
+        "1": 0.1168000000000001,
+        "2": 0.5840000000000003,
+        "3": 0.2591999999999993,
+        "4": 0.039999999999999994
+      },
+      "latency_p50_ms": 573.238803999935,
+      "latency_p95_ms": 668.3858110000147
+    }
+  },
+  "prediction": {
+    "emit_with_pipelined_B_contention": {
+      "schedule": "emit",
+      "observations_per_second": 6.956877362254384,
+      "mean_gap_frames": 2.1565495207667733,
+      "gap_mix": {
+        "1": 0.052715654952076675,
+        "2": 0.7396166134185276,
+        "3": 0.20607028753993548,
+        "4": 0.001597444089456869
+      },
+      "latency_p50_ms": 558.8234774999801,
+      "latency_p95_ms": 634.2256724999897
+    },
+    "emit_drop_with_pipelined_B_contention": {
+      "schedule": "emit_drop",
+      "observations_per_second": 5.873536234548729,
+      "mean_gap_frames": 2.5543130990415337,
+      "gap_mix": {
+        "1": 0.006389776357827476,
+        "2": 0.43610223642172685,
+        "3": 0.5543130990415348,
+        "4": 0.003194888178913738
+      },
+      "latency_p50_ms": 365.2406045000007,
+      "latency_p95_ms": 440.44675049999205
+    },
+    "emit_without_contention_live_serial_A-stream": {
+      "schedule": "emit",
+      "observations_per_second": 10.659920121665222,
+      "mean_gap_frames": 1.4074074074074074,
+      "gap_mix": {
+        "1": 0.5925925925925961,
+        "2": 0.407407407407409
+      },
+      "latency_p50_ms": 394.5102845000147,
+      "latency_p95_ms": 494.5515655000163
+    },
+    "emit_drop_without_contention_live_serial_A-stream": {
+      "schedule": "emit_drop",
+      "observations_per_second": 7.5413264690503965,
+      "mean_gap_frames": 1.9894179894179893,
+      "gap_mix": {
+        "1": 0.015873015873015872,
+        "2": 0.9788359788359864,
+        "3": 0.005291005291005291
+      },
+      "latency_p50_ms": 256.3103965,
+      "latency_p95_ms": 321.67940550000276
+    },
+    "emit_without_contention_live_serial_C-buffer": {
+      "schedule": "emit",
+      "observations_per_second": 9.789504793555563,
+      "mean_gap_frames": 1.532544378698225,
+      "gap_mix": {
+        "1": 0.47337278106509045,
+        "2": 0.5207100591715995,
+        "3": 0.00591715976331361
+      },
+      "latency_p50_ms": 450.32756849999714,
+      "latency_p95_ms": 501.468331500002
+    },
+    "emit_drop_without_contention_live_serial_C-buffer": {
+      "schedule": "emit_drop",
+      "observations_per_second": 7.494034704032191,
+      "mean_gap_frames": 2.001972386587771,
+      "gap_mix": {
+        "1": 0.009861932938856016,
+        "2": 0.978303747534521,
+        "3": 0.011834319526627219
+      },
+      "latency_p50_ms": 297.3581045000028,
+      "latency_p95_ms": 318.52923049999663
+    }
+  }
+}

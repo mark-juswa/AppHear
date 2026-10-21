@@ -1,0 +1,49 @@
+﻿{
+    "finished_local":  "2026-10-20T11:32:47.6508330+08:00",
+    "seconds":  90,
+    "arm":  "serial",
+    "label":  "live_serial_C",
+    "pss_samples":  [
+                        {
+                            "t_s":  0.2,
+                            "pss_kb":  303255
+                        },
+                        {
+                            "t_s":  10.6,
+                            "pss_kb":  306718
+                        },
+                        {
+                            "t_s":  20.9,
+                            "pss_kb":  296369
+                        },
+                        {
+                            "t_s":  31.2,
+                            "pss_kb":  298249
+                        },
+                        {
+                            "t_s":  41.6,
+                            "pss_kb":  296719
+                        },
+                        {
+                            "t_s":  52,
+                            "pss_kb":  294743
+                        },
+                        {
+                            "t_s":  62.3,
+                            "pss_kb":  303715
+                        },
+                        {
+                            "t_s":  72.7,
+                            "pss_kb":  301274
+                        },
+                        {
+                            "t_s":  83,
+                            "pss_kb":  302547
+                        }
+                    ],
+    "warmup_seconds":  10,
+    "cpu_wall_seconds":  93.538062799999992,
+    "first_install_time":  "2026-10-15 20:28:05",
+    "app_apk_sha256":  "341338981b222f972ec2d4d53dad1fe4cb2a6afe621c6b525feb1df719dab5f8",
+    "serial":  "3ab64582"
+}

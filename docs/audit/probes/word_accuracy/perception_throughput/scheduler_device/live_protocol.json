@@ -1,0 +1,87 @@
+{
+ "schema": "apphear.word_phone_ab_protocol.v1",
+ "arms": [
+  "SERIAL",
+  "LOW_LATENCY",
+  "SERIAL",
+  "LOW_LATENCY"
+ ],
+ "rest_between_blocks_s": 7,
+ "blocks": [
+  {
+   "name": "a01_HELLO",
+   "signs": [
+    "HELLO",
+    "HELLO"
+   ]
+  },
+  {
+   "name": "a02_HOME",
+   "signs": [
+    "HOME",
+    "HOME"
+   ]
+  },
+  {
+   "name": "a03_TIME",
+   "signs": [
+    "TIME",
+    "TIME"
+   ]
+  },
+  {
+   "name": "a04_HOT",
+   "signs": [
+    "HOT",
+    "HOT"
+   ]
+  },
+  {
+   "name": "a05_TIRED",
+   "signs": [
+    "TIRED",
+    "TIRED"
+   ]
+  },
+  {
+   "name": "a06_COLD",
+   "signs": [
+    "COLD",
+    "COLD"
+   ]
+  },
+  {
+   "name": "a07_SORRY",
+   "signs": [
+    "SORRY",
+    "SORRY"
+   ]
+  },
+  {
+   "name": "a08_PLEASE",
+   "signs": [
+    "PLEASE",
+    "PLEASE"
+   ]
+  },
+  {
+   "name": "b_SEQUENCE",
+   "signs": [
+    "HELLO",
+    "HOME",
+    "TIME",
+    "HELLO",
+    "HOME",
+    "TIME"
+   ]
+  },
+  {
+   "name": "c_TWO_HANDS_BUSY",
+   "signs": []
+  },
+  {
+   "name": "d_NON_SIGN_MOVEMENT",
+   "signs": []
+  }
+ ]
+}

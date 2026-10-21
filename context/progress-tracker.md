@@ -16,6 +16,30 @@ provisioning remain open; no automatic new experiment is authorized. See docs/te
 
 # Progress Tracker
 
+**2026-10-21 - Low-latency perception scheduler: integrated behind a debug setting; phone A/B says no benefit (outcome C); reverted.**
+See `docs/audit/PERCEPTION_SCHEDULER_INTEGRATION_2026-10-21.md` sections 9-10; evidence in `perception_throughput/scheduler_device/`. Default and release stay SERIAL.
+- [x] 06e40b2f + reviewed emit-on-hands patch + debug setting "Perception scheduling" (SERIAL default /
+  LOW_LATENCY = p2/nospin/h1 emit-on-hands), one analyzer per screen open, independent of the engine.
+- [x] JVM 278/278 (incl. PerceptionScheduleTest 3/3); host tool tests 8/8; APK app ca8da414..., test 7161826a...;
+  models unchanged. 32 stale CRLF protected assets in this worktree restored to committed bytes.
+- [x] Installed with adb install -r (backup app 0469d1b8..., data kept). On-device parity 9/9 + host 32/32; smoke OK.
+- [x] Live L/S/L/S (WORD_BLEND_02, one signer): Low-latency 6.2 vs 5.57 obs/s (+11%, gate +15%), p50 +62 ms,
+  p95 +80 ms (gates +30/+60), CPU 248% vs 188%; intended words 16/44 vs 22/44, extras 27 vs 21. Fails both gates.
+- [x] Reverted by user decision: Android source back at HEAD (patch + files saved in
+  apphear_artifacts/perception_scheduler_eval_20261021/reverted_integration/); report, evidence and host tools kept.
+  Phone restored to the previous build with adb install -r (app 0469d1b8..., data and settings kept).
+- Next: Sem-Lex package 03 human review, then WORD_BLEND_03 in its own milestone.
+
+**2026-10-20 - Temporal information vs generalization: cadence is the biggest end-to-end lever; no model trained.**
+See `docs/audit/WORD_TEMPORAL_2026-10-20.md`. Research only; WORD_BLEND_02, Android and perception unchanged.
+- [x] WORD_BLEND_02 on identical clips: every frame 53.4%, 200 ms 45.3%, 400 ms 33.5% (DEV + Sem-Lex EVAL);
+  no density mismatch. Even with every frame 47% wrong although in-sample fit is 90%.
+- [x] Hard classes at 200 ms: 26 cross-signer generalization, 11 temporal, 10 weak hands; minimal pairs
+  (CHAIR/SIT, NOW/TODAY, HAPPY/PLEASE) do not improve with density. Earlier "information-limited" claim corrected.
+- [x] End to end (unchanged Arm A + CB + BLEND_02, held-out streams): correct words natural 44.3% -> 51.1% and
+  continuous 26.4% -> 30.3% from 200 to 133 ms; fewer extra events.
+- Next: isolated perception-throughput milestone (scheduling only, bit-identical outputs); package 03 review.
+
 **2026-10-18 - WORD priorities after WORD_BLEND_02; review package 03 prepared; no new model trained.**
 See `docs/audit/WORD_PRIORITIES_2026-10-18.md`. Research only; Android, S2, decoder and Candidate01 unchanged.
 - [x] Locks verified: DEBUG_WORD_BLEND_02 (APK 9b2f6bd9..., on-device hash equal), LIVE_WORD_BLEND, LIVE_EXPERIMENTAL.

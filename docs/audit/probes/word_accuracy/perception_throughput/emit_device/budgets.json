@@ -1,0 +1,160 @@
+{
+  "schema": "apphear.v3_pipeline_parity.v1",
+  "accuracy_claim": "NONE",
+  "arms": [
+    {
+      "arm": "phone_frames_legacy",
+      "fed_frames": 52,
+      "observations": 52,
+      "raw_v1_sha256_compared_prefix": "0227d6500809d2451d3af33e7b88be202d89f0a1b78c21182bfb1820e02fed89",
+      "input_sha256": "a320786601529bfec6315ac3dd6d58c4f5e9d281c8667401cd3cf12a02cfb23d",
+      "wall_ms": 8093.084737,
+      "frames_per_second": 6.425238544984729,
+      "sentence_changes": 1,
+      "matches": null
+    },
+    {
+      "arm": "phone_frames_serial",
+      "fed_frames": 52,
+      "observations": 52,
+      "raw_v1_sha256_compared_prefix": "0227d6500809d2451d3af33e7b88be202d89f0a1b78c21182bfb1820e02fed89",
+      "input_sha256": "a320786601529bfec6315ac3dd6d58c4f5e9d281c8667401cd3cf12a02cfb23d",
+      "wall_ms": 7836.729945,
+      "frames_per_second": 6.635420687576086,
+      "sentence_changes": 1,
+      "matches": "phone_frames_legacy"
+    },
+    {
+      "arm": "phone_frames_pipelined_p2_spin_h2",
+      "fed_frames": 52,
+      "observations": 51,
+      "raw_v1_sha256_compared_prefix": "9a4cd3c8e5851b778e856140b9881bfd4c08cb0dca1ebef45221859bc0b8cfeb",
+      "input_sha256": "a320786601529bfec6315ac3dd6d58c4f5e9d281c8667401cd3cf12a02cfb23d",
+      "wall_ms": 5371.652238,
+      "frames_per_second": 9.680447969461422,
+      "sentence_changes": 1,
+      "matches": "phone_frames_serial"
+    },
+    {
+      "arm": "phone_frames_pipelined_p2_nospin_h2",
+      "fed_frames": 52,
+      "observations": 51,
+      "raw_v1_sha256_compared_prefix": "9a4cd3c8e5851b778e856140b9881bfd4c08cb0dca1ebef45221859bc0b8cfeb",
+      "input_sha256": "a320786601529bfec6315ac3dd6d58c4f5e9d281c8667401cd3cf12a02cfb23d",
+      "wall_ms": 5048.353124,
+      "frames_per_second": 10.300388804576817,
+      "sentence_changes": 1,
+      "matches": "phone_frames_serial"
+    },
+    {
+      "arm": "phone_frames_pipelined_p2_nospin_h1",
+      "fed_frames": 52,
+      "observations": 51,
+      "raw_v1_sha256_compared_prefix": "9a4cd3c8e5851b778e856140b9881bfd4c08cb0dca1ebef45221859bc0b8cfeb",
+      "input_sha256": "a320786601529bfec6315ac3dd6d58c4f5e9d281c8667401cd3cf12a02cfb23d",
+      "wall_ms": 5240.196768,
+      "frames_per_second": 9.923291491179363,
+      "sentence_changes": 1,
+      "matches": "phone_frames_serial"
+    },
+    {
+      "arm": "phone_frames_emit_p2_spin_h2",
+      "fed_frames": 52,
+      "observations": 52,
+      "raw_v1_sha256_compared_prefix": "0227d6500809d2451d3af33e7b88be202d89f0a1b78c21182bfb1820e02fed89",
+      "input_sha256": "a320786601529bfec6315ac3dd6d58c4f5e9d281c8667401cd3cf12a02cfb23d",
+      "wall_ms": 4413.066508,
+      "frames_per_second": 11.783189740225868,
+      "sentence_changes": 1,
+      "matches": "phone_frames_serial"
+    },
+    {
+      "arm": "phone_frames_emit_p2_nospin_h1",
+      "fed_frames": 52,
+      "observations": 52,
+      "raw_v1_sha256_compared_prefix": "0227d6500809d2451d3af33e7b88be202d89f0a1b78c21182bfb1820e02fed89",
+      "input_sha256": "a320786601529bfec6315ac3dd6d58c4f5e9d281c8667401cd3cf12a02cfb23d",
+      "wall_ms": 5075.953175,
+      "frames_per_second": 10.244381342229383,
+      "sentence_changes": 1,
+      "matches": "phone_frames_serial"
+    },
+    {
+      "arm": "dev_stream_legacy",
+      "fed_frames": 175,
+      "observations": 175,
+      "raw_v1_sha256_compared_prefix": "e94490508fd05766f4bc6df8c9b26db08737badb7027db2cdf6e700e61bb6249",
+      "input_sha256": "d88fc6a7c2c61918f29bc544caef686afafaaaf73bbf24c86469303fb4c2a381",
+      "wall_ms": 32004.560978,
+      "frames_per_second": 5.46797064706794,
+      "sentence_changes": 2,
+      "matches": null
+    },
+    {
+      "arm": "dev_stream_serial",
+      "fed_frames": 175,
+      "observations": 175,
+      "raw_v1_sha256_compared_prefix": "e94490508fd05766f4bc6df8c9b26db08737badb7027db2cdf6e700e61bb6249",
+      "input_sha256": "d88fc6a7c2c61918f29bc544caef686afafaaaf73bbf24c86469303fb4c2a381",
+      "wall_ms": 50645.152793,
+      "frames_per_second": 3.4554145924935957,
+      "sentence_changes": 2,
+      "matches": "dev_stream_legacy"
+    },
+    {
+      "arm": "dev_stream_pipelined_p2_spin_h2",
+      "fed_frames": 175,
+      "observations": 174,
+      "raw_v1_sha256_compared_prefix": "5215e1e272092658b088dfed28ddfe487a2b56676192decc202c865b62c592b3",
+      "input_sha256": "d88fc6a7c2c61918f29bc544caef686afafaaaf73bbf24c86469303fb4c2a381",
+      "wall_ms": 26618.03598,
+      "frames_per_second": 6.574489572840378,
+      "sentence_changes": 2,
+      "matches": "dev_stream_serial"
+    },
+    {
+      "arm": "dev_stream_pipelined_p2_nospin_h2",
+      "fed_frames": 175,
+      "observations": 174,
+      "raw_v1_sha256_compared_prefix": "5215e1e272092658b088dfed28ddfe487a2b56676192decc202c865b62c592b3",
+      "input_sha256": "d88fc6a7c2c61918f29bc544caef686afafaaaf73bbf24c86469303fb4c2a381",
+      "wall_ms": 19708.063066,
+      "frames_per_second": 8.87961436970977,
+      "sentence_changes": 2,
+      "matches": "dev_stream_serial"
+    },
+    {
+      "arm": "dev_stream_pipelined_p2_nospin_h1",
+      "fed_frames": 175,
+      "observations": 174,
+      "raw_v1_sha256_compared_prefix": "5215e1e272092658b088dfed28ddfe487a2b56676192decc202c865b62c592b3",
+      "input_sha256": "d88fc6a7c2c61918f29bc544caef686afafaaaf73bbf24c86469303fb4c2a381",
+      "wall_ms": 19857.488169,
+      "frames_per_second": 8.81279638747043,
+      "sentence_changes": 2,
+      "matches": "dev_stream_serial"
+    },
+    {
+      "arm": "dev_stream_emit_p2_spin_h2",
+      "fed_frames": 175,
+      "observations": 175,
+      "raw_v1_sha256_compared_prefix": "e94490508fd05766f4bc6df8c9b26db08737badb7027db2cdf6e700e61bb6249",
+      "input_sha256": "d88fc6a7c2c61918f29bc544caef686afafaaaf73bbf24c86469303fb4c2a381",
+      "wall_ms": 17838.397858,
+      "frames_per_second": 9.810298065614543,
+      "sentence_changes": 2,
+      "matches": "dev_stream_serial"
+    },
+    {
+      "arm": "dev_stream_emit_p2_nospin_h1",
+      "fed_frames": 175,
+      "observations": 175,
+      "raw_v1_sha256_compared_prefix": "e94490508fd05766f4bc6df8c9b26db08737badb7027db2cdf6e700e61bb6249",
+      "input_sha256": "d88fc6a7c2c61918f29bc544caef686afafaaaf73bbf24c86469303fb4c2a381",
+      "wall_ms": 19092.53541,
+      "frames_per_second": 9.165885841874157,
+      "sentence_changes": 2,
+      "matches": "dev_stream_serial"
+    }
+  ]
+}

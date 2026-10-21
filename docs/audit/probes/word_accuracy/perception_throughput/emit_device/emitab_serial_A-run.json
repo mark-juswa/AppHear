@@ -1,0 +1,66 @@
+﻿{
+    "finished_local":  "2026-10-20T13:50:26.2500500+08:00",
+    "seconds":  90,
+    "arm":  "serial",
+    "label":  "emitab_serial_A",
+    "pss_samples":  [
+                        {
+                            "t_s":  0.3,
+                            "pss_kb":  286647
+                        },
+                        {
+                            "t_s":  10.9,
+                            "pss_kb":  285366
+                        },
+                        {
+                            "t_s":  21.2,
+                            "pss_kb":  283114
+                        },
+                        {
+                            "t_s":  31.5,
+                            "pss_kb":  284897
+                        },
+                        {
+                            "t_s":  42,
+                            "pss_kb":  283518
+                        },
+                        {
+                            "t_s":  52.4,
+                            "pss_kb":  283313
+                        },
+                        {
+                            "t_s":  62.7,
+                            "pss_kb":  286269
+                        },
+                        {
+                            "t_s":  73.3,
+                            "pss_kb":  287770
+                        },
+                        {
+                            "t_s":  83.6,
+                            "pss_kb":  284936
+                        }
+                    ],
+    "warmup_seconds":  10,
+    "cpu_wall_seconds":  94.1582727,
+    "first_install_time":  "2026-10-15 20:28:05",
+    "app_apk_sha256":  "0ea8dd27341a4e0953c4737c2217820d680060bf724779bc89704b56945773a6",
+    "serial":  "3ab64582",
+    "thermal_samples":  [
+                            {
+                                "t_s":  0.3,
+                                "thermal_status":  0,
+                                "battery_temp_c":  35.6
+                            },
+                            {
+                                "t_s":  31.5,
+                                "thermal_status":  0,
+                                "battery_temp_c":  36
+                            },
+                            {
+                                "t_s":  62.7,
+                                "thermal_status":  0,
+                                "battery_temp_c":  36.3
+                            }
+                        ]
+}

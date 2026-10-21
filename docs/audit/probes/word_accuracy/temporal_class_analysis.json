@@ -1,0 +1,8744 @@
+{
+ "clips": 2333,
+ "populations": {
+  "DEV": 816,
+  "SEMLEX_EVAL": 1517
+ },
+ "median_window_observations": {
+  "ALL": 39.0,
+  "100": 14.0,
+  "133": 10.0,
+  "200": 8.0,
+  "266": 6.0,
+  "400": 4.0,
+  "IRREGULAR": 6.0
+ },
+ "models": {
+  "frozen": {
+   "summary": {
+    "ALL": {
+     "DEV": 0.5196,
+     "SEMLEX_EVAL": 0.3382,
+     "ALL_POPS": 0.4016
+    },
+    "100": {
+     "DEV": 0.4963,
+     "SEMLEX_EVAL": 0.3102,
+     "ALL_POPS": 0.3753
+    },
+    "133": {
+     "DEV": 0.4859,
+     "SEMLEX_EVAL": 0.2963,
+     "ALL_POPS": 0.3626
+    },
+    "200": {
+     "DEV": 0.4369,
+     "SEMLEX_EVAL": 0.2647,
+     "ALL_POPS": 0.3249
+    },
+    "266": {
+     "DEV": 0.4203,
+     "SEMLEX_EVAL": 0.2376,
+     "ALL_POPS": 0.3015
+    },
+    "400": {
+     "DEV": 0.3382,
+     "SEMLEX_EVAL": 0.1895,
+     "ALL_POPS": 0.2415
+    },
+    "IRREGULAR": {
+     "DEV": 0.4185,
+     "SEMLEX_EVAL": 0.2488,
+     "ALL_POPS": 0.3082
+    }
+   },
+   "classes": {
+    "ABOUT2": {
+     "clips": 4,
+     "signers": 3,
+     "recall": {
+      "ALL": 0.25,
+      "100": 0.25,
+      "133": 0.25,
+      "200": 0.25,
+      "266": 0.25,
+      "400": 0.25,
+      "IRREGULAR": 0.25
+     },
+     "hand": 0.543,
+     "train_fit_all": 0.571,
+     "train_fit_266": 0.143,
+     "labels": [
+      "INCONSISTENT"
+     ]
+    },
+    "AFTERNOON": {
+     "clips": 7,
+     "signers": 7,
+     "recall": {
+      "ALL": 0.429,
+      "100": 0.429,
+      "133": 0.429,
+      "200": 0.286,
+      "266": 0.571,
+      "400": 0.357,
+      "IRREGULAR": 0.5
+     },
+     "hand": 0.558,
+     "train_fit_all": 0.786,
+     "train_fit_266": 0.5,
+     "labels": []
+    },
+    "AGAIN": {
+     "clips": 18,
+     "signers": 12,
+     "recall": {
+      "ALL": 0.167,
+      "100": 0.222,
+      "133": 0.194,
+      "200": 0.139,
+      "266": 0.139,
+      "400": 0.111,
+      "IRREGULAR": 0.194
+     },
+     "hand": 0.685,
+     "train_fit_all": 0.667,
+     "train_fit_266": 0.25,
+     "labels": []
+    },
+    "ALL": {
+     "clips": 3,
+     "signers": 3,
+     "recall": {
+      "ALL": 0.333,
+      "100": 0.667,
+      "133": 0.5,
+      "200": 0.0,
+      "266": 0.333,
+      "400": 0.167,
+      "IRREGULAR": 0.667
+     },
+     "hand": 0.477,
+     "train_fit_all": 0.667,
+     "train_fit_266": 0.467,
+     "labels": [
+      "TEMPORAL"
+     ]
+    },
+    "ALWAYS": {
+     "clips": 9,
+     "signers": 7,
+     "recall": {
+      "ALL": 0.333,
+      "100": 0.167,
+      "133": 0.111,
+      "200": 0.111,
+      "266": 0.111,
+      "400": 0.111,
+      "IRREGULAR": 0.222
+     },
+     "hand": 0.699,
+     "train_fit_all": 0.769,
+     "train_fit_266": 0.462,
+     "labels": []
+    },
+    "AND": {
+     "clips": 3,
+     "signers": 3,
+     "recall": {
+      "ALL": 0.667,
+      "100": 0.667,
+      "133": 0.5,
+      "200": 0.333,
+      "266": 0.5,
+      "400": 0.167,
+      "IRREGULAR": 0.333
+     },
+     "hand": 0.551,
+     "train_fit_all": 0.857,
+     "train_fit_266": 0.357,
+     "labels": [
+      "TEMPORAL"
+     ]
+    },
+    "ANY": {
+     "clips": 4,
+     "signers": 4,
+     "recall": {
+      "ALL": 1.0,
+      "100": 1.0,
+      "133": 0.75,
+      "200": 0.75,
+      "266": 0.875,
+      "400": 0.625,
+      "IRREGULAR": 0.875
+     },
+     "hand": 0.694,
+     "train_fit_all": 1.0,
+     "train_fit_266": 0.429,
+     "labels": [
+      "TEMPORAL"
+     ]
+    },
+    "ASK": {
+     "clips": 11,
+     "signers": 7,
+     "recall": {
+      "ALL": 0.364,
+      "100": 0.364,
+      "133": 0.409,
+      "200": 0.364,
+      "266": 0.455,
+      "400": 0.182,
+      "IRREGULAR": 0.273
+     },
+     "hand": 0.71,
+     "train_fit_all": 0.667,
+     "train_fit_266": 0.444,
+     "labels": []
+    },
+    "AT": {
+     "clips": 5,
+     "signers": 4,
+     "recall": {
+      "ALL": 0.4,
+      "100": 0.4,
+      "133": 0.2,
+      "200": 0.3,
+      "266": 0.3,
+      "400": 0.1,
+      "IRREGULAR": 0.3
+     },
+     "hand": 0.606,
+     "train_fit_all": 0.846,
+     "train_fit_266": 0.692,
+     "labels": []
+    },
+    "BABY1": {
+     "clips": 3,
+     "signers": 3,
+     "recall": {
+      "ALL": 0.667,
+      "100": 0.667,
+      "133": 0.667,
+      "200": 0.667,
+      "266": 0.667,
+      "400": 0.333,
+      "IRREGULAR": 0.333
+     },
+     "hand": 0.332,
+     "train_fit_all": 0.929,
+     "train_fit_266": 0.714,
+     "labels": [
+      "WEAK_HANDS"
+     ]
+    },
+    "BAD": {
+     "clips": 28,
+     "signers": 13,
+     "recall": {
+      "ALL": 0.25,
+      "100": 0.143,
+      "133": 0.125,
+      "200": 0.125,
+      "266": 0.089,
+      "400": 0.089,
+      "IRREGULAR": 0.054
+     },
+     "hand": 0.496,
+     "train_fit_all": 1.0,
+     "train_fit_266": 0.3,
+     "labels": [
+      "GENERALIZATION"
+     ]
+    },
+    "BAG2": {
+     "clips": 3,
+     "signers": 2,
+     "recall": {
+      "ALL": 0.667,
+      "100": 0.5,
+      "133": 0.5,
+      "200": 0.5,
+      "266": 0.667,
+      "400": 0.167,
+      "IRREGULAR": 0.667
+     },
+     "hand": 0.522,
+     "train_fit_all": 0.867,
+     "train_fit_266": 0.6,
+     "labels": []
+    },
+    "BECAUSE": {
+     "clips": 3,
+     "signers": 3,
+     "recall": {
+      "ALL": 1.0,
+      "100": 1.0,
+      "133": 1.0,
+      "200": 0.833,
+      "266": 0.833,
+      "400": 0.5,
+      "IRREGULAR": 0.5
+     },
+     "hand": 0.637,
+     "train_fit_all": 0.923,
+     "train_fit_266": 0.615,
+     "labels": []
+    },
+    "BECOME": {
+     "clips": 3,
+     "signers": 3,
+     "recall": {
+      "ALL": 0.0,
+      "100": 0.0,
+      "133": 0.0,
+      "200": 0.0,
+      "266": 0.0,
+      "400": 0.0,
+      "IRREGULAR": 0.0
+     },
+     "hand": 0.467,
+     "train_fit_all": 0.769,
+     "train_fit_266": 0.231,
+     "labels": []
+    },
+    "BED2": {
+     "clips": 14,
+     "signers": 10,
+     "recall": {
+      "ALL": 0.714,
+      "100": 0.714,
+      "133": 0.571,
+      "200": 0.5,
+      "266": 0.5,
+      "400": 0.429,
+      "IRREGULAR": 0.464
+     },
+     "hand": 0.569,
+     "train_fit_all": 0.933,
+     "train_fit_266": 0.667,
+     "labels": []
+    },
+    "BETWEEN": {
+     "clips": 3,
+     "signers": 3,
+     "recall": {
+      "ALL": 0.333,
+      "100": 0.333,
+      "133": 0.667,
+      "200": 0.667,
+      "266": 0.667,
+      "400": 0.667,
+      "IRREGULAR": 0.5
+     },
+     "hand": 0.544,
+     "train_fit_all": 0.786,
+     "train_fit_266": 0.5,
+     "labels": []
+    },
+    "BIG": {
+     "clips": 4,
+     "signers": 4,
+     "recall": {
+      "ALL": 1.0,
+      "100": 1.0,
+      "133": 1.0,
+      "200": 1.0,
+      "266": 1.0,
+      "400": 0.75,
+      "IRREGULAR": 1.0
+     },
+     "hand": 0.621,
+     "train_fit_all": 0.857,
+     "train_fit_266": 0.714,
+     "labels": []
+    },
+    "BOOK": {
+     "clips": 29,
+     "signers": 11,
+     "recall": {
+      "ALL": 0.483,
+      "100": 0.328,
+      "133": 0.379,
+      "200": 0.259,
+      "266": 0.293,
+      "400": 0.207,
+      "IRREGULAR": 0.241
+     },
+     "hand": 0.624,
+     "train_fit_all": 0.8,
+     "train_fit_266": 0.6,
+     "labels": []
+    },
+    "BOTH": {
+     "clips": 5,
+     "signers": 3,
+     "recall": {
+      "ALL": 1.0,
+      "100": 0.9,
+      "133": 0.9,
+      "200": 0.4,
+      "266": 0.8,
+      "400": 0.6,
+      "IRREGULAR": 0.4
+     },
+     "hand": 0.556,
+     "train_fit_all": 0.875,
+     "train_fit_266": 0.438,
+     "labels": [
+      "TEMPORAL"
+     ]
+    },
+    "BREAKFAST1": {
+     "clips": 9,
+     "signers": 9,
+     "recall": {
+      "ALL": 0.222,
+      "100": 0.167,
+      "133": 0.222,
+      "200": 0.167,
+      "266": 0.278,
+      "400": 0.111,
+      "IRREGULAR": 0.222
+     },
+     "hand": 0.659,
+     "train_fit_all": 0.611,
+     "train_fit_266": 0.333,
+     "labels": []
+    },
+    "BROTHER": {
+     "clips": 3,
+     "signers": 3,
+     "recall": {
+      "ALL": 0.667,
+      "100": 0.667,
+      "133": 0.5,
+      "200": 0.333,
+      "266": 0.167,
+      "400": 0.333,
+      "IRREGULAR": 0.333
+     },
+     "hand": 0.628,
+     "train_fit_all": 1.0,
+     "train_fit_266": 0.6,
+     "labels": [
+      "TEMPORAL"
+     ]
+    },
+    "BUSY": {
+     "clips": 3,
+     "signers": 3,
+     "recall": {
+      "ALL": 1.0,
+      "100": 0.833,
+      "133": 1.0,
+      "200": 0.667,
+      "266": 0.833,
+      "400": 0.5,
+      "IRREGULAR": 1.0
+     },
+     "hand": 0.565,
+     "train_fit_all": 0.812,
+     "train_fit_266": 0.438,
+     "labels": [
+      "TEMPORAL"
+     ]
+    },
+    "BUT": {
+     "clips": 4,
+     "signers": 4,
+     "recall": {
+      "ALL": 0.25,
+      "100": 0.25,
+      "133": 0.375,
+      "200": 0.25,
+      "266": 0.375,
+      "400": 0.5,
+      "IRREGULAR": 0.375
+     },
+     "hand": 0.803,
+     "train_fit_all": 0.571,
+     "train_fit_266": 0.429,
+     "labels": [
+      "INCONSISTENT"
+     ]
+    },
+    "BUY": {
+     "clips": 4,
+     "signers": 3,
+     "recall": {
+      "ALL": 0.5,
+      "100": 0.375,
+      "133": 0.5,
+      "200": 0.875,
+      "266": 0.5,
+      "400": 0.5,
+      "IRREGULAR": 0.375
+     },
+     "hand": 0.48,
+     "train_fit_all": 0.625,
+     "train_fit_266": 0.562,
+     "labels": []
+    },
+    "BYE": {
+     "clips": 2,
+     "signers": 2,
+     "recall": {
+      "ALL": 0.0,
+      "100": 0.25,
+      "133": 0.0,
+      "200": 0.25,
+      "266": 0.0,
+      "400": 0.0,
+      "IRREGULAR": 0.25
+     },
+     "hand": 0.507,
+     "train_fit_all": 1.0,
+     "train_fit_266": 0.733,
+     "labels": [
+      "GENERALIZATION"
+     ]
+    },
+    "CAKE": {
+     "clips": 3,
+     "signers": 3,
+     "recall": {
+      "ALL": 0.667,
+      "100": 0.667,
+      "133": 0.5,
+      "200": 0.5,
+      "266": 0.5,
+      "400": 0.333,
+      "IRREGULAR": 0.0
+     },
+     "hand": 0.637,
+     "train_fit_all": 0.938,
+     "train_fit_266": 0.625,
+     "labels": []
+    },
+    "CALL1": {
+     "clips": 3,
+     "signers": 3,
+     "recall": {
+      "ALL": 1.0,
+      "100": 0.833,
+      "133": 0.833,
+      "200": 0.667,
+      "266": 0.833,
+      "400": 0.667,
+      "IRREGULAR": 1.0
+     },
+     "hand": 0.467,
+     "train_fit_all": 0.929,
+     "train_fit_266": 0.571,
+     "labels": [
+      "TEMPORAL"
+     ]
+    },
+    "CANNOT": {
+     "clips": 3,
+     "signers": 3,
+     "recall": {
+      "ALL": 1.0,
+      "100": 1.0,
+      "133": 1.0,
+      "200": 0.667,
+      "266": 0.833,
+      "400": 0.667,
+      "IRREGULAR": 0.667
+     },
+     "hand": 0.591,
+     "train_fit_all": 0.938,
+     "train_fit_266": 0.625,
+     "labels": [
+      "TEMPORAL"
+     ]
+    },
+    "CAR": {
+     "clips": 3,
+     "signers": 3,
+     "recall": {
+      "ALL": 0.667,
+      "100": 0.667,
+      "133": 0.5,
+      "200": 0.167,
+      "266": 0.667,
+      "400": 0.333,
+      "IRREGULAR": 0.167
+     },
+     "hand": 0.512,
+     "train_fit_all": 1.0,
+     "train_fit_266": 0.467,
+     "labels": [
+      "TEMPORAL"
+     ]
+    },
+    "CHAIR": {
+     "clips": 4,
+     "signers": 4,
+     "recall": {
+      "ALL": 0.75,
+      "100": 0.375,
+      "133": 0.375,
+      "200": 0.5,
+      "266": 0.375,
+      "400": 0.5,
+      "IRREGULAR": 0.625
+     },
+     "hand": 0.506,
+     "train_fit_all": 0.846,
+     "train_fit_266": 0.846,
+     "labels": [
+      "TEMPORAL"
+     ]
+    },
+    "CHILD": {
+     "clips": 5,
+     "signers": 4,
+     "recall": {
+      "ALL": 0.8,
+      "100": 0.3,
+      "133": 0.5,
+      "200": 0.4,
+      "266": 0.7,
+      "400": 0.4,
+      "IRREGULAR": 0.4
+     },
+     "hand": 0.762,
+     "train_fit_all": 0.923,
+     "train_fit_266": 0.538,
+     "labels": [
+      "TEMPORAL"
+     ]
+    },
+    "CITY2": {
+     "clips": 3,
+     "signers": 3,
+     "recall": {
+      "ALL": 0.667,
+      "100": 0.5,
+      "133": 0.833,
+      "200": 0.5,
+      "266": 0.667,
+      "400": 0.167,
+      "IRREGULAR": 0.5
+     },
+     "hand": 0.594,
+     "train_fit_all": 0.867,
+     "train_fit_266": 0.467,
+     "labels": []
+    },
+    "CLEAN": {
+     "clips": 67,
+     "signers": 17,
+     "recall": {
+      "ALL": 0.194,
+      "100": 0.127,
+      "133": 0.112,
+      "200": 0.09,
+      "266": 0.06,
+      "400": 0.037,
+      "IRREGULAR": 0.075
+     },
+     "hand": 0.616,
+     "train_fit_all": 0.467,
+     "train_fit_266": 0.133,
+     "labels": [
+      "INCONSISTENT"
+     ]
+    },
+    "CLOSE": {
+     "clips": 3,
+     "signers": 3,
+     "recall": {
+      "ALL": 1.0,
+      "100": 0.833,
+      "133": 0.667,
+      "200": 0.667,
+      "266": 0.333,
+      "400": 0.333,
+      "IRREGULAR": 0.667
+     },
+     "hand": 0.599,
+     "train_fit_all": 1.0,
+     "train_fit_266": 0.588,
+     "labels": [
+      "TEMPORAL"
+     ]
+    },
+    "CLOTHES": {
+     "clips": 52,
+     "signers": 15,
+     "recall": {
+      "ALL": 0.654,
+      "100": 0.587,
+      "133": 0.49,
+      "200": 0.404,
+      "266": 0.385,
+      "400": 0.202,
+      "IRREGULAR": 0.385
+     },
+     "hand": 0.434,
+     "train_fit_all": 1.0,
+     "train_fit_266": 0.231,
+     "labels": [
+      "TEMPORAL",
+      "WEAK_HANDS"
+     ]
+    },
+    "COLD": {
+     "clips": 52,
+     "signers": 14,
+     "recall": {
+      "ALL": 0.692,
+      "100": 0.663,
+      "133": 0.606,
+      "200": 0.577,
+      "266": 0.529,
+      "400": 0.519,
+      "IRREGULAR": 0.51
+     },
+     "hand": 0.698,
+     "train_fit_all": 0.929,
+     "train_fit_266": 0.429,
+     "labels": []
+    },
+    "COME": {
+     "clips": 3,
+     "signers": 3,
+     "recall": {
+      "ALL": 0.0,
+      "100": 0.0,
+      "133": 0.0,
+      "200": 0.0,
+      "266": 0.0,
+      "400": 0.0,
+      "IRREGULAR": 0.0
+     },
+     "hand": 0.187,
+     "train_fit_all": 0.727,
+     "train_fit_266": 0.273,
+     "labels": [
+      "WEAK_HANDS"
+     ]
+    },
+    "COMPUTER": {
+     "clips": 4,
+     "signers": 4,
+     "recall": {
+      "ALL": 1.0,
+      "100": 1.0,
+      "133": 1.0,
+      "200": 1.0,
+      "266": 1.0,
+      "400": 0.75,
+      "IRREGULAR": 0.875
+     },
+     "hand": 0.754,
+     "train_fit_all": 1.0,
+     "train_fit_266": 0.867,
+     "labels": []
+    },
+    "CONFUSED1": {
+     "clips": 16,
+     "signers": 12,
+     "recall": {
+      "ALL": 0.188,
+      "100": 0.25,
+      "133": 0.125,
+      "200": 0.25,
+      "266": 0.156,
+      "400": 0.125,
+      "IRREGULAR": 0.156
+     },
+     "hand": 0.667,
+     "train_fit_all": 0.611,
+     "train_fit_266": 0.444,
+     "labels": []
+    },
+    "CONGRATULATIONS": {
+     "clips": 7,
+     "signers": 5,
+     "recall": {
+      "ALL": 0.429,
+      "100": 0.5,
+      "133": 0.571,
+      "200": 0.357,
+      "266": 0.357,
+      "400": 0.286,
+      "IRREGULAR": 0.357
+     },
+     "hand": 0.551,
+     "train_fit_all": 0.917,
+     "train_fit_266": 0.333,
+     "labels": []
+    },
+    "COOK": {
+     "clips": 30,
+     "signers": 13,
+     "recall": {
+      "ALL": 0.2,
+      "100": 0.1,
+      "133": 0.1,
+      "200": 0.05,
+      "266": 0.083,
+      "400": 0.033,
+      "IRREGULAR": 0.083
+     },
+     "hand": 0.61,
+     "train_fit_all": 0.846,
+     "train_fit_266": 0.308,
+     "labels": [
+      "GENERALIZATION"
+     ]
+    },
+    "COUNT": {
+     "clips": 3,
+     "signers": 3,
+     "recall": {
+      "ALL": 0.667,
+      "100": 0.667,
+      "133": 0.833,
+      "200": 0.833,
+      "266": 0.833,
+      "400": 0.5,
+      "IRREGULAR": 0.667
+     },
+     "hand": 0.565,
+     "train_fit_all": 0.688,
+     "train_fit_266": 0.5,
+     "labels": []
+    },
+    "COUNTRY": {
+     "clips": 3,
+     "signers": 3,
+     "recall": {
+      "ALL": 1.0,
+      "100": 1.0,
+      "133": 0.833,
+      "200": 0.833,
+      "266": 0.5,
+      "400": 0.667,
+      "IRREGULAR": 0.667
+     },
+     "hand": 0.642,
+     "train_fit_all": 0.938,
+     "train_fit_266": 0.812,
+     "labels": []
+    },
+    "CUT": {
+     "clips": 8,
+     "signers": 7,
+     "recall": {
+      "ALL": 0.25,
+      "100": 0.25,
+      "133": 0.188,
+      "200": 0.312,
+      "266": 0.062,
+      "400": 0.25,
+      "IRREGULAR": 0.188
+     },
+     "hand": 0.554,
+     "train_fit_all": 1.0,
+     "train_fit_266": 0.562,
+     "labels": [
+      "GENERALIZATION"
+     ]
+    },
+    "DAY": {
+     "clips": 19,
+     "signers": 11,
+     "recall": {
+      "ALL": 0.421,
+      "100": 0.289,
+      "133": 0.263,
+      "200": 0.237,
+      "266": 0.184,
+      "400": 0.105,
+      "IRREGULAR": 0.132
+     },
+     "hand": 0.509,
+     "train_fit_all": 0.867,
+     "train_fit_266": 0.267,
+     "labels": []
+    },
+    "DECIDE1": {
+     "clips": 2,
+     "signers": 2,
+     "recall": {
+      "ALL": 0.5,
+      "100": 0.75,
+      "133": 0.75,
+      "200": 0.75,
+      "266": 0.75,
+      "400": 0.0,
+      "IRREGULAR": 0.5
+     },
+     "hand": 0.627,
+     "train_fit_all": 0.9,
+     "train_fit_266": 0.6,
+     "labels": []
+    },
+    "DIFFERENT": {
+     "clips": 16,
+     "signers": 9,
+     "recall": {
+      "ALL": 0.312,
+      "100": 0.188,
+      "133": 0.281,
+      "200": 0.188,
+      "266": 0.188,
+      "400": 0.219,
+      "IRREGULAR": 0.188
+     },
+     "hand": 0.76,
+     "train_fit_all": 0.667,
+     "train_fit_266": 0.667,
+     "labels": []
+    },
+    "DINNER1": {
+     "clips": 4,
+     "signers": 3,
+     "recall": {
+      "ALL": 0.75,
+      "100": 0.625,
+      "133": 0.625,
+      "200": 0.5,
+      "266": 0.5,
+      "400": 0.125,
+      "IRREGULAR": 0.375
+     },
+     "hand": 0.583,
+     "train_fit_all": 0.833,
+     "train_fit_266": 0.389,
+     "labels": [
+      "TEMPORAL"
+     ]
+    },
+    "DONTKNOW": {
+     "clips": 3,
+     "signers": 3,
+     "recall": {
+      "ALL": 1.0,
+      "100": 1.0,
+      "133": 1.0,
+      "200": 0.833,
+      "266": 1.0,
+      "400": 0.667,
+      "IRREGULAR": 1.0
+     },
+     "hand": 0.545,
+     "train_fit_all": 0.938,
+     "train_fit_266": 0.562,
+     "labels": []
+    },
+    "DOOR": {
+     "clips": 3,
+     "signers": 3,
+     "recall": {
+      "ALL": 0.667,
+      "100": 0.667,
+      "133": 0.667,
+      "200": 0.5,
+      "266": 0.5,
+      "400": 0.5,
+      "IRREGULAR": 0.5
+     },
+     "hand": 0.715,
+     "train_fit_all": 1.0,
+     "train_fit_266": 0.714,
+     "labels": []
+    },
+    "DOWNLOAD": {
+     "clips": 3,
+     "signers": 3,
+     "recall": {
+      "ALL": 1.0,
+      "100": 1.0,
+      "133": 0.833,
+      "200": 1.0,
+      "266": 0.5,
+      "400": 0.5,
+      "IRREGULAR": 0.833
+     },
+     "hand": 0.695,
+     "train_fit_all": 0.875,
+     "train_fit_266": 0.562,
+     "labels": []
+    },
+    "DRINK2": {
+     "clips": 4,
+     "signers": 3,
+     "recall": {
+      "ALL": 0.75,
+      "100": 0.625,
+      "133": 0.75,
+      "200": 0.5,
+      "266": 0.5,
+      "400": 0.375,
+      "IRREGULAR": 0.5
+     },
+     "hand": 0.657,
+     "train_fit_all": 0.923,
+     "train_fit_266": 0.615,
+     "labels": [
+      "TEMPORAL"
+     ]
+    },
+    "DRIVE": {
+     "clips": 13,
+     "signers": 9,
+     "recall": {
+      "ALL": 0.154,
+      "100": 0.115,
+      "133": 0.154,
+      "200": 0.231,
+      "266": 0.115,
+      "400": 0.115,
+      "IRREGULAR": 0.308
+     },
+     "hand": 0.586,
+     "train_fit_all": 0.846,
+     "train_fit_266": 0.615,
+     "labels": [
+      "GENERALIZATION"
+     ]
+    },
+    "EACH": {
+     "clips": 4,
+     "signers": 4,
+     "recall": {
+      "ALL": 0.75,
+      "100": 0.5,
+      "133": 0.625,
+      "200": 0.25,
+      "266": 0.5,
+      "400": 0.5,
+      "IRREGULAR": 0.125
+     },
+     "hand": 0.624,
+     "train_fit_all": 0.875,
+     "train_fit_266": 0.5,
+     "labels": [
+      "TEMPORAL"
+     ]
+    },
+    "EASY": {
+     "clips": 3,
+     "signers": 3,
+     "recall": {
+      "ALL": 1.0,
+      "100": 0.833,
+      "133": 1.0,
+      "200": 1.0,
+      "266": 1.0,
+      "400": 1.0,
+      "IRREGULAR": 1.0
+     },
+     "hand": 0.808,
+     "train_fit_all": 0.938,
+     "train_fit_266": 0.75,
+     "labels": []
+    },
+    "EAT1": {
+     "clips": 4,
+     "signers": 4,
+     "recall": {
+      "ALL": 0.75,
+      "100": 0.75,
+      "133": 0.75,
+      "200": 0.75,
+      "266": 0.75,
+      "400": 0.75,
+      "IRREGULAR": 0.75
+     },
+     "hand": 0.545,
+     "train_fit_all": 1.0,
+     "train_fit_266": 0.733,
+     "labels": []
+    },
+    "ENOUGH": {
+     "clips": 3,
+     "signers": 3,
+     "recall": {
+      "ALL": 0.667,
+      "100": 0.667,
+      "133": 0.667,
+      "200": 0.833,
+      "266": 0.333,
+      "400": 0.5,
+      "IRREGULAR": 0.5
+     },
+     "hand": 0.734,
+     "train_fit_all": 0.941,
+     "train_fit_266": 0.706,
+     "labels": []
+    },
+    "ENTER": {
+     "clips": 8,
+     "signers": 8,
+     "recall": {
+      "ALL": 0.25,
+      "100": 0.062,
+      "133": 0.125,
+      "200": 0.062,
+      "266": 0.062,
+      "400": 0.0,
+      "IRREGULAR": 0.188
+     },
+     "hand": 0.526,
+     "train_fit_all": 0.75,
+     "train_fit_266": 0.062,
+     "labels": []
+    },
+    "FAMILY": {
+     "clips": 3,
+     "signers": 3,
+     "recall": {
+      "ALL": 1.0,
+      "100": 1.0,
+      "133": 1.0,
+      "200": 0.833,
+      "266": 0.833,
+      "400": 0.833,
+      "IRREGULAR": 0.833
+     },
+     "hand": 0.792,
+     "train_fit_all": 0.933,
+     "train_fit_266": 0.533,
+     "labels": []
+    },
+    "FAST": {
+     "clips": 26,
+     "signers": 9,
+     "recall": {
+      "ALL": 0.423,
+      "100": 0.365,
+      "133": 0.269,
+      "200": 0.269,
+      "266": 0.212,
+      "400": 0.038,
+      "IRREGULAR": 0.308
+     },
+     "hand": 0.692,
+     "train_fit_all": 0.75,
+     "train_fit_266": 0.333,
+     "labels": []
+    },
+    "FATHER": {
+     "clips": 13,
+     "signers": 7,
+     "recall": {
+      "ALL": 0.308,
+      "100": 0.385,
+      "133": 0.346,
+      "200": 0.385,
+      "266": 0.346,
+      "400": 0.385,
+      "IRREGULAR": 0.308
+     },
+     "hand": 0.6,
+     "train_fit_all": 0.909,
+     "train_fit_266": 0.909,
+     "labels": [
+      "GENERALIZATION"
+     ]
+    },
+    "FEEL": {
+     "clips": 15,
+     "signers": 9,
+     "recall": {
+      "ALL": 0.467,
+      "100": 0.4,
+      "133": 0.367,
+      "200": 0.2,
+      "266": 0.133,
+      "400": 0.1,
+      "IRREGULAR": 0.233
+     },
+     "hand": 0.519,
+     "train_fit_all": 0.733,
+     "train_fit_266": 0.333,
+     "labels": [
+      "TEMPORAL"
+     ]
+    },
+    "FEW": {
+     "clips": 8,
+     "signers": 7,
+     "recall": {
+      "ALL": 0.125,
+      "100": 0.125,
+      "133": 0.188,
+      "200": 0.188,
+      "266": 0.188,
+      "400": 0.0,
+      "IRREGULAR": 0.188
+     },
+     "hand": 0.507,
+     "train_fit_all": 1.0,
+     "train_fit_266": 0.467,
+     "labels": [
+      "GENERALIZATION"
+     ]
+    },
+    "FIND": {
+     "clips": 3,
+     "signers": 3,
+     "recall": {
+      "ALL": 0.0,
+      "100": 0.0,
+      "133": 0.0,
+      "200": 0.0,
+      "266": 0.167,
+      "400": 0.167,
+      "IRREGULAR": 0.0
+     },
+     "hand": 0.376,
+     "train_fit_all": 0.769,
+     "train_fit_266": 0.385,
+     "labels": [
+      "WEAK_HANDS"
+     ]
+    },
+    "FIRST": {
+     "clips": 10,
+     "signers": 8,
+     "recall": {
+      "ALL": 0.3,
+      "100": 0.35,
+      "133": 0.3,
+      "200": 0.25,
+      "266": 0.25,
+      "400": 0.15,
+      "IRREGULAR": 0.3
+     },
+     "hand": 0.591,
+     "train_fit_all": 0.75,
+     "train_fit_266": 0.583,
+     "labels": []
+    },
+    "FOR": {
+     "clips": 3,
+     "signers": 3,
+     "recall": {
+      "ALL": 0.667,
+      "100": 0.5,
+      "133": 0.5,
+      "200": 0.5,
+      "266": 0.5,
+      "400": 0.667,
+      "IRREGULAR": 0.5
+     },
+     "hand": 0.476,
+     "train_fit_all": 0.846,
+     "train_fit_266": 0.538,
+     "labels": []
+    },
+    "FREE": {
+     "clips": 11,
+     "signers": 6,
+     "recall": {
+      "ALL": 0.364,
+      "100": 0.455,
+      "133": 0.273,
+      "200": 0.455,
+      "266": 0.364,
+      "400": 0.182,
+      "IRREGULAR": 0.273
+     },
+     "hand": 0.722,
+     "train_fit_all": 1.0,
+     "train_fit_266": 0.643,
+     "labels": []
+    },
+    "FRIEND": {
+     "clips": 3,
+     "signers": 3,
+     "recall": {
+      "ALL": 0.667,
+      "100": 0.333,
+      "133": 0.167,
+      "200": 0.167,
+      "266": 0.5,
+      "400": 0.0,
+      "IRREGULAR": 0.167
+     },
+     "hand": 0.62,
+     "train_fit_all": 1.0,
+     "train_fit_266": 0.385,
+     "labels": [
+      "TEMPORAL"
+     ]
+    },
+    "FROM": {
+     "clips": 2,
+     "signers": 2,
+     "recall": {
+      "ALL": 1.0,
+      "100": 1.0,
+      "133": 1.0,
+      "200": 1.0,
+      "266": 1.0,
+      "400": 0.5,
+      "IRREGULAR": 1.0
+     },
+     "hand": 0.748,
+     "train_fit_all": 0.769,
+     "train_fit_266": 0.692,
+     "labels": []
+    },
+    "GET": {
+     "clips": 4,
+     "signers": 4,
+     "recall": {
+      "ALL": 0.25,
+      "100": 0.25,
+      "133": 0.375,
+      "200": 0.125,
+      "266": 0.375,
+      "400": 0.125,
+      "IRREGULAR": 0.25
+     },
+     "hand": 0.543,
+     "train_fit_all": 0.667,
+     "train_fit_266": 0.333,
+     "labels": []
+    },
+    "GIFT": {
+     "clips": 19,
+     "signers": 10,
+     "recall": {
+      "ALL": 0.579,
+      "100": 0.421,
+      "133": 0.395,
+      "200": 0.263,
+      "266": 0.184,
+      "400": 0.184,
+      "IRREGULAR": 0.316
+     },
+     "hand": 0.62,
+     "train_fit_all": 0.812,
+     "train_fit_266": 0.25,
+     "labels": [
+      "TEMPORAL"
+     ]
+    },
+    "GIVE": {
+     "clips": 3,
+     "signers": 3,
+     "recall": {
+      "ALL": 1.0,
+      "100": 0.833,
+      "133": 0.667,
+      "200": 0.667,
+      "266": 0.333,
+      "400": 0.5,
+      "IRREGULAR": 0.667
+     },
+     "hand": 0.417,
+     "train_fit_all": 1.0,
+     "train_fit_266": 0.357,
+     "labels": [
+      "TEMPORAL",
+      "WEAK_HANDS"
+     ]
+    },
+    "GO": {
+     "clips": 3,
+     "signers": 3,
+     "recall": {
+      "ALL": 0.333,
+      "100": 0.667,
+      "133": 0.667,
+      "200": 0.5,
+      "266": 0.5,
+      "400": 0.0,
+      "IRREGULAR": 0.333
+     },
+     "hand": 0.597,
+     "train_fit_all": 1.0,
+     "train_fit_266": 0.929,
+     "labels": [
+      "GENERALIZATION"
+     ]
+    },
+    "GOOD": {
+     "clips": 3,
+     "signers": 3,
+     "recall": {
+      "ALL": 0.667,
+      "100": 0.667,
+      "133": 0.5,
+      "200": 0.833,
+      "266": 0.5,
+      "400": 0.833,
+      "IRREGULAR": 0.833
+     },
+     "hand": 0.684,
+     "train_fit_all": 0.984,
+     "train_fit_266": 0.943,
+     "labels": []
+    },
+    "GRAB": {
+     "clips": 2,
+     "signers": 2,
+     "recall": {
+      "ALL": 1.0,
+      "100": 1.0,
+      "133": 1.0,
+      "200": 0.75,
+      "266": 0.25,
+      "400": 0.0,
+      "IRREGULAR": 0.5
+     },
+     "hand": 0.807,
+     "train_fit_all": 0.938,
+     "train_fit_266": 0.562,
+     "labels": [
+      "TEMPORAL"
+     ]
+    },
+    "HAPPY": {
+     "clips": 31,
+     "signers": 14,
+     "recall": {
+      "ALL": 0.258,
+      "100": 0.274,
+      "133": 0.242,
+      "200": 0.226,
+      "266": 0.145,
+      "400": 0.113,
+      "IRREGULAR": 0.21
+     },
+     "hand": 0.468,
+     "train_fit_all": 0.786,
+     "train_fit_266": 0.571,
+     "labels": []
+    },
+    "HARD": {
+     "clips": 4,
+     "signers": 4,
+     "recall": {
+      "ALL": 0.75,
+      "100": 0.75,
+      "133": 0.625,
+      "200": 0.625,
+      "266": 0.5,
+      "400": 0.375,
+      "IRREGULAR": 0.375
+     },
+     "hand": 0.507,
+     "train_fit_all": 0.857,
+     "train_fit_266": 0.571,
+     "labels": []
+    },
+    "HATE": {
+     "clips": 4,
+     "signers": 3,
+     "recall": {
+      "ALL": 0.5,
+      "100": 0.25,
+      "133": 0.625,
+      "200": 0.625,
+      "266": 0.5,
+      "400": 0.375,
+      "IRREGULAR": 0.375
+     },
+     "hand": 0.508,
+     "train_fit_all": 0.938,
+     "train_fit_266": 0.812,
+     "labels": []
+    },
+    "HAVE": {
+     "clips": 4,
+     "signers": 4,
+     "recall": {
+      "ALL": 0.75,
+      "100": 0.75,
+      "133": 0.625,
+      "200": 0.625,
+      "266": 0.5,
+      "400": 0.625,
+      "IRREGULAR": 0.625
+     },
+     "hand": 0.456,
+     "train_fit_all": 1.0,
+     "train_fit_266": 0.968,
+     "labels": []
+    },
+    "HEAR1": {
+     "clips": 12,
+     "signers": 7,
+     "recall": {
+      "ALL": 0.0,
+      "100": 0.0,
+      "133": 0.0,
+      "200": 0.042,
+      "266": 0.042,
+      "400": 0.0,
+      "IRREGULAR": 0.083
+     },
+     "hand": 0.574,
+     "train_fit_all": 0.692,
+     "train_fit_266": 0.231,
+     "labels": []
+    },
+    "HELLO": {
+     "clips": 3,
+     "signers": 3,
+     "recall": {
+      "ALL": 1.0,
+      "100": 1.0,
+      "133": 1.0,
+      "200": 1.0,
+      "266": 1.0,
+      "400": 0.833,
+      "IRREGULAR": 1.0
+     },
+     "hand": 0.421,
+     "train_fit_all": 1.0,
+     "train_fit_266": 0.989,
+     "labels": [
+      "WEAK_HANDS"
+     ]
+    },
+    "HELP": {
+     "clips": 40,
+     "signers": 11,
+     "recall": {
+      "ALL": 0.6,
+      "100": 0.512,
+      "133": 0.537,
+      "200": 0.487,
+      "266": 0.3,
+      "400": 0.275,
+      "IRREGULAR": 0.425
+     },
+     "hand": 0.617,
+     "train_fit_all": 1.0,
+     "train_fit_266": 0.538,
+     "labels": []
+    },
+    "HERE": {
+     "clips": 3,
+     "signers": 3,
+     "recall": {
+      "ALL": 1.0,
+      "100": 1.0,
+      "133": 1.0,
+      "200": 0.833,
+      "266": 0.667,
+      "400": 0.5,
+      "IRREGULAR": 0.833
+     },
+     "hand": 0.486,
+     "train_fit_all": 1.0,
+     "train_fit_266": 0.786,
+     "labels": []
+    },
+    "HOME": {
+     "clips": 16,
+     "signers": 11,
+     "recall": {
+      "ALL": 0.688,
+      "100": 0.719,
+      "133": 0.688,
+      "200": 0.594,
+      "266": 0.5,
+      "400": 0.5,
+      "IRREGULAR": 0.594
+     },
+     "hand": 0.666,
+     "train_fit_all": 1.0,
+     "train_fit_266": 0.5,
+     "labels": []
+    },
+    "HOSPITAL1": {
+     "clips": 17,
+     "signers": 7,
+     "recall": {
+      "ALL": 0.412,
+      "100": 0.176,
+      "133": 0.206,
+      "200": 0.118,
+      "266": 0.059,
+      "400": 0.059,
+      "IRREGULAR": 0.029
+     },
+     "hand": 0.389,
+     "train_fit_all": 0.722,
+     "train_fit_266": 0.0,
+     "labels": [
+      "TEMPORAL",
+      "WEAK_HANDS"
+     ]
+    },
+    "HOT": {
+     "clips": 42,
+     "signers": 13,
+     "recall": {
+      "ALL": 0.405,
+      "100": 0.393,
+      "133": 0.369,
+      "200": 0.298,
+      "266": 0.262,
+      "400": 0.179,
+      "IRREGULAR": 0.202
+     },
+     "hand": 0.594,
+     "train_fit_all": 0.867,
+     "train_fit_266": 0.2,
+     "labels": []
+    },
+    "HOUR": {
+     "clips": 3,
+     "signers": 3,
+     "recall": {
+      "ALL": 0.333,
+      "100": 0.333,
+      "133": 0.333,
+      "200": 0.333,
+      "266": 0.333,
+      "400": 0.167,
+      "IRREGULAR": 0.333
+     },
+     "hand": 0.614,
+     "train_fit_all": 1.0,
+     "train_fit_266": 0.462,
+     "labels": [
+      "GENERALIZATION"
+     ]
+    },
+    "HOUSE": {
+     "clips": 24,
+     "signers": 13,
+     "recall": {
+      "ALL": 0.333,
+      "100": 0.312,
+      "133": 0.292,
+      "200": 0.271,
+      "266": 0.208,
+      "400": 0.208,
+      "IRREGULAR": 0.292
+     },
+     "hand": 0.613,
+     "train_fit_all": 0.875,
+     "train_fit_266": 0.5,
+     "labels": [
+      "GENERALIZATION"
+     ]
+    },
+    "HOW1": {
+     "clips": 3,
+     "signers": 3,
+     "recall": {
+      "ALL": 1.0,
+      "100": 1.0,
+      "133": 1.0,
+      "200": 0.667,
+      "266": 0.5,
+      "400": 0.333,
+      "IRREGULAR": 0.5
+     },
+     "hand": 0.559,
+     "train_fit_all": 0.875,
+     "train_fit_266": 0.438,
+     "labels": [
+      "TEMPORAL"
+     ]
+    },
+    "HURRY": {
+     "clips": 3,
+     "signers": 3,
+     "recall": {
+      "ALL": 1.0,
+      "100": 1.0,
+      "133": 1.0,
+      "200": 1.0,
+      "266": 0.833,
+      "400": 0.833,
+      "IRREGULAR": 0.667
+     },
+     "hand": 0.696,
+     "train_fit_all": 1.0,
+     "train_fit_266": 0.812,
+     "labels": []
+    },
+    "HUSBAND": {
+     "clips": 4,
+     "signers": 4,
+     "recall": {
+      "ALL": 0.25,
+      "100": 0.5,
+      "133": 0.5,
+      "200": 0.25,
+      "266": 0.25,
+      "400": 0.125,
+      "IRREGULAR": 0.25
+     },
+     "hand": 0.49,
+     "train_fit_all": 0.929,
+     "train_fit_266": 0.571,
+     "labels": [
+      "GENERALIZATION"
+     ]
+    },
+    "IF": {
+     "clips": 2,
+     "signers": 2,
+     "recall": {
+      "ALL": 0.5,
+      "100": 0.5,
+      "133": 0.25,
+      "200": 0.5,
+      "266": 0.0,
+      "400": 0.5,
+      "IRREGULAR": 0.5
+     },
+     "hand": 0.437,
+     "train_fit_all": 0.667,
+     "train_fit_266": 0.583,
+     "labels": [
+      "WEAK_HANDS"
+     ]
+    },
+    "IMPORTANT": {
+     "clips": 3,
+     "signers": 3,
+     "recall": {
+      "ALL": 0.667,
+      "100": 0.667,
+      "133": 0.667,
+      "200": 0.667,
+      "266": 0.667,
+      "400": 0.667,
+      "IRREGULAR": 0.667
+     },
+     "hand": 0.811,
+     "train_fit_all": 1.0,
+     "train_fit_266": 0.571,
+     "labels": []
+    },
+    "IN": {
+     "clips": 6,
+     "signers": 6,
+     "recall": {
+      "ALL": 0.0,
+      "100": 0.0,
+      "133": 0.0,
+      "200": 0.083,
+      "266": 0.0,
+      "400": 0.083,
+      "IRREGULAR": 0.167
+     },
+     "hand": 0.466,
+     "train_fit_all": 0.923,
+     "train_fit_266": 0.538,
+     "labels": [
+      "GENERALIZATION"
+     ]
+    },
+    "INTRODUCE": {
+     "clips": 3,
+     "signers": 3,
+     "recall": {
+      "ALL": 0.333,
+      "100": 0.333,
+      "133": 0.333,
+      "200": 0.333,
+      "266": 0.333,
+      "400": 0.167,
+      "IRREGULAR": 0.333
+     },
+     "hand": 0.621,
+     "train_fit_all": 0.938,
+     "train_fit_266": 0.625,
+     "labels": [
+      "GENERALIZATION"
+     ]
+    },
+    "JUMP": {
+     "clips": 17,
+     "signers": 10,
+     "recall": {
+      "ALL": 0.353,
+      "100": 0.206,
+      "133": 0.176,
+      "200": 0.235,
+      "266": 0.118,
+      "400": 0.088,
+      "IRREGULAR": 0.235
+     },
+     "hand": 0.668,
+     "train_fit_all": 0.938,
+     "train_fit_266": 0.5,
+     "labels": []
+    },
+    "KEEP": {
+     "clips": 7,
+     "signers": 7,
+     "recall": {
+      "ALL": 0.571,
+      "100": 0.357,
+      "133": 0.357,
+      "200": 0.214,
+      "266": 0.214,
+      "400": 0.071,
+      "IRREGULAR": 0.214
+     },
+     "hand": 0.513,
+     "train_fit_all": 0.929,
+     "train_fit_266": 0.5,
+     "labels": [
+      "TEMPORAL"
+     ]
+    },
+    "KEY": {
+     "clips": 11,
+     "signers": 8,
+     "recall": {
+      "ALL": 0.273,
+      "100": 0.409,
+      "133": 0.318,
+      "200": 0.455,
+      "266": 0.182,
+      "400": 0.409,
+      "IRREGULAR": 0.364
+     },
+     "hand": 0.648,
+     "train_fit_all": 0.846,
+     "train_fit_266": 0.692,
+     "labels": [
+      "GENERALIZATION"
+     ]
+    },
+    "KID": {
+     "clips": 22,
+     "signers": 11,
+     "recall": {
+      "ALL": 0.318,
+      "100": 0.455,
+      "133": 0.386,
+      "200": 0.364,
+      "266": 0.364,
+      "400": 0.182,
+      "IRREGULAR": 0.295
+     },
+     "hand": 0.492,
+     "train_fit_all": 0.615,
+     "train_fit_266": 0.462,
+     "labels": []
+    },
+    "KNOW": {
+     "clips": 20,
+     "signers": 11,
+     "recall": {
+      "ALL": 0.5,
+      "100": 0.375,
+      "133": 0.275,
+      "200": 0.2,
+      "266": 0.225,
+      "400": 0.2,
+      "IRREGULAR": 0.225
+     },
+     "hand": 0.549,
+     "train_fit_all": 0.983,
+     "train_fit_266": 0.958,
+     "labels": [
+      "TEMPORAL"
+     ]
+    },
+    "LAST": {
+     "clips": 4,
+     "signers": 4,
+     "recall": {
+      "ALL": 0.5,
+      "100": 0.0,
+      "133": 0.25,
+      "200": 0.125,
+      "266": 0.125,
+      "400": 0.0,
+      "IRREGULAR": 0.0
+     },
+     "hand": 0.469,
+     "train_fit_all": 0.846,
+     "train_fit_266": 0.462,
+     "labels": [
+      "TEMPORAL"
+     ]
+    },
+    "LEAVE": {
+     "clips": 3,
+     "signers": 3,
+     "recall": {
+      "ALL": 1.0,
+      "100": 1.0,
+      "133": 1.0,
+      "200": 0.833,
+      "266": 0.833,
+      "400": 0.5,
+      "IRREGULAR": 0.833
+     },
+     "hand": 0.747,
+     "train_fit_all": 0.8,
+     "train_fit_266": 0.533,
+     "labels": []
+    },
+    "LETTER2": {
+     "clips": 4,
+     "signers": 4,
+     "recall": {
+      "ALL": 1.0,
+      "100": 0.875,
+      "133": 0.875,
+      "200": 0.875,
+      "266": 0.75,
+      "400": 0.875,
+      "IRREGULAR": 1.0
+     },
+     "hand": 0.556,
+     "train_fit_all": 0.929,
+     "train_fit_266": 0.571,
+     "labels": []
+    },
+    "LIKE": {
+     "clips": 7,
+     "signers": 6,
+     "recall": {
+      "ALL": 0.286,
+      "100": 0.357,
+      "133": 0.286,
+      "200": 0.286,
+      "266": 0.214,
+      "400": 0.143,
+      "IRREGULAR": 0.286
+     },
+     "hand": 0.412,
+     "train_fit_all": 0.714,
+     "train_fit_266": 0.429,
+     "labels": [
+      "WEAK_HANDS"
+     ]
+    },
+    "LIVE2": {
+     "clips": 4,
+     "signers": 4,
+     "recall": {
+      "ALL": 0.5,
+      "100": 0.5,
+      "133": 0.375,
+      "200": 0.625,
+      "266": 0.375,
+      "400": 0.25,
+      "IRREGULAR": 0.5
+     },
+     "hand": 0.416,
+     "train_fit_all": 0.846,
+     "train_fit_266": 0.615,
+     "labels": [
+      "WEAK_HANDS"
+     ]
+    },
+    "LOVE": {
+     "clips": 26,
+     "signers": 11,
+     "recall": {
+      "ALL": 0.346,
+      "100": 0.288,
+      "133": 0.25,
+      "200": 0.269,
+      "266": 0.327,
+      "400": 0.269,
+      "IRREGULAR": 0.327
+     },
+     "hand": 0.565,
+     "train_fit_all": 0.917,
+     "train_fit_266": 0.667,
+     "labels": [
+      "GENERALIZATION"
+     ]
+    },
+    "LUNCH1": {
+     "clips": 8,
+     "signers": 6,
+     "recall": {
+      "ALL": 0.375,
+      "100": 0.25,
+      "133": 0.125,
+      "200": 0.188,
+      "266": 0.188,
+      "400": 0.062,
+      "IRREGULAR": 0.125
+     },
+     "hand": 0.586,
+     "train_fit_all": 0.684,
+     "train_fit_266": 0.211,
+     "labels": []
+    },
+    "MAKE": {
+     "clips": 14,
+     "signers": 8,
+     "recall": {
+      "ALL": 0.357,
+      "100": 0.393,
+      "133": 0.321,
+      "200": 0.357,
+      "266": 0.25,
+      "400": 0.25,
+      "IRREGULAR": 0.25
+     },
+     "hand": 0.697,
+     "train_fit_all": 0.75,
+     "train_fit_266": 0.25,
+     "labels": []
+    },
+    "MAN": {
+     "clips": 3,
+     "signers": 3,
+     "recall": {
+      "ALL": 1.0,
+      "100": 1.0,
+      "133": 1.0,
+      "200": 1.0,
+      "266": 0.833,
+      "400": 0.5,
+      "IRREGULAR": 1.0
+     },
+     "hand": 0.58,
+     "train_fit_all": 0.857,
+     "train_fit_266": 0.429,
+     "labels": []
+    },
+    "MANY": {
+     "clips": 5,
+     "signers": 3,
+     "recall": {
+      "ALL": 1.0,
+      "100": 1.0,
+      "133": 1.0,
+      "200": 1.0,
+      "266": 0.7,
+      "400": 0.5,
+      "IRREGULAR": 1.0
+     },
+     "hand": 0.623,
+     "train_fit_all": 0.923,
+     "train_fit_266": 0.615,
+     "labels": []
+    },
+    "MEAN2": {
+     "clips": 5,
+     "signers": 5,
+     "recall": {
+      "ALL": 0.4,
+      "100": 0.4,
+      "133": 0.2,
+      "200": 0.2,
+      "266": 0.2,
+      "400": 0.1,
+      "IRREGULAR": 0.0
+     },
+     "hand": 0.683,
+     "train_fit_all": 0.733,
+     "train_fit_266": 0.4,
+     "labels": []
+    },
+    "MEAT1": {
+     "clips": 3,
+     "signers": 3,
+     "recall": {
+      "ALL": 0.667,
+      "100": 1.0,
+      "133": 0.5,
+      "200": 0.667,
+      "266": 0.333,
+      "400": 0.333,
+      "IRREGULAR": 0.333
+     },
+     "hand": 0.453,
+     "train_fit_all": 0.765,
+     "train_fit_266": 0.471,
+     "labels": []
+    },
+    "MEET": {
+     "clips": 17,
+     "signers": 8,
+     "recall": {
+      "ALL": 0.647,
+      "100": 0.647,
+      "133": 0.676,
+      "200": 0.647,
+      "266": 0.618,
+      "400": 0.529,
+      "IRREGULAR": 0.647
+     },
+     "hand": 0.732,
+     "train_fit_all": 0.833,
+     "train_fit_266": 0.417,
+     "labels": []
+    },
+    "MONEY1": {
+     "clips": 62,
+     "signers": 15,
+     "recall": {
+      "ALL": 0.032,
+      "100": 0.024,
+      "133": 0.032,
+      "200": 0.04,
+      "266": 0.024,
+      "400": 0.016,
+      "IRREGULAR": 0.008
+     },
+     "hand": 0.567,
+     "train_fit_all": 0.5,
+     "train_fit_266": 0.0,
+     "labels": [
+      "INCONSISTENT"
+     ]
+    },
+    "MONTH": {
+     "clips": 11,
+     "signers": 9,
+     "recall": {
+      "ALL": 0.273,
+      "100": 0.182,
+      "133": 0.182,
+      "200": 0.0,
+      "266": 0.045,
+      "400": 0.045,
+      "IRREGULAR": 0.182
+     },
+     "hand": 0.643,
+     "train_fit_all": 0.857,
+     "train_fit_266": 0.286,
+     "labels": [
+      "TEMPORAL",
+      "GENERALIZATION"
+     ]
+    },
+    "MORE": {
+     "clips": 4,
+     "signers": 4,
+     "recall": {
+      "ALL": 1.0,
+      "100": 1.0,
+      "133": 1.0,
+      "200": 0.75,
+      "266": 0.875,
+      "400": 0.625,
+      "IRREGULAR": 0.75
+     },
+     "hand": 0.622,
+     "train_fit_all": 1.0,
+     "train_fit_266": 0.846,
+     "labels": [
+      "TEMPORAL"
+     ]
+    },
+    "MORNING": {
+     "clips": 18,
+     "signers": 11,
+     "recall": {
+      "ALL": 0.611,
+      "100": 0.528,
+      "133": 0.583,
+      "200": 0.472,
+      "266": 0.389,
+      "400": 0.389,
+      "IRREGULAR": 0.389
+     },
+     "hand": 0.47,
+     "train_fit_all": 0.929,
+     "train_fit_266": 0.357,
+     "labels": []
+    },
+    "MOST": {
+     "clips": 3,
+     "signers": 3,
+     "recall": {
+      "ALL": 0.333,
+      "100": 0.833,
+      "133": 0.833,
+      "200": 0.667,
+      "266": 0.167,
+      "400": 0.333,
+      "IRREGULAR": 0.667
+     },
+     "hand": 0.351,
+     "train_fit_all": 0.733,
+     "train_fit_266": 0.6,
+     "labels": [
+      "WEAK_HANDS"
+     ]
+    },
+    "MOTHER": {
+     "clips": 9,
+     "signers": 6,
+     "recall": {
+      "ALL": 0.556,
+      "100": 0.611,
+      "133": 0.5,
+      "200": 0.556,
+      "266": 0.5,
+      "400": 0.5,
+      "IRREGULAR": 0.444
+     },
+     "hand": 0.699,
+     "train_fit_all": 1.0,
+     "train_fit_266": 0.818,
+     "labels": []
+    },
+    "MOUTH": {
+     "clips": 3,
+     "signers": 3,
+     "recall": {
+      "ALL": 0.333,
+      "100": 0.5,
+      "133": 0.5,
+      "200": 0.333,
+      "266": 0.333,
+      "400": 0.333,
+      "IRREGULAR": 0.333
+     },
+     "hand": 0.693,
+     "train_fit_all": 0.75,
+     "train_fit_266": 0.625,
+     "labels": []
+    },
+    "MOVE": {
+     "clips": 4,
+     "signers": 4,
+     "recall": {
+      "ALL": 0.5,
+      "100": 0.375,
+      "133": 0.375,
+      "200": 0.25,
+      "266": 0.125,
+      "400": 0.25,
+      "IRREGULAR": 0.5
+     },
+     "hand": 0.671,
+     "train_fit_all": 0.846,
+     "train_fit_266": 0.154,
+     "labels": [
+      "TEMPORAL"
+     ]
+    },
+    "MOVIE1": {
+     "clips": 4,
+     "signers": 4,
+     "recall": {
+      "ALL": 0.75,
+      "100": 0.625,
+      "133": 0.75,
+      "200": 0.5,
+      "266": 0.625,
+      "400": 0.375,
+      "IRREGULAR": 0.5
+     },
+     "hand": 0.708,
+     "train_fit_all": 0.889,
+     "train_fit_266": 0.667,
+     "labels": [
+      "TEMPORAL"
+     ]
+    },
+    "MUCH": {
+     "clips": 3,
+     "signers": 3,
+     "recall": {
+      "ALL": 0.333,
+      "100": 0.333,
+      "133": 0.333,
+      "200": 0.5,
+      "266": 0.333,
+      "400": 0.5,
+      "IRREGULAR": 0.333
+     },
+     "hand": 0.708,
+     "train_fit_all": 0.933,
+     "train_fit_266": 0.733,
+     "labels": [
+      "GENERALIZATION"
+     ]
+    },
+    "NEED": {
+     "clips": 3,
+     "signers": 3,
+     "recall": {
+      "ALL": 0.667,
+      "100": 0.667,
+      "133": 0.833,
+      "200": 0.5,
+      "266": 0.667,
+      "400": 0.167,
+      "IRREGULAR": 0.667
+     },
+     "hand": 0.547,
+     "train_fit_all": 0.857,
+     "train_fit_266": 0.714,
+     "labels": []
+    },
+    "NEVER": {
+     "clips": 3,
+     "signers": 3,
+     "recall": {
+      "ALL": 0.333,
+      "100": 0.5,
+      "133": 0.333,
+      "200": 0.5,
+      "266": 0.333,
+      "400": 0.0,
+      "IRREGULAR": 0.167
+     },
+     "hand": 0.285,
+     "train_fit_all": 0.8,
+     "train_fit_266": 0.2,
+     "labels": [
+      "GENERALIZATION",
+      "WEAK_HANDS"
+     ]
+    },
+    "NEW": {
+     "clips": 31,
+     "signers": 11,
+     "recall": {
+      "ALL": 0.129,
+      "100": 0.048,
+      "133": 0.081,
+      "200": 0.081,
+      "266": 0.016,
+      "400": 0.016,
+      "IRREGULAR": 0.032
+     },
+     "hand": 0.636,
+     "train_fit_all": 0.714,
+     "train_fit_266": 0.143,
+     "labels": []
+    },
+    "NEXT": {
+     "clips": 3,
+     "signers": 3,
+     "recall": {
+      "ALL": 1.0,
+      "100": 0.833,
+      "133": 0.833,
+      "200": 0.833,
+      "266": 0.833,
+      "400": 0.5,
+      "IRREGULAR": 0.833
+     },
+     "hand": 0.522,
+     "train_fit_all": 0.733,
+     "train_fit_266": 0.6,
+     "labels": []
+    },
+    "NICE": {
+     "clips": 40,
+     "signers": 12,
+     "recall": {
+      "ALL": 0.025,
+      "100": 0.025,
+      "133": 0.025,
+      "200": 0.025,
+      "266": 0.05,
+      "400": 0.025,
+      "IRREGULAR": 0.025
+     },
+     "hand": 0.617,
+     "train_fit_all": 0.467,
+     "train_fit_266": 0.2,
+     "labels": [
+      "INCONSISTENT"
+     ]
+    },
+    "NIGHT1": {
+     "clips": 19,
+     "signers": 14,
+     "recall": {
+      "ALL": 0.263,
+      "100": 0.184,
+      "133": 0.158,
+      "200": 0.184,
+      "266": 0.184,
+      "400": 0.079,
+      "IRREGULAR": 0.211
+     },
+     "hand": 0.544,
+     "train_fit_all": 0.765,
+     "train_fit_266": 0.471,
+     "labels": []
+    },
+    "NO": {
+     "clips": 14,
+     "signers": 10,
+     "recall": {
+      "ALL": 0.643,
+      "100": 0.75,
+      "133": 0.714,
+      "200": 0.536,
+      "266": 0.571,
+      "400": 0.464,
+      "IRREGULAR": 0.643
+     },
+     "hand": 0.684,
+     "train_fit_all": 1.0,
+     "train_fit_266": 0.75,
+     "labels": []
+    },
+    "NOW": {
+     "clips": 7,
+     "signers": 5,
+     "recall": {
+      "ALL": 0.143,
+      "100": 0.0,
+      "133": 0.0,
+      "200": 0.0,
+      "266": 0.143,
+      "400": 0.429,
+      "IRREGULAR": 0.143
+     },
+     "hand": 0.709,
+     "train_fit_all": 0.8,
+     "train_fit_266": 0.533,
+     "labels": [
+      "GENERALIZATION"
+     ]
+    },
+    "OFFICE": {
+     "clips": 4,
+     "signers": 4,
+     "recall": {
+      "ALL": 1.0,
+      "100": 1.0,
+      "133": 0.875,
+      "200": 0.625,
+      "266": 0.625,
+      "400": 0.25,
+      "IRREGULAR": 0.375
+     },
+     "hand": 0.499,
+     "train_fit_all": 0.923,
+     "train_fit_266": 0.385,
+     "labels": [
+      "TEMPORAL"
+     ]
+    },
+    "OFTEN": {
+     "clips": 3,
+     "signers": 3,
+     "recall": {
+      "ALL": 1.0,
+      "100": 1.0,
+      "133": 1.0,
+      "200": 0.833,
+      "266": 0.833,
+      "400": 0.667,
+      "IRREGULAR": 0.833
+     },
+     "hand": 0.607,
+     "train_fit_all": 1.0,
+     "train_fit_266": 0.6,
+     "labels": []
+    },
+    "OLD": {
+     "clips": 38,
+     "signers": 10,
+     "recall": {
+      "ALL": 0.316,
+      "100": 0.237,
+      "133": 0.184,
+      "200": 0.145,
+      "266": 0.079,
+      "400": 0.026,
+      "IRREGULAR": 0.118
+     },
+     "hand": 0.556,
+     "train_fit_all": 0.833,
+     "train_fit_266": 0.167,
+     "labels": [
+      "GENERALIZATION"
+     ]
+    },
+    "ON": {
+     "clips": 2,
+     "signers": 2,
+     "recall": {
+      "ALL": 0.0,
+      "100": 0.0,
+      "133": 0.25,
+      "200": 0.0,
+      "266": 0.5,
+      "400": 0.0,
+      "IRREGULAR": 0.0
+     },
+     "hand": 0.499,
+     "train_fit_all": 0.6,
+     "train_fit_266": 0.267,
+     "labels": []
+    },
+    "ONE": {
+     "clips": 9,
+     "signers": 5,
+     "recall": {
+      "ALL": 0.778,
+      "100": 0.722,
+      "133": 0.722,
+      "200": 0.611,
+      "266": 0.611,
+      "400": 0.556,
+      "IRREGULAR": 0.611
+     },
+     "hand": 0.673,
+     "train_fit_all": 0.583,
+     "train_fit_266": 0.667,
+     "labels": [
+      "INCONSISTENT"
+     ]
+    },
+    "OPEN": {
+     "clips": 18,
+     "signers": 11,
+     "recall": {
+      "ALL": 0.056,
+      "100": 0.139,
+      "133": 0.083,
+      "200": 0.139,
+      "266": 0.222,
+      "400": 0.111,
+      "IRREGULAR": 0.222
+     },
+     "hand": 0.604,
+     "train_fit_all": 0.786,
+     "train_fit_266": 0.571,
+     "labels": []
+    },
+    "OR": {
+     "clips": 4,
+     "signers": 4,
+     "recall": {
+      "ALL": 0.25,
+      "100": 0.375,
+      "133": 0.5,
+      "200": 0.25,
+      "266": 0.5,
+      "400": 0.375,
+      "IRREGULAR": 0.625
+     },
+     "hand": 0.469,
+     "train_fit_all": 0.571,
+     "train_fit_266": 0.5,
+     "labels": [
+      "INCONSISTENT"
+     ]
+    },
+    "OUR": {
+     "clips": 4,
+     "signers": 4,
+     "recall": {
+      "ALL": 0.75,
+      "100": 0.5,
+      "133": 0.625,
+      "200": 0.5,
+      "266": 0.375,
+      "400": 0.25,
+      "IRREGULAR": 0.5
+     },
+     "hand": 0.482,
+     "train_fit_all": 0.786,
+     "train_fit_266": 0.571,
+     "labels": [
+      "TEMPORAL"
+     ]
+    },
+    "OVER": {
+     "clips": 3,
+     "signers": 3,
+     "recall": {
+      "ALL": 0.0,
+      "100": 0.167,
+      "133": 0.167,
+      "200": 0.0,
+      "266": 0.0,
+      "400": 0.0,
+      "IRREGULAR": 0.0
+     },
+     "hand": 0.41,
+     "train_fit_all": 0.8,
+     "train_fit_266": 0.467,
+     "labels": [
+      "GENERALIZATION",
+      "WEAK_HANDS"
+     ]
+    },
+    "PAPER": {
+     "clips": 25,
+     "signers": 12,
+     "recall": {
+      "ALL": 0.28,
+      "100": 0.36,
+      "133": 0.3,
+      "200": 0.22,
+      "266": 0.2,
+      "400": 0.14,
+      "IRREGULAR": 0.2
+     },
+     "hand": 0.599,
+     "train_fit_all": 0.846,
+     "train_fit_266": 0.462,
+     "labels": [
+      "GENERALIZATION"
+     ]
+    },
+    "PARTY1": {
+     "clips": 6,
+     "signers": 5,
+     "recall": {
+      "ALL": 0.167,
+      "100": 0.25,
+      "133": 0.167,
+      "200": 0.25,
+      "266": 0.25,
+      "400": 0.167,
+      "IRREGULAR": 0.167
+     },
+     "hand": 0.648,
+     "train_fit_all": 0.824,
+     "train_fit_266": 0.235,
+     "labels": [
+      "GENERALIZATION"
+     ]
+    },
+    "PAY": {
+     "clips": 19,
+     "signers": 9,
+     "recall": {
+      "ALL": 0.263,
+      "100": 0.316,
+      "133": 0.316,
+      "200": 0.237,
+      "266": 0.289,
+      "400": 0.211,
+      "IRREGULAR": 0.237
+     },
+     "hand": 0.613,
+     "train_fit_all": 0.929,
+     "train_fit_266": 0.571,
+     "labels": [
+      "GENERALIZATION"
+     ]
+    },
+    "PEOPLE": {
+     "clips": 3,
+     "signers": 3,
+     "recall": {
+      "ALL": 0.667,
+      "100": 0.5,
+      "133": 0.5,
+      "200": 0.333,
+      "266": 0.5,
+      "400": 0.5,
+      "IRREGULAR": 0.5
+     },
+     "hand": 0.717,
+     "train_fit_all": 0.867,
+     "train_fit_266": 0.667,
+     "labels": [
+      "TEMPORAL"
+     ]
+    },
+    "PERSON": {
+     "clips": 9,
+     "signers": 7,
+     "recall": {
+      "ALL": 0.333,
+      "100": 0.278,
+      "133": 0.167,
+      "200": 0.167,
+      "266": 0.278,
+      "400": 0.0,
+      "IRREGULAR": 0.278
+     },
+     "hand": 0.661,
+     "train_fit_all": 0.538,
+     "train_fit_266": 0.231,
+     "labels": [
+      "INCONSISTENT"
+     ]
+    },
+    "PICK": {
+     "clips": 3,
+     "signers": 3,
+     "recall": {
+      "ALL": 1.0,
+      "100": 1.0,
+      "133": 1.0,
+      "200": 0.833,
+      "266": 0.833,
+      "400": 0.667,
+      "IRREGULAR": 0.833
+     },
+     "hand": 0.662,
+     "train_fit_all": 1.0,
+     "train_fit_266": 0.938,
+     "labels": []
+    },
+    "PLAY": {
+     "clips": 42,
+     "signers": 13,
+     "recall": {
+      "ALL": 0.357,
+      "100": 0.31,
+      "133": 0.321,
+      "200": 0.214,
+      "266": 0.262,
+      "400": 0.143,
+      "IRREGULAR": 0.238
+     },
+     "hand": 0.58,
+     "train_fit_all": 0.929,
+     "train_fit_266": 0.857,
+     "labels": []
+    },
+    "PLEASE": {
+     "clips": 7,
+     "signers": 7,
+     "recall": {
+      "ALL": 0.0,
+      "100": 0.071,
+      "133": 0.071,
+      "200": 0.071,
+      "266": 0.0,
+      "400": 0.214,
+      "IRREGULAR": 0.0
+     },
+     "hand": 0.362,
+     "train_fit_all": 0.636,
+     "train_fit_266": 0.636,
+     "labels": [
+      "WEAK_HANDS"
+     ]
+    },
+    "PUT": {
+     "clips": 6,
+     "signers": 6,
+     "recall": {
+      "ALL": 0.333,
+      "100": 0.5,
+      "133": 0.417,
+      "200": 0.417,
+      "266": 0.417,
+      "400": 0.333,
+      "IRREGULAR": 0.333
+     },
+     "hand": 0.705,
+     "train_fit_all": 0.769,
+     "train_fit_266": 0.538,
+     "labels": []
+    },
+    "READ": {
+     "clips": 22,
+     "signers": 14,
+     "recall": {
+      "ALL": 0.364,
+      "100": 0.318,
+      "133": 0.341,
+      "200": 0.25,
+      "266": 0.273,
+      "400": 0.227,
+      "IRREGULAR": 0.341
+     },
+     "hand": 0.653,
+     "train_fit_all": 0.929,
+     "train_fit_266": 0.5,
+     "labels": []
+    },
+    "READY": {
+     "clips": 18,
+     "signers": 8,
+     "recall": {
+      "ALL": 0.5,
+      "100": 0.472,
+      "133": 0.5,
+      "200": 0.528,
+      "266": 0.528,
+      "400": 0.667,
+      "IRREGULAR": 0.583
+     },
+     "hand": 0.709,
+     "train_fit_all": 0.846,
+     "train_fit_266": 0.538,
+     "labels": []
+    },
+    "RESTAURANT": {
+     "clips": 8,
+     "signers": 8,
+     "recall": {
+      "ALL": 0.25,
+      "100": 0.188,
+      "133": 0.25,
+      "200": 0.188,
+      "266": 0.25,
+      "400": 0.312,
+      "IRREGULAR": 0.188
+     },
+     "hand": 0.499,
+     "train_fit_all": 0.833,
+     "train_fit_266": 0.583,
+     "labels": [
+      "GENERALIZATION"
+     ]
+    },
+    "RIGHT3": {
+     "clips": 5,
+     "signers": 5,
+     "recall": {
+      "ALL": 0.2,
+      "100": 0.3,
+      "133": 0.2,
+      "200": 0.2,
+      "266": 0.2,
+      "400": 0.2,
+      "IRREGULAR": 0.2
+     },
+     "hand": 0.394,
+     "train_fit_all": 0.882,
+     "train_fit_266": 0.588,
+     "labels": [
+      "GENERALIZATION",
+      "WEAK_HANDS"
+     ]
+    },
+    "ROAD": {
+     "clips": 4,
+     "signers": 3,
+     "recall": {
+      "ALL": 0.25,
+      "100": 0.375,
+      "133": 0.375,
+      "200": 0.25,
+      "266": 0.125,
+      "400": 0.0,
+      "IRREGULAR": 0.375
+     },
+     "hand": 0.589,
+     "train_fit_all": 0.714,
+     "train_fit_266": 0.571,
+     "labels": []
+    },
+    "ROOM": {
+     "clips": 4,
+     "signers": 4,
+     "recall": {
+      "ALL": 0.5,
+      "100": 0.625,
+      "133": 0.375,
+      "200": 1.0,
+      "266": 0.5,
+      "400": 0.25,
+      "IRREGULAR": 0.5
+     },
+     "hand": 0.696,
+     "train_fit_all": 0.733,
+     "train_fit_266": 0.333,
+     "labels": []
+    },
+    "RUN2": {
+     "clips": 4,
+     "signers": 3,
+     "recall": {
+      "ALL": 1.0,
+      "100": 0.375,
+      "133": 0.625,
+      "200": 0.5,
+      "266": 0.375,
+      "400": 0.125,
+      "IRREGULAR": 0.625
+     },
+     "hand": 0.503,
+     "train_fit_all": 0.812,
+     "train_fit_266": 0.188,
+     "labels": [
+      "TEMPORAL"
+     ]
+    },
+    "SAD": {
+     "clips": 4,
+     "signers": 4,
+     "recall": {
+      "ALL": 0.5,
+      "100": 0.5,
+      "133": 0.5,
+      "200": 0.375,
+      "266": 0.5,
+      "400": 0.5,
+      "IRREGULAR": 0.375
+     },
+     "hand": 0.561,
+     "train_fit_all": 0.929,
+     "train_fit_266": 0.929,
+     "labels": []
+    },
+    "SAME2": {
+     "clips": 3,
+     "signers": 3,
+     "recall": {
+      "ALL": 0.667,
+      "100": 0.5,
+      "133": 0.5,
+      "200": 0.333,
+      "266": 0.167,
+      "400": 0.167,
+      "IRREGULAR": 0.5
+     },
+     "hand": 0.564,
+     "train_fit_all": 0.923,
+     "train_fit_266": 0.385,
+     "labels": [
+      "TEMPORAL"
+     ]
+    },
+    "SCHOOL": {
+     "clips": 54,
+     "signers": 14,
+     "recall": {
+      "ALL": 0.056,
+      "100": 0.028,
+      "133": 0.056,
+      "200": 0.093,
+      "266": 0.074,
+      "400": 0.056,
+      "IRREGULAR": 0.074
+     },
+     "hand": 0.612,
+     "train_fit_all": 0.8,
+     "train_fit_266": 0.4,
+     "labels": [
+      "GENERALIZATION"
+     ]
+    },
+    "SEE": {
+     "clips": 33,
+     "signers": 10,
+     "recall": {
+      "ALL": 0.758,
+      "100": 0.803,
+      "133": 0.758,
+      "200": 0.742,
+      "266": 0.561,
+      "400": 0.576,
+      "IRREGULAR": 0.667
+     },
+     "hand": 0.656,
+     "train_fit_all": 1.0,
+     "train_fit_266": 1.0,
+     "labels": []
+    },
+    "SEEM": {
+     "clips": 4,
+     "signers": 4,
+     "recall": {
+      "ALL": 0.5,
+      "100": 0.375,
+      "133": 0.375,
+      "200": 0.25,
+      "266": 0.375,
+      "400": 0.25,
+      "IRREGULAR": 0.125
+     },
+     "hand": 0.623,
+     "train_fit_all": 0.615,
+     "train_fit_266": 0.538,
+     "labels": [
+      "TEMPORAL"
+     ]
+    },
+    "SELL": {
+     "clips": 2,
+     "signers": 2,
+     "recall": {
+      "ALL": 0.0,
+      "100": 0.25,
+      "133": 0.25,
+      "200": 0.0,
+      "266": 0.25,
+      "400": 0.25,
+      "IRREGULAR": 0.75
+     },
+     "hand": 0.375,
+     "train_fit_all": 0.923,
+     "train_fit_266": 0.308,
+     "labels": [
+      "GENERALIZATION",
+      "WEAK_HANDS"
+     ]
+    },
+    "SEND": {
+     "clips": 7,
+     "signers": 5,
+     "recall": {
+      "ALL": 0.286,
+      "100": 0.429,
+      "133": 0.429,
+      "200": 0.286,
+      "266": 0.286,
+      "400": 0.214,
+      "IRREGULAR": 0.5
+     },
+     "hand": 0.6,
+     "train_fit_all": 0.857,
+     "train_fit_266": 0.357,
+     "labels": [
+      "GENERALIZATION"
+     ]
+    },
+    "SHOP1": {
+     "clips": 6,
+     "signers": 4,
+     "recall": {
+      "ALL": 0.833,
+      "100": 0.833,
+      "133": 0.833,
+      "200": 0.667,
+      "266": 0.75,
+      "400": 0.583,
+      "IRREGULAR": 0.833
+     },
+     "hand": 0.45,
+     "train_fit_all": 0.923,
+     "train_fit_266": 0.692,
+     "labels": []
+    },
+    "SHOW": {
+     "clips": 3,
+     "signers": 3,
+     "recall": {
+      "ALL": 0.333,
+      "100": 0.167,
+      "133": 0.5,
+      "200": 0.333,
+      "266": 0.333,
+      "400": 0.167,
+      "IRREGULAR": 0.5
+     },
+     "hand": 0.527,
+     "train_fit_all": 0.846,
+     "train_fit_266": 0.462,
+     "labels": [
+      "GENERALIZATION"
+     ]
+    },
+    "SICK": {
+     "clips": 32,
+     "signers": 16,
+     "recall": {
+      "ALL": 0.375,
+      "100": 0.406,
+      "133": 0.375,
+      "200": 0.453,
+      "266": 0.422,
+      "400": 0.297,
+      "IRREGULAR": 0.438
+     },
+     "hand": 0.513,
+     "train_fit_all": 0.615,
+     "train_fit_266": 0.615,
+     "labels": []
+    },
+    "SISTER": {
+     "clips": 3,
+     "signers": 3,
+     "recall": {
+      "ALL": 0.0,
+      "100": 0.0,
+      "133": 0.167,
+      "200": 0.333,
+      "266": 0.167,
+      "400": 0.333,
+      "IRREGULAR": 0.0
+     },
+     "hand": 0.443,
+     "train_fit_all": 0.923,
+     "train_fit_266": 0.308,
+     "labels": [
+      "GENERALIZATION",
+      "WEAK_HANDS"
+     ]
+    },
+    "SIT": {
+     "clips": 22,
+     "signers": 11,
+     "recall": {
+      "ALL": 0.227,
+      "100": 0.227,
+      "133": 0.273,
+      "200": 0.25,
+      "266": 0.273,
+      "400": 0.227,
+      "IRREGULAR": 0.295
+     },
+     "hand": 0.803,
+     "train_fit_all": 0.917,
+     "train_fit_266": 0.667,
+     "labels": [
+      "GENERALIZATION"
+     ]
+    },
+    "SLEEP": {
+     "clips": 40,
+     "signers": 14,
+     "recall": {
+      "ALL": 0.425,
+      "100": 0.425,
+      "133": 0.412,
+      "200": 0.362,
+      "266": 0.325,
+      "400": 0.225,
+      "IRREGULAR": 0.388
+     },
+     "hand": 0.56,
+     "train_fit_all": 0.75,
+     "train_fit_266": 0.5,
+     "labels": []
+    },
+    "SLOW": {
+     "clips": 3,
+     "signers": 3,
+     "recall": {
+      "ALL": 1.0,
+      "100": 1.0,
+      "133": 0.667,
+      "200": 0.5,
+      "266": 0.667,
+      "400": 0.5,
+      "IRREGULAR": 0.5
+     },
+     "hand": 0.633,
+     "train_fit_all": 0.867,
+     "train_fit_266": 0.667,
+     "labels": [
+      "TEMPORAL"
+     ]
+    },
+    "SMALL": {
+     "clips": 3,
+     "signers": 3,
+     "recall": {
+      "ALL": 1.0,
+      "100": 1.0,
+      "133": 1.0,
+      "200": 0.833,
+      "266": 1.0,
+      "400": 0.833,
+      "IRREGULAR": 1.0
+     },
+     "hand": 0.631,
+     "train_fit_all": 1.0,
+     "train_fit_266": 0.812,
+     "labels": []
+    },
+    "SOME": {
+     "clips": 10,
+     "signers": 7,
+     "recall": {
+      "ALL": 0.1,
+      "100": 0.1,
+      "133": 0.05,
+      "200": 0.0,
+      "266": 0.1,
+      "400": 0.05,
+      "IRREGULAR": 0.1
+     },
+     "hand": 0.68,
+     "train_fit_all": 0.667,
+     "train_fit_266": 0.5,
+     "labels": []
+    },
+    "SOMETIMES": {
+     "clips": 8,
+     "signers": 6,
+     "recall": {
+      "ALL": 0.125,
+      "100": 0.0,
+      "133": 0.0,
+      "200": 0.125,
+      "266": 0.0,
+      "400": 0.062,
+      "IRREGULAR": 0.062
+     },
+     "hand": 0.67,
+     "train_fit_all": 0.615,
+     "train_fit_266": 0.462,
+     "labels": []
+    },
+    "SORRY": {
+     "clips": 3,
+     "signers": 3,
+     "recall": {
+      "ALL": 0.333,
+      "100": 0.333,
+      "133": 0.0,
+      "200": 0.167,
+      "266": 0.167,
+      "400": 0.167,
+      "IRREGULAR": 0.167
+     },
+     "hand": 0.394,
+     "train_fit_all": 0.992,
+     "train_fit_266": 0.926,
+     "labels": [
+      "GENERALIZATION",
+      "WEAK_HANDS"
+     ]
+    },
+    "SPECIAL1": {
+     "clips": 5,
+     "signers": 5,
+     "recall": {
+      "ALL": 0.2,
+      "100": 0.2,
+      "133": 0.2,
+      "200": 0.2,
+      "266": 0.1,
+      "400": 0.2,
+      "IRREGULAR": 0.3
+     },
+     "hand": 0.549,
+     "train_fit_all": 0.765,
+     "train_fit_266": 0.824,
+     "labels": []
+    },
+    "STAND2": {
+     "clips": 4,
+     "signers": 3,
+     "recall": {
+      "ALL": 0.25,
+      "100": 0.375,
+      "133": 0.375,
+      "200": 0.25,
+      "266": 0.125,
+      "400": 0.125,
+      "IRREGULAR": 0.125
+     },
+     "hand": 0.626,
+     "train_fit_all": 0.929,
+     "train_fit_266": 0.571,
+     "labels": [
+      "GENERALIZATION"
+     ]
+    },
+    "START": {
+     "clips": 5,
+     "signers": 4,
+     "recall": {
+      "ALL": 0.2,
+      "100": 0.4,
+      "133": 0.4,
+      "200": 0.3,
+      "266": 0.1,
+      "400": 0.2,
+      "IRREGULAR": 0.3
+     },
+     "hand": 0.706,
+     "train_fit_all": 0.846,
+     "train_fit_266": 0.615,
+     "labels": [
+      "GENERALIZATION"
+     ]
+    },
+    "STAY": {
+     "clips": 9,
+     "signers": 5,
+     "recall": {
+      "ALL": 0.778,
+      "100": 0.722,
+      "133": 0.778,
+      "200": 0.722,
+      "266": 0.667,
+      "400": 0.444,
+      "IRREGULAR": 0.611
+     },
+     "hand": 0.727,
+     "train_fit_all": 1.0,
+     "train_fit_266": 0.75,
+     "labels": []
+    },
+    "STILL": {
+     "clips": 4,
+     "signers": 3,
+     "recall": {
+      "ALL": 0.25,
+      "100": 0.25,
+      "133": 0.375,
+      "200": 0.375,
+      "266": 0.375,
+      "400": 0.375,
+      "IRREGULAR": 0.25
+     },
+     "hand": 0.682,
+     "train_fit_all": 0.857,
+     "train_fit_266": 0.5,
+     "labels": [
+      "GENERALIZATION"
+     ]
+    },
+    "STREET": {
+     "clips": 4,
+     "signers": 4,
+     "recall": {
+      "ALL": 0.25,
+      "100": 0.25,
+      "133": 0.25,
+      "200": 0.125,
+      "266": 0.125,
+      "400": 0.125,
+      "IRREGULAR": 0.25
+     },
+     "hand": 0.522,
+     "train_fit_all": 0.692,
+     "train_fit_266": 0.308,
+     "labels": []
+    },
+    "STRONG": {
+     "clips": 2,
+     "signers": 2,
+     "recall": {
+      "ALL": 1.0,
+      "100": 0.75,
+      "133": 1.0,
+      "200": 0.5,
+      "266": 0.75,
+      "400": 0.5,
+      "IRREGULAR": 0.75
+     },
+     "hand": 0.692,
+     "train_fit_all": 0.933,
+     "train_fit_266": 0.733,
+     "labels": [
+      "TEMPORAL"
+     ]
+    },
+    "STUDENT": {
+     "clips": 4,
+     "signers": 4,
+     "recall": {
+      "ALL": 0.75,
+      "100": 0.625,
+      "133": 0.375,
+      "200": 0.25,
+      "266": 0.375,
+      "400": 0.125,
+      "IRREGULAR": 0.125
+     },
+     "hand": 0.606,
+     "train_fit_all": 0.929,
+     "train_fit_266": 0.357,
+     "labels": [
+      "TEMPORAL"
+     ]
+    },
+    "SURE": {
+     "clips": 9,
+     "signers": 8,
+     "recall": {
+      "ALL": 0.111,
+      "100": 0.222,
+      "133": 0.222,
+      "200": 0.111,
+      "266": 0.167,
+      "400": 0.167,
+      "IRREGULAR": 0.111
+     },
+     "hand": 0.614,
+     "train_fit_all": 0.923,
+     "train_fit_266": 0.462,
+     "labels": [
+      "GENERALIZATION"
+     ]
+    },
+    "TABLE": {
+     "clips": 4,
+     "signers": 4,
+     "recall": {
+      "ALL": 0.75,
+      "100": 0.75,
+      "133": 0.75,
+      "200": 0.75,
+      "266": 0.75,
+      "400": 0.75,
+      "IRREGULAR": 0.75
+     },
+     "hand": 0.158,
+     "train_fit_all": 1.0,
+     "train_fit_266": 0.6,
+     "labels": [
+      "WEAK_HANDS"
+     ]
+    },
+    "TAKE": {
+     "clips": 2,
+     "signers": 2,
+     "recall": {
+      "ALL": 0.5,
+      "100": 1.0,
+      "133": 1.0,
+      "200": 0.75,
+      "266": 0.0,
+      "400": 0.25,
+      "IRREGULAR": 0.25
+     },
+     "hand": 0.227,
+     "train_fit_all": 0.933,
+     "train_fit_266": 0.733,
+     "labels": [
+      "WEAK_HANDS"
+     ]
+    },
+    "TALK1": {
+     "clips": 9,
+     "signers": 8,
+     "recall": {
+      "ALL": 0.111,
+      "100": 0.111,
+      "133": 0.111,
+      "200": 0.111,
+      "266": 0.111,
+      "400": 0.111,
+      "IRREGULAR": 0.111
+     },
+     "hand": 0.577,
+     "train_fit_all": 0.75,
+     "train_fit_266": 0.75,
+     "labels": []
+    },
+    "TEACH2": {
+     "clips": 3,
+     "signers": 3,
+     "recall": {
+      "ALL": 0.667,
+      "100": 1.0,
+      "133": 0.667,
+      "200": 1.0,
+      "266": 0.667,
+      "400": 0.833,
+      "IRREGULAR": 0.833
+     },
+     "hand": 0.494,
+     "train_fit_all": 1.0,
+     "train_fit_266": 0.938,
+     "labels": []
+    },
+    "TEACHER": {
+     "clips": 4,
+     "signers": 4,
+     "recall": {
+      "ALL": 0.25,
+      "100": 0.25,
+      "133": 0.125,
+      "200": 0.5,
+      "266": 0.25,
+      "400": 0.25,
+      "IRREGULAR": 0.375
+     },
+     "hand": 0.633,
+     "train_fit_all": 0.692,
+     "train_fit_266": 0.615,
+     "labels": []
+    },
+    "TELL": {
+     "clips": 3,
+     "signers": 3,
+     "recall": {
+      "ALL": 0.667,
+      "100": 0.667,
+      "133": 0.833,
+      "200": 0.5,
+      "266": 0.333,
+      "400": 0.167,
+      "IRREGULAR": 0.167
+     },
+     "hand": 0.321,
+     "train_fit_all": 0.769,
+     "train_fit_266": 0.385,
+     "labels": [
+      "WEAK_HANDS"
+     ]
+    },
+    "THEN": {
+     "clips": 4,
+     "signers": 4,
+     "recall": {
+      "ALL": 0.5,
+      "100": 0.5,
+      "133": 0.5,
+      "200": 0.375,
+      "266": 0.375,
+      "400": 0.375,
+      "IRREGULAR": 0.5
+     },
+     "hand": 0.594,
+     "train_fit_all": 0.929,
+     "train_fit_266": 0.786,
+     "labels": []
+    },
+    "THEY1": {
+     "clips": 5,
+     "signers": 5,
+     "recall": {
+      "ALL": 0.2,
+      "100": 0.2,
+      "133": 0.2,
+      "200": 0.2,
+      "266": 0.2,
+      "400": 0.2,
+      "IRREGULAR": 0.2
+     },
+     "hand": 0.764,
+     "train_fit_all": 1.0,
+     "train_fit_266": 0.462,
+     "labels": [
+      "GENERALIZATION"
+     ]
+    },
+    "THINK": {
+     "clips": 3,
+     "signers": 3,
+     "recall": {
+      "ALL": 1.0,
+      "100": 0.833,
+      "133": 0.667,
+      "200": 0.833,
+      "266": 0.833,
+      "400": 0.333,
+      "IRREGULAR": 0.667
+     },
+     "hand": 0.562,
+     "train_fit_all": 0.933,
+     "train_fit_266": 0.6,
+     "labels": []
+    },
+    "TICKET": {
+     "clips": 3,
+     "signers": 3,
+     "recall": {
+      "ALL": 0.0,
+      "100": 0.0,
+      "133": 0.0,
+      "200": 0.167,
+      "266": 0.333,
+      "400": 0.167,
+      "IRREGULAR": 0.0
+     },
+     "hand": 0.491,
+     "train_fit_all": 0.875,
+     "train_fit_266": 0.5,
+     "labels": [
+      "GENERALIZATION"
+     ]
+    },
+    "TIME": {
+     "clips": 57,
+     "signers": 14,
+     "recall": {
+      "ALL": 0.316,
+      "100": 0.263,
+      "133": 0.263,
+      "200": 0.263,
+      "266": 0.228,
+      "400": 0.193,
+      "IRREGULAR": 0.193
+     },
+     "hand": 0.689,
+     "train_fit_all": 0.833,
+     "train_fit_266": 0.333,
+     "labels": [
+      "GENERALIZATION"
+     ]
+    },
+    "TIRED": {
+     "clips": 37,
+     "signers": 13,
+     "recall": {
+      "ALL": 0.135,
+      "100": 0.189,
+      "133": 0.257,
+      "200": 0.203,
+      "266": 0.162,
+      "400": 0.122,
+      "IRREGULAR": 0.176
+     },
+     "hand": 0.514,
+     "train_fit_all": 0.727,
+     "train_fit_266": 0.364,
+     "labels": []
+    },
+    "TO": {
+     "clips": 3,
+     "signers": 2,
+     "recall": {
+      "ALL": 0.667,
+      "100": 0.667,
+      "133": 0.667,
+      "200": 0.833,
+      "266": 0.833,
+      "400": 0.833,
+      "IRREGULAR": 1.0
+     },
+     "hand": 0.762,
+     "train_fit_all": 0.692,
+     "train_fit_266": 0.462,
+     "labels": []
+    },
+    "TODAY": {
+     "clips": 4,
+     "signers": 3,
+     "recall": {
+      "ALL": 0.75,
+      "100": 1.0,
+      "133": 1.0,
+      "200": 1.0,
+      "266": 1.0,
+      "400": 0.875,
+      "IRREGULAR": 1.0
+     },
+     "hand": 0.618,
+     "train_fit_all": 0.933,
+     "train_fit_266": 0.8,
+     "labels": []
+    },
+    "TOMORROW": {
+     "clips": 13,
+     "signers": 9,
+     "recall": {
+      "ALL": 0.308,
+      "100": 0.269,
+      "133": 0.231,
+      "200": 0.462,
+      "266": 0.346,
+      "400": 0.269,
+      "IRREGULAR": 0.192
+     },
+     "hand": 0.547,
+     "train_fit_all": 0.857,
+     "train_fit_266": 0.429,
+     "labels": [
+      "GENERALIZATION"
+     ]
+    },
+    "TOOMUCH": {
+     "clips": 4,
+     "signers": 3,
+     "recall": {
+      "ALL": 0.25,
+      "100": 0.375,
+      "133": 0.375,
+      "200": 0.25,
+      "266": 0.5,
+      "400": 0.5,
+      "IRREGULAR": 0.375
+     },
+     "hand": 0.556,
+     "train_fit_all": 0.688,
+     "train_fit_266": 0.312,
+     "labels": []
+    },
+    "TOUCH": {
+     "clips": 3,
+     "signers": 3,
+     "recall": {
+      "ALL": 1.0,
+      "100": 0.333,
+      "133": 0.667,
+      "200": 0.5,
+      "266": 0.5,
+      "400": 0.167,
+      "IRREGULAR": 0.167
+     },
+     "hand": 0.663,
+     "train_fit_all": 0.938,
+     "train_fit_266": 0.688,
+     "labels": [
+      "TEMPORAL"
+     ]
+    },
+    "TRY": {
+     "clips": 4,
+     "signers": 4,
+     "recall": {
+      "ALL": 1.0,
+      "100": 1.0,
+      "133": 1.0,
+      "200": 0.875,
+      "266": 0.875,
+      "400": 0.75,
+      "IRREGULAR": 1.0
+     },
+     "hand": 0.707,
+     "train_fit_all": 0.846,
+     "train_fit_266": 0.769,
+     "labels": []
+    },
+    "TURN": {
+     "clips": 3,
+     "signers": 3,
+     "recall": {
+      "ALL": 0.667,
+      "100": 0.5,
+      "133": 0.667,
+      "200": 0.333,
+      "266": 0.833,
+      "400": 0.333,
+      "IRREGULAR": 0.167
+     },
+     "hand": 0.645,
+     "train_fit_all": 0.917,
+     "train_fit_266": 0.583,
+     "labels": [
+      "TEMPORAL"
+     ]
+    },
+    "UNDER": {
+     "clips": 9,
+     "signers": 7,
+     "recall": {
+      "ALL": 0.444,
+      "100": 0.444,
+      "133": 0.556,
+      "200": 0.333,
+      "266": 0.333,
+      "400": 0.222,
+      "IRREGULAR": 0.389
+     },
+     "hand": 0.5,
+     "train_fit_all": 0.846,
+     "train_fit_266": 0.615,
+     "labels": []
+    },
+    "US": {
+     "clips": 3,
+     "signers": 3,
+     "recall": {
+      "ALL": 0.333,
+      "100": 0.5,
+      "133": 0.333,
+      "200": 0.333,
+      "266": 0.333,
+      "400": 0.333,
+      "IRREGULAR": 0.333
+     },
+     "hand": 0.503,
+     "train_fit_all": 0.867,
+     "train_fit_266": 0.533,
+     "labels": [
+      "GENERALIZATION"
+     ]
+    },
+    "USE": {
+     "clips": 4,
+     "signers": 3,
+     "recall": {
+      "ALL": 1.0,
+      "100": 0.75,
+      "133": 0.75,
+      "200": 0.375,
+      "266": 0.75,
+      "400": 0.625,
+      "IRREGULAR": 0.5
+     },
+     "hand": 0.649,
+     "train_fit_all": 0.933,
+     "train_fit_266": 0.8,
+     "labels": [
+      "TEMPORAL"
+     ]
+    },
+    "VERY": {
+     "clips": 3,
+     "signers": 2,
+     "recall": {
+      "ALL": 0.667,
+      "100": 1.0,
+      "133": 0.667,
+      "200": 0.667,
+      "266": 0.667,
+      "400": 0.833,
+      "IRREGULAR": 0.833
+     },
+     "hand": 0.575,
+     "train_fit_all": 1.0,
+     "train_fit_266": 1.0,
+     "labels": []
+    },
+    "VISIT": {
+     "clips": 5,
+     "signers": 3,
+     "recall": {
+      "ALL": 0.8,
+      "100": 0.8,
+      "133": 0.9,
+      "200": 0.9,
+      "266": 0.7,
+      "400": 0.9,
+      "IRREGULAR": 1.0
+     },
+     "hand": 0.75,
+     "train_fit_all": 1.0,
+     "train_fit_266": 0.929,
+     "labels": []
+    },
+    "WAIT": {
+     "clips": 21,
+     "signers": 11,
+     "recall": {
+      "ALL": 0.667,
+      "100": 0.595,
+      "133": 0.619,
+      "200": 0.571,
+      "266": 0.643,
+      "400": 0.619,
+      "IRREGULAR": 0.548
+     },
+     "hand": 0.672,
+     "train_fit_all": 1.0,
+     "train_fit_266": 0.833,
+     "labels": []
+    },
+    "WALK2": {
+     "clips": 17,
+     "signers": 9,
+     "recall": {
+      "ALL": 0.059,
+      "100": 0.088,
+      "133": 0.118,
+      "200": 0.118,
+      "266": 0.059,
+      "400": 0.088,
+      "IRREGULAR": 0.088
+     },
+     "hand": 0.654,
+     "train_fit_all": 0.846,
+     "train_fit_266": 0.615,
+     "labels": [
+      "GENERALIZATION"
+     ]
+    },
+    "WANT2": {
+     "clips": 28,
+     "signers": 12,
+     "recall": {
+      "ALL": 0.429,
+      "100": 0.429,
+      "133": 0.429,
+      "200": 0.393,
+      "266": 0.357,
+      "400": 0.286,
+      "IRREGULAR": 0.393
+     },
+     "hand": 0.683,
+     "train_fit_all": 1.0,
+     "train_fit_266": 0.867,
+     "labels": []
+    },
+    "WASH2": {
+     "clips": 3,
+     "signers": 3,
+     "recall": {
+      "ALL": 1.0,
+      "100": 1.0,
+      "133": 1.0,
+      "200": 1.0,
+      "266": 1.0,
+      "400": 1.0,
+      "IRREGULAR": 1.0
+     },
+     "hand": 0.757,
+     "train_fit_all": 1.0,
+     "train_fit_266": 0.938,
+     "labels": []
+    },
+    "WATCH": {
+     "clips": 14,
+     "signers": 7,
+     "recall": {
+      "ALL": 0.143,
+      "100": 0.179,
+      "133": 0.143,
+      "200": 0.286,
+      "266": 0.214,
+      "400": 0.214,
+      "IRREGULAR": 0.179
+     },
+     "hand": 0.526,
+     "train_fit_all": 0.714,
+     "train_fit_266": 0.571,
+     "labels": []
+    },
+    "WATER": {
+     "clips": 4,
+     "signers": 4,
+     "recall": {
+      "ALL": 0.75,
+      "100": 0.625,
+      "133": 0.625,
+      "200": 0.625,
+      "266": 0.625,
+      "400": 0.625,
+      "IRREGULAR": 0.625
+     },
+     "hand": 0.581,
+     "train_fit_all": 0.923,
+     "train_fit_266": 0.923,
+     "labels": []
+    },
+    "WE": {
+     "clips": 3,
+     "signers": 3,
+     "recall": {
+      "ALL": 0.333,
+      "100": 0.333,
+      "133": 0.333,
+      "200": 0.167,
+      "266": 0.167,
+      "400": 0.0,
+      "IRREGULAR": 0.0
+     },
+     "hand": 0.332,
+     "train_fit_all": 0.692,
+     "train_fit_266": 0.385,
+     "labels": [
+      "WEAK_HANDS"
+     ]
+    },
+    "WEEK": {
+     "clips": 19,
+     "signers": 11,
+     "recall": {
+      "ALL": 0.263,
+      "100": 0.263,
+      "133": 0.263,
+      "200": 0.184,
+      "266": 0.184,
+      "400": 0.079,
+      "IRREGULAR": 0.158
+     },
+     "hand": 0.711,
+     "train_fit_all": 0.818,
+     "train_fit_266": 0.545,
+     "labels": [
+      "GENERALIZATION"
+     ]
+    },
+    "WELCOME2": {
+     "clips": 7,
+     "signers": 6,
+     "recall": {
+      "ALL": 0.429,
+      "100": 0.429,
+      "133": 0.286,
+      "200": 0.214,
+      "266": 0.143,
+      "400": 0.143,
+      "IRREGULAR": 0.214
+     },
+     "hand": 0.589,
+     "train_fit_all": 0.769,
+     "train_fit_266": 0.385,
+     "labels": []
+    },
+    "WHAT1": {
+     "clips": 5,
+     "signers": 5,
+     "recall": {
+      "ALL": 0.4,
+      "100": 0.2,
+      "133": 0.4,
+      "200": 0.2,
+      "266": 0.2,
+      "400": 0.1,
+      "IRREGULAR": 0.3
+     },
+     "hand": 0.7,
+     "train_fit_all": 0.733,
+     "train_fit_266": 0.333,
+     "labels": []
+    },
+    "WHEN": {
+     "clips": 9,
+     "signers": 7,
+     "recall": {
+      "ALL": 0.444,
+      "100": 0.5,
+      "133": 0.444,
+      "200": 0.278,
+      "266": 0.167,
+      "400": 0.222,
+      "IRREGULAR": 0.278
+     },
+     "hand": 0.723,
+     "train_fit_all": 0.917,
+     "train_fit_266": 0.333,
+     "labels": []
+    },
+    "WHERE": {
+     "clips": 44,
+     "signers": 11,
+     "recall": {
+      "ALL": 0.545,
+      "100": 0.443,
+      "133": 0.455,
+      "200": 0.33,
+      "266": 0.364,
+      "400": 0.273,
+      "IRREGULAR": 0.341
+     },
+     "hand": 0.714,
+     "train_fit_all": 1.0,
+     "train_fit_266": 0.875,
+     "labels": []
+    },
+    "WHICH": {
+     "clips": 4,
+     "signers": 4,
+     "recall": {
+      "ALL": 0.75,
+      "100": 0.875,
+      "133": 0.875,
+      "200": 0.75,
+      "266": 0.75,
+      "400": 0.75,
+      "IRREGULAR": 0.125
+     },
+     "hand": 0.556,
+     "train_fit_all": 1.0,
+     "train_fit_266": 0.385,
+     "labels": []
+    },
+    "WHILE": {
+     "clips": 2,
+     "signers": 2,
+     "recall": {
+      "ALL": 0.5,
+      "100": 0.5,
+      "133": 0.5,
+      "200": 0.5,
+      "266": 0.5,
+      "400": 0.75,
+      "IRREGULAR": 0.5
+     },
+     "hand": 0.535,
+     "train_fit_all": 0.933,
+     "train_fit_266": 0.467,
+     "labels": []
+    },
+    "WHO": {
+     "clips": 5,
+     "signers": 5,
+     "recall": {
+      "ALL": 0.2,
+      "100": 0.2,
+      "133": 0.1,
+      "200": 0.0,
+      "266": 0.1,
+      "400": 0.0,
+      "IRREGULAR": 0.2
+     },
+     "hand": 0.565,
+     "train_fit_all": 0.4,
+     "train_fit_266": 0.2,
+     "labels": [
+      "INCONSISTENT"
+     ]
+    },
+    "WHOLE": {
+     "clips": 3,
+     "signers": 3,
+     "recall": {
+      "ALL": 0.667,
+      "100": 0.667,
+      "133": 0.667,
+      "200": 0.5,
+      "266": 0.667,
+      "400": 0.333,
+      "IRREGULAR": 0.5
+     },
+     "hand": 0.664,
+     "train_fit_all": 0.812,
+     "train_fit_266": 0.625,
+     "labels": []
+    },
+    "WHY": {
+     "clips": 9,
+     "signers": 7,
+     "recall": {
+      "ALL": 0.0,
+      "100": 0.0,
+      "133": 0.056,
+      "200": 0.0,
+      "266": 0.0,
+      "400": 0.0,
+      "IRREGULAR": 0.0
+     },
+     "hand": 0.427,
+     "train_fit_all": 0.5,
+     "train_fit_266": 0.25,
+     "labels": [
+      "INCONSISTENT",
+      "WEAK_HANDS"
+     ]
+    },
+    "WIFE": {
+     "clips": 3,
+     "signers": 3,
+     "recall": {
+      "ALL": 0.0,
+      "100": 0.0,
+      "133": 0.167,
+      "200": 0.0,
+      "266": 0.0,
+      "400": 0.167,
+      "IRREGULAR": 0.0
+     },
+     "hand": 0.45,
+     "train_fit_all": 0.643,
+     "train_fit_266": 0.429,
+     "labels": []
+    },
+    "WINDOW": {
+     "clips": 3,
+     "signers": 3,
+     "recall": {
+      "ALL": 0.667,
+      "100": 0.667,
+      "133": 0.667,
+      "200": 0.5,
+      "266": 0.5,
+      "400": 0.333,
+      "IRREGULAR": 0.5
+     },
+     "hand": 0.723,
+     "train_fit_all": 0.933,
+     "train_fit_266": 0.2,
+     "labels": []
+    },
+    "WITH": {
+     "clips": 10,
+     "signers": 8,
+     "recall": {
+      "ALL": 0.3,
+      "100": 0.35,
+      "133": 0.3,
+      "200": 0.15,
+      "266": 0.25,
+      "400": 0.2,
+      "IRREGULAR": 0.25
+     },
+     "hand": 0.72,
+     "train_fit_all": 0.833,
+     "train_fit_266": 0.417,
+     "labels": [
+      "GENERALIZATION"
+     ]
+    },
+    "WORK": {
+     "clips": 3,
+     "signers": 3,
+     "recall": {
+      "ALL": 1.0,
+      "100": 1.0,
+      "133": 1.0,
+      "200": 1.0,
+      "266": 1.0,
+      "400": 0.833,
+      "IRREGULAR": 0.833
+     },
+     "hand": 0.634,
+     "train_fit_all": 1.0,
+     "train_fit_266": 0.923,
+     "labels": []
+    },
+    "WORLD": {
+     "clips": 3,
+     "signers": 3,
+     "recall": {
+      "ALL": 0.333,
+      "100": 0.167,
+      "133": 0.333,
+      "200": 0.333,
+      "266": 0.333,
+      "400": 0.167,
+      "IRREGULAR": 0.167
+     },
+     "hand": 0.471,
+     "train_fit_all": 0.786,
+     "train_fit_266": 0.429,
+     "labels": []
+    },
+    "WRITE": {
+     "clips": 3,
+     "signers": 3,
+     "recall": {
+      "ALL": 0.333,
+      "100": 0.333,
+      "133": 0.333,
+      "200": 0.333,
+      "266": 0.5,
+      "400": 0.667,
+      "IRREGULAR": 0.333
+     },
+     "hand": 0.557,
+     "train_fit_all": 0.938,
+     "train_fit_266": 0.688,
+     "labels": [
+      "GENERALIZATION"
+     ]
+    },
+    "YEAR": {
+     "clips": 4,
+     "signers": 4,
+     "recall": {
+      "ALL": 0.5,
+      "100": 0.5,
+      "133": 0.5,
+      "200": 0.625,
+      "266": 0.25,
+      "400": 0.375,
+      "IRREGULAR": 0.5
+     },
+     "hand": 0.516,
+     "train_fit_all": 0.867,
+     "train_fit_266": 0.4,
+     "labels": []
+    },
+    "YES": {
+     "clips": 15,
+     "signers": 8,
+     "recall": {
+      "ALL": 0.667,
+      "100": 0.733,
+      "133": 0.633,
+      "200": 0.667,
+      "266": 0.6,
+      "400": 0.567,
+      "IRREGULAR": 0.567
+     },
+     "hand": 0.696,
+     "train_fit_all": 0.846,
+     "train_fit_266": 0.615,
+     "labels": []
+    },
+    "YESTERDAY": {
+     "clips": 3,
+     "signers": 3,
+     "recall": {
+      "ALL": 1.0,
+      "100": 1.0,
+      "133": 1.0,
+      "200": 1.0,
+      "266": 1.0,
+      "400": 1.0,
+      "IRREGULAR": 1.0
+     },
+     "hand": 0.805,
+     "train_fit_all": 1.0,
+     "train_fit_266": 0.929,
+     "labels": []
+    },
+    "YOU": {
+     "clips": 4,
+     "signers": 4,
+     "recall": {
+      "ALL": 0.75,
+      "100": 0.625,
+      "133": 0.625,
+      "200": 0.625,
+      "266": 0.625,
+      "400": 0.625,
+      "IRREGULAR": 0.5
+     },
+     "hand": 0.609,
+     "train_fit_all": 0.769,
+     "train_fit_266": 0.462,
+     "labels": []
+    },
+    "YOUNG": {
+     "clips": 4,
+     "signers": 3,
+     "recall": {
+      "ALL": 0.0,
+      "100": 0.125,
+      "133": 0.375,
+      "200": 0.25,
+      "266": 0.5,
+      "400": 0.125,
+      "IRREGULAR": 0.125
+     },
+     "hand": 0.515,
+     "train_fit_all": 0.467,
+     "train_fit_266": 0.333,
+     "labels": [
+      "INCONSISTENT"
+     ]
+    },
+    "YOUR": {
+     "clips": 9,
+     "signers": 7,
+     "recall": {
+      "ALL": 0.222,
+      "100": 0.333,
+      "133": 0.389,
+      "200": 0.444,
+      "266": 0.444,
+      "400": 0.333,
+      "IRREGULAR": 0.556
+     },
+     "hand": 0.76,
+     "train_fit_all": 0.923,
+     "train_fit_266": 0.923,
+     "labels": [
+      "GENERALIZATION"
+     ]
+    }
+   },
+   "pairs": {
+    "CHAIR/SIT": {
+     "ALL": "12/26",
+     "100": "23/52",
+     "133": "20/52",
+     "200": "23/52",
+     "266": "20/52",
+     "400": "22/52",
+     "IRREGULAR": "24/52"
+    },
+    "CAR/DRIVE": {
+     "ALL": "2/16",
+     "100": "9/32",
+     "133": "8/32",
+     "200": "4/32",
+     "266": "5/32",
+     "400": "5/32",
+     "IRREGULAR": "6/32"
+    },
+    "NOW/TODAY": {
+     "ALL": "6/11",
+     "100": "12/22",
+     "133": "12/22",
+     "200": "12/22",
+     "266": "8/22",
+     "400": "4/22",
+     "IRREGULAR": "9/22"
+    },
+    "MUCH/TOOMUCH": {
+     "ALL": "3/7",
+     "100": "5/14",
+     "133": "4/14",
+     "200": "5/14",
+     "266": "2/14",
+     "400": "4/14",
+     "IRREGULAR": "5/14"
+    },
+    "STAND2/JUMP": {
+     "ALL": "4/21",
+     "100": "7/42",
+     "133": "7/42",
+     "200": "6/42",
+     "266": "7/42",
+     "400": "5/42",
+     "IRREGULAR": "7/42"
+    },
+    "HAPPY/PLEASE": {
+     "ALL": "8/38",
+     "100": "10/76",
+     "133": "7/76",
+     "200": "8/76",
+     "266": "8/76",
+     "400": "9/76",
+     "IRREGULAR": "5/76"
+    },
+    "SORRY/LOVE": {
+     "ALL": "4/29",
+     "100": "9/58",
+     "133": "9/58",
+     "200": "9/58",
+     "266": "9/58",
+     "400": "14/58",
+     "IRREGULAR": "6/58"
+    },
+    "FIND/PICK": {
+     "ALL": "2/6",
+     "100": "4/12",
+     "133": "5/12",
+     "200": "4/12",
+     "266": "4/12",
+     "400": "4/12",
+     "IRREGULAR": "4/12"
+    },
+    "PERSON/PEOPLE": {
+     "ALL": "2/12",
+     "100": "7/24",
+     "133": "8/24",
+     "200": "8/24",
+     "266": "5/24",
+     "400": "5/24",
+     "IRREGULAR": "4/24"
+    },
+    "BAD/GOOD": {
+     "ALL": "5/31",
+     "100": "9/62",
+     "133": "8/62",
+     "200": "4/62",
+     "266": "6/62",
+     "400": "4/62",
+     "IRREGULAR": "5/62"
+    }
+   },
+   "train_fit_mean": {
+    "ALL": 0.8455,
+    "266": 0.54
+   }
+  },
+  "BLEND_02": {
+   "summary": {
+    "ALL": {
+     "DEV": 0.6005,
+     "SEMLEX_EVAL": 0.4984,
+     "ALL_POPS": 0.5341
+    },
+    "100": {
+     "DEV": 0.5864,
+     "SEMLEX_EVAL": 0.4624,
+     "ALL_POPS": 0.5058
+    },
+    "133": {
+     "DEV": 0.5613,
+     "SEMLEX_EVAL": 0.4509,
+     "ALL_POPS": 0.4895
+    },
+    "200": {
+     "DEV": 0.527,
+     "SEMLEX_EVAL": 0.4127,
+     "ALL_POPS": 0.4526
+    },
+    "266": {
+     "DEV": 0.5006,
+     "SEMLEX_EVAL": 0.3705,
+     "ALL_POPS": 0.416
+    },
+    "400": {
+     "DEV": 0.405,
+     "SEMLEX_EVAL": 0.297,
+     "ALL_POPS": 0.3348
+    },
+    "IRREGULAR": {
+     "DEV": 0.4945,
+     "SEMLEX_EVAL": 0.3932,
+     "ALL_POPS": 0.4286
+    }
+   },
+   "classes": {
+    "ABOUT2": {
+     "clips": 4,
+     "signers": 3,
+     "recall": {
+      "ALL": 0.5,
+      "100": 0.375,
+      "133": 0.5,
+      "200": 0.375,
+      "266": 0.5,
+      "400": 0.25,
+      "IRREGULAR": 0.375
+     },
+     "hand": 0.543,
+     "train_fit_all": 0.786,
+     "train_fit_266": 0.214,
+     "labels": []
+    },
+    "AFTERNOON": {
+     "clips": 7,
+     "signers": 7,
+     "recall": {
+      "ALL": 0.429,
+      "100": 0.5,
+      "133": 0.5,
+      "200": 0.429,
+      "266": 0.5,
+      "400": 0.357,
+      "IRREGULAR": 0.5
+     },
+     "hand": 0.558,
+     "train_fit_all": 0.786,
+     "train_fit_266": 0.643,
+     "labels": []
+    },
+    "AGAIN": {
+     "clips": 18,
+     "signers": 12,
+     "recall": {
+      "ALL": 0.333,
+      "100": 0.306,
+      "133": 0.278,
+      "200": 0.25,
+      "266": 0.222,
+      "400": 0.194,
+      "IRREGULAR": 0.306
+     },
+     "hand": 0.685,
+     "train_fit_all": 0.833,
+     "train_fit_266": 0.417,
+     "labels": [
+      "GENERALIZATION"
+     ]
+    },
+    "ALL": {
+     "clips": 3,
+     "signers": 3,
+     "recall": {
+      "ALL": 1.0,
+      "100": 0.833,
+      "133": 0.5,
+      "200": 0.167,
+      "266": 0.333,
+      "400": 0.333,
+      "IRREGULAR": 0.667
+     },
+     "hand": 0.477,
+     "train_fit_all": 0.8,
+     "train_fit_266": 0.533,
+     "labels": [
+      "TEMPORAL"
+     ]
+    },
+    "ALWAYS": {
+     "clips": 9,
+     "signers": 7,
+     "recall": {
+      "ALL": 0.667,
+      "100": 0.278,
+      "133": 0.444,
+      "200": 0.278,
+      "266": 0.222,
+      "400": 0.167,
+      "IRREGULAR": 0.333
+     },
+     "hand": 0.699,
+     "train_fit_all": 0.846,
+     "train_fit_266": 0.462,
+     "labels": [
+      "TEMPORAL"
+     ]
+    },
+    "AND": {
+     "clips": 3,
+     "signers": 3,
+     "recall": {
+      "ALL": 0.667,
+      "100": 0.667,
+      "133": 0.5,
+      "200": 0.333,
+      "266": 0.5,
+      "400": 0.167,
+      "IRREGULAR": 0.333
+     },
+     "hand": 0.551,
+     "train_fit_all": 1.0,
+     "train_fit_266": 0.429,
+     "labels": [
+      "TEMPORAL"
+     ]
+    },
+    "ANY": {
+     "clips": 4,
+     "signers": 4,
+     "recall": {
+      "ALL": 1.0,
+      "100": 1.0,
+      "133": 1.0,
+      "200": 0.75,
+      "266": 0.875,
+      "400": 0.625,
+      "IRREGULAR": 0.875
+     },
+     "hand": 0.694,
+     "train_fit_all": 1.0,
+     "train_fit_266": 0.5,
+     "labels": [
+      "TEMPORAL"
+     ]
+    },
+    "ASK": {
+     "clips": 11,
+     "signers": 7,
+     "recall": {
+      "ALL": 0.636,
+      "100": 0.5,
+      "133": 0.545,
+      "200": 0.5,
+      "266": 0.5,
+      "400": 0.364,
+      "IRREGULAR": 0.545
+     },
+     "hand": 0.71,
+     "train_fit_all": 0.778,
+     "train_fit_266": 0.444,
+     "labels": []
+    },
+    "AT": {
+     "clips": 5,
+     "signers": 4,
+     "recall": {
+      "ALL": 0.4,
+      "100": 0.4,
+      "133": 0.2,
+      "200": 0.2,
+      "266": 0.2,
+      "400": 0.1,
+      "IRREGULAR": 0.3
+     },
+     "hand": 0.606,
+     "train_fit_all": 0.923,
+     "train_fit_266": 0.692,
+     "labels": []
+    },
+    "BABY1": {
+     "clips": 3,
+     "signers": 3,
+     "recall": {
+      "ALL": 0.667,
+      "100": 0.833,
+      "133": 0.667,
+      "200": 0.667,
+      "266": 0.667,
+      "400": 0.667,
+      "IRREGULAR": 0.833
+     },
+     "hand": 0.332,
+     "train_fit_all": 0.929,
+     "train_fit_266": 0.786,
+     "labels": [
+      "WEAK_HANDS"
+     ]
+    },
+    "BAD": {
+     "clips": 28,
+     "signers": 13,
+     "recall": {
+      "ALL": 0.429,
+      "100": 0.393,
+      "133": 0.304,
+      "200": 0.179,
+      "266": 0.268,
+      "400": 0.179,
+      "IRREGULAR": 0.25
+     },
+     "hand": 0.496,
+     "train_fit_all": 1.0,
+     "train_fit_266": 0.5,
+     "labels": [
+      "TEMPORAL"
+     ]
+    },
+    "BAG2": {
+     "clips": 3,
+     "signers": 2,
+     "recall": {
+      "ALL": 1.0,
+      "100": 0.5,
+      "133": 0.5,
+      "200": 0.5,
+      "266": 0.667,
+      "400": 0.167,
+      "IRREGULAR": 0.667
+     },
+     "hand": 0.522,
+     "train_fit_all": 0.933,
+     "train_fit_266": 0.6,
+     "labels": [
+      "TEMPORAL"
+     ]
+    },
+    "BECAUSE": {
+     "clips": 3,
+     "signers": 3,
+     "recall": {
+      "ALL": 1.0,
+      "100": 1.0,
+      "133": 1.0,
+      "200": 0.833,
+      "266": 0.833,
+      "400": 0.333,
+      "IRREGULAR": 0.5
+     },
+     "hand": 0.637,
+     "train_fit_all": 0.923,
+     "train_fit_266": 0.692,
+     "labels": []
+    },
+    "BECOME": {
+     "clips": 3,
+     "signers": 3,
+     "recall": {
+      "ALL": 0.333,
+      "100": 0.0,
+      "133": 0.0,
+      "200": 0.0,
+      "266": 0.0,
+      "400": 0.0,
+      "IRREGULAR": 0.0
+     },
+     "hand": 0.467,
+     "train_fit_all": 0.692,
+     "train_fit_266": 0.231,
+     "labels": [
+      "TEMPORAL"
+     ]
+    },
+    "BED2": {
+     "clips": 14,
+     "signers": 10,
+     "recall": {
+      "ALL": 0.786,
+      "100": 0.786,
+      "133": 0.714,
+      "200": 0.643,
+      "266": 0.536,
+      "400": 0.607,
+      "IRREGULAR": 0.5
+     },
+     "hand": 0.569,
+     "train_fit_all": 1.0,
+     "train_fit_266": 0.8,
+     "labels": []
+    },
+    "BETWEEN": {
+     "clips": 3,
+     "signers": 3,
+     "recall": {
+      "ALL": 0.667,
+      "100": 0.5,
+      "133": 0.833,
+      "200": 0.833,
+      "266": 0.5,
+      "400": 0.5,
+      "IRREGULAR": 0.667
+     },
+     "hand": 0.544,
+     "train_fit_all": 0.786,
+     "train_fit_266": 0.5,
+     "labels": []
+    },
+    "BIG": {
+     "clips": 4,
+     "signers": 4,
+     "recall": {
+      "ALL": 1.0,
+      "100": 1.0,
+      "133": 1.0,
+      "200": 1.0,
+      "266": 1.0,
+      "400": 0.75,
+      "IRREGULAR": 1.0
+     },
+     "hand": 0.621,
+     "train_fit_all": 0.929,
+     "train_fit_266": 0.786,
+     "labels": []
+    },
+    "BOOK": {
+     "clips": 29,
+     "signers": 11,
+     "recall": {
+      "ALL": 0.69,
+      "100": 0.569,
+      "133": 0.603,
+      "200": 0.621,
+      "266": 0.379,
+      "400": 0.328,
+      "IRREGULAR": 0.466
+     },
+     "hand": 0.624,
+     "train_fit_all": 0.867,
+     "train_fit_266": 0.6,
+     "labels": []
+    },
+    "BOTH": {
+     "clips": 5,
+     "signers": 3,
+     "recall": {
+      "ALL": 1.0,
+      "100": 0.8,
+      "133": 0.9,
+      "200": 0.5,
+      "266": 0.8,
+      "400": 0.5,
+      "IRREGULAR": 0.5
+     },
+     "hand": 0.556,
+     "train_fit_all": 0.938,
+     "train_fit_266": 0.5,
+     "labels": [
+      "TEMPORAL"
+     ]
+    },
+    "BREAKFAST1": {
+     "clips": 9,
+     "signers": 9,
+     "recall": {
+      "ALL": 0.222,
+      "100": 0.278,
+      "133": 0.333,
+      "200": 0.222,
+      "266": 0.222,
+      "400": 0.167,
+      "IRREGULAR": 0.333
+     },
+     "hand": 0.659,
+     "train_fit_all": 0.611,
+     "train_fit_266": 0.278,
+     "labels": []
+    },
+    "BROTHER": {
+     "clips": 3,
+     "signers": 3,
+     "recall": {
+      "ALL": 0.667,
+      "100": 0.667,
+      "133": 0.5,
+      "200": 0.5,
+      "266": 0.167,
+      "400": 0.333,
+      "IRREGULAR": 0.333
+     },
+     "hand": 0.628,
+     "train_fit_all": 1.0,
+     "train_fit_266": 0.6,
+     "labels": []
+    },
+    "BUSY": {
+     "clips": 3,
+     "signers": 3,
+     "recall": {
+      "ALL": 1.0,
+      "100": 0.833,
+      "133": 1.0,
+      "200": 0.667,
+      "266": 0.833,
+      "400": 0.667,
+      "IRREGULAR": 1.0
+     },
+     "hand": 0.565,
+     "train_fit_all": 0.875,
+     "train_fit_266": 0.438,
+     "labels": [
+      "TEMPORAL"
+     ]
+    },
+    "BUT": {
+     "clips": 4,
+     "signers": 4,
+     "recall": {
+      "ALL": 0.25,
+      "100": 0.25,
+      "133": 0.125,
+      "200": 0.25,
+      "266": 0.375,
+      "400": 0.375,
+      "IRREGULAR": 0.375
+     },
+     "hand": 0.803,
+     "train_fit_all": 0.571,
+     "train_fit_266": 0.5,
+     "labels": [
+      "INCONSISTENT"
+     ]
+    },
+    "BUY": {
+     "clips": 4,
+     "signers": 3,
+     "recall": {
+      "ALL": 0.5,
+      "100": 0.5,
+      "133": 0.375,
+      "200": 0.625,
+      "266": 0.5,
+      "400": 0.375,
+      "IRREGULAR": 0.375
+     },
+     "hand": 0.48,
+     "train_fit_all": 0.688,
+     "train_fit_266": 0.5,
+     "labels": []
+    },
+    "BYE": {
+     "clips": 2,
+     "signers": 2,
+     "recall": {
+      "ALL": 0.0,
+      "100": 0.0,
+      "133": 0.0,
+      "200": 0.25,
+      "266": 0.0,
+      "400": 0.0,
+      "IRREGULAR": 0.25
+     },
+     "hand": 0.507,
+     "train_fit_all": 1.0,
+     "train_fit_266": 0.733,
+     "labels": [
+      "GENERALIZATION"
+     ]
+    },
+    "CAKE": {
+     "clips": 3,
+     "signers": 3,
+     "recall": {
+      "ALL": 1.0,
+      "100": 0.667,
+      "133": 0.833,
+      "200": 0.667,
+      "266": 0.833,
+      "400": 0.5,
+      "IRREGULAR": 0.5
+     },
+     "hand": 0.637,
+     "train_fit_all": 1.0,
+     "train_fit_266": 0.75,
+     "labels": [
+      "TEMPORAL"
+     ]
+    },
+    "CALL1": {
+     "clips": 3,
+     "signers": 3,
+     "recall": {
+      "ALL": 1.0,
+      "100": 1.0,
+      "133": 1.0,
+      "200": 1.0,
+      "266": 0.833,
+      "400": 0.833,
+      "IRREGULAR": 1.0
+     },
+     "hand": 0.467,
+     "train_fit_all": 0.929,
+     "train_fit_266": 0.714,
+     "labels": []
+    },
+    "CANNOT": {
+     "clips": 3,
+     "signers": 3,
+     "recall": {
+      "ALL": 1.0,
+      "100": 1.0,
+      "133": 1.0,
+      "200": 0.667,
+      "266": 0.833,
+      "400": 0.5,
+      "IRREGULAR": 0.667
+     },
+     "hand": 0.591,
+     "train_fit_all": 0.938,
+     "train_fit_266": 0.688,
+     "labels": [
+      "TEMPORAL"
+     ]
+    },
+    "CAR": {
+     "clips": 3,
+     "signers": 3,
+     "recall": {
+      "ALL": 1.0,
+      "100": 0.667,
+      "133": 0.667,
+      "200": 0.333,
+      "266": 0.667,
+      "400": 0.333,
+      "IRREGULAR": 0.333
+     },
+     "hand": 0.512,
+     "train_fit_all": 1.0,
+     "train_fit_266": 0.4,
+     "labels": [
+      "TEMPORAL"
+     ]
+    },
+    "CHAIR": {
+     "clips": 4,
+     "signers": 4,
+     "recall": {
+      "ALL": 1.0,
+      "100": 0.375,
+      "133": 0.5,
+      "200": 0.625,
+      "266": 0.5,
+      "400": 0.5,
+      "IRREGULAR": 0.625
+     },
+     "hand": 0.506,
+     "train_fit_all": 1.0,
+     "train_fit_266": 1.0,
+     "labels": [
+      "TEMPORAL"
+     ]
+    },
+    "CHILD": {
+     "clips": 5,
+     "signers": 4,
+     "recall": {
+      "ALL": 0.8,
+      "100": 0.6,
+      "133": 0.6,
+      "200": 0.4,
+      "266": 0.6,
+      "400": 0.4,
+      "IRREGULAR": 0.5
+     },
+     "hand": 0.762,
+     "train_fit_all": 0.923,
+     "train_fit_266": 0.692,
+     "labels": [
+      "TEMPORAL"
+     ]
+    },
+    "CITY2": {
+     "clips": 3,
+     "signers": 3,
+     "recall": {
+      "ALL": 0.667,
+      "100": 0.5,
+      "133": 0.833,
+      "200": 0.5,
+      "266": 0.5,
+      "400": 0.167,
+      "IRREGULAR": 0.333
+     },
+     "hand": 0.594,
+     "train_fit_all": 0.933,
+     "train_fit_266": 0.667,
+     "labels": []
+    },
+    "CLEAN": {
+     "clips": 67,
+     "signers": 17,
+     "recall": {
+      "ALL": 0.179,
+      "100": 0.134,
+      "133": 0.134,
+      "200": 0.142,
+      "266": 0.104,
+      "400": 0.045,
+      "IRREGULAR": 0.097
+     },
+     "hand": 0.616,
+     "train_fit_all": 0.733,
+     "train_fit_266": 0.2,
+     "labels": []
+    },
+    "CLOSE": {
+     "clips": 3,
+     "signers": 3,
+     "recall": {
+      "ALL": 1.0,
+      "100": 1.0,
+      "133": 1.0,
+      "200": 0.833,
+      "266": 0.833,
+      "400": 0.333,
+      "IRREGULAR": 0.833
+     },
+     "hand": 0.599,
+     "train_fit_all": 1.0,
+     "train_fit_266": 0.647,
+     "labels": []
+    },
+    "CLOTHES": {
+     "clips": 52,
+     "signers": 15,
+     "recall": {
+      "ALL": 0.865,
+      "100": 0.692,
+      "133": 0.673,
+      "200": 0.558,
+      "266": 0.5,
+      "400": 0.337,
+      "IRREGULAR": 0.529
+     },
+     "hand": 0.434,
+     "train_fit_all": 1.0,
+     "train_fit_266": 0.615,
+     "labels": [
+      "TEMPORAL",
+      "WEAK_HANDS"
+     ]
+    },
+    "COLD": {
+     "clips": 52,
+     "signers": 14,
+     "recall": {
+      "ALL": 0.788,
+      "100": 0.769,
+      "133": 0.779,
+      "200": 0.769,
+      "266": 0.779,
+      "400": 0.663,
+      "IRREGULAR": 0.731
+     },
+     "hand": 0.698,
+     "train_fit_all": 1.0,
+     "train_fit_266": 0.429,
+     "labels": []
+    },
+    "COME": {
+     "clips": 3,
+     "signers": 3,
+     "recall": {
+      "ALL": 0.0,
+      "100": 0.0,
+      "133": 0.0,
+      "200": 0.167,
+      "266": 0.0,
+      "400": 0.0,
+      "IRREGULAR": 0.0
+     },
+     "hand": 0.187,
+     "train_fit_all": 0.909,
+     "train_fit_266": 0.273,
+     "labels": [
+      "GENERALIZATION",
+      "WEAK_HANDS"
+     ]
+    },
+    "COMPUTER": {
+     "clips": 4,
+     "signers": 4,
+     "recall": {
+      "ALL": 1.0,
+      "100": 1.0,
+      "133": 1.0,
+      "200": 1.0,
+      "266": 1.0,
+      "400": 0.75,
+      "IRREGULAR": 1.0
+     },
+     "hand": 0.754,
+     "train_fit_all": 1.0,
+     "train_fit_266": 0.867,
+     "labels": []
+    },
+    "CONFUSED1": {
+     "clips": 16,
+     "signers": 12,
+     "recall": {
+      "ALL": 0.5,
+      "100": 0.5,
+      "133": 0.438,
+      "200": 0.5,
+      "266": 0.375,
+      "400": 0.344,
+      "IRREGULAR": 0.406
+     },
+     "hand": 0.667,
+     "train_fit_all": 0.778,
+     "train_fit_266": 0.5,
+     "labels": []
+    },
+    "CONGRATULATIONS": {
+     "clips": 7,
+     "signers": 5,
+     "recall": {
+      "ALL": 0.429,
+      "100": 0.571,
+      "133": 0.5,
+      "200": 0.429,
+      "266": 0.429,
+      "400": 0.357,
+      "IRREGULAR": 0.429
+     },
+     "hand": 0.551,
+     "train_fit_all": 1.0,
+     "train_fit_266": 0.333,
+     "labels": []
+    },
+    "COOK": {
+     "clips": 30,
+     "signers": 13,
+     "recall": {
+      "ALL": 0.3,
+      "100": 0.25,
+      "133": 0.25,
+      "200": 0.15,
+      "266": 0.183,
+      "400": 0.067,
+      "IRREGULAR": 0.167
+     },
+     "hand": 0.61,
+     "train_fit_all": 1.0,
+     "train_fit_266": 0.385,
+     "labels": [
+      "GENERALIZATION"
+     ]
+    },
+    "COUNT": {
+     "clips": 3,
+     "signers": 3,
+     "recall": {
+      "ALL": 1.0,
+      "100": 0.667,
+      "133": 0.833,
+      "200": 0.833,
+      "266": 0.833,
+      "400": 0.667,
+      "IRREGULAR": 0.667
+     },
+     "hand": 0.565,
+     "train_fit_all": 0.75,
+     "train_fit_266": 0.625,
+     "labels": []
+    },
+    "COUNTRY": {
+     "clips": 3,
+     "signers": 3,
+     "recall": {
+      "ALL": 1.0,
+      "100": 1.0,
+      "133": 1.0,
+      "200": 1.0,
+      "266": 0.833,
+      "400": 0.667,
+      "IRREGULAR": 0.833
+     },
+     "hand": 0.642,
+     "train_fit_all": 0.938,
+     "train_fit_266": 0.875,
+     "labels": []
+    },
+    "CUT": {
+     "clips": 8,
+     "signers": 7,
+     "recall": {
+      "ALL": 0.375,
+      "100": 0.312,
+      "133": 0.188,
+      "200": 0.25,
+      "266": 0.062,
+      "400": 0.188,
+      "IRREGULAR": 0.125
+     },
+     "hand": 0.554,
+     "train_fit_all": 1.0,
+     "train_fit_266": 0.688,
+     "labels": []
+    },
+    "DAY": {
+     "clips": 19,
+     "signers": 11,
+     "recall": {
+      "ALL": 0.684,
+      "100": 0.553,
+      "133": 0.526,
+      "200": 0.5,
+      "266": 0.263,
+      "400": 0.237,
+      "IRREGULAR": 0.368
+     },
+     "hand": 0.509,
+     "train_fit_all": 0.933,
+     "train_fit_266": 0.467,
+     "labels": []
+    },
+    "DECIDE1": {
+     "clips": 2,
+     "signers": 2,
+     "recall": {
+      "ALL": 1.0,
+      "100": 1.0,
+      "133": 0.75,
+      "200": 0.75,
+      "266": 1.0,
+      "400": 0.25,
+      "IRREGULAR": 0.75
+     },
+     "hand": 0.627,
+     "train_fit_all": 0.95,
+     "train_fit_266": 0.75,
+     "labels": [
+      "TEMPORAL"
+     ]
+    },
+    "DIFFERENT": {
+     "clips": 16,
+     "signers": 9,
+     "recall": {
+      "ALL": 0.438,
+      "100": 0.344,
+      "133": 0.375,
+      "200": 0.344,
+      "266": 0.312,
+      "400": 0.375,
+      "IRREGULAR": 0.438
+     },
+     "hand": 0.76,
+     "train_fit_all": 0.867,
+     "train_fit_266": 0.733,
+     "labels": []
+    },
+    "DINNER1": {
+     "clips": 4,
+     "signers": 3,
+     "recall": {
+      "ALL": 0.5,
+      "100": 0.625,
+      "133": 0.625,
+      "200": 0.5,
+      "266": 0.375,
+      "400": 0.125,
+      "IRREGULAR": 0.375
+     },
+     "hand": 0.583,
+     "train_fit_all": 0.944,
+     "train_fit_266": 0.444,
+     "labels": []
+    },
+    "DONTKNOW": {
+     "clips": 3,
+     "signers": 3,
+     "recall": {
+      "ALL": 1.0,
+      "100": 1.0,
+      "133": 1.0,
+      "200": 0.833,
+      "266": 0.833,
+      "400": 0.667,
+      "IRREGULAR": 1.0
+     },
+     "hand": 0.545,
+     "train_fit_all": 0.938,
+     "train_fit_266": 0.812,
+     "labels": []
+    },
+    "DOOR": {
+     "clips": 3,
+     "signers": 3,
+     "recall": {
+      "ALL": 0.667,
+      "100": 0.667,
+      "133": 0.667,
+      "200": 0.667,
+      "266": 0.667,
+      "400": 0.5,
+      "IRREGULAR": 0.667
+     },
+     "hand": 0.715,
+     "train_fit_all": 1.0,
+     "train_fit_266": 0.714,
+     "labels": []
+    },
+    "DOWNLOAD": {
+     "clips": 3,
+     "signers": 3,
+     "recall": {
+      "ALL": 1.0,
+      "100": 1.0,
+      "133": 1.0,
+      "200": 1.0,
+      "266": 0.833,
+      "400": 0.833,
+      "IRREGULAR": 0.667
+     },
+     "hand": 0.695,
+     "train_fit_all": 0.875,
+     "train_fit_266": 0.688,
+     "labels": []
+    },
+    "DRINK2": {
+     "clips": 4,
+     "signers": 3,
+     "recall": {
+      "ALL": 0.75,
+      "100": 0.75,
+      "133": 0.875,
+      "200": 0.75,
+      "266": 0.75,
+      "400": 0.5,
+      "IRREGULAR": 0.5
+     },
+     "hand": 0.657,
+     "train_fit_all": 0.923,
+     "train_fit_266": 0.615,
+     "labels": []
+    },
+    "DRIVE": {
+     "clips": 13,
+     "signers": 9,
+     "recall": {
+      "ALL": 0.231,
+      "100": 0.192,
+      "133": 0.346,
+      "200": 0.308,
+      "266": 0.269,
+      "400": 0.269,
+      "IRREGULAR": 0.462
+     },
+     "hand": 0.586,
+     "train_fit_all": 0.846,
+     "train_fit_266": 0.769,
+     "labels": [
+      "GENERALIZATION"
+     ]
+    },
+    "EACH": {
+     "clips": 4,
+     "signers": 4,
+     "recall": {
+      "ALL": 0.75,
+      "100": 0.5,
+      "133": 0.625,
+      "200": 0.375,
+      "266": 0.625,
+      "400": 0.375,
+      "IRREGULAR": 0.125
+     },
+     "hand": 0.624,
+     "train_fit_all": 0.875,
+     "train_fit_266": 0.5,
+     "labels": [
+      "TEMPORAL"
+     ]
+    },
+    "EASY": {
+     "clips": 3,
+     "signers": 3,
+     "recall": {
+      "ALL": 1.0,
+      "100": 1.0,
+      "133": 1.0,
+      "200": 1.0,
+      "266": 1.0,
+      "400": 1.0,
+      "IRREGULAR": 1.0
+     },
+     "hand": 0.808,
+     "train_fit_all": 0.938,
+     "train_fit_266": 0.688,
+     "labels": []
+    },
+    "EAT1": {
+     "clips": 4,
+     "signers": 4,
+     "recall": {
+      "ALL": 0.75,
+      "100": 0.75,
+      "133": 0.75,
+      "200": 0.75,
+      "266": 0.75,
+      "400": 0.75,
+      "IRREGULAR": 0.75
+     },
+     "hand": 0.545,
+     "train_fit_all": 0.933,
+     "train_fit_266": 0.733,
+     "labels": []
+    },
+    "ENOUGH": {
+     "clips": 3,
+     "signers": 3,
+     "recall": {
+      "ALL": 0.667,
+      "100": 0.833,
+      "133": 0.667,
+      "200": 0.833,
+      "266": 0.5,
+      "400": 0.667,
+      "IRREGULAR": 0.833
+     },
+     "hand": 0.734,
+     "train_fit_all": 0.941,
+     "train_fit_266": 0.765,
+     "labels": []
+    },
+    "ENTER": {
+     "clips": 8,
+     "signers": 8,
+     "recall": {
+      "ALL": 0.375,
+      "100": 0.312,
+      "133": 0.312,
+      "200": 0.25,
+      "266": 0.125,
+      "400": 0.062,
+      "IRREGULAR": 0.312
+     },
+     "hand": 0.526,
+     "train_fit_all": 1.0,
+     "train_fit_266": 0.5,
+     "labels": []
+    },
+    "FAMILY": {
+     "clips": 3,
+     "signers": 3,
+     "recall": {
+      "ALL": 1.0,
+      "100": 1.0,
+      "133": 1.0,
+      "200": 0.833,
+      "266": 0.833,
+      "400": 0.833,
+      "IRREGULAR": 0.833
+     },
+     "hand": 0.792,
+     "train_fit_all": 1.0,
+     "train_fit_266": 0.6,
+     "labels": []
+    },
+    "FAST": {
+     "clips": 26,
+     "signers": 9,
+     "recall": {
+      "ALL": 0.346,
+      "100": 0.365,
+      "133": 0.308,
+      "200": 0.25,
+      "266": 0.231,
+      "400": 0.192,
+      "IRREGULAR": 0.327
+     },
+     "hand": 0.692,
+     "train_fit_all": 0.833,
+     "train_fit_266": 0.417,
+     "labels": [
+      "GENERALIZATION"
+     ]
+    },
+    "FATHER": {
+     "clips": 13,
+     "signers": 7,
+     "recall": {
+      "ALL": 0.462,
+      "100": 0.5,
+      "133": 0.5,
+      "200": 0.5,
+      "266": 0.538,
+      "400": 0.5,
+      "IRREGULAR": 0.423
+     },
+     "hand": 0.6,
+     "train_fit_all": 1.0,
+     "train_fit_266": 0.909,
+     "labels": []
+    },
+    "FEEL": {
+     "clips": 15,
+     "signers": 9,
+     "recall": {
+      "ALL": 0.533,
+      "100": 0.5,
+      "133": 0.467,
+      "200": 0.433,
+      "266": 0.3,
+      "400": 0.2,
+      "IRREGULAR": 0.3
+     },
+     "hand": 0.519,
+     "train_fit_all": 0.867,
+     "train_fit_266": 0.467,
+     "labels": []
+    },
+    "FEW": {
+     "clips": 8,
+     "signers": 7,
+     "recall": {
+      "ALL": 0.125,
+      "100": 0.125,
+      "133": 0.188,
+      "200": 0.188,
+      "266": 0.188,
+      "400": 0.0,
+      "IRREGULAR": 0.125
+     },
+     "hand": 0.507,
+     "train_fit_all": 1.0,
+     "train_fit_266": 0.6,
+     "labels": [
+      "GENERALIZATION"
+     ]
+    },
+    "FIND": {
+     "clips": 3,
+     "signers": 3,
+     "recall": {
+      "ALL": 0.333,
+      "100": 0.333,
+      "133": 0.333,
+      "200": 0.167,
+      "266": 0.333,
+      "400": 0.333,
+      "IRREGULAR": 0.167
+     },
+     "hand": 0.376,
+     "train_fit_all": 0.923,
+     "train_fit_266": 0.385,
+     "labels": [
+      "GENERALIZATION",
+      "WEAK_HANDS"
+     ]
+    },
+    "FIRST": {
+     "clips": 10,
+     "signers": 8,
+     "recall": {
+      "ALL": 0.5,
+      "100": 0.45,
+      "133": 0.4,
+      "200": 0.35,
+      "266": 0.35,
+      "400": 0.2,
+      "IRREGULAR": 0.35
+     },
+     "hand": 0.591,
+     "train_fit_all": 0.75,
+     "train_fit_266": 0.583,
+     "labels": []
+    },
+    "FOR": {
+     "clips": 3,
+     "signers": 3,
+     "recall": {
+      "ALL": 0.667,
+      "100": 0.667,
+      "133": 0.667,
+      "200": 0.333,
+      "266": 0.5,
+      "400": 0.5,
+      "IRREGULAR": 0.5
+     },
+     "hand": 0.476,
+     "train_fit_all": 0.846,
+     "train_fit_266": 0.615,
+     "labels": [
+      "TEMPORAL"
+     ]
+    },
+    "FREE": {
+     "clips": 11,
+     "signers": 6,
+     "recall": {
+      "ALL": 0.364,
+      "100": 0.364,
+      "133": 0.318,
+      "200": 0.318,
+      "266": 0.5,
+      "400": 0.182,
+      "IRREGULAR": 0.409
+     },
+     "hand": 0.722,
+     "train_fit_all": 1.0,
+     "train_fit_266": 0.714,
+     "labels": []
+    },
+    "FRIEND": {
+     "clips": 3,
+     "signers": 3,
+     "recall": {
+      "ALL": 0.667,
+      "100": 0.167,
+      "133": 0.167,
+      "200": 0.333,
+      "266": 0.333,
+      "400": 0.333,
+      "IRREGULAR": 0.333
+     },
+     "hand": 0.62,
+     "train_fit_all": 1.0,
+     "train_fit_266": 0.462,
+     "labels": [
+      "TEMPORAL"
+     ]
+    },
+    "FROM": {
+     "clips": 2,
+     "signers": 2,
+     "recall": {
+      "ALL": 1.0,
+      "100": 1.0,
+      "133": 1.0,
+      "200": 1.0,
+      "266": 1.0,
+      "400": 0.75,
+      "IRREGULAR": 1.0
+     },
+     "hand": 0.748,
+     "train_fit_all": 0.846,
+     "train_fit_266": 0.692,
+     "labels": []
+    },
+    "GET": {
+     "clips": 4,
+     "signers": 4,
+     "recall": {
+      "ALL": 0.5,
+      "100": 0.25,
+      "133": 0.25,
+      "200": 0.125,
+      "266": 0.25,
+      "400": 0.125,
+      "IRREGULAR": 0.25
+     },
+     "hand": 0.543,
+     "train_fit_all": 0.667,
+     "train_fit_266": 0.5,
+     "labels": [
+      "TEMPORAL"
+     ]
+    },
+    "GIFT": {
+     "clips": 19,
+     "signers": 10,
+     "recall": {
+      "ALL": 0.895,
+      "100": 0.737,
+      "133": 0.763,
+      "200": 0.605,
+      "266": 0.5,
+      "400": 0.474,
+      "IRREGULAR": 0.579
+     },
+     "hand": 0.62,
+     "train_fit_all": 1.0,
+     "train_fit_266": 0.375,
+     "labels": [
+      "TEMPORAL"
+     ]
+    },
+    "GIVE": {
+     "clips": 3,
+     "signers": 3,
+     "recall": {
+      "ALL": 1.0,
+      "100": 0.833,
+      "133": 0.667,
+      "200": 0.667,
+      "266": 0.333,
+      "400": 0.5,
+      "IRREGULAR": 0.5
+     },
+     "hand": 0.417,
+     "train_fit_all": 1.0,
+     "train_fit_266": 0.357,
+     "labels": [
+      "TEMPORAL",
+      "WEAK_HANDS"
+     ]
+    },
+    "GO": {
+     "clips": 3,
+     "signers": 3,
+     "recall": {
+      "ALL": 0.667,
+      "100": 0.667,
+      "133": 0.667,
+      "200": 0.5,
+      "266": 0.5,
+      "400": 0.0,
+      "IRREGULAR": 0.333
+     },
+     "hand": 0.597,
+     "train_fit_all": 1.0,
+     "train_fit_266": 0.929,
+     "labels": []
+    },
+    "GOOD": {
+     "clips": 3,
+     "signers": 3,
+     "recall": {
+      "ALL": 0.667,
+      "100": 0.667,
+      "133": 0.5,
+      "200": 0.667,
+      "266": 0.667,
+      "400": 0.5,
+      "IRREGULAR": 0.667
+     },
+     "hand": 0.684,
+     "train_fit_all": 0.984,
+     "train_fit_266": 0.951,
+     "labels": []
+    },
+    "GRAB": {
+     "clips": 2,
+     "signers": 2,
+     "recall": {
+      "ALL": 1.0,
+      "100": 1.0,
+      "133": 1.0,
+      "200": 0.5,
+      "266": 0.25,
+      "400": 0.0,
+      "IRREGULAR": 0.5
+     },
+     "hand": 0.807,
+     "train_fit_all": 0.938,
+     "train_fit_266": 0.688,
+     "labels": [
+      "TEMPORAL"
+     ]
+    },
+    "HAPPY": {
+     "clips": 31,
+     "signers": 14,
+     "recall": {
+      "ALL": 0.355,
+      "100": 0.452,
+      "133": 0.355,
+      "200": 0.339,
+      "266": 0.274,
+      "400": 0.258,
+      "IRREGULAR": 0.387
+     },
+     "hand": 0.468,
+     "train_fit_all": 0.857,
+     "train_fit_266": 0.571,
+     "labels": []
+    },
+    "HARD": {
+     "clips": 4,
+     "signers": 4,
+     "recall": {
+      "ALL": 0.75,
+      "100": 0.75,
+      "133": 0.75,
+      "200": 0.75,
+      "266": 0.5,
+      "400": 0.375,
+      "IRREGULAR": 0.375
+     },
+     "hand": 0.507,
+     "train_fit_all": 1.0,
+     "train_fit_266": 0.571,
+     "labels": []
+    },
+    "HATE": {
+     "clips": 4,
+     "signers": 3,
+     "recall": {
+      "ALL": 0.5,
+      "100": 0.375,
+      "133": 0.625,
+      "200": 0.625,
+      "266": 0.375,
+      "400": 0.375,
+      "IRREGULAR": 0.375
+     },
+     "hand": 0.508,
+     "train_fit_all": 0.938,
+     "train_fit_266": 0.812,
+     "labels": []
+    },
+    "HAVE": {
+     "clips": 4,
+     "signers": 4,
+     "recall": {
+      "ALL": 0.75,
+      "100": 0.75,
+      "133": 0.625,
+      "200": 0.625,
+      "266": 0.625,
+      "400": 0.625,
+      "IRREGULAR": 0.625
+     },
+     "hand": 0.456,
+     "train_fit_all": 1.0,
+     "train_fit_266": 0.96,
+     "labels": []
+    },
+    "HEAR1": {
+     "clips": 12,
+     "signers": 7,
+     "recall": {
+      "ALL": 0.083,
+      "100": 0.083,
+      "133": 0.083,
+      "200": 0.083,
+      "266": 0.125,
+      "400": 0.083,
+      "IRREGULAR": 0.208
+     },
+     "hand": 0.574,
+     "train_fit_all": 0.923,
+     "train_fit_266": 0.308,
+     "labels": [
+      "GENERALIZATION"
+     ]
+    },
+    "HELLO": {
+     "clips": 3,
+     "signers": 3,
+     "recall": {
+      "ALL": 1.0,
+      "100": 1.0,
+      "133": 1.0,
+      "200": 1.0,
+      "266": 1.0,
+      "400": 0.833,
+      "IRREGULAR": 1.0
+     },
+     "hand": 0.421,
+     "train_fit_all": 1.0,
+     "train_fit_266": 0.989,
+     "labels": [
+      "WEAK_HANDS"
+     ]
+    },
+    "HELP": {
+     "clips": 40,
+     "signers": 11,
+     "recall": {
+      "ALL": 0.75,
+      "100": 0.7,
+      "133": 0.688,
+      "200": 0.688,
+      "266": 0.512,
+      "400": 0.5,
+      "IRREGULAR": 0.613
+     },
+     "hand": 0.617,
+     "train_fit_all": 1.0,
+     "train_fit_266": 0.615,
+     "labels": []
+    },
+    "HERE": {
+     "clips": 3,
+     "signers": 3,
+     "recall": {
+      "ALL": 1.0,
+      "100": 1.0,
+      "133": 1.0,
+      "200": 0.833,
+      "266": 1.0,
+      "400": 0.667,
+      "IRREGULAR": 1.0
+     },
+     "hand": 0.486,
+     "train_fit_all": 1.0,
+     "train_fit_266": 0.857,
+     "labels": []
+    },
+    "HOME": {
+     "clips": 16,
+     "signers": 11,
+     "recall": {
+      "ALL": 0.75,
+      "100": 0.812,
+      "133": 0.781,
+      "200": 0.812,
+      "266": 0.75,
+      "400": 0.719,
+      "IRREGULAR": 0.781
+     },
+     "hand": 0.666,
+     "train_fit_all": 1.0,
+     "train_fit_266": 0.6,
+     "labels": []
+    },
+    "HOSPITAL1": {
+     "clips": 17,
+     "signers": 7,
+     "recall": {
+      "ALL": 0.412,
+      "100": 0.382,
+      "133": 0.324,
+      "200": 0.294,
+      "266": 0.206,
+      "400": 0.147,
+      "IRREGULAR": 0.235
+     },
+     "hand": 0.389,
+     "train_fit_all": 0.778,
+     "train_fit_266": 0.222,
+     "labels": [
+      "WEAK_HANDS"
+     ]
+    },
+    "HOT": {
+     "clips": 42,
+     "signers": 13,
+     "recall": {
+      "ALL": 0.69,
+      "100": 0.702,
+      "133": 0.583,
+      "200": 0.536,
+      "266": 0.5,
+      "400": 0.345,
+      "IRREGULAR": 0.583
+     },
+     "hand": 0.594,
+     "train_fit_all": 0.933,
+     "train_fit_266": 0.4,
+     "labels": []
+    },
+    "HOUR": {
+     "clips": 3,
+     "signers": 3,
+     "recall": {
+      "ALL": 0.333,
+      "100": 0.333,
+      "133": 0.333,
+      "200": 0.333,
+      "266": 0.333,
+      "400": 0.167,
+      "IRREGULAR": 0.333
+     },
+     "hand": 0.614,
+     "train_fit_all": 1.0,
+     "train_fit_266": 0.538,
+     "labels": [
+      "GENERALIZATION"
+     ]
+    },
+    "HOUSE": {
+     "clips": 24,
+     "signers": 13,
+     "recall": {
+      "ALL": 0.417,
+      "100": 0.396,
+      "133": 0.375,
+      "200": 0.396,
+      "266": 0.354,
+      "400": 0.25,
+      "IRREGULAR": 0.396
+     },
+     "hand": 0.613,
+     "train_fit_all": 0.938,
+     "train_fit_266": 0.688,
+     "labels": []
+    },
+    "HOW1": {
+     "clips": 3,
+     "signers": 3,
+     "recall": {
+      "ALL": 0.667,
+      "100": 0.833,
+      "133": 0.667,
+      "200": 0.667,
+      "266": 0.667,
+      "400": 0.5,
+      "IRREGULAR": 0.5
+     },
+     "hand": 0.559,
+     "train_fit_all": 1.0,
+     "train_fit_266": 0.5,
+     "labels": []
+    },
+    "HURRY": {
+     "clips": 3,
+     "signers": 3,
+     "recall": {
+      "ALL": 1.0,
+      "100": 1.0,
+      "133": 1.0,
+      "200": 1.0,
+      "266": 0.833,
+      "400": 0.833,
+      "IRREGULAR": 0.833
+     },
+     "hand": 0.696,
+     "train_fit_all": 1.0,
+     "train_fit_266": 0.875,
+     "labels": []
+    },
+    "HUSBAND": {
+     "clips": 4,
+     "signers": 4,
+     "recall": {
+      "ALL": 0.5,
+      "100": 0.75,
+      "133": 0.625,
+      "200": 0.375,
+      "266": 0.25,
+      "400": 0.125,
+      "IRREGULAR": 0.375
+     },
+     "hand": 0.49,
+     "train_fit_all": 1.0,
+     "train_fit_266": 0.714,
+     "labels": []
+    },
+    "IF": {
+     "clips": 2,
+     "signers": 2,
+     "recall": {
+      "ALL": 0.5,
+      "100": 0.75,
+      "133": 0.5,
+      "200": 0.5,
+      "266": 0.25,
+      "400": 0.5,
+      "IRREGULAR": 0.75
+     },
+     "hand": 0.437,
+     "train_fit_all": 0.833,
+     "train_fit_266": 0.583,
+     "labels": [
+      "WEAK_HANDS"
+     ]
+    },
+    "IMPORTANT": {
+     "clips": 3,
+     "signers": 3,
+     "recall": {
+      "ALL": 0.667,
+      "100": 0.833,
+      "133": 0.667,
+      "200": 1.0,
+      "266": 0.667,
+      "400": 0.833,
+      "IRREGULAR": 0.667
+     },
+     "hand": 0.811,
+     "train_fit_all": 1.0,
+     "train_fit_266": 0.643,
+     "labels": []
+    },
+    "IN": {
+     "clips": 6,
+     "signers": 6,
+     "recall": {
+      "ALL": 0.0,
+      "100": 0.0,
+      "133": 0.083,
+      "200": 0.083,
+      "266": 0.0,
+      "400": 0.083,
+      "IRREGULAR": 0.083
+     },
+     "hand": 0.466,
+     "train_fit_all": 0.923,
+     "train_fit_266": 0.538,
+     "labels": [
+      "GENERALIZATION"
+     ]
+    },
+    "INTRODUCE": {
+     "clips": 3,
+     "signers": 3,
+     "recall": {
+      "ALL": 0.667,
+      "100": 0.333,
+      "133": 0.333,
+      "200": 0.333,
+      "266": 0.333,
+      "400": 0.167,
+      "IRREGULAR": 0.333
+     },
+     "hand": 0.621,
+     "train_fit_all": 1.0,
+     "train_fit_266": 0.688,
+     "labels": [
+      "TEMPORAL"
+     ]
+    },
+    "JUMP": {
+     "clips": 17,
+     "signers": 10,
+     "recall": {
+      "ALL": 0.471,
+      "100": 0.353,
+      "133": 0.441,
+      "200": 0.353,
+      "266": 0.353,
+      "400": 0.206,
+      "IRREGULAR": 0.294
+     },
+     "hand": 0.668,
+     "train_fit_all": 0.938,
+     "train_fit_266": 0.562,
+     "labels": []
+    },
+    "KEEP": {
+     "clips": 7,
+     "signers": 7,
+     "recall": {
+      "ALL": 0.714,
+      "100": 0.571,
+      "133": 0.429,
+      "200": 0.571,
+      "266": 0.357,
+      "400": 0.286,
+      "IRREGULAR": 0.5
+     },
+     "hand": 0.513,
+     "train_fit_all": 1.0,
+     "train_fit_266": 0.571,
+     "labels": []
+    },
+    "KEY": {
+     "clips": 11,
+     "signers": 8,
+     "recall": {
+      "ALL": 0.455,
+      "100": 0.636,
+      "133": 0.409,
+      "200": 0.591,
+      "266": 0.318,
+      "400": 0.364,
+      "IRREGULAR": 0.409
+     },
+     "hand": 0.648,
+     "train_fit_all": 0.923,
+     "train_fit_266": 0.846,
+     "labels": []
+    },
+    "KID": {
+     "clips": 22,
+     "signers": 11,
+     "recall": {
+      "ALL": 0.455,
+      "100": 0.614,
+      "133": 0.705,
+      "200": 0.591,
+      "266": 0.614,
+      "400": 0.477,
+      "IRREGULAR": 0.591
+     },
+     "hand": 0.492,
+     "train_fit_all": 0.769,
+     "train_fit_266": 0.692,
+     "labels": []
+    },
+    "KNOW": {
+     "clips": 20,
+     "signers": 11,
+     "recall": {
+      "ALL": 0.5,
+      "100": 0.575,
+      "133": 0.4,
+      "200": 0.4,
+      "266": 0.4,
+      "400": 0.325,
+      "IRREGULAR": 0.4
+     },
+     "hand": 0.549,
+     "train_fit_all": 0.992,
+     "train_fit_266": 0.975,
+     "labels": []
+    },
+    "LAST": {
+     "clips": 4,
+     "signers": 4,
+     "recall": {
+      "ALL": 0.25,
+      "100": 0.25,
+      "133": 0.25,
+      "200": 0.25,
+      "266": 0.25,
+      "400": 0.0,
+      "IRREGULAR": 0.0
+     },
+     "hand": 0.469,
+     "train_fit_all": 0.923,
+     "train_fit_266": 0.692,
+     "labels": [
+      "GENERALIZATION"
+     ]
+    },
+    "LEAVE": {
+     "clips": 3,
+     "signers": 3,
+     "recall": {
+      "ALL": 0.667,
+      "100": 0.833,
+      "133": 1.0,
+      "200": 0.5,
+      "266": 0.833,
+      "400": 0.5,
+      "IRREGULAR": 0.667
+     },
+     "hand": 0.747,
+     "train_fit_all": 0.8,
+     "train_fit_266": 0.6,
+     "labels": []
+    },
+    "LETTER2": {
+     "clips": 4,
+     "signers": 4,
+     "recall": {
+      "ALL": 0.75,
+      "100": 0.875,
+      "133": 0.75,
+      "200": 1.0,
+      "266": 0.875,
+      "400": 0.75,
+      "IRREGULAR": 1.0
+     },
+     "hand": 0.556,
+     "train_fit_all": 0.929,
+     "train_fit_266": 0.571,
+     "labels": []
+    },
+    "LIKE": {
+     "clips": 7,
+     "signers": 6,
+     "recall": {
+      "ALL": 0.571,
+      "100": 0.429,
+      "133": 0.357,
+      "200": 0.429,
+      "266": 0.357,
+      "400": 0.214,
+      "IRREGULAR": 0.357
+     },
+     "hand": 0.412,
+     "train_fit_all": 0.786,
+     "train_fit_266": 0.571,
+     "labels": [
+      "WEAK_HANDS"
+     ]
+    },
+    "LIVE2": {
+     "clips": 4,
+     "signers": 4,
+     "recall": {
+      "ALL": 0.5,
+      "100": 0.5,
+      "133": 0.375,
+      "200": 0.5,
+      "266": 0.5,
+      "400": 0.375,
+      "IRREGULAR": 0.5
+     },
+     "hand": 0.416,
+     "train_fit_all": 1.0,
+     "train_fit_266": 0.769,
+     "labels": [
+      "WEAK_HANDS"
+     ]
+    },
+    "LOVE": {
+     "clips": 26,
+     "signers": 11,
+     "recall": {
+      "ALL": 0.731,
+      "100": 0.731,
+      "133": 0.673,
+      "200": 0.692,
+      "266": 0.654,
+      "400": 0.538,
+      "IRREGULAR": 0.615
+     },
+     "hand": 0.565,
+     "train_fit_all": 0.917,
+     "train_fit_266": 0.833,
+     "labels": []
+    },
+    "LUNCH1": {
+     "clips": 8,
+     "signers": 6,
+     "recall": {
+      "ALL": 0.25,
+      "100": 0.188,
+      "133": 0.188,
+      "200": 0.25,
+      "266": 0.188,
+      "400": 0.188,
+      "IRREGULAR": 0.188
+     },
+     "hand": 0.586,
+     "train_fit_all": 0.789,
+     "train_fit_266": 0.316,
+     "labels": []
+    },
+    "MAKE": {
+     "clips": 14,
+     "signers": 8,
+     "recall": {
+      "ALL": 0.571,
+      "100": 0.536,
+      "133": 0.571,
+      "200": 0.536,
+      "266": 0.536,
+      "400": 0.357,
+      "IRREGULAR": 0.429
+     },
+     "hand": 0.697,
+     "train_fit_all": 1.0,
+     "train_fit_266": 0.25,
+     "labels": []
+    },
+    "MAN": {
+     "clips": 3,
+     "signers": 3,
+     "recall": {
+      "ALL": 1.0,
+      "100": 1.0,
+      "133": 1.0,
+      "200": 1.0,
+      "266": 0.833,
+      "400": 0.333,
+      "IRREGULAR": 1.0
+     },
+     "hand": 0.58,
+     "train_fit_all": 0.857,
+     "train_fit_266": 0.571,
+     "labels": []
+    },
+    "MANY": {
+     "clips": 5,
+     "signers": 3,
+     "recall": {
+      "ALL": 1.0,
+      "100": 1.0,
+      "133": 1.0,
+      "200": 0.9,
+      "266": 0.7,
+      "400": 0.4,
+      "IRREGULAR": 1.0
+     },
+     "hand": 0.623,
+     "train_fit_all": 0.923,
+     "train_fit_266": 0.769,
+     "labels": []
+    },
+    "MEAN2": {
+     "clips": 5,
+     "signers": 5,
+     "recall": {
+      "ALL": 0.2,
+      "100": 0.2,
+      "133": 0.2,
+      "200": 0.3,
+      "266": 0.2,
+      "400": 0.1,
+      "IRREGULAR": 0.0
+     },
+     "hand": 0.683,
+     "train_fit_all": 0.867,
+     "train_fit_266": 0.4,
+     "labels": [
+      "GENERALIZATION"
+     ]
+    },
+    "MEAT1": {
+     "clips": 3,
+     "signers": 3,
+     "recall": {
+      "ALL": 1.0,
+      "100": 1.0,
+      "133": 0.833,
+      "200": 0.833,
+      "266": 0.5,
+      "400": 0.667,
+      "IRREGULAR": 0.5
+     },
+     "hand": 0.453,
+     "train_fit_all": 0.824,
+     "train_fit_266": 0.471,
+     "labels": []
+    },
+    "MEET": {
+     "clips": 17,
+     "signers": 8,
+     "recall": {
+      "ALL": 0.824,
+      "100": 0.824,
+      "133": 0.853,
+      "200": 0.706,
+      "266": 0.735,
+      "400": 0.618,
+      "IRREGULAR": 0.765
+     },
+     "hand": 0.732,
+     "train_fit_all": 0.833,
+     "train_fit_266": 0.417,
+     "labels": []
+    },
+    "MONEY1": {
+     "clips": 62,
+     "signers": 15,
+     "recall": {
+      "ALL": 0.194,
+      "100": 0.121,
+      "133": 0.169,
+      "200": 0.105,
+      "266": 0.129,
+      "400": 0.056,
+      "IRREGULAR": 0.113
+     },
+     "hand": 0.567,
+     "train_fit_all": 0.786,
+     "train_fit_266": 0.143,
+     "labels": []
+    },
+    "MONTH": {
+     "clips": 11,
+     "signers": 9,
+     "recall": {
+      "ALL": 0.455,
+      "100": 0.364,
+      "133": 0.455,
+      "200": 0.136,
+      "266": 0.227,
+      "400": 0.273,
+      "IRREGULAR": 0.364
+     },
+     "hand": 0.643,
+     "train_fit_all": 0.857,
+     "train_fit_266": 0.5,
+     "labels": [
+      "TEMPORAL"
+     ]
+    },
+    "MORE": {
+     "clips": 4,
+     "signers": 4,
+     "recall": {
+      "ALL": 1.0,
+      "100": 1.0,
+      "133": 1.0,
+      "200": 0.875,
+      "266": 0.875,
+      "400": 0.75,
+      "IRREGULAR": 0.75
+     },
+     "hand": 0.622,
+     "train_fit_all": 1.0,
+     "train_fit_266": 0.846,
+     "labels": []
+    },
+    "MORNING": {
+     "clips": 18,
+     "signers": 11,
+     "recall": {
+      "ALL": 0.667,
+      "100": 0.639,
+      "133": 0.667,
+      "200": 0.611,
+      "266": 0.611,
+      "400": 0.5,
+      "IRREGULAR": 0.583
+     },
+     "hand": 0.47,
+     "train_fit_all": 0.929,
+     "train_fit_266": 0.643,
+     "labels": []
+    },
+    "MOST": {
+     "clips": 3,
+     "signers": 3,
+     "recall": {
+      "ALL": 0.667,
+      "100": 0.833,
+      "133": 0.833,
+      "200": 0.833,
+      "266": 0.667,
+      "400": 0.5,
+      "IRREGULAR": 0.833
+     },
+     "hand": 0.351,
+     "train_fit_all": 0.8,
+     "train_fit_266": 0.667,
+     "labels": [
+      "WEAK_HANDS"
+     ]
+    },
+    "MOTHER": {
+     "clips": 9,
+     "signers": 6,
+     "recall": {
+      "ALL": 0.444,
+      "100": 0.556,
+      "133": 0.556,
+      "200": 0.611,
+      "266": 0.444,
+      "400": 0.444,
+      "IRREGULAR": 0.333
+     },
+     "hand": 0.699,
+     "train_fit_all": 1.0,
+     "train_fit_266": 0.818,
+     "labels": []
+    },
+    "MOUTH": {
+     "clips": 3,
+     "signers": 3,
+     "recall": {
+      "ALL": 0.333,
+      "100": 0.333,
+      "133": 0.333,
+      "200": 0.333,
+      "266": 0.167,
+      "400": 0.167,
+      "IRREGULAR": 0.167
+     },
+     "hand": 0.693,
+     "train_fit_all": 0.75,
+     "train_fit_266": 0.562,
+     "labels": []
+    },
+    "MOVE": {
+     "clips": 4,
+     "signers": 4,
+     "recall": {
+      "ALL": 0.5,
+      "100": 0.5,
+      "133": 0.5,
+      "200": 0.5,
+      "266": 0.25,
+      "400": 0.375,
+      "IRREGULAR": 0.5
+     },
+     "hand": 0.671,
+     "train_fit_all": 0.923,
+     "train_fit_266": 0.231,
+     "labels": []
+    },
+    "MOVIE1": {
+     "clips": 4,
+     "signers": 4,
+     "recall": {
+      "ALL": 0.75,
+      "100": 0.625,
+      "133": 0.5,
+      "200": 0.5,
+      "266": 0.5,
+      "400": 0.375,
+      "IRREGULAR": 0.5
+     },
+     "hand": 0.708,
+     "train_fit_all": 0.889,
+     "train_fit_266": 0.611,
+     "labels": [
+      "TEMPORAL"
+     ]
+    },
+    "MUCH": {
+     "clips": 3,
+     "signers": 3,
+     "recall": {
+      "ALL": 0.333,
+      "100": 0.333,
+      "133": 0.333,
+      "200": 0.5,
+      "266": 0.333,
+      "400": 0.667,
+      "IRREGULAR": 0.333
+     },
+     "hand": 0.708,
+     "train_fit_all": 0.933,
+     "train_fit_266": 0.667,
+     "labels": [
+      "GENERALIZATION"
+     ]
+    },
+    "NEED": {
+     "clips": 3,
+     "signers": 3,
+     "recall": {
+      "ALL": 0.667,
+      "100": 0.5,
+      "133": 0.833,
+      "200": 0.5,
+      "266": 0.667,
+      "400": 0.333,
+      "IRREGULAR": 0.667
+     },
+     "hand": 0.547,
+     "train_fit_all": 0.857,
+     "train_fit_266": 0.714,
+     "labels": []
+    },
+    "NEVER": {
+     "clips": 3,
+     "signers": 3,
+     "recall": {
+      "ALL": 0.667,
+      "100": 0.5,
+      "133": 0.333,
+      "200": 0.5,
+      "266": 0.5,
+      "400": 0.167,
+      "IRREGULAR": 0.0
+     },
+     "hand": 0.285,
+     "train_fit_all": 0.8,
+     "train_fit_266": 0.133,
+     "labels": [
+      "WEAK_HANDS"
+     ]
+    },
+    "NEW": {
+     "clips": 31,
+     "signers": 11,
+     "recall": {
+      "ALL": 0.419,
+      "100": 0.323,
+      "133": 0.274,
+      "200": 0.21,
+      "266": 0.194,
+      "400": 0.065,
+      "IRREGULAR": 0.242
+     },
+     "hand": 0.636,
+     "train_fit_all": 0.786,
+     "train_fit_266": 0.286,
+     "labels": []
+    },
+    "NEXT": {
+     "clips": 3,
+     "signers": 3,
+     "recall": {
+      "ALL": 1.0,
+      "100": 0.833,
+      "133": 1.0,
+      "200": 0.833,
+      "266": 0.833,
+      "400": 0.667,
+      "IRREGULAR": 1.0
+     },
+     "hand": 0.522,
+     "train_fit_all": 0.8,
+     "train_fit_266": 0.667,
+     "labels": []
+    },
+    "NICE": {
+     "clips": 40,
+     "signers": 12,
+     "recall": {
+      "ALL": 0.075,
+      "100": 0.05,
+      "133": 0.062,
+      "200": 0.013,
+      "266": 0.037,
+      "400": 0.037,
+      "IRREGULAR": 0.013
+     },
+     "hand": 0.617,
+     "train_fit_all": 0.667,
+     "train_fit_266": 0.2,
+     "labels": []
+    },
+    "NIGHT1": {
+     "clips": 19,
+     "signers": 14,
+     "recall": {
+      "ALL": 0.316,
+      "100": 0.316,
+      "133": 0.289,
+      "200": 0.316,
+      "266": 0.263,
+      "400": 0.211,
+      "IRREGULAR": 0.289
+     },
+     "hand": 0.544,
+     "train_fit_all": 0.882,
+     "train_fit_266": 0.588,
+     "labels": [
+      "GENERALIZATION"
+     ]
+    },
+    "NO": {
+     "clips": 14,
+     "signers": 10,
+     "recall": {
+      "ALL": 0.786,
+      "100": 0.75,
+      "133": 0.786,
+      "200": 0.714,
+      "266": 0.679,
+      "400": 0.607,
+      "IRREGULAR": 0.679
+     },
+     "hand": 0.684,
+     "train_fit_all": 1.0,
+     "train_fit_266": 0.833,
+     "labels": []
+    },
+    "NOW": {
+     "clips": 7,
+     "signers": 5,
+     "recall": {
+      "ALL": 0.571,
+      "100": 0.357,
+      "133": 0.429,
+      "200": 0.429,
+      "266": 0.5,
+      "400": 0.571,
+      "IRREGULAR": 0.571
+     },
+     "hand": 0.709,
+     "train_fit_all": 0.867,
+     "train_fit_266": 0.533,
+     "labels": []
+    },
+    "OFFICE": {
+     "clips": 4,
+     "signers": 4,
+     "recall": {
+      "ALL": 1.0,
+      "100": 1.0,
+      "133": 0.875,
+      "200": 0.625,
+      "266": 0.75,
+      "400": 0.375,
+      "IRREGULAR": 0.5
+     },
+     "hand": 0.499,
+     "train_fit_all": 0.923,
+     "train_fit_266": 0.462,
+     "labels": [
+      "TEMPORAL"
+     ]
+    },
+    "OFTEN": {
+     "clips": 3,
+     "signers": 3,
+     "recall": {
+      "ALL": 0.667,
+      "100": 1.0,
+      "133": 0.833,
+      "200": 0.833,
+      "266": 0.833,
+      "400": 0.667,
+      "IRREGULAR": 0.833
+     },
+     "hand": 0.607,
+     "train_fit_all": 1.0,
+     "train_fit_266": 0.667,
+     "labels": []
+    },
+    "OLD": {
+     "clips": 38,
+     "signers": 10,
+     "recall": {
+      "ALL": 0.5,
+      "100": 0.447,
+      "133": 0.434,
+      "200": 0.316,
+      "266": 0.276,
+      "400": 0.145,
+      "IRREGULAR": 0.303
+     },
+     "hand": 0.556,
+     "train_fit_all": 0.917,
+     "train_fit_266": 0.417,
+     "labels": []
+    },
+    "ON": {
+     "clips": 2,
+     "signers": 2,
+     "recall": {
+      "ALL": 0.0,
+      "100": 0.0,
+      "133": 0.25,
+      "200": 0.0,
+      "266": 0.5,
+      "400": 0.0,
+      "IRREGULAR": 0.0
+     },
+     "hand": 0.499,
+     "train_fit_all": 0.733,
+     "train_fit_266": 0.267,
+     "labels": []
+    },
+    "ONE": {
+     "clips": 9,
+     "signers": 5,
+     "recall": {
+      "ALL": 0.778,
+      "100": 0.833,
+      "133": 0.778,
+      "200": 0.722,
+      "266": 0.778,
+      "400": 0.667,
+      "IRREGULAR": 0.667
+     },
+     "hand": 0.673,
+     "train_fit_all": 0.833,
+     "train_fit_266": 0.917,
+     "labels": []
+    },
+    "OPEN": {
+     "clips": 18,
+     "signers": 11,
+     "recall": {
+      "ALL": 0.222,
+      "100": 0.194,
+      "133": 0.139,
+      "200": 0.25,
+      "266": 0.333,
+      "400": 0.194,
+      "IRREGULAR": 0.222
+     },
+     "hand": 0.604,
+     "train_fit_all": 0.857,
+     "train_fit_266": 0.643,
+     "labels": [
+      "GENERALIZATION"
+     ]
+    },
+    "OR": {
+     "clips": 4,
+     "signers": 4,
+     "recall": {
+      "ALL": 0.25,
+      "100": 0.375,
+      "133": 0.375,
+      "200": 0.25,
+      "266": 0.5,
+      "400": 0.375,
+      "IRREGULAR": 0.625
+     },
+     "hand": 0.469,
+     "train_fit_all": 0.714,
+     "train_fit_266": 0.571,
+     "labels": []
+    },
+    "OUR": {
+     "clips": 4,
+     "signers": 4,
+     "recall": {
+      "ALL": 0.75,
+      "100": 0.625,
+      "133": 0.75,
+      "200": 0.625,
+      "266": 0.5,
+      "400": 0.25,
+      "IRREGULAR": 0.5
+     },
+     "hand": 0.482,
+     "train_fit_all": 0.857,
+     "train_fit_266": 0.5,
+     "labels": []
+    },
+    "OVER": {
+     "clips": 3,
+     "signers": 3,
+     "recall": {
+      "ALL": 0.0,
+      "100": 0.5,
+      "133": 0.333,
+      "200": 0.0,
+      "266": 0.0,
+      "400": 0.0,
+      "IRREGULAR": 0.0
+     },
+     "hand": 0.41,
+     "train_fit_all": 0.933,
+     "train_fit_266": 0.467,
+     "labels": [
+      "GENERALIZATION",
+      "WEAK_HANDS"
+     ]
+    },
+    "PAPER": {
+     "clips": 25,
+     "signers": 12,
+     "recall": {
+      "ALL": 0.44,
+      "100": 0.44,
+      "133": 0.44,
+      "200": 0.36,
+      "266": 0.24,
+      "400": 0.2,
+      "IRREGULAR": 0.28
+     },
+     "hand": 0.599,
+     "train_fit_all": 0.923,
+     "train_fit_266": 0.692,
+     "labels": []
+    },
+    "PARTY1": {
+     "clips": 6,
+     "signers": 5,
+     "recall": {
+      "ALL": 0.167,
+      "100": 0.25,
+      "133": 0.083,
+      "200": 0.167,
+      "266": 0.25,
+      "400": 0.167,
+      "IRREGULAR": 0.167
+     },
+     "hand": 0.648,
+     "train_fit_all": 0.941,
+     "train_fit_266": 0.235,
+     "labels": [
+      "GENERALIZATION"
+     ]
+    },
+    "PAY": {
+     "clips": 19,
+     "signers": 9,
+     "recall": {
+      "ALL": 0.421,
+      "100": 0.368,
+      "133": 0.368,
+      "200": 0.316,
+      "266": 0.342,
+      "400": 0.237,
+      "IRREGULAR": 0.342
+     },
+     "hand": 0.613,
+     "train_fit_all": 1.0,
+     "train_fit_266": 0.643,
+     "labels": []
+    },
+    "PEOPLE": {
+     "clips": 3,
+     "signers": 3,
+     "recall": {
+      "ALL": 0.667,
+      "100": 0.667,
+      "133": 0.5,
+      "200": 0.5,
+      "266": 0.667,
+      "400": 0.5,
+      "IRREGULAR": 0.5
+     },
+     "hand": 0.717,
+     "train_fit_all": 1.0,
+     "train_fit_266": 0.667,
+     "labels": []
+    },
+    "PERSON": {
+     "clips": 9,
+     "signers": 7,
+     "recall": {
+      "ALL": 0.556,
+      "100": 0.333,
+      "133": 0.444,
+      "200": 0.333,
+      "266": 0.333,
+      "400": 0.111,
+      "IRREGULAR": 0.444
+     },
+     "hand": 0.661,
+     "train_fit_all": 0.615,
+     "train_fit_266": 0.231,
+     "labels": []
+    },
+    "PICK": {
+     "clips": 3,
+     "signers": 3,
+     "recall": {
+      "ALL": 0.667,
+      "100": 0.833,
+      "133": 0.833,
+      "200": 0.833,
+      "266": 0.833,
+      "400": 0.667,
+      "IRREGULAR": 0.833
+     },
+     "hand": 0.662,
+     "train_fit_all": 0.938,
+     "train_fit_266": 0.875,
+     "labels": []
+    },
+    "PLAY": {
+     "clips": 42,
+     "signers": 13,
+     "recall": {
+      "ALL": 0.786,
+      "100": 0.69,
+      "133": 0.631,
+      "200": 0.536,
+      "266": 0.429,
+      "400": 0.274,
+      "IRREGULAR": 0.393
+     },
+     "hand": 0.58,
+     "train_fit_all": 1.0,
+     "train_fit_266": 0.857,
+     "labels": [
+      "TEMPORAL"
+     ]
+    },
+    "PLEASE": {
+     "clips": 7,
+     "signers": 7,
+     "recall": {
+      "ALL": 0.0,
+      "100": 0.071,
+      "133": 0.0,
+      "200": 0.0,
+      "266": 0.0,
+      "400": 0.143,
+      "IRREGULAR": 0.0
+     },
+     "hand": 0.362,
+     "train_fit_all": 0.818,
+     "train_fit_266": 0.545,
+     "labels": [
+      "GENERALIZATION",
+      "WEAK_HANDS"
+     ]
+    },
+    "PUT": {
+     "clips": 6,
+     "signers": 6,
+     "recall": {
+      "ALL": 0.333,
+      "100": 0.333,
+      "133": 0.333,
+      "200": 0.333,
+      "266": 0.417,
+      "400": 0.333,
+      "IRREGULAR": 0.5
+     },
+     "hand": 0.705,
+     "train_fit_all": 0.846,
+     "train_fit_266": 0.692,
+     "labels": [
+      "GENERALIZATION"
+     ]
+    },
+    "READ": {
+     "clips": 22,
+     "signers": 14,
+     "recall": {
+      "ALL": 0.455,
+      "100": 0.477,
+      "133": 0.409,
+      "200": 0.409,
+      "266": 0.364,
+      "400": 0.318,
+      "IRREGULAR": 0.409
+     },
+     "hand": 0.653,
+     "train_fit_all": 1.0,
+     "train_fit_266": 0.643,
+     "labels": []
+    },
+    "READY": {
+     "clips": 18,
+     "signers": 8,
+     "recall": {
+      "ALL": 0.778,
+      "100": 0.722,
+      "133": 0.722,
+      "200": 0.778,
+      "266": 0.722,
+      "400": 0.694,
+      "IRREGULAR": 0.722
+     },
+     "hand": 0.709,
+     "train_fit_all": 0.923,
+     "train_fit_266": 0.769,
+     "labels": []
+    },
+    "RESTAURANT": {
+     "clips": 8,
+     "signers": 8,
+     "recall": {
+      "ALL": 0.375,
+      "100": 0.312,
+      "133": 0.375,
+      "200": 0.188,
+      "266": 0.312,
+      "400": 0.375,
+      "IRREGULAR": 0.25
+     },
+     "hand": 0.499,
+     "train_fit_all": 0.917,
+     "train_fit_266": 0.75,
+     "labels": []
+    },
+    "RIGHT3": {
+     "clips": 5,
+     "signers": 5,
+     "recall": {
+      "ALL": 0.2,
+      "100": 0.3,
+      "133": 0.2,
+      "200": 0.1,
+      "266": 0.1,
+      "400": 0.1,
+      "IRREGULAR": 0.2
+     },
+     "hand": 0.394,
+     "train_fit_all": 0.882,
+     "train_fit_266": 0.647,
+     "labels": [
+      "GENERALIZATION",
+      "WEAK_HANDS"
+     ]
+    },
+    "ROAD": {
+     "clips": 4,
+     "signers": 3,
+     "recall": {
+      "ALL": 0.25,
+      "100": 0.375,
+      "133": 0.5,
+      "200": 0.375,
+      "266": 0.25,
+      "400": 0.25,
+      "IRREGULAR": 0.375
+     },
+     "hand": 0.589,
+     "train_fit_all": 0.714,
+     "train_fit_266": 0.571,
+     "labels": []
+    },
+    "ROOM": {
+     "clips": 4,
+     "signers": 4,
+     "recall": {
+      "ALL": 0.75,
+      "100": 0.875,
+      "133": 0.375,
+      "200": 1.0,
+      "266": 0.625,
+      "400": 0.5,
+      "IRREGULAR": 0.75
+     },
+     "hand": 0.696,
+     "train_fit_all": 0.733,
+     "train_fit_266": 0.467,
+     "labels": []
+    },
+    "RUN2": {
+     "clips": 4,
+     "signers": 3,
+     "recall": {
+      "ALL": 1.0,
+      "100": 0.875,
+      "133": 1.0,
+      "200": 0.75,
+      "266": 0.625,
+      "400": 0.25,
+      "IRREGULAR": 0.875
+     },
+     "hand": 0.503,
+     "train_fit_all": 0.875,
+     "train_fit_266": 0.375,
+     "labels": [
+      "TEMPORAL"
+     ]
+    },
+    "SAD": {
+     "clips": 4,
+     "signers": 4,
+     "recall": {
+      "ALL": 0.5,
+      "100": 0.5,
+      "133": 0.5,
+      "200": 0.375,
+      "266": 0.5,
+      "400": 0.5,
+      "IRREGULAR": 0.375
+     },
+     "hand": 0.561,
+     "train_fit_all": 0.929,
+     "train_fit_266": 0.857,
+     "labels": []
+    },
+    "SAME2": {
+     "clips": 3,
+     "signers": 3,
+     "recall": {
+      "ALL": 0.667,
+      "100": 0.833,
+      "133": 0.5,
+      "200": 0.667,
+      "266": 0.167,
+      "400": 0.333,
+      "IRREGULAR": 0.5
+     },
+     "hand": 0.564,
+     "train_fit_all": 0.923,
+     "train_fit_266": 0.462,
+     "labels": []
+    },
+    "SCHOOL": {
+     "clips": 54,
+     "signers": 14,
+     "recall": {
+      "ALL": 0.315,
+      "100": 0.213,
+      "133": 0.194,
+      "200": 0.222,
+      "266": 0.231,
+      "400": 0.12,
+      "IRREGULAR": 0.213
+     },
+     "hand": 0.612,
+     "train_fit_all": 0.867,
+     "train_fit_266": 0.667,
+     "labels": [
+      "GENERALIZATION"
+     ]
+    },
+    "SEE": {
+     "clips": 33,
+     "signers": 10,
+     "recall": {
+      "ALL": 0.788,
+      "100": 0.848,
+      "133": 0.818,
+      "200": 0.833,
+      "266": 0.727,
+      "400": 0.712,
+      "IRREGULAR": 0.818
+     },
+     "hand": 0.656,
+     "train_fit_all": 1.0,
+     "train_fit_266": 1.0,
+     "labels": []
+    },
+    "SEEM": {
+     "clips": 4,
+     "signers": 4,
+     "recall": {
+      "ALL": 0.75,
+      "100": 0.5,
+      "133": 0.5,
+      "200": 0.375,
+      "266": 0.5,
+      "400": 0.375,
+      "IRREGULAR": 0.125
+     },
+     "hand": 0.623,
+     "train_fit_all": 0.846,
+     "train_fit_266": 0.538,
+     "labels": [
+      "TEMPORAL"
+     ]
+    },
+    "SELL": {
+     "clips": 2,
+     "signers": 2,
+     "recall": {
+      "ALL": 0.0,
+      "100": 0.25,
+      "133": 0.25,
+      "200": 0.25,
+      "266": 0.25,
+      "400": 0.25,
+      "IRREGULAR": 0.75
+     },
+     "hand": 0.375,
+     "train_fit_all": 0.923,
+     "train_fit_266": 0.615,
+     "labels": [
+      "GENERALIZATION",
+      "WEAK_HANDS"
+     ]
+    },
+    "SEND": {
+     "clips": 7,
+     "signers": 5,
+     "recall": {
+      "ALL": 0.571,
+      "100": 0.571,
+      "133": 0.571,
+      "200": 0.571,
+      "266": 0.571,
+      "400": 0.429,
+      "IRREGULAR": 0.571
+     },
+     "hand": 0.6,
+     "train_fit_all": 0.857,
+     "train_fit_266": 0.357,
+     "labels": []
+    },
+    "SHOP1": {
+     "clips": 6,
+     "signers": 4,
+     "recall": {
+      "ALL": 0.833,
+      "100": 0.833,
+      "133": 0.833,
+      "200": 0.75,
+      "266": 0.75,
+      "400": 0.667,
+      "IRREGULAR": 0.833
+     },
+     "hand": 0.45,
+     "train_fit_all": 0.923,
+     "train_fit_266": 0.615,
+     "labels": []
+    },
+    "SHOW": {
+     "clips": 3,
+     "signers": 3,
+     "recall": {
+      "ALL": 0.333,
+      "100": 0.667,
+      "133": 0.5,
+      "200": 0.333,
+      "266": 0.5,
+      "400": 0.167,
+      "IRREGULAR": 0.5
+     },
+     "hand": 0.527,
+     "train_fit_all": 0.923,
+     "train_fit_266": 0.615,
+     "labels": [
+      "GENERALIZATION"
+     ]
+    },
+    "SICK": {
+     "clips": 32,
+     "signers": 16,
+     "recall": {
+      "ALL": 0.531,
+      "100": 0.516,
+      "133": 0.484,
+      "200": 0.547,
+      "266": 0.453,
+      "400": 0.453,
+      "IRREGULAR": 0.438
+     },
+     "hand": 0.513,
+     "train_fit_all": 0.769,
+     "train_fit_266": 0.615,
+     "labels": []
+    },
+    "SISTER": {
+     "clips": 3,
+     "signers": 3,
+     "recall": {
+      "ALL": 0.0,
+      "100": 0.333,
+      "133": 0.333,
+      "200": 0.333,
+      "266": 0.333,
+      "400": 0.333,
+      "IRREGULAR": 0.0
+     },
+     "hand": 0.443,
+     "train_fit_all": 0.923,
+     "train_fit_266": 0.308,
+     "labels": [
+      "GENERALIZATION",
+      "WEAK_HANDS"
+     ]
+    },
+    "SIT": {
+     "clips": 22,
+     "signers": 11,
+     "recall": {
+      "ALL": 0.318,
+      "100": 0.295,
+      "133": 0.364,
+      "200": 0.295,
+      "266": 0.386,
+      "400": 0.273,
+      "IRREGULAR": 0.409
+     },
+     "hand": 0.803,
+     "train_fit_all": 0.917,
+     "train_fit_266": 0.667,
+     "labels": [
+      "GENERALIZATION"
+     ]
+    },
+    "SLEEP": {
+     "clips": 40,
+     "signers": 14,
+     "recall": {
+      "ALL": 0.525,
+      "100": 0.55,
+      "133": 0.55,
+      "200": 0.525,
+      "266": 0.412,
+      "400": 0.362,
+      "IRREGULAR": 0.475
+     },
+     "hand": 0.56,
+     "train_fit_all": 0.833,
+     "train_fit_266": 0.5,
+     "labels": []
+    },
+    "SLOW": {
+     "clips": 3,
+     "signers": 3,
+     "recall": {
+      "ALL": 1.0,
+      "100": 0.833,
+      "133": 0.333,
+      "200": 0.5,
+      "266": 0.667,
+      "400": 0.5,
+      "IRREGULAR": 0.333
+     },
+     "hand": 0.633,
+     "train_fit_all": 0.867,
+     "train_fit_266": 0.667,
+     "labels": [
+      "TEMPORAL"
+     ]
+    },
+    "SMALL": {
+     "clips": 3,
+     "signers": 3,
+     "recall": {
+      "ALL": 1.0,
+      "100": 1.0,
+      "133": 1.0,
+      "200": 0.833,
+      "266": 1.0,
+      "400": 0.667,
+      "IRREGULAR": 1.0
+     },
+     "hand": 0.631,
+     "train_fit_all": 1.0,
+     "train_fit_266": 0.812,
+     "labels": []
+    },
+    "SOME": {
+     "clips": 10,
+     "signers": 7,
+     "recall": {
+      "ALL": 0.2,
+      "100": 0.1,
+      "133": 0.1,
+      "200": 0.1,
+      "266": 0.15,
+      "400": 0.05,
+      "IRREGULAR": 0.15
+     },
+     "hand": 0.68,
+     "train_fit_all": 0.833,
+     "train_fit_266": 0.417,
+     "labels": [
+      "GENERALIZATION"
+     ]
+    },
+    "SOMETIMES": {
+     "clips": 8,
+     "signers": 6,
+     "recall": {
+      "ALL": 0.125,
+      "100": 0.062,
+      "133": 0.062,
+      "200": 0.125,
+      "266": 0.0,
+      "400": 0.125,
+      "IRREGULAR": 0.125
+     },
+     "hand": 0.67,
+     "train_fit_all": 0.692,
+     "train_fit_266": 0.385,
+     "labels": []
+    },
+    "SORRY": {
+     "clips": 3,
+     "signers": 3,
+     "recall": {
+      "ALL": 0.333,
+      "100": 0.333,
+      "133": 0.167,
+      "200": 0.0,
+      "266": 0.167,
+      "400": 0.167,
+      "IRREGULAR": 0.0
+     },
+     "hand": 0.394,
+     "train_fit_all": 0.992,
+     "train_fit_266": 0.926,
+     "labels": [
+      "TEMPORAL",
+      "GENERALIZATION",
+      "WEAK_HANDS"
+     ]
+    },
+    "SPECIAL1": {
+     "clips": 5,
+     "signers": 5,
+     "recall": {
+      "ALL": 0.2,
+      "100": 0.2,
+      "133": 0.2,
+      "200": 0.2,
+      "266": 0.1,
+      "400": 0.3,
+      "IRREGULAR": 0.3
+     },
+     "hand": 0.549,
+     "train_fit_all": 0.882,
+     "train_fit_266": 0.824,
+     "labels": [
+      "GENERALIZATION"
+     ]
+    },
+    "STAND2": {
+     "clips": 4,
+     "signers": 3,
+     "recall": {
+      "ALL": 0.25,
+      "100": 0.625,
+      "133": 0.375,
+      "200": 0.375,
+      "266": 0.125,
+      "400": 0.25,
+      "IRREGULAR": 0.125
+     },
+     "hand": 0.626,
+     "train_fit_all": 0.929,
+     "train_fit_266": 0.643,
+     "labels": [
+      "GENERALIZATION"
+     ]
+    },
+    "START": {
+     "clips": 5,
+     "signers": 4,
+     "recall": {
+      "ALL": 0.6,
+      "100": 0.5,
+      "133": 0.5,
+      "200": 0.4,
+      "266": 0.2,
+      "400": 0.3,
+      "IRREGULAR": 0.3
+     },
+     "hand": 0.706,
+     "train_fit_all": 0.846,
+     "train_fit_266": 0.692,
+     "labels": []
+    },
+    "STAY": {
+     "clips": 9,
+     "signers": 5,
+     "recall": {
+      "ALL": 0.778,
+      "100": 0.889,
+      "133": 0.833,
+      "200": 0.722,
+      "266": 0.667,
+      "400": 0.5,
+      "IRREGULAR": 0.667
+     },
+     "hand": 0.727,
+     "train_fit_all": 1.0,
+     "train_fit_266": 0.75,
+     "labels": []
+    },
+    "STILL": {
+     "clips": 4,
+     "signers": 3,
+     "recall": {
+      "ALL": 0.25,
+      "100": 0.25,
+      "133": 0.375,
+      "200": 0.375,
+      "266": 0.25,
+      "400": 0.375,
+      "IRREGULAR": 0.25
+     },
+     "hand": 0.682,
+     "train_fit_all": 0.929,
+     "train_fit_266": 0.571,
+     "labels": [
+      "GENERALIZATION"
+     ]
+    },
+    "STREET": {
+     "clips": 4,
+     "signers": 4,
+     "recall": {
+      "ALL": 0.25,
+      "100": 0.25,
+      "133": 0.375,
+      "200": 0.25,
+      "266": 0.375,
+      "400": 0.25,
+      "IRREGULAR": 0.25
+     },
+     "hand": 0.522,
+     "train_fit_all": 0.846,
+     "train_fit_266": 0.462,
+     "labels": [
+      "GENERALIZATION"
+     ]
+    },
+    "STRONG": {
+     "clips": 2,
+     "signers": 2,
+     "recall": {
+      "ALL": 1.0,
+      "100": 0.75,
+      "133": 1.0,
+      "200": 0.5,
+      "266": 0.75,
+      "400": 0.5,
+      "IRREGULAR": 0.75
+     },
+     "hand": 0.692,
+     "train_fit_all": 0.933,
+     "train_fit_266": 0.8,
+     "labels": [
+      "TEMPORAL"
+     ]
+    },
+    "STUDENT": {
+     "clips": 4,
+     "signers": 4,
+     "recall": {
+      "ALL": 0.75,
+      "100": 0.75,
+      "133": 0.5,
+      "200": 0.375,
+      "266": 0.5,
+      "400": 0.25,
+      "IRREGULAR": 0.25
+     },
+     "hand": 0.606,
+     "train_fit_all": 0.929,
+     "train_fit_266": 0.429,
+     "labels": [
+      "TEMPORAL"
+     ]
+    },
+    "SURE": {
+     "clips": 9,
+     "signers": 8,
+     "recall": {
+      "ALL": 0.222,
+      "100": 0.389,
+      "133": 0.222,
+      "200": 0.278,
+      "266": 0.167,
+      "400": 0.222,
+      "IRREGULAR": 0.222
+     },
+     "hand": 0.614,
+     "train_fit_all": 0.923,
+     "train_fit_266": 0.538,
+     "labels": [
+      "GENERALIZATION"
+     ]
+    },
+    "TABLE": {
+     "clips": 4,
+     "signers": 4,
+     "recall": {
+      "ALL": 0.75,
+      "100": 0.75,
+      "133": 0.75,
+      "200": 0.75,
+      "266": 0.75,
+      "400": 0.75,
+      "IRREGULAR": 0.75
+     },
+     "hand": 0.158,
+     "train_fit_all": 1.0,
+     "train_fit_266": 0.667,
+     "labels": [
+      "WEAK_HANDS"
+     ]
+    },
+    "TAKE": {
+     "clips": 2,
+     "signers": 2,
+     "recall": {
+      "ALL": 1.0,
+      "100": 1.0,
+      "133": 0.75,
+      "200": 0.75,
+      "266": 0.0,
+      "400": 0.0,
+      "IRREGULAR": 0.25
+     },
+     "hand": 0.227,
+     "train_fit_all": 0.933,
+     "train_fit_266": 0.733,
+     "labels": [
+      "TEMPORAL",
+      "WEAK_HANDS"
+     ]
+    },
+    "TALK1": {
+     "clips": 9,
+     "signers": 8,
+     "recall": {
+      "ALL": 0.333,
+      "100": 0.444,
+      "133": 0.444,
+      "200": 0.444,
+      "266": 0.333,
+      "400": 0.167,
+      "IRREGULAR": 0.389
+     },
+     "hand": 0.577,
+     "train_fit_all": 0.75,
+     "train_fit_266": 0.75,
+     "labels": []
+    },
+    "TEACH2": {
+     "clips": 3,
+     "signers": 3,
+     "recall": {
+      "ALL": 1.0,
+      "100": 1.0,
+      "133": 0.833,
+      "200": 1.0,
+      "266": 0.667,
+      "400": 0.833,
+      "IRREGULAR": 1.0
+     },
+     "hand": 0.494,
+     "train_fit_all": 1.0,
+     "train_fit_266": 0.938,
+     "labels": []
+    },
+    "TEACHER": {
+     "clips": 4,
+     "signers": 4,
+     "recall": {
+      "ALL": 0.5,
+      "100": 0.75,
+      "133": 0.625,
+      "200": 0.625,
+      "266": 0.75,
+      "400": 0.375,
+      "IRREGULAR": 0.5
+     },
+     "hand": 0.633,
+     "train_fit_all": 0.846,
+     "train_fit_266": 0.769,
+     "labels": []
+    },
+    "TELL": {
+     "clips": 3,
+     "signers": 3,
+     "recall": {
+      "ALL": 0.667,
+      "100": 0.833,
+      "133": 0.667,
+      "200": 0.5,
+      "266": 0.333,
+      "400": 0.167,
+      "IRREGULAR": 0.167
+     },
+     "hand": 0.321,
+     "train_fit_all": 0.923,
+     "train_fit_266": 0.308,
+     "labels": [
+      "WEAK_HANDS"
+     ]
+    },
+    "THEN": {
+     "clips": 4,
+     "signers": 4,
+     "recall": {
+      "ALL": 0.5,
+      "100": 0.5,
+      "133": 0.5,
+      "200": 0.375,
+      "266": 0.375,
+      "400": 0.5,
+      "IRREGULAR": 0.625
+     },
+     "hand": 0.594,
+     "train_fit_all": 1.0,
+     "train_fit_266": 0.714,
+     "labels": []
+    },
+    "THEY1": {
+     "clips": 5,
+     "signers": 5,
+     "recall": {
+      "ALL": 0.6,
+      "100": 0.6,
+      "133": 0.4,
+      "200": 0.4,
+      "266": 0.3,
+      "400": 0.2,
+      "IRREGULAR": 0.4
+     },
+     "hand": 0.764,
+     "train_fit_all": 1.0,
+     "train_fit_266": 0.615,
+     "labels": []
+    },
+    "THINK": {
+     "clips": 3,
+     "signers": 3,
+     "recall": {
+      "ALL": 1.0,
+      "100": 0.833,
+      "133": 0.667,
+      "200": 0.833,
+      "266": 0.833,
+      "400": 0.333,
+      "IRREGULAR": 0.667
+     },
+     "hand": 0.562,
+     "train_fit_all": 0.933,
+     "train_fit_266": 0.733,
+     "labels": []
+    },
+    "TICKET": {
+     "clips": 3,
+     "signers": 3,
+     "recall": {
+      "ALL": 0.0,
+      "100": 0.167,
+      "133": 0.167,
+      "200": 0.333,
+      "266": 0.333,
+      "400": 0.167,
+      "IRREGULAR": 0.167
+     },
+     "hand": 0.491,
+     "train_fit_all": 0.938,
+     "train_fit_266": 0.5,
+     "labels": [
+      "GENERALIZATION"
+     ]
+    },
+    "TIME": {
+     "clips": 57,
+     "signers": 14,
+     "recall": {
+      "ALL": 0.509,
+      "100": 0.509,
+      "133": 0.509,
+      "200": 0.491,
+      "266": 0.439,
+      "400": 0.36,
+      "IRREGULAR": 0.412
+     },
+     "hand": 0.689,
+     "train_fit_all": 1.0,
+     "train_fit_266": 0.583,
+     "labels": []
+    },
+    "TIRED": {
+     "clips": 37,
+     "signers": 13,
+     "recall": {
+      "ALL": 0.622,
+      "100": 0.676,
+      "133": 0.581,
+      "200": 0.635,
+      "266": 0.5,
+      "400": 0.365,
+      "IRREGULAR": 0.581
+     },
+     "hand": 0.514,
+     "train_fit_all": 1.0,
+     "train_fit_266": 0.727,
+     "labels": []
+    },
+    "TO": {
+     "clips": 3,
+     "signers": 2,
+     "recall": {
+      "ALL": 0.667,
+      "100": 0.833,
+      "133": 0.667,
+      "200": 0.833,
+      "266": 0.833,
+      "400": 0.833,
+      "IRREGULAR": 1.0
+     },
+     "hand": 0.762,
+     "train_fit_all": 0.692,
+     "train_fit_266": 0.538,
+     "labels": []
+    },
+    "TODAY": {
+     "clips": 4,
+     "signers": 3,
+     "recall": {
+      "ALL": 0.5,
+      "100": 0.625,
+      "133": 0.625,
+      "200": 0.875,
+      "266": 0.875,
+      "400": 0.75,
+      "IRREGULAR": 0.75
+     },
+     "hand": 0.618,
+     "train_fit_all": 0.933,
+     "train_fit_266": 0.8,
+     "labels": []
+    },
+    "TOMORROW": {
+     "clips": 13,
+     "signers": 9,
+     "recall": {
+      "ALL": 0.385,
+      "100": 0.462,
+      "133": 0.5,
+      "200": 0.538,
+      "266": 0.462,
+      "400": 0.385,
+      "IRREGULAR": 0.308
+     },
+     "hand": 0.547,
+     "train_fit_all": 0.857,
+     "train_fit_266": 0.429,
+     "labels": []
+    },
+    "TOOMUCH": {
+     "clips": 4,
+     "signers": 3,
+     "recall": {
+      "ALL": 0.25,
+      "100": 0.375,
+      "133": 0.375,
+      "200": 0.125,
+      "266": 0.125,
+      "400": 0.375,
+      "IRREGULAR": 0.375
+     },
+     "hand": 0.556,
+     "train_fit_all": 0.688,
+     "train_fit_266": 0.188,
+     "labels": []
+    },
+    "TOUCH": {
+     "clips": 3,
+     "signers": 3,
+     "recall": {
+      "ALL": 1.0,
+      "100": 1.0,
+      "133": 0.833,
+      "200": 0.667,
+      "266": 0.667,
+      "400": 0.833,
+      "IRREGULAR": 0.333
+     },
+     "hand": 0.663,
+     "train_fit_all": 1.0,
+     "train_fit_266": 0.75,
+     "labels": [
+      "TEMPORAL"
+     ]
+    },
+    "TRY": {
+     "clips": 4,
+     "signers": 4,
+     "recall": {
+      "ALL": 1.0,
+      "100": 1.0,
+      "133": 1.0,
+      "200": 0.875,
+      "266": 0.875,
+      "400": 0.75,
+      "IRREGULAR": 1.0
+     },
+     "hand": 0.707,
+     "train_fit_all": 1.0,
+     "train_fit_266": 0.769,
+     "labels": []
+    },
+    "TURN": {
+     "clips": 3,
+     "signers": 3,
+     "recall": {
+      "ALL": 0.667,
+      "100": 0.5,
+      "133": 0.667,
+      "200": 0.167,
+      "266": 0.833,
+      "400": 0.167,
+      "IRREGULAR": 0.167
+     },
+     "hand": 0.645,
+     "train_fit_all": 0.917,
+     "train_fit_266": 0.5,
+     "labels": [
+      "TEMPORAL"
+     ]
+    },
+    "UNDER": {
+     "clips": 9,
+     "signers": 7,
+     "recall": {
+      "ALL": 0.667,
+      "100": 0.389,
+      "133": 0.611,
+      "200": 0.444,
+      "266": 0.444,
+      "400": 0.389,
+      "IRREGULAR": 0.556
+     },
+     "hand": 0.5,
+     "train_fit_all": 0.769,
+     "train_fit_266": 0.462,
+     "labels": []
+    },
+    "US": {
+     "clips": 3,
+     "signers": 3,
+     "recall": {
+      "ALL": 0.333,
+      "100": 0.333,
+      "133": 0.333,
+      "200": 0.333,
+      "266": 0.333,
+      "400": 0.333,
+      "IRREGULAR": 0.333
+     },
+     "hand": 0.503,
+     "train_fit_all": 0.933,
+     "train_fit_266": 0.6,
+     "labels": [
+      "GENERALIZATION"
+     ]
+    },
+    "USE": {
+     "clips": 4,
+     "signers": 3,
+     "recall": {
+      "ALL": 1.0,
+      "100": 0.75,
+      "133": 0.75,
+      "200": 0.75,
+      "266": 0.75,
+      "400": 0.625,
+      "IRREGULAR": 0.75
+     },
+     "hand": 0.649,
+     "train_fit_all": 1.0,
+     "train_fit_266": 0.867,
+     "labels": [
+      "TEMPORAL"
+     ]
+    },
+    "VERY": {
+     "clips": 3,
+     "signers": 2,
+     "recall": {
+      "ALL": 0.667,
+      "100": 1.0,
+      "133": 0.833,
+      "200": 0.667,
+      "266": 0.667,
+      "400": 0.833,
+      "IRREGULAR": 0.833
+     },
+     "hand": 0.575,
+     "train_fit_all": 1.0,
+     "train_fit_266": 0.923,
+     "labels": []
+    },
+    "VISIT": {
+     "clips": 5,
+     "signers": 3,
+     "recall": {
+      "ALL": 0.8,
+      "100": 0.9,
+      "133": 0.9,
+      "200": 0.9,
+      "266": 0.8,
+      "400": 0.9,
+      "IRREGULAR": 1.0
+     },
+     "hand": 0.75,
+     "train_fit_all": 1.0,
+     "train_fit_266": 0.929,
+     "labels": []
+    },
+    "WAIT": {
+     "clips": 21,
+     "signers": 11,
+     "recall": {
+      "ALL": 0.762,
+      "100": 0.714,
+      "133": 0.762,
+      "200": 0.738,
+      "266": 0.762,
+      "400": 0.714,
+      "IRREGULAR": 0.714
+     },
+     "hand": 0.672,
+     "train_fit_all": 1.0,
+     "train_fit_266": 0.833,
+     "labels": []
+    },
+    "WALK2": {
+     "clips": 17,
+     "signers": 9,
+     "recall": {
+      "ALL": 0.353,
+      "100": 0.265,
+      "133": 0.206,
+      "200": 0.176,
+      "266": 0.235,
+      "400": 0.118,
+      "IRREGULAR": 0.206
+     },
+     "hand": 0.654,
+     "train_fit_all": 0.846,
+     "train_fit_266": 0.615,
+     "labels": []
+    },
+    "WANT2": {
+     "clips": 28,
+     "signers": 12,
+     "recall": {
+      "ALL": 0.5,
+      "100": 0.536,
+      "133": 0.571,
+      "200": 0.464,
+      "266": 0.446,
+      "400": 0.411,
+      "IRREGULAR": 0.482
+     },
+     "hand": 0.683,
+     "train_fit_all": 1.0,
+     "train_fit_266": 0.867,
+     "labels": []
+    },
+    "WASH2": {
+     "clips": 3,
+     "signers": 3,
+     "recall": {
+      "ALL": 1.0,
+      "100": 1.0,
+      "133": 1.0,
+      "200": 1.0,
+      "266": 1.0,
+      "400": 1.0,
+      "IRREGULAR": 1.0
+     },
+     "hand": 0.757,
+     "train_fit_all": 1.0,
+     "train_fit_266": 0.938,
+     "labels": []
+    },
+    "WATCH": {
+     "clips": 14,
+     "signers": 7,
+     "recall": {
+      "ALL": 0.357,
+      "100": 0.286,
+      "133": 0.357,
+      "200": 0.357,
+      "266": 0.286,
+      "400": 0.179,
+      "IRREGULAR": 0.286
+     },
+     "hand": 0.526,
+     "train_fit_all": 0.714,
+     "train_fit_266": 0.5,
+     "labels": []
+    },
+    "WATER": {
+     "clips": 4,
+     "signers": 4,
+     "recall": {
+      "ALL": 0.75,
+      "100": 0.625,
+      "133": 0.625,
+      "200": 0.625,
+      "266": 0.625,
+      "400": 0.625,
+      "IRREGULAR": 0.75
+     },
+     "hand": 0.581,
+     "train_fit_all": 0.923,
+     "train_fit_266": 0.923,
+     "labels": []
+    },
+    "WE": {
+     "clips": 3,
+     "signers": 3,
+     "recall": {
+      "ALL": 0.333,
+      "100": 0.0,
+      "133": 0.333,
+      "200": 0.167,
+      "266": 0.0,
+      "400": 0.0,
+      "IRREGULAR": 0.0
+     },
+     "hand": 0.332,
+     "train_fit_all": 0.846,
+     "train_fit_266": 0.462,
+     "labels": [
+      "GENERALIZATION",
+      "WEAK_HANDS"
+     ]
+    },
+    "WEEK": {
+     "clips": 19,
+     "signers": 11,
+     "recall": {
+      "ALL": 0.368,
+      "100": 0.342,
+      "133": 0.316,
+      "200": 0.342,
+      "266": 0.237,
+      "400": 0.237,
+      "IRREGULAR": 0.289
+     },
+     "hand": 0.711,
+     "train_fit_all": 0.818,
+     "train_fit_266": 0.636,
+     "labels": []
+    },
+    "WELCOME2": {
+     "clips": 7,
+     "signers": 6,
+     "recall": {
+      "ALL": 0.571,
+      "100": 0.429,
+      "133": 0.429,
+      "200": 0.286,
+      "266": 0.214,
+      "400": 0.071,
+      "IRREGULAR": 0.214
+     },
+     "hand": 0.589,
+     "train_fit_all": 0.692,
+     "train_fit_266": 0.385,
+     "labels": [
+      "TEMPORAL"
+     ]
+    },
+    "WHAT1": {
+     "clips": 5,
+     "signers": 5,
+     "recall": {
+      "ALL": 0.6,
+      "100": 0.3,
+      "133": 0.5,
+      "200": 0.3,
+      "266": 0.4,
+      "400": 0.1,
+      "IRREGULAR": 0.2
+     },
+     "hand": 0.7,
+     "train_fit_all": 0.867,
+     "train_fit_266": 0.4,
+     "labels": [
+      "TEMPORAL"
+     ]
+    },
+    "WHEN": {
+     "clips": 9,
+     "signers": 7,
+     "recall": {
+      "ALL": 0.556,
+      "100": 0.667,
+      "133": 0.5,
+      "200": 0.611,
+      "266": 0.278,
+      "400": 0.333,
+      "IRREGULAR": 0.444
+     },
+     "hand": 0.723,
+     "train_fit_all": 0.917,
+     "train_fit_266": 0.417,
+     "labels": []
+    },
+    "WHERE": {
+     "clips": 44,
+     "signers": 11,
+     "recall": {
+      "ALL": 0.705,
+      "100": 0.58,
+      "133": 0.568,
+      "200": 0.523,
+      "266": 0.455,
+      "400": 0.42,
+      "IRREGULAR": 0.511
+     },
+     "hand": 0.714,
+     "train_fit_all": 1.0,
+     "train_fit_266": 0.75,
+     "labels": []
+    },
+    "WHICH": {
+     "clips": 4,
+     "signers": 4,
+     "recall": {
+      "ALL": 0.75,
+      "100": 0.875,
+      "133": 0.875,
+      "200": 0.75,
+      "266": 0.75,
+      "400": 0.75,
+      "IRREGULAR": 0.5
+     },
+     "hand": 0.556,
+     "train_fit_all": 1.0,
+     "train_fit_266": 0.462,
+     "labels": []
+    },
+    "WHILE": {
+     "clips": 2,
+     "signers": 2,
+     "recall": {
+      "ALL": 0.5,
+      "100": 0.5,
+      "133": 0.5,
+      "200": 0.5,
+      "266": 0.5,
+      "400": 0.75,
+      "IRREGULAR": 0.5
+     },
+     "hand": 0.535,
+     "train_fit_all": 0.933,
+     "train_fit_266": 0.533,
+     "labels": []
+    },
+    "WHO": {
+     "clips": 5,
+     "signers": 5,
+     "recall": {
+      "ALL": 0.2,
+      "100": 0.4,
+      "133": 0.2,
+      "200": 0.0,
+      "266": 0.3,
+      "400": 0.1,
+      "IRREGULAR": 0.2
+     },
+     "hand": 0.565,
+     "train_fit_all": 0.5,
+     "train_fit_266": 0.2,
+     "labels": [
+      "INCONSISTENT"
+     ]
+    },
+    "WHOLE": {
+     "clips": 3,
+     "signers": 3,
+     "recall": {
+      "ALL": 0.667,
+      "100": 0.833,
+      "133": 0.667,
+      "200": 0.5,
+      "266": 0.667,
+      "400": 0.333,
+      "IRREGULAR": 0.833
+     },
+     "hand": 0.664,
+     "train_fit_all": 0.938,
+     "train_fit_266": 0.688,
+     "labels": []
+    },
+    "WHY": {
+     "clips": 9,
+     "signers": 7,
+     "recall": {
+      "ALL": 0.333,
+      "100": 0.278,
+      "133": 0.333,
+      "200": 0.056,
+      "266": 0.111,
+      "400": 0.111,
+      "IRREGULAR": 0.056
+     },
+     "hand": 0.427,
+     "train_fit_all": 0.833,
+     "train_fit_266": 0.25,
+     "labels": [
+      "TEMPORAL",
+      "GENERALIZATION",
+      "WEAK_HANDS"
+     ]
+    },
+    "WIFE": {
+     "clips": 3,
+     "signers": 3,
+     "recall": {
+      "ALL": 0.0,
+      "100": 0.0,
+      "133": 0.167,
+      "200": 0.167,
+      "266": 0.0,
+      "400": 0.167,
+      "IRREGULAR": 0.0
+     },
+     "hand": 0.45,
+     "train_fit_all": 0.714,
+     "train_fit_266": 0.357,
+     "labels": []
+    },
+    "WINDOW": {
+     "clips": 3,
+     "signers": 3,
+     "recall": {
+      "ALL": 0.667,
+      "100": 0.667,
+      "133": 0.667,
+      "200": 0.667,
+      "266": 0.5,
+      "400": 0.333,
+      "IRREGULAR": 0.5
+     },
+     "hand": 0.723,
+     "train_fit_all": 1.0,
+     "train_fit_266": 0.6,
+     "labels": []
+    },
+    "WITH": {
+     "clips": 10,
+     "signers": 8,
+     "recall": {
+      "ALL": 0.5,
+      "100": 0.4,
+      "133": 0.4,
+      "200": 0.3,
+      "266": 0.5,
+      "400": 0.4,
+      "IRREGULAR": 0.35
+     },
+     "hand": 0.72,
+     "train_fit_all": 0.833,
+     "train_fit_266": 0.5,
+     "labels": []
+    },
+    "WORK": {
+     "clips": 3,
+     "signers": 3,
+     "recall": {
+      "ALL": 1.0,
+      "100": 1.0,
+      "133": 1.0,
+      "200": 1.0,
+      "266": 1.0,
+      "400": 0.833,
+      "IRREGULAR": 0.833
+     },
+     "hand": 0.634,
+     "train_fit_all": 1.0,
+     "train_fit_266": 0.692,
+     "labels": []
+    },
+    "WORLD": {
+     "clips": 3,
+     "signers": 3,
+     "recall": {
+      "ALL": 0.667,
+      "100": 0.167,
+      "133": 0.333,
+      "200": 0.333,
+      "266": 0.5,
+      "400": 0.333,
+      "IRREGULAR": 0.167
+     },
+     "hand": 0.471,
+     "train_fit_all": 0.786,
+     "train_fit_266": 0.429,
+     "labels": [
+      "TEMPORAL"
+     ]
+    },
+    "WRITE": {
+     "clips": 3,
+     "signers": 3,
+     "recall": {
+      "ALL": 0.667,
+      "100": 0.833,
+      "133": 0.5,
+      "200": 0.667,
+      "266": 0.667,
+      "400": 0.833,
+      "IRREGULAR": 0.5
+     },
+     "hand": 0.557,
+     "train_fit_all": 1.0,
+     "train_fit_266": 0.75,
+     "labels": []
+    },
+    "YEAR": {
+     "clips": 4,
+     "signers": 4,
+     "recall": {
+      "ALL": 0.5,
+      "100": 0.5,
+      "133": 0.5,
+      "200": 0.625,
+      "266": 0.25,
+      "400": 0.375,
+      "IRREGULAR": 0.625
+     },
+     "hand": 0.516,
+     "train_fit_all": 0.867,
+     "train_fit_266": 0.4,
+     "labels": []
+    },
+    "YES": {
+     "clips": 15,
+     "signers": 8,
+     "recall": {
+      "ALL": 0.8,
+      "100": 0.867,
+      "133": 0.733,
+      "200": 0.733,
+      "266": 0.6,
+      "400": 0.6,
+      "IRREGULAR": 0.7
+     },
+     "hand": 0.696,
+     "train_fit_all": 0.846,
+     "train_fit_266": 0.692,
+     "labels": []
+    },
+    "YESTERDAY": {
+     "clips": 3,
+     "signers": 3,
+     "recall": {
+      "ALL": 1.0,
+      "100": 1.0,
+      "133": 1.0,
+      "200": 1.0,
+      "266": 1.0,
+      "400": 1.0,
+      "IRREGULAR": 1.0
+     },
+     "hand": 0.805,
+     "train_fit_all": 1.0,
+     "train_fit_266": 0.786,
+     "labels": []
+    },
+    "YOU": {
+     "clips": 4,
+     "signers": 4,
+     "recall": {
+      "ALL": 1.0,
+      "100": 0.875,
+      "133": 0.875,
+      "200": 1.0,
+      "266": 0.875,
+      "400": 0.75,
+      "IRREGULAR": 0.75
+     },
+     "hand": 0.609,
+     "train_fit_all": 0.846,
+     "train_fit_266": 0.462,
+     "labels": []
+    },
+    "YOUNG": {
+     "clips": 4,
+     "signers": 3,
+     "recall": {
+      "ALL": 0.25,
+      "100": 0.625,
+      "133": 0.5,
+      "200": 0.5,
+      "266": 0.375,
+      "400": 0.375,
+      "IRREGULAR": 0.5
+     },
+     "hand": 0.515,
+     "train_fit_all": 0.733,
+     "train_fit_266": 0.533,
+     "labels": []
+    },
+    "YOUR": {
+     "clips": 9,
+     "signers": 7,
+     "recall": {
+      "ALL": 0.667,
+      "100": 0.444,
+      "133": 0.667,
+      "200": 0.611,
+      "266": 0.556,
+      "400": 0.389,
+      "IRREGULAR": 0.611
+     },
+     "hand": 0.76,
+     "train_fit_all": 0.923,
+     "train_fit_266": 0.923,
+     "labels": []
+    }
+   },
+   "pairs": {
+    "CHAIR/SIT": {
+     "ALL": "11/26",
+     "100": "24/52",
+     "133": "22/52",
+     "200": "23/52",
+     "266": "18/52",
+     "400": "22/52",
+     "IRREGULAR": "20/52"
+    },
+    "CAR/DRIVE": {
+     "ALL": "3/16",
+     "100": "6/32",
+     "133": "5/32",
+     "200": "5/32",
+     "266": "3/32",
+     "400": "4/32",
+     "IRREGULAR": "4/32"
+    },
+    "NOW/TODAY": {
+     "ALL": "4/11",
+     "100": "10/22",
+     "133": "9/22",
+     "200": "7/22",
+     "266": "4/22",
+     "400": "4/22",
+     "IRREGULAR": "6/22"
+    },
+    "MUCH/TOOMUCH": {
+     "ALL": "2/7",
+     "100": "4/14",
+     "133": "4/14",
+     "200": "4/14",
+     "266": "4/14",
+     "400": "3/14",
+     "IRREGULAR": "4/14"
+    },
+    "STAND2/JUMP": {
+     "ALL": "2/21",
+     "100": "5/42",
+     "133": "6/42",
+     "200": "3/42",
+     "266": "8/42",
+     "400": "4/42",
+     "IRREGULAR": "9/42"
+    },
+    "HAPPY/PLEASE": {
+     "ALL": "10/38",
+     "100": "11/76",
+     "133": "11/76",
+     "200": "10/76",
+     "266": "7/76",
+     "400": "8/76",
+     "IRREGULAR": "6/76"
+    },
+    "SORRY/LOVE": {
+     "ALL": "2/29",
+     "100": "3/58",
+     "133": "2/58",
+     "200": "3/58",
+     "266": "5/58",
+     "400": "7/58",
+     "IRREGULAR": "5/58"
+    },
+    "FIND/PICK": {
+     "ALL": "1/6",
+     "100": "3/12",
+     "133": "3/12",
+     "200": "3/12",
+     "266": "2/12",
+     "400": "2/12",
+     "IRREGULAR": "3/12"
+    },
+    "PERSON/PEOPLE": {
+     "ALL": "2/12",
+     "100": "6/24",
+     "133": "5/24",
+     "200": "6/24",
+     "266": "5/24",
+     "400": "4/24",
+     "IRREGULAR": "3/24"
+    },
+    "BAD/GOOD": {
+     "ALL": "3/31",
+     "100": "6/62",
+     "133": "6/62",
+     "200": "7/62",
+     "266": "3/62",
+     "400": "5/62",
+     "IRREGULAR": "5/62"
+    }
+   },
+   "train_fit_mean": {
+    "ALL": 0.8995,
+    "266": 0.5992
+   }
+  }
+ }
+}

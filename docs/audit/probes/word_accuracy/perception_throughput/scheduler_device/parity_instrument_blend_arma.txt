@@ -1,0 +1,205 @@
+INSTRUMENTATION_STATUS: class=com.example.apphear.perceptionvnext.PipelinedPoseParityInstrumentedTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=9
+INSTRUMENTATION_STATUS: stream=
+com.example.apphear.perceptionvnext.PipelinedPoseParityInstrumentedTest:
+INSTRUMENTATION_STATUS: test=everyEngineIsUnchangedWithFlagOffAndPipelined
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.example.apphear.perceptionvnext.PipelinedPoseParityInstrumentedTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=9
+INSTRUMENTATION_STATUS: stack=java.io.FileNotFoundException: v3_pipeline_stream/manifest.json
+	at android.content.res.AssetManager.nativeOpenAsset(Native Method)
+	at android.content.res.AssetManager.open(AssetManager.java:896)
+	at android.content.res.AssetManager.open(AssetManager.java:873)
+	at com.example.apphear.perceptionvnext.PipelinedPoseParityInstrumentedTest.streamFrames(PipelinedPoseParityInstrumentedTest.kt:269)
+	at com.example.apphear.perceptionvnext.PipelinedPoseParityInstrumentedTest.everyEngineIsUnchangedWithFlagOffAndPipelined(PipelinedPoseParityInstrumentedTest.kt:92)
+
+INSTRUMENTATION_STATUS: stream=
+Error in everyEngineIsUnchangedWithFlagOffAndPipelined(com.example.apphear.perceptionvnext.PipelinedPoseParityInstrumentedTest):
+java.io.FileNotFoundException: v3_pipeline_stream/manifest.json
+	at android.content.res.AssetManager.nativeOpenAsset(Native Method)
+	at android.content.res.AssetManager.open(AssetManager.java:896)
+	at android.content.res.AssetManager.open(AssetManager.java:873)
+	at com.example.apphear.perceptionvnext.PipelinedPoseParityInstrumentedTest.streamFrames(PipelinedPoseParityInstrumentedTest.kt:269)
+	at com.example.apphear.perceptionvnext.PipelinedPoseParityInstrumentedTest.everyEngineIsUnchangedWithFlagOffAndPipelined(PipelinedPoseParityInstrumentedTest.kt:92)
+
+INSTRUMENTATION_STATUS: test=everyEngineIsUnchangedWithFlagOffAndPipelined
+INSTRUMENTATION_STATUS_CODE: -2
+INSTRUMENTATION_STATUS: class=com.example.apphear.perceptionvnext.PipelinedPoseParityInstrumentedTest
+INSTRUMENTATION_STATUS: current=2
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=9
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=pipelinedBudgetsMatchSerialAndLegacyOnRecordedFrames
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.example.apphear.perceptionvnext.PipelinedPoseParityInstrumentedTest
+INSTRUMENTATION_STATUS: current=2
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=9
+INSTRUMENTATION_STATUS: stack=java.io.FileNotFoundException: v3/manifest.json
+	at android.content.res.AssetManager.nativeOpenAsset(Native Method)
+	at android.content.res.AssetManager.open(AssetManager.java:896)
+	at android.content.res.AssetManager.open(AssetManager.java:873)
+	at com.example.apphear.perceptionvnext.PipelinedPoseParityInstrumentedTest.phoneFrames(PipelinedPoseParityInstrumentedTest.kt:259)
+	at com.example.apphear.perceptionvnext.PipelinedPoseParityInstrumentedTest.pipelinedBudgetsMatchSerialAndLegacyOnRecordedFrames(PipelinedPoseParityInstrumentedTest.kt:60)
+
+INSTRUMENTATION_STATUS: stream=
+Error in pipelinedBudgetsMatchSerialAndLegacyOnRecordedFrames(com.example.apphear.perceptionvnext.PipelinedPoseParityInstrumentedTest):
+java.io.FileNotFoundException: v3/manifest.json
+	at android.content.res.AssetManager.nativeOpenAsset(Native Method)
+	at android.content.res.AssetManager.open(AssetManager.java:896)
+	at android.content.res.AssetManager.open(AssetManager.java:873)
+	at com.example.apphear.perceptionvnext.PipelinedPoseParityInstrumentedTest.phoneFrames(PipelinedPoseParityInstrumentedTest.kt:259)
+	at com.example.apphear.perceptionvnext.PipelinedPoseParityInstrumentedTest.pipelinedBudgetsMatchSerialAndLegacyOnRecordedFrames(PipelinedPoseParityInstrumentedTest.kt:60)
+
+INSTRUMENTATION_STATUS: test=pipelinedBudgetsMatchSerialAndLegacyOnRecordedFrames
+INSTRUMENTATION_STATUS_CODE: -2
+INSTRUMENTATION_STATUS: class=com.example.apphear.perceptionvnext.PipelinedPoseParityInstrumentedTest
+INSTRUMENTATION_STATUS: current=3
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=9
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=ownerThatReadsPixelsKeepsTheSerialPath
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.example.apphear.perceptionvnext.PipelinedPoseParityInstrumentedTest
+INSTRUMENTATION_STATUS: current=3
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=9
+INSTRUMENTATION_STATUS: stack=java.io.FileNotFoundException: v3/manifest.json
+	at android.content.res.AssetManager.nativeOpenAsset(Native Method)
+	at android.content.res.AssetManager.open(AssetManager.java:896)
+	at android.content.res.AssetManager.open(AssetManager.java:873)
+	at com.example.apphear.perceptionvnext.PipelinedPoseParityInstrumentedTest.phoneFrames(PipelinedPoseParityInstrumentedTest.kt:259)
+	at com.example.apphear.perceptionvnext.PipelinedPoseParityInstrumentedTest.ownerThatReadsPixelsKeepsTheSerialPath(PipelinedPoseParityInstrumentedTest.kt:128)
+
+INSTRUMENTATION_STATUS: stream=
+Error in ownerThatReadsPixelsKeepsTheSerialPath(com.example.apphear.perceptionvnext.PipelinedPoseParityInstrumentedTest):
+java.io.FileNotFoundException: v3/manifest.json
+	at android.content.res.AssetManager.nativeOpenAsset(Native Method)
+	at android.content.res.AssetManager.open(AssetManager.java:896)
+	at android.content.res.AssetManager.open(AssetManager.java:873)
+	at com.example.apphear.perceptionvnext.PipelinedPoseParityInstrumentedTest.phoneFrames(PipelinedPoseParityInstrumentedTest.kt:259)
+	at com.example.apphear.perceptionvnext.PipelinedPoseParityInstrumentedTest.ownerThatReadsPixelsKeepsTheSerialPath(PipelinedPoseParityInstrumentedTest.kt:128)
+
+INSTRUMENTATION_STATUS: test=ownerThatReadsPixelsKeepsTheSerialPath
+INSTRUMENTATION_STATUS_CODE: -2
+INSTRUMENTATION_STATUS: class=com.example.apphear.perceptionvnext.WordBlendParityInstrumentedTest
+INSTRUMENTATION_STATUS: current=4
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=9
+INSTRUMENTATION_STATUS: stream=
+com.example.apphear.perceptionvnext.WordBlendParityInstrumentedTest:
+INSTRUMENTATION_STATUS: test=wordBlendMatchesKerasOnDeviceAndKeepsTheFrozenVocabulary
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.example.apphear.perceptionvnext.WordBlendParityInstrumentedTest
+INSTRUMENTATION_STATUS: current=4
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=9
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=wordBlendMatchesKerasOnDeviceAndKeepsTheFrozenVocabulary
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.example.apphear.perceptionvnext.WordBlendParityInstrumentedTest
+INSTRUMENTATION_STATUS: current=5
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=9
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=wordBlend02MatchesKerasOnDeviceAndKeepsTheFrozenVocabulary
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.example.apphear.perceptionvnext.WordBlendParityInstrumentedTest
+INSTRUMENTATION_STATUS: current=5
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=9
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=wordBlend02MatchesKerasOnDeviceAndKeepsTheFrozenVocabulary
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.example.apphear.perceptionvnext.PhoneS2ParityInstrumentedTest
+INSTRUMENTATION_STATUS: current=6
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=9
+INSTRUMENTATION_STATUS: stream=
+com.example.apphear.perceptionvnext.PhoneS2ParityInstrumentedTest:
+INSTRUMENTATION_STATUS: test=everyFrozenCalPrefixMatchesExportedTfliteProbabilities
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.example.apphear.perceptionvnext.PhoneS2ParityInstrumentedTest
+INSTRUMENTATION_STATUS: current=6
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=9
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=everyFrozenCalPrefixMatchesExportedTfliteProbabilities
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.example.apphear.perceptionvnext.PhoneS2ParityInstrumentedTest
+INSTRUMENTATION_STATUS: current=7
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=9
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=armAE10PhonePrefixMatchesKerasExportOnTheS2R2PhoneFixture
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.example.apphear.perceptionvnext.PhoneS2ParityInstrumentedTest
+INSTRUMENTATION_STATUS: current=7
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=9
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=armAE10PhonePrefixMatchesKerasExportOnTheS2R2PhoneFixture
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.example.apphear.perceptionvnext.PhoneS2ParityInstrumentedTest
+INSTRUMENTATION_STATUS: current=8
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=9
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=candidatePhonePrefixMatchesFrozenKerasExportAndControlRemainsAvailable
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.example.apphear.perceptionvnext.PhoneS2ParityInstrumentedTest
+INSTRUMENTATION_STATUS: current=8
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=9
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=candidatePhonePrefixMatchesFrozenKerasExportAndControlRemainsAvailable
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.example.apphear.perceptionvnext.PhoneS2ParityInstrumentedTest
+INSTRUMENTATION_STATUS: current=9
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=9
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=retainingDiagnosticNormalizedRowDoesNotChangeInference
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.example.apphear.perceptionvnext.PhoneS2ParityInstrumentedTest
+INSTRUMENTATION_STATUS: current=9
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=9
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=retainingDiagnosticNormalizedRowDoesNotChangeInference
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_RESULT: stream=
+
+Time: 9.695
+There were 3 failures:
+1) everyEngineIsUnchangedWithFlagOffAndPipelined(com.example.apphear.perceptionvnext.PipelinedPoseParityInstrumentedTest)
+java.io.FileNotFoundException: v3_pipeline_stream/manifest.json
+	at android.content.res.AssetManager.nativeOpenAsset(Native Method)
+	at android.content.res.AssetManager.open(AssetManager.java:896)
+	at android.content.res.AssetManager.open(AssetManager.java:873)
+	at com.example.apphear.perceptionvnext.PipelinedPoseParityInstrumentedTest.streamFrames(PipelinedPoseParityInstrumentedTest.kt:269)
+	at com.example.apphear.perceptionvnext.PipelinedPoseParityInstrumentedTest.everyEngineIsUnchangedWithFlagOffAndPipelined(PipelinedPoseParityInstrumentedTest.kt:92)
+2) pipelinedBudgetsMatchSerialAndLegacyOnRecordedFrames(com.example.apphear.perceptionvnext.PipelinedPoseParityInstrumentedTest)
+java.io.FileNotFoundException: v3/manifest.json
+	at android.content.res.AssetManager.nativeOpenAsset(Native Method)
+	at android.content.res.AssetManager.open(AssetManager.java:896)
+	at android.content.res.AssetManager.open(AssetManager.java:873)
+	at com.example.apphear.perceptionvnext.PipelinedPoseParityInstrumentedTest.phoneFrames(PipelinedPoseParityInstrumentedTest.kt:259)
+	at com.example.apphear.perceptionvnext.PipelinedPoseParityInstrumentedTest.pipelinedBudgetsMatchSerialAndLegacyOnRecordedFrames(PipelinedPoseParityInstrumentedTest.kt:60)
+3) ownerThatReadsPixelsKeepsTheSerialPath(com.example.apphear.perceptionvnext.PipelinedPoseParityInstrumentedTest)
+java.io.FileNotFoundException: v3/manifest.json
+	at android.content.res.AssetManager.nativeOpenAsset(Native Method)
+	at android.content.res.AssetManager.open(AssetManager.java:896)
+	at android.content.res.AssetManager.open(AssetManager.java:873)
+	at com.example.apphear.perceptionvnext.PipelinedPoseParityInstrumentedTest.phoneFrames(PipelinedPoseParityInstrumentedTest.kt:259)
+	at com.example.apphear.perceptionvnext.PipelinedPoseParityInstrumentedTest.ownerThatReadsPixelsKeepsTheSerialPath(PipelinedPoseParityInstrumentedTest.kt:128)
+
+FAILURES!!!
+Tests run: 9,  Failures: 3
+
+
+INSTRUMENTATION_CODE: -1

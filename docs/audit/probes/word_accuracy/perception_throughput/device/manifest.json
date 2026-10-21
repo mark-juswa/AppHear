@@ -1,0 +1,26 @@
+{
+ "schema": "apphear.v3_pipeline_device_manifest.v1",
+ "device": "Xiaomi M2101K7AG (3ab64582), Android 12, MIUI V14.0.9.0.SKGMIXM",
+ "apks": {
+  "apks/default_flag_off/app-debug-androidTest.apk": "bf18247d65882c193de962695d0f4edad494d4f58d36bc4af63f763666b92887",
+  "apks/default_flag_off/app-debug.apk": "059be62682ca0fba9314ed0cc4218b1bb156c1aeb3ebc76995440846855e654f",
+  "apks/pipelined/app-debug-androidTest.apk": "5da30f2b7042605ead62f11c374f53108ffb1a869ece71a5d401148d235d5c16",
+  "apks/pipelined/app-debug.apk": "e9075a82c2b32963ff571795954057bd86fbff8b8abc8f98360014a6a873b1d0",
+  "apks/serial/app-debug-androidTest.apk": "37946dddd8186ddf2a1bc2fa9d75f3daf910f012389064bf0428d0f1cdfeeb67",
+  "apks/serial/app-debug.apk": "341338981b222f972ec2d4d53dad1fe4cb2a6afe621c6b525feb1df719dab5f8"
+ },
+ "restored_after_measurement": {
+  "app": "d0c86508679e97ae6a2eb4fd5c9b7f8e9f466a40b5ade21aec968451e7c6b877",
+  "android_test": "c21dc8a16101a32bb35b022a5adc4383954cf46b9247d662c014a83f9d4ff175",
+  "first_install_time_unchanged": "2026-10-15 20:28:05"
+ },
+ "fixtures": {
+  "v3_manifest": "3bba0647c459315d8940a7e958a16f5e215a1b2ccd2e0496eb9d0145d4bcd239",
+  "stream_manifest": "60def7cc3709fff5b10f56867bd11fe44d506df64314a3791d22d8d1b6d38e50"
+ },
+ "notes": [
+  "live_serial_A trace streamed to the PC; its run.json was not written (logcat stop failed after a USB reset, after all inputs were saved; CPU window from snapshot file times, 93.65 s)",
+  "live_serial_C trace recovered from the device log buffer after a USB reset (contiguous 568 rows, index 43..610)",
+  "camera drops NOT_MEASURED; the thermal HAL reports no temperatures, battery temperature is the proxy"
+ ]
+}

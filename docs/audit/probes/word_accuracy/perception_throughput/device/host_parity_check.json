@@ -1,0 +1,127 @@
+{
+  "schema": "apphear.v3_pipeline_parity_host_check.v1",
+  "record_bytes": 707,
+  "pairs": [
+    {
+      "reference": "EXPERIMENTAL_WORD_BLEND_02_legacy",
+      "candidate": "EXPERIMENTAL_WORD_BLEND_02_serial",
+      "observations": 175,
+      "reference_prefix_sha256": "e94490508fd05766f4bc6df8c9b26db08737badb7027db2cdf6e700e61bb6249",
+      "candidate_sha256": "e94490508fd05766f4bc6df8c9b26db08737badb7027db2cdf6e700e61bb6249",
+      "identical": true,
+      "problem": null
+    },
+    {
+      "reference": "EXPERIMENTAL_WORD_BLEND_02_serial",
+      "candidate": "EXPERIMENTAL_WORD_BLEND_02_pipelined",
+      "observations": 174,
+      "reference_prefix_sha256": "5215e1e272092658b088dfed28ddfe487a2b56676192decc202c865b62c592b3",
+      "candidate_sha256": "5215e1e272092658b088dfed28ddfe487a2b56676192decc202c865b62c592b3",
+      "identical": true,
+      "problem": null
+    },
+    {
+      "reference": "EXPERIMENTAL_WORD_BLEND_legacy",
+      "candidate": "EXPERIMENTAL_WORD_BLEND_serial",
+      "observations": 175,
+      "reference_prefix_sha256": "e94490508fd05766f4bc6df8c9b26db08737badb7027db2cdf6e700e61bb6249",
+      "candidate_sha256": "e94490508fd05766f4bc6df8c9b26db08737badb7027db2cdf6e700e61bb6249",
+      "identical": true,
+      "problem": null
+    },
+    {
+      "reference": "EXPERIMENTAL_WORD_BLEND_serial",
+      "candidate": "EXPERIMENTAL_WORD_BLEND_pipelined",
+      "observations": 174,
+      "reference_prefix_sha256": "5215e1e272092658b088dfed28ddfe487a2b56676192decc202c865b62c592b3",
+      "candidate_sha256": "5215e1e272092658b088dfed28ddfe487a2b56676192decc202c865b62c592b3",
+      "identical": true,
+      "problem": null
+    },
+    {
+      "reference": "EXPERIMENTAL_legacy",
+      "candidate": "EXPERIMENTAL_serial",
+      "observations": 175,
+      "reference_prefix_sha256": "e94490508fd05766f4bc6df8c9b26db08737badb7027db2cdf6e700e61bb6249",
+      "candidate_sha256": "e94490508fd05766f4bc6df8c9b26db08737badb7027db2cdf6e700e61bb6249",
+      "identical": true,
+      "problem": null
+    },
+    {
+      "reference": "EXPERIMENTAL_serial",
+      "candidate": "EXPERIMENTAL_pipelined",
+      "observations": 174,
+      "reference_prefix_sha256": "5215e1e272092658b088dfed28ddfe487a2b56676192decc202c865b62c592b3",
+      "candidate_sha256": "5215e1e272092658b088dfed28ddfe487a2b56676192decc202c865b62c592b3",
+      "identical": true,
+      "problem": null
+    },
+    {
+      "reference": "STABLE_legacy",
+      "candidate": "STABLE_serial",
+      "observations": 175,
+      "reference_prefix_sha256": "e94490508fd05766f4bc6df8c9b26db08737badb7027db2cdf6e700e61bb6249",
+      "candidate_sha256": "e94490508fd05766f4bc6df8c9b26db08737badb7027db2cdf6e700e61bb6249",
+      "identical": true,
+      "problem": null
+    },
+    {
+      "reference": "STABLE_serial",
+      "candidate": "STABLE_pipelined",
+      "observations": 174,
+      "reference_prefix_sha256": "5215e1e272092658b088dfed28ddfe487a2b56676192decc202c865b62c592b3",
+      "candidate_sha256": "5215e1e272092658b088dfed28ddfe487a2b56676192decc202c865b62c592b3",
+      "identical": true,
+      "problem": null
+    },
+    {
+      "reference": "phone_frames_legacy",
+      "candidate": "phone_frames_serial",
+      "observations": 52,
+      "reference_prefix_sha256": "0227d6500809d2451d3af33e7b88be202d89f0a1b78c21182bfb1820e02fed89",
+      "candidate_sha256": "0227d6500809d2451d3af33e7b88be202d89f0a1b78c21182bfb1820e02fed89",
+      "identical": true,
+      "problem": null
+    },
+    {
+      "reference": "phone_frames_serial",
+      "candidate": "phone_frames_pipelined_p1_nospin_h1",
+      "observations": 51,
+      "reference_prefix_sha256": "9a4cd3c8e5851b778e856140b9881bfd4c08cb0dca1ebef45221859bc0b8cfeb",
+      "candidate_sha256": "88b5db263852190f505e596ad61629a8d8bd66411757d998491017dcf6cea314",
+      "identical": false,
+      "problem": "observation 0 field hand_proposal_support"
+    },
+    {
+      "reference": "phone_frames_serial",
+      "candidate": "phone_frames_pipelined_p2_nospin_h1",
+      "observations": 51,
+      "reference_prefix_sha256": "9a4cd3c8e5851b778e856140b9881bfd4c08cb0dca1ebef45221859bc0b8cfeb",
+      "candidate_sha256": "9a4cd3c8e5851b778e856140b9881bfd4c08cb0dca1ebef45221859bc0b8cfeb",
+      "identical": true,
+      "problem": null
+    },
+    {
+      "reference": "phone_frames_serial",
+      "candidate": "phone_frames_pipelined_p2_nospin_h2",
+      "observations": 51,
+      "reference_prefix_sha256": "9a4cd3c8e5851b778e856140b9881bfd4c08cb0dca1ebef45221859bc0b8cfeb",
+      "candidate_sha256": "9a4cd3c8e5851b778e856140b9881bfd4c08cb0dca1ebef45221859bc0b8cfeb",
+      "identical": true,
+      "problem": null
+    },
+    {
+      "reference": "phone_frames_serial",
+      "candidate": "phone_frames_pipelined_p2_spin_h2",
+      "observations": 51,
+      "reference_prefix_sha256": "9a4cd3c8e5851b778e856140b9881bfd4c08cb0dca1ebef45221859bc0b8cfeb",
+      "candidate_sha256": "9a4cd3c8e5851b778e856140b9881bfd4c08cb0dca1ebef45221859bc0b8cfeb",
+      "identical": true,
+      "problem": null
+    }
+  ],
+  "failures": [
+    "phone_frames_pipelined_p1_nospin_h1 vs phone_frames_serial: observation 0 field hand_proposal_support"
+  ],
+  "status": "FAIL"
+}
