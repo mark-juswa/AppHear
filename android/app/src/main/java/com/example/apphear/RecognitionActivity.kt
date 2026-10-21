@@ -61,6 +61,7 @@ import com.example.apphear.contextassist.EvidenceAwareReplies
 import com.example.apphear.contextassist.PhraseAssistUiState
 import com.example.apphear.contextassist.SigningTurnBuffer
 import com.example.apphear.conversation.ConversationTimeline
+import com.example.apphear.sentenceassist.SentenceAssistShadow
 import com.example.apphear.contextassist.Stage3Diagnostics
 import com.example.apphear.ui.recognition.RecognitionUiSnapshot
 import com.example.apphear.ui.speech.AppHearSpeechPlayer
@@ -95,6 +96,7 @@ class RecognitionActivity : AppCompatActivity() {
     private var signingVisible = false
     private var signingInProgress = false
     private var timelineAwaitingFrame = false
+    private var sentenceShadow: SentenceAssistShadow? = null
     private var displayedHearingTurnId: Long? = null
     private var openingHearingTurnId: Long? = null
     private var renderedHints: List<EvidenceAwareReplies.Hint> = emptyList()
@@ -160,6 +162,7 @@ class RecognitionActivity : AppCompatActivity() {
         binding = ActivityRecognitionBinding.inflate(layoutInflater)
         setContentView(binding.root)
         ConversationTimeline.screenCreated("recognition")
+        sentenceShadow = SentenceAssistShadow.create(this, lifecycleScope)
         selectedRecognitionMode = recognitionSettings.current()
         openingHearingTurnId = ConversationPhraseAssist.presentationState.value.hearingTurnId
         displayedHearingTurnId = openingHearingTurnId
@@ -222,6 +225,7 @@ class RecognitionActivity : AppCompatActivity() {
             phoneSession?.clearSentence()
             recognizer?.clearSentence()
             signingTurn.clear()
+            sentenceShadow?.reset()
             evidenceInterrupted = false
             signingVisible = false
             signingInProgress = false
@@ -342,6 +346,11 @@ class RecognitionActivity : AppCompatActivity() {
             return
         }
         speakSentence(sentence)
+        sentenceShadow?.let { shadow ->
+            val hearing = ConversationPhraseAssist.presentationState.value
+            shadow.hearTapped(sentence, signingTurn.snapshot(), !(evidenceInterrupted || signingTurn.overflowed),
+                hearing.hearingText, hearing.hearingTurnId)
+        }
         ConversationTimeline.mark("hear_spoken", "words" to sentence.split(' ').count { it.isNotBlank() })
         if (ConversationPhraseAssist.enabled &&
             (signingTurn.snapshot().isNotEmpty() || evidenceInterrupted)) {
@@ -373,6 +382,7 @@ class RecognitionActivity : AppCompatActivity() {
             signingVisible = false
             signingInProgress = false
             signingTurn.clear()
+            sentenceShadow?.reset()
             lastPulsedEventId = null
             // Existing raw words belong to an earlier response. Keep them untouched, but
             // do not match new predictions against a mixed, un-cleared sentence.
@@ -797,6 +807,11 @@ class RecognitionActivity : AppCompatActivity() {
                         Stage3Diagnostics.committed(evidence)
                         ConversationPhraseAssist.previewSupportedTurn(signingTurn.snapshot(),
                             r.phoneSentence.orEmpty(), evidenceInterrupted || signingTurn.overflowed)
+                        sentenceShadow?.let { shadow ->
+                            val hearing = ConversationPhraseAssist.presentationState.value
+                            shadow.signsChanged(r.phoneSentence.orEmpty(), signingTurn.snapshot(),
+                                !(evidenceInterrupted || signingTurn.overflowed), hearing.hearingText, hearing.hearingTurnId)
+                        }
                         renderPhraseAssist(ConversationPhraseAssist.presentationState.value)
                     }
                 }
@@ -1033,6 +1048,7 @@ class RecognitionActivity : AppCompatActivity() {
 
     override fun onDestroy() {
         ConversationTimeline.screenDestroyed("recognition")
+        sentenceShadow?.reset()
         super.onDestroy()
         cameraProvider?.unbindAll()
         cameraExecutor.shutdown()
