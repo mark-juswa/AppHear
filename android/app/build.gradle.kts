@@ -97,6 +97,8 @@ android {
         .map { it.equals("true", ignoreCase = true) }
         .getOrElse(false)
     val recognitionRearCamera = providers.gradleProperty("recognitionRearCamera").map { it.equals("true", ignoreCase=true) }.getOrElse(false)
+    // Debug-only conversation-flow timing log (Phase 0); never changes behavior.
+    val conversationTimeline = providers.gradleProperty("conversationTimeline").map { it.equals("true", ignoreCase=true) }.getOrElse(false)
     val recognitionCoordination = providers.gradleProperty("recognitionCoordination").map { it.equals("true",ignoreCase=true) }.getOrElse(false)
     val fingerspellContinuous = providers.gradleProperty("fingerspellContinuous").map { it.equals("true",ignoreCase=true) }.getOrElse(false)
     val fingerspellDebug = providers.gradleProperty("fingerspell")
@@ -149,6 +151,7 @@ android {
             buildConfigField("boolean", "RECOGNITION_V3_PROFILE_ENABLED", recognitionV3Profile.toString())
             buildConfigField("boolean", "ASL_ORIGINAL_WORDS_ENABLED", aslOriginalWords.toString())
             buildConfigField("boolean", "RECOGNITION_REAR_CAMERA_ENABLED", recognitionRearCamera.toString())
+            buildConfigField("boolean", "CONVERSATION_TIMELINE_ENABLED", conversationTimeline.toString())
             buildConfigField("boolean", "RECOGNITION_COORDINATION_ENABLED", (recognitionCoordination && fingerspellDebug && fingerspellContinuous && contextPhraseAssistDebug).toString())
             buildConfigField("boolean", "FINGERSPELL_CONTINUOUS_ENABLED", (fingerspellDebug && fingerspellContinuous).toString())
             buildConfigField("boolean", "FINGERSPELL_EXPERIMENT_ENABLED", fingerspellDebug.toString())
@@ -187,6 +190,7 @@ android {
             buildConfigField("boolean", "RECOGNITION_V3_PROFILE_ENABLED", "false")
             buildConfigField("boolean", "ASL_ORIGINAL_WORDS_ENABLED", "false")
             buildConfigField("boolean", "RECOGNITION_REAR_CAMERA_ENABLED", "false")
+            buildConfigField("boolean", "CONVERSATION_TIMELINE_ENABLED", "false")
             buildConfigField("boolean", "RECOGNITION_COORDINATION_ENABLED", "false")
             buildConfigField("boolean", "FINGERSPELL_CONTINUOUS_ENABLED", "false")
             buildConfigField("boolean", "FINGERSPELL_EXPERIMENT_ENABLED", "false")

@@ -60,6 +60,7 @@ import com.example.apphear.contextassist.ConversationPhraseAssist
 import com.example.apphear.contextassist.EvidenceAwareReplies
 import com.example.apphear.contextassist.PhraseAssistUiState
 import com.example.apphear.contextassist.SigningTurnBuffer
+import com.example.apphear.conversation.ConversationTimeline
 import com.example.apphear.contextassist.Stage3Diagnostics
 import com.example.apphear.ui.recognition.RecognitionUiSnapshot
 import com.example.apphear.ui.speech.AppHearSpeechPlayer
@@ -93,6 +94,7 @@ class RecognitionActivity : AppCompatActivity() {
     private var evidenceInterrupted = false
     private var signingVisible = false
     private var signingInProgress = false
+    private var timelineAwaitingFrame = false
     private var displayedHearingTurnId: Long? = null
     private var openingHearingTurnId: Long? = null
     private var renderedHints: List<EvidenceAwareReplies.Hint> = emptyList()
@@ -132,6 +134,7 @@ class RecognitionActivity : AppCompatActivity() {
         ActivityResultContracts.StartActivityForResult(),
     ) { result ->
         if (result.resultCode != Activity.RESULT_OK) {
+            ConversationTimeline.mark("speech_result", "screen" to "recognition", "ok" to false, "chars" to 0)
             Toast.makeText(this, R.string.reply_speech_cancelled, Toast.LENGTH_SHORT).show()
             return@registerForActivityResult
         }
@@ -141,6 +144,8 @@ class RecognitionActivity : AppCompatActivity() {
             ?.firstOrNull()
             ?.trim()
             .orEmpty()
+        ConversationTimeline.mark("speech_result", "screen" to "recognition", "ok" to transcript.isNotBlank(),
+            "chars" to transcript.length)
         if (transcript.isBlank()) {
             Toast.makeText(this, R.string.reply_speech_empty, Toast.LENGTH_SHORT).show()
             return@registerForActivityResult
@@ -154,13 +159,17 @@ class RecognitionActivity : AppCompatActivity() {
         window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
         binding = ActivityRecognitionBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        ConversationTimeline.screenCreated("recognition")
         selectedRecognitionMode = recognitionSettings.current()
         openingHearingTurnId = ConversationPhraseAssist.presentationState.value.hearingTurnId
         displayedHearingTurnId = openingHearingTurnId
         binding.sentenceCard.visibility = View.GONE
         speechPlayer = AppHearSpeechPlayer(this)
         ruD1 = RuD1Diagnostics.create(applicationContext)
-        binding.btnBack.setOnClickListener { finish() }
+        binding.btnBack.setOnClickListener {
+            ConversationTimeline.tap("recognition", "back")
+            finish()
+        }
         binding.dragHandleWrapper.setOnClickListener {
             binding.expandableContent.visibility =
                 if (binding.expandableContent.visibility == View.VISIBLE) View.GONE else View.VISIBLE
@@ -205,6 +214,7 @@ class RecognitionActivity : AppCompatActivity() {
         binding.handToggle.contentDescription = "Hand selection unavailable in causal recognition"
 
         binding.clearButton.setOnClickListener {
+            ConversationTimeline.tap("recognition", "clear")
             if (fingerspellRuntime?.snapshot?.mode == RecognitionMode.FINGERSPELL) {
                 cameraExecutor.execute { fingerspellRuntime?.clear() }
                 return@setOnClickListener
@@ -233,10 +243,12 @@ class RecognitionActivity : AppCompatActivity() {
         }
 
         binding.speakButton.setOnClickListener {
+            ConversationTimeline.tap("recognition", "speak")
             startReplySpeechInput()
         }
 
         binding.hearButton.setOnClickListener {
+            ConversationTimeline.tap("recognition", "hear")
             speakRecognizedSentence()
         }
 
@@ -290,6 +302,7 @@ class RecognitionActivity : AppCompatActivity() {
         }
 
         try {
+            ConversationTimeline.mark("speech_launch", "screen" to "recognition")
             replySpeechLauncher.launch(SpeechInputHelper.createSpeechIntent(getString(R.string.reply_speech_prompt)))
         } catch (_: ActivityNotFoundException) {
             Toast.makeText(this, R.string.speech_unavailable, Toast.LENGTH_SHORT).show()
@@ -329,6 +342,7 @@ class RecognitionActivity : AppCompatActivity() {
             return
         }
         speakSentence(sentence)
+        ConversationTimeline.mark("hear_spoken", "words" to sentence.split(' ').count { it.isNotBlank() })
         if (ConversationPhraseAssist.enabled &&
             (signingTurn.snapshot().isNotEmpty() || evidenceInterrupted)) {
             val evidence = signingTurn.snapshot()
@@ -439,6 +453,7 @@ class RecognitionActivity : AppCompatActivity() {
     }
 
     private fun openTextToAslReply(transcript: String) {
+        ConversationTimeline.mark("open_text_to_asl", "chars" to transcript.length)
         val intent = Intent(this, MainActivity::class.java).apply {
             putExtra(MainActivity.EXTRA_OPEN_TEXT_TO_ASL, true)
             putExtra(MainActivity.EXTRA_TEXT_TO_ASL_INPUT, transcript)
@@ -746,6 +761,13 @@ class RecognitionActivity : AppCompatActivity() {
         val r = if(phoneSession != null) frame.copy(isFrontCamera = processingFrontCamera) else frame
         runOnUiThread {
             if (ticket != cameraGeneration || isFinishing || isDestroyed) return@runOnUiThread
+            if (ConversationTimeline.enabled) {
+                if (timelineAwaitingFrame) {
+                    timelineAwaitingFrame = false
+                    ConversationTimeline.mark("recognition_ready")
+                }
+                ConversationTimeline.recognitionFps(r.fps)
+            }
             if(r.recognitionEvidence!=null || r.recognition is com.example.apphear.pipeline.recognition.RecognitionState.Signing)
                 coordination?.wordActivity(committed = r.recognitionEvidence != null)
             val spelling = fingerspellRuntime?.snapshot
@@ -769,6 +791,7 @@ class RecognitionActivity : AppCompatActivity() {
                 }
                 r.recognitionEvidence?.let { evidence ->
                     if (signingTurn.add(evidence)) {
+                        ConversationTimeline.mark("sign_committed", "event" to evidence.eventId)
                         signingVisible = true
                         ConversationPhraseAssist.signingStarted()
                         Stage3Diagnostics.committed(evidence)
@@ -1009,6 +1032,7 @@ class RecognitionActivity : AppCompatActivity() {
     }
 
     override fun onDestroy() {
+        ConversationTimeline.screenDestroyed("recognition")
         super.onDestroy()
         cameraProvider?.unbindAll()
         cameraExecutor.shutdown()
@@ -1071,6 +1095,7 @@ class RecognitionActivity : AppCompatActivity() {
     }
 
     override fun onStop() {
+        ConversationTimeline.mark("recognition_stopped")
         coordination?.stopped()
         binding.overlayView.clear()
         signingVisible = false
@@ -1090,6 +1115,8 @@ class RecognitionActivity : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
+        timelineAwaitingFrame = ConversationTimeline.enabled
+        ConversationTimeline.mark("recognition_started")
         selectedRecognitionMode = recognitionSettings.current()
         coordination?.started(selectedRecognitionMode)
         if (::cameraExecutor.isInitialized && fingerspellRuntime != null && !cameraExecutor.isShutdown) {

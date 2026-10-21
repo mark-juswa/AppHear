@@ -25,6 +25,7 @@ import com.example.apphear.TextToAslArgument
 import com.example.apphear.databinding.FragmentTextToAslBinding
 import com.example.apphear.contextassist.ConversationPhraseAssist
 import com.example.apphear.contextassist.ConversationSource
+import com.example.apphear.conversation.ConversationTimeline
 import com.example.apphear.domain.texttoasl.AslSingleAvatarPolicy
 import com.example.apphear.domain.texttoasl.AslFingerspellingBundle
 import com.example.apphear.domain.texttoasl.AslResidentAvatarBundle
@@ -74,12 +75,16 @@ class TextToAslFragment : Fragment(R.layout.fragment_text_to_asl) {
         if (result.resultCode == Activity.RESULT_OK) {
             val matches = result.data?.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS)
             val spokenText = matches?.firstOrNull()?.trim().orEmpty()
+            ConversationTimeline.mark("speech_result", "screen" to "text_to_asl", "ok" to spokenText.isNotEmpty(),
+                "chars" to spokenText.length)
             if (spokenText.isNotEmpty()) {
                 fragmentBinding.tvSpeechStatus.text = spokenText
                 fragmentBinding.inputText.setText(spokenText)
                 submitInput(ConversationSource.SPEECH)
                 return@registerForActivityResult
             }
+        } else {
+            ConversationTimeline.mark("speech_result", "screen" to "text_to_asl", "ok" to false, "chars" to 0)
         }
         fragmentBinding.tvSpeechStatus.setText(R.string.speech_tap_mic)
     }
@@ -97,6 +102,7 @@ class TextToAslFragment : Fragment(R.layout.fragment_text_to_asl) {
         super.onViewCreated(view, savedInstanceState)
         val fragmentBinding = FragmentTextToAslBinding.bind(view)
         binding = fragmentBinding
+        ConversationTimeline.screenCreated("text_to_asl")
         speechPlayer = AppHearSpeechPlayer(requireContext())
         pendingAutoSubmitText = savedInstanceState?.getString(KEY_PENDING_AUTO_SUBMIT_TEXT)
             ?: arguments?.getString(TextToAslArgument.INCOMING_TEXT)?.trim()?.takeIf { it.isNotBlank() }
@@ -150,6 +156,7 @@ class TextToAslFragment : Fragment(R.layout.fragment_text_to_asl) {
                                 }
                                 if (BuildConfig.ASL_ASSET_PILOT_ENABLED && asset.id == "idle" && !avatarReady) {
                                     avatarReady = true
+                                    ConversationTimeline.mark("avatar_ready")
                                     resumeColdIdle = false
                                     if (queuedSubmitUntilReady) {
                                         queuedSubmitUntilReady = false
@@ -160,6 +167,7 @@ class TextToAslFragment : Fragment(R.layout.fragment_text_to_asl) {
                                 }
                                 if (!BuildConfig.ASL_ASSET_PILOT_ENABLED ||
                                     currentQueue.getOrNull(currentIndex)?.id != asset.id) return
+                                if (currentIndex == 0) ConversationTimeline.mark("signing_started", "signs" to currentQueue.size)
                                 playHandler.removeCallbacks(advanceRunnable)
                                 val timeout = asset.replacement?.durationMs?.plus(2_000L)
                                     ?: PLAYBACK_SAFETY_TIMEOUT_MS
@@ -202,6 +210,8 @@ class TextToAslFragment : Fragment(R.layout.fragment_text_to_asl) {
                 idleAsset = catalog.findByAlias("idle")
                 Log.d("TextToAslAssets", "Character=${choice.preferenceValue} entries=${catalog.getAssets().size} " +
                     "catalogMs=${SystemClock.elapsedRealtime() - catalogStartMs}")
+                ConversationTimeline.mark("catalog_ready", "ms" to SystemClock.elapsedRealtime() - catalogStartMs,
+                    "entries" to catalog.getAssets().size)
                 // The viewer may already be ready; the idle pose needed the catalog.
                 if (avatarController?.isReady == true &&
                     viewLifecycleOwner.lifecycle.currentState.isAtLeast(Lifecycle.State.STARTED)) {
@@ -227,21 +237,44 @@ class TextToAslFragment : Fragment(R.layout.fragment_text_to_asl) {
             showInputPanel(!fragmentBinding.expandableContent.isVisible)
         }
         fragmentBinding.signItButton.setOnClickListener {
+            ConversationTimeline.tap("text_to_asl", "sign_it")
             if (fragmentBinding.speechDeferredSection.isVisible) replayCurrentPlan() else submitInput()
         }
-        fragmentBinding.btnMic.setOnClickListener { startSpeechInput() }
-        fragmentBinding.replayButton.setOnClickListener { replayCurrentPlan() }
-        fragmentBinding.clearButton.setOnClickListener { clearPlayback() }
+        fragmentBinding.btnMic.setOnClickListener {
+            ConversationTimeline.tap("text_to_asl", "mic")
+            startSpeechInput()
+        }
+        fragmentBinding.replayButton.setOnClickListener {
+            ConversationTimeline.tap("text_to_asl", "repeat")
+            replayCurrentPlan()
+        }
+        fragmentBinding.clearButton.setOnClickListener {
+            ConversationTimeline.tap("text_to_asl", "clear")
+            clearPlayback()
+        }
         fragmentBinding.replyButton.setOnClickListener {
+            ConversationTimeline.tap("text_to_asl", "reply")
             startActivity(Intent(requireContext(), RecognitionActivity::class.java))
         }
-        fragmentBinding.modeTextButton.setOnClickListener { setSpeechMode(false) }
-        fragmentBinding.modeSpeechButton.setOnClickListener { setSpeechMode(true) }
+        fragmentBinding.modeTextButton.setOnClickListener {
+            ConversationTimeline.tap("text_to_asl", "text_mode")
+            setSpeechMode(false)
+        }
+        fragmentBinding.modeSpeechButton.setOnClickListener {
+            ConversationTimeline.tap("text_to_asl", "talk_mode")
+            setSpeechMode(true)
+        }
         fragmentBinding.signedText.setOnClickListener {
             if (!fragmentBinding.expandableContent.isVisible) setSpeechMode(false)
         }
-        fragmentBinding.modeTextShortcut.setOnClickListener { setSpeechMode(false) }
-        fragmentBinding.modeTalkShortcut.setOnClickListener { setSpeechMode(true) }
+        fragmentBinding.modeTextShortcut.setOnClickListener {
+            ConversationTimeline.tap("text_to_asl", "text_mode_shortcut")
+            setSpeechMode(false)
+        }
+        fragmentBinding.modeTalkShortcut.setOnClickListener {
+            ConversationTimeline.tap("text_to_asl", "talk_mode_shortcut")
+            setSpeechMode(true)
+        }
         fragmentBinding.inputText.setOnEditorActionListener { _, actionId, _ ->
             if (actionId == EditorInfo.IME_ACTION_DONE) {
                 submitInput()
@@ -272,6 +305,7 @@ class TextToAslFragment : Fragment(R.layout.fragment_text_to_asl) {
         fragmentBinding.signedText.isVisible = true
         consumedAutoSubmitText = incomingText
         pendingAutoSubmitText = null
+        ConversationTimeline.mark("incoming_transcript_submit", "chars" to incomingText.length)
         submitInput(ConversationSource.SPEECH)
     }
 
@@ -283,6 +317,7 @@ class TextToAslFragment : Fragment(R.layout.fragment_text_to_asl) {
             return
         }
         fragmentBinding.tvSpeechStatus.setText(R.string.speech_listening)
+        ConversationTimeline.mark("speech_launch", "screen" to "text_to_asl")
         try {
             speechLauncher.launch(SpeechInputHelper.createSpeechIntent(getString(R.string.text_to_asl_speech_prompt)))
         } catch (_: ActivityNotFoundException) {
@@ -320,6 +355,7 @@ class TextToAslFragment : Fragment(R.layout.fragment_text_to_asl) {
 
         if (BuildConfig.ASL_ASSET_PILOT_ENABLED && !avatarReady) {
             queuedSubmitUntilReady = true
+            ConversationTimeline.mark("submit_waiting_for_avatar")
             queuedSubmitSource = source
             queuedSubmitRecordTurn = recordTurn
             fragmentBinding.currentProgressText.setText(R.string.asl_character_loading)
@@ -338,6 +374,8 @@ class TextToAslFragment : Fragment(R.layout.fragment_text_to_asl) {
         val plan = if (BuildConfig.ASL_ASSET_PILOT_ENABLED) translationPlanner?.plan(requestedText)
             ?: planner.plan(requestedText) else planner.plan(requestedText)
         translationNotice = plan.translationNotice
+        ConversationTimeline.mark("plan_ready", "source" to source.name, "signs" to plan.queue.size,
+            "unsupported" to plan.unsupportedTokens.size)
         if (recordTurn) ConversationPhraseAssist.recordHearingMessage(
             requireContext().applicationContext, requestedText, source)
         lastInputText = requestedText
@@ -419,6 +457,7 @@ class TextToAslFragment : Fragment(R.layout.fragment_text_to_asl) {
     }
 
     private fun failPlayback(message: String) {
+        ConversationTimeline.mark("signing_failed", "index" to currentIndex, "signs" to currentQueue.size)
         playHandler.removeCallbacks(advanceRunnable)
         avatarController?.pause()
         binding?.currentProgressText?.text = progressWithUnsupported(message)
@@ -431,6 +470,7 @@ class TextToAslFragment : Fragment(R.layout.fragment_text_to_asl) {
         if (currentIndex < currentQueue.size) {
             playCurrentAsset()
         } else {
+            ConversationTimeline.mark("signing_complete", "signs" to currentQueue.size)
             showIdleAvatar()
         }
     }
@@ -519,6 +559,7 @@ class TextToAslFragment : Fragment(R.layout.fragment_text_to_asl) {
     }
 
     override fun onDestroyView() {
+        ConversationTimeline.screenDestroyed("text_to_asl")
         playHandler.removeCallbacks(advanceRunnable)
         engineJob?.cancel()
         engineJob = null

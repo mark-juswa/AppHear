@@ -8,6 +8,7 @@ import androidx.core.os.bundleOf
 import androidx.core.view.isVisible
 import androidx.navigation.NavOptions
 import androidx.navigation.fragment.NavHostFragment
+import com.example.apphear.conversation.ConversationTimeline
 import com.example.apphear.databinding.ActivityAppShellBinding
 
 class MainActivity : AppCompatActivity() {
@@ -15,6 +16,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        ConversationTimeline.screenCreated("main")
         binding = ActivityAppShellBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -39,9 +41,11 @@ class MainActivity : AppCompatActivity() {
             navigateShell(R.id.homeFragment)
         }
         binding.appShellBottomNav.navDetect.setOnClickListener {
+            ConversationTimeline.tap("main", "nav_detect")
             startActivity(Intent(this, RecognitionActivity::class.java))
         }
         binding.appShellBottomNav.navAsl.setOnClickListener {
+            ConversationTimeline.tap("main", "nav_text_to_asl")
             navigateShell(R.id.textToAslFragment)
         }
         binding.appShellBottomNav.navProfile.setOnClickListener {
@@ -51,8 +55,14 @@ class MainActivity : AppCompatActivity() {
         handleTextToAslIntent(intent)
     }
 
+    override fun onDestroy() {
+        ConversationTimeline.screenDestroyed("main")
+        super.onDestroy()
+    }
+
     override fun onNewIntent(intent: Intent) {
         super.onNewIntent(intent)
+        ConversationTimeline.mark("main_new_intent")
         setIntent(intent)
         handleTextToAslIntent(intent)
     }
@@ -68,6 +78,8 @@ class MainActivity : AppCompatActivity() {
         val navHost = supportFragmentManager
             .findFragmentById(R.id.app_shell_nav_host) as NavHostFragment
         val navController = navHost.navController
+        ConversationTimeline.mark("transcript_routed", "chars" to transcript.length,
+            "already_on_text_to_asl" to (navController.currentDestination?.id == R.id.textToAslFragment))
         val options = NavOptions.Builder()
             .setLaunchSingleTop(true)
             .setPopUpTo(R.id.homeFragment, false)
