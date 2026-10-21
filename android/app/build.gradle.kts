@@ -99,6 +99,9 @@ android {
     val recognitionRearCamera = providers.gradleProperty("recognitionRearCamera").map { it.equals("true", ignoreCase=true) }.getOrElse(false)
     // Debug-only conversation-flow timing log (Phase 0); never changes behavior.
     val conversationTimeline = providers.gradleProperty("conversationTimeline").map { it.equals("true", ignoreCase=true) }.getOrElse(false)
+    // Phase 2 evidence-grounded sentence assist: OFF or SHADOW (compute + log only, never shown).
+    val sentenceAssistMode = providers.gradleProperty("sentenceAssist").map { it.uppercase() }.getOrElse("OFF")
+    require(sentenceAssistMode in setOf("OFF", "SHADOW")) { "sentenceAssist must be off or shadow" }
     val recognitionCoordination = providers.gradleProperty("recognitionCoordination").map { it.equals("true",ignoreCase=true) }.getOrElse(false)
     val fingerspellContinuous = providers.gradleProperty("fingerspellContinuous").map { it.equals("true",ignoreCase=true) }.getOrElse(false)
     val fingerspellDebug = providers.gradleProperty("fingerspell")
@@ -152,6 +155,7 @@ android {
             buildConfigField("boolean", "ASL_ORIGINAL_WORDS_ENABLED", aslOriginalWords.toString())
             buildConfigField("boolean", "RECOGNITION_REAR_CAMERA_ENABLED", recognitionRearCamera.toString())
             buildConfigField("boolean", "CONVERSATION_TIMELINE_ENABLED", conversationTimeline.toString())
+            buildConfigField("String", "SENTENCE_ASSIST_MODE", "\"$sentenceAssistMode\"")
             buildConfigField("boolean", "RECOGNITION_COORDINATION_ENABLED", (recognitionCoordination && fingerspellDebug && fingerspellContinuous && contextPhraseAssistDebug).toString())
             buildConfigField("boolean", "FINGERSPELL_CONTINUOUS_ENABLED", (fingerspellDebug && fingerspellContinuous).toString())
             buildConfigField("boolean", "FINGERSPELL_EXPERIMENT_ENABLED", fingerspellDebug.toString())
@@ -191,6 +195,7 @@ android {
             buildConfigField("boolean", "ASL_ORIGINAL_WORDS_ENABLED", "false")
             buildConfigField("boolean", "RECOGNITION_REAR_CAMERA_ENABLED", "false")
             buildConfigField("boolean", "CONVERSATION_TIMELINE_ENABLED", "false")
+            buildConfigField("String", "SENTENCE_ASSIST_MODE", "\"OFF\"")
             buildConfigField("boolean", "RECOGNITION_COORDINATION_ENABLED", "false")
             buildConfigField("boolean", "FINGERSPELL_CONTINUOUS_ENABLED", "false")
             buildConfigField("boolean", "FINGERSPELL_EXPERIMENT_ENABLED", "false")
