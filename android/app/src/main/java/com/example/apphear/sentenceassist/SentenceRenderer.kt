@@ -1,5 +1,7 @@
 package com.example.apphear.sentenceassist
 
+import org.json.JSONObject
+
 /** Produces a candidate sentence; null means "no rendering" (unavailable, timed out, malformed). */
 fun interface SentenceRenderer {
     suspend fun render(request: RenderRequest): Rendering?
@@ -41,5 +43,20 @@ object RenderingMapper {
             Substitution(number - 1, gloss)
         }
         return Rendering(text, mapped)
+    }
+
+    /** The schema'd JSON answer ({"sentence", "substitutions"}) from any provider; null if malformed. */
+    fun fromJson(text: String): Rendering? {
+        val output = JSONObject(text)
+        val raw = output.optJSONArray("substitutions")?.let { array ->
+            (0 until array.length()).map { i ->
+                val entry = array.optJSONObject(i)
+                RawSubstitution(
+                    entry?.takeIf { it.has("signNumber") }?.optInt("signNumber"),
+                    entry?.optString("gloss")?.takeIf { it.isNotEmpty() },
+                )
+            }
+        }
+        return map(output.optString("sentence").takeIf { output.has("sentence") }, raw)
     }
 }

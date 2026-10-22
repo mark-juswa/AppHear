@@ -101,6 +101,20 @@ android {
     val conversationTimeline = providers.gradleProperty("conversationTimeline").map { it.equals("true", ignoreCase=true) }.getOrElse(false)
     // Phase 1 conversation flow: reuse the Text-to-ASL and Recognition screens instead of stacking copies.
     val conversationFlowV1 = providers.gradleProperty("conversationFlowV1").map { it.equals("true", ignoreCase=true) }.getOrElse(false)
+    // Phase 1 D2/D3 (each needs conversationFlowV1): a cancelable countdown that opens Reply after the
+    // avatar finishes, and opening speech input after Hear finishes speaking.
+    val conversationAutoReply = conversationFlowV1 && providers.gradleProperty("conversationAutoReply").map { it.equals("true", ignoreCase=true) }.getOrElse(false)
+    val conversationAutoListen = conversationFlowV1 && providers.gradleProperty("conversationAutoListen").map { it.equals("true", ignoreCase=true) }.getOrElse(false)
+    // Backup LLM for the sentence builder and Context Assist when Gemini is slow or failing. Any
+    // OpenAI-compatible service; Groq's free tier by default. The key lives only in the gitignored
+    // android/gradle.properties (or the environment) and never reaches release builds.
+    val llmFallback = providers.gradleProperty("llmFallback").map { it.equals("true", ignoreCase=true) }.getOrElse(false)
+    val llmFallbackApiKey = if (llmFallback) providers.gradleProperty("APPHEAR_FALLBACK_LLM_API_KEY")
+        .orElse(providers.environmentVariable("APPHEAR_FALLBACK_LLM_API_KEY")).orNull.orEmpty() else ""
+    val llmFallbackBaseUrl = providers.gradleProperty("llmFallbackBaseUrl").getOrElse("https://api.groq.com/openai/v1")
+    val llmFallbackModel = providers.gradleProperty("llmFallbackModel").getOrElse("openai/gpt-oss-120b")
+    val llmFallbackReasoningEffort = providers.gradleProperty("llmFallbackReasoningEffort").getOrElse("low")
+    require(llmFallbackBaseUrl.startsWith("https://")) { "llmFallbackBaseUrl must be https" }
     // Phase 2 evidence-grounded sentence assist: OFF, SHADOW (log only) or VISIBLE (shown; Hear speaks it).
     val sentenceAssistMode = providers.gradleProperty("sentenceAssist").map { it.uppercase() }.getOrElse("OFF")
     require(sentenceAssistMode in setOf("OFF", "SHADOW", "VISIBLE")) { "sentenceAssist must be off, shadow or visible" }
@@ -158,6 +172,13 @@ android {
             buildConfigField("boolean", "RECOGNITION_REAR_CAMERA_ENABLED", recognitionRearCamera.toString())
             buildConfigField("boolean", "CONVERSATION_TIMELINE_ENABLED", conversationTimeline.toString())
             buildConfigField("boolean", "CONVERSATION_FLOW_V1_ENABLED", conversationFlowV1.toString())
+            buildConfigField("boolean", "CONVERSATION_AUTO_REPLY_ENABLED", conversationAutoReply.toString())
+            buildConfigField("boolean", "CONVERSATION_AUTO_LISTEN_ENABLED", conversationAutoListen.toString())
+            buildConfigField("boolean", "LLM_FALLBACK_ENABLED", llmFallback.toString())
+            buildConfigField("String", "LLM_FALLBACK_API_KEY", "\"$llmFallbackApiKey\"")
+            buildConfigField("String", "LLM_FALLBACK_BASE_URL", "\"$llmFallbackBaseUrl\"")
+            buildConfigField("String", "LLM_FALLBACK_MODEL", "\"$llmFallbackModel\"")
+            buildConfigField("String", "LLM_FALLBACK_REASONING_EFFORT", "\"$llmFallbackReasoningEffort\"")
             buildConfigField("String", "SENTENCE_ASSIST_MODE", "\"$sentenceAssistMode\"")
             buildConfigField("boolean", "RECOGNITION_COORDINATION_ENABLED", (recognitionCoordination && fingerspellDebug && fingerspellContinuous && contextPhraseAssistDebug).toString())
             buildConfigField("boolean", "FINGERSPELL_CONTINUOUS_ENABLED", (fingerspellDebug && fingerspellContinuous).toString())
@@ -199,6 +220,13 @@ android {
             buildConfigField("boolean", "RECOGNITION_REAR_CAMERA_ENABLED", "false")
             buildConfigField("boolean", "CONVERSATION_TIMELINE_ENABLED", "false")
             buildConfigField("boolean", "CONVERSATION_FLOW_V1_ENABLED", "false")
+            buildConfigField("boolean", "CONVERSATION_AUTO_REPLY_ENABLED", "false")
+            buildConfigField("boolean", "CONVERSATION_AUTO_LISTEN_ENABLED", "false")
+            buildConfigField("boolean", "LLM_FALLBACK_ENABLED", "false")
+            buildConfigField("String", "LLM_FALLBACK_API_KEY", "\"\"")
+            buildConfigField("String", "LLM_FALLBACK_BASE_URL", "\"\"")
+            buildConfigField("String", "LLM_FALLBACK_MODEL", "\"\"")
+            buildConfigField("String", "LLM_FALLBACK_REASONING_EFFORT", "\"\"")
             buildConfigField("String", "SENTENCE_ASSIST_MODE", "\"OFF\"")
             buildConfigField("boolean", "RECOGNITION_COORDINATION_ENABLED", "false")
             buildConfigField("boolean", "FINGERSPELL_CONTINUOUS_ENABLED", "false")

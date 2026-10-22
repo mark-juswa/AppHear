@@ -229,36 +229,6 @@
                 android:textColor="#FFFFFF"
                 android:textSize="18sp" />
 
-            <!-- Phase 2b (sentenceAssist=visible): the raw signed words behind the AI sentence shown above,
-                 plus what the AI added or changed. -->
-            <LinearLayout
-                android:id="@+id/signedDetailGroup"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:visibility="gone">
-
-                <TextView
-                    android:id="@+id/signedWordsText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:maxWidth="280dp"
-                    android:textColor="#B3F6EBDD"
-                    android:textSize="11sp" />
-
-                <TextView
-                    android:id="@+id/assistNoteText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:maxWidth="280dp"
-                    android:textColor="#B7FFF0"
-                    android:textSize="11sp"
-                    android:visibility="gone" />
-            </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/contextSupportedGroup"
@@ -475,6 +445,35 @@
                         android:layout_marginBottom="20dp"
                         android:background="#EEEEEE" />
 
+
+                    <!-- Phase 2b (sentenceAssist=visible): the raw signed words behind the AI sentence shown in
+                         RECOGNIZED, plus what the AI added or changed. Lives in the collapsible sheet. -->
+                    <LinearLayout
+                        android:id="@+id/signedDetailGroup"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="20dp"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+
+                        <TextView
+                            android:id="@+id/signedWordsText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/inter_semibold"
+                            android:textColor="#8C775B"
+                            android:textSize="13sp" />
+
+                        <TextView
+                            android:id="@+id/assistNoteText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:fontFamily="@font/inter_regular"
+                            android:textColor="#7A9A95"
+                            android:textSize="12sp"
+                            android:visibility="gone" />
+                    </LinearLayout>
 
                     <LinearLayout
                         android:layout_width="match_parent"

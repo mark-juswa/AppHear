@@ -98,6 +98,9 @@ class RecognitionActivity : AppCompatActivity() {
     private var evidenceInterrupted = false
     private var signingVisible = false
     private var signingInProgress = false
+    /** D3 (conversationAutoListen): signs committed so far, and the current Hear's auto-listen ticket. */
+    private var signsCommitted = 0L
+    private var autoListenTicket = 0L
     private var timelineAwaitingFrame = false
     private var sentenceShadow: SentenceAssistShadow? = null
     private var displayedHearingTurnId: Long? = null
@@ -234,6 +237,7 @@ class RecognitionActivity : AppCompatActivity() {
 
         binding.speakButton.setOnClickListener {
             ConversationTimeline.tap("recognition", "speak")
+            autoListenTicket++
             startReplySpeechInput()
         }
 
@@ -287,6 +291,7 @@ class RecognitionActivity : AppCompatActivity() {
 
     /** The Clear button's reset; also used when a reused screen starts a new hearing turn. */
     private fun clearRecognized() {
+        autoListenTicket++
         if (fingerspellRuntime?.snapshot?.mode == RecognitionMode.FINGERSPELL) {
             cameraExecutor.execute { fingerspellRuntime?.clear() }
             return
@@ -323,6 +328,30 @@ class RecognitionActivity : AppCompatActivity() {
         if (newTurn) {
             openingHearingTurnId = turnId
             clearRecognized()
+        }
+    }
+
+    /**
+     * D3: speak the reply, then open speech input for the hearing person's answer. Skipped when
+     * there is no hearing turn to answer, the signer started signing again, or the screen left.
+     */
+    private fun speakThenListen(text: String) {
+        val ticket = ++autoListenTicket
+        val committedAtHear = signsCommitted
+        speechPlayer.speak(text) {
+            if (ticket != autoListenTicket || isFinishing || isDestroyed ||
+                !lifecycle.currentState.isAtLeast(Lifecycle.State.RESUMED)) return@speak
+            val skipped = when {
+                ConversationPhraseAssist.presentationState.value.hearingTurnId == null -> "no_hearing_turn"
+                signsCommitted != committedAtHear || signingInProgress -> "signing_again"
+                else -> null
+            }
+            if (skipped != null) {
+                ConversationTimeline.mark("auto_listen_skipped", "reason" to skipped)
+                return@speak
+            }
+            ConversationTimeline.mark("auto_listen")
+            startReplySpeechInput()
         }
     }
 
@@ -379,11 +408,12 @@ class RecognitionActivity : AppCompatActivity() {
         } else null
         val shownAi = (displayed as? SentenceAssistShadow.DisplayState.Done)?.outcome
             ?.takeIf { it.aiStatus == AiStatus.ACCEPTED }
-        speakSentence(when (displayed) {
+        val spoken = when (displayed) {
             is SentenceAssistShadow.DisplayState.Done -> displayed.outcome.chosenSentence
             is SentenceAssistShadow.DisplayState.Plain -> displayed.sentence
             else -> sentence
-        })
+        }
+        if (ConversationScreens.autoListen) speakThenListen(spoken) else speakSentence(spoken)
         sentenceShadow?.let { shadow ->
             val hearing = ConversationPhraseAssist.presentationState.value
             shadow.hearTapped(sentence, signingTurn.snapshot(), !(evidenceInterrupted || signingTurn.overflowed),
@@ -893,6 +923,7 @@ class RecognitionActivity : AppCompatActivity() {
                 r.recognitionEvidence?.let { evidence ->
                     if (signingTurn.add(evidence)) {
                         ConversationTimeline.mark("sign_committed", "event" to evidence.eventId)
+                        signsCommitted++
                         signingVisible = true
                         ConversationPhraseAssist.signingStarted()
                         Stage3Diagnostics.committed(evidence)
@@ -1203,6 +1234,7 @@ class RecognitionActivity : AppCompatActivity() {
     }
 
     override fun onStop() {
+        autoListenTicket++
         ConversationTimeline.mark("recognition_stopped")
         coordination?.stopped()
         binding.overlayView.clear()

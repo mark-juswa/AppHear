@@ -16,6 +16,23 @@ provisioning remain open; no automatic new experiment is authorized. See docs/te
 
 # Progress Tracker
 
+**2026-10-22 - Conversation flow Phase 1 completed in code (branch `claude/text-to-asl-integration-c98d88`).**
+All debug-only flags; release builds hard-set them off. WORD recognition, SentenceBuilder and Context Assist unchanged.
+- [x] `conversationTimeline` (Phase 0 log, `tools/conversation_flow/`), `sentenceAssist=off|shadow|visible`
+  (grounded AI sentence in RECOGNIZED; signed words under "Signed:" in the collapsible sheet).
+- [x] `conversationFlowV1`: screens reused (no stacking), one-tap Talk, live transcript delivery; a spoken reply
+  now waits for the avatar's first visible frame (fixes signing "finishing" instantly after returning).
+- [x] D2 `conversationAutoReply`: countdown after the avatar finishes (typed or spoken), Reply now / Repeat / Stay;
+  delay in `assets/conversation/flow_policy_v1.json` (3000 ms). D3 `conversationAutoListen`: speech input opens
+  after Hear finishes, skipped if signing resumed or no hearing turn. Both need `conversationFlowV1`.
+- Phone: flow v1, D2 countdown (fires at 3.0 s), D3 auto-listen and the visible-frame fix verified on device
+  2026-10-22; Stay/Repeat buttons not yet exercised.
+- [x] `llmFallback` (debug only): Gemini 3.5 Flash-Lite stays primary for the sentence builder and Context Assist;
+  if it fails or has not answered after 2.5 s, an OpenAI-compatible backup (default Groq free tier,
+  `openai/gpt-oss-120b`, strict JSON schema) races it and the first answer wins. Same prompts and validators;
+  logs record `ai_source` / `prediction_source`. Key `APPHEAR_FALLBACK_LLM_API_KEY` only in gitignored
+  `android/gradle.properties`. Key set up locally 2026-10-22; not yet verified on device.
+
 **2026-10-18 - WORD priorities after WORD_BLEND_02; review package 03 prepared; no new model trained.**
 See `docs/audit/WORD_PRIORITIES_2026-10-18.md`. Research only; Android, S2, decoder and Candidate01 unchanged.
 - [x] Locks verified: DEBUG_WORD_BLEND_02 (APK 9b2f6bd9..., on-device hash equal), LIVE_WORD_BLEND, LIVE_EXPERIMENTAL.

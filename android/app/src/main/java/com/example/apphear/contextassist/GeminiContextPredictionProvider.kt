@@ -40,57 +40,61 @@ class GeminiContextPredictionProvider(private val apiKey: String) : ContextPredi
         }
     }
 
-    private fun requestBody(request: PredictionRequest): JSONObject {
-        val turns = request.recentTurns.joinToString("\n") { "${it.speaker}: ${it.text}" }
-        val prompt = "Recent conversation:\n$turns\n\nAllowed anchor labels: " +
-            request.allowedGlosses.sorted().joinToString(",") +
-            "\nPredict 3 to 5 meaningfully different plausible " +
-            "next Deaf replies to the latest hearing turn. naturalText is a natural English " +
-            "conversational hypothesis, not a claim that anything was signed. expectedConcepts " +
-            "are ordered recognizer-supported semantic anchors, not English tokenization. " +
-            "Use only exact labels from the supplied label list; omit grammatical filler without a supported " +
-            "label. For example, 'I'm going home.' can use [GO, HOME], and 'I'm tired.' can use [TIRED]. " +
-            "Keep substantive meaning grounded in those anchors or explicitly established conversation " +
-            "context; do not add unsupported details. Prefer replies whose core meaning has supported " +
-            "anchors. Keep the English natural; the vocabulary constrains anchors, not English grammar."
-        return JSONObject().put("model", MODEL).put("store", false)
-            .put("system_instruction",
-                "You predict conversational reply hypotheses and their observable semantic anchors.")
-            .put("input", prompt)
+    private fun requestBody(request: PredictionRequest): JSONObject =
+        JSONObject().put("model", MODEL).put("store", false)
+            .put("system_instruction", SYSTEM_INSTRUCTION)
+            .put("input", prompt(request))
             .put("response_format", JSONObject().put("type", "text")
                 .put("mime_type", "application/json").put("schema", schema()))
-    }
 
-    private fun parseCandidates(text: String): List<ReplyCandidate> {
-        val values = JSONObject(text).getJSONArray("candidates")
-        return (0 until minOf(values.length(), 5)).map { index ->
-            val value = values.getJSONObject(index)
-            // Preserve the provider-independent type and unchanged matcher input.
-            val concepts = value.getJSONArray("expectedConcepts")
-            ReplyCandidate(value.getString("naturalText"),
-                (0 until concepts.length()).map { concepts.getString(it) })
-        }
-    }
-
-    private fun schema(): JSONObject {
-        val candidate = JSONObject().put("type", "object")
-            .put("properties", JSONObject()
-                .put("naturalText", JSONObject().put("type", "string")
-                    .put("description", "Natural conversational hypothesis; grammar may be implicit in anchors."))
-                .put("expectedConcepts", JSONObject().put("type", "array")
-                    .put("description", "Ordered observable semantic anchors, not English words or proof of signing.")
-                    .put("items", JSONObject().put("type", "string"))))
-            .put("required", JSONArray(listOf("naturalText", "expectedConcepts")))
-            .put("additionalProperties", false)
-        return JSONObject().put("type", "object")
-            .put("properties", JSONObject().put("candidates", JSONObject().put("type", "array")
-                .put("items", candidate)))
-            .put("required", JSONArray(listOf("candidates")))
-            .put("additionalProperties", false)
-    }
-
-    private companion object {
+    /** Prompt, schema and parsing, shared with the `llmFallback` provider so both are asked the same thing. */
+    internal companion object {
         const val ENDPOINT = "https://generativelanguage.googleapis.com/v1beta/interactions"
         const val MODEL = "gemini-3.5-flash-lite"
+        const val SYSTEM_INSTRUCTION =
+            "You predict conversational reply hypotheses and their observable semantic anchors."
+
+        fun prompt(request: PredictionRequest): String {
+            val turns = request.recentTurns.joinToString("\n") { "${it.speaker}: ${it.text}" }
+            return "Recent conversation:\n$turns\n\nAllowed anchor labels: " +
+                request.allowedGlosses.sorted().joinToString(",") +
+                "\nPredict 3 to 5 meaningfully different plausible " +
+                "next Deaf replies to the latest hearing turn. naturalText is a natural English " +
+                "conversational hypothesis, not a claim that anything was signed. expectedConcepts " +
+                "are ordered recognizer-supported semantic anchors, not English tokenization. " +
+                "Use only exact labels from the supplied label list; omit grammatical filler without a supported " +
+                "label. For example, 'I'm going home.' can use [GO, HOME], and 'I'm tired.' can use [TIRED]. " +
+                "Keep substantive meaning grounded in those anchors or explicitly established conversation " +
+                "context; do not add unsupported details. Prefer replies whose core meaning has supported " +
+                "anchors. Keep the English natural; the vocabulary constrains anchors, not English grammar."
+        }
+
+        fun parseCandidates(text: String): List<ReplyCandidate> {
+            val values = JSONObject(text).getJSONArray("candidates")
+            return (0 until minOf(values.length(), 5)).map { index ->
+                val value = values.getJSONObject(index)
+                // Preserve the provider-independent type and unchanged matcher input.
+                val concepts = value.getJSONArray("expectedConcepts")
+                ReplyCandidate(value.getString("naturalText"),
+                    (0 until concepts.length()).map { concepts.getString(it) })
+            }
+        }
+
+        fun schema(): JSONObject {
+            val candidate = JSONObject().put("type", "object")
+                .put("properties", JSONObject()
+                    .put("naturalText", JSONObject().put("type", "string")
+                        .put("description", "Natural conversational hypothesis; grammar may be implicit in anchors."))
+                    .put("expectedConcepts", JSONObject().put("type", "array")
+                        .put("description", "Ordered observable semantic anchors, not English words or proof of signing.")
+                        .put("items", JSONObject().put("type", "string"))))
+                .put("required", JSONArray(listOf("naturalText", "expectedConcepts")))
+                .put("additionalProperties", false)
+            return JSONObject().put("type", "object")
+                .put("properties", JSONObject().put("candidates", JSONObject().put("type", "array")
+                    .put("items", candidate)))
+                .put("required", JSONArray(listOf("candidates")))
+                .put("additionalProperties", false)
+        }
     }
 }

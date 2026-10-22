@@ -21,7 +21,9 @@ data class SignedTurn(val glosses: List<String>, val evidence: List<RecognitionE
 data class Substitution(val eventIndex: Int, val gloss: String)
 
 /** What a renderer returns; its own word provenance is never trusted. */
-data class Rendering(val sentence: String, val substitutions: List<Substitution> = emptyList())
+/** [source] names the model that produced it ("gemini" or "fallback"); null for the plain renderer. */
+data class Rendering(val sentence: String, val substitutions: List<Substitution> = emptyList(),
+                     val source: String? = null)
 
 enum class WordSource { SIGNED, SUBSTITUTED, GRAMMAR, INFERRED_PRONOUN }
 

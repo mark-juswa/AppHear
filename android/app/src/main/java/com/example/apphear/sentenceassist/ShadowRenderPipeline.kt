@@ -19,6 +19,8 @@ data class ShadowOutcome(
     val acceptedWords: List<GroundedWord>,
     val fallbackSentence: String,
     val latencyMs: Long,
+    /** Which model answered ("gemini" or "fallback"); null when none did. */
+    val aiSource: String? = null,
 ) {
     val chosenSentence: String get() = if (aiStatus == AiStatus.ACCEPTED) aiSentence.orEmpty() else fallbackSentence
 
@@ -55,9 +57,10 @@ class ShadowRenderPipeline(
         }
         return when (val result = validator.validate(request.turn, rendering)) {
             is GroundingResult.Accepted -> ShadowOutcome(request.turn, AiStatus.ACCEPTED, null, null,
-                result.sentence, result.substitutions, result.words, fallbackSentence, latency)
+                result.sentence, result.substitutions, result.words, fallbackSentence, latency, rendering.source)
             is GroundingResult.Rejected -> ShadowOutcome(request.turn, AiStatus.REJECTED, result.reason,
-                result.detail, rendering.sentence, rendering.substitutions, emptyList(), fallbackSentence, latency)
+                result.detail, rendering.sentence, rendering.substitutions, emptyList(), fallbackSentence, latency,
+                rendering.source)
         }
     }
 

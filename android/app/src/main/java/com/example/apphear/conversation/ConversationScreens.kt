@@ -24,6 +24,12 @@ object ConversationScreens {
     /** Tapping Talk opens speech-to-text at once instead of waiting for a separate mic tap. */
     val oneTapTalk: Boolean get() = BuildConfig.CONVERSATION_FLOW_V1_ENABLED
 
+    /** D2 (`conversationAutoReply`): after the avatar finishes, a cancelable countdown opens Reply. */
+    val autoReply: Boolean get() = BuildConfig.CONVERSATION_AUTO_REPLY_ENABLED
+
+    /** D3 (`conversationAutoListen`): after Hear finishes speaking, speech input opens for the reply. */
+    val autoListen: Boolean get() = BuildConfig.CONVERSATION_AUTO_LISTEN_ENABLED
+
     /** Extra intent flags that bring an existing screen forward instead of stacking a copy. */
     fun reuseFlags(): Int = if (reuseScreens) Intent.FLAG_ACTIVITY_REORDER_TO_FRONT else 0
 

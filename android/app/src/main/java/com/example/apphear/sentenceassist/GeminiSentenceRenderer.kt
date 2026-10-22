@@ -65,17 +65,7 @@ class GeminiSentenceRenderer(
             for (itemIndex in 0 until content.length()) {
                 val item = content.optJSONObject(itemIndex) ?: continue
                 if (item.optString("type") != "text") continue
-                val output = JSONObject(item.getString("text"))
-                val raw = output.optJSONArray("substitutions")?.let { array ->
-                    (0 until array.length()).map { i ->
-                        val entry = array.optJSONObject(i)
-                        RenderingMapper.RawSubstitution(
-                            entry?.takeIf { it.has("signNumber") }?.optInt("signNumber"),
-                            entry?.optString("gloss")?.takeIf { it.isNotEmpty() },
-                        )
-                    }
-                }
-                return RenderingMapper.map(output.optString("sentence").takeIf { output.has("sentence") }, raw)
+                return RenderingMapper.fromJson(item.getString("text"))
             }
         }
         return null

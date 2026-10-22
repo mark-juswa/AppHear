@@ -6,6 +6,7 @@ import android.util.Log
 import com.example.apphear.BuildConfig
 import com.example.apphear.contextassist.RecognitionEvidence
 import com.example.apphear.conversation.ConversationTimeline
+import com.example.apphear.llm.LlmFallback
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Deferred
@@ -42,8 +43,12 @@ class SentenceAssistShadow private constructor(private val scope: CoroutineScope
                 val assets = withContext(Dispatchers.IO) { SentenceAssistAssetLoader(appContext).load() }
                 val key = BuildConfig.CONTEXT_PHRASE_ASSIST_GEMINI_API_KEY
                 val prompt = SentencePrompt(assets.template, assets.lexicon, assets.policy, assets.substitutionPolicy)
+                val gemini = GeminiSentenceRenderer(key, assets.template, prompt, assets.policy.renderTimeoutMs)
+                val backup = LlmFallback.client()?.let {
+                    OpenAiCompatibleSentenceRenderer(it, assets.template, prompt, assets.policy.renderTimeoutMs)
+                }
                 pipeline = ShadowRenderPipeline(
-                    renderer = GeminiSentenceRenderer(key, assets.template, prompt, assets.policy.renderTimeoutMs),
+                    renderer = HedgedSentenceRenderer(gemini, backup, LlmFallback.hedge),
                     fallback = PlainGlossRenderer(assets.lexicon).also { plain = it },
                     validator = GroundingValidator(assets.lexicon, assets.policy, assets.substitutionPolicy),
                     timeoutMs = assets.policy.renderTimeoutMs,
@@ -52,7 +57,8 @@ class SentenceAssistShadow private constructor(private val scope: CoroutineScope
                 policy = assets.policy
                 promptVersion = assets.template.promptVersion
                 Log.i(TAG, ConversationTimeline.format("shadow_ready", SystemClock.elapsedRealtime(),
-                    System.currentTimeMillis(), listOf("prompt" to promptVersion, "gemini_key" to key.isNotBlank())))
+                    System.currentTimeMillis(), listOf("prompt" to promptVersion, "gemini_key" to key.isNotBlank(),
+                    "fallback_model" to LlmFallback.client()?.model)))
             } catch (cancelled: CancellationException) {
                 throw cancelled
             } catch (error: Exception) {
@@ -166,6 +172,7 @@ class SentenceAssistShadow private constructor(private val scope: CoroutineScope
             "fallback" to outcome.fallbackSentence,
             "chosen" to outcome.chosenSentence,
             "latency_ms" to outcome.latencyMs,
+            "ai_source" to outcome.aiSource,
             "ready_at_hear" to readyAtHear,
             "wait_ms" to waitMs,
             "mode" to SentenceAssistMode.current.name,

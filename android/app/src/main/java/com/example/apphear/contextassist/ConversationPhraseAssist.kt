@@ -3,6 +3,7 @@ package com.example.apphear.contextassist
 import android.content.Context
 import android.util.Log
 import com.example.apphear.BuildConfig
+import com.example.apphear.llm.LlmFallback
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.Job
@@ -184,7 +185,11 @@ object ConversationPhraseAssist {
     private fun provider(): ContextPredictionProvider = when (BuildConfig.CONTEXT_PHRASE_ASSIST_PROVIDER) {
         "fake" -> FakeContextPredictionProvider()
         "remote" -> RemoteContextPredictionProvider(BuildConfig.CONTEXT_PHRASE_ASSIST_API_KEY)
-        "gemini" -> GeminiContextPredictionProvider(BuildConfig.CONTEXT_PHRASE_ASSIST_GEMINI_API_KEY)
+        "gemini" -> HedgedContextPredictionProvider(
+            GeminiContextPredictionProvider(BuildConfig.CONTEXT_PHRASE_ASSIST_GEMINI_API_KEY),
+            LlmFallback.client()?.let { OpenAiCompatibleContextPredictionProvider(it) },
+            LlmFallback.hedge,
+        )
         else -> ContextPredictionProvider { emptyList() }
     }
 

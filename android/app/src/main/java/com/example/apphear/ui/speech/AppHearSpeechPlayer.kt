@@ -5,6 +5,7 @@ import android.media.MediaPlayer
 import android.os.Handler
 import android.os.Looper
 import android.speech.tts.TextToSpeech
+import android.speech.tts.UtteranceProgressListener
 import android.util.Log
 import com.example.apphear.BuildConfig
 import org.json.JSONObject
@@ -25,12 +26,21 @@ class AppHearSpeechPlayer(context: Context) : Closeable {
     private var mediaPlayer: MediaPlayer? = null
     private var fallbackTts: TextToSpeech? = null
     private var ttsReady = false
+    /** Called once when the current request finishes playing; cleared by [stop] or a newer request. */
+    private var onDone: (() -> Unit)? = null
+    private var requestId = 0L
 
     init {
         fallbackTts = TextToSpeech(appContext) { status ->
             val tts = fallbackTts
             if (status == TextToSpeech.SUCCESS && tts != null) {
                 TtsVoiceHelper.applyNaturalEnglishVoice(tts)
+                tts.setOnUtteranceProgressListener(object : UtteranceProgressListener() {
+                    override fun onStart(utteranceId: String?) = Unit
+                    override fun onDone(utteranceId: String?) = finished(utteranceId)
+                    @Deprecated("Deprecated in Java")
+                    override fun onError(utteranceId: String?) = finished(utteranceId)
+                })
                 ttsReady = true
             } else {
                 Log.w(TAG, "Android TextToSpeech initialization failed: $status")
@@ -38,9 +48,12 @@ class AppHearSpeechPlayer(context: Context) : Closeable {
         }
     }
 
-    fun speak(text: String) {
+    /** [onDone] runs on the main thread after the audio finishes; not after [stop] or a newer [speak]. */
+    fun speak(text: String, onDone: (() -> Unit)? = null) {
         val cleanText = text.trim()
         if (cleanText.isEmpty()) return
+        val request = ++requestId
+        this.onDone = onDone
 
         if (!elevenLabsConfigured()) {
             speakWithFallback(cleanText)
@@ -50,7 +63,7 @@ class AppHearSpeechPlayer(context: Context) : Closeable {
         executor.execute {
             try {
                 val audioFile = requestElevenLabsSpeech(cleanText)
-                mainHandler.post { playAudio(audioFile, cleanText) }
+                mainHandler.post { if (request == requestId) playAudio(audioFile, cleanText) }
             } catch (exception: Exception) {
                 Log.w(TAG, "ElevenLabs speech failed; falling back to Android TTS.", exception)
                 mainHandler.post { speakWithFallback(cleanText) }
@@ -59,6 +72,8 @@ class AppHearSpeechPlayer(context: Context) : Closeable {
     }
 
     fun stop() {
+        requestId++
+        onDone = null
         stopMediaPlayer()
         fallbackTts?.stop()
     }
@@ -124,6 +139,7 @@ class AppHearSpeechPlayer(context: Context) : Closeable {
             player.setOnCompletionListener {
                 stopMediaPlayer()
                 deleteQuietly(audioFile)
+                finished(utteranceFor(requestId))
             }
             player.setOnErrorListener { _, _, _ ->
                 stopMediaPlayer()
@@ -147,10 +163,22 @@ class AppHearSpeechPlayer(context: Context) : Closeable {
     private fun speakWithFallback(text: String) {
         mainHandler.post {
             if (ttsReady) {
-                fallbackTts?.speak(text, TextToSpeech.QUEUE_FLUSH, null, FALLBACK_UTTERANCE_ID)
+                fallbackTts?.speak(text, TextToSpeech.QUEUE_FLUSH, null, utteranceFor(requestId))
             } else {
                 Log.w(TAG, "Android TTS fallback requested before initialization completed.")
             }
+        }
+    }
+
+    private fun utteranceFor(request: Long) = "$FALLBACK_UTTERANCE_ID-$request"
+
+    /** TTS callbacks arrive on a binder thread; MediaPlayer's on the main thread. */
+    private fun finished(utteranceId: String?) {
+        mainHandler.post {
+            if (utteranceId != utteranceFor(requestId)) return@post
+            val done = onDone ?: return@post
+            onDone = null
+            done()
         }
     }
 

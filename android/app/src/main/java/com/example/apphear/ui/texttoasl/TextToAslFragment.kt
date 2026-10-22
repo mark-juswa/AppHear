@@ -9,6 +9,8 @@ import android.os.Looper
 import android.os.SystemClock
 import android.util.Log
 import android.speech.RecognizerIntent
+import android.view.HapticFeedbackConstants
+import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import android.webkit.WebView
@@ -27,6 +29,8 @@ import com.example.apphear.TextToAslArgument
 import com.example.apphear.databinding.FragmentTextToAslBinding
 import com.example.apphear.contextassist.ConversationPhraseAssist
 import com.example.apphear.contextassist.ConversationSource
+import com.example.apphear.conversation.AutoReplyCountdown
+import com.example.apphear.conversation.ConversationFlowPolicy
 import com.example.apphear.conversation.ConversationScreens
 import com.example.apphear.conversation.ConversationTimeline
 import com.example.apphear.domain.texttoasl.AslSingleAvatarPolicy
@@ -70,6 +74,15 @@ class TextToAslFragment : Fragment(R.layout.fragment_text_to_asl) {
     private var resumeColdIdle: Boolean = false
     private var pendingAutoSubmitText: String? = null
     private var consumedAutoSubmitText: String? = null
+    /**
+     * conversationFlowV1: false from onStop until the avatar has drawn a frame after the screen
+     * returns. A sign started earlier played against the hidden page's stale animation clock and
+     * reported finished at once, so a spoken reply is held until this is true.
+     */
+    private var avatarVisibleSinceStart: Boolean = false
+    private var visibleFrameRequest: Long = 0
+    /** D2 (conversationAutoReply); null when the flag is off or the policy asset is unusable. */
+    private var autoReply: AutoReplyCountdown? = null
     private var activeCharacter: AslCharacterChoice? = null
     private var engineJob: Job? = null
 
@@ -109,6 +122,7 @@ class TextToAslFragment : Fragment(R.layout.fragment_text_to_asl) {
         binding = fragmentBinding
         ConversationTimeline.screenCreated("text_to_asl")
         speechPlayer = AppHearSpeechPlayer(requireContext())
+        if (ConversationScreens.autoReply) setupAutoReply(fragmentBinding)
         pendingAutoSubmitText = savedInstanceState?.getString(KEY_PENDING_AUTO_SUBMIT_TEXT)
             ?: arguments?.getString(TextToAslArgument.INCOMING_TEXT)?.trim()?.takeIf { it.isNotBlank() }
         consumedAutoSubmitText = savedInstanceState?.getString(KEY_CONSUMED_AUTO_SUBMIT_TEXT)
@@ -272,8 +286,7 @@ class TextToAslFragment : Fragment(R.layout.fragment_text_to_asl) {
         }
         fragmentBinding.replyButton.setOnClickListener {
             ConversationTimeline.tap("text_to_asl", "reply")
-            startActivity(Intent(requireContext(), RecognitionActivity::class.java)
-                .addFlags(ConversationScreens.reuseFlags()))
+            openReply()
         }
         fragmentBinding.modeTextButton.setOnClickListener {
             ConversationTimeline.tap("text_to_asl", "text_mode")
@@ -316,6 +329,7 @@ class TextToAslFragment : Fragment(R.layout.fragment_text_to_asl) {
         val fragmentBinding = binding ?: return
         val incomingText = pendingAutoSubmitText?.trim()?.takeIf { it.isNotBlank() } ?: return
         if (!avatarReady || phrasePlanner == null || avatarController == null) return
+        if (ConversationScreens.reuseScreens && !avatarVisibleSinceStart) return // onResume submits it
         if (incomingText == consumedAutoSubmitText) {
             pendingAutoSubmitText = null
             return
@@ -332,6 +346,7 @@ class TextToAslFragment : Fragment(R.layout.fragment_text_to_asl) {
 
     private fun startSpeechInput() {
         val fragmentBinding = binding ?: return
+        cancelAutoReply("talk")
         if (!SpeechInputHelper.isAvailable(requireContext())) {
             fragmentBinding.tvSpeechStatus.setText(R.string.speech_unavailable)
             Toast.makeText(requireContext(), R.string.speech_unavailable, Toast.LENGTH_SHORT).show()
@@ -368,6 +383,7 @@ class TextToAslFragment : Fragment(R.layout.fragment_text_to_asl) {
         recordTurn: Boolean = true,
     ) {
         val fragmentBinding = binding ?: return
+        cancelAutoReply("new_message")
         val requestedText = fragmentBinding.inputText.text?.toString()?.trim().orEmpty()
         if (requestedText.isEmpty()) {
             fragmentBinding.currentProgressText.setText(R.string.text_to_asl_empty_warning)
@@ -426,6 +442,7 @@ class TextToAslFragment : Fragment(R.layout.fragment_text_to_asl) {
 
     private fun replayCurrentPlan() {
         val fragmentBinding = binding ?: return
+        cancelAutoReply("repeat")
         if (currentQueue.isEmpty()) {
             if (lastInputText.isEmpty()) {
                 fragmentBinding.currentProgressText.setText(R.string.text_to_asl_empty_warning)
@@ -442,6 +459,7 @@ class TextToAslFragment : Fragment(R.layout.fragment_text_to_asl) {
 
     private fun clearPlayback() {
         val fragmentBinding = binding ?: return
+        cancelAutoReply("clear")
         ConversationPhraseAssist.clearPendingHearingReply()
         playHandler.removeCallbacks(advanceRunnable)
         avatarController?.pause()
@@ -468,7 +486,7 @@ class TextToAslFragment : Fragment(R.layout.fragment_text_to_asl) {
         avatarController?.play(asset)
         currentQueue.getOrNull(currentIndex + 1)?.let { avatarController?.preload(it) }
 
-        fragmentBinding.currentSignText.text = asset.displayText.uppercase(Locale.US)
+        fragmentBinding.currentSignText.text = currentSignLabel(asset)
         fragmentBinding.currentProgressText.text = progressWithUnsupported("${currentIndex + 1} / ${currentQueue.size}")
 
         playHandler.removeCallbacks(advanceRunnable)
@@ -497,6 +515,7 @@ class TextToAslFragment : Fragment(R.layout.fragment_text_to_asl) {
         val fresh = WebView(requireContext())
         parent.addView(fresh, index, params)
         avatarWebView = fresh
+        cancelAutoReplyOnAvatarTouch(fresh)
         fragmentBinding.currentProgressText.text = "Reloading avatar…"
         setupTextToAslEngine(fragmentBinding)
     }
@@ -517,6 +536,7 @@ class TextToAslFragment : Fragment(R.layout.fragment_text_to_asl) {
         } else {
             ConversationTimeline.mark("signing_complete", "signs" to currentQueue.size)
             showIdleAvatar()
+            startAutoReply()
         }
     }
 
@@ -526,6 +546,82 @@ class TextToAslFragment : Fragment(R.layout.fragment_text_to_asl) {
         binding?.currentSignText?.setText(R.string.text_to_asl_current_sign_placeholder)
         if (currentQueue.isNotEmpty()) {
             binding?.currentProgressText?.text = progressWithUnsupported("Complete")
+        }
+    }
+
+    private fun openReply() {
+        startActivity(Intent(requireContext(), RecognitionActivity::class.java)
+            .addFlags(ConversationScreens.reuseFlags()))
+    }
+
+    /** D2: Reply now / Repeat / Stay, plus cancelling when the user touches the avatar or types. */
+    private fun setupAutoReply(fragmentBinding: FragmentTextToAslBinding) {
+        val policy = runCatching { ConversationFlowPolicy.load(requireContext()) }
+            .onFailure { Log.w("TextToAslAutoReply", "[conversation/autoreply] disabled: policy unavailable", it) }
+            .getOrNull() ?: return
+        autoReply = AutoReplyCountdown(
+            delayMs = policy.autoReplyDelayMs,
+            schedule = { delayMs, task -> playHandler.postDelayed(task, delayMs) },
+            unschedule = { task -> playHandler.removeCallbacks(task) },
+            onTick = { seconds ->
+                binding?.autoReplyCountdownText?.text = getString(R.string.auto_reply_countdown, seconds)
+            },
+            onFire = {
+                binding?.autoReplyOverlay?.isVisible = false
+                ConversationTimeline.mark("auto_reply_fired")
+                if (isResumed) openReply()
+            },
+        )
+        fragmentBinding.autoReplyNowButton.setOnClickListener {
+            ConversationTimeline.tap("text_to_asl", "auto_reply_now")
+            cancelAutoReply("reply_now")
+            openReply()
+        }
+        fragmentBinding.autoReplyRepeatButton.setOnClickListener {
+            ConversationTimeline.tap("text_to_asl", "auto_reply_repeat")
+            replayCurrentPlan()
+        }
+        fragmentBinding.autoReplyStayButton.setOnClickListener {
+            ConversationTimeline.tap("text_to_asl", "auto_reply_stay")
+            cancelAutoReply("stay")
+        }
+        cancelAutoReplyOnAvatarTouch(avatarWebView ?: fragmentBinding.avatarWebView)
+        fragmentBinding.inputText.setOnFocusChangeListener { _, hasFocus -> if (hasFocus) cancelAutoReply("typing") }
+    }
+
+    /** Touching the avatar (for example to watch it again) stops the countdown; the WebView still gets the touch. */
+    private fun cancelAutoReplyOnAvatarTouch(webView: WebView) {
+        if (autoReply == null) return
+        webView.setOnTouchListener { _, event ->
+            if (event.actionMasked == MotionEvent.ACTION_DOWN) cancelAutoReply("avatar_touch")
+            false
+        }
+    }
+
+    /** After a full message has been signed on the visible screen, typed or spoken. */
+    private fun startAutoReply() {
+        val countdown = autoReply ?: return
+        val fragmentBinding = binding ?: return
+        if (!isResumed || currentQueue.isEmpty()) return
+        countdown.start()
+        fragmentBinding.autoReplyOverlay.isVisible = true
+        fragmentBinding.autoReplyOverlay.performHapticFeedback(HapticFeedbackConstants.LONG_PRESS)
+        ConversationTimeline.mark("auto_reply_armed")
+    }
+
+    private fun cancelAutoReply(reason: String) {
+        val countdown = autoReply ?: return
+        binding?.autoReplyOverlay?.isVisible = false
+        if (countdown.cancel()) ConversationTimeline.mark("auto_reply_cancelled", "reason" to reason)
+    }
+
+    /** A fingerspelled letter shows just the letter, without the "Fingerspelling WORD:" prefix. */
+    private fun currentSignLabel(asset: AslAnimationAsset): String {
+        val letter = asset.id.removePrefix("letter_")
+        return if (asset.type == AslAnimationAsset.Type.LETTER && asset.id.startsWith("letter_") && letter.length == 1) {
+            letter.uppercase(Locale.US)
+        } else {
+            asset.displayText.uppercase(Locale.US)
         }
     }
 
@@ -593,7 +689,40 @@ class TextToAslFragment : Fragment(R.layout.fragment_text_to_asl) {
         }
     }
 
+    override fun onResume() {
+        super.onResume()
+        if (ConversationScreens.reuseScreens) awaitVisibleAvatarFrame()
+    }
+
+    /**
+     * Marks the avatar visible once the WebView has drawn a frame on screen, then submits any held
+     * reply. The fallback covers a WebView that never reports a frame (for example, while hidden).
+     */
+    private fun awaitVisibleAvatarFrame() {
+        val request = ++visibleFrameRequest
+        val markVisible = Runnable {
+            if (request != visibleFrameRequest || !isResumed || avatarVisibleSinceStart) return@Runnable
+            avatarVisibleSinceStart = true
+            ConversationTimeline.mark("avatar_visible", "held_reply" to (pendingAutoSubmitText != null))
+            consumePendingAutoSubmitIfReady()
+        }
+        val webView = avatarWebView
+        if (webView == null) {
+            markVisible.run()
+            return
+        }
+        webView.postVisualStateCallback(request, object : WebView.VisualStateCallback() {
+            override fun onComplete(requestId: Long) {
+                playHandler.post(markVisible)
+            }
+        })
+        playHandler.postDelayed(markVisible, VISIBLE_FRAME_FALLBACK_MS)
+    }
+
     override fun onStop() {
+        cancelAutoReply("left_screen")
+        avatarVisibleSinceStart = false
+        visibleFrameRequest++
         if (BuildConfig.ASL_ASSET_PILOT_ENABLED) {
             resumeColdIdle = BuildConfig.ASL_ALPHABET_FALLBACK_ENABLED &&
                 activeCharacter == AslCharacterChoice.NEW && !avatarReady
@@ -640,6 +769,7 @@ class TextToAslFragment : Fragment(R.layout.fragment_text_to_asl) {
         // The imported batch tops out at about 5.71 seconds. The model-viewer completion event
         // normally advances immediately; this only prevents a malformed asset from stalling forever.
         const val PLAYBACK_SAFETY_TIMEOUT_MS = 7_000L
+        const val VISIBLE_FRAME_FALLBACK_MS = 1_000L
         const val KEY_PENDING_AUTO_SUBMIT_TEXT = "pending_auto_submit_text"
         const val KEY_CONSUMED_AUTO_SUBMIT_TEXT = "consumed_auto_submit_text"
     }
