@@ -21,6 +21,7 @@ object SentenceAssistAssets {
             promptAsset = it["promptAsset"].asString,
             substitutionPolicyAsset = it["substitutionPolicyAsset"].asString,
             debounceMs = it["debounceMs"].asLong,
+            minGlossesForAi = it["minGlossesForAi"].asInt,
             renderTimeoutMs = it["renderTimeoutMs"].asLong,
             maxGlosses = it["maxGlosses"].asInt,
             maxOutputChars = it["maxOutputChars"].asInt,

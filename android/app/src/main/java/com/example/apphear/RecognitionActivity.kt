@@ -60,6 +60,7 @@ import com.example.apphear.contextassist.ConversationPhraseAssist
 import com.example.apphear.contextassist.EvidenceAwareReplies
 import com.example.apphear.contextassist.PhraseAssistUiState
 import com.example.apphear.contextassist.SigningTurnBuffer
+import com.example.apphear.conversation.ConversationScreens
 import com.example.apphear.conversation.ConversationTimeline
 import com.example.apphear.sentenceassist.AiStatus
 import com.example.apphear.sentenceassist.SentenceAssistMode
@@ -164,6 +165,7 @@ class RecognitionActivity : AppCompatActivity() {
         binding = ActivityRecognitionBinding.inflate(layoutInflater)
         setContentView(binding.root)
         ConversationTimeline.screenCreated("recognition")
+        ConversationScreens.recognitionCreated(this)
         sentenceShadow = SentenceAssistShadow.create(this, lifecycleScope)
         sentenceShadow?.onRendered = { refreshSentenceAssistDisplay() }
         selectedRecognitionMode = recognitionSettings.current()
@@ -221,27 +223,7 @@ class RecognitionActivity : AppCompatActivity() {
 
         binding.clearButton.setOnClickListener {
             ConversationTimeline.tap("recognition", "clear")
-            if (fingerspellRuntime?.snapshot?.mode == RecognitionMode.FINGERSPELL) {
-                cameraExecutor.execute { fingerspellRuntime?.clear() }
-                return@setOnClickListener
-            }
-            phoneSession?.clearSentence()
-            recognizer?.clearSentence()
-            signingTurn.clear()
-            sentenceShadow?.reset()
-            binding.signedDetailGroup.visibility = View.GONE
-            evidenceInterrupted = false
-            signingVisible = false
-            signingInProgress = false
-            lastPulsedEventId = null
-            ConversationPhraseAssist.clearDisplayedInterpretation()
-            renderPhraseAssist(ConversationPhraseAssist.presentationState.value)
-            if (ruD1.config.enabled && ruD1QueueGloss().isNotBlank()) {
-                renderRuD1QueueStatus()
-            } else {
-                binding.sentenceText.text = getString(R.string.sentence_placeholder)
-            }
-            updateSentenceCardVisibility()
+            clearRecognized()
         }
         if (ruD1.config.enabled) {
             binding.clearButton.setOnLongClickListener {
@@ -303,6 +285,47 @@ class RecognitionActivity : AppCompatActivity() {
         if (hasCameraPermission()) start() else requestCamera.launch(Manifest.permission.CAMERA)
     }
 
+    /** The Clear button's reset; also used when a reused screen starts a new hearing turn. */
+    private fun clearRecognized() {
+        if (fingerspellRuntime?.snapshot?.mode == RecognitionMode.FINGERSPELL) {
+            cameraExecutor.execute { fingerspellRuntime?.clear() }
+            return
+        }
+        phoneSession?.clearSentence()
+        recognizer?.clearSentence()
+        signingTurn.clear()
+        sentenceShadow?.reset()
+        binding.signedDetailGroup.visibility = View.GONE
+        evidenceInterrupted = false
+        signingVisible = false
+        signingInProgress = false
+        lastPulsedEventId = null
+        ConversationPhraseAssist.clearDisplayedInterpretation()
+        renderPhraseAssist(ConversationPhraseAssist.presentationState.value)
+        if (ruD1.config.enabled && ruD1QueueGloss().isNotBlank()) {
+            renderRuD1QueueStatus()
+        } else {
+            binding.sentenceText.text = getString(R.string.sentence_placeholder)
+        }
+        updateSentenceCardVisibility()
+    }
+
+    override fun onNewIntent(intent: Intent) {
+        super.onNewIntent(intent)
+        setIntent(intent)
+        if (!ConversationScreens.reuseScreens) return
+        // Brought back for a reply (conversationFlowV1). A new hearing turn starts from the same
+        // clean state a newly created screen has, so Context Assist matching is not marked as
+        // interrupted by the previous reply's words.
+        val turnId = ConversationPhraseAssist.presentationState.value.hearingTurnId
+        val newTurn = turnId != openingHearingTurnId
+        ConversationTimeline.mark("recognition_reused", "new_turn" to newTurn)
+        if (newTurn) {
+            openingHearingTurnId = turnId
+            clearRecognized()
+        }
+    }
+
     private fun startReplySpeechInput() {
         if (!SpeechInputHelper.isAvailable(this)) {
             Toast.makeText(this, R.string.speech_unavailable, Toast.LENGTH_SHORT).show()
@@ -350,11 +373,17 @@ class RecognitionActivity : AppCompatActivity() {
             return
         }
         // VISIBLE mode speaks exactly the grounded wording shown under RECOGNIZED; otherwise the raw words.
-        val shownAi = if (SentenceAssistMode.current == SentenceAssistMode.VISIBLE) {
-            (sentenceShadow?.displayState(sentence, ConversationPhraseAssist.presentationState.value.hearingTurnId)
-                as? SentenceAssistShadow.DisplayState.Done)?.outcome?.takeIf { it.aiStatus == AiStatus.ACCEPTED }
+        // VISIBLE mode speaks exactly what RECOGNIZED shows: the AI sentence or the plain words.
+        val displayed = if (SentenceAssistMode.current == SentenceAssistMode.VISIBLE) {
+            sentenceShadow?.displayState(sentence, ConversationPhraseAssist.presentationState.value.hearingTurnId)
         } else null
-        speakSentence(shownAi?.chosenSentence ?: sentence)
+        val shownAi = (displayed as? SentenceAssistShadow.DisplayState.Done)?.outcome
+            ?.takeIf { it.aiStatus == AiStatus.ACCEPTED }
+        speakSentence(when (displayed) {
+            is SentenceAssistShadow.DisplayState.Done -> displayed.outcome.chosenSentence
+            is SentenceAssistShadow.DisplayState.Plain -> displayed.sentence
+            else -> sentence
+        })
         sentenceShadow?.let { shadow ->
             val hearing = ConversationPhraseAssist.presentationState.value
             shadow.hearTapped(sentence, signingTurn.snapshot(), !(evidenceInterrupted || signingTurn.overflowed),
@@ -467,9 +496,9 @@ class RecognitionActivity : AppCompatActivity() {
     private val Int.dp: Int get() = (this * resources.displayMetrics.density).toInt()
 
     /**
-     * VISIBLE mode: RECOGNIZED becomes the sentence builder for [raw] (the words as recognized):
-     * a working indicator while the AI renders, then the grounded AI sentence, or the plain words
-     * when the AI could not produce one. The signed words stay on a small line underneath.
+     * VISIBLE mode: RECOGNIZED becomes the sentence builder for [raw] (the words as recognized).
+     * The plain words appear at once ("Improving..." while the AI works on 2+ signs) and are
+     * replaced by the grounded AI sentence when it arrives. The signed words stay on a line beneath.
      */
     private fun sentenceAssistDisplay(raw: CharSequence): CharSequence {
         val shadow = sentenceShadow
@@ -480,25 +509,33 @@ class RecognitionActivity : AppCompatActivity() {
         } else {
             shadow.displayState(words, ConversationPhraseAssist.presentationState.value.hearingTurnId)
         }
-        if (state is SentenceAssistShadow.DisplayState.Idle) {
-            binding.signedDetailGroup.visibility = View.GONE
-            binding.sentenceText.contentDescription = null
-            return raw
+        val shown: String
+        val notes: List<String>
+        when (state) {
+            is SentenceAssistShadow.DisplayState.Idle -> {
+                binding.signedDetailGroup.visibility = View.GONE
+                return raw
+            }
+            is SentenceAssistShadow.DisplayState.Plain -> {
+                shown = state.sentence
+                notes = if (state.improving) listOf(getString(R.string.sentence_assist_improving)) else emptyList()
+            }
+            is SentenceAssistShadow.DisplayState.Done -> {
+                val outcome = state.outcome
+                shown = outcome.chosenSentence
+                notes = listOfNotNull(
+                    outcome.inferredWords.takeIf { it.isNotEmpty() }
+                        ?.let { getString(R.string.sentence_assist_added, it.joinToString(", ")) },
+                    outcome.changedSigns.takeIf { it.isNotEmpty() }
+                        ?.let { getString(R.string.sentence_assist_changed, it.joinToString(", ")) },
+                )
+            }
         }
-        val outcome = (state as? SentenceAssistShadow.DisplayState.Done)?.outcome
         binding.signedDetailGroup.visibility = View.VISIBLE
         binding.signedWordsText.text = getString(R.string.sentence_assist_signed, words)
-        val notes = if (outcome == null) emptyList() else listOfNotNull(
-            outcome.inferredWords.takeIf { it.isNotEmpty() }
-                ?.let { getString(R.string.sentence_assist_added, it.joinToString(", ")) },
-            outcome.changedSigns.takeIf { it.isNotEmpty() }
-                ?.let { getString(R.string.sentence_assist_changed, it.joinToString(", ")) },
-        )
         binding.assistNoteText.text = notes.joinToString(" \u00b7 ")
         binding.assistNoteText.visibility = if (notes.isEmpty()) View.GONE else View.VISIBLE
-        binding.sentenceText.contentDescription =
-            if (outcome == null) getString(R.string.sentence_assist_working_accessibility) else null
-        return outcome?.chosenSentence ?: getString(R.string.sentence_assist_working)
+        return shown
     }
 
     /** A rendering finished: show it now rather than waiting for the next camera frame. */
@@ -518,6 +555,7 @@ class RecognitionActivity : AppCompatActivity() {
     private fun openTextToAslReply(transcript: String) {
         ConversationTimeline.mark("open_text_to_asl", "chars" to transcript.length)
         val intent = Intent(this, MainActivity::class.java).apply {
+            addFlags(ConversationScreens.reuseFlags())
             putExtra(MainActivity.EXTRA_OPEN_TEXT_TO_ASL, true)
             putExtra(MainActivity.EXTRA_TEXT_TO_ASL_INPUT, transcript)
         }
@@ -1101,6 +1139,7 @@ class RecognitionActivity : AppCompatActivity() {
 
     override fun onDestroy() {
         ConversationTimeline.screenDestroyed("recognition")
+        ConversationScreens.recognitionDestroyed(this)
         sentenceShadow?.reset()
         super.onDestroy()
         cameraProvider?.unbindAll()

@@ -3,8 +3,8 @@ package com.example.apphear.sentenceassist
 import com.example.apphear.BuildConfig
 
 /**
- * Phase 2 mode. SHADOW computes and logs renderings only. VISIBLE also shows a grounded
- * rendering under RECOGNIZED, and Hear speaks exactly that displayed sentence.
+ * Phase 2 mode. SHADOW computes and logs renderings only. VISIBLE turns RECOGNIZED into the
+ * sentence builder (grounded AI sentence, or the plain words), and Hear speaks the accepted one.
  */
 enum class SentenceAssistMode { OFF, SHADOW, VISIBLE;
     companion object {
@@ -18,6 +18,8 @@ data class SentenceAssistPolicy(
     val promptAsset: String,
     val substitutionPolicyAsset: String,
     val debounceMs: Long,
+    /** Fewer signs than this are shown in plain form without calling the AI. */
+    val minGlossesForAi: Int,
     val renderTimeoutMs: Long,
     val maxGlosses: Int,
     val maxOutputChars: Int,
@@ -25,7 +27,7 @@ data class SentenceAssistPolicy(
 ) {
     init {
         require(lexiconAsset.isNotBlank() && promptAsset.isNotBlank() && substitutionPolicyAsset.isNotBlank())
-        require(debounceMs >= 0 && renderTimeoutMs > 0)
+        require(debounceMs >= 0 && renderTimeoutMs > 0 && minGlossesForAi >= 1)
         require(maxGlosses > 0 && maxOutputChars > 0 && maxInferredPronouns >= 0)
     }
 

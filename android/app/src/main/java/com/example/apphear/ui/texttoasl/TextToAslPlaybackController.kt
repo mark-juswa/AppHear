@@ -8,6 +8,7 @@ import android.os.Looper
 import android.os.SystemClock
 import android.util.Log
 import android.webkit.JavascriptInterface
+import android.webkit.RenderProcessGoneDetail
 import android.webkit.WebChromeClient
 import android.webkit.WebResourceRequest
 import android.webkit.WebResourceResponse
@@ -45,6 +46,12 @@ class TextToAslPlaybackController(
 
     private var pendingAsset: AslAnimationAsset? = null
     private var warmUpPath: String? = null
+
+    /**
+     * The WebView renderer was killed (memory pressure) or crashed. This WebView can no longer be
+     * used except to destroy it; the owner replaces it. Without this handler Android kills the app.
+     */
+    var onRendererGone: (() -> Unit)? = null
     private var playingAsset: AslAnimationAsset? = null
     private var readyCallback: ReadyCallback? = null
     private var playbackCallback: PlaybackCallback? = null
@@ -125,6 +132,19 @@ class TextToAslPlaybackController(
         webView.evaluateJavascript("pausePlayback()", null)
     }
 
+    /** After [onRendererGone]: stop all callbacks without touching the dead WebView. */
+    fun abandonAfterRendererGone() {
+        destroyed = true
+        requestId++
+        mainHandler.removeCallbacksAndMessages(null)
+        readyCallback = null
+        playbackCallback = null
+        onRendererGone = null
+        pendingAsset = null
+        playingAsset = null
+        isReady = false
+    }
+
     fun destroy(releaseWebView: Boolean = true) {
         destroyed = true
         requestId++
@@ -161,6 +181,12 @@ class TextToAslPlaybackController(
                 request: WebResourceRequest,
             ): WebResourceResponse? {
                 return assetLoader.shouldInterceptRequest(request.url)
+            }
+
+            override fun onRenderProcessGone(view: WebView, detail: RenderProcessGoneDetail): Boolean {
+                Log.w(TAG, "WebView renderer gone (crashed=${detail.didCrash()}); replacing the avatar view")
+                mainHandler.post { if (!destroyed) onRendererGone?.invoke() }
+                return true
             }
         }
         webView.addJavascriptInterface(JsBridge(), JS_BRIDGE_NAME)

@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "promptVersion": "v2",
+  "model": "gemini-3.5-flash-lite",
+  "systemInstruction": "You turn recognized ASL signs into one natural English sentence without changing, adding, or removing meaning. A strict validator rejects any sentence that adds unsigned content.",
+  "inputTemplate": "Recognized ASL signs, in signing order (LABEL = allowed English word):\n{{SIGNS}}\n\nMost recent message from the hearing person, for context only. Never take words, names or facts from it:\n{{HEARING}}\n\nWrite ONE natural English sentence that says exactly what was signed.\nRules:\n1. Every sign must appear, using its English word or an inflection of it (tense or plural). A repeated sign may appear once.\n2. Add no content that was not signed: no new nouns, verbs, adjectives, adverbs, names, numbers, negation (not, no, never) or possessives (my, your, their).\n3. The only words you may add are these grammar words: {{GRAMMAR_WORDS}}; plus punctuation.\n4. You may add at most {{MAX_INFERRED}} pronoun from: {{PRONOUNS}}. ASL often leaves the subject implicit.\n5. ASL word order differs from English. Reorder only when the signs clearly form one thought; otherwise keep the signing order and separate the signs with commas (for example \"Hello, home, help.\"). End with \"?\" when the signs ask a question.\n6. Some signs may be recognition errors. Never invent a connection between unrelated signs to make them sound like a sentence; a short, plain list is better than a fluent sentence that says something nobody signed.\n7. {{SUBSTITUTION_RULE}}\nReturn JSON with \"sentence\" and \"substitutions\" (a list of {\"signNumber\", \"gloss\"}).",
+  "substitutionRuleWithAlternatives": "Some signs list alternatives the recognizer also considered. You may replace at most {{MAX_CHANGES}} sign with one of that sign's listed alternatives, only when the recognized sign clearly does not fit, and must report each replacement in substitutions. Never use an alternative that is not listed for that sign.",
+  "substitutionRuleWithoutAlternatives": "Do not replace any sign. Return an empty substitutions list.",
+  "noHearingContext": "(none)",
+  "responseSchema": {
+    "type": "object",
+    "properties": {
+      "sentence": {
+        "type": "string",
+        "description": "One natural English sentence containing every sign."
+      },
+      "substitutions": {
+        "type": "array",
+        "description": "Replacements of a recognized sign by one of its listed alternatives; usually empty.",
+        "items": {
+          "type": "object",
+          "properties": {
+            "signNumber": {
+              "type": "integer",
+              "description": "1-based number of the replaced sign in the list."
+            },
+            "gloss": {
+              "type": "string",
+              "description": "The listed alternative LABEL that replaced it."
+            }
+          },
+          "required": [
+            "signNumber",
+            "gloss"
+          ],
+          "additionalProperties": false
+        }
+      }
+    },
+    "required": [
+      "sentence",
+      "substitutions"
+    ],
+    "additionalProperties": false
+  }
+}

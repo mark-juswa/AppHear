@@ -2,7 +2,7 @@ package com.example.apphear.sentenceassist
 
 import com.example.apphear.contextassist.PhraseMatchPolicy
 
-/** Contents of `assets/sentence_assist/prompt_v1.json`, shared by the app and offline evaluation. */
+/** Contents of the prompt asset named in the policy (`prompt_v2.json`), shared by the app and offline evaluation. */
 data class PromptTemplate(
     val promptVersion: String,
     val model: String,

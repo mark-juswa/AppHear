@@ -18,15 +18,16 @@ from pathlib import Path
 
 ASSETS = Path("android/app/src/main/assets")
 VOCABULARY_ASSET = "phase4a_gate2_recognizer_parity/manifest.json"
-OUTPUT = ASSETS / "sentence_assist" / "lexicon_v1.json"
+OUTPUT = ASSETS / "sentence_assist" / "lexicon_v2.json"
 
 # Closed-class words a rendering may add without a sign: articles, copula/auxiliaries,
 # infinitive/locative particles and dummy subjects. Negation is NOT here: "not" requires NO,
-# NEVER, CANNOT or DONTKNOW to have been signed.
+# NEVER, CANNOT or DONTKNOW to have been signed. "will" is NOT here (v2): it adds a future tense
+# that no sign established.
 GRAMMAR_WORDS = sorted(
     {
         "a", "an", "the", "am", "is", "are", "was", "were", "be", "been", "being",
-        "do", "does", "did", "to", "of", "at", "in", "on", "it", "there", "will", "would",
+        "do", "does", "did", "to", "of", "at", "in", "on", "it", "there", "would",
         "and", "'s", "'ve", "'d",
     }
 )  # fmt: skip
@@ -150,7 +151,7 @@ def build(vocabulary_path: Path) -> dict[str, object]:
         raise ValueError(f"Lexicon tables name glosses outside the vocabulary: {unknown}")
     return {
         "schemaVersion": 1,
-        "lexiconVersion": "v1",
+        "lexiconVersion": "v2",
         "vocabularyAsset": VOCABULARY_ASSET,
         "vocabularySha256": hashlib.sha256(raw).hexdigest(),
         "grammarWords": GRAMMAR_WORDS,

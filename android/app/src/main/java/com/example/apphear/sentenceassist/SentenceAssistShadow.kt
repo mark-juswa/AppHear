@@ -27,6 +27,7 @@ class SentenceAssistShadow private constructor(private val scope: CoroutineScope
     private data class Key(val glosses: List<String>, val withEvidence: Boolean, val hearingTurnId: Long?)
 
     private var pipeline: ShadowRenderPipeline? = null
+    private var plain: PlainGlossRenderer? = null
     private var policy: SentenceAssistPolicy? = null
     private var promptVersion = ""
     private var inFlight: Pair<Key, Deferred<ShadowOutcome>>? = null
@@ -43,7 +44,7 @@ class SentenceAssistShadow private constructor(private val scope: CoroutineScope
                 val prompt = SentencePrompt(assets.template, assets.lexicon, assets.policy, assets.substitutionPolicy)
                 pipeline = ShadowRenderPipeline(
                     renderer = GeminiSentenceRenderer(key, assets.template, prompt, assets.policy.renderTimeoutMs),
-                    fallback = PlainGlossRenderer(assets.lexicon),
+                    fallback = PlainGlossRenderer(assets.lexicon).also { plain = it },
                     validator = GroundingValidator(assets.lexicon, assets.policy, assets.substitutionPolicy),
                     timeoutMs = assets.policy.renderTimeoutMs,
                     clockMs = SystemClock::elapsedRealtime,
@@ -68,6 +69,8 @@ class SentenceAssistShadow private constructor(private val scope: CoroutineScope
         val debounceMs = policy.debounceMs
         val turn = SignedTurnAssembler.assemble(recognizedText, evidence, evidenceComplete, policy.maxGlosses)
             ?: return reset()
+        // A single sign gives the AI nothing to arrange: show it in plain form, no network call.
+        if (turn.glosses.size < policy.minGlossesForAi) return reset()
         val key = Key(turn.glosses, turn.evidence != null, hearingTurnId)
         if (latest?.first == key || inFlight?.first == key) return
         inFlight?.second?.cancel()
@@ -87,12 +90,12 @@ class SentenceAssistShadow private constructor(private val scope: CoroutineScope
         }
     }
 
-    /** What the RECOGNIZED area should show for these words. */
+    /** What the RECOGNIZED area should show for these words. Text is never held back for the AI. */
     sealed interface DisplayState {
-        /** Nothing requested (assets loading, or nothing to render): show the words as recognized. */
+        /** Assistant not ready (assets loading) or nothing to show: show the words as recognized. */
         data object Idle : DisplayState
-        /** A rendering of exactly these words is in progress: show a working indicator. */
-        data object Pending : DisplayState
+        /** The plain words, shown at once; [improving] while an AI rendering of them is in progress. */
+        data class Plain(val sentence: String, val improving: Boolean) : DisplayState
         /** Finished: the grounded AI sentence when accepted, otherwise the plain fallback. */
         data class Done(val outcome: ShadowOutcome) : DisplayState
     }
@@ -103,12 +106,13 @@ class SentenceAssistShadow private constructor(private val scope: CoroutineScope
      */
     fun displayState(recognizedText: String, hearingTurnId: Long?): DisplayState {
         val policy = policy ?: return DisplayState.Idle
+        val plain = plain ?: return DisplayState.Idle
         val turn = SignedTurnAssembler.assemble(recognizedText, emptyList(), false, policy.maxGlosses)
             ?: return DisplayState.Idle
         fun same(key: Key) = key.glosses == turn.glosses && key.hearingTurnId == hearingTurnId
         latest?.takeIf { same(it.first) }?.let { return DisplayState.Done(it.second) }
-        if (inFlight?.let { same(it.first) } == true) return DisplayState.Pending
-        return DisplayState.Idle
+        val improving = inFlight?.let { same(it.first) } == true
+        return DisplayState.Plain(plain.plain(turn).sentence, improving)
     }
 
     /** When Hear is tapped: record what was (or would have been) offered and what was spoken. */
@@ -124,6 +128,9 @@ class SentenceAssistShadow private constructor(private val scope: CoroutineScope
         }
         val tappedAt = SystemClock.elapsedRealtime()
         val pending = inFlight?.takeIf { it.first == key }?.second
+        // VISIBLE mode never makes an extra AI call just to log Hear; SHADOW measures what it would have been.
+        if (pending == null && (SentenceAssistMode.current == SentenceAssistMode.VISIBLE ||
+                turn.glosses.size < policy.minGlossesForAi)) return
         scope.launch {
             val outcome = try {
                 pending?.await() ?: pipeline.run(RenderRequest(turn, hearingText))

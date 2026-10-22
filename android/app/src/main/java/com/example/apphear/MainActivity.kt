@@ -8,6 +8,7 @@ import androidx.core.os.bundleOf
 import androidx.core.view.isVisible
 import androidx.navigation.NavOptions
 import androidx.navigation.fragment.NavHostFragment
+import com.example.apphear.conversation.ConversationScreens
 import com.example.apphear.conversation.ConversationTimeline
 import com.example.apphear.databinding.ActivityAppShellBinding
 
@@ -42,7 +43,7 @@ class MainActivity : AppCompatActivity() {
         }
         binding.appShellBottomNav.navDetect.setOnClickListener {
             ConversationTimeline.tap("main", "nav_detect")
-            startActivity(Intent(this, RecognitionActivity::class.java))
+            startActivity(Intent(this, RecognitionActivity::class.java).addFlags(ConversationScreens.reuseFlags()))
         }
         binding.appShellBottomNav.navAsl.setOnClickListener {
             ConversationTimeline.tap("main", "nav_text_to_asl")
@@ -53,6 +54,13 @@ class MainActivity : AppCompatActivity() {
         }
 
         handleTextToAslIntent(intent)
+    }
+
+    override fun onPause() {
+        // Leaving the app shell for good: close the Recognition screen parked behind it first, so
+        // Back from Home never reveals a camera screen (no-op unless conversationFlowV1).
+        if (isFinishing) ConversationScreens.finishParkedRecognition()
+        super.onPause()
     }
 
     override fun onDestroy() {
@@ -78,8 +86,17 @@ class MainActivity : AppCompatActivity() {
         val navHost = supportFragmentManager
             .findFragmentById(R.id.app_shell_nav_host) as NavHostFragment
         val navController = navHost.navController
+        val onTextToAsl = navController.currentDestination?.id == R.id.textToAslFragment
         ConversationTimeline.mark("transcript_routed", "chars" to transcript.length,
-            "already_on_text_to_asl" to (navController.currentDestination?.id == R.id.textToAslFragment))
+            "already_on_text_to_asl" to onTextToAsl, "live_delivery" to (onTextToAsl && ConversationScreens.reuseScreens))
+        intent?.removeExtra(EXTRA_OPEN_TEXT_TO_ASL)
+        intent?.removeExtra(EXTRA_TEXT_TO_ASL_INPUT)
+        if (onTextToAsl && ConversationScreens.reuseScreens) {
+            // Navigating would replace the fragment and reload the avatar; hand the reply to the live screen.
+            navHost.childFragmentManager.setFragmentResult(ConversationScreens.INCOMING_TRANSCRIPT_RESULT,
+                Bundle().apply { putString(ConversationScreens.INCOMING_TRANSCRIPT_TEXT, transcript) })
+            return
+        }
         val options = NavOptions.Builder()
             .setLaunchSingleTop(true)
             .setPopUpTo(R.id.homeFragment, false)
@@ -89,8 +106,6 @@ class MainActivity : AppCompatActivity() {
             Bundle().apply { putString(TextToAslArgument.INCOMING_TEXT, transcript) },
             options,
         )
-        intent?.removeExtra(EXTRA_OPEN_TEXT_TO_ASL)
-        intent?.removeExtra(EXTRA_TEXT_TO_ASL_INPUT)
     }
 
     private fun setBottomNavigationVisible(visible: Boolean) {

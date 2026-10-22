@@ -28,6 +28,7 @@ class SentenceAssistAssetLoader(private val context: Context) {
             promptAsset = policyJson.getString("promptAsset"),
             substitutionPolicyAsset = policyJson.getString("substitutionPolicyAsset"),
             debounceMs = policyJson.getLong("debounceMs"),
+            minGlossesForAi = policyJson.getInt("minGlossesForAi"),
             renderTimeoutMs = policyJson.getLong("renderTimeoutMs"),
             maxGlosses = policyJson.getInt("maxGlosses"),
             maxOutputChars = policyJson.getInt("maxOutputChars"),

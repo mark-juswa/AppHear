@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="sentence_assist_working">…</string>
-    <string name="sentence_assist_working_accessibility">Building your sentence</string>
+    <string name="sentence_assist_improving">Improving…</string>
     <string name="sentence_assist_signed">Signed: %1$s</string>
     <string name="sentence_assist_added">Added: %1$s</string>
     <string name="sentence_assist_changed">Changed: %1$s</string>

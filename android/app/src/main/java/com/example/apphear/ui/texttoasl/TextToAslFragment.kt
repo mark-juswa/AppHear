@@ -10,6 +10,8 @@ import android.os.SystemClock
 import android.util.Log
 import android.speech.RecognizerIntent
 import android.view.View
+import android.view.ViewGroup
+import android.webkit.WebView
 import android.view.inputmethod.EditorInfo
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
@@ -25,6 +27,7 @@ import com.example.apphear.TextToAslArgument
 import com.example.apphear.databinding.FragmentTextToAslBinding
 import com.example.apphear.contextassist.ConversationPhraseAssist
 import com.example.apphear.contextassist.ConversationSource
+import com.example.apphear.conversation.ConversationScreens
 import com.example.apphear.conversation.ConversationTimeline
 import com.example.apphear.domain.texttoasl.AslSingleAvatarPolicy
 import com.example.apphear.domain.texttoasl.AslFingerspellingBundle
@@ -51,6 +54,8 @@ class TextToAslFragment : Fragment(R.layout.fragment_text_to_asl) {
     private var phrasePlanner: AslPhrasePlanner? = null
     private var translationPlanner: AslTranslationPlanner? = null
     private var avatarController: TextToAslPlaybackController? = null
+    /** The avatar WebView in use; replaced if its renderer process dies. */
+    private var avatarWebView: WebView? = null
     private var idleAsset: AslAnimationAsset? = null
     private var currentQueue: List<AslAnimationAsset> = emptyList()
     private var unsupportedWords: List<String> = emptyList()
@@ -110,6 +115,17 @@ class TextToAslFragment : Fragment(R.layout.fragment_text_to_asl) {
 
         setupTextToAslEngine(fragmentBinding)
         setupListeners(fragmentBinding)
+        // conversationFlowV1: a spoken reply for this already-open screen arrives here instead of
+        // recreating the screen; it uses the same auto-submit path as a reply passed at creation.
+        parentFragmentManager.setFragmentResultListener(ConversationScreens.INCOMING_TRANSCRIPT_RESULT,
+            viewLifecycleOwner) { _, result ->
+            val transcript = result.getString(ConversationScreens.INCOMING_TRANSCRIPT_TEXT)?.trim()
+                ?.takeIf { it.isNotBlank() } ?: return@setFragmentResultListener
+            ConversationTimeline.mark("incoming_transcript_live", "chars" to transcript.length)
+            consumedAutoSubmitText = null // the same words can legitimately be said twice in a row
+            pendingAutoSubmitText = transcript
+            consumePendingAutoSubmitIfReady()
+        }
     }
 
     private fun setupTextToAslEngine(fragmentBinding: FragmentTextToAslBinding) {
@@ -128,7 +144,9 @@ class TextToAslFragment : Fragment(R.layout.fragment_text_to_asl) {
                 val appContext = requireContext().applicationContext
                 val profile = if (choice == AslCharacterChoice.NEW) SignDictionaryMetadata.AvatarProfile.NEW_HUMAN
                     else SignDictionaryMetadata.AvatarProfile.ORIGINAL_HUMAN
-                avatarController = TextToAslPlaybackController(requireContext(), fragmentBinding.avatarWebView, profile).also { controller ->
+                val webView = avatarWebView ?: fragmentBinding.avatarWebView.also { avatarWebView = it }
+                avatarController = TextToAslPlaybackController(requireContext(), webView, profile).also { controller ->
+                    controller.onRendererGone = { recoverAvatarWebView(fragmentBinding) }
                     controller.setReadyCallback(
                         object : TextToAslPlaybackController.ReadyCallback {
                             override fun onReady() {
@@ -254,7 +272,8 @@ class TextToAslFragment : Fragment(R.layout.fragment_text_to_asl) {
         }
         fragmentBinding.replyButton.setOnClickListener {
             ConversationTimeline.tap("text_to_asl", "reply")
-            startActivity(Intent(requireContext(), RecognitionActivity::class.java))
+            startActivity(Intent(requireContext(), RecognitionActivity::class.java)
+                .addFlags(ConversationScreens.reuseFlags()))
         }
         fragmentBinding.modeTextButton.setOnClickListener {
             ConversationTimeline.tap("text_to_asl", "text_mode")
@@ -263,6 +282,7 @@ class TextToAslFragment : Fragment(R.layout.fragment_text_to_asl) {
         fragmentBinding.modeSpeechButton.setOnClickListener {
             ConversationTimeline.tap("text_to_asl", "talk_mode")
             setSpeechMode(true)
+            if (ConversationScreens.oneTapTalk) startSpeechInput()
         }
         fragmentBinding.signedText.setOnClickListener {
             if (!fragmentBinding.expandableContent.isVisible) setSpeechMode(false)
@@ -274,6 +294,7 @@ class TextToAslFragment : Fragment(R.layout.fragment_text_to_asl) {
         fragmentBinding.modeTalkShortcut.setOnClickListener {
             ConversationTimeline.tap("text_to_asl", "talk_mode_shortcut")
             setSpeechMode(true)
+            if (ConversationScreens.oneTapTalk) startSpeechInput()
         }
         fragmentBinding.inputText.setOnEditorActionListener { _, actionId, _ ->
             if (actionId == EditorInfo.IME_ACTION_DONE) {
@@ -456,6 +477,30 @@ class TextToAslFragment : Fragment(R.layout.fragment_text_to_asl) {
         }
     }
 
+    /**
+     * The avatar renderer died: drop the dead WebView, put a fresh one in the same place and
+     * reload the avatar. The current plan stays available for Repeat.
+     */
+    private fun recoverAvatarWebView(fragmentBinding: FragmentTextToAslBinding) {
+        if (binding !== fragmentBinding) return
+        val dead = avatarWebView ?: return
+        ConversationTimeline.mark("avatar_renderer_gone")
+        playHandler.removeCallbacks(advanceRunnable)
+        avatarController?.abandonAfterRendererGone()
+        avatarController = null
+        avatarReady = false
+        val parent = dead.parent as? ViewGroup ?: return
+        val index = parent.indexOfChild(dead)
+        val params = dead.layoutParams
+        parent.removeView(dead)
+        dead.destroy()
+        val fresh = WebView(requireContext())
+        parent.addView(fresh, index, params)
+        avatarWebView = fresh
+        fragmentBinding.currentProgressText.text = "Reloading avatar…"
+        setupTextToAslEngine(fragmentBinding)
+    }
+
     private fun failPlayback(message: String) {
         ConversationTimeline.mark("signing_failed", "index" to currentIndex, "signs" to currentQueue.size)
         playHandler.removeCallbacks(advanceRunnable)
@@ -565,6 +610,7 @@ class TextToAslFragment : Fragment(R.layout.fragment_text_to_asl) {
         engineJob = null
         avatarController?.destroy()
         avatarController = null
+        avatarWebView = null
         avatarReady = false
         queuedSubmitUntilReady = false
         resumeColdIdle = false
