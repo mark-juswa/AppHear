@@ -100,7 +100,8 @@ internal class RecognitionCoordinationBridge(
         selected(mode)
         render()
     }
-    private fun manual(mode: RecognitionMode) {
+    /** A mode the user picked on screen (mode toolbar); stops automatic switching for this turn. */
+    fun manual(mode: RecognitionMode) {
         val ticket=generation
         dispatch { if(active && ticket==generation && runtime()!=null) { policy.manual(mode); apply(mode) } }
     }

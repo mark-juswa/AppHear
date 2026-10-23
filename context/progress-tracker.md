@@ -31,7 +31,11 @@ All debug-only flags; release builds hard-set them off. WORD recognition, Senten
   if it fails or has not answered after 2.5 s, an OpenAI-compatible backup (default Groq free tier,
   `openai/gpt-oss-120b`, strict JSON schema) races it and the first answer wins. Same prompts and validators;
   logs record `ai_source` / `prediction_source`. Key `APPHEAR_FALLBACK_LLM_API_KEY` only in gitignored
-  `android/gradle.properties`. Key set up locally 2026-10-22; not yet verified on device.
+  `android/gradle.properties`. 2026-10-23: loaded on device (Gemini answered in ~1 s, so no
+  fallback needed); direct Groq check returned valid strict JSON in 1.05 s.
+- [x] `recognitionModeToolbar` (debug only): a toggle under Hear shows WORD (hand) / FINGERSPELL (ABC) buttons;
+  the choice is saved like Settings and goes through the coordinator; leaving a spelling with letters asks
+  first. Verified on device 2026-10-23 (open/close, WORD <-> FINGERSPELL, no errors).
 
 **2026-10-18 - WORD priorities after WORD_BLEND_02; review package 03 prepared; no new model trained.**
 See `docs/audit/WORD_PRIORITIES_2026-10-18.md`. Research only; Android, S2, decoder and Candidate01 unchanged.

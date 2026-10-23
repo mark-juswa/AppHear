@@ -206,6 +206,7 @@ class RecognitionActivity : AppCompatActivity() {
                     }, speak={speechPlayer.speak(it)}, initial=selectedRecognitionMode)
             }.onFailure { Log.w(TAG,"Context routing unavailable; existing manual recognition preserved",it) }.getOrNull()
         }
+        if (BuildConfig.RECOGNITION_MODE_TOOLBAR_ENABLED && recognitionSettings.selectionAvailable) installModeToolbar()
         a1ShutdownExecutor = Executors.newSingleThreadExecutor { runnable ->
             Thread(runnable, "apphear-a1-lifecycle-shutdown")
         }
@@ -979,6 +980,76 @@ class RecognitionActivity : AppCompatActivity() {
         updateSentenceCardVisibility()
     }
 
+    /**
+     * recognitionModeToolbar: a toggle under Hear shows or hides WORD / FINGERSPELL buttons, so the
+     * mode can change without leaving for Settings. The choice is saved like the Settings option and
+     * goes through Context Assist's coordinator when it is running, as automatic switching does.
+     */
+    private fun installModeToolbar() {
+        binding.modeToolsToggle.visibility = View.VISIBLE
+        binding.modeToolsToggle.setOnClickListener {
+            val open = binding.modeToolsGroup.visibility != View.VISIBLE
+            ConversationTimeline.tap("recognition", if (open) "mode_tools_open" else "mode_tools_close")
+            binding.modeToolsGroup.visibility = if (open) View.VISIBLE else View.GONE
+            binding.modeToolsToggle.setBackgroundResource(if (open) R.drawable.circle_btn_selected else R.drawable.circle_btn_white)
+            binding.modeToolsToggle.contentDescription =
+                getString(if (open) R.string.mode_toolbar_hide else R.string.mode_toolbar_show)
+            renderModeToolbar(currentRecognitionMode())
+        }
+        binding.modeWordButton.setOnClickListener { requestRecognitionMode(RecognitionMode.WORD) }
+        binding.modeSpellButton.setOnClickListener { requestRecognitionMode(RecognitionMode.FINGERSPELL) }
+        binding.modeWordButton.tooltipText = getString(R.string.mode_toolbar_word)
+        binding.modeSpellButton.tooltipText = getString(R.string.mode_toolbar_spell)
+        renderModeToolbar(currentRecognitionMode())
+    }
+
+    private fun currentRecognitionMode(): RecognitionMode = fingerspellRuntime?.snapshot?.mode ?: selectedRecognitionMode
+
+    private fun requestRecognitionMode(mode: RecognitionMode) {
+        val current = currentRecognitionMode()
+        if (mode == current) return
+        if (mode == RecognitionMode.FINGERSPELL && fingerspellRuntime == null) {
+            Toast.makeText(this, R.string.mode_toolbar_spell_loading, Toast.LENGTH_SHORT).show()
+            return
+        }
+        val spelled = fingerspellRuntime?.snapshot?.takeIf { it.mode == RecognitionMode.FINGERSPELL }
+            ?.let { it.confirmed + it.preview }.orEmpty()
+        if (mode == RecognitionMode.WORD && spelled.isNotBlank()) {
+            androidx.appcompat.app.AlertDialog.Builder(this)
+                .setTitle(R.string.mode_toolbar_leave_spelling_title)
+                .setMessage(R.string.mode_toolbar_leave_spelling_message)
+                .setPositiveButton(R.string.mode_toolbar_leave_spelling_confirm) { _, _ -> switchRecognitionMode(mode) }
+                .setNegativeButton(android.R.string.cancel, null)
+                .show()
+            return
+        }
+        switchRecognitionMode(mode)
+    }
+
+    private fun switchRecognitionMode(mode: RecognitionMode) {
+        ConversationTimeline.tap("recognition", if (mode == RecognitionMode.WORD) "mode_word" else "mode_fingerspell")
+        recognitionSettings.select(mode)
+        val bridge = coordination
+        if (bridge != null) {
+            bridge.manual(mode)
+        } else {
+            selectedRecognitionMode = mode
+            if (!cameraExecutor.isShutdown) cameraExecutor.execute { fingerspellRuntime?.select(mode) }
+        }
+        renderModeToolbar(mode)
+        Toast.makeText(this, if (mode == RecognitionMode.WORD) R.string.mode_toolbar_switched_word
+            else R.string.mode_toolbar_switched_spell, Toast.LENGTH_SHORT).show()
+    }
+
+    private fun renderModeToolbar(mode: RecognitionMode) {
+        if (!BuildConfig.RECOGNITION_MODE_TOOLBAR_ENABLED) return
+        val word = mode == RecognitionMode.WORD
+        binding.modeWordButton.setBackgroundResource(if (word) R.drawable.circle_btn_selected else R.drawable.circle_btn_white)
+        binding.modeSpellButton.setBackgroundResource(if (word) R.drawable.circle_btn_white else R.drawable.circle_btn_selected)
+        binding.modeWordButton.isSelected = word
+        binding.modeSpellButton.isSelected = !word
+    }
+
     /** Added only in the opt-in debug build; default/release layout and WORD controls unchanged. */
     private fun installFingerspellControls() {
         if (BuildConfig.FINGERSPELL_CONTINUOUS_ENABLED) {
@@ -1042,6 +1113,7 @@ class RecognitionActivity : AppCompatActivity() {
 
     private fun renderFingerspell(s: FingerspellSnapshot) {
         coordination?.recognitionChanged()
+        renderModeToolbar(s.mode)
         val active = s.mode == RecognitionMode.FINGERSPELL
         val busy = s.phase == FingerspellPhase.CAPTURING || s.phase == FingerspellPhase.DECODING
         fingerspellStatus?.text = if (active) "${s.message} • ${s.observations} observations" else "WORD mode • experimental fingerspelling available"
@@ -1258,6 +1330,7 @@ class RecognitionActivity : AppCompatActivity() {
         timelineAwaitingFrame = ConversationTimeline.enabled
         ConversationTimeline.mark("recognition_started")
         selectedRecognitionMode = recognitionSettings.current()
+        renderModeToolbar(selectedRecognitionMode)
         coordination?.started(selectedRecognitionMode)
         if (::cameraExecutor.isInitialized && fingerspellRuntime != null && !cameraExecutor.isShutdown) {
             cameraExecutor.execute { fingerspellRuntime?.select(selectedRecognitionMode) }

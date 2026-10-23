@@ -105,6 +105,8 @@ android {
     // avatar finishes, and opening speech input after Hear finishes speaking.
     val conversationAutoReply = conversationFlowV1 && providers.gradleProperty("conversationAutoReply").map { it.equals("true", ignoreCase=true) }.getOrElse(false)
     val conversationAutoListen = conversationFlowV1 && providers.gradleProperty("conversationAutoListen").map { it.equals("true", ignoreCase=true) }.getOrElse(false)
+    // Recognition screen toggle that shows WORD / FINGERSPELL buttons (needs fingerspelling enabled).
+    val recognitionModeToolbar = providers.gradleProperty("recognitionModeToolbar").map { it.equals("true", ignoreCase=true) }.getOrElse(false)
     // Backup LLM for the sentence builder and Context Assist when Gemini is slow or failing. Any
     // OpenAI-compatible service; Groq's free tier by default. The key lives only in the gitignored
     // android/gradle.properties (or the environment) and never reaches release builds.
@@ -175,6 +177,7 @@ android {
             buildConfigField("boolean", "CONVERSATION_AUTO_REPLY_ENABLED", conversationAutoReply.toString())
             buildConfigField("boolean", "CONVERSATION_AUTO_LISTEN_ENABLED", conversationAutoListen.toString())
             buildConfigField("boolean", "LLM_FALLBACK_ENABLED", llmFallback.toString())
+            buildConfigField("boolean", "RECOGNITION_MODE_TOOLBAR_ENABLED", recognitionModeToolbar.toString())
             buildConfigField("String", "LLM_FALLBACK_API_KEY", "\"$llmFallbackApiKey\"")
             buildConfigField("String", "LLM_FALLBACK_BASE_URL", "\"$llmFallbackBaseUrl\"")
             buildConfigField("String", "LLM_FALLBACK_MODEL", "\"$llmFallbackModel\"")
@@ -223,6 +226,7 @@ android {
             buildConfigField("boolean", "CONVERSATION_AUTO_REPLY_ENABLED", "false")
             buildConfigField("boolean", "CONVERSATION_AUTO_LISTEN_ENABLED", "false")
             buildConfigField("boolean", "LLM_FALLBACK_ENABLED", "false")
+            buildConfigField("boolean", "RECOGNITION_MODE_TOOLBAR_ENABLED", "false")
             buildConfigField("String", "LLM_FALLBACK_API_KEY", "\"\"")
             buildConfigField("String", "LLM_FALLBACK_BASE_URL", "\"\"")
             buildConfigField("String", "LLM_FALLBACK_MODEL", "\"\"")

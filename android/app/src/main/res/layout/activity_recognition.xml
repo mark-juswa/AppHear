@@ -118,6 +118,61 @@
         app:layout_constraintTop_toBottomOf="@id/cameraToggle"
         app:tint="#0D1B1E" />
 
+    <!-- recognitionModeToolbar: a toggle that shows or hides the WORD / FINGERSPELL mode buttons. -->
+    <ImageButton
+        android:id="@+id/modeToolsToggle"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/circle_btn_white"
+        android:contentDescription="@string/mode_toolbar_show"
+        android:padding="12dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_tune"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/hearButton"
+        app:tint="#0D1B1E" />
+
+    <LinearLayout
+        android:id="@+id/modeToolsGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/modeToolsToggle">
+
+        <ImageButton
+            android:id="@+id/modeWordButton"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/circle_btn_white"
+            android:contentDescription="@string/mode_toolbar_word"
+            android:padding="11dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/hand" />
+
+        <TextView
+            android:id="@+id/modeSpellButton"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/circle_btn_white"
+            android:clickable="true"
+            android:contentDescription="@string/mode_toolbar_spell"
+            android:focusable="true"
+            android:fontFamily="@font/inter_semibold"
+            android:gravity="center"
+            android:text="@string/mode_toolbar_spell_short"
+            android:textColor="#0D1B1E"
+            android:textSize="13sp" />
+    </LinearLayout>
+
     <com.google.android.material.button.MaterialButton
         android:id="@+id/handToggle"
         android:layout_width="wrap_content"

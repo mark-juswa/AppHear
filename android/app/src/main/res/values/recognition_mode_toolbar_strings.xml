@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="mode_toolbar_show">Show recognition modes</string>
+    <string name="mode_toolbar_hide">Hide recognition modes</string>
+    <string name="mode_toolbar_word">Word mode</string>
+    <string name="mode_toolbar_spell">Fingerspell mode</string>
+    <string name="mode_toolbar_spell_short">ABC</string>
+    <string name="mode_toolbar_spell_loading">Fingerspelling is still loading</string>
+    <string name="mode_toolbar_leave_spelling_title">Switch to Word?</string>
+    <string name="mode_toolbar_leave_spelling_message">The letters spelled so far will be cleared. Tap Hear first to confirm and keep them.</string>
+    <string name="mode_toolbar_leave_spelling_confirm">Switch</string>
+    <string name="mode_toolbar_switched_word">Word mode</string>
+    <string name="mode_toolbar_switched_spell">Fingerspell mode</string>
+</resources>
