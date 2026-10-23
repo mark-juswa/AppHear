@@ -11,13 +11,16 @@ import java.io.File
 
 data class FingerspellSnapshot(val mode: RecognitionMode, val phase: FingerspellPhase,
     val preview: String, val confirmed: String, val observations: Int, val message: String,
-    val currentLetter: String = "")
+    val currentLetter: String = "",
+    /** Practical v1 presentation only (defaults == baseline snapshot). */
+    val practical: Boolean = false, val reviewing: Boolean = false)
 
 /** Camera executor confined. Captures embeddings, not RGB; Done runs bounded full CTC off-main. */
 internal class FingerspellRuntime(
     private val context: Context, private val models: FingerspellModels,
     resetWord: () -> Unit, private val publish: (FingerspellSnapshot) -> Unit,
     continuousEnabled: Boolean = false, dispatch: ((() -> Unit) -> Unit) = { it() },
+    practicalEnabled: Boolean = false,
 ) : AutoCloseable {
     val singleLetterMode = FingerspellCapturePolicy.SINGLE_LETTER_ENABLED &&
         models.manifest.optString("candidate_id")==FingerspellCapturePolicy.CANDIDATE
@@ -45,10 +48,16 @@ internal class FingerspellRuntime(
     private var beamDecodeCalls=0
     private var greedyDecodeCalls=0
     @Volatile var snapshot=FingerspellSnapshot(RecognitionMode.WORD,FingerspellPhase.READY,"","",0,""); private set
-    private val continuous = if (continuousEnabled) ContinuousFingerspell(context,models,resetWord,dispatch) {
+    private val continuous = if (continuousEnabled) ContinuousFingerspell(context,models,resetWord,dispatch,{
         snapshot = it; publish(it)
-    } else null
+    }, practicalEnabled) else null
     val continuousMode get() = continuous != null
+    /** FINGERSPELL-only practical v1 controls; every call is a no-op in the locked baseline. */
+    val practicalMode get() = continuous?.practical == true
+    fun deleteLast() { continuous?.deleteLast() }
+    fun repeatLast() { continuous?.repeatLast() }
+    fun holdForReview() { continuous?.holdForReview() }
+    fun resumeAfterReview() { continuous?.resumeAfterReview() }
     val fingerspellOwnsFrames get() = continuous?.ownsFrames ?: (owner.mode == RecognitionMode.FINGERSPELL)
     fun select(mode: RecognitionMode) {
         continuous?.let { it.select(mode); return }

@@ -115,6 +115,9 @@ internal class RecognitionCoordinationBridge(
         val text=before.confirmed+before.preview
         if(text.isBlank()) { Toast.makeText(context,"No spelling to confirm",Toast.LENGTH_SHORT).show(); return }
         val ticket=generation
+        // FINGERSPELL practical v1 only: no letter may append while the user reviews this draft.
+        val practical=runtime()?.practicalMode==true
+        if(practical) dispatch { runtime()?.holdForReview() }
         val dialog=AlertDialog.Builder(context).setTitle("Confirm spelling and return to WORD")
             .setMessage(text)
             .setPositiveButton(if(withSpeech) "Confirm and hear" else "Confirm") { _,_ ->
@@ -141,6 +144,7 @@ internal class RecognitionCoordinationBridge(
                 }
             }
             .setNegativeButton(android.R.string.cancel,null)
+        if(practical) dialog.setOnDismissListener { dispatch { runtime()?.resumeAfterReview() } }
         if(offerDiscard) dialog.setNeutralButton("Discard draft") { _,_ ->
             dispatch {
                 val engine=runtime() ?: return@dispatch

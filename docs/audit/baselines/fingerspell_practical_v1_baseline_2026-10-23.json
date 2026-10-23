@@ -1,0 +1,68 @@
+{
+  "schema": "apphear.fingerspelling.practical_baseline_record.v1",
+  "base_commit": "098f368204da341ecd74f04337bd31629eec6cbc",
+  "protected_baseline": {
+    "fingerspell_package": "packages/fingerspelling_continuous_v2_1_01",
+    "package_sha256": {
+      "continuous_policy.json": "6a83c63552ee5a4c8f45a2b15dd988c65e7df7d29bb05b8faa95df2f9275c2b7",
+      "geometry_sequence.tflite": "e78de274b967acf0ea9d30bd3f3ac4422a1ef8ebdd95c8676b57dd05fed75c4c",
+      "model_manifest.json": "8edc998728fa41883abacbc8382359d6d61621bc259da78ca7c2ab6f8126d01e"
+    },
+    "candidate_id": "SEQUENCE_V2_1_EPOCH034_GEOMETRY_ONLY",
+    "policy": {
+      "schema_version": "apphear.fingerspelling.held_letter_policy.v1",
+      "window_ms": 4000,
+      "minimum_span_ms": 1000,
+      "minimum_usable": 4,
+      "inference_interval_ms": 500,
+      "stable_decodes": 3,
+      "stable_span_ms": 1000,
+      "rearm_missing_ms": 800,
+      "rearm_missing_observations": 3,
+      "maximum_observations": 64,
+      "timing_status": "ENGINEERING_DEFAULTS_NOT_ACCURACY_CALIBRATED",
+      "capture": "AUTOMATIC_HELD_LETTER",
+      "confirmation": "REQUIRED"
+    },
+    "decoder": "apphear.fingerspelling.single_letter_ctc.v1 (blank27 penalty 0.5)",
+    "build_flags": "-Pfingerspell -PfingerspellContinuous + locked WORD_BLEND_02 set",
+    "phone_app_preserved": "previous debug build app sha 0469d1b8... (not reinstalled)"
+  },
+  "tracked_files_checked": 1041,
+  "changed_files": [
+    "android/app/build.gradle.kts",
+    "android/app/src/main/AndroidManifest.xml",
+    "android/app/src/main/java/com/example/apphear/RecognitionActivity.kt",
+    "android/app/src/main/java/com/example/apphear/coordination/RecognitionCoordinationBridge.kt",
+    "android/app/src/main/java/com/example/apphear/fingerspelling/ContinuousFingerspell.kt",
+    "android/app/src/main/java/com/example/apphear/fingerspelling/FingerspellRuntime.kt",
+    "android/app/src/main/java/com/example/apphear/fingerspelling/HeldLetterPolicy.kt"
+  ],
+  "missing_files": [],
+  "added_files": [
+    "android/app/src/androidTest/java/com/example/apphear/fingerspelling/FingerspellPracticalInstrumentedTest.kt",
+    "android/app/src/main/java/com/example/apphear/fingerspelling/FingerspellPracticalControls.kt",
+    "android/app/src/main/res/values/fingerspell_practical.xml",
+    "android/app/src/test/java/com/example/apphear/fingerspelling/FingerspellPracticalPolicyTest.kt",
+    "android/app/src/test/resources/fingerspell_practical/device_decision_logs.json",
+    "android/app/src/test/resources/fingerspell_practical/parity_traces.json"
+  ],
+  "unchanged_files": 1034,
+  "packaged_asset_content_differs_from_commit": [],
+  "packaged_asset_checkout_eol_only": [
+    "android/app/src/aslAlphabet/assets/asl_animations/vnext/manifest.json",
+    "android/app/src/aslIdle/assets/asl_animations/vnext/manifest.json",
+    "android/app/src/aslPilot/assets/asl_animations/vnext/manifest.json",
+    "android/app/src/aslPilot/assets/model_viewer_pilot.html",
+    "android/app/src/aslPilot/assets/pilot_player.js",
+    "android/app/src/aslPilot/assets/vendor/asl-decoders/NOTICE.md",
+    "android/app/src/aslPilot/assets/vendor/asl-decoders/basis/basis_transcoder.js",
+    "android/app/src/aslPilot/assets/vendor/asl-decoders/licenses/Apache-2.0.txt",
+    "android/app/src/aslPilot/assets/vendor/asl-decoders/licenses/meshoptimizer-MIT.txt",
+    "android/app/src/aslPilot/assets/vendor/asl-decoders/meshopt_decoder.js",
+    "android/app/src/aslShared/assets/asl_animations/vnext/manifest.json",
+    "android/app/src/aslWords/assets/asl_animations/vnext/manifest.json"
+  ],
+  "changes_fingerspell_only_or_justified_shared": true,
+  "package_unchanged": true
+}

@@ -99,6 +99,10 @@ android {
     val recognitionRearCamera = providers.gradleProperty("recognitionRearCamera").map { it.equals("true", ignoreCase=true) }.getOrElse(false)
     val recognitionCoordination = providers.gradleProperty("recognitionCoordination").map { it.equals("true",ignoreCase=true) }.getOrElse(false)
     val fingerspellContinuous = providers.gradleProperty("fingerspellContinuous").map { it.equals("true",ignoreCase=true) }.getOrElse(false)
+    // FINGERSPELL-only practical decision/correction/commit UX (debug opt-in; default off == locked baseline).
+    val fingerspellPractical = providers.gradleProperty("fingerspellPractical").map { it.equals("true",ignoreCase=true) }.getOrElse(false)
+    // Locks RecognitionActivity (WORD and FINGERSPELL) to portrait: rotation rebuilt the screen and wiped drafts. Debug opt-in.
+    val recognitionPortrait = providers.gradleProperty("recognitionPortrait").map { it.equals("true",ignoreCase=true) }.getOrElse(false)
     val fingerspellDebug = providers.gradleProperty("fingerspell")
         .map { it.equals("true", ignoreCase = true) }.getOrElse(false)
     val phoneS2DebugPackage = providers.gradleProperty("apphearPhoneS2Package")
@@ -141,6 +145,7 @@ android {
         buildConfigField("String", "ELEVENLABS_MODEL_ID", "\"$elevenLabsModelId\"")
         buildConfigField("String", "SUPABASE_URL", "\"$supabaseUrl\"")
         buildConfigField("String", "SUPABASE_ANON_KEY", "\"$supabaseAnonKey\"")
+        manifestPlaceholders["recognitionOrientation"] = "unspecified"
     }
 
     buildTypes {
@@ -151,6 +156,8 @@ android {
             buildConfigField("boolean", "RECOGNITION_REAR_CAMERA_ENABLED", recognitionRearCamera.toString())
             buildConfigField("boolean", "RECOGNITION_COORDINATION_ENABLED", (recognitionCoordination && fingerspellDebug && fingerspellContinuous && contextPhraseAssistDebug).toString())
             buildConfigField("boolean", "FINGERSPELL_CONTINUOUS_ENABLED", (fingerspellDebug && fingerspellContinuous).toString())
+            buildConfigField("boolean", "FINGERSPELL_PRACTICAL_ENABLED", (fingerspellDebug && fingerspellContinuous && fingerspellPractical).toString())
+            manifestPlaceholders["recognitionOrientation"] = if (recognitionPortrait) "portrait" else "unspecified"
             buildConfigField("boolean", "FINGERSPELL_EXPERIMENT_ENABLED", fingerspellDebug.toString())
             buildConfigField("boolean", "PROFILE_ACCOUNTS_ENABLED", profileAccounts.toString())
             buildConfigField("boolean", "ASL_ASSET_PILOT_ENABLED", aslAssetPilot.toString())
@@ -189,6 +196,7 @@ android {
             buildConfigField("boolean", "RECOGNITION_REAR_CAMERA_ENABLED", "false")
             buildConfigField("boolean", "RECOGNITION_COORDINATION_ENABLED", "false")
             buildConfigField("boolean", "FINGERSPELL_CONTINUOUS_ENABLED", "false")
+            buildConfigField("boolean", "FINGERSPELL_PRACTICAL_ENABLED", "false")
             buildConfigField("boolean", "FINGERSPELL_EXPERIMENT_ENABLED", "false")
             buildConfigField("boolean", "PROFILE_ACCOUNTS_ENABLED", "false")
             buildConfigField("boolean", "ASL_ASSET_PILOT_ENABLED", "false")

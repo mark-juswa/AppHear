@@ -18,7 +18,8 @@
         android:theme="@style/Theme.AppHear">
         <activity
             android:name=".RecognitionActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="${recognitionOrientation}" />
         <activity
             android:name=".LoadingActivity"
             android:exported="false" />

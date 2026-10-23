@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- FINGERSPELL practical v1 (debug flag) view ids. Views are created programmatically and only in FINGERSPELL. -->
+<resources>
+    <item name="fingerspellPracticalPanel" type="id" />
+    <item name="fingerspellRepeat" type="id" />
+    <item name="fingerspellDelete" type="id" />
+    <item name="fingerspellDone" type="id" />
+</resources>

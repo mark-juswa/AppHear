@@ -14,6 +14,8 @@ internal class ContinuousFingerspell(
     private val context: Context, private val models: FingerspellModels,
     resetWord: () -> Unit, private val dispatch: (() -> Unit) -> Unit,
     private val publish: (FingerspellSnapshot) -> Unit,
+    /** FINGERSPELL-only practical v1 (debug flag). false == locked baseline behaviour. */
+    val practical: Boolean = false,
 ) : AutoCloseable {
     private val owner = RecognitionModeController(resetWord)
     private val inferenceLock = Any()
@@ -31,6 +33,10 @@ internal class ContinuousFingerspell(
     private var skippedBusy = 0
     private var staleResults = 0
     private var completedDecodes = 0
+    // Practical v1 state and interaction-cost counters (camera executor confined).
+    private var reviewing = false
+    private var deletes = 0; private var repeats = 0; private var clears = 0
+    private var reviewHolds = 0; private var reviewResumes = 0; private var confirms = 0
     val mode get() = owner.mode
     val ownsFrames get() = mode == RecognitionMode.FINGERSPELL
     init {
@@ -40,17 +46,26 @@ internal class ContinuousFingerspell(
         policy = HeldLetterPolicy(HeldLetterConfig(
             document.getDouble("window_ms"), document.getDouble("minimum_span_ms"), document.getInt("minimum_usable"),
             document.getDouble("inference_interval_ms"), document.getInt("stable_decodes"), document.getDouble("stable_span_ms"),
-            document.getDouble("rearm_missing_ms"), document.getInt("rearm_missing_observations"), document.getInt("maximum_observations")))
+            document.getDouble("rearm_missing_ms"), document.getInt("rearm_missing_observations"), document.getInt("maximum_observations"),
+            acceptWhileHandMissing = practical))
     }
     fun select(next: RecognitionMode) {
         if (ownsFrames) writeDiagnostics()
+        val previous = mode
         // Finish any actual fingerspell invocation BEFORE WORD becomes the owner. No simultaneous recognizers.
         synchronized(inferenceLock) { generation++; active = false; owner.select(next) }
-        policy.reset(); timestamps.clear(); active = ownsFrames; emit()
+        if (practical) {
+            reviewing = false
+            // Same-owner reselect (activity resume, camera rebind) keeps the unconfirmed draft and its latch.
+            // An owner change starts a fresh word: no stale spelling is carried into the next FINGERSPELL turn.
+            if (previous == next) policy.reset(clearPreview = false, keepLatch = true)
+            else { policy.reset(); confirmed = "" }
+        } else policy.reset()
+        timestamps.clear(); active = ownsFrames; emit()
         writeDiagnostics()
     }
     fun consume(raw: PhoneRawObservation) {
-        if (!ownsFrames || !active || closed) return
+        if (!ownsFrames || !active || closed || reviewing) return
         val c = raw.fingerspellObservation()
         timestamps.addLast(c.timestampMs)
         while (timestamps.size > policy.config.maximumObservations) timestamps.removeFirst()
@@ -111,21 +126,50 @@ internal class ContinuousFingerspell(
     }
     fun confirm() {
         if (!ownsFrames || policy.preview.isEmpty()) return
+        if (practical) confirms++
         confirmed += policy.preview
         invalidate(clearPreview = true, keepLatch = true)
         emit("Spelling added. Hold the next letter."); writeDiagnostics()
     }
     fun retry() { invalidate(); emit(); writeDiagnostics() }
-    fun clear() { confirmed = ""; invalidate(); emit(); writeDiagnostics() }
+    fun clear() { if (practical) clears++; confirmed = ""; invalidate(); emit(); writeDiagnostics() }
+    /** Practical v1: remove only the last draft letter (no whole-word re-spelling for one wrong letter). */
+    fun deleteLast() {
+        if (!practical || !ownsFrames || reviewing) return
+        synchronized(inferenceLock) { generation++ }
+        if (policy.deleteLast()) { deletes++; emit(); writeDiagnostics() }
+    }
+    /** Practical v1: explicit double letter (e.g. the second L in HELLO) without lowering the hand. */
+    fun repeatLast() {
+        if (!practical || !ownsFrames || reviewing) return
+        synchronized(inferenceLock) { generation++ }
+        if (policy.repeatLast()) { repeats++; emit(); writeDiagnostics() }
+    }
+    /** Practical v1: no letter can be appended while the user reviews, so a confirmation cannot be invalidated. */
+    fun holdForReview() {
+        if (!practical || !ownsFrames || reviewing) return
+        synchronized(inferenceLock) { generation++ }
+        reviewing = true; reviewHolds++; emit()
+    }
+    fun resumeAfterReview() {
+        if (!practical || !reviewing) return
+        synchronized(inferenceLock) { generation++ }
+        reviewing = false; reviewResumes++
+        policy.reset(clearPreview = false, keepLatch = true); timestamps.clear(); emit()
+    }
     private fun invalidate(clearPreview: Boolean = true, keepLatch: Boolean = false) {
         synchronized(inferenceLock) { generation++ }
         policy.reset(clearPreview, keepLatch)
     }
     fun pause() {
         synchronized(inferenceLock) { generation++; active = false; owner.pause() }
-        writeDiagnostics(); timestamps.clear(); policy.reset(); emit("Recognition paused")
+        writeDiagnostics(); timestamps.clear()
+        // Practical v1: an interruption (screen off, app switch, camera rebind) must not erase the draft.
+        if (practical) policy.reset(clearPreview = false, keepLatch = true) else policy.reset()
+        emit("Recognition paused")
     }
     private fun emit(message: String? = null) {
+        if (practical) { emitPractical(message); return }
         val text = message ?: when {
             !ownsFrames -> "WORD mode"
             policy.waitingForHand -> "Show your full hand. Lower it briefly to repeat a letter."
@@ -136,6 +180,25 @@ internal class ContinuousFingerspell(
             policy.preview, confirmed, policy.windowCount, text,
             currentLetter = if(ownsFrames) policy.currentLetter else ""))
     }
+    /** Practical v1 guidance: what to do next and how far the held letter is from being added. */
+    private fun emitPractical(message: String?) {
+        val latch = policy.latch; val candidate = policy.candidateLetter
+        val target = policy.config.stableDecodes
+        val text = message ?: when {
+            !ownsFrames -> "WORD mode"
+            reviewing -> "Paused while you review the spelling"
+            policy.waitingForHand -> if (policy.preview.isEmpty()) "Show your hand to start spelling" else "Hand out of view"
+            candidate.isNotEmpty() -> "Holding $candidate (${minOf(policy.candidateProgress, target)}/$target)"
+            latch.isNotEmpty() && policy.preview.endsWith(latch) -> "Added $latch. Next letter, or Repeat for $latch$latch"
+            policy.preview.isNotEmpty() -> "Hold the next letter, or tap Done"
+            else -> "Hold one letter steady until it is added"
+        }
+        publish(FingerspellSnapshot(mode, if (policy.preview.isEmpty()) FingerspellPhase.CAPTURING else FingerspellPhase.PREVIEW,
+            policy.preview, confirmed, policy.windowCount, text,
+            currentLetter = if (ownsFrames && !reviewing) policy.currentLetter else "",
+            practical = true, reviewing = reviewing))
+    }
+
     private fun writeDiagnostics() {
         runCatching {
             val span = if (timestamps.size > 1) (timestamps.last - timestamps.first) / 1000.0 else 0.0
@@ -150,6 +213,9 @@ internal class ContinuousFingerspell(
                 .put("actual_decoder",FingerspellSingleLetterDecoder.VERSION).put("blank_penalty",models.blankPenalty.toDouble())
                 .put("beam_executed",false).put("cadence_scope","LAST_64_OBSERVATIONS_WITHIN_CURRENT_ACTIVE_EPISODE")
                 .put("accuracy_claim", "NONE").put("no_language_model", true)
+            if (practical) report.put("practical_v1", JSONObject().put("accept_while_hand_missing", true)
+                .put("deletes", deletes).put("repeats", repeats).put("clears", clears).put("confirms", confirms)
+                .put("review_holds", reviewHolds).put("review_resumes", reviewResumes).put("reviewing", reviewing))
             File(context.filesDir, "fingerspell_continuous.json").writeText(report.toString(2))
             if (ownsFrames && timestamps.size > 1) {
                 File(context.filesDir, "fingerspell_continuous_last_active.json").writeText(report.toString(2))
