@@ -16,6 +16,18 @@ provisioning remain open; no automatic new experiment is authorized. See docs/te
 
 # Progress Tracker
 
+**2026-10-23 — Integration phone check; final practical controls requested.**
+- [x] Installed verified integration APK `2709fd4d` on Xiaomi M2101K7AG / Android 12 with `adb install -r`;
+  data/install identity preserved; previous `b74dcda5` APK backed up. User confirms draft survived rotation
+  and the flow is working; diagnostics record one Delete. No Repeat/confirmation/accuracy pass inferred.
+- [x] User decision: remove Repeat and Done from RECOGNIZED, keep lower-panel DELETE LAST LETTER and
+  existing Hear review/confirmation. Runtime/WORD/model contracts unchanged; component registry updated.
+- [x] Final cleanup: JVM 336/336 with both flags on and off; debug/test APK builds pass. Installed
+  final `3c9bb4a2` with data preserved; decoder parity 1/1 on phone; screenshot/activity hierarchy
+  confirm Repeat/Done absent and Hear/Delete retained. Prior APKs preserved for rollback.
+- [ ] Baseline merge and remaining Hear/WORD/ordinary-movement/qualified-signer checks pending.
+  Report: `docs/audit/FINGERSPELL_PRACTICAL_V1_2026-10-23.md` §14.
+
 **2026-10-23 — Practical FINGERSPELL integrated into the application baseline for branch review.**
 - [x] `claude/fingerspell-practical-integration`: implementation `1affb6ea` above baseline `ae7afc98`;
   no separate WORD research commit. Integration report §13 added; publication authorized by the user.
@@ -23,7 +35,7 @@ provisioning remain open; no automatic new experiment is authorized. See docs/te
   six added Android files, no deletions. Dedicated WORD code and package assets unchanged.
 - [x] Saved flag-off JVM results verified: 336/336, zero failures/errors/skips. Prior handoff also records
   336/336 with both new flags on. APK SHA-256 identities independently match the handoff (`2709fd4d`, `51b34c4c`).
-- [ ] Baseline merge and integration device smoke pending; no install in this continuation.
+- [ ] Baseline merge and full device smoke pending; later partial phone results are recorded above.
   Report: `docs/audit/FINGERSPELL_PRACTICAL_V1_2026-10-23.md` §13. No live accuracy claim.
 
 **2026-10-22 - Conversation flow Phase 1 completed in code (branch `claude/text-to-asl-integration-c98d88`).**

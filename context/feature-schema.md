@@ -904,6 +904,13 @@ Contract: research `context/fingerspelling-continuous-v1.md`; Adapter.v1 `[T,405
 | Automatic held-letter policy | new app `fingerspelling/HeldLetterPolicy.kt` | independent chronological raw observations -> bounded window/stable unconfirmed letters | apphear.fingerspelling.held_letter_policy.v1; operational timing asset, no confidence claim; same-letter latch/missingness rearm; no fabricated frames |
 | Continuous inference owner | new app `fingerspelling/ContinuousFingerspell.kt`, existing runtime delegate | raw window -> fresh frozen Adapter.v1 -> frozen V2.1 logits -> exact singleton CTC | one worker/no backlog; callback on camera executor; generation/epoch guard; WORD transition waits; no protected WORD/perception/model change |
 | Persisted recognition mode | new app `data/settings/RecognitionModeSettings.kt`, shared Settings/Profile row | explicit user setting -> exactly one recognition owner | default WORD; debug opt-in continuous; no Start/Done; spelling draft + Use confirmation; no WORD SentenceBuilder use |
+| Practical fingerspelling correction UI | `fingerspelling/FingerspellPracticalControls.kt`, `RecognitionActivity.renderFingerspellPractical` | existing `FingerspellSnapshot` -> DELETE LAST LETTER above CLEAR; camera-executor delete action | debug `fingerspellPractical` requires continuous fingerspelling; hidden in WORD, disabled while reviewing; no Repeat/Done controls in RECOGNIZED; existing Hear owns confirmation; Adapter.v1 `[T,405]` unchanged |
+
+2026-10-23 practical UI decision: keep DELETE LAST LETTER in the lower panel and remove the
+Repeat/Done row from RECOGNIZED. Portrait lock remains a separate debug `recognitionPortrait`
+flag. Draft retention, fresh word on entry, review hold and explicit confirmation remain in the
+existing fingerspelling runtime/coordinator. This is presentation/interaction only: no feature
+layout/version, policy thresholds, normalization, model weights or WORD recognition change.
 
 169 unit/54 singleton/14 model parity checks,2 Settings/owner Xiaomi tests and3local Context Assist
 checks pass. Supervisor confirms automatic flow and WORD restoration, not A–Z accuracy. Tracking

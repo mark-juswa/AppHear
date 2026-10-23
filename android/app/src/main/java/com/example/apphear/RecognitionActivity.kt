@@ -1125,17 +1125,15 @@ class RecognitionActivity : AppCompatActivity() {
         fingerspellRuntime?.snapshot?.let(::renderFingerspell)
     }
 
-    /** FINGERSPELL practical v1 (debug flag): created lazily inside RECOGNIZED, GONE whenever WORD owns frames. */
+    /** FINGERSPELL practical v1 (debug flag): correction above CLEAR, GONE whenever WORD owns frames. */
     private fun renderFingerspellPractical(s: FingerspellSnapshot) {
         val runtime = fingerspellRuntime ?: return
         if (!runtime.practicalMode) return
         fun onCamera(task: (FingerspellRuntime) -> Unit) { if (!cameraExecutor.isShutdown) cameraExecutor.execute { fingerspellRuntime?.let(task) } }
         val controls = fingerspellPractical ?: com.example.apphear.fingerspelling.FingerspellPracticalControls(this,
-            binding.sentenceText.parent as LinearLayout, binding.sentenceText,
             // Delete sits in the pull-up panel, in its own row above the existing CLEAR row (CLEAR untouched).
             binding.clearButton.parent.parent as LinearLayout, binding.clearButton.parent as View,
             onDelete = { onCamera { it.deleteLast() } },
-            onRepeat = { onCamera { it.repeatLast() } }, onDone = { speakRecognizedSentence() },
         ).also { fingerspellPractical = it }
         controls.render(s)
     }

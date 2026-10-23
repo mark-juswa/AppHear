@@ -4,8 +4,9 @@ Date: 2026-10-23
 
 **Integration update (2026-10-23):** practical v1 is committed as `1affb6ea` on
 `claude/fingerspell-practical-integration`, based on the application baseline `ae7afc98`.
-See §13 for integration checks and APK identities. Earlier uncommitted/build status below is
-historical; this integration has not been merged into the baseline or installed on the phone.
+See §13 for integration checks and initial APK identities, and §14 for the subsequent phone
+check and final UI decision. Earlier uncommitted/build status below is historical. Baseline
+merge remains pending.
 
 Original experiment history: worktree `claude/friendly-torvalds-9872e5`, fast-forwarded from
 `1e215aeb` to `098f3682` (= `claude/s2-r3-eval-suite`, the WORD_BLEND_02 lineage the installed
@@ -407,3 +408,56 @@ No merge or device action was performed during this continuation. Last reported 
 then separately merge into the application baseline when approved. Before rollout, finish the
 portrait mid-spelling, DELETE LAST LETTER, Repeat, Done, ordinary-movement and WORD phone checks.
 Engineering tests and source preservation do not establish live cross-signer recognition accuracy.
+
+## 14. Integration phone check and final controls — 2026-10-23
+
+The user authorized a phone test. Installed integration APK `2709fd4d…` on Xiaomi M2101K7AG,
+Android 12, using `adb install -r`; installed hash matches the host APK, and original
+`firstInstallTime=2026-10-15 20:28:05` is preserved. The previous installed APK was independently
+backed up and verified as `b74dcda5…`. Packaged BuildConfig confirms practical/continuous
+fingerspelling, coordination, mode toolbar, conversation flow and visible sentence assist;
+the packaged manifest confirms portrait orientation. Startup reached MainActivity without a
+fatal exception in the captured log.
+
+Asked the user to spell MA, rotate, Delete and Repeat. The user reported that the draft stayed
+intact and it was working; saved diagnostics independently record one Delete, zero Repeats,
+and zero confirmations. This verifies the reported rotation experience and a Delete action,
+not a completed Repeat/Hear/WORD/ordinary-movement or multi-signer accuracy protocol.
+
+The user then requested **removing Repeat and Done and finishing the change**. Final UI:
+DELETE LAST LETTER remains above CLEAR in the lower panel; RECOGNIZED has no extra control row.
+The existing Hear action still opens spelling review/confirmation. Removed the unused control
+IDs, construction callbacks and obsolete Done/Repeat guidance; adjusted existing device-test UI
+assertions to Hear. Backend policy/decoder/model, review hold, draft retention and portrait flag
+are unchanged. Component registry updated in `context/feature-schema.md` without a schema change.
+
+Final cleanup verification:
+
+- `testDebugUnitTest assembleDebug assembleDebugAndroidTest`: **BUILD SUCCESSFUL**;
+  **336/336 JVM tests, zero failures/errors/skips**, with practical and portrait flags on.
+  Repeated `testDebugUnitTest` with both flags off: **336/336**, zero failures/errors/skips.
+- Updated app and test APKs installed with `adb install -r`; first-install identity remains
+  unchanged. Installed app SHA-256 matches the final host APK below.
+- Existing on-phone `FingerspellSingleLetterInstrumentedTest#exactPythonParity`: **1/1 passed**.
+  The activity-based practical test was compiled, not rerun through the previously blocked
+  MIUI background-activity route. This decoder test is engineering parity, not live accuracy.
+- Opened the existing debug recognition alias. The phone screenshot shows FINGERSPELL with
+  an uncluttered RECOGNIZED card and the original Hear button. Activity view hierarchy confirms
+  Hear and the retained Delete view, with no Repeat/Done/practical-row views. UIAutomator could
+  not obtain an idle state during the live camera stream; screenshot and activity dump supplied
+  the visual/hierarchy check. No fatal exception in the captured final startup log.
+- Source check against `ae7afc98` still passes for dedicated WORD/Candidate01/S2/materializer/
+  SentenceBuilder/Context Assist and package assets. Additional cleanup changes only control
+  presentation, its construction, resource IDs, snapshot guidance and existing UI assertions.
+
+| Final cleanup artifact | SHA-256 |
+|---|---|
+| Installed `app-debug.apk` | `3c9bb4a2d6441367b62b12c1bb144a5e2621574283ff37392e5fa2f537f59a22` |
+| Installed `app-debug-androidTest.apk` | `528643e0e1ef0c84a0524a8bf2e3322d4f01aa9aaf0eb5cb57cefdfed2c47d69` |
+
+The phone now runs the final cleanup candidate. The preceding integration APK `2709fd4d…`
+and original installed `b74dcda5…` are both retained locally for rollback. Baseline merge and
+the remaining Hear-confirmation/WORD/ordinary-movement/qualified-signer checks remain separate;
+no live accuracy claim is made. The last generated host BuildConfig describes the flag-off
+regression run, while the assembled/installed APKs above retain the flag-on configuration.
+Local-only evidence/rollback files: `.codex_tmp/fingerspell_phone_20261023/` (gitignored).

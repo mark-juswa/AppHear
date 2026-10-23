@@ -64,9 +64,7 @@ class FingerspellPracticalInstrumentedTest {
             onCamera { runtime.pause(); policy.reset(); hold("M", 0.0); hold("A", 2000.0); hold("X", 4000.0); emit() }
             instrumentation.runOnMainSync {
                 assertEquals("MAX", text(R.id.sentenceText))
-                assertEquals(View.VISIBLE, visible(R.id.fingerspellPracticalPanel))
-                assertEquals("Repeat X", text(R.id.fingerspellRepeat))
-                assertTrue(activity.findViewById<View>(R.id.fingerspellDone).isEnabled)
+                assertTrue(activity.findViewById<View>(R.id.hearButton).isEnabled)
                 assertEquals("Delete lives in the pull-up panel", View.VISIBLE, visible(R.id.fingerspellDelete))
                 assertTrue(activity.findViewById<View>(R.id.fingerspellDelete).isEnabled)
             }
@@ -89,7 +87,7 @@ class FingerspellPracticalInstrumentedTest {
                 runtime.deleteLast(); assertEquals("Delete is disabled while reviewing", "MAA", runtime.snapshot.preview)
                 runtime.resumeAfterReview(); assertFalse(runtime.snapshot.reviewing)
             }
-            instrumentation.runOnMainSync { assertTrue(activity.findViewById<View>(R.id.fingerspellDone).isEnabled) }
+            instrumentation.runOnMainSync { assertTrue(activity.findViewById<View>(R.id.hearButton).isEnabled) }
             // WORD owner: panel gone, no fingerspell inference, WORD sentence untouched.
             onCamera {
                 runtime.select(RecognitionMode.WORD)
@@ -99,7 +97,6 @@ class FingerspellPracticalInstrumentedTest {
                 assertEquals(wordBefore, word.sentenceText)
             }
             instrumentation.runOnMainSync {
-                assertEquals(View.GONE, visible(R.id.fingerspellPracticalPanel))
                 assertEquals(View.GONE, visible(R.id.fingerspellDelete))
                 assertEquals(View.VISIBLE, visible(R.id.clearButton))
             }

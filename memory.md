@@ -1,4 +1,20 @@
 
+## Practical FINGERSPELL phone check and final UI — 2026-10-23 (Asia/Manila)
+
+User authorized testing on Xiaomi. Installed integration `2709fd4d` with data preserved;
+backed-up prior installed APK is `b74dcda5`. User confirms rotation preserves the draft and
+the flow works; diagnostics record one Delete, no Repeat or confirm. User then requested
+removing Repeat/Done and finishing. Final contract: only DELETE LAST LETTER above CLEAR;
+Hear remains the spelling review/confirmation path. Registry and report §14 capture this.
+Cleanup complete: 336/336 JVM tests pass with both new flags on and off; debug/test APK builds
+pass. Final app SHA begins `3c9bb4a2`, installed with data preserved; decoder parity passes 1/1
+on phone. Screenshot/activity hierarchy confirm Repeat/Done absent, Hear/Delete retained.
+Report §14 has full identities and evidence limitations. Next: separately review/merge the
+integration branch if authorized, then remaining Hear/WORD/ordinary-movement/qualified-signer
+checks. No activity-based instrumented pass or live accuracy claim was inferred.
+No baseline merge or live recognition accuracy claim is authorized by this UI change.
+Local phone evidence and rollback APKs are under gitignored `.codex_tmp/fingerspell_phone_20261023/`.
+
 ## Practical FINGERSPELL baseline integration handoff — 2026-10-23 (Asia/Manila)
 
 The user authorized publishing `claude/fingerspell-practical-integration` to origin and adding

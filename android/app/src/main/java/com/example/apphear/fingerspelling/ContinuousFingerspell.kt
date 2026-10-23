@@ -189,8 +189,8 @@ internal class ContinuousFingerspell(
             reviewing -> "Paused while you review the spelling"
             policy.waitingForHand -> if (policy.preview.isEmpty()) "Show your hand to start spelling" else "Hand out of view"
             candidate.isNotEmpty() -> "Holding $candidate (${minOf(policy.candidateProgress, target)}/$target)"
-            latch.isNotEmpty() && policy.preview.endsWith(latch) -> "Added $latch. Next letter, or Repeat for $latch$latch"
-            policy.preview.isNotEmpty() -> "Hold the next letter, or tap Done"
+            latch.isNotEmpty() && policy.preview.endsWith(latch) -> "Added $latch. Hold the next letter, or tap Hear to review"
+            policy.preview.isNotEmpty() -> "Hold the next letter, or tap Hear to review"
             else -> "Hold one letter steady until it is added"
         }
         publish(FingerspellSnapshot(mode, if (policy.preview.isEmpty()) FingerspellPhase.CAPTURING else FingerspellPhase.PREVIEW,
