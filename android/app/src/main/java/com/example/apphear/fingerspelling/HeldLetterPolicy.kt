@@ -5,6 +5,8 @@ data class HeldLetterConfig(
     val windowMs: Double, val minimumSpanMs: Double, val minimumUsable: Int,
     val inferenceIntervalMs: Double, val stableDecodes: Int, val stableSpanMs: Double,
     val rearmMissingMs: Double, val rearmMissingObservations: Int, val maximumObservations: Int,
+    /** Practical v1: judge a result by the evidence of its own window, not by a one-frame dropout at callback time. */
+    val acceptWhileHandMissing: Boolean = false,
 ) {
     init {
         require(windowMs >= minimumSpanMs && minimumSpanMs > 0 && minimumUsable > 0)
@@ -32,6 +34,9 @@ class HeldLetterPolicy(val config: HeldLetterConfig) {
     private var missingStart: Double? = null
     private var missingCount = 0
     private var rearmedDuringAbsence = false
+    // Practical v1: a letter appended while the hand was already out of view keeps its latch through that
+    // same absence (the user never saw it appear, so the absence is not a deliberate "lower to repeat").
+    private var latchSurvivesAbsence = false
     private var candidate = ""
     private var candidateStart = 0.0
     private var candidateCount = 0
@@ -52,7 +57,7 @@ class HeldLetterPolicy(val config: HeldLetterConfig) {
 
     fun reset(clearPreview: Boolean = true, keepLatch: Boolean = false) {
         epoch++; observations.clear(); lastTimestamp = null; lastRequest = Double.NEGATIVE_INFINITY
-        missingStart = null; missingCount = 0; rearmedDuringAbsence = false
+        missingStart = null; missingCount = 0; rearmedDuringAbsence = false; latchSurvivesAbsence = false
         resetCandidate(); currentLetter = ""; lastAcceptanceReason = HeldLetterAcceptanceReason.NOT_EVALUATED
         if (!keepLatch) latch = ""
         if (clearPreview) preview = ""
@@ -69,13 +74,13 @@ class HeldLetterPolicy(val config: HeldLetterConfig) {
         val usable = usable(observation)
         if (!usable) currentLetter = ""
         if (usable) {
-            missingStart = null; missingCount = 0; rearmedDuringAbsence = false
+            missingStart = null; missingCount = 0; rearmedDuringAbsence = false; latchSurvivesAbsence = false
         } else {
             if (missingStart == null) missingStart = t
             missingCount++
             if (!rearmedDuringAbsence && missingCount >= config.rearmMissingObservations &&
                 t - missingStart!! >= config.rearmMissingMs) {
-                observations.clear(); latch = ""; epoch++; resetCandidate()
+                observations.clear(); if (!latchSurvivesAbsence) latch = ""; epoch++; resetCandidate()
                 rearmedDuringAbsence = true
             }
         }
@@ -100,7 +105,9 @@ class HeldLetterPolicy(val config: HeldLetterConfig) {
     /** Results refer to the exact requested raw-window epoch; stale/duplicate results cannot append. */
     fun accept(requestEpoch: Int, timestampMs: Double, letter: String): Boolean {
         if (requestEpoch != epoch) { lastAcceptanceReason = HeldLetterAcceptanceReason.STALE_EPOCH; return false }
-        if (waitingForHand) { lastAcceptanceReason = HeldLetterAcceptanceReason.HAND_CURRENTLY_MISSING; return false }
+        // A sustained absence already rearms (new epoch, STALE_EPOCH above). A shorter dropout after the
+        // window was requested does not invalidate evidence the window already had (practical v1).
+        if (waitingForHand && !config.acceptWhileHandMissing) { lastAcceptanceReason = HeldLetterAcceptanceReason.HAND_CURRENTLY_MISSING; return false }
         if (timestampMs <= lastDecision) { lastAcceptanceReason = HeldLetterAcceptanceReason.OUT_OF_ORDER_RESULT; return false }
         require(letter.isEmpty() || (letter.length == 1 && letter[0] in 'A'..'Z'))
         lastDecision = timestampMs
@@ -115,9 +122,38 @@ class HeldLetterPolicy(val config: HeldLetterConfig) {
         if (timestampMs - candidateStart < config.stableSpanMs) { lastAcceptanceReason = HeldLetterAcceptanceReason.NEED_LONGER_STABLE_SPAN; return false }
         lastAcceptanceReason = HeldLetterAcceptanceReason.APPENDED
         preview += letter; latch = letter
+        if (waitingForHand && config.acceptWhileHandMissing) latchSurvivesAbsence = true
         observations.clear(); epoch++; resetCandidate()
         return true
     }
+
+    /**
+     * Practical v1 correction: remove the last draft letter. A new epoch drops in-flight results and the window;
+     * the latch is kept, so a still-held deleted pose cannot immediately re-append (lower the hand to repeat it).
+     */
+    fun deleteLast(): Boolean {
+        if (preview.isEmpty()) return false
+        preview = preview.dropLast(1)
+        epoch++; observations.clear(); lastRequest = Double.NEGATIVE_INFINITY
+        resetCandidate(); currentLetter = ""; lastAcceptanceReason = HeldLetterAcceptanceReason.NOT_EVALUATED
+        return true
+    }
+
+    /**
+     * Practical v1 explicit double letter: append the last draft letter again (natural slide/bounce doubles are not
+     * separable by the singleton window). Latched, so the still-held pose cannot add a third copy.
+     */
+    fun repeatLast(): Boolean {
+        val last = preview.lastOrNull() ?: return false
+        preview += last; latch = last.toString()
+        epoch++; observations.clear(); lastRequest = Double.NEGATIVE_INFINITY
+        resetCandidate(); lastAcceptanceReason = HeldLetterAcceptanceReason.NOT_EVALUATED
+        return true
+    }
+
+    /** Presentation-only progress of the current unlatched candidate toward [HeldLetterConfig.stableDecodes]. */
+    val candidateLetter get() = candidate
+    val candidateProgress get() = candidateCount
 
     companion object {
         fun usable(c: CommonObservation) = (0..1).any { c.observed[it] && c.valid[it].any { valid -> valid } }

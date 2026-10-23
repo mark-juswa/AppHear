@@ -94,6 +94,7 @@ class RecognitionActivity : AppCompatActivity() {
     @Volatile private var selectedRecognitionMode = RecognitionMode.WORD
     private var fingerspellStatus: TextView? = null
     private val fingerspellButtons = mutableMapOf<String, MaterialButton>()
+    private var fingerspellPractical: com.example.apphear.fingerspelling.FingerspellPracticalControls? = null
     private val signingTurn = SigningTurnBuffer()
     private var evidenceInterrupted = false
     private var signingVisible = false
@@ -376,6 +377,8 @@ class RecognitionActivity : AppCompatActivity() {
         fingerspellRuntime?.snapshot?.takeIf { it.mode == RecognitionMode.FINGERSPELL }?.let {
             if (BuildConfig.FINGERSPELL_CONTINUOUS_ENABLED && it.preview.isNotBlank()) {
                 val draft = it.preview
+                val practical = fingerspellRuntime?.practicalMode == true // practical v1: hold letters during review
+                if (practical) cameraExecutor.execute { fingerspellRuntime?.holdForReview() }
                 androidx.appcompat.app.AlertDialog.Builder(this)
                     .setTitle("Confirm spelling")
                     .setMessage(it.confirmed + draft)
@@ -392,7 +395,9 @@ class RecognitionActivity : AppCompatActivity() {
                             }
                         }
                     }
-                    .setNegativeButton(android.R.string.cancel, null).show()
+                    .setNegativeButton(android.R.string.cancel, null)
+                    .apply { if (practical) setOnDismissListener { if (!cameraExecutor.isShutdown) cameraExecutor.execute { fingerspellRuntime?.resumeAfterReview() } } }
+                    .show()
             } else if (it.confirmed.isBlank()) Toast.makeText(this, "No spelling to speak", Toast.LENGTH_SHORT).show()
             else speechPlayer.speak(it.confirmed)
             return
@@ -671,6 +676,7 @@ class RecognitionActivity : AppCompatActivity() {
                     fingerspellRuntime = FingerspellRuntime(applicationContext, spellingModels,
                         { frameAnalyzer.resetTemporalSession() }, ::onFingerspell,
                         continuousEnabled = BuildConfig.FINGERSPELL_CONTINUOUS_ENABLED,
+                        practicalEnabled = BuildConfig.FINGERSPELL_PRACTICAL_ENABLED,
                         dispatch = { task -> if (!cameraExecutor.isShutdown) cameraExecutor.execute { task() } })
                     installFingerspellControls()
                     cameraExecutor.execute { fingerspellRuntime?.select(selectedRecognitionMode) }
@@ -1119,6 +1125,21 @@ class RecognitionActivity : AppCompatActivity() {
         fingerspellRuntime?.snapshot?.let(::renderFingerspell)
     }
 
+    /** FINGERSPELL practical v1 (debug flag): created lazily inside RECOGNIZED, GONE whenever WORD owns frames. */
+    private fun renderFingerspellPractical(s: FingerspellSnapshot) {
+        val runtime = fingerspellRuntime ?: return
+        if (!runtime.practicalMode) return
+        fun onCamera(task: (FingerspellRuntime) -> Unit) { if (!cameraExecutor.isShutdown) cameraExecutor.execute { fingerspellRuntime?.let(task) } }
+        val controls = fingerspellPractical ?: com.example.apphear.fingerspelling.FingerspellPracticalControls(this,
+            binding.sentenceText.parent as LinearLayout, binding.sentenceText,
+            // Delete sits in the pull-up panel, in its own row above the existing CLEAR row (CLEAR untouched).
+            binding.clearButton.parent.parent as LinearLayout, binding.clearButton.parent as View,
+            onDelete = { onCamera { it.deleteLast() } },
+            onRepeat = { onCamera { it.repeatLast() } }, onDone = { speakRecognizedSentence() },
+        ).also { fingerspellPractical = it }
+        controls.render(s)
+    }
+
     private fun onFingerspell(snapshot: FingerspellSnapshot) {
         runOnUiThread {
             if (isFinishing || isDestroyed || !lifecycle.currentState.isAtLeast(Lifecycle.State.STARTED)) return@runOnUiThread
@@ -1155,6 +1176,7 @@ class RecognitionActivity : AppCompatActivity() {
                 // This empty FINGERSPELL card remains visible; WORD still uses its original visibility rule.
                 binding.sentenceCard.visibility = View.VISIBLE
             }
+            if (BuildConfig.FINGERSPELL_PRACTICAL_ENABLED) renderFingerspellPractical(s)
             return
         }
         if (active) {
