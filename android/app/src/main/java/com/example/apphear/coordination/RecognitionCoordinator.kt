@@ -5,6 +5,13 @@ import java.util.Locale
 
 enum class SpellingIntent { NAME, PLACE, SPELL }
 data class ContextModeRule(val kind: SpellingIntent, val pattern: Regex)
+
+/**
+ * Words allowed around a rule's question ("Hi, what's your name again?"). Anything else around it
+ * still fails, so statements and compound questions ("What is your name and age?") stay in WORD.
+ */
+data class QuestionFillers(val leading: List<String> = emptyList(), val trailing: List<String> = emptyList())
+
 data class CoordinationState(
     val mode: RecognitionMode, val hearingTurnId: Long?, val hint: SpellingIntent?,
     val automatic: Boolean, val responseStarted: Boolean, val lastConfirmedSpelling: String,
@@ -12,7 +19,14 @@ data class CoordinationState(
 )
 
 /** Pure camera-executor policy. Never reads recognizer scores or supplies recognition text. */
-class RecognitionCoordinator(private val rules: List<ContextModeRule>, initial: RecognitionMode) {
+class RecognitionCoordinator(rules: List<ContextModeRule>, initial: RecognitionMode,
+                             fillers: QuestionFillers = QuestionFillers()) {
+    private val matchers: List<Pair<SpellingIntent, Regex>> = rules.map { rule ->
+        fun group(words: List<String>) = words.joinToString("|") { Regex.escape(it) }
+        val lead = if (fillers.leading.isEmpty()) "" else "(?:(?:${group(fillers.leading)}) )*"
+        val trail = if (fillers.trailing.isEmpty()) "" else "(?: (?:${group(fillers.trailing)}))*"
+        rule.kind to Regex(lead + "(?:" + rule.pattern.pattern + ")" + trail)
+    }
     private var mode = initial
     private var turnId: Long? = null
     private var highestTurn = 0L
@@ -28,9 +42,10 @@ class RecognitionCoordinator(private val rules: List<ContextModeRule>, initial: 
     @Volatile var state = snapshot(); private set
 
     fun classify(text: String): SpellingIntent? {
-        val normalized = text.lowercase(Locale.ROOT).replace('’','\'').trim()
-            .replace(Regex("[?!.]+$"), "").replace(Regex("\\s+"), " ")
-        return rules.firstOrNull { it.pattern.matches(normalized) }?.kind
+        // Punctuation from speech-to-text ("Hi, what's your name?") becomes a word break.
+        val normalized = text.lowercase(Locale.ROOT).replace('’','\'')
+            .replace(Regex("[?!.,;:]"), " ").replace(Regex("\\s+"), " ").trim()
+        return matchers.firstOrNull { it.second.matches(normalized) }?.first
     }
 
     fun context(id: Long?, text: String) {

@@ -1,13 +1,28 @@
 {
-  "schema_version": "apphear.recognition.coordination.v1",
+  "schema_version": "apphear.recognition.coordination.v2",
   "automatic_entry": "IDLE_BEFORE_RESPONSE_WITHOUT_USABLE_HAND",
   "completion": "EXPLICIT_CONFIRMATION",
+  "matching": "WHOLE_QUESTION_WITH_FILLERS",
+  "leading_fillers": ["hi", "hello", "hey", "ok", "okay", "so", "and", "um", "uh", "oh", "well", "excuse me", "sorry", "by the way", "friend", "buddy"],
+  "trailing_fillers": ["again", "please", "then", "now", "by the way", "friend", "buddy", "today", "tonight", "tomorrow", "yesterday", "later", "last night", "this weekend", "after school", "after work", "right now"],
   "rules": [
-    {"kind":"NAME","pattern":"(?:what is|what's) (?:your|his|her|their) (?:first |last |full )?name"},
+    {"kind":"NAME","pattern":"(?:what is|what's|whats) (?:your|his|her|their) (?:first |last |full |middle )?name"},
     {"kind":"NAME","pattern":"(?:can|could|would) you tell me your (?:first |last |full )?name"},
-    {"kind":"PLACE","pattern":"what (?:city|town|country|place) (?:are you from|do you live in)"},
-    {"kind":"PLACE","pattern":"what is the name of (?:your city|your town|your school|that place)"},
-    {"kind":"SPELL","pattern":"(?:please )?spell (?:your |the |his |her )?(?:name|first name|last name|full name|city|town|place|word|address)"},
-    {"kind":"SPELL","pattern":"(?:can|could|would) you (?:please )?spell (?:your |the |his |her )?(?:name|first name|last name|full name|city|town|place|word|address)"}
+    {"kind":"NAME","pattern":"(?:may|can|could) i (?:know|have|ask|get) your (?:first |last |full )?name"},
+    {"kind":"NAME","pattern":"(?:and )?your (?:first |last |full )?name"},
+    {"kind":"NAME","pattern":"who are you|what (?:should|do|can) (?:i|we|people) call you|what do you go by"},
+    {"kind":"PLACE","pattern":"where (?:are|were) you(?: at)?"},
+    {"kind":"PLACE","pattern":"where (?:are|were) you (?:from|born|raised|living|staying)"},
+    {"kind":"PLACE","pattern":"where (?:do|did) you (?:live|stay|come from|grow up)"},
+    {"kind":"PLACE","pattern":"where (?:are|were) you (?:going|headed|heading)(?: to)?"},
+    {"kind":"PLACE","pattern":"where (?:did|do|will|would) you (?:go|travel|work|study|go to school)"},
+    {"kind":"PLACE","pattern":"where are you going to go|where do you want to go"},
+    {"kind":"PLACE","pattern":"where (?:is|was) your (?:house|home|school|office|work|workplace|hometown|home town)"},
+    {"kind":"PLACE","pattern":"what (?:city|town|country|province|state|street|school|place) (?:are you from|do you live in|did you live in|were you born in|do you go to|do you study at|do you work at|are you going to)"},
+    {"kind":"PLACE","pattern":"what is the name of (?:your city|your town|your school|your street|your company|that place|the place)"},
+    {"kind":"PLACE","pattern":"(?:what is|what's|whats) your (?:address|home address|hometown|home town|city|country|school|workplace)"},
+    {"kind":"SPELL","pattern":"(?:please )?spell(?: it| that| (?:your |the |his |her )?(?:name|first name|last name|full name|city|town|place|word|address))?"},
+    {"kind":"SPELL","pattern":"(?:can|could|would) you (?:please )?spell(?: it| that| (?:your |the |his |her )?(?:name|first name|last name|full name|city|town|place|word|address))?"},
+    {"kind":"SPELL","pattern":"how do you spell (?:your |the |his |her )?(?:name|first name|last name|full name|city|town|place|word|address|it|that)"}
   ]
 }

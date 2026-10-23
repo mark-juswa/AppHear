@@ -196,6 +196,7 @@ class RecognitionActivity : AppCompatActivity() {
                         selectedRecognitionMode=mode
                         runOnUiThread {
                             if(!isFinishing && !isDestroyed) {
+                                onCoordinatedMode(mode)
                                 if(mode==RecognitionMode.FINGERSPELL && signingTurn.snapshot().isNotEmpty()) evidenceInterrupted=true
                                 if(mode==RecognitionMode.WORD) renderRecognitionSnapshot(RecognitionUiSnapshot.from(
                                     com.example.apphear.pipeline.recognition.RecognitionState.Idle,
@@ -990,17 +991,34 @@ class RecognitionActivity : AppCompatActivity() {
         binding.modeToolsToggle.setOnClickListener {
             val open = binding.modeToolsGroup.visibility != View.VISIBLE
             ConversationTimeline.tap("recognition", if (open) "mode_tools_open" else "mode_tools_close")
-            binding.modeToolsGroup.visibility = if (open) View.VISIBLE else View.GONE
-            binding.modeToolsToggle.setBackgroundResource(if (open) R.drawable.circle_btn_selected else R.drawable.circle_btn_white)
-            binding.modeToolsToggle.contentDescription =
-                getString(if (open) R.string.mode_toolbar_hide else R.string.mode_toolbar_show)
-            renderModeToolbar(currentRecognitionMode())
+            setModeToolbarOpen(open)
         }
         binding.modeWordButton.setOnClickListener { requestRecognitionMode(RecognitionMode.WORD) }
         binding.modeSpellButton.setOnClickListener { requestRecognitionMode(RecognitionMode.FINGERSPELL) }
         binding.modeWordButton.tooltipText = getString(R.string.mode_toolbar_word)
         binding.modeSpellButton.tooltipText = getString(R.string.mode_toolbar_spell)
         renderModeToolbar(currentRecognitionMode())
+    }
+
+    private fun setModeToolbarOpen(open: Boolean) {
+        binding.modeToolsGroup.visibility = if (open) View.VISIBLE else View.GONE
+        binding.modeToolsToggle.setBackgroundResource(if (open) R.drawable.circle_btn_selected else R.drawable.circle_btn_white)
+        binding.modeToolsToggle.contentDescription =
+            getString(if (open) R.string.mode_toolbar_hide else R.string.mode_toolbar_show)
+        renderModeToolbar(currentRecognitionMode())
+    }
+
+    /**
+     * A mode chosen by Context Assist's coordinator. When a hearing question (name, place, spelling)
+     * switched to FINGERSPELL by itself, the mode buttons open so the signer sees it and can tap back.
+     */
+    private fun onCoordinatedMode(mode: RecognitionMode) {
+        val bridge = coordination ?: return
+        if (mode == RecognitionMode.FINGERSPELL && bridge.automaticSwitch) {
+            ConversationTimeline.mark("mode_auto_switch", "to" to "fingerspell", "reason" to bridge.switchReason)
+            if (BuildConfig.RECOGNITION_MODE_TOOLBAR_ENABLED && recognitionSettings.selectionAvailable) setModeToolbarOpen(true)
+        }
+        renderModeToolbar(mode)
     }
 
     private fun currentRecognitionMode(): RecognitionMode = fingerspellRuntime?.snapshot?.mode ?: selectedRecognitionMode

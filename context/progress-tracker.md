@@ -36,6 +36,11 @@ All debug-only flags; release builds hard-set them off. WORD recognition, Senten
 - [x] `recognitionModeToolbar` (debug only): a toggle under Hear shows WORD (hand) / FINGERSPELL (ABC) buttons;
   the choice is saved like Settings and goes through the coordinator; leaving a spelling with letters asks
   first. Verified on device 2026-10-23 (open/close, WORD <-> FINGERSPELL, no errors).
+- [x] Context Assist auto-switch to FINGERSPELL (coordination policy v2): questions may carry greetings and
+  endings ("Hi, what's your name again?"); added where-questions (live, from, born, going, work, address,
+  "Where are you?"); the mode buttons pop open on an automatic switch; logs record the matched rule
+  (`question_rule`, never the words). Device 2026-10-23: "What's your name?" switched; the latest rules
+  (incl. "Where are you?") are installed but not yet exercised on the phone.
 
 **2026-10-18 - WORD priorities after WORD_BLEND_02; review package 03 prepared; no new model trained.**
 See `docs/audit/WORD_PRIORITIES_2026-10-18.md`. Research only; Android, S2, decoder and Candidate01 unchanged.

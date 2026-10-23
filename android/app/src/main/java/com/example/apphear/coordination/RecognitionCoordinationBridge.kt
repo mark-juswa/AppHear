@@ -10,6 +10,7 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import com.example.apphear.R
 import com.example.apphear.contextassist.ConversationPhraseAssist
 import com.example.apphear.contextassist.PhraseAssistUiState
+import com.example.apphear.conversation.ConversationTimeline
 import com.example.apphear.fingerspelling.FingerspellRuntime
 import com.example.apphear.fingerspelling.RecognitionMode
 import org.json.JSONObject
@@ -35,13 +36,15 @@ internal class RecognitionCoordinationBridge(
     }
     init {
         val config = context.assets.open("recognition_coordination_policy.json").bufferedReader().use { JSONObject(it.readText()) }
-        require(config.getString("schema_version")=="apphear.recognition.coordination.v1")
+        require(config.getString("schema_version")=="apphear.recognition.coordination.v2")
+        require(config.getString("matching")=="WHOLE_QUESTION_WITH_FILLERS")
         require(config.getString("automatic_entry")=="IDLE_BEFORE_RESPONSE_WITHOUT_USABLE_HAND")
         require(config.getString("completion")=="EXPLICIT_CONFIRMATION")
         val rules=config.getJSONArray("rules")
         policy=RecognitionCoordinator((0 until rules.length()).map {
             val r=rules.getJSONObject(it); ContextModeRule(SpellingIntent.valueOf(r.getString("kind")),Regex(r.getString("pattern")))
-        },initial)
+        },initial,QuestionFillers(strings(config.getJSONArray("leading_fillers")),
+            strings(config.getJSONArray("trailing_fillers"))))
         val density=context.resources.displayMetrics.density
         fun dp(n:Int)=(n*density).toInt()
         val panel=LinearLayout(context).apply {
@@ -68,6 +71,13 @@ internal class RecognitionCoordinationBridge(
         }
         context(ConversationPhraseAssist.presentationState.value)
     }
+    /** True when the current mode came from a hearing question, not from the user. */
+    val automaticSwitch: Boolean get() = policy.state.automatic
+    /** The question kind behind the current automatic switch (NAME, PLACE or SPELL). */
+    val switchReason: String? get() = policy.state.hint?.name
+
+    private fun strings(array: org.json.JSONArray) = (0 until array.length()).map { array.getString(it) }
+
     fun stopped() { generation++; active=false; lastContext=null; dispatch { policy.pause() } }
     fun context(state: PhraseAssistUiState) {
         if(!active) return
@@ -78,7 +88,11 @@ internal class RecognitionCoordinationBridge(
         lastContext=key; val ticket=generation
         dispatch {
             if(!active || ticket!=generation || id!=ConversationPhraseAssist.activeHearingTurnId()) return@dispatch
-            policy.context(id,text); render()
+            policy.context(id,text)
+            // Which rule the hearing question matched; the words themselves are never logged.
+            if(id!=null) ConversationTimeline.mark("question_rule","hearing_turn" to id,
+                "rule" to (policy.state.hint?.name ?: "NONE"),"chars" to text.length)
+            render()
         }
     }
 
