@@ -1,6 +1,13 @@
 # FINGERSPELL — Recognition, Continuous Detection and Word-Commit Improvement (practical v1)
 
-Date: 2026-10-23 · Worktree `claude/friendly-torvalds-9872e5`, fast-forwarded (no new commit) from
+Date: 2026-10-23
+
+**Integration update (2026-10-23):** practical v1 is committed as `1affb6ea` on
+`claude/fingerspell-practical-integration`, based on the application baseline `ae7afc98`.
+See §13 for integration checks and APK identities. Earlier uncommitted/build status below is
+historical; this integration has not been merged into the baseline or installed on the phone.
+
+Original experiment history: worktree `claude/friendly-torvalds-9872e5`, fast-forwarded from
 `1e215aeb` to `098f3682` (= `claude/s2-r3-eval-suite`, the WORD_BLEND_02 lineage the installed
 phone build came from). **Nothing committed, pushed or merged.** With your approval the candidate
 was installed on the phone with `adb install -r` for a partial device session (§11); the session is
@@ -354,3 +361,49 @@ Next work, in order:
 
 Not planned: faster hold timings or score thresholds (rejected with evidence in §4), retraining
 without verified data, any change to the WORD path.
+
+## 13. Integration into the application baseline — 2026-10-23
+
+Publication branch: `claude/fingerspell-practical-integration`. Parent baseline:
+`ae7afc987747fc21658fd8d1ce8881acdb5d16bf` on `claude/text-to-asl-integration-c98d88`.
+The only implementation commit above it is `1affb6ea` (practical FINGERSPELL); the original
+FINGERSPELL source remains `51c93496` on `claude/friendly-torvalds-9872e5`. The separate WORD
+research commit was not brought over. This section supersedes the pending commit/merge path
+in §12; baseline merge and integration phone validation remain pending.
+
+Integration checks:
+
+- The WORD/FINGERSPELL toolbar still uses `manual()` -> `apply()` -> `ContinuousFingerspell.select()`.
+  Entering FINGERSPELL starts a fresh word and ends review hold; leaving pending letters for WORD
+  still asks for confirmation. The baseline layout XML is unchanged; the new Delete row attaches
+  above the original CLEAR row, and Repeat/Done attach to RECOGNIZED.
+- Rechecked `git diff ae7afc98 1affb6ea` across `android/app/src`, `android/app/build.gradle.kts`
+  and `packages`: **1,087 existing tracked files; 1,080 unchanged, seven modified, none deleted;
+  six added Android files**. The seven modified files are the three existing FINGERSPELL files
+  and the four shared files justified in §5. Dedicated WORD/Candidate01/S2/materializer/
+  SentenceBuilder/Context Assist implementation and all package assets are unchanged from
+  `ae7afc98`. The only shared WORD-screen effect is the opted-in portrait lock.
+- Prior integration handoff records **336/336 JVM tests passing with both new switches on and
+  with both off**. On continuation, the saved final flag-off XML independently confirms 66 suites,
+  336 tests, zero failures/errors/skips, including 11 coordinator and nine practical-policy tests.
+  Generated BuildConfig confirms practical mode off for that final regression run. No tests were
+  rerun for this documentation-only continuation; the earlier flag-on result is handoff evidence.
+- Flag-on integration build retained the locked baseline properties plus `conversationTimeline`,
+  `sentenceAssist=visible`, `conversationFlowV1`, `conversationAutoReply`, `conversationAutoListen`,
+  `llmFallback` (blank key), `recognitionModeToolbar`, `fingerspellPractical=true` and
+  `recognitionPortrait=true`. The APK hashes below were independently rechecked on continuation.
+
+| Integration artifact (not installed) | SHA-256 | Bytes |
+|---|---|---|
+| `app-debug.apk` | `2709fd4dd7680fb1794d68991552b8332367e4cd45cdf72566532180daa8f500` | 852,218,564 |
+| `app-debug-androidTest.apk` | `51b34c4c3f14ba1a47267aaaf960f7b6f4d0708797a278dec3dc707892038baa` | 7,629,193 |
+
+The final flag-off test run regenerated BuildConfig/merged manifests; those files describe that
+test configuration, not the previously assembled flag-on APK. Do not infer APK flag values from
+the latest generated files alone.
+
+No merge or device action was performed during this continuation. Last reported phone build is
+`b74dcda5`; rollback build `76bc90a4` remains backed up (§11). Next: review this integration branch,
+then separately merge into the application baseline when approved. Before rollout, finish the
+portrait mid-spelling, DELETE LAST LETTER, Repeat, Done, ordinary-movement and WORD phone checks.
+Engineering tests and source preservation do not establish live cross-signer recognition accuracy.

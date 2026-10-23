@@ -16,6 +16,16 @@ provisioning remain open; no automatic new experiment is authorized. See docs/te
 
 # Progress Tracker
 
+**2026-10-23 — Practical FINGERSPELL integrated into the application baseline for branch review.**
+- [x] `claude/fingerspell-practical-integration`: implementation `1affb6ea` above baseline `ae7afc98`;
+  no separate WORD research commit. Integration report §13 added; publication authorized by the user.
+- [x] Source comparison: 1,080/1,087 existing Android/package files unchanged, seven documented edits,
+  six added Android files, no deletions. Dedicated WORD code and package assets unchanged.
+- [x] Saved flag-off JVM results verified: 336/336, zero failures/errors/skips. Prior handoff also records
+  336/336 with both new flags on. APK SHA-256 identities independently match the handoff (`2709fd4d`, `51b34c4c`).
+- [ ] Baseline merge and integration device smoke pending; no install in this continuation.
+  Report: `docs/audit/FINGERSPELL_PRACTICAL_V1_2026-10-23.md` §13. No live accuracy claim.
+
 **2026-10-22 - Conversation flow Phase 1 completed in code (branch `claude/text-to-asl-integration-c98d88`).**
 All debug-only flags; release builds hard-set them off. WORD recognition, SentenceBuilder and Context Assist unchanged.
 - [x] `conversationTimeline` (Phase 0 log, `tools/conversation_flow/`), `sentenceAssist=off|shadow|visible`

@@ -1,4 +1,18 @@
 
+## Practical FINGERSPELL baseline integration handoff — 2026-10-23 (Asia/Manila)
+
+The user authorized publishing `claude/fingerspell-practical-integration` to origin and adding
+the integration note. Use the existing `.claude/worktrees/friendly-torvalds-9872e5` checkout;
+the repository-root checkout contains unrelated uncommitted work and was left alone.
+Implementation `1affb6ea` is based on `ae7afc98`; the report now has the integration evidence
+and APK hashes in §13. Saved flag-off results independently verify 336/336 passing; the prior
+handoff records the same count with flags on. No runtime code was changed in this continuation.
+Next session: check the publication branch's remote tip, review the integration for a separately
+approved baseline merge, and finish the pending phone smoke when signing is practical.
+No phone action or baseline merge here; last reported installed APK remains `b74dcda5` and
+rollback `76bc90a4` is backed up. Live cross-signer quality remains unproven.
+Earlier handoffs below are preserved as history.
+
 ## Team handoff published — 2026-10-09 (Asia/Manila)
 
 Shared branch: `codex/team-handoff-2026-10-09`; PR: https://github.com/mark-juswa/AppHear/pull/1 (open/mergeable when checked).
