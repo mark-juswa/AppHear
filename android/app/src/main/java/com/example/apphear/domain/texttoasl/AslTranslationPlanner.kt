@@ -23,9 +23,11 @@ class AslTranslationPlanner(
         }
     }
 
-    fun plan(input: String?): TextToAslPlan {
+    fun plan(input: String?): TextToAslPlan = AslAdverbPolicy.annotate(planInternal(input))
+
+    private fun planInternal(input: String?): TextToAslPlan {
         val text = input?.trim().orEmpty()
-        val normalized = normalizer.normalizeSequence(text)
+        val normalized = normalizer.normalizeSequence(text, preserveSymbols = true)
         val analysis = AslInputAnalysis.analyze(text, normalizer)
         if (registry.enabled) byEnglish[normalized]?.let { phrase ->
             validatedQueue(phrase, analysis)?.let { queue ->
@@ -36,7 +38,8 @@ class AslTranslationPlanner(
         val namePrefix = registry.everydayExpressions.flatMap { it.namePrefixes }.map { normalizer.normalizeSequence(it) }
             .filter { normalized == it || normalized.startsWith("$it ") }.maxByOrNull { it.length }
         // A person's name can also be a dictionary word (Hope, Rose). Never substitute its lexical sign.
-        val fallback = wordPlanner.plan(text, forceSpellingFromToken = namePrefix?.split(' ')?.size)
+        val fallback = wordPlanner.plan(text, forceSpellingFromToken = namePrefix?.split(' ')?.size,
+            lexicalContext = AslLexicalContext.forPreview(normalized, catalog))
         val spellingAvailable = ('a'..'z').all { catalog.findLetter(it)?.let { letter ->
             AslSingleAvatarPolicy.permits(letter) && letter.replacement != null } == true }
         val mixedNotice = "English word-sign/fingerspelling preview; not a validated ASL sentence" +

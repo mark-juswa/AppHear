@@ -1,0 +1,11 @@
+// Development JVM checks parse the full resident GLB JSON repeatedly.
+// This changes desktop test heap only, never Android/runtime memory settings.
+gradle.beforeProject { project ->
+    if (project.path == ':app') {
+        project.tasks.withType(org.gradle.api.tasks.testing.Test).configureEach {
+            maxHeapSize = '1024m'
+            maxParallelForks = 1
+            jvmArgs '-XX:TieredStopAtLevel=4'
+        }
+    }
+}

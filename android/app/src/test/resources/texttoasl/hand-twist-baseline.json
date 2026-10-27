@@ -1,0 +1,1375 @@
+{
+  "sourceSha256": "cb94d0dad112b371347a17035cbb34095d0906443de7115e776b56d31ceb057e",
+  "actions": [
+    {
+      "name": "SIGN_ALL",
+      "includeTimes": false,
+      "sha256": "dc2adc23489acf97818decd4a49ae62133e89fb4be476431b5ab16432282f601"
+    },
+    {
+      "name": "SIGN_BROTHER",
+      "includeTimes": false,
+      "sha256": "256038b557fc6789e63ce195a150a245ae461936a91120f6b96e9612acfa422d"
+    },
+    {
+      "name": "SIGN_CHILD",
+      "includeTimes": false,
+      "sha256": "6843c296feb333215103122627be09d8d298d15cc66e17cec68c7897be7e89b7"
+    },
+    {
+      "name": "SIGN_CITY",
+      "includeTimes": false,
+      "sha256": "43142e8e37f8718c1bdd5d16af6e07ae183046f7a2e39a965bac38d1579f13f6"
+    },
+    {
+      "name": "SIGN_FAMILY",
+      "includeTimes": false,
+      "sha256": "beaae341d10e020b52380269cf8a89135c551a57a52826792bf3a79613426f60"
+    },
+    {
+      "name": "SIGN_GOOD",
+      "includeTimes": false,
+      "sha256": "d4ba71b37e4b4b8ce40864ca22177a41bb8a17d51bc6bb51595cd1ab7c94403b"
+    },
+    {
+      "name": "SIGN_GUY",
+      "includeTimes": false,
+      "sha256": "0e253d391865eac2573926e15b4800e67f12291f67361c14dcc6999b3c2be47b"
+    },
+    {
+      "name": "SIGN_HAVE",
+      "includeTimes": false,
+      "sha256": "3b2c6eda297681c477b089ce72cc51d3ce9130c639dcbbdf0c2496642919cd57"
+    },
+    {
+      "name": "SIGN_HE",
+      "includeTimes": false,
+      "sha256": "b6ec0383b4a0c3cf30bb5cfaf75e29f4c8d87cc0dc9464b6a1da088dd9045352"
+    },
+    {
+      "name": "SIGN_HELLO",
+      "includeTimes": false,
+      "sha256": "419093ca1b749404fb84e81b531edc4d2f1f34c104191e4430398bcf774937c2"
+    },
+    {
+      "name": "SIGN_HOUSE",
+      "includeTimes": false,
+      "sha256": "26783e187c03f7fb2f04d9612eef506f76142ec1d6b75a913507bdd3c2e0e0aa"
+    },
+    {
+      "name": "SIGN_HUSBAND",
+      "includeTimes": false,
+      "sha256": "715b909b44cc77ded5858f3d0debeb7d19cff30798c88c034b0d7637f5073e66"
+    },
+    {
+      "name": "SIGN_I",
+      "includeTimes": false,
+      "sha256": "14a0cfb173722cce31d8812e637235b51149ca9961a908ed28b0def8c6a3bbb1"
+    },
+    {
+      "name": "SIGN_LIKE",
+      "includeTimes": false,
+      "sha256": "ae77c279f1acd5aefb12a40597a76e819b1b63dcbadc7b155fadf11033402edb"
+    },
+    {
+      "name": "SIGN_LITTLE",
+      "includeTimes": false,
+      "sha256": "fc7ee42aa1908d00c9068b210c3bbbdb4c386193d57c54029cc4d71320998d3b"
+    },
+    {
+      "name": "SIGN_LIVE",
+      "includeTimes": false,
+      "sha256": "605b987125481826e9d3c7fbcc1b13f16945d24492d889c8033c2eb5cfa6d385"
+    },
+    {
+      "name": "SIGN_MAN",
+      "includeTimes": false,
+      "sha256": "642311edd06937903241a3845894d8470fef390027ca1e3f5713c046ac8d3c21"
+    },
+    {
+      "name": "SIGN_MORE",
+      "includeTimes": false,
+      "sha256": "442d5344973131cfca9579b04c87d880dc4258595378c374a73942f601daf21d"
+    },
+    {
+      "name": "SIGN_MORNING",
+      "includeTimes": false,
+      "sha256": "671deebdd3397fe623324578d2130d6e8650925f7a50a5962027d2372e3483d8"
+    },
+    {
+      "name": "SIGN_MY",
+      "includeTimes": false,
+      "sha256": "b9f96ff78b8929d07f0e4a0d8a5a4e24f4005e6e41ae56b29aabb334ec5e17ea"
+    },
+    {
+      "name": "SIGN_NEED",
+      "includeTimes": false,
+      "sha256": "f437298cf0d4d0f7cf2506e83b226bdf0b2f426823dab9302818acc9a75a01f7"
+    },
+    {
+      "name": "SIGN_NO",
+      "includeTimes": false,
+      "sha256": "7b74c6d0c061846e612413b298d2cf0bd9702da6381944c22b531c3047df7365"
+    },
+    {
+      "name": "SIGN_OUR",
+      "includeTimes": false,
+      "sha256": "b24319dc098cb335be733b887d6164d3b84efad261ee02c2f971beda16b34262"
+    },
+    {
+      "name": "SIGN_SCHOOL",
+      "includeTimes": false,
+      "sha256": "bded579af7479c6259bf16906498c38007aea24d47dd1e675a09cfd2ecf58312"
+    },
+    {
+      "name": "SIGN_SISTER",
+      "includeTimes": false,
+      "sha256": "26672c0ad5460834b7b5fdf56adfbebdb081856dafc3cdca8069693c7513580a"
+    },
+    {
+      "name": "SIGN_THANKS",
+      "includeTimes": false,
+      "sha256": "d36ba7280062490897c7ecd9c759d0c40df82cf01a3a8b5b2aa6a2e05f683e99"
+    },
+    {
+      "name": "SIGN_THEM",
+      "includeTimes": false,
+      "sha256": "f0e802cfcbc9d1b6ef253350dc877ab84d74473f481d2f1bc907b0e9eadee2f7"
+    },
+    {
+      "name": "SIGN_THINK",
+      "includeTimes": false,
+      "sha256": "379b5e023fd1d2266392ebe44b2f44b508fad0d32e6a3a70b48ed98201b32357"
+    },
+    {
+      "name": "SIGN_US",
+      "includeTimes": false,
+      "sha256": "b547d866cf035066fa599b0c68c909d714e2c7893638f75d8b7af11b53052f28"
+    },
+    {
+      "name": "SIGN_WHAT",
+      "includeTimes": false,
+      "sha256": "2cc528d517f83c27dafa871ee31d1420c4becf0664d928dd7fe0959621e2efd0"
+    },
+    {
+      "name": "SIGN_WOMAN",
+      "includeTimes": false,
+      "sha256": "d9187df58c554d808750734dcd8c9232f253aa16b4278459b24eacd37445774a"
+    },
+    {
+      "name": "SIGN_YOUR",
+      "includeTimes": false,
+      "sha256": "9af6a6d8882477ca84b46fe8d33f063caf69c404b604a11000fc03ddb292e2b0"
+    },
+    {
+      "name": "SIGN_AFTERNOON",
+      "includeTimes": false,
+      "sha256": "3211aa0df4baf09dbb83a8d18ef4af7950ffafdea3371d9dadc247df6c24e111"
+    },
+    {
+      "name": "SIGN_ANY",
+      "includeTimes": false,
+      "sha256": "2042bdf08a6255b228bf05fcf8e2bd81fbd38fab191c35ee7a4be18aac6a4c6c"
+    },
+    {
+      "name": "SIGN_ASK",
+      "includeTimes": false,
+      "sha256": "9c2434f9d7fe61d64ba7d4a410e0711562b27f81e615131be9bec0f3f9231297"
+    },
+    {
+      "name": "SIGN_BABY",
+      "includeTimes": false,
+      "sha256": "e1bacbb415ff7857f1978d3832e435ed8d4794261e9dafe01646b8efd33f77ff"
+    },
+    {
+      "name": "SIGN_BAD",
+      "includeTimes": false,
+      "sha256": "5171cf8cf92eef0ce75ed885085f5172150dbe4b5e092f85b34cbdcf82d410ff"
+    },
+    {
+      "name": "SIGN_BAG",
+      "includeTimes": false,
+      "sha256": "b06b76fb7a2c8d6fbab7e09782b1cd488532d9c27c483da2662a682c01c9c901"
+    },
+    {
+      "name": "SIGN_BE",
+      "includeTimes": false,
+      "sha256": "478b6301107d4822915b2f1c97ec80134153bbb8bbb1ca25617a1551eaf139d7"
+    },
+    {
+      "name": "SIGN_BEAUTIFUL",
+      "includeTimes": false,
+      "sha256": "d004430fc16721ae8dc246b86a727235d001bd4247e4d5f7aad215745c356d22"
+    },
+    {
+      "name": "SIGN_BECOME",
+      "includeTimes": false,
+      "sha256": "d412ef9905fdaa92650bea249899a6470e080593757a2db9beca7999146ba28c"
+    },
+    {
+      "name": "SIGN_BED",
+      "includeTimes": false,
+      "sha256": "fc80e4f5eb7aa4de6e0730af3c5676b2d3e679c363ee18c912c96105c0086072"
+    },
+    {
+      "name": "SIGN_BEGIN",
+      "includeTimes": false,
+      "sha256": "daa27c5d321ac77580626e977bc85a660a741ef952f943785114023eea0d2b12"
+    },
+    {
+      "name": "SIGN_BIG",
+      "includeTimes": false,
+      "sha256": "1b8ea3b35bc540ee68668ddcd7cc37e6f9cafbea9a0272283e258414be1dd1b6"
+    },
+    {
+      "name": "SIGN_BOOK",
+      "includeTimes": false,
+      "sha256": "7aa0716429b4f775fb13b4b151bd1dfdd98ed2a5bf013e2acb29e9f41bfe08dc"
+    },
+    {
+      "name": "SIGN_BOSS",
+      "includeTimes": false,
+      "sha256": "96988d5ccd508c2f9195d653f914324e05ec8ccba4cbb5446bf0f7d2954b4326"
+    },
+    {
+      "name": "SIGN_BUSY",
+      "includeTimes": false,
+      "sha256": "25620cf83f3a04f19a547e27d3ee1be2073d540ebb359741e8367331c9930fcf"
+    },
+    {
+      "name": "SIGN_BUY",
+      "includeTimes": false,
+      "sha256": "c13ce0877aafbb32b3d33eba8a9017417cede0fda2fc98790ed98dfaa52edb27"
+    },
+    {
+      "name": "SIGN_BYE",
+      "includeTimes": false,
+      "sha256": "88efc0eb9263edac07fa2881b13cd99bf05f135b19979a1daddfb8025fd74dbc"
+    },
+    {
+      "name": "SIGN_CALL",
+      "includeTimes": false,
+      "sha256": "5cd080c80263bd4e226f3521f4eafbe82155706c0687876e2e5f1e378227fd7a"
+    },
+    {
+      "name": "SIGN_CALL__TO_CALL_SOMEONE_S_NAME",
+      "includeTimes": false,
+      "sha256": "8814d6bdd8991ed6d48a4a94b5177bbcbe7fd6d8dbce88f33eeb2d777df8e1ce"
+    },
+    {
+      "name": "SIGN_CAR",
+      "includeTimes": false,
+      "sha256": "aed8e6afb3f96a7ac2db0efd095dcc30700a089101a237b779f03e3b940b259a"
+    },
+    {
+      "name": "SIGN_CHAIR",
+      "includeTimes": false,
+      "sha256": "4f57bb3fb3186089473a1d3d5ce88f874eeb9c15cd801169d98692beb19cf5b7"
+    },
+    {
+      "name": "SIGN_CLEAN",
+      "includeTimes": false,
+      "sha256": "32b7ee59308fb980d829efbe825390f65acf08ec1601223133b766973c6111e5"
+    },
+    {
+      "name": "SIGN_CLOSE",
+      "includeTimes": false,
+      "sha256": "76e1f47dc6a1157db71223d30fdc179b6f0764bc30ce3e0747b5fbd92eeae853"
+    },
+    {
+      "name": "SIGN_CLOTHES",
+      "includeTimes": false,
+      "sha256": "4dd01d1ce710b54774fbea074635b7d7b965e72eceec7ba074f95a3f004d90b1"
+    },
+    {
+      "name": "SIGN_COLD",
+      "includeTimes": false,
+      "sha256": "160780fbc2444b095df299e42bc07acc97ba4ef50f96541f7aad1def57d83eda"
+    },
+    {
+      "name": "SIGN_COME",
+      "includeTimes": false,
+      "sha256": "e2c69011729d225792ae24092f529035997ff01765de9517d0a1de61cfb30823"
+    },
+    {
+      "name": "SIGN_COMPUTER",
+      "includeTimes": false,
+      "sha256": "d5b0a4682ec2a2e833f64decde7c2aba2415244a8bbeb0272e9a534028396a7f"
+    },
+    {
+      "name": "SIGN_CONGRATULATIONS",
+      "includeTimes": false,
+      "sha256": "09095ad425951b9c370d2cb1ee4fb24e64ccb645be48564ca77973a9fbcb884d"
+    },
+    {
+      "name": "SIGN_COOK",
+      "includeTimes": false,
+      "sha256": "30bd9308737872391a374969332d5bdadb5395b31ea36f3cbad9e2e70468d392"
+    },
+    {
+      "name": "SIGN_COUNTRY",
+      "includeTimes": false,
+      "sha256": "5f7e50dd06442b26b13ae67f57c3d0c142e3731599a279aa93b513f923e8aad9"
+    },
+    {
+      "name": "SIGN_DAY",
+      "includeTimes": false,
+      "sha256": "68c9af0fec9b0e94232d5749c8e040a6c0c6c4f0ccd9350a3df376736918bde1"
+    },
+    {
+      "name": "SIGN_DIFFERENT",
+      "includeTimes": false,
+      "sha256": "7152ff8c10c5be80889cf49da532c3f93adec17421784ad7b720ff4f19607109"
+    },
+    {
+      "name": "SIGN_DO",
+      "includeTimes": false,
+      "sha256": "f01696e5f4fd6ba3e989d316d6d756b867c1ef62ffc96dd9ce18a6c0dcce25e7"
+    },
+    {
+      "name": "SIGN_DOOR",
+      "includeTimes": false,
+      "sha256": "12f8961818ef67056eddd41459e279d98383099d95f151ee130eb08c49f22f8f"
+    },
+    {
+      "name": "SIGN_DRINK",
+      "includeTimes": false,
+      "sha256": "29f413880786c40710ce4834cd3e6ba1a278cf152d4501a330a13bb7b328d691"
+    },
+    {
+      "name": "SIGN_DRIVE",
+      "includeTimes": false,
+      "sha256": "574245cbfed43e2b1f11091b547928a78701a6c19af75dfaef9a11be4e664a24"
+    },
+    {
+      "name": "SIGN_EASY",
+      "includeTimes": false,
+      "sha256": "84f015fb1df1877873ec3512b1f1ba4bb293f527907a8484fdf7cd3c81f94b35"
+    },
+    {
+      "name": "SIGN_EAT",
+      "includeTimes": false,
+      "sha256": "e9f93ad6701c38675da40fde9c76b25421a4e16b358962a8e19ba7b4f3a40a10"
+    },
+    {
+      "name": "SIGN_EVENING",
+      "includeTimes": false,
+      "sha256": "61d3166de98bca612c95a21a9c5d465a142e77d1a212ee54bf4b246d6bb96ad1"
+    },
+    {
+      "name": "SIGN_EVERY",
+      "includeTimes": false,
+      "sha256": "ce101d2947c9577911a7caec26aa6bb9785c9b2ed4dfb7d6db40f249250ae9c9"
+    },
+    {
+      "name": "SIGN_EXCUSE_ME",
+      "includeTimes": false,
+      "sha256": "04e76866ba1ee227b6b19bf85be20f97d6357e2ec5e476f312f2f16d75891f88"
+    },
+    {
+      "name": "SIGN_EXHAUSTED",
+      "includeTimes": false,
+      "sha256": "3354a31a23a3e185a813f3d9df42ec3f1e9fd6ff395fa0a8fc6555357397f7c8"
+    },
+    {
+      "name": "SIGN_FAST",
+      "includeTimes": false,
+      "sha256": "423113e87739e7356914b48005903bd4628c4934b2340e604a4ffd625958c55a"
+    },
+    {
+      "name": "SIGN_FATHER",
+      "includeTimes": false,
+      "sha256": "f95d2d0f586da39e2848f029b90f923f09ae90e326567dd4f3ab78dd30f6c740"
+    },
+    {
+      "name": "SIGN_FEEL",
+      "includeTimes": false,
+      "sha256": "d4866121ae8ffa8ffc9c9014fdf60154cbcd65cb281b0b8c24d68a4330bf933a"
+    },
+    {
+      "name": "SIGN_FEW",
+      "includeTimes": false,
+      "sha256": "3df0309fd123ac1e2ead2abc3968826144eb301e699e17fc92fd5037b4d0bac9"
+    },
+    {
+      "name": "SIGN_FIND",
+      "includeTimes": false,
+      "sha256": "9f26e48f63ca713a8750339160601d76a3f81e85e4ce88b9ed0cf1a067185115"
+    },
+    {
+      "name": "SIGN_FREE",
+      "includeTimes": false,
+      "sha256": "4af1b425881dae8a5d0b8081f79cafc6df1043bf701b811befbfa14c769bfeb8"
+    },
+    {
+      "name": "SIGN_FRIEND",
+      "includeTimes": false,
+      "sha256": "13d1cea5f1c7730ad81dba9732724beb06cb92b1cbdd6cfe5959934b85852011"
+    },
+    {
+      "name": "SIGN_GET",
+      "includeTimes": false,
+      "sha256": "e9d3f9b30a97a1a83e17cbbced57930004673ea227d1c887a1b452bd48fd4249"
+    },
+    {
+      "name": "SIGN_GIVE",
+      "includeTimes": false,
+      "sha256": "710f91cc56a80ac75689d246f31be0da766a32913c85f115207eb4416f51e14b"
+    },
+    {
+      "name": "SIGN_GO",
+      "includeTimes": false,
+      "sha256": "dc539f6c5e01682487b3b1eca532b024377a089c6d14024243c44c50982e4fbb"
+    },
+    {
+      "name": "SIGN_HAPPY",
+      "includeTimes": false,
+      "sha256": "fbfa1d7cf400afa4415cbcab2ef89465132e14c372af51af4705aa8a3d02ee89"
+    },
+    {
+      "name": "SIGN_HARD",
+      "includeTimes": false,
+      "sha256": "aa8a12199318bdaf5490f1b4fb55b9e57b466e004ecde296baf0b7899f0b822a"
+    },
+    {
+      "name": "SIGN_HARD__SOLID",
+      "includeTimes": false,
+      "sha256": "9f1563fb6814d876ac0f6e58d3bdf65c187a757548e96d96e107185291e65227"
+    },
+    {
+      "name": "SIGN_HEAR",
+      "includeTimes": false,
+      "sha256": "3240725f8efe36168228079cc0ee23f726b6c2a52c77a8d54c6fa2e6b85e1f04"
+    },
+    {
+      "name": "SIGN_HELP",
+      "includeTimes": false,
+      "sha256": "5688f1ae5f16011f5118e15a8964691985389148482ff7470c01b630e4ce5210"
+    },
+    {
+      "name": "SIGN_HOME",
+      "includeTimes": false,
+      "sha256": "eb3457b73e5e145931207351fa371399672ed3a917fea5853ea7cb68b3e19a4b"
+    },
+    {
+      "name": "SIGN_HOSPITAL",
+      "includeTimes": false,
+      "sha256": "651f0bad5d28e20e99ab0b2ca77d9babe067f5c1a9f03e4cbd0a751b59c741c1"
+    },
+    {
+      "name": "SIGN_HOT",
+      "includeTimes": false,
+      "sha256": "fb7a214eb05220368bcfc61d752a0bad817113c338aa1dd71c525466a79d1863"
+    },
+    {
+      "name": "SIGN_HOUR",
+      "includeTimes": false,
+      "sha256": "be1d5f45f64fd3364fe75d06e0d847d5e833445ddb4c971c58c15daec98be641"
+    },
+    {
+      "name": "SIGN_HOW",
+      "includeTimes": false,
+      "sha256": "f447543f64375e65d044621615bab3760b4b2b1a2732498cdb8d9290d2f4e085"
+    },
+    {
+      "name": "SIGN_IMPORTANT",
+      "includeTimes": false,
+      "sha256": "f042ad770db6279aff38ff019cd05473a771895e7f28ff8bf094183bfdc99290"
+    },
+    {
+      "name": "SIGN_IN",
+      "includeTimes": false,
+      "sha256": "029ad2f21aeff42ca13cceaf3cc19a28f21cac029b8d678b5157a7204131d7d1"
+    },
+    {
+      "name": "SIGN_KEEP",
+      "includeTimes": false,
+      "sha256": "3ecf6d37204907cbc1e19d0e201805b5b8cb6901f6101cd21bd728d4244cdd32"
+    },
+    {
+      "name": "SIGN_KEEP__PRESERVE",
+      "includeTimes": false,
+      "sha256": "e04f80b6d49170f60cc90bc1712199f2a6deaa7f201282375476e520f7be92f3"
+    },
+    {
+      "name": "SIGN_KEY",
+      "includeTimes": false,
+      "sha256": "cbda7635f9a6bf78d766f435f87b8d9635d97bade80fa1be3d189c37321ebaef"
+    },
+    {
+      "name": "SIGN_KNOW",
+      "includeTimes": false,
+      "sha256": "9d54ea6339c522fe70e44db0d1738be2f7a7a2ef101cec823f2429949ab623cf"
+    },
+    {
+      "name": "SIGN_LEAVE",
+      "includeTimes": false,
+      "sha256": "36c807e19efb19982caf5e8fd7abc45a178fbae2a1edfc1b2125079a59546b66"
+    },
+    {
+      "name": "SIGN_LET",
+      "includeTimes": false,
+      "sha256": "f75d04e720f99520f1329bb194f4bec71a54628a822ede232a33a3452aadd502"
+    },
+    {
+      "name": "SIGN_LETTER",
+      "includeTimes": false,
+      "sha256": "f1620819c7c13786e8ac09c6f5b53f0b1b5e6451d98084c79e5b250059136075"
+    },
+    {
+      "name": "SIGN_LETTER__MAIL",
+      "includeTimes": false,
+      "sha256": "1325d3a527906984d4c30e250ecc59c19cc9e36ef9da9893b7f827ea2e17e401"
+    },
+    {
+      "name": "SIGN_LISTEN",
+      "includeTimes": false,
+      "sha256": "d7dc44aedd91d0c5a0194abf55fd9d7a8db11fa99200df25ff1af75c2eb5b96f"
+    },
+    {
+      "name": "SIGN_LOOK",
+      "includeTimes": false,
+      "sha256": "8c8054ab4b551d559c48403cb479e2838236be2278b37cd08b463d85f5c32ba9"
+    },
+    {
+      "name": "SIGN_LOVE",
+      "includeTimes": false,
+      "sha256": "9c671e4a4c9fa795f927422f65a36c8f90a709fd5b3a2635cd57e6c33d245d97"
+    },
+    {
+      "name": "SIGN_MAKE",
+      "includeTimes": false,
+      "sha256": "12845f3fc504e479ca3ccb73e7292db854d318a7a48db9b3b7f78213670ad190"
+    },
+    {
+      "name": "SIGN_MANY",
+      "includeTimes": false,
+      "sha256": "edce7f512ef44495da6b575e255c44efb9209ef77b768409ce389aa09710e69b"
+    },
+    {
+      "name": "SIGN_MEAN",
+      "includeTimes": false,
+      "sha256": "d20cbc3e653ab0d2f9e37e388f10ec31556841b3b06e990c1aec3d465995e2a2"
+    },
+    {
+      "name": "SIGN_MEAN__MEANING_OR_DEFINITION_OF_SOMETHING",
+      "includeTimes": false,
+      "sha256": "5ee02051e554f56ea3f499d8b93ff3b01ee4810471f36b287a4cfd97b0b86a5e"
+    },
+    {
+      "name": "SIGN_MEET",
+      "includeTimes": false,
+      "sha256": "c3060c7ac1b83578235ea2e94626ce64afedadbb1d90285396c15cff525a2dac"
+    },
+    {
+      "name": "SIGN_MEET__TO_MEET_MANY_PEOPLE",
+      "includeTimes": false,
+      "sha256": "58dc4b998b87dbc32e2af0a07e81ae5afdf3e4b1bdb1abb15f7f5239abb920ab"
+    },
+    {
+      "name": "SIGN_MINUTE",
+      "includeTimes": false,
+      "sha256": "09e8fe2a1059b344818d4c0c713396d584c06e138a859d620785df5252abaf0c"
+    },
+    {
+      "name": "SIGN_MOMENT",
+      "includeTimes": false,
+      "sha256": "bd24efc36ab3c66186f16706a8bede57cfa32b90722729466992bf1cc46b4b42"
+    },
+    {
+      "name": "SIGN_MONEY",
+      "includeTimes": false,
+      "sha256": "d10253112543dee502fd5a7ddc98bdc450f0b24e8cce5c54ce296f73be2f8916"
+    },
+    {
+      "name": "SIGN_MONTH",
+      "includeTimes": false,
+      "sha256": "d342f28ccf704262ba2bbb670c361b393a462e434824cd7c8542e7cf0a4322ef"
+    },
+    {
+      "name": "SIGN_MOST",
+      "includeTimes": false,
+      "sha256": "32a8b6face64c4c0cf52b8599da10fecb537b8e0bd91c77bf742c4199d45b51f"
+    },
+    {
+      "name": "SIGN_MOTHER",
+      "includeTimes": false,
+      "sha256": "8ab21331255787ba5596ca056f714f26f739d421cbb2870b2ec2a79425520802"
+    },
+    {
+      "name": "SIGN_MOVE",
+      "includeTimes": false,
+      "sha256": "cdeabd5c3eadd39343bd1fed0fa6894c5f9661d5dfc707ca5f5d193185a5d06b"
+    },
+    {
+      "name": "SIGN_MOVE__TO_MOVE_TO_NEW_LOCATION",
+      "includeTimes": false,
+      "sha256": "dbb8ed0071ad5fa6b774ea81940ba7ffc49f435aef6c6357a1ed896f71ccabca"
+    },
+    {
+      "name": "SIGN_MUCH",
+      "includeTimes": false,
+      "sha256": "3f62b9b9dc4172e6b57b94b4c022bff216a717110685ee50ea66f8ed06f49ff6"
+    },
+    {
+      "name": "SIGN_NEIGHBOR",
+      "includeTimes": false,
+      "sha256": "9ed236a92013d71d02fa830b68a0678589f578dd42834c28f44ca7c8ea5d6134"
+    },
+    {
+      "name": "SIGN_NEW",
+      "includeTimes": false,
+      "sha256": "6c7383132e3d06cc651090765f73bc391e0e5c7746aa1709e46edfe8f26de8da"
+    },
+    {
+      "name": "SIGN_OFFICE",
+      "includeTimes": false,
+      "sha256": "a5f39d04759c5ec3371c96f8d7686877994170cd430e47e022aca2c31ff1178c"
+    },
+    {
+      "name": "SIGN_OK",
+      "includeTimes": false,
+      "sha256": "727494a2b432b617fecd985d93f42127973ee274e3186ab098a4cdd03308a5c5"
+    },
+    {
+      "name": "SIGN_OLD",
+      "includeTimes": false,
+      "sha256": "6480accee3b006a607d4870f61e2fe7be15cbc9bdcd0e3e966b1b333e950e4a3"
+    },
+    {
+      "name": "SIGN_OPEN",
+      "includeTimes": false,
+      "sha256": "7a249b508e6af4066b710206da181334bcb84929ed9867125eb4cb28239caeec"
+    },
+    {
+      "name": "SIGN_PAPER",
+      "includeTimes": false,
+      "sha256": "f43a5163cf277b2f059a2c37f62b20507ab7fde9588274218da9360344a51791"
+    },
+    {
+      "name": "SIGN_PAY",
+      "includeTimes": false,
+      "sha256": "5dac82de162d7b084d5d1411e6f309065271902f8c82b73957e60aba1c4d8113"
+    },
+    {
+      "name": "SIGN_PAY__TO_PAY_SOMEONE",
+      "includeTimes": false,
+      "sha256": "ea2e9327bf2f872dcfcb0e655e44c03ff1b69b99af586caa74a790176f1c0a33"
+    },
+    {
+      "name": "SIGN_PEOPLE",
+      "includeTimes": false,
+      "sha256": "86bc0c9a78bda721d5b1fac2611fbf0c6d790fa3f2d45c60112e38027a137277"
+    },
+    {
+      "name": "SIGN_PERSON",
+      "includeTimes": false,
+      "sha256": "b69fcbee1585ace4d44a543b4acf082c1d0f65128861ff12e6c0815214a81a34"
+    },
+    {
+      "name": "SIGN_PHONE",
+      "includeTimes": false,
+      "sha256": "afad34848cca510ab01f314e5e4f3a543d84a22db3a033c8bfbc53989dd32ea2"
+    },
+    {
+      "name": "SIGN_PLAY",
+      "includeTimes": false,
+      "sha256": "201d8e8949b51477d6342041b5dd458685132c18f8d6d07c24693ed9edc43915"
+    },
+    {
+      "name": "SIGN_PLAY__TO_PLAY_A_GAME",
+      "includeTimes": false,
+      "sha256": "07efb54cae588e42a1da091a8ca4ceb7fc7560eefe4e9d787c3795363b38939b"
+    },
+    {
+      "name": "SIGN_PLEASE",
+      "includeTimes": false,
+      "sha256": "6169e53e61b7347d35e10f1f407de63b09c49c71d7ef549db8ddee0c0554edb1"
+    },
+    {
+      "name": "SIGN_READ",
+      "includeTimes": false,
+      "sha256": "43caf681fd1c18e42fafbdf9de71faac817a6ce202d6eb0bd871da6315a517a7"
+    },
+    {
+      "name": "SIGN_READY",
+      "includeTimes": false,
+      "sha256": "982d954428820e6518ab360e6c7602b480a86c8f93b3e073b7c4b7bbc69d5e29"
+    },
+    {
+      "name": "SIGN_RESTAURANT",
+      "includeTimes": false,
+      "sha256": "959bf3d844479bdf739761bbd5637f709fcb67319fe1d6594cf17a92922f9f23"
+    },
+    {
+      "name": "SIGN_RIGHT",
+      "includeTimes": false,
+      "sha256": "b0ac9bd32ea4460be83d24f48dd2e15330d55c0bcdf14547f85021f6c059bd7d"
+    },
+    {
+      "name": "SIGN_RIGHT__DIRECTION",
+      "includeTimes": false,
+      "sha256": "e1b37c0ab40ed4afac8bb38f843719e3d5340abb2770ddcfc1287acd4d07629c"
+    },
+    {
+      "name": "SIGN_ROAD",
+      "includeTimes": false,
+      "sha256": "274879eea691286401fbf7a727832401130153b955a44cf142eb74b55cf41a02"
+    },
+    {
+      "name": "SIGN_ROOM",
+      "includeTimes": false,
+      "sha256": "2b76396e64e8ca4fb51a0c6b2e1acec22eb1a14d76cae3ab01d68e913c0f11ad"
+    },
+    {
+      "name": "SIGN_RUN",
+      "includeTimes": false,
+      "sha256": "f260b2721c5e803f391c7f455d0989ff4c122c7d578e4c5be44b5de5ebd87fe4"
+    },
+    {
+      "name": "SIGN_SAD",
+      "includeTimes": false,
+      "sha256": "6fd71452a8aec903124f382dc66ca898097144f9ed8a7ea1020b21f58f3ef1df"
+    },
+    {
+      "name": "SIGN_SAME",
+      "includeTimes": false,
+      "sha256": "a35796393f4fb76becb49585a50377039d5f6da145e5a0643db0a0cad74b2838"
+    },
+    {
+      "name": "SIGN_SEE",
+      "includeTimes": false,
+      "sha256": "18454b0992c15882e59b3e8ef4a646a35c580a83d5c70e20e5aaf968c2ecdd8c"
+    },
+    {
+      "name": "SIGN_SEEM",
+      "includeTimes": false,
+      "sha256": "53224060f3c63f8f4a4672ba35b793340cc902e0d23cf1e5ae125b8b6c62c034"
+    },
+    {
+      "name": "SIGN_SELL",
+      "includeTimes": false,
+      "sha256": "a89f3d43abba1e4350257901add4fe9e41303f04c7864c552970f066e803bb1e"
+    },
+    {
+      "name": "SIGN_SEND",
+      "includeTimes": false,
+      "sha256": "3e933ece5dc358e7d3f6d5dc73ff6637bf5aab442d6acc0c0a5f359317a14d49"
+    },
+    {
+      "name": "SIGN_SHOES",
+      "includeTimes": false,
+      "sha256": "628a717bc433d7fb82c0d87390e9304fd32e21189169672773f3fa5b43f74b9e"
+    },
+    {
+      "name": "SIGN_SHOP__GOING_TO_STORE_TO_BUY_GOODS",
+      "includeTimes": false,
+      "sha256": "d146fd9aa5fc6667fb95a1fe50d57a989b4d72770b85cc3e27f50ffd57a66e97"
+    },
+    {
+      "name": "SIGN_SHOW__TO_SHOW_SOMEONE",
+      "includeTimes": false,
+      "sha256": "a74dd9f2e6dc2d6be6b138f5e4d4b1a603bf40d29396c5eda3cabd79e78c2a2a"
+    },
+    {
+      "name": "SIGN_SICK",
+      "includeTimes": false,
+      "sha256": "27d83d37bbf33002cec4d4bbd019a4a74b7b9f1fe147a0cc594640f9858374ba"
+    },
+    {
+      "name": "SIGN_SIT",
+      "includeTimes": false,
+      "sha256": "765fa274bcd1008e3f36b3933dd9a3ce8b0e5ae02441f2febc4479051ef4b9a9"
+    },
+    {
+      "name": "SIGN_SLEEP",
+      "includeTimes": false,
+      "sha256": "29694756c5305a7dccd6a83ef56a21fa5b7174f4ca4c36036489a5b50cdc66fc"
+    },
+    {
+      "name": "SIGN_SLOW",
+      "includeTimes": false,
+      "sha256": "65601d14e9f93cbab26c3e5bd683c13f84422400ad31fb1da8ce69b5370bc360"
+    },
+    {
+      "name": "SIGN_SOME",
+      "includeTimes": false,
+      "sha256": "dc72d01f7acfacd14027775f9ac2ea428619c9f7710fa6e3bb67a05e53373462"
+    },
+    {
+      "name": "SIGN_SORRY",
+      "includeTimes": false,
+      "sha256": "a134bfbc81cad635bae96480786040e2999bf9514d625f77322708ee92bf16ac"
+    },
+    {
+      "name": "SIGN_SPEAK",
+      "includeTimes": false,
+      "sha256": "45446246550394a468bfe9bf0767122081bcb2e909d0a8d7eb6c9271c55fa244"
+    },
+    {
+      "name": "SIGN_STAY",
+      "includeTimes": false,
+      "sha256": "91d93029c95fea0ff285c0f2988eda8486f46595436429347ad5777ce97b8e7c"
+    },
+    {
+      "name": "SIGN_STORE__TO_SAVE",
+      "includeTimes": false,
+      "sha256": "e0507dcdc750609dd29328661fddbd55fd946b9dabcd9f639c35aba3fae06ac2"
+    },
+    {
+      "name": "SIGN_STRONG",
+      "includeTimes": false,
+      "sha256": "6a54b95cb94fc347ceffc238cf4f0646e00eb6fb32cc59b06651e2bf80ead697"
+    },
+    {
+      "name": "SIGN_STUDENT",
+      "includeTimes": false,
+      "sha256": "507dcf649e75463ad687b9339c9ce230132971908221c4e198ac2ca8c2d5f740"
+    },
+    {
+      "name": "SIGN_SURE",
+      "includeTimes": false,
+      "sha256": "96fb7d48b7cf4f3eb9c7acc3b9b12675649eae51103a5566420719a545193b61"
+    },
+    {
+      "name": "SIGN_TABLE",
+      "includeTimes": false,
+      "sha256": "7a23e60660074f1aa5a7f22581b000ecef22d7c59dcedabf7ede711e6ccfa818"
+    },
+    {
+      "name": "SIGN_TAKE",
+      "includeTimes": false,
+      "sha256": "2d31b159d9ac92fafb4bec875f6c54e73f4edfe9e933d9c46eeed5ae47914a2e"
+    },
+    {
+      "name": "SIGN_TEACHER",
+      "includeTimes": false,
+      "sha256": "a78c0159c6227e54087c1e84444cbd6c320843e5bbd58fec5b42e87628216403"
+    },
+    {
+      "name": "SIGN_TELL",
+      "includeTimes": false,
+      "sha256": "195d421d3290bf2ca7ec4beefcb21ddf17c1fe1e430b756fe878aa624058692b"
+    },
+    {
+      "name": "SIGN_THING",
+      "includeTimes": false,
+      "sha256": "c300aff9c9dfc512fe0eaa16066a162224d9ead3cda385cd7fa0d7cd1cf54e80"
+    },
+    {
+      "name": "SIGN_TIME",
+      "includeTimes": false,
+      "sha256": "dab2bd2d444603678f0e7b3d9263df2d9af37657e9ff460df139afab54c69fec"
+    },
+    {
+      "name": "SIGN_TODAY",
+      "includeTimes": false,
+      "sha256": "2b702e290419b9f6ec4bb4ce1a4841736d59ef035f2c78a0f2be9c4835aea03a"
+    },
+    {
+      "name": "SIGN_TOMORROW",
+      "includeTimes": false,
+      "sha256": "36a8ba14f6c35df50d2d5fe1a04b46e666d5b712aced458917d3d84ed3a50fe0"
+    },
+    {
+      "name": "SIGN_TRY",
+      "includeTimes": false,
+      "sha256": "7cc79fe1b8682701ab14c13aecbaa81aea3908dd3b9e68ec65941721addb1ebc"
+    },
+    {
+      "name": "SIGN_TURN",
+      "includeTimes": false,
+      "sha256": "b322913a004642b317b8a4426c38c9b5837b9cab87b756edb5376eda252806ed"
+    },
+    {
+      "name": "SIGN_TURN__TURN_AROUND",
+      "includeTimes": false,
+      "sha256": "6da5fe1d9a44abde7d7623059cfd201c15274d5b38e249b5409d7ae1ff2a3fc3"
+    },
+    {
+      "name": "SIGN_USE",
+      "includeTimes": false,
+      "sha256": "3ea4cfd7a6e6c8f98fcc4d773688b1264a8c1a13d66f353b8e334a6a7bc9c500"
+    },
+    {
+      "name": "SIGN_VISIT",
+      "includeTimes": false,
+      "sha256": "a6ec8cd27251ecf82856985741da138ff113ecfc6e4c31757105e31ca5ad90c0"
+    },
+    {
+      "name": "SIGN_WAIT",
+      "includeTimes": false,
+      "sha256": "4aaa2259021cdbaffe9f568e5837a1ebde0773ea20b7506d17a077cfa76ff174"
+    },
+    {
+      "name": "SIGN_WAKE",
+      "includeTimes": false,
+      "sha256": "5f76f6bfbd1ede85c9bd76841390eb7c152c0e50c02cc27f4719647bd1157ac3"
+    },
+    {
+      "name": "SIGN_WALK",
+      "includeTimes": false,
+      "sha256": "66dbc6f222fd891cc4a48693d45ef4fd677e67499fceddbc6e675ed0128f8d0b"
+    },
+    {
+      "name": "SIGN_WANT",
+      "includeTimes": false,
+      "sha256": "939e61f7540bcbc908ea67d2be5dedafac5db7687f87da46c94fa982dc4e0be1"
+    },
+    {
+      "name": "SIGN_WASH",
+      "includeTimes": false,
+      "sha256": "0fc976a7d1625233744fbb2853a0f6a580d5f5e9e1272f122ffe90955b6877ef"
+    },
+    {
+      "name": "SIGN_WATCH",
+      "includeTimes": false,
+      "sha256": "7d449fec129886d9db19cedce4803643129878620a42d2347c938c9871fd2b46"
+    },
+    {
+      "name": "SIGN_WATER",
+      "includeTimes": false,
+      "sha256": "fba601d80afabe132f1136b4248b41d242122e7ee8690a1d65b2aed0dc53736c"
+    },
+    {
+      "name": "SIGN_WEEK",
+      "includeTimes": false,
+      "sha256": "f8440bb550b9a0e66a8bf6770f5687b25feaf258470aac8f06cb6cb5312f78ad"
+    },
+    {
+      "name": "SIGN_WELCOME",
+      "includeTimes": false,
+      "sha256": "442133ad242e5555fda8ed166cee3e99ea20d2c2aacf8fd829a14ebb62c0adbb"
+    },
+    {
+      "name": "SIGN_WHAT__RHETORICAL_WHAT",
+      "includeTimes": false,
+      "sha256": "a2a154225a3ca8e8bc07c6bc899eb580407118d306d0f4f8b89157996e807ece"
+    },
+    {
+      "name": "SIGN_WHEN",
+      "includeTimes": false,
+      "sha256": "24bf5da4a055c7f189814c25f5242be7122144c0c816e0eaab4251eb52acfd2a"
+    },
+    {
+      "name": "SIGN_WHERE",
+      "includeTimes": false,
+      "sha256": "3066d095f8b85e9c67b61d368b293cd5b4920b602d7a6f0cb41dd68f739eed59"
+    },
+    {
+      "name": "SIGN_WHICH",
+      "includeTimes": false,
+      "sha256": "e255798d2034beabdde0f47a1f18b9d7838469fe4c980474ae9e099d5ede4001"
+    },
+    {
+      "name": "SIGN_WHO",
+      "includeTimes": false,
+      "sha256": "82457b07f42e004a9422e6c7714ca76c9a62fba5b2b8e7ea828acf4e753aba0b"
+    },
+    {
+      "name": "SIGN_WHY",
+      "includeTimes": false,
+      "sha256": "ff4e207b9ea42edafdab8d26e68a226148662c3b2e18ee05c82ea28ebfcd5c47"
+    },
+    {
+      "name": "SIGN_WIFE",
+      "includeTimes": false,
+      "sha256": "60279ecbc61ad5c70f2ff4750a2b2d841256bec4c258d100d94255fa5eed8a28"
+    },
+    {
+      "name": "SIGN_WINDOW",
+      "includeTimes": false,
+      "sha256": "3455dc80040cb910944aa89c5bc24ff14ca0479ebeb0614ae9d3635db723303f"
+    },
+    {
+      "name": "SIGN_WORK",
+      "includeTimes": false,
+      "sha256": "26b3db2272486767b54f447e781267ac59d9183a347c7ee88bb022b3dfaaeeec"
+    },
+    {
+      "name": "SIGN_WORLD",
+      "includeTimes": false,
+      "sha256": "f1000c7338884edbf74ceac82b58fdf0da983566e5938580f39a5cda6de25588"
+    },
+    {
+      "name": "SIGN_WRITE",
+      "includeTimes": false,
+      "sha256": "6fe364731ecbff957d5168be459f733e99621765191d13a30238abeba072f3df"
+    },
+    {
+      "name": "SIGN_WRONG",
+      "includeTimes": false,
+      "sha256": "cd977e3a2b503b93a82432c7a6f06b7546bc957330c66dc03b53d3398d5d0dea"
+    },
+    {
+      "name": "SIGN_YEAR",
+      "includeTimes": false,
+      "sha256": "6f0ad0135034ea3e1640ab1a60d847cdffb55739d72cf7041a02c15bd67181b4"
+    },
+    {
+      "name": "SIGN_YES",
+      "includeTimes": false,
+      "sha256": "6e5cdb55c17e44df6ab2c4a6b186f70f44bd879501847daf004f98bb20533e6f"
+    },
+    {
+      "name": "SIGN_YESTERDAY",
+      "includeTimes": false,
+      "sha256": "eb764701394f9a85914800758d28ae274d2695c2dedbd9c783bedb8b9f8ab573"
+    },
+    {
+      "name": "SIGN_LETTER_A_WOLF3D_PREVIEW",
+      "includeTimes": true,
+      "sha256": "f66c0b7e78dba8ae77a616af49c9e30acabeb575c8a48e8e4a9fa71e68af2025"
+    },
+    {
+      "name": "SIGN_LETTER_B_WOLF3D_PREVIEW",
+      "includeTimes": true,
+      "sha256": "ea96417ce6edc21d542515bebe087478ab12524b03149e51e9bff59f86c2c617"
+    },
+    {
+      "name": "SIGN_LETTER_C_WOLF3D_PREVIEW",
+      "includeTimes": true,
+      "sha256": "793fc6dfcbd010629a05d5805108656d5a9f32c653e41d0d26571fbfa6c07da8"
+    },
+    {
+      "name": "SIGN_LETTER_D_WOLF3D_PREVIEW",
+      "includeTimes": true,
+      "sha256": "069993ad4dc3dec38d25eabfc402deeb24cb78c2ad298b1185374fde313b02f8"
+    },
+    {
+      "name": "SIGN_LETTER_E_WOLF3D_PREVIEW",
+      "includeTimes": true,
+      "sha256": "f9c9503311ea6ffa5668270e8fc937a2554a952c4929abe142e95c8e28108f46"
+    },
+    {
+      "name": "SIGN_LETTER_F_WOLF3D_PREVIEW",
+      "includeTimes": true,
+      "sha256": "d373727e9a64a65c5b6d392a5c85f5418a3cb0c467be63bc70e279265cbf668d"
+    },
+    {
+      "name": "SIGN_LETTER_G_WOLF3D_PREVIEW",
+      "includeTimes": true,
+      "sha256": "e6c28d025360891ff847eafc2f4de5b576bb0c10add83e4f5df621ad7d15f100"
+    },
+    {
+      "name": "SIGN_LETTER_H_WOLF3D_PREVIEW",
+      "includeTimes": true,
+      "sha256": "bb4741abdde1ce805cd8e75e8f3fa39f0ffbd27a24e162360e7aceadd3b2fe9c"
+    },
+    {
+      "name": "SIGN_LETTER_I_WOLF3D_PREVIEW",
+      "includeTimes": true,
+      "sha256": "ea8d06431dce8376e5a6735ccc9ad67cda2fe1f4bbf98e2409df5f86c1561919"
+    },
+    {
+      "name": "SIGN_LETTER_J_WOLF3D_PREVIEW",
+      "includeTimes": true,
+      "sha256": "8d6c503df4ba1657d2400bc646c42fcec8625da93b39c18a5938e4fcc2f1c0f0"
+    },
+    {
+      "name": "SIGN_LETTER_K_WOLF3D_PREVIEW",
+      "includeTimes": true,
+      "sha256": "545d0506f1aac5e62f3062bf2b7db58f52b15ef9a35739d331783f7b485429cc"
+    },
+    {
+      "name": "SIGN_LETTER_L_WOLF3D_PREVIEW",
+      "includeTimes": true,
+      "sha256": "77f1bcccddcedccff3d8872a890454d16b3d6edbd76e72974919130909cdd2c1"
+    },
+    {
+      "name": "SIGN_LETTER_M_WOLF3D_PREVIEW",
+      "includeTimes": true,
+      "sha256": "831a65e2cdde616ee4dc073cfb69c1e2278524b64cff9612f741a1de677e1e42"
+    },
+    {
+      "name": "SIGN_LETTER_N_WOLF3D_PREVIEW",
+      "includeTimes": true,
+      "sha256": "68a5f15bf04a7a4ea9d9a59d745bfbc6dc529bf5fc5664cc1b4373fffe80f82f"
+    },
+    {
+      "name": "SIGN_LETTER_O_WOLF3D_PREVIEW",
+      "includeTimes": true,
+      "sha256": "908611d4ad9d8f555065912d67d6b4afe5fe6cd49c07d62664cb964e3b7142d4"
+    },
+    {
+      "name": "SIGN_LETTER_P_WOLF3D_PREVIEW",
+      "includeTimes": true,
+      "sha256": "4cae0273078313e6968cbe2afe424696c69ca3ca101d1e2d35021437309f980a"
+    },
+    {
+      "name": "SIGN_LETTER_Q_WOLF3D_PREVIEW",
+      "includeTimes": true,
+      "sha256": "b9422953882bc57fa7e45567cfb6f243defe180d44cbff7afc5dfa24702fcc0f"
+    },
+    {
+      "name": "SIGN_LETTER_R_WOLF3D_PREVIEW",
+      "includeTimes": true,
+      "sha256": "8bedabf3a45ad8900ca749a73d8fdf16b97279d7274b3cea193ec3ab13f7b1c7"
+    },
+    {
+      "name": "SIGN_LETTER_S_WOLF3D_PREVIEW",
+      "includeTimes": true,
+      "sha256": "c6ddcaf1611163b52a8b216c773924d047ebc40072b29f9bc86951071f5fbb8c"
+    },
+    {
+      "name": "SIGN_LETTER_T_WOLF3D_PREVIEW",
+      "includeTimes": true,
+      "sha256": "5a430e6abd7135514c305efea1ea9787a8a922e377cf8a17e0383e62326a725f"
+    },
+    {
+      "name": "SIGN_LETTER_U_WOLF3D_PREVIEW",
+      "includeTimes": true,
+      "sha256": "08504108bf0053c67964da36d1453d9e741057e26f109a3f39056768f4fd43aa"
+    },
+    {
+      "name": "SIGN_LETTER_V_WOLF3D_PREVIEW",
+      "includeTimes": true,
+      "sha256": "eef2c87d1a821b48417b9ab0fb8500d225edebd6e5e9c024fefb7e408b4aa9b5"
+    },
+    {
+      "name": "SIGN_LETTER_W_WOLF3D_PREVIEW",
+      "includeTimes": true,
+      "sha256": "02489e70aed7ecf5d514999e6b65a93021bb5bed6c160ad0ab7abf0b2563ae64"
+    },
+    {
+      "name": "SIGN_LETTER_X_WOLF3D_PREVIEW",
+      "includeTimes": true,
+      "sha256": "7b8ee769ccfe8f627bc76b0d057292789260629ba0bb6db88c1863783401c201"
+    },
+    {
+      "name": "SIGN_LETTER_Y_WOLF3D_PREVIEW",
+      "includeTimes": true,
+      "sha256": "0540c046d7995276f542a5a76477a5c79a71e1daca7d4229bec43c0445fbfd82"
+    },
+    {
+      "name": "SIGN_LETTER_Z_WOLF3D_PREVIEW",
+      "includeTimes": true,
+      "sha256": "3486d6d6c766210078b608c95ec3feb657be39853745fae3a79fab8610e916c1"
+    },
+    {
+      "name": "SIGN_RELAXED_NEUTRAL",
+      "includeTimes": true,
+      "sha256": "1b9fdc2f13b4141ebb6d23b5c39c3d37046364273e97285c9363f4e38fddcefe"
+    },
+    {
+      "name": "SIGN_YOU_HUMAN_RETARGETED_PREVIEW",
+      "includeTimes": false,
+      "sha256": "aedc8332ab19d84dd958450e0750bfd52ac334eb787616945c080d94d9b7c10a"
+    },
+    {
+      "name": "SIGN_YOU_ALL_HUMAN_RETARGETED_PREVIEW",
+      "includeTimes": false,
+      "sha256": "61fb60c328eceb09e170340d9757047aeb89acd327b4151448b27d596616baa2"
+    },
+    {
+      "name": "SIGN_BEST_HUMAN_RETARGETED_PREVIEW",
+      "includeTimes": false,
+      "sha256": "a757b6c7d738cedc50afba4e9a0dea541f149a1a6ceaa207e39d87d5a81fdfd7"
+    },
+    {
+      "name": "SIGN_BETTER_HUMAN_RETARGETED_PREVIEW",
+      "includeTimes": false,
+      "sha256": "4a9c75ca8c6c783b240bcce83312a93fa5df27c68847176b2428ed7f5396b6d4"
+    },
+    {
+      "name": "SIGN_DIVORCE_HUMAN_RETARGETED_PREVIEW",
+      "includeTimes": false,
+      "sha256": "f2631c5e070bb6ec22844d41059b51d7c0795737baec6777298e6593798315b7"
+    },
+    {
+      "name": "SIGN_FROM_HUMAN_RETARGETED_PREVIEW",
+      "includeTimes": false,
+      "sha256": "0daa2fc7a5d728a09d87e193977bb9eeb91131088e45f7456dd9b33818d57529"
+    },
+    {
+      "name": "SIGN_GRANDMA_HUMAN_RETARGETED_PREVIEW",
+      "includeTimes": false,
+      "sha256": "e4be7f3049af95299fa5859cec1b61307c6797161810f23be7b5ba3f08646727"
+    },
+    {
+      "name": "SIGN_GRANDPA_HUMAN_RETARGETED_PREVIEW",
+      "includeTimes": false,
+      "sha256": "fa2beb4986af4364e348eba345e313bd0590ba59deb2dae90c306aef00a54d87"
+    },
+    {
+      "name": "SIGN_HERE_HUMAN_RETARGETED_PREVIEW",
+      "includeTimes": false,
+      "sha256": "af41bb0478b10fd9918cd1c3ddd70124f544be1ad8259d43f7ddfa5a9966b8f6"
+    },
+    {
+      "name": "SIGN_PARENTS_HUMAN_RETARGETED_PREVIEW",
+      "includeTimes": false,
+      "sha256": "94ffc00e46842f5cdb22c42d6619a9c64d7ff1e724eedaf12f1e2296ea2d2baf"
+    },
+    {
+      "name": "SIGN_PREFER_HUMAN_RETARGETED_PREVIEW",
+      "includeTimes": false,
+      "sha256": "7f0eaa06b859601b8f2df93fcdd1971bfe189a89a2ffc713202c1108c88beaa3"
+    },
+    {
+      "name": "SIGN_SINGLE_HUMAN_RETARGETED_PREVIEW",
+      "includeTimes": false,
+      "sha256": "14217e0a3571d5119bd7eabd7a31aaa1926fae2c89dc23ac72fc0983a7c786e4"
+    },
+    {
+      "name": "SIGN_AGAIN_HUMAN_RETARGETED_PREVIEW",
+      "includeTimes": false,
+      "sha256": "1919cb602adcd533b3283fe5d36208b6889639cc064c35c31d48982d30958d71"
+    },
+    {
+      "name": "SIGN_CLASS_HUMAN_RETARGETED_PREVIEW",
+      "includeTimes": false,
+      "sha256": "b6124c795d8f00b037a9e5ffcee45bf7e32dadddcba66ae3c7ca0a01791457b2"
+    },
+    {
+      "name": "SIGN_MUST_HUMAN_RETARGETED_PREVIEW",
+      "includeTimes": false,
+      "sha256": "35b4dab94da60b7dd177ca259bfea1149a331aea1b70a39c5bcfb72c7dc04abc"
+    },
+    {
+      "name": "SIGN_FINGERSPELL_HUMAN_RETARGETED_PREVIEW",
+      "includeTimes": false,
+      "sha256": "159e9f8d730c7cb0e160f5986f46a32aaaa17ea6ec242fa29730ef62068cade6"
+    },
+    {
+      "name": "SIGN_SO_SO_HUMAN_RETARGETED_PREVIEW",
+      "includeTimes": false,
+      "sha256": "47da0b0f0f97f240bec71fbcbb216864c3cc7a3967233c1adc6360fa744c0a64"
+    },
+    {
+      "name": "SIGN_GROW_UP_HUMAN_RETARGETED_PREVIEW",
+      "includeTimes": false,
+      "sha256": "411b13032f457201bc6517080bb4d9bb6b52c67a9723d06e20f3ee85b47451a8"
+    },
+    {
+      "name": "SIGN_STOP_HUMAN_AUTHORED_PREVIEW",
+      "includeTimes": false,
+      "sha256": "79510bae1cccf2cb01161ce47ff3893864f4c20b52ab8ee331e5a8b4d22a8118"
+    },
+    {
+      "name": "SIGN_UNDERSTAND_HUMAN_AUTHORED_PREVIEW",
+      "includeTimes": false,
+      "sha256": "0fcb3b32b0e4db611819f0c0bdad892d4189f6ef939e46258eb0202aa83a9e3a"
+    },
+    {
+      "name": "SIGN_HUNGRY_HUMAN_AUTHORED_PREVIEW",
+      "includeTimes": false,
+      "sha256": "40c91ed3d062ef961c4881f3936f656725f4bd058fd64508cbc013ec3530f2b9"
+    },
+    {
+      "name": "SIGN_FINISH_HUMAN_AUTHORED_PREVIEW",
+      "includeTimes": false,
+      "sha256": "2669889d406dc2737da3a663b7bc5e39246a7babc3b3f281c61c0cfa57a801bb"
+    },
+    {
+      "name": "SIGN_TIRED_HUMAN_AUTHORED_PREVIEW",
+      "includeTimes": false,
+      "sha256": "31d175941fa2269bb9265f9841d21d725b4c5cd42cdd29824e29e680058be05b"
+    },
+    {
+      "name": "SIGN_DEAF_HUMAN_AUTHORED_PREVIEW",
+      "includeTimes": false,
+      "sha256": "7fb70e314e6102d588b25be9635cbc5ce38d4bb748a17cd741c48db2c2b89585"
+    },
+    {
+      "name": "SIGN_HEARING_HUMAN_AUTHORED_PREVIEW",
+      "includeTimes": false,
+      "sha256": "f6eacbbc81376b41fcef6658f39e670bbf98d6bb71355479c162e84158fd99bf"
+    },
+    {
+      "name": "SIGN_LEARN_HUMAN_AUTHORED_PREVIEW",
+      "includeTimes": false,
+      "sha256": "c3267297b358a2e4835136962ad01e27b727f05d4292edee9548e1dea6f98ff9"
+    },
+    {
+      "name": "SIGN_RAIN_HUMAN_AUTHORED_PREVIEW",
+      "includeTimes": false,
+      "sha256": "8aace0c4e2d0c53b0634689b320e26e02e669071503ec0aaf0e628ba0f904dda"
+    },
+    {
+      "name": "SIGN_NOW_HUMAN_AUTHORED_PREVIEW",
+      "includeTimes": false,
+      "sha256": "6b173e76b0638d87dd21e29cfc34f02af96edfcd0ec74ec11d6faab1d7c1129d"
+    },
+    {
+      "name": "SIGN_BATHROOM_HUMAN_AUTHORED_PREVIEW",
+      "includeTimes": false,
+      "sha256": "331fbc949a5a70f896cbce17fc8f92d734db8b1f5b5f891343c136e6d889b9d4"
+    },
+    {
+      "name": "SIGN_DOCTOR_HUMAN_AUTHORED_PREVIEW",
+      "includeTimes": false,
+      "sha256": "6ad5f7e12386b7b01e1157683dbc5cd13035ea1951abc0843137f9c356ab7936"
+    },
+    {
+      "name": "SIGN_NURSE_HUMAN_AUTHORED_PREVIEW",
+      "includeTimes": false,
+      "sha256": "6dde79efef0b45eda7460164ed5f0b69ada650595a60f25f5b2f4b02e54b6183"
+    },
+    {
+      "name": "SIGN_PAIN_HUMAN_AUTHORED_PREVIEW",
+      "includeTimes": false,
+      "sha256": "918e7b4ae54aba4b7fb01945384918554ce3e7fb04dc90150f8534723eeb1e90"
+    },
+    {
+      "name": "SIGN_MILK_HUMAN_AUTHORED_PREVIEW",
+      "includeTimes": false,
+      "sha256": "e8ea9ba92c6c4790c2ec7b7262a62bba72eac3eb60e51ec3ed8f42d300cee5c5"
+    },
+    {
+      "name": "SIGN_COFFEE_HUMAN_AUTHORED_PREVIEW",
+      "includeTimes": false,
+      "sha256": "69d5fdd354e1bdb719ee8baacc3b2f3128fd26ccce3eaa180b9c6d124f4048c6"
+    },
+    {
+      "name": "SIGN_TEA_HUMAN_AUTHORED_PREVIEW",
+      "includeTimes": false,
+      "sha256": "6c2df867716c0955ca5f55fd47bfa2bab47e6577d136fabe73ebaa03779873da"
+    },
+    {
+      "name": "SIGN_ORANGE_HUMAN_AUTHORED_PREVIEW",
+      "includeTimes": false,
+      "sha256": "e8ea9ba92c6c4790c2ec7b7262a62bba72eac3eb60e51ec3ed8f42d300cee5c5"
+    },
+    {
+      "name": "SIGN_APPLE_HUMAN_AUTHORED_PREVIEW",
+      "includeTimes": false,
+      "sha256": "6f4f908cd03d1562416167eaa52b2ba040f9b62b43d51f69951af351beab233f"
+    },
+    {
+      "name": "SIGN_BREAD_HUMAN_AUTHORED_PREVIEW",
+      "includeTimes": false,
+      "sha256": "6ad5f7e12386b7b01e1157683dbc5cd13035ea1951abc0843137f9c356ab7936"
+    },
+    {
+      "name": "SIGN_CHURCH_HUMAN_AUTHORED_PREVIEW",
+      "includeTimes": false,
+      "sha256": "a2b8b458de485d48652111a5e1c1b2a26381eae278d0341d98b673697a3183e4"
+    },
+    {
+      "name": "SIGN_LIBRARY_HUMAN_AUTHORED_PREVIEW",
+      "includeTimes": false,
+      "sha256": "70e5d78dc1286b76805dfa49ed9ab3b8f4052ec97b788ecd18590983ab83f9fe"
+    },
+    {
+      "name": "SIGN_COLLEGE_HUMAN_AUTHORED_PREVIEW",
+      "includeTimes": false,
+      "sha256": "caa4b23fb864f96f91584b91c31c402045dba49282e3443d9151d37e562cba69"
+    },
+    {
+      "name": "SIGN_UNIVERSITY_HUMAN_AUTHORED_PREVIEW",
+      "includeTimes": false,
+      "sha256": "40ccc3d81afd4d07a2fa47ef404c03082e75474e215343f68f4034892efcd954"
+    },
+    {
+      "name": "SIGN_KITCHEN_HUMAN_AUTHORED_PREVIEW",
+      "includeTimes": false,
+      "sha256": "7bbd25aace04bb20af4387e8d03e12c4f05d06edf3e8f13f1c14338b889e1953"
+    },
+    {
+      "name": "SIGN_HOTEL_HUMAN_AUTHORED_PREVIEW",
+      "includeTimes": false,
+      "sha256": "99c7b240495916471c9a0b76f72ee22afdfcf9071c6991812328b0b8a0fa021a"
+    }
+  ]
+}

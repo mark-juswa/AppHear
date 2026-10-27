@@ -6,9 +6,9 @@ class AslPhrasePlanner(
     private val completeWordFallback: Boolean = false,
     private val dictionarySequenceMode: Boolean = false,
 ) {
-    fun plan(input: String?, forceSpellingFromToken: Int? = null): TextToAslPlan {
+    fun plan(input: String?, forceSpellingFromToken: Int? = null, lexicalContext: AslLexicalContext = AslLexicalContext()): TextToAslPlan {
         val requestedText = input?.trim().orEmpty()
-        if (dictionarySequenceMode) return planDictionarySequence(requestedText, forceSpellingFromToken)
+        if (dictionarySequenceMode) return planDictionarySequence(requestedText, forceSpellingFromToken, lexicalContext)
         var remaining = normalizer.normalize(input)
         val queue = mutableListOf<AslAnimationAsset>()
         val unsupported = mutableListOf<String>()
@@ -48,7 +48,7 @@ class AslPhrasePlanner(
         )
     }
 
-    private fun planDictionarySequence(input: String, forceSpellingFromToken: Int?): TextToAslPlan {
+    private fun planDictionarySequence(input: String, forceSpellingFromToken: Int?, lexicalContext: AslLexicalContext): TextToAslPlan {
         val normalized = normalizer.normalizeSequence(input, preserveSymbols = completeWordFallback)
         // Match declared text forms, never internal IDs or partial characters of a word.
         val entries = catalog.getAssets().filter { it.type != AslAnimationAsset.Type.POSE }
@@ -61,7 +61,8 @@ class AslPhrasePlanner(
             }
             byAlias[alias] = asset
         }
-        byAlias[normalized]?.takeIf { forceSpellingFromToken == null }?.let { asset ->
+        val contextTokens = lexicalContext.fingerspellTokens + lexicalContext.replacementIds.keys
+        byAlias[normalized]?.takeIf { forceSpellingFromToken == null && (contextTokens.isEmpty() || it.metadata.isLinguisticallyValidated) }?.let { asset ->
             return TextToAslPlan(input, normalized, listOf(asset), emptyList(),
                 TextToAslPlan.Mode.DICTIONARY_ENTRY)
         }
@@ -72,7 +73,18 @@ class AslPhrasePlanner(
         val aliases = byAlias.keys.sortedByDescending { it.length }
         var tokenIndex = 0
         while (remaining.isNotEmpty()) {
+            val replacementId = lexicalContext.replacementIds[tokenIndex]
+                ?.takeIf { forceSpellingFromToken == null || tokenIndex < forceSpellingFromToken }
+            val replacement = replacementId?.let { id -> catalog.getAssets().singleOrNull { it.id == id } }
+                ?.takeIf { it.type == AslAnimationAsset.Type.WORD && AslSingleAvatarPolicy.permits(it) }
+            if (replacement != null) {
+                queue += replacement
+                remaining = consume(remaining, remaining.substringBefore(' ').length)
+                tokenIndex++
+                continue
+            }
             val alias = aliases.firstOrNull { (remaining == it || remaining.startsWith("$it ")) &&
+                (tokenIndex until tokenIndex + it.split(' ').size).none { index -> index in contextTokens } &&
                 (forceSpellingFromToken == null || tokenIndex + it.split(' ').size <= forceSpellingFromToken) }
             if (alias != null) {
                 queue += byAlias.getValue(alias)

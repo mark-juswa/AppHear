@@ -19,16 +19,18 @@ data class AslInputAnalysis(
             val text = normalizer.normalizeSequence(input)
             val words = text.split(' ').filter { it.isNotBlank() }
             val first = words.firstOrNull()
-            val request = text.startsWith("please ") || text.startsWith("can you ") || text.startsWith("could you ") ||
+            val negativeImperative = text.startsWith("do not ")
+            val request = negativeImperative || text.startsWith("let us ") || text.startsWith("please ") || text.startsWith("can you ") || text.startsWith("could you ") ||
                 text in setOf("i need help", "i need water")
-            val question = input.contains('?') || input.contains('？') || first in wh || first in auxiliaries
+            val question = input.contains('?') || input.contains('？') || first in wh || (first in auxiliaries && !negativeImperative)
             val intent = when {
                 words.isEmpty() -> Intent.UNKNOWN
                 request -> Intent.REQUEST
+                text == "how are you" -> Intent.GREETING // Social greeting; serious enquiries need contextual review.
                 first in wh -> Intent.WH_QUESTION
                 question -> Intent.YES_NO_QUESTION
                 text in setOf("hello", "hi", "hey", "hello beautiful", "good morning", "good afternoon", "good evening") -> Intent.GREETING
-                text in setOf("thank you", "thanks", "nice to meet you", "see you tomorrow", "sorry", "youre welcome") -> Intent.EXPRESSION
+                text in setOf("thank you", "thanks", "nice to meet you", "see you tomorrow", "sorry", "youre welcome", "you are welcome") -> Intent.EXPRESSION
                 words.size > 1 -> Intent.STATEMENT
                 else -> Intent.UNKNOWN
             }

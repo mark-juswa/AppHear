@@ -94,7 +94,12 @@ class AndroidAssetAslCatalogLoader(
                     entry.optString("construction", "RETARGETED_PREVIEW"))
             }
             val unified = AslVocabularyExpansion.merge(resident.map { it.copy(assetPath = AslFingerspellingBundle.PATH) }, additions)
-            return AslAnimationCatalog.fromAssets(unified, alphabet)
+            val clocks = root.optJSONObject("durationOverridesMs")
+            val overrides = clocks?.keys()?.asSequence()?.associateWith { clocks.getLong(it) }.orEmpty()
+            val padding = root.optJSONObject("syntheticPaddingOverridesSeconds")
+            val paddingOverrides = padding?.keys()?.asSequence()?.associateWith { padding.getDouble(it) }.orEmpty()
+            val current = AslAnimationCatalog.fromAssets(AslFingerspellingBundle.withDurations(unified, overrides, paddingOverrides), alphabet)
+            return AslIntegratedVocabularyLoader(context).load(current)
         }
         return AslAnimationCatalog.fromAssets(resident, letters)
     }

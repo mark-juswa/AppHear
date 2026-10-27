@@ -483,7 +483,14 @@ class TextToAslFragment : Fragment(R.layout.fragment_text_to_asl) {
     private fun playCurrentAsset() {
         val fragmentBinding = binding ?: return
         val asset = currentQueue.getOrNull(currentIndex) ?: return
-        avatarController?.play(asset)
+        // Only consecutive, different actions may bypass synthetic rest padding.
+        // A repeated action retains its entry/exit, making repetitions distinguishable.
+        val name = asset.replacement?.animationName
+        val previous = currentQueue.getOrNull(currentIndex - 1)
+        val next = currentQueue.getOrNull(currentIndex + 1)
+        avatarController?.play(asset,
+            continuousFromPrevious = previous != null && previous.replacement?.animationName != name,
+            continuesToNext = next != null && next.replacement?.animationName != name)
         currentQueue.getOrNull(currentIndex + 1)?.let { avatarController?.preload(it) }
 
         fragmentBinding.currentSignText.text = currentSignLabel(asset)

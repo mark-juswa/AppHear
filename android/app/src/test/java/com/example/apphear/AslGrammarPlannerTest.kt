@@ -113,7 +113,7 @@ class AslGrammarPlannerTest {
     @Test fun intentRoutingRecognizesTestExpressionsWithoutClaimingTranslation() {
         val expected = mapOf("Hello" to AslInputAnalysis.Intent.GREETING,
             "What is your name?" to AslInputAnalysis.Intent.WH_QUESTION,
-            "How are you?" to AslInputAnalysis.Intent.WH_QUESTION,
+            "How are you?" to AslInputAnalysis.Intent.GREETING,
             "Where are you going?" to AslInputAnalysis.Intent.WH_QUESTION,
             "Can you help me?" to AslInputAnalysis.Intent.REQUEST,
             "I need help" to AslInputAnalysis.Intent.REQUEST,

@@ -1,0 +1,344 @@
+word,status,animation,technicalEvidence,ASLvalidation
+alone,Technically mapped preview,SIGN_ALONE_3DLEX_ASL_PREVIEW,Offline checks passed; Android continuous playback passed,Unreviewed
+always,Technically mapped preview,SIGN_ALWAYS_3DLEX_ASL_PREVIEW,Offline checks passed; Android continuous playback passed,Unreviewed
+angry,Technically mapped preview,SIGN_ANGRY_3DLEX_ASL_PREVIEW,Offline checks passed; Android continuous playback passed,Unreviewed
+behind,Technically mapped preview,SIGN_BEHIND_3DLEX_ASL_PREVIEW,Offline checks passed; Android continuous playback passed,Unreviewed
+full,Technically mapped preview,SIGN_FULL_3DLEX_ASL_PREVIEW,Offline checks passed; Android continuous playback passed,Unreviewed
+late,Technically mapped preview,SIGN_LATE_3DLEX_ASL_PREVIEW,Offline checks passed; Android continuous playback passed,Unreviewed
+long,Technically mapped preview,SIGN_LONG_3DLEX_ASL_PREVIEW,Offline checks passed; Android continuous playback passed,Unreviewed
+next,Technically mapped preview,SIGN_NEXT_3DLEX_ASL_PREVIEW,Offline checks passed; Android continuous playback passed,Unreviewed
+way,Technically mapped preview,SIGN_WAY_3DLEX_ASL_PREVIEW,Offline checks passed; Android continuous playback passed,Unreviewed
+against,Technically mapped preview,SIGN_AGAINST_3DLEX_ASL_PREVIEW,Offline checks passed; Android continuous playback passed,Unreviewed
+appear,Technically mapped preview,SIGN_APPEAR_3DLEX_ASL_PREVIEW,Offline checks passed; Android continuous playback passed,Unreviewed
+area,Technically mapped preview,SIGN_AREA_3DLEX_ASL_PREVIEW,Offline checks passed; Android continuous playback passed,Unreviewed
+argue,Technically mapped preview,SIGN_ARGUE_3DLEX_ASL_PREVIEW,Offline checks passed; Android continuous playback passed,Unreviewed
+army,Technically mapped preview,SIGN_ARMY_3DLEX_ASL_PREVIEW,Offline checks passed; Android continuous playback passed,Unreviewed
+bar,Technically mapped preview,SIGN_BAR_3DLEX_ASL_PREVIEW,Offline checks passed; Android continuous playback passed,Unreviewed
+bear,Technically mapped preview,SIGN_BEAR_3DLEX_ASL_PREVIEW,Offline checks passed; Android continuous playback passed,Unreviewed
+birth,Technically mapped preview,SIGN_BIRTH_3DLEX_ASL_PREVIEW,Offline checks passed; Android continuous playback passed,Unreviewed
+break,Technically mapped preview,SIGN_BREAK_3DLEX_ASL_PREVIEW,Offline checks passed; Android continuous playback passed,Unreviewed
+butterfly,Technically mapped preview,SIGN_BUTTERFLY_3DLEX_ASL_PREVIEW,Offline checks passed; Android continuous playback passed,Unreviewed
+danger,Technically mapped preview,SIGN_DANGER_3DLEX_ASL_PREVIEW,Offline checks passed; Android continuous playback passed,Unreviewed
+deer,Technically mapped preview,SIGN_DEER_3DLEX_ASL_PREVIEW,Offline checks passed; Android continuous playback passed,Unreviewed
+dormitory,Technically mapped preview,SIGN_DORMITORY_3DLEX_ASL_PREVIEW,Offline checks passed; Android continuous playback passed,Unreviewed
+drug,Technically mapped preview,SIGN_DRUG_3DLEX_ASL_PREVIEW,Offline checks passed; Android continuous playback passed,Unreviewed
+dry,Technically mapped preview,SIGN_DRY_3DLEX_ASL_PREVIEW,Offline checks passed; Android continuous playback passed,Unreviewed
+end,Technically mapped preview,SIGN_END_3DLEX_ASL_PREVIEW,Offline checks passed; Android continuous playback passed,Unreviewed
+expect,Technically mapped preview,SIGN_EXPECT_3DLEX_ASL_PREVIEW,Offline checks passed; Android continuous playback passed,Unreviewed
+fight,Technically mapped preview,SIGN_FIGHT_3DLEX_ASL_PREVIEW,Offline checks passed; Android continuous playback passed,Unreviewed
+fish,Technically mapped preview,SIGN_FISH_3DLEX_ASL_PREVIEW,Offline checks passed; Android continuous playback passed,Unreviewed
+forest,Technically mapped preview,SIGN_FOREST_3DLEX_ASL_PREVIEW,Offline checks passed; Android continuous playback passed,Unreviewed
+friendly,Technically mapped preview,SIGN_FRIENDLY_3DLEX_ASL_PREVIEW,Offline checks passed; Android continuous playback passed,Unreviewed
+gamble,Technically mapped preview,SIGN_GAMBLE_3DLEX_ASL_PREVIEW,Offline checks passed; Android continuous playback passed,Unreviewed
+hurt,Technically mapped preview,SIGN_HURT_3DLEX_ASL_PREVIEW,Offline checks passed; Android continuous playback passed,Unreviewed
+laptop,Technically mapped preview,SIGN_LAPTOP_3DLEX_ASL_PREVIEW,Offline checks passed; Android continuous playback passed,Unreviewed
+mad,Technically mapped preview,SIGN_MAD_3DLEX_ASL_PREVIEW,Offline checks passed; Android continuous playback passed,Unreviewed
+mirror,Technically mapped preview,SIGN_MIRROR_3DLEX_ASL_PREVIEW,Offline checks passed; Android continuous playback passed,Unreviewed
+mouth,Technically mapped preview,SIGN_MOUTH_3DLEX_ASL_PREVIEW,Offline checks passed; Android continuous playback passed,Unreviewed
+necklace,Technically mapped preview,SIGN_NECKLACE_3DLEX_ASL_PREVIEW,Offline checks passed; Android continuous playback passed,Unreviewed
+nose,Technically mapped preview,SIGN_NOSE_3DLEX_ASL_PREVIEW,Offline checks passed; Android continuous playback passed,Unreviewed
+ocean,Technically mapped preview,SIGN_OCEAN_3DLEX_ASL_PREVIEW,Offline checks passed; Android continuous playback passed,Unreviewed
+punish,Technically mapped preview,SIGN_PUNISH_3DLEX_ASL_PREVIEW,Offline checks passed; Android continuous playback passed,Unreviewed
+rich,Technically mapped preview,SIGN_RICH_3DLEX_ASL_PREVIEW,Offline checks passed; Android continuous playback passed,Unreviewed
+soap,Technically mapped preview,SIGN_SOAP_3DLEX_ASL_PREVIEW,Offline checks passed; Android continuous playback passed,Unreviewed
+sour,Technically mapped preview,SIGN_SOUR_3DLEX_ASL_PREVIEW,Offline checks passed; Android continuous playback passed,Unreviewed
+stubborn,Technically mapped preview,SIGN_STUBBORN_3DLEX_ASL_PREVIEW,Offline checks passed; Android continuous playback passed,Unreviewed
+text,Technically mapped preview,SIGN_TEXT_3DLEX_ASL_PREVIEW,Offline checks passed; Android continuous playback passed,Unreviewed
+under,Technically mapped preview,SIGN_UNDER_3DLEX_ASL_PREVIEW,Offline checks passed; Android continuous playback passed,Unreviewed
+up,Technically mapped preview,SIGN_UP_3DLEX_ASL_PREVIEW,Offline checks passed; Android continuous playback passed,Unreviewed
+we,Technically mapped preview,SIGN_WE_3DLEX_ASL_PREVIEW,Offline checks passed; Android continuous playback passed,Unreviewed
+wonder,Technically mapped preview,SIGN_WONDER_3DLEX_ASL_PREVIEW,Offline checks passed; Android continuous playback passed,Unreviewed
+action,Not added,,Duplicate source payload; requires sense/variant review,Not established
+airplane,Not added,,Duplicate source payload; requires sense/variant review,Not established
+alarm,Not added,,Duplicate source payload; requires sense/variant review,Not established
+animal,Not added,,Duplicate source payload; requires sense/variant review,Not established
+arrive,Not added,,"('Bone direction transfer exceeds one degree', 0.02235195588613584)",Not established
+awake,Not added,,Duplicate source payload; requires sense/variant review,Not established
+banana,Not added,,Duplicate source payload; requires sense/variant review,Not established
+bank,Not added,,Duplicate source payload; requires sense/variant review,Not established
+bicycle,Not added,,"('Abrupt source/retarget rotation exceeds 90 degrees per 24 Hz frame', 175.56945579912437)",Not established
+bird,Not added,,Duplicate source payload; requires sense/variant review,Not established
+birthday,Not added,,Duplicate source payload; requires sense/variant review,Not established
+blue,Not added,,Duplicate source payload; requires sense/variant review,Not established
+boat,Not added,,"('Abrupt source/retarget rotation exceeds 90 degrees per 24 Hz frame', 172.49079523051682)",Not established
+body,Not added,,"('Abrupt source/retarget rotation exceeds 90 degrees per 24 Hz frame', 173.5793127664155)",Not established
+bored,Not added,,"('Abrupt source/retarget rotation exceeds 90 degrees per 24 Hz frame', 173.24774924299774)",Not established
+borrow,Not added,,Duplicate source payload; requires sense/variant review,Not established
+color,Not added,,"('Abrupt source/retarget rotation exceeds 90 degrees per 24 Hz frame', 173.8672463510745)",Not established
+dirty,Not added,,"('Abrupt source/retarget rotation exceeds 90 degrees per 24 Hz frame', 174.381868807869)",Not established
+dream,Not added,,"('Abrupt source/retarget rotation exceeds 90 degrees per 24 Hz frame', 172.9169703266386)",Not established
+east,Not added,,Duplicate source payload; requires sense/variant review,Not established
+example,Not added,,"('Abrupt source/retarget rotation exceeds 90 degrees per 24 Hz frame', 172.81155497353535)",Not established
+first,Not added,,"('Abrupt source/retarget rotation exceeds 90 degrees per 24 Hz frame', 171.29179720024405)",Not established
+fix,Not added,,Duplicate source payload; requires sense/variant review,Not established
+happen,Not added,,"('Abrupt source/retarget rotation exceeds 90 degrees per 24 Hz frame', 173.1058102207658)",Not established
+high,Not added,,Duplicate source payload; requires sense/variant review,Not established
+lose,Not added,,Duplicate source payload; requires sense/variant review,Not established
+near,Not added,,"('Abrupt source/retarget rotation exceeds 90 degrees per 24 Hz frame', 171.37746683400763)",Not established
+night,Not added,,Invalid interior source bone lengths,Not established
+one,Not added,,Duplicate source payload; requires sense/variant review,Not established
+remember,Not added,,"('Abrupt source/retarget rotation exceeds 90 degrees per 24 Hz frame', 177.0629926097791)",Not established
+rest,Not added,,"('Abrupt source/retarget rotation exceeds 90 degrees per 24 Hz frame', 174.93239506636976)",Not established
+south,Not added,,"('Abrupt source/retarget rotation exceeds 90 degrees per 24 Hz frame', 176.17900645892945)",Not established
+summer,Not added,,"('Abrupt source/retarget rotation exceeds 90 degrees per 24 Hz frame', 172.76387677453505)",Not established
+sun,Not added,,Duplicate source payload; requires sense/variant review,Not established
+talk,Not added,,Duplicate source payload; requires sense/variant review,Not established
+travel,Not added,,Duplicate source payload; requires sense/variant review,Not established
+tree,Not added,,"('Abrupt source/retarget rotation exceeds 90 degrees per 24 Hz frame', 174.94643453092849)",Not established
+warm,Not added,,Duplicate source payload; requires sense/variant review,Not established
+west,Not added,,Duplicate source payload; requires sense/variant review,Not established
+white,Not added,,Duplicate source payload; requires sense/variant review,Not established
+actor,Not added,,"('Abrupt source/retarget rotation exceeds 90 degrees per 24 Hz frame', 177.68205586803367)",Not established
+add,Not added,,Duplicate source payload; requires sense/variant review,Not established
+address,Not added,,"('Abrupt source/retarget rotation exceeds 90 degrees per 24 Hz frame', 174.9883802555398)",Not established
+advantage,Not added,,Duplicate source payload; requires sense/variant review,Not established
+after,Not added,,Duplicate source payload; requires sense/variant review,Not established
+analyze,Not added,,Duplicate source payload; requires sense/variant review,Not established
+angel,Not added,,"('Bone direction transfer exceeds one degree', 0.06990588544236465)",Not established
+announce,Not added,,"('Abrupt source/retarget rotation exceeds 90 degrees per 24 Hz frame', 173.41901871054984)",Not established
+asia,Not added,,"('Abrupt source/retarget rotation exceeds 90 degrees per 24 Hz frame', 176.35871082820168)",Not established
+attention,Not added,,Duplicate source payload; requires sense/variant review,Not established
+audience,Not added,,"('Abrupt source/retarget rotation exceeds 90 degrees per 24 Hz frame', 174.66183415664008)",Not established
+australia,Not added,,Duplicate source payload; requires sense/variant review,Not established
+average,Not added,,Duplicate source payload; requires sense/variant review,Not established
+avoid,Not added,,"('Abrupt source/retarget rotation exceeds 90 degrees per 24 Hz frame', 173.58469018832676)",Not established
+bacon,Not added,,"('Bone direction transfer exceeds one degree', 0.0466856361056337)",Not established
+balloon,Not added,,"('Abrupt source/retarget rotation exceeds 90 degrees per 24 Hz frame', 175.96532546074036)",Not established
+bath,Not added,,"('Abrupt source/retarget rotation exceeds 90 degrees per 24 Hz frame', 174.90593560882147)",Not established
+beard,Not added,,Duplicate source payload; requires sense/variant review,Not established
+believe,Not added,,"('Abrupt source/retarget rotation exceeds 90 degrees per 24 Hz frame', 175.00468897713603)",Not established
+blame,Not added,,"('Bone direction transfer exceeds one degree', 0.019792917375399927)",Not established
+blood,Not added,,"('Abrupt source/retarget rotation exceeds 90 degrees per 24 Hz frame', 173.18095552026244)",Not established
+bother,Not added,,Duplicate source payload; requires sense/variant review,Not established
+box,Not added,,Duplicate source payload; requires sense/variant review,Not established
+bra,Not added,,Duplicate source payload; requires sense/variant review,Not established
+bring,Not added,,Duplicate source payload; requires sense/variant review,Not established
+bug,Not added,,Duplicate source payload; requires sense/variant review,Not established
+building,Not added,,Duplicate source payload; requires sense/variant review,Not established
+business,Not added,,Duplicate source payload; requires sense/variant review,Not established
+butter,Not added,,Duplicate source payload; requires sense/variant review,Not established
+camping,Not added,,Duplicate source payload; requires sense/variant review,Not established
+cannot,Not added,,"('Abrupt source/retarget rotation exceeds 90 degrees per 24 Hz frame', 178.37768771523238)",Not established
+carrot,Not added,,Duplicate source payload; requires sense/variant review,Not established
+carry,Not added,,"('Abrupt source/retarget rotation exceeds 90 degrees per 24 Hz frame', 172.6524323025501)",Not established
+certificate,Not added,,"('Bone direction transfer exceeds one degree', 0.0320130721802534)",Not established
+chain,Not added,,Duplicate source payload; requires sense/variant review,Not established
+chance,Not added,,"('Bone direction transfer exceeds one degree', 0.03431107299774991)",Not established
+check,Not added,,"('Abrupt source/retarget rotation exceeds 90 degrees per 24 Hz frame', 173.52360848589817)",Not established
+cheese,Not added,,Duplicate source payload; requires sense/variant review,Not established
+china,Not added,,"('Abrupt source/retarget rotation exceeds 90 degrees per 24 Hz frame', 171.7241155563958)",Not established
+chop,Not added,,"('Abrupt source/retarget rotation exceeds 90 degrees per 24 Hz frame', 173.02588751168622)",Not established
+cigarette,Not added,,Duplicate source payload; requires sense/variant review,Not established
+circle,Not added,,"('Abrupt source/retarget rotation exceeds 90 degrees per 24 Hz frame', 175.86057034561892)",Not established
+community,Not added,,Duplicate source payload; requires sense/variant review,Not established
+complex,Not added,,"('Abrupt source/retarget rotation exceeds 90 degrees per 24 Hz frame', 174.68680345070734)",Not established
+conflict,Not added,,"('Abrupt source/retarget rotation exceeds 90 degrees per 24 Hz frame', 175.30027522333037)",Not established
+contact,Not added,,Duplicate source payload; requires sense/variant review,Not established
+cost,Not added,,Duplicate source payload; requires sense/variant review,Not established
+culture,Not added,,Duplicate source payload; requires sense/variant review,Not established
+delicious,Not added,,"('Bone direction transfer exceeds one degree', 0.10738713046510082)",Not established
+demand,Not added,,"('Bone direction transfer exceeds one degree', 0.07600168731032127)",Not established
+desert,Not added,,Duplicate source payload; requires sense/variant review,Not established
+disconnect,Not added,,"('Abrupt source/retarget rotation exceeds 90 degrees per 24 Hz frame', 175.83680089506367)",Not established
+discuss,Not added,,"('Abrupt source/retarget rotation exceeds 90 degrees per 24 Hz frame', 172.5595185774049)",Not established
+dissolve,Not added,,Duplicate source payload; requires sense/variant review,Not established
+divide,Not added,,"('Abrupt source/retarget rotation exceeds 90 degrees per 24 Hz frame', 176.4106772294383)",Not established
+doll,Not added,,Duplicate source payload; requires sense/variant review,Not established
+dolphin,Not added,,Duplicate source payload; requires sense/variant review,Not established
+draw,Not added,,Duplicate source payload; requires sense/variant review,Not established
+drop,Not added,,"('Bone direction transfer exceeds one degree', 0.23825418490142972)",Not established
+drum,Not added,,Duplicate source payload; requires sense/variant review,Not established
+dumb,Not added,,"('Abrupt source/retarget rotation exceeds 90 degrees per 24 Hz frame', 175.26229568089477)",Not established
+egg,Not added,,Duplicate source payload; requires sense/variant review,Not established
+emotion,Not added,,Duplicate source payload; requires sense/variant review,Not established
+energy,Not added,,Duplicate source payload; requires sense/variant review,Not established
+english,Not added,,Duplicate source payload; requires sense/variant review,Not established
+enjoy,Not added,,Duplicate source payload; requires sense/variant review,Not established
+enter,Not added,,"('Abrupt source/retarget rotation exceeds 90 degrees per 24 Hz frame', 175.01043446379379)",Not established
+eraser,Not added,,"('Abrupt source/retarget rotation exceeds 90 degrees per 24 Hz frame', 177.21188670684285)",Not established
+escape,Not added,,"('Abrupt source/retarget rotation exceeds 90 degrees per 24 Hz frame', 175.19045653463664)",Not established
+evaluate,Not added,,Duplicate source payload; requires sense/variant review,Not established
+excuse,Not added,,Duplicate source payload; requires sense/variant review,Not established
+expert,Not added,,"('Abrupt source/retarget rotation exceeds 90 degrees per 24 Hz frame', 171.5767079256407)",Not established
+explode,Not added,,Duplicate source payload; requires sense/variant review,Not established
+express,Not added,,"('Abrupt source/retarget rotation exceeds 90 degrees per 24 Hz frame', 175.33471391787413)",Not established
+eyes,Not added,,Duplicate source payload; requires sense/variant review,Not established
+face,Not added,,"('Abrupt source/retarget rotation exceeds 90 degrees per 24 Hz frame', 178.13179398495492)",Not established
+farm,Not added,,"('Abrupt source/retarget rotation exceeds 90 degrees per 24 Hz frame', 176.51035327059347)",Not established
+fat,Not added,,"('Abrupt source/retarget rotation exceeds 90 degrees per 24 Hz frame', 174.14989211448804)",Not established
+fault,Not added,,Duplicate source payload; requires sense/variant review,Not established
+flag,Not added,,"('Abrupt source/retarget rotation exceeds 90 degrees per 24 Hz frame', 174.35334808674648)",Not established
+fool,Not added,,"('Abrupt source/retarget rotation exceeds 90 degrees per 24 Hz frame', 176.56973365177637)",Not established
+football,Not added,,"('Abrupt source/retarget rotation exceeds 90 degrees per 24 Hz frame', 174.93368969085282)",Not established
+forever,Not added,,Duplicate source payload; requires sense/variant review,Not established
+freeway,Not added,,"('Abrupt source/retarget rotation exceeds 90 degrees per 24 Hz frame', 175.58245384383218)",Not established
+freeze,Not added,,"('Abrupt source/retarget rotation exceeds 90 degrees per 24 Hz frame', 177.85279815910278)",Not established
+front,Not added,,"('Abrupt source/retarget rotation exceeds 90 degrees per 24 Hz frame', 174.81219857772209)",Not established
+fun,Not added,,"('Bone direction transfer exceeds one degree', 0.02229757384280691)",Not established
+game,Not added,,"('Abrupt source/retarget rotation exceeds 90 degrees per 24 Hz frame', 174.81615890589313)",Not established
+garage,Not added,,Duplicate source payload; requires sense/variant review,Not established
+gift,Not added,,"('Bone direction transfer exceeds one degree', 0.06716921320588731)",Not established
+glasses,Not added,,Duplicate source payload; requires sense/variant review,Not established
+gloves,Not added,,"('Abrupt source/retarget rotation exceeds 90 degrees per 24 Hz frame', 172.45669810017134)",Not established
+gold,Not added,,Duplicate source payload; requires sense/variant review,Not established
+gomer,Not added,,Duplicate source payload; requires sense/variant review,Not established
+graduate,Not added,,Duplicate source payload; requires sense/variant review,Not established
+grammar,Not added,,Duplicate source payload; requires sense/variant review,Not established
+guilty,Not added,,Duplicate source payload; requires sense/variant review,Not established
+guitar,Not added,,Duplicate source payload; requires sense/variant review,Not established
+half,Not added,,Duplicate source payload; requires sense/variant review,Not established
+heap,Not added,,Duplicate source payload; requires sense/variant review,Not established
+heart,Not added,,Duplicate source payload; requires sense/variant review,Not established
+helicopter,Not added,,"('Abrupt source/retarget rotation exceeds 90 degrees per 24 Hz frame', 175.9338057032819)",Not established
+hide,Not added,,"('Abrupt source/retarget rotation exceeds 90 degrees per 24 Hz frame', 175.3753740095832)",Not established
+hop,Not added,,Duplicate source payload; requires sense/variant review,Not established
+improve,Not added,,"('Abrupt source/retarget rotation exceeds 90 degrees per 24 Hz frame', 173.35885857810047)",Not established
+independent,Not added,,Duplicate source payload; requires sense/variant review,Not established
+inspire,Not added,,Duplicate source payload; requires sense/variant review,Not established
+interest,Not added,,Duplicate source payload; requires sense/variant review,Not established
+interpreter,Not added,,Duplicate source payload; requires sense/variant review,Not established
+iron,Not added,,"('Abrupt source/retarget rotation exceeds 90 degrees per 24 Hz frame', 176.48786545401754)",Not established
+island,Not added,,Duplicate source payload; requires sense/variant review,Not established
+israel,Not added,,Duplicate source payload; requires sense/variant review,Not established
+jacket,Not added,,"('Abrupt source/retarget rotation exceeds 90 degrees per 24 Hz frame', 174.39529535744964)",Not established
+jewelry,Not added,,Duplicate source payload; requires sense/variant review,Not established
+judge,Not added,,Duplicate source payload; requires sense/variant review,Not established
+kill,Not added,,Duplicate source payload; requires sense/variant review,Not established
+king,Not added,,Duplicate source payload; requires sense/variant review,Not established
+knife,Not added,,"('Abrupt source/retarget rotation exceeds 90 degrees per 24 Hz frame', 175.08515754101415)",Not established
+land,Not added,,Duplicate source payload; requires sense/variant review,Not established
+language,Not added,,Duplicate source payload; requires sense/variant review,Not established
+last,Not added,,Duplicate source payload; requires sense/variant review,Not established
+later,Not added,,Duplicate source payload; requires sense/variant review,Not established
+laugh,Not added,,Duplicate source payload; requires sense/variant review,Not established
+lead,Not added,,"('Abrupt source/retarget rotation exceeds 90 degrees per 24 Hz frame', 175.5172287957434)",Not established
+lecture,Not added,,"('Abrupt source/retarget rotation exceeds 90 degrees per 24 Hz frame', 172.86244844093582)",Not established
+lemon,Not added,,Duplicate source payload; requires sense/variant review,Not established
+lesson,Not added,,Duplicate source payload; requires sense/variant review,Not established
+line,Not added,,Duplicate source payload; requires sense/variant review,Not established
+lion,Not added,,Invalid interior source bone lengths,Not established
+list,Not added,,Duplicate source payload; requires sense/variant review,Not established
+loud,Not added,,"('Bone direction transfer exceeds one degree', 0.055404879952371346)",Not established
+machine,Not added,,Duplicate source payload; requires sense/variant review,Not established
+magic,Not added,,"('Bone direction transfer exceeds one degree', 0.046044746162929334)",Not established
+manage,Not added,,Duplicate source payload; requires sense/variant review,Not established
+match,Not added,,Duplicate source payload; requires sense/variant review,Not established
+measure,Not added,,Duplicate source payload; requires sense/variant review,Not established
+medicine,Not added,,Duplicate source payload; requires sense/variant review,Not established
+middle,Not added,,Duplicate source payload; requires sense/variant review,Not established
+mind,Not added,,Duplicate source payload; requires sense/variant review,Not established
+monday,Not added,,Duplicate source payload; requires sense/variant review,Not established
+mountain,Not added,,"('Bone direction transfer exceeds one degree', 0.044449709279380425)",Not established
+mouse,Not added,,"('Abrupt source/retarget rotation exceeds 90 degrees per 24 Hz frame', 170.9683278868636)",Not established
+museum,Not added,,Duplicate source payload; requires sense/variant review,Not established
+mustache,Not added,,Duplicate source payload; requires sense/variant review,Not established
+myself,Not added,,Duplicate source payload; requires sense/variant review,Not established
+neutral,Not added,,Duplicate source payload; requires sense/variant review,Not established
+onion,Not added,,Invalid interior source bone lengths,Not established
+oral,Not added,,Duplicate source payload; requires sense/variant review,Not established
+out,Not added,,"('Bone direction transfer exceeds one degree', 0.13857098321656955)",Not established
+owe,Not added,,Duplicate source payload; requires sense/variant review,Not established
+pants,Not added,,Duplicate source payload; requires sense/variant review,Not established
+past,Not added,,"('Abrupt source/retarget rotation exceeds 90 degrees per 24 Hz frame', 171.92747074394964)",Not established
+peace,Not added,,Duplicate source payload; requires sense/variant review,Not established
+peach,Not added,,Duplicate source payload; requires sense/variant review,Not established
+pencil,Not added,,Duplicate source payload; requires sense/variant review,Not established
+pig,Not added,,"('Abrupt source/retarget rotation exceeds 90 degrees per 24 Hz frame', 173.23292915322213)",Not established
+policeman,Not added,,Duplicate source payload; requires sense/variant review,Not established
+poor,Not added,,Duplicate source payload; requires sense/variant review,Not established
+popcorn,Not added,,Duplicate source payload; requires sense/variant review,Not established
+positive,Not added,,Duplicate source payload; requires sense/variant review,Not established
+possible,Not added,,Duplicate source payload; requires sense/variant review,Not established
+pour,Not added,,Duplicate source payload; requires sense/variant review,Not established
+predict,Not added,,Duplicate source payload; requires sense/variant review,Not established
+pride,Not added,,"('Abrupt source/retarget rotation exceeds 90 degrees per 24 Hz frame', 172.73692964711663)",Not established
+priest,Not added,,Duplicate source payload; requires sense/variant review,Not established
+prison,Not added,,Duplicate source payload; requires sense/variant review,Not established
+process,Not added,,"('Abrupt source/retarget rotation exceeds 90 degrees per 24 Hz frame', 174.11547404107083)",Not established
+program,Not added,,Duplicate source payload; requires sense/variant review,Not established
+promise,Not added,,"('Bone direction transfer exceeds one degree', 0.019513914389661956)",Not established
+proof,Not added,,"('Abrupt source/retarget rotation exceeds 90 degrees per 24 Hz frame', 173.45794794779584)",Not established
+pumpkin,Not added,,Duplicate source payload; requires sense/variant review,Not established
+puzzled,Not added,,"('Abrupt source/retarget rotation exceeds 90 degrees per 24 Hz frame', 170.96540300513544)",Not established
+quit,Not added,,Duplicate source payload; requires sense/variant review,Not established
+rabbit,Not added,,"('Bone direction transfer exceeds one degree', 0.051810565410271445)",Not established
+rainbow,Not added,,Duplicate source payload; requires sense/variant review,Not established
+rat,Not added,,Duplicate source payload; requires sense/variant review,Not established
+reason,Not added,,Duplicate source payload; requires sense/variant review,Not established
+relax,Not added,,"('Abrupt source/retarget rotation exceeds 90 degrees per 24 Hz frame', 171.75037055935667)",Not established
+relief,Not added,,Duplicate source payload; requires sense/variant review,Not established
+religion,Not added,,Duplicate source payload; requires sense/variant review,Not established
+remove,Not added,,Duplicate source payload; requires sense/variant review,Not established
+resist,Not added,,Duplicate source payload; requires sense/variant review,Not established
+respect,Not added,,Duplicate source payload; requires sense/variant review,Not established
+ring,Not added,,Duplicate source payload; requires sense/variant review,Not established
+river,Not added,,Duplicate source payload; requires sense/variant review,Not established
+rooster,Not added,,Duplicate source payload; requires sense/variant review,Not established
+rope,Not added,,Duplicate source payload; requires sense/variant review,Not established
+rule,Not added,,Duplicate source payload; requires sense/variant review,Not established
+salt,Not added,,Duplicate source payload; requires sense/variant review,Not established
+saturday,Not added,,"('Abrupt source/retarget rotation exceeds 90 degrees per 24 Hz frame', 177.23469179546296)",Not established
+science,Not added,,"('Abrupt source/retarget rotation exceeds 90 degrees per 24 Hz frame', 176.62435931035444)",Not established
+scientist,Not added,,"('Abrupt source/retarget rotation exceeds 90 degrees per 24 Hz frame', 176.59166382311076)",Not established
+scissors,Not added,,Duplicate source payload; requires sense/variant review,Not established
+secret,Not added,,"('Abrupt source/retarget rotation exceeds 90 degrees per 24 Hz frame', 175.97863856371782)",Not established
+sequence,Not added,,"('Abrupt source/retarget rotation exceeds 90 degrees per 24 Hz frame', 174.28999954309552)",Not established
+shame,Not added,,"('Bone direction transfer exceeds one degree', 0.019197962606869845)",Not established
+shampoo,Not added,,Duplicate source payload; requires sense/variant review,Not established
+shape,Not added,,"('Abrupt source/retarget rotation exceeds 90 degrees per 24 Hz frame', 174.54845097679421)",Not established
+share,Not added,,"('Abrupt source/retarget rotation exceeds 90 degrees per 24 Hz frame', 171.05137286982537)",Not established
+shave,Not added,,Invalid interior source bone lengths,Not established
+shoulder,Not added,,Duplicate source payload; requires sense/variant review,Not established
+shower,Not added,,"('Bone direction transfer exceeds one degree', 0.021353529008263945)",Not established
+shrimp,Not added,,"('Abrupt source/retarget rotation exceeds 90 degrees per 24 Hz frame', 169.89900713806898)",Not established
+sing,Not added,,"('Abrupt source/retarget rotation exceeds 90 degrees per 24 Hz frame', 171.8643016465117)",Not established
+situation,Not added,,"('Abrupt source/retarget rotation exceeds 90 degrees per 24 Hz frame', 178.17321525923606)",Not established
+skate,Not added,,Duplicate source payload; requires sense/variant review,Not established
+ski,Not added,,"('Abrupt source/retarget rotation exceeds 90 degrees per 24 Hz frame', 164.56420630802816)",Not established
+smell,Not added,,"('Abrupt source/retarget rotation exceeds 90 degrees per 24 Hz frame', 172.3075290339247)",Not established
+smoking,Not added,,Duplicate source payload; requires sense/variant review,Not established
+snob,Not added,,Duplicate source payload; requires sense/variant review,Not established
+socks,Not added,,'animations',Not established
+soda,Not added,,"('Bone direction transfer exceeds one degree', 0.02144253895845266)",Not established
+specific,Not added,,Duplicate source payload; requires sense/variant review,Not established
+star,Not added,,"('Abrupt source/retarget rotation exceeds 90 degrees per 24 Hz frame', 172.9893858617399)",Not established
+sticky,Not added,,Duplicate source payload; requires sense/variant review,Not established
+strawberry,Not added,,Duplicate source payload; requires sense/variant review,Not established
+strict,Not added,,Duplicate source payload; requires sense/variant review,Not established
+subtract,Not added,,Invalid interior source bone lengths,Not established
+suspect,Not added,,"('Abrupt source/retarget rotation exceeds 90 degrees per 24 Hz frame', 173.2717064362248)",Not established
+suspend,Not added,,Invalid interior source bone lengths,Not established
+sweep,Not added,,"('Bone direction transfer exceeds one degree', 0.09637242611301339)",Not established
+sweetheart,Not added,,"('Abrupt source/retarget rotation exceeds 90 degrees per 24 Hz frame', 173.8775665648585)",Not established
+swim,Not added,,Duplicate source payload; requires sense/variant review,Not established
+taste,Not added,,Duplicate source payload; requires sense/variant review,Not established
+team,Not added,,Duplicate source payload; requires sense/variant review,Not established
+tease,Not added,,Duplicate source payload; requires sense/variant review,Not established
+technology,Not added,,Invalid interior source bone lengths,Not established
+teeth,Not added,,"('Bone direction transfer exceeds one degree', 0.0560475528562821)",Not established
+thanksgiving,Not added,,Duplicate source payload; requires sense/variant review,Not established
+that,Not added,,"('Bone direction transfer exceeds one degree', 0.04570107946370582)",Not established
+there,Not added,,Duplicate source payload; requires sense/variant review,Not established
+ticket,Not added,,"('Bone direction transfer exceeds one degree', 0.06457488058656122)",Not established
+tiger,Not added,,"('Abrupt source/retarget rotation exceeds 90 degrees per 24 Hz frame', 174.20146967839187)",Not established
+toast,Not added,,"('Bone direction transfer exceeds one degree', 0.09553134090864177)",Not established
+toothbrush,Not added,,Duplicate source payload; requires sense/variant review,Not established
+tough,Not added,,Duplicate source payload; requires sense/variant review,Not established
+traffic,Not added,,"('Abrupt source/retarget rotation exceeds 90 degrees per 24 Hz frame', 173.94097445893152)",Not established
+translate,Not added,,"('Abrupt source/retarget rotation exceeds 90 degrees per 24 Hz frame', 172.95931829837002)",Not established
+turkey,Not added,,Duplicate source payload; requires sense/variant review,Not established
+type,Not added,,Duplicate source payload; requires sense/variant review,Not established
+vacation,Not added,,"('Abrupt source/retarget rotation exceeds 90 degrees per 24 Hz frame', 177.20829232286818)",Not established
+vegetable,Not added,,Duplicate source payload; requires sense/variant review,Not established
+vomit,Not added,,"('Abrupt source/retarget rotation exceeds 90 degrees per 24 Hz frame', 175.58052011043168)",Not established
+war,Not added,,Duplicate source payload; requires sense/variant review,Not established
+wedding,Not added,,"('Abrupt source/retarget rotation exceeds 90 degrees per 24 Hz frame', 175.49584693471934)",Not established
+whale,Not added,,Duplicate source payload; requires sense/variant review,Not established
+whistle,Not added,,Duplicate source payload; requires sense/variant review,Not established
+win,Not added,,Invalid interior source bone lengths,Not established
+wish,Not added,,Duplicate source payload; requires sense/variant review,Not established
+wood,Not added,,"('Abrupt source/retarget rotation exceeds 90 degrees per 24 Hz frame', 171.9028339858412)",Not established
+word,Not added,,Duplicate source payload; requires sense/variant review,Not established
+worm,Not added,,Duplicate source payload; requires sense/variant review,Not established
+wow,Not added,,"('Abrupt source/retarget rotation exceeds 90 degrees per 24 Hz frame', 170.32911030986602)",Not established
+wristwatch,Not added,,Duplicate source payload; requires sense/variant review,Not established

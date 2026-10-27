@@ -1,0 +1,235 @@
+{
+  "baselineActions": 862,
+  "baselineLexicalEntries": 784,
+  "id": "arrive",
+  "animationName": "SIGN_ARRIVE_3DLEX_ASL_PREVIEW",
+  "sourceSha256": "d2f7f169a68b528cb4aed324039609442f381adcc42d6b294a8d1f30ce14d81a",
+  "sourceMotionSha256": "11163ee9a04a13af6c7e4ffe40102a992c74b4fcb8f622cc783fa48275323d76",
+  "sha256": "85f3ce6a8f75552df1e77e170ee3bd712110846288bf983bba1bd0552c967e3b",
+  "sourceProtectedChannelsSha256": "73db924407700b2422c4cf25b6b0eda1547af47c7dc32dccd7998ee15fc7e15b",
+  "editedBones": [
+    "LeftHandIndex1",
+    "LeftHandIndex2",
+    "LeftHandIndex3",
+    "LeftHandMiddle1",
+    "LeftHandMiddle2",
+    "LeftHandMiddle3",
+    "LeftHandPinky1",
+    "LeftHandPinky2",
+    "LeftHandPinky3",
+    "LeftHandRing1",
+    "LeftHandRing2",
+    "LeftHandRing3",
+    "RightArm",
+    "RightForeArm",
+    "RightHand",
+    "RightHandIndex1",
+    "RightHandIndex2",
+    "RightHandIndex3",
+    "RightHandMiddle1",
+    "RightHandMiddle2",
+    "RightHandMiddle3",
+    "RightHandPinky1",
+    "RightHandPinky2",
+    "RightHandPinky3",
+    "RightHandRing1",
+    "RightHandRing2",
+    "RightHandRing3"
+  ],
+  "fingerPoses": {
+    "LeftHandIndex1": [
+      0.011608527041971684,
+      -0.008447404950857162,
+      0.00549503555521369,
+      0.9998818635940552
+    ],
+    "LeftHandIndex2": [
+      -0.13476650416851044,
+      0.0017422595992684364,
+      -0.01352853886783123,
+      0.9907835125923157
+    ],
+    "LeftHandIndex3": [
+      0.27945050597190857,
+      0.037692759186029434,
+      -0.10727999359369278,
+      0.9534031748771667
+    ],
+    "LeftHandMiddle1": [
+      -0.0035022117663174868,
+      0.0023227608762681484,
+      0.019590318202972412,
+      0.9997992515563965
+    ],
+    "LeftHandMiddle2": [
+      -0.07004246115684509,
+      0.0021933906245976686,
+      -0.09591714292764664,
+      0.9929195046424866
+    ],
+    "LeftHandMiddle3": [
+      0.0986282005906105,
+      0.006580520421266556,
+      0.0887160450220108,
+      0.9911400675773621
+    ],
+    "LeftHandRing1": [
+      -0.05723981559276581,
+      -0.002434387104585767,
+      0.022595414891839027,
+      0.9981017708778381
+    ],
+    "LeftHandRing2": [
+      0.049286626279354095,
+      0.022692043334245682,
+      -0.02216860093176365,
+      0.9982807636260986
+    ],
+    "LeftHandRing3": [
+      -0.06511969119310379,
+      -0.04075273498892784,
+      0.001810539048165083,
+      0.9970433115959167
+    ],
+    "LeftHandPinky1": [
+      -0.05350198596715927,
+      0.028264116495847702,
+      0.014399543404579163,
+      0.9980638027191162
+    ],
+    "LeftHandPinky2": [
+      0.022207939997315407,
+      -0.007688027340918779,
+      0.002622312866151333,
+      0.9997203946113586
+    ],
+    "LeftHandPinky3": [
+      0.15724512934684753,
+      -0.03269648924469948,
+      -0.02169026806950569,
+      0.9867798089981079
+    ],
+    "RightHandIndex1": [
+      0.055136680603027344,
+      0.014000806957483292,
+      0.024851176887750626,
+      0.9980713129043579
+    ],
+    "RightHandIndex2": [
+      -0.14879703521728516,
+      -0.018586065620183945,
+      0.012680277228355408,
+      0.9886117577552795
+    ],
+    "RightHandIndex3": [
+      0.17318052053451538,
+      -0.03768656402826309,
+      0.14100347459316254,
+      0.9740155339241028
+    ],
+    "RightHandMiddle1": [
+      0.01717718504369259,
+      0.003896626178175211,
+      0.02505684830248356,
+      0.9995308518409729
+    ],
+    "RightHandMiddle2": [
+      -0.05736704170703888,
+      -0.014561383053660393,
+      0.07004395872354507,
+      0.9957865476608276
+    ],
+    "RightHandMiddle3": [
+      0.017249181866645813,
+      0.01248081773519516,
+      -0.0618014894425869,
+      0.9978613257408142
+    ],
+    "RightHandRing1": [
+      0.016435831785202026,
+      -0.01465386338531971,
+      0.006998039782047272,
+      0.999733030796051
+    ],
+    "RightHandRing2": [
+      -0.03058645687997341,
+      -0.016199467703700066,
+      0.022274166345596313,
+      0.9991526007652283
+    ],
+    "RightHandRing3": [
+      -0.021286049857735634,
+      0.041658803820610046,
+      -0.031168509274721146,
+      0.9984187483787537
+    ],
+    "RightHandPinky1": [
+      -0.0452074371278286,
+      -0.006570726633071899,
+      -0.009384727105498314,
+      0.9989119172096252
+    ],
+    "RightHandPinky2": [
+      0.026453448459506035,
+      -0.025848587974905968,
+      0.014474228955805302,
+      0.9992109537124634
+    ],
+    "RightHandPinky3": [
+      0.14179866015911102,
+      0.01688486896455288,
+      0.06232680380344391,
+      0.987787127494812
+    ]
+  },
+  "rigAndAlphabetPreserved": true,
+  "qualifiedASLValidations": 0,
+  "cpuEvidence": {
+    "word": "ARRIVE",
+    "poses": 347,
+    "overlappingBoundingBoxes": 142,
+    "transverseCrossingFrames": 0,
+    "tolerance": "Both sides of a crossing edge must exceed 1mm; intended tangential contact is not rejected",
+    "witnesses": [],
+    "nativePlayback": "NOT_TESTED",
+    "ASLvalidation": "UNREVIEWED"
+  },
+  "skinMetrics": [
+    {
+      "side": "Left",
+      "time": 0.9825000286102294,
+      "edgeStretch99": 1.2615547612191726,
+      "edgeStretchMax": 1.3870229925306417
+    },
+    {
+      "side": "Right",
+      "time": 0.9825000286102294,
+      "edgeStretch99": 1.2339682300229955,
+      "edgeStretchMax": 1.3702905518253827
+    },
+    {
+      "side": "Left",
+      "time": 1.6375000476837158,
+      "edgeStretch99": 1.2260664707799709,
+      "edgeStretchMax": 1.3870230475975414
+    },
+    {
+      "side": "Right",
+      "time": 1.6375000476837158,
+      "edgeStretch99": 1.2281111557220319,
+      "edgeStretchMax": 1.3646675290574326
+    },
+    {
+      "side": "Left",
+      "time": 2.4562500715255737,
+      "edgeStretch99": 1.2260650600794796,
+      "edgeStretchMax": 1.3870230643583656
+    },
+    {
+      "side": "Right",
+      "time": 2.4562500715255737,
+      "edgeStretch99": 1.2294930194187248,
+      "edgeStretchMax": 1.3646672339846653
+    }
+  ]
+}

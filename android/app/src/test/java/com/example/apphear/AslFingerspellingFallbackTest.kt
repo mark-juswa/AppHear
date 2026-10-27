@@ -80,7 +80,7 @@ class AslFingerspellingFallbackTest {
         val g=document(bytes)
         val old=document(Files.readAllBytes(assetRoot.resolve(AslResidentAvatarBundle.PATH)))
         for (key in listOf("nodes","skins","meshes","materials","textures","images","scenes")) assertEquals(old.get(key),g.get(key))
-        assertEquals(258,g.getAsJsonArray("animations").size())
+        assertEquals(AslFingerspellingBundle.ACTION_COUNT,g.getAsJsonArray("animations").size())
         // Explicitly profiled native finger fixes are separately scope-tested.
         val corrected=setOf("SIGN_LOVE","SIGN_I","SIGN_HUSBAND","SIGN_WIFE",
             "SIGN_COOK","SIGN_BECOME","SIGN_MONEY","SIGN_NEW","SIGN_SOME","SIGN_DAY")
@@ -88,7 +88,25 @@ class AslFingerspellingFallbackTest {
         // dump of every track. New repairs have a separate exact-scope test.
         old.getAsJsonArray("animations").zip(g.getAsJsonArray("animations").take(203)).forEach { (a,b) ->
             val name=a.asJsonObject.get("name").asString
-            if(name !in corrected) assertTrue("Unchanged native action: $name",a==b)
+            if (WordHandRepairEvidence.accepts(name, g, bytes)) return@forEach
+            if(name !in corrected) {
+                val before=a.asJsonObject; val after=b.asJsonObject
+                before.getAsJsonArray("channels").zip(after.getAsJsonArray("channels")).forEach { (x,y) ->
+                    val target=x.asJsonObject.getAsJsonObject("target")
+                    assertEquals("Target preserved: $name",target,y.asJsonObject.get("target"))
+                    val bone=g.getAsJsonArray("nodes")[target.get("node").asInt].asJsonObject.get("name").asString
+                    val wristCorrection=target.get("path").asString=="rotation" && bone in setOf("LeftForeArm","LeftHand","RightForeArm","RightHand")
+                    // SCHOOL's two upper-arm placement tracks now have dedicated
+                    // exact-scope/finger-preservation checks in AslThreeWristRepairTest.
+                    val schoolArmCorrection=name=="SIGN_SCHOOL" && target.get("path").asString=="rotation" && bone in setOf("LeftArm","RightArm")
+                    val schoolFingerCorrection=name=="SIGN_SCHOOL" && target.get("path").asString=="rotation" && listOf("Left","Right").any { side -> listOf("Index","Middle","Ring","Pinky").any { finger -> (1..3).any { bone==side+"Hand"+finger+it } } }
+                    if(!wristCorrection && !schoolArmCorrection && !schoolFingerCorrection) {
+                        val os=before.getAsJsonArray("samplers")[x.asJsonObject.get("sampler").asInt].asJsonObject
+                        val ns=after.getAsJsonArray("samplers")[y.asJsonObject.get("sampler").asInt].asJsonObject
+                        assertEquals("Original pose values: $name/$bone",os.get("output"),ns.get("output"))
+                    }
+                }
+            }
         }
         val names=g.getAsJsonArray("animations").map { it.asJsonObject.get("name").asString }
         for ((character,asset) in letters) {

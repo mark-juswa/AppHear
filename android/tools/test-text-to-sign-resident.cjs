@@ -4,7 +4,7 @@ const fs=require('node:fs'),vm=require('node:vm'),assert=require('node:assert/st
 function setup(){
  const calls=[],frames=new Map(),timers=new Map();let next=0;
  const makeViewer=()=>({src:'',loaded:false,loadedSource:null,availableAnimations:[],duration:2,_time:0,operations:[],
-  get currentTime(){return this._time},set currentTime(time){this._time=time;this.operations.push(['seek',time])},
+  get currentTime(){return this._time},set currentTime(time){this._time=time;this.operations.push(['seek',time]);if(this.emitOnSeek)this.emit('finished')},
   updateComplete:Promise.resolve(),playRequest:null,events:new Map(),classList:{add(){},remove(){}},
   addEventListener(n,f){if(!this.events.has(n))this.events.set(n,new Set());this.events.get(n).add(f)},
   removeEventListener(n,f){this.events.get(n)?.delete(f)},emit(n){for(const f of [...(this.events.get(n)||[])])f()},
@@ -43,10 +43,15 @@ async function start(s,url,token,name='hello'){
  s=setup();await flush();v=await start(s,'timeline.glb',5);v.currentTime=2;
  for(const [id,f] of [...s.frames]){s.frames.delete(id);f()}
  assert.equal(s.calls.filter(c=>c[0]==='onPilotFinished').length,1,'timeline ends without mixer event');
+ s=setup();await flush();v=await start(s,'reentrant.glb',6);v.emitOnSeek=true;v.currentTime=2;
+ assert.equal(s.calls.filter(c=>c[0]==='onPilotFinished').length,1,'endpoint seek cannot recursively finish twice');
  s=setup();await flush();
  const bundle=fs.readFileSync('app/src/aslOriginalWords/assets/asl_animations/original_words_v1/fingerspelling-avatar.glb');
  const gltf=JSON.parse(bundle.subarray(20,20+bundle.readUInt32LE(12)).toString());
- const names=gltf.animations.map(a=>a.name);assert.equal(names.length,258);
+ const manifest=JSON.parse(fs.readFileSync('app/src/aslOriginalWords/assets/asl_animations/original_words_v1/integration-manifest.json','utf8'));
+ const names=gltf.animations.map(a=>a.name);assert.equal(names.length,manifest.totalActions);
+ for(const word of ['fine','sign','can','not','with','together','nice','explain','study','communicate'])
+   assert.ok(names.includes('SIGN_'+word.toUpperCase()+'_HUMAN_AUTHORED_PREVIEW'),word+' has an actual named motion');
  for(const name of ['SIGN_CALL__TO_CALL_SOMEONE_S_NAME','SIGN_YOU_HUMAN_RETARGETED_PREVIEW','SIGN_YOU_ALL_HUMAN_RETARGETED_PREVIEW']) assert.ok(names.includes(name));
  const first=s.window.playSign('resident.glb',{requestId:10,animationName:'SIGN_HELLO',neutralFrame:0,pinSource:true});await flush();
  v=s.viewers.find(x=>x.src==='resident.glb');let loads=0;const originalLoad=v.load;
@@ -59,7 +64,8 @@ async function start(s,url,token,name='hello'){
    ...letters('NICOLENAMEANNAJAZZACTION'),
    'SIGN_HELLO','SIGN_LOVE','SIGN_MY','SIGN_CALL__TO_CALL_SOMEONE_S_NAME',
    'SIGN_YOUR','SIGN_CALL__TO_CALL_SOMEONE_S_NAME','SIGN_HELLO',...letters('NICOLE'),
-   'SIGN_I','SIGN_LOVE','SIGN_YOU_HUMAN_RETARGETED_PREVIEW','SIGN_HELP',...letters('NICOLE')];
+   'SIGN_I','SIGN_LOVE','SIGN_YOU_HUMAN_RETARGETED_PREVIEW','SIGN_HELP',
+   ...['explain','understand','milk','orange','orange','milk','understand','explain'].map(w=>'SIGN_'+w.toUpperCase()+'_HUMAN_AUTHORED_PREVIEW'),...letters('NICOLE')];
  for(const [index,name] of sequence.entries()){
    const fingerspelling=name.startsWith('SIGN_LETTER_');
    const previous=resident.animationName;resident.operations=[];
@@ -87,4 +93,25 @@ async function start(s,url,token,name='hello'){
  assert.equal(s.calls.filter(c=>c[0]==='onPilotFinished').length,sequence.length);
  console.log('PASS: one resident viewer, one model load, '+sequence.length+' word/letter clips and completion callbacks; every actual action covered.');
  console.log('PASS: early/duplicate/stale completion, named clip identity, ambiguous clip rejection and timeline completion.');
+ // Imported clips contain exactly .2 seconds of converter rest padding at each
+ // end. Queue continuation bypasses that padding, never the source sign motion.
+ s=setup();await flush();v=await start(s,'transitions.glb',2000);
+ v.availableAnimations=['hello','apple','tea'];v.currentTime=2;v.emit('finished');
+ await s.window.playSign('transitions.glb',{requestId:2001,animationName:'apple',
+   continuation:true,startAtSeconds:.2,endPaddingSeconds:.2});
+ assert.equal(v.currentTime,.2);assert.equal(v.playEndTime,1.8);
+ assert.equal(v.detached.options.fade,.12);
+ v.currentTime=1.7;v.emit('finished');
+ assert.equal(s.calls.filter(c=>c[0]==='onPilotFinished').length,1,'early end must not skip source frames');
+ v.currentTime=1.83;for(const [id,f] of [...s.frames]){s.frames.delete(id);f()}
+ assert.equal(v.currentTime,1.8,'hold actual endpoint on a slow rendering frame');
+ assert.equal(s.calls.filter(c=>c[0]==='onPilotFinished').length,2);
+ await s.window.playSign('transitions.glb',{requestId:2002,animationName:'tea',
+   continuation:true,startAtSeconds:.2,endPaddingSeconds:0});
+ assert.equal(v.playEndTime,2,'final sign retains its exit to rest');
+ s.window.pausePlayback();v.currentTime=2;v.emit('finished');
+ assert.equal(s.calls.filter(c=>c[0]==='onPilotFinished').length,2,'cancellation suppresses old completion');
+ await s.window.playSign('transitions.glb',{requestId:2003,animationName:'apple',startAtSeconds:1});
+ assert.equal(s.calls.filter(c=>c[0]==='onModelFailed').length,1,'invalid trim must fail');
+ console.log('PASS: contextual rest-padding bypass, source endpoint hold, bounded blend and cancellation.');
 })().catch(e=>{console.error(e);process.exitCode=1});

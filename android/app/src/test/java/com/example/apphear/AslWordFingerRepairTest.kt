@@ -53,7 +53,9 @@ class AslWordFingerRepairTest {
                 val nodeName=node.get("name").asString
                 val finger=target.get("path").asString=="rotation" && nodeName in expected
                 if(!finger) {
-                    val contact=name=="SIGN_LOVE" && target.get("path").asString=="rotation" && nodeName in setOf("LeftArm","LeftForeArm","LeftHand","RightArm","RightForeArm","RightHand")
+                    // Subsequent axial-roll correction is separately checked
+                    // against every original finger output and neutral endpoint.
+                    val contact=target.get("path").asString=="rotation" && nodeName in setOf("LeftForeArm","LeftHand","RightForeArm","RightHand")
                     if(!contact) assertEquals(x,y)
                 } else {
                     repaired++
@@ -74,6 +76,7 @@ class AslWordFingerRepairTest {
         // LOVE's former reflection has been superseded by the scoped YES-pose
         // repair; its donor and preservation boundary have a separate test.
         for(name in listOf("SIGN_HUSBAND","SIGN_WIFE")) {
+            if (WordHandRepairEvidence.accepts(name, g, bytes)) continue
             val before=animation(old,name);val after=animation(g,name)
             before.getAsJsonArray("channels").zip(after.getAsJsonArray("channels")).forEach { (x,y) ->
                 val target=x.asJsonObject.getAsJsonObject("target")

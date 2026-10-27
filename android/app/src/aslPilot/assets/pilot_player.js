@@ -14,10 +14,13 @@ function finishSign(viewer) {
   if (viewer.playLoop || viewer !== viewers[activeIndex] || viewer.playRequest == null ||
       viewer.playRequest !== lastRequest) return;
   // Late/early mixer events cannot finish the current named clip.
-  if (!(viewer.duration > 0) || viewer.currentTime + 0.001 < viewer.duration) return;
+  if (!(viewer.duration > 0) || viewer.currentTime + 0.001 < viewer.playEndTime) return;
   const token = viewer.playRequest;
-  viewer.pause();
+  // Seeking can synchronously dispatch a mixer event; invalidate first.
   viewer.playRequest = null;
+  viewer.pause();
+  // Hold the exact source endpoint for the following transition, even after a slow frame.
+  viewer.currentTime = viewer.playEndTime;
   cancelAnimationFrame(completionFrame);
   completionFrame = null;
   if (window.Android) Android.onPilotFinished(viewer.src, token);
@@ -29,7 +32,7 @@ function watchCompletion(viewer, options) {
   // animation timeline, not elapsed wall time, when its finished event is absent.
   const check = () => {
     if (viewer.playRequest !== lastRequest || lastRequest !== options.requestId) return;
-    if (viewer.duration > 0 && viewer.currentTime >= viewer.duration) {
+    if (viewer.duration > 0 && viewer.currentTime >= viewer.playEndTime) {
       finishSign(viewer);
       return;
     }
@@ -95,7 +98,8 @@ async function replay(viewer, options) {
   const previous = viewer.animationName;
   const held = viewer.currentTime;
   const previousDuration = viewer.duration;
-  const transition = options.fingerspelling ? 0.12 : relaxed && viewer.lastSigningLetter ? 0.22 : 0;
+  const transition = options.fingerspelling ? 0.12 : relaxed && viewer.lastSigningLetter ? 0.22 :
+    options.continuation && !neutral ? 0.12 : 0;
   // In bundled model-viewer 4.3.1, currentTime resets the entire mixer clock.
   // Scheduling a crossfade BEFORE that seek leaves the new letter at weight 0
   // and old idle/letters at weight 1. Clear cached actions while paused, seek,
@@ -111,7 +115,14 @@ async function replay(viewer, options) {
   // Lit's animationName update otherwise replaces explicit loop settings with Infinity.
   await viewer.updateComplete;
   if (lastRequest !== options.requestId) return false;
-  viewer.currentTime = neutral ? options.neutralFrame : 0;
+  const start = options.startAtSeconds ?? 0;
+  const tail = options.endPaddingSeconds ?? 0;
+  // Native code supplies only audited converter padding. Fail rather than skip an
+  // invalid range or silently play a truncated sign. Letters have zero padding.
+  if (![start, tail].every(x => Number.isFinite(x) && x >= 0 && x <= 0.2) ||
+      !neutral && start + tail >= viewer.duration) throw new Error('Invalid sign playback window');
+  viewer.playEndTime = viewer.duration - tail;
+  viewer.currentTime = neutral ? options.neutralFrame : start;
   viewer.playLoop = Boolean(options.loop) || neutral;
   viewer.playRequest = neutral ? null : options.requestId;
   if (!neutral || relaxed) {
@@ -121,6 +132,22 @@ async function replay(viewer, options) {
       // timeScale: that would prevent that letter moving on a later request.
       viewer.appendAnimation(previous, {time: Math.min(held, previousDuration - 0.0001),
         timeScale: 1, repetitions: 1, weight: 1, fade: false});
+      if (options.continuation && (!options.fingerspelling || !viewer.lastSigningLetter)) {
+        // At word boundaries a weight-1 overlay alone jumps halfway to the
+        // next pose on its first frame. Restore the outgoing primary AFTER
+        // seeking, then schedule a real incoming 0->1 / outgoing 1->0 fade.
+        // No seek follows it, so mixer-clock reset cannot strand the new
+        // action at weight zero. Letter-to-letter behavior stays unchanged.
+        viewer.animationName = previous;
+        await viewer.updateComplete;
+        if (lastRequest !== options.requestId) return false;
+        viewer.animationCrossfadeDuration = transition * 1000;
+        viewer.animationName = name;
+        await viewer.updateComplete;
+        if (lastRequest !== options.requestId) return false;
+        viewer.play({repetitions: options.loop ? Infinity : 1});
+        viewer.animationCrossfadeDuration = 0;
+      }
       viewer.detachAnimation(previous, {fade: transition});
     }
   }

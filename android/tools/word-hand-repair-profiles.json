@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "sourceSha256": "7c6d930e077ba9d1be75c709153f98c1e9af4ca33c99fb2bfb96731288150a20",
+  "status": "REFERENCE_GUIDED_TECHNICAL_PREVIEW_REQUIRES_ASL_REVIEW",
+  "profiles": [
+    {
+      "action": "SIGN_SCHOOL",
+      "flatSides": ["Left", "Right"],
+      "straightThumbSides": ["Left", "Right"],
+      "reference": "https://www.lifeprint.com/asl101/pages-signs/s/school.htm",
+      "reason": "Two loose flat hands; prevent the measured thumb flip while preserving both clapping trajectories and palm orientations."
+    },
+    {
+      "action": "SIGN_STUDENT",
+      "flatSides": ["Left"],
+      "reference": "https://www.lifeprint.com/asl101/pages-signs/s/student.htm",
+      "reason": "The receiving non-dominant hand stays flat; eliminate its reversed finger articulation without altering the dominant gathering motion."
+    },
+    {
+      "action": "SIGN_HELP",
+      "flatSides": ["Left"],
+      "fistSides": ["Right"],
+      "reference": "https://www.lifeprint.com/asl101/pages-signs/h/help.htm",
+      "reason": "Flat supporting palm lifts the loose-thumb closed hand; keep original thumbs, wrist orientation, lifting direction and arm motion."
+    }
+  ]
+}

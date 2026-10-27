@@ -69,6 +69,22 @@
       "technicalPlaybackStatus": "Technical review required; not qualified ASL review",
       "linguisticValidationStatus": "UNREVIEWED",
       "usageNotes": "Alternative spelling for the existing OK expression."
+    },
+    {
+      "signId": "eat",
+      "english": [
+        "food"
+      ],
+      "gloss": [
+        "EAT"
+      ],
+      "asset": "asl_animations/original_words_v1/eat.glb",
+      "sha256": "ae8fdbae6e4cde0dfc530af8595fcb68025477ae2bae1a3b95005dd525ce3605",
+      "reference": "https://www.lifeprint.com/asl101/pages-signs/e/eat.htm",
+      "license": "Existing AppHear clip retained; motion provenance unresolved. Reference link only, no media copied.",
+      "status": "UNREVIEWED_PREVIEW_ALIAS",
+      "technicalPlaybackStatus": "Uses existing EAT action; device alias selection test required",
+      "linguisticValidationStatus": "UNREVIEWED"
     }
   ]
 }

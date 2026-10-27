@@ -1,0 +1,2427 @@
+{
+  "schemaVersion": 1,
+  "language": "ASL",
+  "purpose": "User-provided 100-sentence development and testing corpus; not an executable translation dictionary",
+  "source": "User request, 2026-10-20",
+  "semantics": "requiredConcepts are review candidates, not signing order or complete ASL glosses",
+  "expressions": [
+    {
+      "id": "conversation_001",
+      "number": 1,
+      "category": "Greetings and Introductions",
+      "english": "Hello!",
+      "meaning": "Hello",
+      "intent": "greeting",
+      "requiredConcepts": [
+        "HELLO"
+      ],
+      "conceptsAreUnordered": true,
+      "fingerspelledNames": [],
+      "requiredNonManualReview": [
+        "Natural expression and discourse context require ASL review"
+      ],
+      "proposedGloss": [],
+      "translationStatus": "CANDIDATE_NOT_EXECUTABLE",
+      "references": [
+        "https://www.lifeprint.com/asl101/pages-signs/h/hello.htm",
+        "https://www.lifeprint.com/asl101/lessons/lesson01.htm"
+      ],
+      "qualifiedAslValidation": false,
+      "referenceScope": "Lexical/reference pattern only; not a reviewed translation of this whole sentence"
+    },
+    {
+      "id": "conversation_002",
+      "number": 2,
+      "category": "Greetings and Introductions",
+      "english": "How are you?",
+      "meaning": "Social greeting; a medical enquiry needs a separate interpretation.",
+      "intent": "greeting",
+      "requiredConcepts": [
+        "HOW",
+        "YOU"
+      ],
+      "conceptsAreUnordered": true,
+      "fingerspelledNames": [],
+      "requiredNonManualReview": [
+        "Social greeting: friendly expression; distinguish serious health enquiries and review contextual question/non-manual scope."
+      ],
+      "proposedGloss": [],
+      "translationStatus": "CANDIDATE_NOT_EXECUTABLE",
+      "references": [
+        "https://www.lifeprint.com/asl101/pages-signs/h/how.htm"
+      ],
+      "qualifiedAslValidation": false,
+      "referenceScope": "Lexical/reference pattern only; not a reviewed translation of this whole sentence",
+      "referencePatterns": [
+        {
+          "gloss": [
+            "HOW",
+            "YOU"
+          ],
+          "source": "https://www.lifeprint.com/asl101/pages-signs/h/how.htm",
+          "status": "REFERENCE_PATTERN_NOT_EXECUTABLE",
+          "qualifiedAslValidation": false
+        }
+      ]
+    },
+    {
+      "id": "conversation_003",
+      "number": 3,
+      "category": "Greetings and Introductions",
+      "english": "I am fine.",
+      "meaning": "I am fine",
+      "intent": "statement",
+      "requiredConcepts": [
+        "FINE",
+        "ME"
+      ],
+      "conceptsAreUnordered": true,
+      "fingerspelledNames": [],
+      "requiredNonManualReview": [
+        "Natural expression and discourse context require ASL review"
+      ],
+      "proposedGloss": [],
+      "translationStatus": "CANDIDATE_NOT_EXECUTABLE",
+      "references": [
+        "https://www.lifeprint.com/asl101/pages-signs/f/fine.htm"
+      ],
+      "qualifiedAslValidation": false,
+      "referenceScope": "Lexical/reference pattern only; not a reviewed translation of this whole sentence"
+    },
+    {
+      "id": "conversation_004",
+      "number": 4,
+      "category": "Greetings and Introductions",
+      "english": "What is your name?",
+      "meaning": "What is your name",
+      "intent": "wh_question",
+      "requiredConcepts": [
+        "NAME",
+        "WHAT",
+        "YOUR"
+      ],
+      "conceptsAreUnordered": true,
+      "fingerspelledNames": [],
+      "requiredNonManualReview": [
+        "WH marking on NAME with appropriate gaze/head; a separate WHAT sign is not obligatory. Existing NAME clip and face scope need review."
+      ],
+      "proposedGloss": [],
+      "translationStatus": "CANDIDATE_NOT_EXECUTABLE",
+      "references": [
+        "https://www.lifeprint.com/asl101/pages-signs/n/name.htm",
+        "https://www.lifeprint.com/asl101/lessons/lesson01.htm"
+      ],
+      "qualifiedAslValidation": false,
+      "referenceScope": "Lexical/reference pattern only; not a reviewed translation of this whole sentence",
+      "referencePatterns": [
+        {
+          "gloss": [
+            "YOU",
+            "NAME"
+          ],
+          "source": "https://www.lifeprint.com/asl101/lessons/lesson01.htm",
+          "status": "REFERENCE_PATTERN_NOT_EXECUTABLE",
+          "qualifiedAslValidation": false
+        }
+      ]
+    },
+    {
+      "id": "conversation_005",
+      "number": 5,
+      "category": "Greetings and Introductions",
+      "english": "My name is Nicole.",
+      "meaning": "My name is Nicole",
+      "intent": "statement",
+      "requiredConcepts": [
+        "MY",
+        "NAME"
+      ],
+      "conceptsAreUnordered": true,
+      "fingerspelledNames": [
+        "Nicole"
+      ],
+      "requiredNonManualReview": [
+        "Natural expression and discourse context require ASL review"
+      ],
+      "proposedGloss": [],
+      "translationStatus": "CANDIDATE_NOT_EXECUTABLE",
+      "references": [
+        "https://www.lifeprint.com/asl101/pages-signs/n/name.htm",
+        "https://www.lifeprint.com/asl101/lessons/lesson01.htm"
+      ],
+      "qualifiedAslValidation": false,
+      "referenceScope": "Lexical/reference pattern only; not a reviewed translation of this whole sentence"
+    },
+    {
+      "id": "conversation_006",
+      "number": 6,
+      "category": "Greetings and Introductions",
+      "english": "What is your name sign?",
+      "meaning": "Ask for an existing culturally appropriate name sign; never invent a name sign from a personal name.",
+      "intent": "wh_question",
+      "requiredConcepts": [
+        "NAME",
+        "SIGN",
+        "WHAT",
+        "YOUR"
+      ],
+      "conceptsAreUnordered": true,
+      "fingerspelledNames": [],
+      "requiredNonManualReview": [
+        "WH question facial/head marking; scope requires ASL review"
+      ],
+      "proposedGloss": [],
+      "translationStatus": "CANDIDATE_NOT_EXECUTABLE",
+      "references": [
+        "https://www.lifeprint.com/asl101/pages-signs/n/name.htm"
+      ],
+      "qualifiedAslValidation": false,
+      "referenceScope": "Lexical/reference pattern only; not a reviewed translation of this whole sentence"
+    },
+    {
+      "id": "conversation_007",
+      "number": 7,
+      "category": "Greetings and Introductions",
+      "english": "Nice to meet you.",
+      "meaning": "Nice to meet you",
+      "intent": "statement",
+      "requiredConcepts": [
+        "MEET",
+        "NICE",
+        "YOU"
+      ],
+      "conceptsAreUnordered": true,
+      "fingerspelledNames": [],
+      "requiredNonManualReview": [
+        "Directional MEET-you and polite expression; ordinary MEET plus YOU clips are not a validated compound."
+      ],
+      "proposedGloss": [],
+      "translationStatus": "CANDIDATE_NOT_EXECUTABLE",
+      "references": [
+        "https://www.lifeprint.com/asl101/pages-signs/n/nice.htm",
+        "https://www.lifeprint.com/asl101/pages-signs/m/meet.htm",
+        "https://www.lifeprint.com/asl101/lessons/lesson01.htm"
+      ],
+      "qualifiedAslValidation": false,
+      "referenceScope": "Lexical/reference pattern only; not a reviewed translation of this whole sentence",
+      "referencePatterns": [
+        {
+          "gloss": [
+            "NICE",
+            "MEET-YOU"
+          ],
+          "source": "https://www.lifeprint.com/asl101/lessons/lesson01.htm",
+          "status": "REFERENCE_PATTERN_NOT_EXECUTABLE",
+          "qualifiedAslValidation": false
+        }
+      ]
+    },
+    {
+      "id": "conversation_008",
+      "number": 8,
+      "category": "Greetings and Introductions",
+      "english": "Where are you from?",
+      "meaning": "Where are you from",
+      "intent": "wh_question",
+      "requiredConcepts": [
+        "FROM",
+        "WHERE",
+        "YOU"
+      ],
+      "conceptsAreUnordered": true,
+      "fingerspelledNames": [],
+      "requiredNonManualReview": [
+        "WH question facial/head marking; scope requires ASL review"
+      ],
+      "proposedGloss": [],
+      "translationStatus": "CANDIDATE_NOT_EXECUTABLE",
+      "references": [],
+      "qualifiedAslValidation": false,
+      "referenceScope": "Sentence translation and references still require research"
+    },
+    {
+      "id": "conversation_009",
+      "number": 9,
+      "category": "Greetings and Introductions",
+      "english": "I am from the Philippines.",
+      "meaning": "ASL target language remains ASL; do not silently use a Filipino Sign Language country sign.",
+      "intent": "statement",
+      "requiredConcepts": [
+        "FROM",
+        "ME",
+        "PHILIPPINES"
+      ],
+      "conceptsAreUnordered": true,
+      "fingerspelledNames": [],
+      "requiredNonManualReview": [
+        "Natural expression and discourse context require ASL review"
+      ],
+      "proposedGloss": [],
+      "translationStatus": "CANDIDATE_NOT_EXECUTABLE",
+      "references": [],
+      "qualifiedAslValidation": false,
+      "referenceScope": "Sentence translation and references still require research"
+    },
+    {
+      "id": "conversation_010",
+      "number": 10,
+      "category": "Greetings and Introductions",
+      "english": "How old are you?",
+      "meaning": "How old are you",
+      "intent": "wh_question",
+      "requiredConcepts": [
+        "HOW",
+        "OLD",
+        "YOU"
+      ],
+      "conceptsAreUnordered": true,
+      "fingerspelledNames": [],
+      "requiredNonManualReview": [
+        "WH question facial/head marking; scope requires ASL review"
+      ],
+      "proposedGloss": [],
+      "translationStatus": "CANDIDATE_NOT_EXECUTABLE",
+      "references": [],
+      "qualifiedAslValidation": false,
+      "referenceScope": "Sentence translation and references still require research"
+    },
+    {
+      "id": "conversation_011",
+      "number": 11,
+      "category": "Deaf and Hearing Communication",
+      "english": "Are you Deaf or hearing?",
+      "meaning": "Deaf/Hearing community identity, not a camera or hearing test.",
+      "intent": "yes_no_question",
+      "requiredConcepts": [
+        "DEAF",
+        "HEARING",
+        "OR",
+        "YOU"
+      ],
+      "conceptsAreUnordered": true,
+      "fingerspelledNames": [],
+      "requiredNonManualReview": [
+        "Yes/no question eyebrow/head marking; scope requires ASL review"
+      ],
+      "proposedGloss": [],
+      "translationStatus": "CANDIDATE_NOT_EXECUTABLE",
+      "references": [
+        "https://www.lifeprint.com/asl101/pages-signs/d/deaf.htm",
+        "https://www.lifeprint.com/asl101/pages-signs/h/hearing.htm",
+        "https://www.lifeprint.com/asl101/lessons/lesson01.htm"
+      ],
+      "qualifiedAslValidation": false,
+      "referenceScope": "Lexical/reference pattern only; not a reviewed translation of this whole sentence"
+    },
+    {
+      "id": "conversation_012",
+      "number": 12,
+      "category": "Deaf and Hearing Communication",
+      "english": "I am Deaf.",
+      "meaning": "I am Deaf",
+      "intent": "statement",
+      "requiredConcepts": [
+        "DEAF",
+        "ME"
+      ],
+      "conceptsAreUnordered": true,
+      "fingerspelledNames": [],
+      "requiredNonManualReview": [
+        "Natural expression and discourse context require ASL review"
+      ],
+      "proposedGloss": [],
+      "translationStatus": "CANDIDATE_NOT_EXECUTABLE",
+      "references": [
+        "https://www.lifeprint.com/asl101/pages-signs/d/deaf.htm",
+        "https://www.lifeprint.com/asl101/lessons/lesson01.htm"
+      ],
+      "qualifiedAslValidation": false,
+      "referenceScope": "Lexical/reference pattern only; not a reviewed translation of this whole sentence",
+      "referencePatterns": [
+        {
+          "gloss": [
+            "ME",
+            "DEAF"
+          ],
+          "source": "https://www.lifeprint.com/asl101/lessons/lesson01.htm",
+          "status": "REFERENCE_PATTERN_NOT_EXECUTABLE",
+          "qualifiedAslValidation": false
+        }
+      ]
+    },
+    {
+      "id": "conversation_013",
+      "number": 13,
+      "category": "Deaf and Hearing Communication",
+      "english": "I am hearing.",
+      "meaning": "I am hearing",
+      "intent": "statement",
+      "requiredConcepts": [
+        "HEARING",
+        "ME"
+      ],
+      "conceptsAreUnordered": true,
+      "fingerspelledNames": [],
+      "requiredNonManualReview": [
+        "Natural expression and discourse context require ASL review"
+      ],
+      "proposedGloss": [],
+      "translationStatus": "CANDIDATE_NOT_EXECUTABLE",
+      "references": [
+        "https://www.lifeprint.com/asl101/pages-signs/h/hearing.htm",
+        "https://www.lifeprint.com/asl101/lessons/lesson01.htm"
+      ],
+      "qualifiedAslValidation": false,
+      "referenceScope": "Lexical/reference pattern only; not a reviewed translation of this whole sentence",
+      "referencePatterns": [
+        {
+          "gloss": [
+            "ME",
+            "HEARING"
+          ],
+          "source": "https://www.lifeprint.com/asl101/lessons/lesson01.htm",
+          "status": "REFERENCE_PATTERN_NOT_EXECUTABLE",
+          "qualifiedAslValidation": false
+        }
+      ]
+    },
+    {
+      "id": "conversation_014",
+      "number": 14,
+      "category": "Deaf and Hearing Communication",
+      "english": "Do you know sign language?",
+      "meaning": "SIGN means signed communication, not a road sign or signing a contract.",
+      "intent": "yes_no_question",
+      "requiredConcepts": [
+        "KNOW",
+        "SIGN",
+        "YOU"
+      ],
+      "conceptsAreUnordered": true,
+      "fingerspelledNames": [],
+      "requiredNonManualReview": [
+        "Yes/no question eyebrow/head marking; scope requires ASL review"
+      ],
+      "proposedGloss": [],
+      "translationStatus": "CANDIDATE_NOT_EXECUTABLE",
+      "references": [
+        "https://www.lifeprint.com/asl101/pages-signs/s/sign.htm",
+        "https://www.lifeprint.com/asl101/pages-signs/k/know.htm",
+        "https://www.lifeprint.com/asl101/lessons/lesson01.htm"
+      ],
+      "qualifiedAslValidation": false,
+      "referenceScope": "Lexical/reference pattern only; not a reviewed translation of this whole sentence"
+    },
+    {
+      "id": "conversation_015",
+      "number": 15,
+      "category": "Deaf and Hearing Communication",
+      "english": "I am still learning ASL.",
+      "meaning": "Preserve ongoing learning and still; no blind deletion of aspect.",
+      "intent": "statement",
+      "requiredConcepts": [
+        "LEARN",
+        "ME",
+        "SIGN",
+        "STILL"
+      ],
+      "conceptsAreUnordered": true,
+      "fingerspelledNames": [],
+      "requiredNonManualReview": [
+        "Natural expression and discourse context require ASL review"
+      ],
+      "proposedGloss": [],
+      "translationStatus": "CANDIDATE_NOT_EXECUTABLE",
+      "references": [
+        "https://www.lifeprint.com/asl101/pages-signs/l/learn.htm",
+        "https://www.lifeprint.com/asl101/pages-signs/s/sign.htm",
+        "https://www.lifeprint.com/asl101/lessons/lesson01.htm"
+      ],
+      "qualifiedAslValidation": false,
+      "referenceScope": "Lexical/reference pattern only; not a reviewed translation of this whole sentence"
+    },
+    {
+      "id": "conversation_016",
+      "number": 16,
+      "category": "Deaf and Hearing Communication",
+      "english": "Can you sign slowly?",
+      "meaning": "Can you sign slowly",
+      "intent": "request",
+      "requiredConcepts": [
+        "CAN",
+        "SIGN",
+        "SLOW",
+        "YOU"
+      ],
+      "conceptsAreUnordered": true,
+      "fingerspelledNames": [],
+      "requiredNonManualReview": [
+        "Natural expression and discourse context require ASL review"
+      ],
+      "proposedGloss": [],
+      "translationStatus": "CANDIDATE_NOT_EXECUTABLE",
+      "references": [
+        "https://www.lifeprint.com/asl101/pages-signs/s/slow.htm",
+        "https://www.lifeprint.com/asl101/pages-signs/s/sign.htm"
+      ],
+      "qualifiedAslValidation": false,
+      "referenceScope": "Lexical/reference pattern only; not a reviewed translation of this whole sentence"
+    },
+    {
+      "id": "conversation_017",
+      "number": 17,
+      "category": "Deaf and Hearing Communication",
+      "english": "Please repeat that.",
+      "meaning": "Please repeat that",
+      "intent": "request",
+      "requiredConcepts": [
+        "AGAIN",
+        "PLEASE"
+      ],
+      "conceptsAreUnordered": true,
+      "fingerspelledNames": [],
+      "requiredNonManualReview": [
+        "Natural expression and discourse context require ASL review"
+      ],
+      "proposedGloss": [],
+      "translationStatus": "CANDIDATE_NOT_EXECUTABLE",
+      "references": [
+        "https://www.lifeprint.com/asl101/pages-signs/a/again.htm"
+      ],
+      "qualifiedAslValidation": false,
+      "referenceScope": "Lexical/reference pattern only; not a reviewed translation of this whole sentence"
+    },
+    {
+      "id": "conversation_018",
+      "number": 18,
+      "category": "Deaf and Hearing Communication",
+      "english": "I don't understand.",
+      "meaning": "Preserve negation and its grammatical scope.",
+      "intent": "statement",
+      "requiredConcepts": [
+        "ME",
+        "NOT",
+        "UNDERSTAND"
+      ],
+      "conceptsAreUnordered": true,
+      "fingerspelledNames": [],
+      "requiredNonManualReview": [
+        "Negation and headshake scope require ASL review"
+      ],
+      "proposedGloss": [],
+      "translationStatus": "CANDIDATE_NOT_EXECUTABLE",
+      "references": [
+        "https://www.lifeprint.com/asl101/pages-signs/n/not.htm",
+        "https://www.lifeprint.com/asl101/pages-signs/u/understand.htm"
+      ],
+      "qualifiedAslValidation": false,
+      "referenceScope": "Lexical/reference pattern only; not a reviewed translation of this whole sentence"
+    },
+    {
+      "id": "conversation_019",
+      "number": 19,
+      "category": "Deaf and Hearing Communication",
+      "english": "Can you write it down?",
+      "meaning": "Can you write it down",
+      "intent": "request",
+      "requiredConcepts": [
+        "CAN",
+        "WRITE",
+        "YOU"
+      ],
+      "conceptsAreUnordered": true,
+      "fingerspelledNames": [],
+      "requiredNonManualReview": [
+        "Natural expression and discourse context require ASL review"
+      ],
+      "proposedGloss": [],
+      "translationStatus": "CANDIDATE_NOT_EXECUTABLE",
+      "references": [
+        "https://www.lifeprint.com/asl101/pages-signs/w/write.htm"
+      ],
+      "qualifiedAslValidation": false,
+      "referenceScope": "Lexical/reference pattern only; not a reviewed translation of this whole sentence"
+    },
+    {
+      "id": "conversation_020",
+      "number": 20,
+      "category": "Deaf and Hearing Communication",
+      "english": "Can we communicate through this app?",
+      "meaning": "Ask about communication using this application, not mass-media communications.",
+      "intent": "request",
+      "requiredConcepts": [
+        "APP",
+        "CAN",
+        "COMMUNICATE",
+        "USE",
+        "WE"
+      ],
+      "conceptsAreUnordered": true,
+      "fingerspelledNames": [],
+      "requiredNonManualReview": [
+        "Natural expression and discourse context require ASL review"
+      ],
+      "proposedGloss": [],
+      "translationStatus": "CANDIDATE_NOT_EXECUTABLE",
+      "references": [
+        "https://www.lifeprint.com/asl101/pages-signs/c/communicate.htm"
+      ],
+      "qualifiedAslValidation": false,
+      "referenceScope": "Lexical/reference pattern only; not a reviewed translation of this whole sentence"
+    },
+    {
+      "id": "conversation_021",
+      "number": 21,
+      "category": "Basic Questions",
+      "english": "What are you doing?",
+      "meaning": "DO is the activity concept here, not an English auxiliary.",
+      "intent": "wh_question",
+      "requiredConcepts": [
+        "DO",
+        "WHAT",
+        "YOU"
+      ],
+      "conceptsAreUnordered": true,
+      "fingerspelledNames": [],
+      "requiredNonManualReview": [
+        "WH question facial/head marking; scope requires ASL review"
+      ],
+      "proposedGloss": [],
+      "translationStatus": "CANDIDATE_NOT_EXECUTABLE",
+      "references": [],
+      "qualifiedAslValidation": false,
+      "referenceScope": "Sentence translation and references still require research"
+    },
+    {
+      "id": "conversation_022",
+      "number": 22,
+      "category": "Basic Questions",
+      "english": "Where are you going?",
+      "meaning": "Where are you going",
+      "intent": "wh_question",
+      "requiredConcepts": [
+        "GO",
+        "WHERE",
+        "YOU"
+      ],
+      "conceptsAreUnordered": true,
+      "fingerspelledNames": [],
+      "requiredNonManualReview": [
+        "WH question facial/head marking; scope requires ASL review"
+      ],
+      "proposedGloss": [],
+      "translationStatus": "CANDIDATE_NOT_EXECUTABLE",
+      "references": [],
+      "qualifiedAslValidation": false,
+      "referenceScope": "Sentence translation and references still require research"
+    },
+    {
+      "id": "conversation_023",
+      "number": 23,
+      "category": "Basic Questions",
+      "english": "What do you mean?",
+      "meaning": "What do you mean",
+      "intent": "wh_question",
+      "requiredConcepts": [
+        "MEAN",
+        "WHAT",
+        "YOU"
+      ],
+      "conceptsAreUnordered": true,
+      "fingerspelledNames": [],
+      "requiredNonManualReview": [
+        "WH question facial/head marking; scope requires ASL review"
+      ],
+      "proposedGloss": [],
+      "translationStatus": "CANDIDATE_NOT_EXECUTABLE",
+      "references": [],
+      "qualifiedAslValidation": false,
+      "referenceScope": "Sentence translation and references still require research"
+    },
+    {
+      "id": "conversation_024",
+      "number": 24,
+      "category": "Basic Questions",
+      "english": "Do you understand?",
+      "meaning": "Do you understand",
+      "intent": "yes_no_question",
+      "requiredConcepts": [
+        "UNDERSTAND",
+        "YOU"
+      ],
+      "conceptsAreUnordered": true,
+      "fingerspelledNames": [],
+      "requiredNonManualReview": [
+        "Yes/no question eyebrow/head marking; scope requires ASL review"
+      ],
+      "proposedGloss": [],
+      "translationStatus": "CANDIDATE_NOT_EXECUTABLE",
+      "references": [],
+      "qualifiedAslValidation": false,
+      "referenceScope": "Sentence translation and references still require research"
+    },
+    {
+      "id": "conversation_025",
+      "number": 25,
+      "category": "Basic Questions",
+      "english": "Can you help me?",
+      "meaning": "Can you help me",
+      "intent": "request",
+      "requiredConcepts": [
+        "CAN",
+        "HELP",
+        "ME",
+        "YOU"
+      ],
+      "conceptsAreUnordered": true,
+      "fingerspelledNames": [],
+      "requiredNonManualReview": [
+        "Natural expression and discourse context require ASL review"
+      ],
+      "proposedGloss": [],
+      "translationStatus": "CANDIDATE_NOT_EXECUTABLE",
+      "references": [
+        "https://www.lifeprint.com/asl101/pages-signs/c/can.htm",
+        "https://www.lifeprint.com/asl101/pages-signs/h/help.htm"
+      ],
+      "qualifiedAslValidation": false,
+      "referenceScope": "Lexical/reference pattern only; not a reviewed translation of this whole sentence"
+    },
+    {
+      "id": "conversation_026",
+      "number": 26,
+      "category": "Basic Questions",
+      "english": "Yes, I understand.",
+      "meaning": "Yes, I understand",
+      "intent": "statement",
+      "requiredConcepts": [
+        "ME",
+        "UNDERSTAND",
+        "YES"
+      ],
+      "conceptsAreUnordered": true,
+      "fingerspelledNames": [],
+      "requiredNonManualReview": [
+        "Natural expression and discourse context require ASL review"
+      ],
+      "proposedGloss": [],
+      "translationStatus": "CANDIDATE_NOT_EXECUTABLE",
+      "references": [],
+      "qualifiedAslValidation": false,
+      "referenceScope": "Sentence translation and references still require research"
+    },
+    {
+      "id": "conversation_027",
+      "number": 27,
+      "category": "Basic Questions",
+      "english": "No, I don't understand.",
+      "meaning": "Both the answer NO and negated understanding must remain.",
+      "intent": "statement",
+      "requiredConcepts": [
+        "ME",
+        "NO",
+        "NOT",
+        "UNDERSTAND"
+      ],
+      "conceptsAreUnordered": true,
+      "fingerspelledNames": [],
+      "requiredNonManualReview": [
+        "Negation and headshake scope require ASL review"
+      ],
+      "proposedGloss": [],
+      "translationStatus": "CANDIDATE_NOT_EXECUTABLE",
+      "references": [],
+      "qualifiedAslValidation": false,
+      "referenceScope": "Sentence translation and references still require research"
+    },
+    {
+      "id": "conversation_028",
+      "number": 28,
+      "category": "Basic Questions",
+      "english": "Please wait a moment.",
+      "meaning": "Please wait a moment",
+      "intent": "request",
+      "requiredConcepts": [
+        "MOMENT",
+        "PLEASE",
+        "WAIT"
+      ],
+      "conceptsAreUnordered": true,
+      "fingerspelledNames": [],
+      "requiredNonManualReview": [
+        "Natural expression and discourse context require ASL review"
+      ],
+      "proposedGloss": [],
+      "translationStatus": "CANDIDATE_NOT_EXECUTABLE",
+      "references": [],
+      "qualifiedAslValidation": false,
+      "referenceScope": "Sentence translation and references still require research"
+    },
+    {
+      "id": "conversation_029",
+      "number": 29,
+      "category": "Basic Questions",
+      "english": "Can you explain again?",
+      "meaning": "Can you explain again",
+      "intent": "request",
+      "requiredConcepts": [
+        "AGAIN",
+        "CAN",
+        "EXPLAIN",
+        "YOU"
+      ],
+      "conceptsAreUnordered": true,
+      "fingerspelledNames": [],
+      "requiredNonManualReview": [
+        "Natural expression and discourse context require ASL review"
+      ],
+      "proposedGloss": [],
+      "translationStatus": "CANDIDATE_NOT_EXECUTABLE",
+      "references": [],
+      "qualifiedAslValidation": false,
+      "referenceScope": "Sentence translation and references still require research"
+    },
+    {
+      "id": "conversation_030",
+      "number": 30,
+      "category": "Basic Questions",
+      "english": "Thank you for helping me.",
+      "meaning": "Thank you for helping me",
+      "intent": "statement",
+      "requiredConcepts": [
+        "HELP",
+        "ME",
+        "THANK_YOU"
+      ],
+      "conceptsAreUnordered": true,
+      "fingerspelledNames": [],
+      "requiredNonManualReview": [
+        "Natural expression and discourse context require ASL review"
+      ],
+      "proposedGloss": [],
+      "translationStatus": "CANDIDATE_NOT_EXECUTABLE",
+      "references": [],
+      "qualifiedAslValidation": false,
+      "referenceScope": "Sentence translation and references still require research"
+    },
+    {
+      "id": "conversation_031",
+      "number": 31,
+      "category": "School",
+      "english": "Are you a student?",
+      "meaning": "Are you a student",
+      "intent": "yes_no_question",
+      "requiredConcepts": [
+        "STUDENT",
+        "YOU"
+      ],
+      "conceptsAreUnordered": true,
+      "fingerspelledNames": [],
+      "requiredNonManualReview": [
+        "Yes/no question eyebrow/head marking; scope requires ASL review"
+      ],
+      "proposedGloss": [],
+      "translationStatus": "CANDIDATE_NOT_EXECUTABLE",
+      "references": [],
+      "qualifiedAslValidation": false,
+      "referenceScope": "Sentence translation and references still require research",
+      "referencePatterns": [
+        {
+          "gloss": [
+            "STUDENT",
+            "YOU"
+          ],
+          "source": "https://www.lifeprint.com/asl101/lessons/lesson01.htm",
+          "status": "REFERENCE_PATTERN_NOT_EXECUTABLE",
+          "qualifiedAslValidation": false
+        }
+      ]
+    },
+    {
+      "id": "conversation_032",
+      "number": 32,
+      "category": "School",
+      "english": "What course are you taking?",
+      "meaning": "Course means academic program/subject; do not substitute a physical route.",
+      "intent": "wh_question",
+      "requiredConcepts": [
+        "MAJOR",
+        "STUDY",
+        "WHAT",
+        "YOU"
+      ],
+      "conceptsAreUnordered": true,
+      "fingerspelledNames": [],
+      "requiredNonManualReview": [
+        "WH question facial/head marking; scope requires ASL review"
+      ],
+      "proposedGloss": [],
+      "translationStatus": "CANDIDATE_NOT_EXECUTABLE",
+      "references": [],
+      "qualifiedAslValidation": false,
+      "referenceScope": "Sentence translation and references still require research"
+    },
+    {
+      "id": "conversation_033",
+      "number": 33,
+      "category": "School",
+      "english": "Where is your classroom?",
+      "meaning": "Classroom is a school room; CLASS and ROOM alone are not an approved compound translation.",
+      "intent": "wh_question",
+      "requiredConcepts": [
+        "CLASSROOM",
+        "WHERE",
+        "YOUR"
+      ],
+      "conceptsAreUnordered": true,
+      "fingerspelledNames": [],
+      "requiredNonManualReview": [
+        "WH question facial/head marking; scope requires ASL review"
+      ],
+      "proposedGloss": [],
+      "translationStatus": "CANDIDATE_NOT_EXECUTABLE",
+      "references": [],
+      "qualifiedAslValidation": false,
+      "referenceScope": "Sentence translation and references still require research"
+    },
+    {
+      "id": "conversation_034",
+      "number": 34,
+      "category": "School",
+      "english": "What time does class start?",
+      "meaning": "What time does class start",
+      "intent": "wh_question",
+      "requiredConcepts": [
+        "BEGIN",
+        "CLASS",
+        "TIME",
+        "WHAT"
+      ],
+      "conceptsAreUnordered": true,
+      "fingerspelledNames": [],
+      "requiredNonManualReview": [
+        "WH question facial/head marking; scope requires ASL review"
+      ],
+      "proposedGloss": [],
+      "translationStatus": "CANDIDATE_NOT_EXECUTABLE",
+      "references": [],
+      "qualifiedAslValidation": false,
+      "referenceScope": "Sentence translation and references still require research"
+    },
+    {
+      "id": "conversation_035",
+      "number": 35,
+      "category": "School",
+      "english": "Do we have an assignment?",
+      "meaning": "Assignment means assigned school task; do not assume all assignments are homework.",
+      "intent": "yes_no_question",
+      "requiredConcepts": [
+        "ASSIGNMENT",
+        "HAVE",
+        "WE"
+      ],
+      "conceptsAreUnordered": true,
+      "fingerspelledNames": [],
+      "requiredNonManualReview": [
+        "Yes/no question eyebrow/head marking; scope requires ASL review"
+      ],
+      "proposedGloss": [],
+      "translationStatus": "CANDIDATE_NOT_EXECUTABLE",
+      "references": [],
+      "qualifiedAslValidation": false,
+      "referenceScope": "Sentence translation and references still require research"
+    },
+    {
+      "id": "conversation_036",
+      "number": 36,
+      "category": "School",
+      "english": "Can you help me study?",
+      "meaning": "Can you help me study",
+      "intent": "request",
+      "requiredConcepts": [
+        "CAN",
+        "HELP",
+        "ME",
+        "STUDY",
+        "YOU"
+      ],
+      "conceptsAreUnordered": true,
+      "fingerspelledNames": [],
+      "requiredNonManualReview": [
+        "Natural expression and discourse context require ASL review"
+      ],
+      "proposedGloss": [],
+      "translationStatus": "CANDIDATE_NOT_EXECUTABLE",
+      "references": [],
+      "qualifiedAslValidation": false,
+      "referenceScope": "Sentence translation and references still require research"
+    },
+    {
+      "id": "conversation_037",
+      "number": 37,
+      "category": "School",
+      "english": "I don't understand the lesson.",
+      "meaning": "Negation applies to understanding the lesson.",
+      "intent": "statement",
+      "requiredConcepts": [
+        "LESSON",
+        "ME",
+        "NOT",
+        "UNDERSTAND"
+      ],
+      "conceptsAreUnordered": true,
+      "fingerspelledNames": [],
+      "requiredNonManualReview": [
+        "Negation and headshake scope require ASL review"
+      ],
+      "proposedGloss": [],
+      "translationStatus": "CANDIDATE_NOT_EXECUTABLE",
+      "references": [],
+      "qualifiedAslValidation": false,
+      "referenceScope": "Sentence translation and references still require research"
+    },
+    {
+      "id": "conversation_038",
+      "number": 38,
+      "category": "School",
+      "english": "The teacher is coming.",
+      "meaning": "The teacher is coming",
+      "intent": "statement",
+      "requiredConcepts": [
+        "COME",
+        "TEACHER"
+      ],
+      "conceptsAreUnordered": true,
+      "fingerspelledNames": [],
+      "requiredNonManualReview": [
+        "Natural expression and discourse context require ASL review"
+      ],
+      "proposedGloss": [],
+      "translationStatus": "CANDIDATE_NOT_EXECUTABLE",
+      "references": [],
+      "qualifiedAslValidation": false,
+      "referenceScope": "Sentence translation and references still require research"
+    },
+    {
+      "id": "conversation_039",
+      "number": 39,
+      "category": "School",
+      "english": "Let's work together.",
+      "meaning": "Let's work together",
+      "intent": "request",
+      "requiredConcepts": [
+        "TOGETHER",
+        "WE",
+        "WORK"
+      ],
+      "conceptsAreUnordered": true,
+      "fingerspelledNames": [],
+      "requiredNonManualReview": [
+        "Natural expression and discourse context require ASL review"
+      ],
+      "proposedGloss": [],
+      "translationStatus": "CANDIDATE_NOT_EXECUTABLE",
+      "references": [],
+      "qualifiedAslValidation": false,
+      "referenceScope": "Sentence translation and references still require research"
+    },
+    {
+      "id": "conversation_040",
+      "number": 40,
+      "category": "School",
+      "english": "See you tomorrow at school.",
+      "meaning": "See you tomorrow at school",
+      "intent": "statement",
+      "requiredConcepts": [
+        "SCHOOL",
+        "SEE",
+        "TOMORROW",
+        "YOU"
+      ],
+      "conceptsAreUnordered": true,
+      "fingerspelledNames": [],
+      "requiredNonManualReview": [
+        "Natural expression and discourse context require ASL review"
+      ],
+      "proposedGloss": [],
+      "translationStatus": "CANDIDATE_NOT_EXECUTABLE",
+      "references": [],
+      "qualifiedAslValidation": false,
+      "referenceScope": "Sentence translation and references still require research"
+    },
+    {
+      "id": "conversation_041",
+      "number": 41,
+      "category": "Family and Social",
+      "english": "How is your family?",
+      "meaning": "How is your family",
+      "intent": "wh_question",
+      "requiredConcepts": [
+        "FAMILY",
+        "HOW",
+        "YOUR"
+      ],
+      "conceptsAreUnordered": true,
+      "fingerspelledNames": [],
+      "requiredNonManualReview": [
+        "WH question facial/head marking; scope requires ASL review"
+      ],
+      "proposedGloss": [],
+      "translationStatus": "CANDIDATE_NOT_EXECUTABLE",
+      "references": [],
+      "qualifiedAslValidation": false,
+      "referenceScope": "Sentence translation and references still require research"
+    },
+    {
+      "id": "conversation_042",
+      "number": 42,
+      "category": "Family and Social",
+      "english": "Do you have brothers or sisters?",
+      "meaning": "Do you have brothers or sisters",
+      "intent": "yes_no_question",
+      "requiredConcepts": [
+        "BROTHER",
+        "HAVE",
+        "SISTER",
+        "YOU"
+      ],
+      "conceptsAreUnordered": true,
+      "fingerspelledNames": [],
+      "requiredNonManualReview": [
+        "Yes/no question eyebrow/head marking; scope requires ASL review"
+      ],
+      "proposedGloss": [],
+      "translationStatus": "CANDIDATE_NOT_EXECUTABLE",
+      "references": [],
+      "qualifiedAslValidation": false,
+      "referenceScope": "Sentence translation and references still require research"
+    },
+    {
+      "id": "conversation_043",
+      "number": 43,
+      "category": "Family and Social",
+      "english": "This is my mother.",
+      "meaning": "This is my mother",
+      "intent": "statement",
+      "requiredConcepts": [
+        "MOTHER",
+        "MY",
+        "THIS"
+      ],
+      "conceptsAreUnordered": true,
+      "fingerspelledNames": [],
+      "requiredNonManualReview": [
+        "Natural expression and discourse context require ASL review"
+      ],
+      "proposedGloss": [],
+      "translationStatus": "CANDIDATE_NOT_EXECUTABLE",
+      "references": [],
+      "qualifiedAslValidation": false,
+      "referenceScope": "Sentence translation and references still require research"
+    },
+    {
+      "id": "conversation_044",
+      "number": 44,
+      "category": "Family and Social",
+      "english": "This is my father.",
+      "meaning": "This is my father",
+      "intent": "statement",
+      "requiredConcepts": [
+        "FATHER",
+        "MY",
+        "THIS"
+      ],
+      "conceptsAreUnordered": true,
+      "fingerspelledNames": [],
+      "requiredNonManualReview": [
+        "Natural expression and discourse context require ASL review"
+      ],
+      "proposedGloss": [],
+      "translationStatus": "CANDIDATE_NOT_EXECUTABLE",
+      "references": [],
+      "qualifiedAslValidation": false,
+      "referenceScope": "Sentence translation and references still require research"
+    },
+    {
+      "id": "conversation_045",
+      "number": 45,
+      "category": "Family and Social",
+      "english": "Who is your friend?",
+      "meaning": "Who is your friend",
+      "intent": "wh_question",
+      "requiredConcepts": [
+        "FRIEND",
+        "WHO",
+        "YOUR"
+      ],
+      "conceptsAreUnordered": true,
+      "fingerspelledNames": [],
+      "requiredNonManualReview": [
+        "WH question facial/head marking; scope requires ASL review"
+      ],
+      "proposedGloss": [],
+      "translationStatus": "CANDIDATE_NOT_EXECUTABLE",
+      "references": [],
+      "qualifiedAslValidation": false,
+      "referenceScope": "Sentence translation and references still require research"
+    },
+    {
+      "id": "conversation_046",
+      "number": 46,
+      "category": "Family and Social",
+      "english": "Do you live with your family?",
+      "meaning": "Living arrangement with family; spatial reference needs review.",
+      "intent": "yes_no_question",
+      "requiredConcepts": [
+        "FAMILY",
+        "LIVE",
+        "WITH",
+        "YOU"
+      ],
+      "conceptsAreUnordered": true,
+      "fingerspelledNames": [],
+      "requiredNonManualReview": [
+        "Yes/no question eyebrow/head marking; scope requires ASL review"
+      ],
+      "proposedGloss": [],
+      "translationStatus": "CANDIDATE_NOT_EXECUTABLE",
+      "references": [],
+      "qualifiedAslValidation": false,
+      "referenceScope": "Sentence translation and references still require research"
+    },
+    {
+      "id": "conversation_047",
+      "number": 47,
+      "category": "Family and Social",
+      "english": "I love my family.",
+      "meaning": "I love my family",
+      "intent": "statement",
+      "requiredConcepts": [
+        "FAMILY",
+        "LOVE",
+        "ME",
+        "MY"
+      ],
+      "conceptsAreUnordered": true,
+      "fingerspelledNames": [],
+      "requiredNonManualReview": [
+        "Natural expression and discourse context require ASL review"
+      ],
+      "proposedGloss": [],
+      "translationStatus": "CANDIDATE_NOT_EXECUTABLE",
+      "references": [],
+      "qualifiedAslValidation": false,
+      "referenceScope": "Sentence translation and references still require research"
+    },
+    {
+      "id": "conversation_048",
+      "number": 48,
+      "category": "Family and Social",
+      "english": "Are you busy today?",
+      "meaning": "Are you busy today",
+      "intent": "yes_no_question",
+      "requiredConcepts": [
+        "BUSY",
+        "TODAY",
+        "YOU"
+      ],
+      "conceptsAreUnordered": true,
+      "fingerspelledNames": [],
+      "requiredNonManualReview": [
+        "Yes/no question eyebrow/head marking; scope requires ASL review"
+      ],
+      "proposedGloss": [],
+      "translationStatus": "CANDIDATE_NOT_EXECUTABLE",
+      "references": [],
+      "qualifiedAslValidation": false,
+      "referenceScope": "Sentence translation and references still require research"
+    },
+    {
+      "id": "conversation_049",
+      "number": 49,
+      "category": "Family and Social",
+      "english": "Do you want to go with me?",
+      "meaning": "Do you want to go with me",
+      "intent": "request",
+      "requiredConcepts": [
+        "GO",
+        "ME",
+        "WANT",
+        "WITH",
+        "YOU"
+      ],
+      "conceptsAreUnordered": true,
+      "fingerspelledNames": [],
+      "requiredNonManualReview": [
+        "Natural expression and discourse context require ASL review"
+      ],
+      "proposedGloss": [],
+      "translationStatus": "CANDIDATE_NOT_EXECUTABLE",
+      "references": [],
+      "qualifiedAslValidation": false,
+      "referenceScope": "Sentence translation and references still require research"
+    },
+    {
+      "id": "conversation_050",
+      "number": 50,
+      "category": "Family and Social",
+      "english": "Let's meet tomorrow.",
+      "meaning": "Let's meet tomorrow",
+      "intent": "request",
+      "requiredConcepts": [
+        "MEET",
+        "TOMORROW",
+        "WE"
+      ],
+      "conceptsAreUnordered": true,
+      "fingerspelledNames": [],
+      "requiredNonManualReview": [
+        "Natural expression and discourse context require ASL review"
+      ],
+      "proposedGloss": [],
+      "translationStatus": "CANDIDATE_NOT_EXECUTABLE",
+      "references": [],
+      "qualifiedAslValidation": false,
+      "referenceScope": "Sentence translation and references still require research"
+    },
+    {
+      "id": "conversation_051",
+      "number": 51,
+      "category": "Food and Daily Needs",
+      "english": "Are you hungry?",
+      "meaning": "Are you hungry",
+      "intent": "yes_no_question",
+      "requiredConcepts": [
+        "HUNGRY",
+        "YOU"
+      ],
+      "conceptsAreUnordered": true,
+      "fingerspelledNames": [],
+      "requiredNonManualReview": [
+        "Yes/no question eyebrow/head marking; scope requires ASL review"
+      ],
+      "proposedGloss": [],
+      "translationStatus": "CANDIDATE_NOT_EXECUTABLE",
+      "references": [],
+      "qualifiedAslValidation": false,
+      "referenceScope": "Sentence translation and references still require research"
+    },
+    {
+      "id": "conversation_052",
+      "number": 52,
+      "category": "Food and Daily Needs",
+      "english": "I am hungry.",
+      "meaning": "I am hungry",
+      "intent": "statement",
+      "requiredConcepts": [
+        "HUNGRY",
+        "ME"
+      ],
+      "conceptsAreUnordered": true,
+      "fingerspelledNames": [],
+      "requiredNonManualReview": [
+        "Natural expression and discourse context require ASL review"
+      ],
+      "proposedGloss": [],
+      "translationStatus": "CANDIDATE_NOT_EXECUTABLE",
+      "references": [],
+      "qualifiedAslValidation": false,
+      "referenceScope": "Sentence translation and references still require research"
+    },
+    {
+      "id": "conversation_053",
+      "number": 53,
+      "category": "Food and Daily Needs",
+      "english": "Do you want water?",
+      "meaning": "Do you want water",
+      "intent": "yes_no_question",
+      "requiredConcepts": [
+        "WANT",
+        "WATER",
+        "YOU"
+      ],
+      "conceptsAreUnordered": true,
+      "fingerspelledNames": [],
+      "requiredNonManualReview": [
+        "Yes/no question eyebrow/head marking; scope requires ASL review"
+      ],
+      "proposedGloss": [],
+      "translationStatus": "CANDIDATE_NOT_EXECUTABLE",
+      "references": [],
+      "qualifiedAslValidation": false,
+      "referenceScope": "Sentence translation and references still require research"
+    },
+    {
+      "id": "conversation_054",
+      "number": 54,
+      "category": "Food and Daily Needs",
+      "english": "I want to eat.",
+      "meaning": "I want to eat",
+      "intent": "statement",
+      "requiredConcepts": [
+        "EAT",
+        "ME",
+        "WANT"
+      ],
+      "conceptsAreUnordered": true,
+      "fingerspelledNames": [],
+      "requiredNonManualReview": [
+        "Natural expression and discourse context require ASL review"
+      ],
+      "proposedGloss": [],
+      "translationStatus": "CANDIDATE_NOT_EXECUTABLE",
+      "references": [],
+      "qualifiedAslValidation": false,
+      "referenceScope": "Sentence translation and references still require research"
+    },
+    {
+      "id": "conversation_055",
+      "number": 55,
+      "category": "Food and Daily Needs",
+      "english": "What food do you like?",
+      "meaning": "FOOD is a noun concept; do not count an alias as a new motion.",
+      "intent": "wh_question",
+      "requiredConcepts": [
+        "FOOD",
+        "LIKE",
+        "WHAT",
+        "YOU"
+      ],
+      "conceptsAreUnordered": true,
+      "fingerspelledNames": [],
+      "requiredNonManualReview": [
+        "WH question facial/head marking; scope requires ASL review"
+      ],
+      "proposedGloss": [],
+      "translationStatus": "CANDIDATE_NOT_EXECUTABLE",
+      "references": [],
+      "qualifiedAslValidation": false,
+      "referenceScope": "Sentence translation and references still require research"
+    },
+    {
+      "id": "conversation_056",
+      "number": 56,
+      "category": "Food and Daily Needs",
+      "english": "Let's eat together.",
+      "meaning": "Let's eat together",
+      "intent": "request",
+      "requiredConcepts": [
+        "EAT",
+        "TOGETHER",
+        "WE"
+      ],
+      "conceptsAreUnordered": true,
+      "fingerspelledNames": [],
+      "requiredNonManualReview": [
+        "Natural expression and discourse context require ASL review"
+      ],
+      "proposedGloss": [],
+      "translationStatus": "CANDIDATE_NOT_EXECUTABLE",
+      "references": [],
+      "qualifiedAslValidation": false,
+      "referenceScope": "Sentence translation and references still require research"
+    },
+    {
+      "id": "conversation_057",
+      "number": 57,
+      "category": "Food and Daily Needs",
+      "english": "Where is the restaurant?",
+      "meaning": "Where is the restaurant",
+      "intent": "wh_question",
+      "requiredConcepts": [
+        "RESTAURANT",
+        "WHERE"
+      ],
+      "conceptsAreUnordered": true,
+      "fingerspelledNames": [],
+      "requiredNonManualReview": [
+        "WH question facial/head marking; scope requires ASL review"
+      ],
+      "proposedGloss": [],
+      "translationStatus": "CANDIDATE_NOT_EXECUTABLE",
+      "references": [],
+      "qualifiedAslValidation": false,
+      "referenceScope": "Sentence translation and references still require research"
+    },
+    {
+      "id": "conversation_058",
+      "number": 58,
+      "category": "Food and Daily Needs",
+      "english": "How much does this cost?",
+      "meaning": "Financial cost of an indicated object, not size or volume.",
+      "intent": "wh_question",
+      "requiredConcepts": [
+        "COST",
+        "HOW_MUCH",
+        "THIS"
+      ],
+      "conceptsAreUnordered": true,
+      "fingerspelledNames": [],
+      "requiredNonManualReview": [
+        "WH question facial/head marking; scope requires ASL review"
+      ],
+      "proposedGloss": [],
+      "translationStatus": "CANDIDATE_NOT_EXECUTABLE",
+      "references": [
+        "https://www.lifeprint.com/asl101/pages-signs/h/how.htm"
+      ],
+      "qualifiedAslValidation": false,
+      "referenceScope": "Price HOW-MUCH is distinct from generic HOW; not a complete reviewed sentence translation."
+    },
+    {
+      "id": "conversation_059",
+      "number": 59,
+      "category": "Food and Daily Needs",
+      "english": "I need to use the bathroom.",
+      "meaning": "Bathroom/toilet need, not bathing.",
+      "intent": "statement",
+      "requiredConcepts": [
+        "BATHROOM",
+        "ME",
+        "NEED",
+        "USE"
+      ],
+      "conceptsAreUnordered": true,
+      "fingerspelledNames": [],
+      "requiredNonManualReview": [
+        "Natural expression and discourse context require ASL review"
+      ],
+      "proposedGloss": [],
+      "translationStatus": "CANDIDATE_NOT_EXECUTABLE",
+      "references": [],
+      "qualifiedAslValidation": false,
+      "referenceScope": "Sentence translation and references still require research"
+    },
+    {
+      "id": "conversation_060",
+      "number": 60,
+      "category": "Food and Daily Needs",
+      "english": "Please give me some water.",
+      "meaning": "Please give me some water",
+      "intent": "request",
+      "requiredConcepts": [
+        "GIVE",
+        "ME",
+        "PLEASE",
+        "WATER"
+      ],
+      "conceptsAreUnordered": true,
+      "fingerspelledNames": [],
+      "requiredNonManualReview": [
+        "Natural expression and discourse context require ASL review"
+      ],
+      "proposedGloss": [],
+      "translationStatus": "CANDIDATE_NOT_EXECUTABLE",
+      "references": [],
+      "qualifiedAslValidation": false,
+      "referenceScope": "Sentence translation and references still require research"
+    },
+    {
+      "id": "conversation_061",
+      "number": 61,
+      "category": "Feelings",
+      "english": "Are you okay?",
+      "meaning": "Are you okay",
+      "intent": "yes_no_question",
+      "requiredConcepts": [
+        "OK",
+        "YOU"
+      ],
+      "conceptsAreUnordered": true,
+      "fingerspelledNames": [],
+      "requiredNonManualReview": [
+        "Yes/no question eyebrow/head marking; scope requires ASL review"
+      ],
+      "proposedGloss": [],
+      "translationStatus": "CANDIDATE_NOT_EXECUTABLE",
+      "references": [],
+      "qualifiedAslValidation": false,
+      "referenceScope": "Sentence translation and references still require research"
+    },
+    {
+      "id": "conversation_062",
+      "number": 62,
+      "category": "Feelings",
+      "english": "I am happy.",
+      "meaning": "I am happy",
+      "intent": "statement",
+      "requiredConcepts": [
+        "HAPPY",
+        "ME"
+      ],
+      "conceptsAreUnordered": true,
+      "fingerspelledNames": [],
+      "requiredNonManualReview": [
+        "Natural expression and discourse context require ASL review"
+      ],
+      "proposedGloss": [],
+      "translationStatus": "CANDIDATE_NOT_EXECUTABLE",
+      "references": [],
+      "qualifiedAslValidation": false,
+      "referenceScope": "Sentence translation and references still require research"
+    },
+    {
+      "id": "conversation_063",
+      "number": 63,
+      "category": "Feelings",
+      "english": "I feel sad.",
+      "meaning": "I feel sad",
+      "intent": "statement",
+      "requiredConcepts": [
+        "FEEL",
+        "ME",
+        "SAD"
+      ],
+      "conceptsAreUnordered": true,
+      "fingerspelledNames": [],
+      "requiredNonManualReview": [
+        "Natural expression and discourse context require ASL review"
+      ],
+      "proposedGloss": [],
+      "translationStatus": "CANDIDATE_NOT_EXECUTABLE",
+      "references": [],
+      "qualifiedAslValidation": false,
+      "referenceScope": "Sentence translation and references still require research"
+    },
+    {
+      "id": "conversation_064",
+      "number": 64,
+      "category": "Feelings",
+      "english": "I am tired.",
+      "meaning": "I am tired",
+      "intent": "statement",
+      "requiredConcepts": [
+        "ME",
+        "TIRED"
+      ],
+      "conceptsAreUnordered": true,
+      "fingerspelledNames": [],
+      "requiredNonManualReview": [
+        "Natural expression and discourse context require ASL review"
+      ],
+      "proposedGloss": [],
+      "translationStatus": "CANDIDATE_NOT_EXECUTABLE",
+      "references": [],
+      "qualifiedAslValidation": false,
+      "referenceScope": "Sentence translation and references still require research"
+    },
+    {
+      "id": "conversation_065",
+      "number": 65,
+      "category": "Feelings",
+      "english": "Why are you crying?",
+      "meaning": "Crying tears, not calling aloud.",
+      "intent": "wh_question",
+      "requiredConcepts": [
+        "CRY",
+        "WHY",
+        "YOU"
+      ],
+      "conceptsAreUnordered": true,
+      "fingerspelledNames": [],
+      "requiredNonManualReview": [
+        "WH question facial/head marking; scope requires ASL review"
+      ],
+      "proposedGloss": [],
+      "translationStatus": "CANDIDATE_NOT_EXECUTABLE",
+      "references": [],
+      "qualifiedAslValidation": false,
+      "referenceScope": "Sentence translation and references still require research"
+    },
+    {
+      "id": "conversation_066",
+      "number": 66,
+      "category": "Feelings",
+      "english": "Are you angry?",
+      "meaning": "Are you angry",
+      "intent": "yes_no_question",
+      "requiredConcepts": [
+        "ANGRY",
+        "YOU"
+      ],
+      "conceptsAreUnordered": true,
+      "fingerspelledNames": [],
+      "requiredNonManualReview": [
+        "Yes/no question eyebrow/head marking; scope requires ASL review"
+      ],
+      "proposedGloss": [],
+      "translationStatus": "CANDIDATE_NOT_EXECUTABLE",
+      "references": [],
+      "qualifiedAslValidation": false,
+      "referenceScope": "Sentence translation and references still require research"
+    },
+    {
+      "id": "conversation_067",
+      "number": 67,
+      "category": "Feelings",
+      "english": "Don't worry.",
+      "meaning": "A reassuring request not to worry; preserve negation.",
+      "intent": "request",
+      "requiredConcepts": [
+        "NOT",
+        "WORRY"
+      ],
+      "conceptsAreUnordered": true,
+      "fingerspelledNames": [],
+      "requiredNonManualReview": [
+        "Negation and headshake scope require ASL review"
+      ],
+      "proposedGloss": [],
+      "translationStatus": "CANDIDATE_NOT_EXECUTABLE",
+      "references": [],
+      "qualifiedAslValidation": false,
+      "referenceScope": "Sentence translation and references still require research"
+    },
+    {
+      "id": "conversation_068",
+      "number": 68,
+      "category": "Feelings",
+      "english": "I am excited.",
+      "meaning": "I am excited",
+      "intent": "statement",
+      "requiredConcepts": [
+        "EXCITED",
+        "ME"
+      ],
+      "conceptsAreUnordered": true,
+      "fingerspelledNames": [],
+      "requiredNonManualReview": [
+        "Natural expression and discourse context require ASL review"
+      ],
+      "proposedGloss": [],
+      "translationStatus": "CANDIDATE_NOT_EXECUTABLE",
+      "references": [],
+      "qualifiedAslValidation": false,
+      "referenceScope": "Sentence translation and references still require research"
+    },
+    {
+      "id": "conversation_069",
+      "number": 69,
+      "category": "Feelings",
+      "english": "I miss you.",
+      "meaning": "MISS is longing for a person, not missing a bus or failing a target.",
+      "intent": "statement",
+      "requiredConcepts": [
+        "ME",
+        "MISS",
+        "YOU"
+      ],
+      "conceptsAreUnordered": true,
+      "fingerspelledNames": [],
+      "requiredNonManualReview": [
+        "Natural expression and discourse context require ASL review"
+      ],
+      "proposedGloss": [],
+      "translationStatus": "CANDIDATE_NOT_EXECUTABLE",
+      "references": [],
+      "qualifiedAslValidation": false,
+      "referenceScope": "Sentence translation and references still require research"
+    },
+    {
+      "id": "conversation_070",
+      "number": 70,
+      "category": "Feelings",
+      "english": "I love you.",
+      "meaning": "I love you",
+      "intent": "statement",
+      "requiredConcepts": [
+        "LOVE",
+        "ME",
+        "YOU"
+      ],
+      "conceptsAreUnordered": true,
+      "fingerspelledNames": [],
+      "requiredNonManualReview": [
+        "Natural expression and discourse context require ASL review"
+      ],
+      "proposedGloss": [],
+      "translationStatus": "CANDIDATE_NOT_EXECUTABLE",
+      "references": [],
+      "qualifiedAslValidation": false,
+      "referenceScope": "Sentence translation and references still require research"
+    },
+    {
+      "id": "conversation_071",
+      "number": 71,
+      "category": "Health and Assistance",
+      "english": "Are you feeling sick?",
+      "meaning": "Are you feeling sick",
+      "intent": "yes_no_question",
+      "requiredConcepts": [
+        "FEEL",
+        "SICK",
+        "YOU"
+      ],
+      "conceptsAreUnordered": true,
+      "fingerspelledNames": [],
+      "requiredNonManualReview": [
+        "Yes/no question eyebrow/head marking; scope requires ASL review"
+      ],
+      "proposedGloss": [],
+      "translationStatus": "CANDIDATE_NOT_EXECUTABLE",
+      "references": [],
+      "qualifiedAslValidation": false,
+      "referenceScope": "Sentence translation and references still require research"
+    },
+    {
+      "id": "conversation_072",
+      "number": 72,
+      "category": "Health and Assistance",
+      "english": "Where does it hurt?",
+      "meaning": "Where does it hurt",
+      "intent": "wh_question",
+      "requiredConcepts": [
+        "PAIN",
+        "WHERE"
+      ],
+      "conceptsAreUnordered": true,
+      "fingerspelledNames": [],
+      "requiredNonManualReview": [
+        "WH question facial/head marking; scope requires ASL review"
+      ],
+      "proposedGloss": [],
+      "translationStatus": "CANDIDATE_NOT_EXECUTABLE",
+      "references": [],
+      "qualifiedAslValidation": false,
+      "referenceScope": "Sentence translation and references still require research"
+    },
+    {
+      "id": "conversation_073",
+      "number": 73,
+      "category": "Health and Assistance",
+      "english": "I have a headache.",
+      "meaning": "Headache location and intensity need review; generic PAIN is not a complete headache expression.",
+      "intent": "statement",
+      "requiredConcepts": [
+        "HEADACHE",
+        "ME"
+      ],
+      "conceptsAreUnordered": true,
+      "fingerspelledNames": [],
+      "requiredNonManualReview": [
+        "Natural expression and discourse context require ASL review"
+      ],
+      "proposedGloss": [],
+      "translationStatus": "CANDIDATE_NOT_EXECUTABLE",
+      "references": [],
+      "qualifiedAslValidation": false,
+      "referenceScope": "Sentence translation and references still require research"
+    },
+    {
+      "id": "conversation_074",
+      "number": 74,
+      "category": "Health and Assistance",
+      "english": "I need a doctor.",
+      "meaning": "I need a doctor",
+      "intent": "statement",
+      "requiredConcepts": [
+        "DOCTOR",
+        "ME",
+        "NEED"
+      ],
+      "conceptsAreUnordered": true,
+      "fingerspelledNames": [],
+      "requiredNonManualReview": [
+        "Natural expression and discourse context require ASL review"
+      ],
+      "proposedGloss": [],
+      "translationStatus": "CANDIDATE_NOT_EXECUTABLE",
+      "references": [],
+      "qualifiedAslValidation": false,
+      "referenceScope": "Sentence translation and references still require research"
+    },
+    {
+      "id": "conversation_075",
+      "number": 75,
+      "category": "Health and Assistance",
+      "english": "Please call for help.",
+      "meaning": "CALL means contact someone for help; phone use may depend on context.",
+      "intent": "request",
+      "requiredConcepts": [
+        "CALL",
+        "HELP",
+        "PLEASE"
+      ],
+      "conceptsAreUnordered": true,
+      "fingerspelledNames": [],
+      "requiredNonManualReview": [
+        "Natural expression and discourse context require ASL review"
+      ],
+      "proposedGloss": [],
+      "translationStatus": "CANDIDATE_NOT_EXECUTABLE",
+      "references": [],
+      "qualifiedAslValidation": false,
+      "referenceScope": "Sentence translation and references still require research"
+    },
+    {
+      "id": "conversation_076",
+      "number": 76,
+      "category": "Health and Assistance",
+      "english": "Where is the hospital?",
+      "meaning": "Where is the hospital",
+      "intent": "wh_question",
+      "requiredConcepts": [
+        "HOSPITAL",
+        "WHERE"
+      ],
+      "conceptsAreUnordered": true,
+      "fingerspelledNames": [],
+      "requiredNonManualReview": [
+        "WH question facial/head marking; scope requires ASL review"
+      ],
+      "proposedGloss": [],
+      "translationStatus": "CANDIDATE_NOT_EXECUTABLE",
+      "references": [],
+      "qualifiedAslValidation": false,
+      "referenceScope": "Sentence translation and references still require research"
+    },
+    {
+      "id": "conversation_077",
+      "number": 77,
+      "category": "Health and Assistance",
+      "english": "Do you need medicine?",
+      "meaning": "Do you need medicine",
+      "intent": "yes_no_question",
+      "requiredConcepts": [
+        "MEDICINE",
+        "NEED",
+        "YOU"
+      ],
+      "conceptsAreUnordered": true,
+      "fingerspelledNames": [],
+      "requiredNonManualReview": [
+        "Yes/no question eyebrow/head marking; scope requires ASL review"
+      ],
+      "proposedGloss": [],
+      "translationStatus": "CANDIDATE_NOT_EXECUTABLE",
+      "references": [],
+      "qualifiedAslValidation": false,
+      "referenceScope": "Sentence translation and references still require research"
+    },
+    {
+      "id": "conversation_078",
+      "number": 78,
+      "category": "Health and Assistance",
+      "english": "Are you in pain?",
+      "meaning": "Are you in pain",
+      "intent": "yes_no_question",
+      "requiredConcepts": [
+        "PAIN",
+        "YOU"
+      ],
+      "conceptsAreUnordered": true,
+      "fingerspelledNames": [],
+      "requiredNonManualReview": [
+        "Yes/no question eyebrow/head marking; scope requires ASL review"
+      ],
+      "proposedGloss": [],
+      "translationStatus": "CANDIDATE_NOT_EXECUTABLE",
+      "references": [],
+      "qualifiedAslValidation": false,
+      "referenceScope": "Sentence translation and references still require research"
+    },
+    {
+      "id": "conversation_079",
+      "number": 79,
+      "category": "Health and Assistance",
+      "english": "There is an emergency.",
+      "meaning": "Emergency severity cannot be certified by lexical playback.",
+      "intent": "statement",
+      "requiredConcepts": [
+        "EMERGENCY"
+      ],
+      "conceptsAreUnordered": true,
+      "fingerspelledNames": [],
+      "requiredNonManualReview": [
+        "Natural expression and discourse context require ASL review"
+      ],
+      "proposedGloss": [],
+      "translationStatus": "CANDIDATE_NOT_EXECUTABLE",
+      "references": [],
+      "qualifiedAslValidation": false,
+      "referenceScope": "Sentence translation and references still require research"
+    },
+    {
+      "id": "conversation_080",
+      "number": 80,
+      "category": "Health and Assistance",
+      "english": "Please help me now.",
+      "meaning": "Please help me now",
+      "intent": "request",
+      "requiredConcepts": [
+        "HELP",
+        "ME",
+        "NOW",
+        "PLEASE"
+      ],
+      "conceptsAreUnordered": true,
+      "fingerspelledNames": [],
+      "requiredNonManualReview": [
+        "Natural expression and discourse context require ASL review"
+      ],
+      "proposedGloss": [],
+      "translationStatus": "CANDIDATE_NOT_EXECUTABLE",
+      "references": [],
+      "qualifiedAslValidation": false,
+      "referenceScope": "Sentence translation and references still require research"
+    },
+    {
+      "id": "conversation_081",
+      "number": 81,
+      "category": "Places and Directions",
+      "english": "Where are you going?",
+      "meaning": "Where are you going",
+      "intent": "wh_question",
+      "requiredConcepts": [
+        "GO",
+        "WHERE",
+        "YOU"
+      ],
+      "conceptsAreUnordered": true,
+      "fingerspelledNames": [],
+      "requiredNonManualReview": [
+        "WH question facial/head marking; scope requires ASL review"
+      ],
+      "proposedGloss": [],
+      "translationStatus": "CANDIDATE_NOT_EXECUTABLE",
+      "references": [],
+      "qualifiedAslValidation": false,
+      "duplicateOf": "conversation_022",
+      "referenceScope": "Sentence translation and references still require research"
+    },
+    {
+      "id": "conversation_082",
+      "number": 82,
+      "category": "Places and Directions",
+      "english": "Where is the bus stop?",
+      "meaning": "BUS STOP is a transport location; STOP motion alone does not express the place.",
+      "intent": "wh_question",
+      "requiredConcepts": [
+        "BUS",
+        "STOP",
+        "WHERE"
+      ],
+      "conceptsAreUnordered": true,
+      "fingerspelledNames": [],
+      "requiredNonManualReview": [
+        "WH question facial/head marking; scope requires ASL review"
+      ],
+      "proposedGloss": [],
+      "translationStatus": "CANDIDATE_NOT_EXECUTABLE",
+      "references": [],
+      "qualifiedAslValidation": false,
+      "referenceScope": "Sentence translation and references still require research"
+    },
+    {
+      "id": "conversation_083",
+      "number": 83,
+      "category": "Places and Directions",
+      "english": "How do I get there?",
+      "meaning": "How do I get there",
+      "intent": "wh_question",
+      "requiredConcepts": [
+        "GO",
+        "HOW",
+        "THERE"
+      ],
+      "conceptsAreUnordered": true,
+      "fingerspelledNames": [],
+      "requiredNonManualReview": [
+        "WH question facial/head marking; scope requires ASL review"
+      ],
+      "proposedGloss": [],
+      "translationStatus": "CANDIDATE_NOT_EXECUTABLE",
+      "references": [],
+      "qualifiedAslValidation": false,
+      "referenceScope": "Sentence translation and references still require research"
+    },
+    {
+      "id": "conversation_084",
+      "number": 84,
+      "category": "Places and Directions",
+      "english": "Turn left.",
+      "meaning": "Turn left",
+      "intent": "request",
+      "requiredConcepts": [
+        "LEFT",
+        "TURN"
+      ],
+      "conceptsAreUnordered": true,
+      "fingerspelledNames": [],
+      "requiredNonManualReview": [
+        "Natural expression and discourse context require ASL review"
+      ],
+      "proposedGloss": [],
+      "translationStatus": "CANDIDATE_NOT_EXECUTABLE",
+      "references": [],
+      "qualifiedAslValidation": false,
+      "referenceScope": "Sentence translation and references still require research"
+    },
+    {
+      "id": "conversation_085",
+      "number": 85,
+      "category": "Places and Directions",
+      "english": "Turn right.",
+      "meaning": "Turn right",
+      "intent": "request",
+      "requiredConcepts": [
+        "RIGHT_DIRECTION",
+        "TURN"
+      ],
+      "conceptsAreUnordered": true,
+      "fingerspelledNames": [],
+      "requiredNonManualReview": [
+        "Natural expression and discourse context require ASL review"
+      ],
+      "proposedGloss": [],
+      "translationStatus": "CANDIDATE_NOT_EXECUTABLE",
+      "references": [],
+      "qualifiedAslValidation": false,
+      "referenceScope": "Sentence translation and references still require research"
+    },
+    {
+      "id": "conversation_086",
+      "number": 86,
+      "category": "Places and Directions",
+      "english": "Go straight.",
+      "meaning": "Go straight",
+      "intent": "request",
+      "requiredConcepts": [
+        "GO",
+        "STRAIGHT"
+      ],
+      "conceptsAreUnordered": true,
+      "fingerspelledNames": [],
+      "requiredNonManualReview": [
+        "Natural expression and discourse context require ASL review"
+      ],
+      "proposedGloss": [],
+      "translationStatus": "CANDIDATE_NOT_EXECUTABLE",
+      "references": [],
+      "qualifiedAslValidation": false,
+      "referenceScope": "Sentence translation and references still require research"
+    },
+    {
+      "id": "conversation_087",
+      "number": 87,
+      "category": "Places and Directions",
+      "english": "Is it far from here?",
+      "meaning": "Distance to the indicated destination, not time.",
+      "intent": "yes_no_question",
+      "requiredConcepts": [
+        "FAR",
+        "HERE"
+      ],
+      "conceptsAreUnordered": true,
+      "fingerspelledNames": [],
+      "requiredNonManualReview": [
+        "Yes/no question eyebrow/head marking; scope requires ASL review"
+      ],
+      "proposedGloss": [],
+      "translationStatus": "CANDIDATE_NOT_EXECUTABLE",
+      "references": [],
+      "qualifiedAslValidation": false,
+      "referenceScope": "Sentence translation and references still require research"
+    },
+    {
+      "id": "conversation_088",
+      "number": 88,
+      "category": "Places and Directions",
+      "english": "I am going home.",
+      "meaning": "I am going home",
+      "intent": "statement",
+      "requiredConcepts": [
+        "GO",
+        "HOME",
+        "ME"
+      ],
+      "conceptsAreUnordered": true,
+      "fingerspelledNames": [],
+      "requiredNonManualReview": [
+        "Natural expression and discourse context require ASL review"
+      ],
+      "proposedGloss": [],
+      "translationStatus": "CANDIDATE_NOT_EXECUTABLE",
+      "references": [],
+      "qualifiedAslValidation": false,
+      "referenceScope": "Sentence translation and references still require research"
+    },
+    {
+      "id": "conversation_089",
+      "number": 89,
+      "category": "Places and Directions",
+      "english": "Please wait for me.",
+      "meaning": "Please wait for me",
+      "intent": "request",
+      "requiredConcepts": [
+        "ME",
+        "PLEASE",
+        "WAIT"
+      ],
+      "conceptsAreUnordered": true,
+      "fingerspelledNames": [],
+      "requiredNonManualReview": [
+        "Natural expression and discourse context require ASL review"
+      ],
+      "proposedGloss": [],
+      "translationStatus": "CANDIDATE_NOT_EXECUTABLE",
+      "references": [],
+      "qualifiedAslValidation": false,
+      "referenceScope": "Sentence translation and references still require research"
+    },
+    {
+      "id": "conversation_090",
+      "number": 90,
+      "category": "Places and Directions",
+      "english": "We have arrived.",
+      "meaning": "Completed arrival, not future travel.",
+      "intent": "statement",
+      "requiredConcepts": [
+        "ARRIVE",
+        "WE"
+      ],
+      "conceptsAreUnordered": true,
+      "fingerspelledNames": [],
+      "requiredNonManualReview": [
+        "Natural expression and discourse context require ASL review"
+      ],
+      "proposedGloss": [],
+      "translationStatus": "CANDIDATE_NOT_EXECUTABLE",
+      "references": [],
+      "qualifiedAslValidation": false,
+      "referenceScope": "Sentence translation and references still require research"
+    },
+    {
+      "id": "conversation_091",
+      "number": 91,
+      "category": "Work and Daily Plans",
+      "english": "Where do you work?",
+      "meaning": "Where do you work",
+      "intent": "wh_question",
+      "requiredConcepts": [
+        "WHERE",
+        "WORK",
+        "YOU"
+      ],
+      "conceptsAreUnordered": true,
+      "fingerspelledNames": [],
+      "requiredNonManualReview": [
+        "WH question facial/head marking; scope requires ASL review"
+      ],
+      "proposedGloss": [],
+      "translationStatus": "CANDIDATE_NOT_EXECUTABLE",
+      "references": [],
+      "qualifiedAslValidation": false,
+      "referenceScope": "Sentence translation and references still require research"
+    },
+    {
+      "id": "conversation_092",
+      "number": 92,
+      "category": "Work and Daily Plans",
+      "english": "What is your job?",
+      "meaning": "Employment/occupation meaning; do not assume every WORK clip expresses an occupation question.",
+      "intent": "wh_question",
+      "requiredConcepts": [
+        "JOB",
+        "WHAT",
+        "YOUR"
+      ],
+      "conceptsAreUnordered": true,
+      "fingerspelledNames": [],
+      "requiredNonManualReview": [
+        "WH question facial/head marking; scope requires ASL review"
+      ],
+      "proposedGloss": [],
+      "translationStatus": "CANDIDATE_NOT_EXECUTABLE",
+      "references": [],
+      "qualifiedAslValidation": false,
+      "referenceScope": "Sentence translation and references still require research"
+    },
+    {
+      "id": "conversation_093",
+      "number": 93,
+      "category": "Work and Daily Plans",
+      "english": "Are you available today?",
+      "meaning": "Availability of a person today, not free price.",
+      "intent": "yes_no_question",
+      "requiredConcepts": [
+        "AVAILABLE",
+        "TODAY",
+        "YOU"
+      ],
+      "conceptsAreUnordered": true,
+      "fingerspelledNames": [],
+      "requiredNonManualReview": [
+        "Yes/no question eyebrow/head marking; scope requires ASL review"
+      ],
+      "proposedGloss": [],
+      "translationStatus": "CANDIDATE_NOT_EXECUTABLE",
+      "references": [],
+      "qualifiedAslValidation": false,
+      "referenceScope": "Sentence translation and references still require research"
+    },
+    {
+      "id": "conversation_094",
+      "number": 94,
+      "category": "Work and Daily Plans",
+      "english": "What time is the meeting?",
+      "meaning": "A scheduled meeting, not merely meeting a person.",
+      "intent": "wh_question",
+      "requiredConcepts": [
+        "MEETING",
+        "TIME",
+        "WHAT"
+      ],
+      "conceptsAreUnordered": true,
+      "fingerspelledNames": [],
+      "requiredNonManualReview": [
+        "WH question facial/head marking; scope requires ASL review"
+      ],
+      "proposedGloss": [],
+      "translationStatus": "CANDIDATE_NOT_EXECUTABLE",
+      "references": [],
+      "qualifiedAslValidation": false,
+      "referenceScope": "Sentence translation and references still require research"
+    },
+    {
+      "id": "conversation_095",
+      "number": 95,
+      "category": "Work and Daily Plans",
+      "english": "Can you send me a message?",
+      "meaning": "A message to the signer; directional agreement and medium need review.",
+      "intent": "request",
+      "requiredConcepts": [
+        "CAN",
+        "ME",
+        "MESSAGE",
+        "SEND",
+        "YOU"
+      ],
+      "conceptsAreUnordered": true,
+      "fingerspelledNames": [],
+      "requiredNonManualReview": [
+        "Natural expression and discourse context require ASL review"
+      ],
+      "proposedGloss": [],
+      "translationStatus": "CANDIDATE_NOT_EXECUTABLE",
+      "references": [],
+      "qualifiedAslValidation": false,
+      "referenceScope": "Sentence translation and references still require research"
+    },
+    {
+      "id": "conversation_096",
+      "number": 96,
+      "category": "Work and Daily Plans",
+      "english": "I will be late.",
+      "meaning": "Preserve future time and lateness.",
+      "intent": "statement",
+      "requiredConcepts": [
+        "FUTURE",
+        "LATE",
+        "ME"
+      ],
+      "conceptsAreUnordered": true,
+      "fingerspelledNames": [],
+      "requiredNonManualReview": [
+        "Natural expression and discourse context require ASL review"
+      ],
+      "proposedGloss": [],
+      "translationStatus": "CANDIDATE_NOT_EXECUTABLE",
+      "references": [],
+      "qualifiedAslValidation": false,
+      "referenceScope": "Sentence translation and references still require research"
+    },
+    {
+      "id": "conversation_097",
+      "number": 97,
+      "category": "Work and Daily Plans",
+      "english": "What are your plans tomorrow?",
+      "meaning": "Future plans for tomorrow, not an architectural drawing.",
+      "intent": "wh_question",
+      "requiredConcepts": [
+        "PLAN",
+        "TOMORROW",
+        "WHAT",
+        "YOUR"
+      ],
+      "conceptsAreUnordered": true,
+      "fingerspelledNames": [],
+      "requiredNonManualReview": [
+        "WH question facial/head marking; scope requires ASL review"
+      ],
+      "proposedGloss": [],
+      "translationStatus": "CANDIDATE_NOT_EXECUTABLE",
+      "references": [],
+      "qualifiedAslValidation": false,
+      "referenceScope": "Sentence translation and references still require research"
+    },
+    {
+      "id": "conversation_098",
+      "number": 98,
+      "category": "Work and Daily Plans",
+      "english": "It is hot today.",
+      "meaning": "Today's weather is hot, not an object being hot.",
+      "intent": "statement",
+      "requiredConcepts": [
+        "HOT",
+        "TODAY"
+      ],
+      "conceptsAreUnordered": true,
+      "fingerspelledNames": [],
+      "requiredNonManualReview": [
+        "Natural expression and discourse context require ASL review"
+      ],
+      "proposedGloss": [],
+      "translationStatus": "CANDIDATE_NOT_EXECUTABLE",
+      "references": [],
+      "qualifiedAslValidation": false,
+      "referenceScope": "Sentence translation and references still require research"
+    },
+    {
+      "id": "conversation_099",
+      "number": 99,
+      "category": "Work and Daily Plans",
+      "english": "Have a good day.",
+      "meaning": "A wish for a good day, not possession expressed by literal HAVE.",
+      "intent": "wish",
+      "requiredConcepts": [
+        "DAY",
+        "GOOD"
+      ],
+      "conceptsAreUnordered": true,
+      "fingerspelledNames": [],
+      "requiredNonManualReview": [
+        "Natural expression and discourse context require ASL review"
+      ],
+      "proposedGloss": [],
+      "translationStatus": "CANDIDATE_NOT_EXECUTABLE",
+      "references": [],
+      "qualifiedAslValidation": false,
+      "referenceScope": "Sentence translation and references still require research"
+    },
+    {
+      "id": "conversation_100",
+      "number": 100,
+      "category": "Work and Daily Plans",
+      "english": "See you next time.",
+      "meaning": "Preserve next-time meaning rather than a literal English sequence.",
+      "intent": "statement",
+      "requiredConcepts": [
+        "NEXT",
+        "SEE",
+        "TIME",
+        "YOU"
+      ],
+      "conceptsAreUnordered": true,
+      "fingerspelledNames": [],
+      "requiredNonManualReview": [
+        "Natural expression and discourse context require ASL review"
+      ],
+      "proposedGloss": [],
+      "translationStatus": "CANDIDATE_NOT_EXECUTABLE",
+      "references": [],
+      "qualifiedAslValidation": false,
+      "referenceScope": "Sentence translation and references still require research"
+    }
+  ]
+}

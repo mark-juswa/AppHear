@@ -3,8 +3,19 @@ package com.example.apphear.domain.texttoasl
 import java.util.Locale
 
 class AslTextNormalizer {
-    fun normalizeSequence(input: String?, preserveSymbols: Boolean = false): String = input.orEmpty().lowercase(Locale.US)
-        .replace('\u2019', '\'').replace("'", "")
+    private fun expandContractions(input: String?): String {
+        var text = input.orEmpty().lowercase(Locale.US).replace('\u2019', '\'')
+        // English normalization only: preserve every word and all negation.
+        // CAN'T stays atomic; its ASL sign is not simply CAN plus NOT.
+        for ((form, expanded) in mapOf("don't" to "do not", "dont" to "do not", "i'm" to "i am",
+            "you're" to "you are", "it's" to "it is", "let's" to "let us")) {
+            text = text.replace(Regex("\\b${Regex.escape(form)}\\b"), expanded)
+        }
+        return text
+    }
+
+    fun normalizeSequence(input: String?, preserveSymbols: Boolean = false): String = expandContractions(input)
+        .replace("'", "")
         .replace(Regex(if (preserveSymbols) "[\\p{P}]+" else "[\\p{P}\\p{S}]+"), " ")
         .replace(Regex("\\s+"), " ").trim()
 

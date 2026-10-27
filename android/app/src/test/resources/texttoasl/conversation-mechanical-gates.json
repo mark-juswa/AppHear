@@ -1,0 +1,228 @@
+{
+  "candidateSha256": "c95446529cbad8e7d411b0dba558f111a9d90e4a6a23acfe6d58608883f05569",
+  "preservedActions": 274,
+  "newActions": 10,
+  "rows": [
+    {
+      "word": "fine",
+      "action": "SIGN_FINE_HUMAN_AUTHORED_PREVIEW",
+      "samples": 61,
+      "metrics": {
+        "Left": {
+          "wristBendDegrees": 15.141407548048168,
+          "handDepthMeters": 0.0,
+          "forearmDepthMeters": 0.0,
+          "handEdgeStretch99": 1.0118009949231008
+        },
+        "Right": {
+          "wristBendDegrees": 86.7160063922439,
+          "handDepthMeters": 0.0,
+          "forearmDepthMeters": 0.0,
+          "handEdgeStretch99": 1.177448531919599
+        }
+      },
+      "failures": [],
+      "technicallyPassed": true,
+      "qualifiedAslValidation": false
+    },
+    {
+      "word": "sign",
+      "action": "SIGN_SIGN_HUMAN_AUTHORED_PREVIEW",
+      "samples": 61,
+      "metrics": {
+        "Left": {
+          "wristBendDegrees": 32.00480345947078,
+          "handDepthMeters": 0.0,
+          "forearmDepthMeters": 0.0,
+          "handEdgeStretch99": 1.465378068388206
+        },
+        "Right": {
+          "wristBendDegrees": 32.286877493175616,
+          "handDepthMeters": 0.0,
+          "forearmDepthMeters": 0.0,
+          "handEdgeStretch99": 1.5656904447622695
+        }
+      },
+      "failures": [],
+      "technicallyPassed": true,
+      "qualifiedAslValidation": false
+    },
+    {
+      "word": "can",
+      "action": "SIGN_CAN_HUMAN_AUTHORED_PREVIEW",
+      "samples": 61,
+      "metrics": {
+        "Left": {
+          "wristBendDegrees": 35.450106756861246,
+          "handDepthMeters": 0.0,
+          "forearmDepthMeters": 0.0,
+          "handEdgeStretch99": 1.4653749714474535
+        },
+        "Right": {
+          "wristBendDegrees": 38.32016177423176,
+          "handDepthMeters": 0.0,
+          "forearmDepthMeters": 0.0,
+          "handEdgeStretch99": 1.565686765396413
+        }
+      },
+      "failures": [],
+      "technicallyPassed": true,
+      "qualifiedAslValidation": false
+    },
+    {
+      "word": "not",
+      "action": "SIGN_NOT_HUMAN_AUTHORED_PREVIEW",
+      "samples": 61,
+      "metrics": {
+        "Left": {
+          "wristBendDegrees": 15.141407548048168,
+          "handDepthMeters": 0.0,
+          "forearmDepthMeters": 0.0,
+          "handEdgeStretch99": 1.0118009949231008
+        },
+        "Right": {
+          "wristBendDegrees": 74.09837500291465,
+          "handDepthMeters": 0.0,
+          "forearmDepthMeters": 0.0,
+          "handEdgeStretch99": 1.6167784128735174
+        }
+      },
+      "failures": [],
+      "technicallyPassed": true,
+      "qualifiedAslValidation": false
+    },
+    {
+      "word": "with",
+      "action": "SIGN_WITH_HUMAN_AUTHORED_PREVIEW",
+      "samples": 61,
+      "metrics": {
+        "Left": {
+          "wristBendDegrees": 77.431914092454,
+          "handDepthMeters": 0.0,
+          "forearmDepthMeters": 0.0,
+          "handEdgeStretch99": 1.4913301685917062
+        },
+        "Right": {
+          "wristBendDegrees": 77.86529613561953,
+          "handDepthMeters": 0.0,
+          "forearmDepthMeters": 0.0,
+          "handEdgeStretch99": 1.5953462233339704
+        }
+      },
+      "failures": [],
+      "technicallyPassed": true,
+      "qualifiedAslValidation": false
+    },
+    {
+      "word": "together",
+      "action": "SIGN_TOGETHER_HUMAN_AUTHORED_PREVIEW",
+      "samples": 61,
+      "metrics": {
+        "Left": {
+          "wristBendDegrees": 81.15421286708263,
+          "handDepthMeters": 0.0,
+          "forearmDepthMeters": 0.006329491571634774,
+          "handEdgeStretch99": 1.4913303050773563
+        },
+        "Right": {
+          "wristBendDegrees": 81.50203941928272,
+          "handDepthMeters": 0.0,
+          "forearmDepthMeters": 0.0021263559186185804,
+          "handEdgeStretch99": 1.5953461922321297
+        }
+      },
+      "failures": [],
+      "technicallyPassed": true,
+      "qualifiedAslValidation": false
+    },
+    {
+      "word": "nice",
+      "action": "SIGN_NICE_HUMAN_AUTHORED_PREVIEW",
+      "samples": 61,
+      "metrics": {
+        "Left": {
+          "wristBendDegrees": 27.840518185592103,
+          "handDepthMeters": 0.0,
+          "forearmDepthMeters": 0.0,
+          "handEdgeStretch99": 1.2759338141885646
+        },
+        "Right": {
+          "wristBendDegrees": 54.644025838446034,
+          "handDepthMeters": 0.0,
+          "forearmDepthMeters": 0.0,
+          "handEdgeStretch99": 1.2773946698801528
+        }
+      },
+      "failures": [],
+      "technicallyPassed": true,
+      "qualifiedAslValidation": false
+    },
+    {
+      "word": "explain",
+      "action": "SIGN_EXPLAIN_HUMAN_AUTHORED_PREVIEW",
+      "samples": 61,
+      "metrics": {
+        "Left": {
+          "wristBendDegrees": 71.21039669970196,
+          "handDepthMeters": 0.0,
+          "forearmDepthMeters": 0.0,
+          "handEdgeStretch99": 1.4746432002181118
+        },
+        "Right": {
+          "wristBendDegrees": 71.44226051200013,
+          "handDepthMeters": 0.0,
+          "forearmDepthMeters": 0.0,
+          "handEdgeStretch99": 1.4412519812642677
+        }
+      },
+      "failures": [],
+      "technicallyPassed": true,
+      "qualifiedAslValidation": false
+    },
+    {
+      "word": "study",
+      "action": "SIGN_STUDY_HUMAN_AUTHORED_PREVIEW",
+      "samples": 61,
+      "metrics": {
+        "Left": {
+          "wristBendDegrees": 26.36480900880982,
+          "handDepthMeters": 0.0,
+          "forearmDepthMeters": 0.0,
+          "handEdgeStretch99": 1.275935379980378
+        },
+        "Right": {
+          "wristBendDegrees": 76.59162121467871,
+          "handDepthMeters": 0.0,
+          "forearmDepthMeters": 0.0,
+          "handEdgeStretch99": 1.1685958863293777
+        }
+      },
+      "failures": [],
+      "technicallyPassed": true,
+      "qualifiedAslValidation": false
+    },
+    {
+      "word": "communicate",
+      "action": "SIGN_COMMUNICATE_HUMAN_AUTHORED_PREVIEW",
+      "samples": 61,
+      "metrics": {
+        "Left": {
+          "wristBendDegrees": 52.71707217332444,
+          "handDepthMeters": 0.0,
+          "forearmDepthMeters": 0.0,
+          "handEdgeStretch99": 1.3978568956425839
+        },
+        "Right": {
+          "wristBendDegrees": 53.00645509794567,
+          "handDepthMeters": 0.0,
+          "forearmDepthMeters": 0.0,
+          "handEdgeStretch99": 1.4399264029124004
+        }
+      },
+      "failures": [],
+      "technicallyPassed": true,
+      "qualifiedAslValidation": false
+    }
+  ],
+  "qualifiedAslValidation": false
+}

@@ -74,6 +74,14 @@ class AslPointingCorrectionTest {
             ('A'..'Z').map {"SIGN_LETTER_${it}_WOLF3D_PREVIEW"}
         assertEquals(expected,protected.keySet())
         for((name,hash) in protected.entrySet()) {
+            // LOVE now has a separately scoped wrist-roll repair. Every one
+            // of its finger outputs is pinned by AslWristRollCorrectionTest.
+            if(name=="SIGN_LOVE") {
+                val registry=JsonParser.parseString(String(Files.readAllBytes(root.resolve(AslFingerspellingBundle.MANIFEST)))).asJsonObject
+                assertEquals("cb94d0dad112b371347a17035cbb34095d0906443de7115e776b56d31ceb057e",
+                    registry.getAsJsonObject("handWristCorrection").get("sourceSha256").asString)
+                continue
+            }
             val animation=document.getAsJsonArray("animations").single {it.asJsonObject.get("name").asString==name}
             val actual=MessageDigest.getInstance("SHA-256").digest(animation.toString().toByteArray()).joinToString(""){"%02x".format(it)}
             assertEquals("Preserved action $name",hash.asString,actual)

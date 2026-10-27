@@ -1,0 +1,441 @@
+{
+  "repository": "https://github.com/mark-juswa/AppHear.git",
+  "requestedBranch": "claude/fingerspell-practical-integration",
+  "baseCommit": "1f9e571a8571e78eb06995d6d7f1f2990027608a",
+  "localDevelopmentBranch": "feature/fingerspell-latest-text-to-sign",
+  "sourceUpdateCommit": "56c52f15482951301d85c91461d53d20e838978d",
+  "update12ApkSha256": "c7578803e6b3cb9f17c801cb15b299f00826d3833c8d78514673e1ccfcde0228",
+  "registeredEntries": 785,
+  "animationActions": 863,
+  "explicitEnglishForms": 917,
+  "qualifiedASLValidations": 0,
+  "sourceFilesTransferred": [
+    {
+      "path": "COMBINED_NEW_VOCABULARY.csv",
+      "bytes": 397109,
+      "sha256": "b43ce4bbcc0e0db14807566ceddd487662e932b945766d10479f09dcab55b96f"
+    },
+    {
+      "path": "COMBINED_NEW_VOCABULARY.md",
+      "bytes": 307517,
+      "sha256": "c9a140a04740650b66c1d9bad8f6b2539d0175e9fa00d2c7bae914e69021d1dc"
+    },
+    {
+      "path": "SHOULDER_REPAIR_REPORT.md",
+      "bytes": 9625,
+      "sha256": "6e2fc53c054eeefebe7bfc13362a87a10632434b2bb888908a2edfdc2f1fe571"
+    },
+    {
+      "path": "android/app/src/androidTest/java/com/example/apphear/AslAllWordsHandAuditTest.kt",
+      "bytes": 17134,
+      "sha256": "3055fcc6c95606fd32aae2c95c3d411ce82799fdce8abd59ecd3dfdd394a8fa7"
+    },
+    {
+      "path": "android/app/src/androidTest/java/com/example/apphear/AslFingerspellingPlaybackInstrumentedTest.kt",
+      "bytes": 12754,
+      "sha256": "6a5264b6b6cd378661f5cb3d3e59e2911e3290503bf9286028c8e7ffaed795a9"
+    },
+    {
+      "path": "android/app/src/androidTest/java/com/example/apphear/AslShoulderTransitionInstrumentedTest.kt",
+      "bytes": 9452,
+      "sha256": "1b93b962e8a74cbdf6ddd17478bc12eb2fb9a0d54139faf67305d4e841799b0d"
+    },
+    {
+      "path": "android/app/src/androidTest/java/com/example/apphear/AslVisualTestGuard.kt",
+      "bytes": 2535,
+      "sha256": "2a88078cd4e2e9a7f3a403985af8b594325167a6df408f8afd7d8ec33bd8a713"
+    },
+    {
+      "path": "android/app/src/aslOriginalWords/assets/asl_animations/original_words_v1/3DLEX_ATTRIBUTION.md",
+      "bytes": 8290,
+      "sha256": "1d7486dd62e170008d145853fc17325f0d6ef81dbbc4e28b5637a5b74cfd4da9"
+    },
+    {
+      "path": "android/app/src/aslOriginalWords/assets/asl_animations/original_words_v1/fingerspelling-avatar.glb",
+      "bytes": 87912768,
+      "sha256": "3601797dc5324851cf10d79290b4499f8d14fd8b200d8144c5f338530d52773c"
+    },
+    {
+      "path": "android/app/src/aslOriginalWords/assets/asl_animations/original_words_v1/fingerspelling-avatar.json",
+      "bytes": 220749,
+      "sha256": "0e78eca4cbc12bd81c6ab1dcbd3964286f3ef7bc4b7121a696cf4147da7afb71"
+    },
+    {
+      "path": "android/app/src/aslOriginalWords/assets/asl_animations/original_words_v1/integration-manifest.json",
+      "bytes": 1137788,
+      "sha256": "a949a1cb658bd2dc5ec75110caaf20d0ca708356b2b444312a676c0f388faf1e"
+    },
+    {
+      "path": "android/app/src/aslPilot/assets/pilot_player.js",
+      "bytes": 11284,
+      "sha256": "5ba62787d33bd79bc37a70814b593110274fa8777cb3297af90ad9385e229096"
+    },
+    {
+      "path": "android/app/src/main/assets/asl_animations/existing_aliases_asl.json",
+      "bytes": 3612,
+      "sha256": "f6c6d93bd43077df9e07cc43deb60fc91eb6daaddcd64b930eaf60ae1e7d2643"
+    },
+    {
+      "path": "android/app/src/main/java/com/example/apphear/domain/texttoasl/AslAdverbPolicy.kt",
+      "bytes": 6496,
+      "sha256": "85a55f2d8ea2afa09d25ac74c85aed21371cc3f99594c48d27f6e62c40dd8965"
+    },
+    {
+      "path": "android/app/src/main/java/com/example/apphear/domain/texttoasl/AslAnimationAsset.kt",
+      "bytes": 901,
+      "sha256": "c02588706c7e127099b089061a7d8d0a88e741586c353c69225033761a2e00a9"
+    },
+    {
+      "path": "android/app/src/main/java/com/example/apphear/domain/texttoasl/AslFingerspellingBundle.kt",
+      "bytes": 3572,
+      "sha256": "8ca96e9b5d35966961031b3c35df4b2147494324b483284ff11690823be24739"
+    },
+    {
+      "path": "android/app/src/main/java/com/example/apphear/domain/texttoasl/AslInputAnalysis.kt",
+      "bytes": 2610,
+      "sha256": "fb992355dcd55d4a459f60aa7474fa91da14dee424ee1db3fed3d294423bab7f"
+    },
+    {
+      "path": "android/app/src/main/java/com/example/apphear/domain/texttoasl/AslIntegratedVocabulary.kt",
+      "bytes": 3091,
+      "sha256": "7f4ef086837da9ab16fdde035cd6acfad808206f9c11ff0cc5f6f6a7ed741864"
+    },
+    {
+      "path": "android/app/src/main/java/com/example/apphear/domain/texttoasl/AslLexicalContext.kt",
+      "bytes": 2232,
+      "sha256": "f633e5698e97a9f440c5e661012a079a2af48b2f6fb3358323d8b4e5b1d65ef4"
+    },
+    {
+      "path": "android/app/src/main/java/com/example/apphear/domain/texttoasl/AslPhrasePlanner.kt",
+      "bytes": 6808,
+      "sha256": "13429a94bb7df4203bfe1761c0631c258c3a3e177a2b46ee54b2d093e314ca37"
+    },
+    {
+      "path": "android/app/src/main/java/com/example/apphear/domain/texttoasl/AslTextNormalizer.kt",
+      "bytes": 1783,
+      "sha256": "0aa97cf446510cb1b5ca451fa37cd16a36f6b9d532910e7bb1b905a20ba71bca"
+    },
+    {
+      "path": "android/app/src/main/java/com/example/apphear/domain/texttoasl/AslTranslationPlanner.kt",
+      "bytes": 8429,
+      "sha256": "773a853ecbd4de2d4180af689dca9f0a5d20ef4a40c9a99565d529d6dedd6c9d"
+    },
+    {
+      "path": "android/app/src/main/java/com/example/apphear/domain/texttoasl/EverydayAslExpression.kt",
+      "bytes": 2816,
+      "sha256": "dbc7739ab400ad36ea0bb4800005e523702e60321ab94a55b2083b6da54ba538"
+    },
+    {
+      "path": "android/app/src/main/java/com/example/apphear/ui/texttoasl/AndroidAssetAslCatalogLoader.kt",
+      "bytes": 22079,
+      "sha256": "e63bed5e1013583db3a4e79be0502993868e5d6d60f0599b9782073ff9866842"
+    },
+    {
+      "path": "android/app/src/main/java/com/example/apphear/ui/texttoasl/AslIntegratedVocabularyLoader.kt",
+      "bytes": 2259,
+      "sha256": "b680debd866560ae7ed83349f7bfd3e1ada3dd65d2ad7f202f51abbdf9d1ec12"
+    },
+    {
+      "path": "android/app/src/main/java/com/example/apphear/ui/texttoasl/TextToAslFragment.kt",
+      "bytes": 38822,
+      "sha256": "e3698be91e1860218fd825cf28b4a0af7f0f928ccdfa43745f3185fc88e901ee"
+    },
+    {
+      "path": "android/app/src/main/java/com/example/apphear/ui/texttoasl/TextToAslPlaybackController.kt",
+      "bytes": 11412,
+      "sha256": "89b656883e80cefebbd1e0eba4b72856dad0c83199e17134c1cf7162e49195ea"
+    },
+    {
+      "path": "android/app/src/test/java/com/example/apphear/AslContactVocabularyExpansionTest.kt",
+      "bytes": 5084,
+      "sha256": "95cf6895f9d8ffa71ea8fa9655fc18d0417921b49773af7e4d6400608cc2f19a"
+    },
+    {
+      "path": "android/app/src/test/java/com/example/apphear/AslConversationCorpusTest.kt",
+      "bytes": 3853,
+      "sha256": "66d9a31d38575974b6f0d2939fddd4099055f6d89fde1fd3f9e456550c6428ba"
+    },
+    {
+      "path": "android/app/src/test/java/com/example/apphear/AslFbxVocabularyExpansionTest.kt",
+      "bytes": 3548,
+      "sha256": "c2ae64cf339d22f3ca52f560de17928925b4c9527fbace748137a89e10066f63"
+    },
+    {
+      "path": "android/app/src/test/java/com/example/apphear/AslFingerspellingFallbackTest.kt",
+      "bytes": 8834,
+      "sha256": "c7ebd6f0ad21b80e160aa04c52215571c25a4916e714cad5d7199ebfa3aeb0c0"
+    },
+    {
+      "path": "android/app/src/test/java/com/example/apphear/AslFlatBaseHandCorrectionTest.kt",
+      "bytes": 3619,
+      "sha256": "6166913dacf39eeda2d5d3e2d1e34d62defedc511d7a7d0bd16850bfe5f028d1"
+    },
+    {
+      "path": "android/app/src/test/java/com/example/apphear/AslFourSignPlacementTest.kt",
+      "bytes": 5422,
+      "sha256": "82924a4d629f68a58fa97ef539f251db0493b6221860945aec8d9918a0d451bd"
+    },
+    {
+      "path": "android/app/src/test/java/com/example/apphear/AslGrammarPlannerTest.kt",
+      "bytes": 8761,
+      "sha256": "21505dcf56c1ae364c3ef7357fd898e1fbbf5cfb27814997381ea1aec9e1bab2"
+    },
+    {
+      "path": "android/app/src/test/java/com/example/apphear/AslPointingCorrectionTest.kt",
+      "bytes": 5701,
+      "sha256": "cda02b1ebadfa497d8de65dc2100b6ab70e0cbf4680dd04956037a654dc7bc50"
+    },
+    {
+      "path": "android/app/src/test/java/com/example/apphear/AslThreeWristRepairTest.kt",
+      "bytes": 6068,
+      "sha256": "e2ac4b576aa365be746d76eee73416066982989be0ba24bc5d3f581469ffcd54"
+    },
+    {
+      "path": "android/app/src/test/java/com/example/apphear/AslVersionIntegrationTest.kt",
+      "bytes": 7389,
+      "sha256": "643504ae3e0037dbfeb42dc2443f1f9da9f9ddba16618d09544650b0b3e4ae6f"
+    },
+    {
+      "path": "android/app/src/test/java/com/example/apphear/AslVocabularyExpansionTest.kt",
+      "bytes": 32717,
+      "sha256": "a2acf6295e15487a57997491b37f82071699789a5cc1ea717cf4c714528a410d"
+    },
+    {
+      "path": "android/app/src/test/java/com/example/apphear/AslWordFingerRepairTest.kt",
+      "bytes": 6617,
+      "sha256": "d724a75ed8f612c5ca28baa51daf94c052eb0bc1cc416f115ccab263aa9f1d63"
+    },
+    {
+      "path": "android/app/src/test/java/com/example/apphear/AslWordHandRepairGateTest.kt",
+      "bytes": 3747,
+      "sha256": "c15821e325fe75fc289917018f4f6506e7006cf28ba12265be49c969489b900c"
+    },
+    {
+      "path": "android/app/src/test/java/com/example/apphear/AslWristRollCorrectionTest.kt",
+      "bytes": 6927,
+      "sha256": "9767339420da51ecfa342403e363c949a8cfb1abba58b0ae55445d7df535c79b"
+    },
+    {
+      "path": "android/app/src/test/java/com/example/apphear/WordHandRepairEvidence.kt",
+      "bytes": 3079,
+      "sha256": "1c76c5a17f26650e9c4e5feba2897025394f0428da667922a04f9d395b502834"
+    },
+    {
+      "path": "android/app/src/test/resources/texttoasl/contact-vocabulary-gates.json",
+      "bytes": 6096,
+      "sha256": "75056ba0e106d14870ef75c7bd657eee321ad7506b19a7b108cf0d0f3df4bbc3"
+    },
+    {
+      "path": "android/app/src/test/resources/texttoasl/conversation-mechanical-gates.json",
+      "bytes": 6520,
+      "sha256": "410c4506c5518727c8b4ff9fe14a07ae6b0bfec9cfcc6921976acc1182b3ebdb"
+    },
+    {
+      "path": "android/app/src/test/resources/texttoasl/fbx-expansion-gates.json",
+      "bytes": 15833,
+      "sha256": "f45e970121861a45586d57f204ce2d0033b936682238799079a58dd9b163db5f"
+    },
+    {
+      "path": "android/app/src/test/resources/texttoasl/four-placement-gates.json",
+      "bytes": 12774,
+      "sha256": "9227d44cc8ec9b7f74934ddf6ca3e28230f0af60204edf0c535b6af664ab4fd9"
+    },
+    {
+      "path": "android/app/src/test/resources/texttoasl/hand-twist-baseline.json",
+      "bytes": 43733,
+      "sha256": "2458ea77a7e69e36676ac9ade7599b9407443c43038c907aad6df5f87b3ab4d4"
+    },
+    {
+      "path": "android/app/src/test/resources/texttoasl/three-wrist-gates.json",
+      "bytes": 34460,
+      "sha256": "801d06c9ca93ab89d005f3b2e75c4c1aa465114f3f81a707ab09df39b0f0c4a3"
+    },
+    {
+      "path": "android/app/src/test/resources/texttoasl/word-hand-repair-gates.json",
+      "bytes": 153010,
+      "sha256": "e364f265aae8084406a2d946a2d484b62d5bf89aa673f798e16d256572d4d123"
+    },
+    {
+      "path": "android/tools/3dlex-expansion-audit.csv",
+      "bytes": 36782,
+      "sha256": "9cc90a5fefe9dfcf65fca52eab052fc14658233a5915662505aec96c92a7e1bf"
+    },
+    {
+      "path": "android/tools/3dlex-fbx-expansion-audit.csv",
+      "bytes": 46402,
+      "sha256": "8badd152af500dce01fa7c447fc0dcd658094c0aa44cbd5c25f25b006a4c4a68"
+    },
+    {
+      "path": "android/tools/3dlex-update9-audit.csv",
+      "bytes": 26550,
+      "sha256": "de1115735f4bf718a6b8aa3d0a0a91f292cbbe63a24068a02c205fd897281281"
+    },
+    {
+      "path": "android/tools/ContactVocabularyExpansion.md",
+      "bytes": 5035,
+      "sha256": "2cef638af8d083f70c63476672d2089bc042e45e251542b39083c21e6a29e715"
+    },
+    {
+      "path": "android/tools/FbxVocabularyExpansion.md",
+      "bytes": 7308,
+      "sha256": "476e297dc769ce6fe222ef8c5b47333cba576f4bae07edb99582ce457736d562"
+    },
+    {
+      "path": "android/tools/TextToSignTransitionsAnd3dLexExpansion.md",
+      "bytes": 12462,
+      "sha256": "b203e5fb3c82064f2272486ebf13ed3f70be822499b72476842edc4e2d3db28b"
+    },
+    {
+      "path": "android/tools/ThreeSourceIntegration.md",
+      "bytes": 15546,
+      "sha256": "02cd3eec2db2663b7890df3b2212c0a25d9888bd5d7c26a3fdf572873309d65c"
+    },
+    {
+      "path": "android/tools/WordHandRepair.md",
+      "bytes": 5540,
+      "sha256": "e4fe35c8cc2a8fb5e163076a70ea79c122bf154323465e8305708d6e5c305ca9"
+    },
+    {
+      "path": "android/tools/adverb-preview-cases.json",
+      "bytes": 1657,
+      "sha256": "782a3131e96d01356db2ba49a5c53c331371687d9102d8f42ed0dcfaa411f9c4"
+    },
+    {
+      "path": "android/tools/append-compatible-asl-motions.py",
+      "bytes": 3545,
+      "sha256": "c1cade2c8614edfbba0c847e5b0f1c96580ba0d9f359cfcae748298d21c707c1"
+    },
+    {
+      "path": "android/tools/apply-shoulder-calibration.py",
+      "bytes": 2920,
+      "sha256": "c81a6127ab5a501dab9098310b4a70374d479263cab811abe8f8c831588f05c8"
+    },
+    {
+      "path": "android/tools/audit-imported-transition-padding.py",
+      "bytes": 2037,
+      "sha256": "ebf798a75b26098edd5ea7236a8fddfd3f3dc80102897202b74833e87c0bfcba"
+    },
+    {
+      "path": "android/tools/build-integrated-preview.ps1",
+      "bytes": 1781,
+      "sha256": "060f39cccbd320a61acc0b2283ac75e6877baf3f5bd552b2036f206bfb0dbcb7"
+    },
+    {
+      "path": "android/tools/conversation-100-asl.json",
+      "bytes": 77906,
+      "sha256": "852d0d8bbbbb4de7d9eb65363df328b2e6d049ef73b16ef7dabf59d7e5f0fedc"
+    },
+    {
+      "path": "android/tools/correct-imported-shoulder-baselines.py",
+      "bytes": 9458,
+      "sha256": "d8125175f44bb95213e8ecbac12f78ede257535f66b745c1764265727e155c3d"
+    },
+    {
+      "path": "android/tools/expand-3dlex-vocabulary.py",
+      "bytes": 12020,
+      "sha256": "cb904c33676c6a6b9576190a6114b7cc8df7e77965dc95d76077cfb842632830"
+    },
+    {
+      "path": "android/tools/integrated-vocabulary-inventory.csv",
+      "bytes": 206473,
+      "sha256": "c39e5304ac8a68ad327e3d00c664d340eb1c54ce62010e7f48dfe368594a7a23"
+    },
+    {
+      "path": "android/tools/normalize-3dlex-fbx.mjs",
+      "bytes": 3690,
+      "sha256": "c3bb2c25c8c5f7f52c87087c75c43ffa1c8ffeefda3c1905a951474e521afe81"
+    },
+    {
+      "path": "android/tools/package-3dlex-expansion.py",
+      "bytes": 8637,
+      "sha256": "a27c5abe3d8771937cdd2eb0fa8aa2d2f62ee3c5b01613ea6df7facff49d0fc0"
+    },
+    {
+      "path": "android/tools/package-word-motion-repairs.py",
+      "bytes": 4114,
+      "sha256": "10d76c3625184fa3d139d0493681ff4e6a3e61ba159fbf13d995d3ddd52e2810"
+    },
+    {
+      "path": "android/tools/repair-word-hand-key-spikes.py",
+      "bytes": 8350,
+      "sha256": "9067fd2888022525051d82360fdf59bf41f4627d8688a9ee0191b6cb970776a0"
+    },
+    {
+      "path": "android/tools/retarget-3dlex-fbx-directions.py",
+      "bytes": 4294,
+      "sha256": "d71fae0424dc5c2d6660736fb8e76915624a7cf35f983a95c488ce3cb47cb0cb"
+    },
+    {
+      "path": "android/tools/stage-3dlex-fbx-vocabulary.py",
+      "bytes": 6612,
+      "sha256": "031715fe33e99b2bce0fc8c00ebacb0467d8cfebc960c2747d86216d2d39a557"
+    },
+    {
+      "path": "android/tools/stage-arrive-contact-vocabulary.py",
+      "bytes": 9349,
+      "sha256": "93cd8ead32964aea56fe84977ed75d94d2a1f0cad461e22616bc78e7184a8cad"
+    },
+    {
+      "path": "android/tools/stage-word-motion-repairs.py",
+      "bytes": 4954,
+      "sha256": "742ed25603e7ec2483c4220ffb0ee91ed763ee8ed46500145cdb1e41773cc08d"
+    },
+    {
+      "path": "android/tools/test-3dlex-export-reset.py",
+      "bytes": 3543,
+      "sha256": "c47ea7aaf4910f6c209dad00847faf953ef64b3f36fa3e86b207cfe107671c89"
+    },
+    {
+      "path": "android/tools/test-3dlex-fbx-directions.py",
+      "bytes": 1586,
+      "sha256": "cbc4b2a4106dc6e653115fee747eeaa348cf13355feab13deec4a5f00a85f9ca"
+    },
+    {
+      "path": "android/tools/test-shoulder-calibration.py",
+      "bytes": 1977,
+      "sha256": "fded31d8193fe853cfacdafa5384733e119613932fcac7cecdccdb0f87c07ce8"
+    },
+    {
+      "path": "android/tools/test-text-to-sign-resident.cjs",
+      "bytes": 9581,
+      "sha256": "18362785540071ddce28d216bf657ba8f2c08470714b09144fe8fa20e839838b"
+    },
+    {
+      "path": "android/tools/text-to-sign-test-memory.init.gradle",
+      "bytes": 431,
+      "sha256": "a2dcb4c0f8477f880271fc79089127e843595a867596e3a1452543973c8ba2d3"
+    },
+    {
+      "path": "android/tools/three-source-external-motions.json",
+      "bytes": 733572,
+      "sha256": "a7ba37262f2b7467b2b8ca9b5789c8ff3274d76965a05317041c64afd1a8dafd"
+    },
+    {
+      "path": "android/tools/verify-integrated-vocabulary.py",
+      "bytes": 4730,
+      "sha256": "eeacb0c7e024e96ee0ddb697cd000206086f1664fb127a26f28692f42412d2cf"
+    },
+    {
+      "path": "android/tools/verify-shoulder-calibration.py",
+      "bytes": 6438,
+      "sha256": "933e499ba6dd61385502c91c088188270bfb84465ef5ffcc568aa186b7b31faf"
+    },
+    {
+      "path": "android/tools/verify-word-hand-repairs.py",
+      "bytes": 5834,
+      "sha256": "30b4ca6a8d13cd94b2c2aab4dd3e596b8ba7189db31cdbeece7f8b600f29e88d"
+    },
+    {
+      "path": "android/tools/word-hand-repair-profiles.json",
+      "bytes": 1185,
+      "sha256": "22b92776bb87926952db69db83d5fb21a2facf624086a35c7484b8fc13464fb4"
+    },
+    {
+      "path": "android/tools/word-motion-replacement-profiles.json",
+      "bytes": 76942,
+      "sha256": "fc5c1b177f18d63f80b4acab0d3f76d672cc1c293dd0b2567c190c4cd0ada754"
+    }
+  ],
+  "unfinishedFaceExperimentIncluded": false,
+  "APKOrPrivateConfigurationCopied": false
+}

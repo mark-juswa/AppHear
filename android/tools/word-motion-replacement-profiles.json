@@ -1,0 +1,1738 @@
+{
+  "schemaVersion": 1,
+  "sourceArchiveSha256": "bac3e8ca0dbcc45eec0952a20dd04f28cc38131baddc8a354a72da673af0bdc7",
+  "converterSha256": "46f6b33f3b1ed76bd9de73618484e12932096c62350875c9e2d8a6d30f736384",
+  "sourceUrl": "https://osf.io/mqzyk/",
+  "license": "CC-BY-4.0",
+  "qualifiedASLValidation": false,
+  "profiles": [
+    {
+      "id": "afternoon",
+      "word": "afternoon",
+      "action": "SIGN_AFTERNOON",
+      "sourceWord": "afternoon",
+      "member": "ANIM_GLB/afternoon.glb",
+      "sourceSha256": "d8382db890da286cffbae88b06977b74bbf478a68736e569698ff35218c106a1",
+      "durationMs": 3483,
+      "checks": {
+        "source_full_duration_seconds": 3.125,
+        "retained_source_duration_seconds": 3.0833332538604736,
+        "excluded_export_reset": {
+          "reason": "Publisher reset suffix: non-root bone length outside 75\u2013125% of its median",
+          "firstExcludedSeconds": 3.125,
+          "lastExcludedSeconds": 3.125,
+          "excludedFrames": 1,
+          "retainedThroughSeconds": 3.0833332538604736,
+          "sourceBytesUnchanged": true
+        },
+        "sampled_source_frames": 75,
+        "max_direction_error": 0.0005911652799035048,
+        "max_inner_rotation_step_degrees": 12.385204309328506,
+        "wrist_span_m": 0.5119828529112662,
+        "finger_rotation_variation": 0.31713953072724227,
+        "source_translations": "Median non-root offsets calibrate bone-local axes; animated orientation tracks transferred, target bone lengths retained",
+        "facial_blendshapes": "Not present in this GLB motion release; not invented"
+      },
+      "shoulderCalibration": "Stable source preroll calibrated to existing relaxed shoulders; world hand/finger poses preserved",
+      "sourceUrl": "https://osf.io/mqzyk/",
+      "license": "CC-BY-4.0",
+      "qualifiedASLValidation": false,
+      "beforeFastSteps": 16,
+      "afterFastSteps": 0,
+      "selected": true,
+      "beforeGeometry": {
+        "bodyDepthMm": 0.0,
+        "handDepthMm": 0.0
+      },
+      "afterGeometry": {
+        "bodyDepthMm": 0.0,
+        "handDepthMm": 0.0
+      },
+      "selectionReason": "Fewer finger discontinuities / rotation warning with no >5mm sampled contact-depth regression"
+    },
+    {
+      "id": "all",
+      "word": "all",
+      "action": "SIGN_ALL",
+      "sourceWord": "all",
+      "member": "ANIM_GLB/all.glb",
+      "sourceSha256": "2fa2bd78e3c6c3e0e73bf4b05d065f2e2e5f23f84c1dadd237d8f1326dac7831",
+      "durationMs": 3817,
+      "checks": {
+        "source_full_duration_seconds": 3.4583332538604736,
+        "retained_source_duration_seconds": 3.4166667461395264,
+        "excluded_export_reset": {
+          "reason": "Terminal whole-skeleton bind-pose export reset",
+          "firstExcludedSeconds": 3.4583332538604736,
+          "lastExcludedSeconds": 3.4583332538604736,
+          "excludedFrames": 1,
+          "sourceBytesUnchanged": true,
+          "terminalHipReset": {
+            "timeSeconds": 3.4583332538604736,
+            "jumpDegrees": 172.32658652695184,
+            "precedingFrameSeconds": 3.4166667461395264,
+            "bindPoseRotationMatchFraction": 0.24074074074074073,
+            "signature": "PARTIALLY_BAKED_CONTAINER_RESET",
+            "reason": "Terminal global hip flip and publisher export-coordinate reset"
+          },
+          "retainedThroughSeconds": 3.4166667461395264
+        },
+        "sampled_source_frames": 84,
+        "max_direction_error": 1.0861553574823654e-06,
+        "max_inner_rotation_step_degrees": 30.576604269080914,
+        "wrist_span_m": 0.4736126756016852,
+        "finger_rotation_variation": 1.9999396410336177,
+        "source_translations": "Median non-root offsets calibrate bone-local axes; animated orientation tracks transferred, target bone lengths retained",
+        "facial_blendshapes": "Not present in this GLB motion release; not invented"
+      },
+      "shoulderCalibration": "Stable source preroll calibrated to existing relaxed shoulders; world hand/finger poses preserved",
+      "sourceUrl": "https://osf.io/mqzyk/",
+      "license": "CC-BY-4.0",
+      "qualifiedASLValidation": false,
+      "beforeFastSteps": 17,
+      "afterFastSteps": 0,
+      "selected": true,
+      "beforeGeometry": {
+        "bodyDepthMm": 0.0,
+        "handDepthMm": 18.848305284152765
+      },
+      "afterGeometry": {
+        "bodyDepthMm": 0.0,
+        "handDepthMm": 16.710003653574447
+      },
+      "selectionReason": "Fewer finger discontinuities / rotation warning with no >5mm sampled contact-depth regression"
+    },
+    {
+      "id": "bad",
+      "word": "bad",
+      "action": "SIGN_BAD",
+      "sourceWord": "bad",
+      "member": "ANIM_GLB/bad.glb",
+      "sourceSha256": "1fd0fb7fb17c24fbc1440d7251cf3a2cebe86856bb9e496397421fa0590ceb91",
+      "durationMs": 3275,
+      "checks": {
+        "source_full_duration_seconds": 2.9166667461395264,
+        "retained_source_duration_seconds": 2.875,
+        "excluded_export_reset": {
+          "reason": "Publisher reset suffix: non-root bone length outside 75\u2013125% of its median",
+          "firstExcludedSeconds": 2.9166667461395264,
+          "lastExcludedSeconds": 2.9166667461395264,
+          "excludedFrames": 1,
+          "retainedThroughSeconds": 2.875,
+          "sourceBytesUnchanged": true
+        },
+        "sampled_source_frames": 70,
+        "max_direction_error": 0.0011189464719845003,
+        "max_inner_rotation_step_degrees": 21.980693184846007,
+        "wrist_span_m": 0.4284789015159932,
+        "finger_rotation_variation": 0.43289720530238157,
+        "source_translations": "Median non-root offsets calibrate bone-local axes; animated orientation tracks transferred, target bone lengths retained",
+        "facial_blendshapes": "Not present in this GLB motion release; not invented"
+      },
+      "shoulderCalibration": "Stable source preroll calibrated to existing relaxed shoulders; world hand/finger poses preserved",
+      "sourceUrl": "https://osf.io/mqzyk/",
+      "license": "CC-BY-4.0",
+      "qualifiedASLValidation": false,
+      "beforeFastSteps": 28,
+      "afterFastSteps": 0,
+      "selected": true,
+      "beforeGeometry": {
+        "bodyDepthMm": 68.0282355433883,
+        "handDepthMm": 68.94453516143257
+      },
+      "afterGeometry": {
+        "bodyDepthMm": 0.0,
+        "handDepthMm": 45.50979165794566
+      },
+      "selectionReason": "Fewer finger discontinuities / rotation warning with no >5mm sampled contact-depth regression"
+    },
+    {
+      "id": "boss",
+      "word": "boss",
+      "action": "SIGN_BOSS",
+      "sourceWord": "boss",
+      "member": "ANIM_GLB/boss.glb",
+      "sourceSha256": "e1741c55ddf03473abfab3bbce747b892003af901b1bcd5bd82f89ffb51da804",
+      "durationMs": 4275,
+      "checks": {
+        "source_full_duration_seconds": 3.9166667461395264,
+        "retained_source_duration_seconds": 3.875,
+        "excluded_export_reset": {
+          "reason": "Publisher reset suffix: non-root bone length outside 75\u2013125% of its median",
+          "firstExcludedSeconds": 3.9166667461395264,
+          "lastExcludedSeconds": 3.9166667461395264,
+          "excludedFrames": 1,
+          "retainedThroughSeconds": 3.875,
+          "sourceBytesUnchanged": true
+        },
+        "sampled_source_frames": 94,
+        "max_direction_error": 0.0024440930198709075,
+        "max_inner_rotation_step_degrees": 14.8356779946746,
+        "wrist_span_m": 0.5384741230507054,
+        "finger_rotation_variation": 0.5300197235152794,
+        "source_translations": "Median non-root offsets calibrate bone-local axes; animated orientation tracks transferred, target bone lengths retained",
+        "facial_blendshapes": "Not present in this GLB motion release; not invented"
+      },
+      "shoulderCalibration": "Stable source preroll calibrated to existing relaxed shoulders; world hand/finger poses preserved",
+      "sourceUrl": "https://osf.io/mqzyk/",
+      "license": "CC-BY-4.0",
+      "qualifiedASLValidation": false,
+      "beforeFastSteps": 7,
+      "afterFastSteps": 0,
+      "selected": true,
+      "beforeGeometry": {
+        "bodyDepthMm": 0.0,
+        "handDepthMm": 0.0
+      },
+      "afterGeometry": {
+        "bodyDepthMm": 0.0,
+        "handDepthMm": 0.0
+      },
+      "selectionReason": "Fewer finger discontinuities / rotation warning with no >5mm sampled contact-depth regression"
+    },
+    {
+      "id": "car",
+      "word": "car",
+      "action": "SIGN_CAR",
+      "sourceWord": "car",
+      "member": "ANIM_GLB/car.glb",
+      "sourceSha256": "71614922ab81bacf6a5d00db90ea7cf972f8553a39f35466336762cc91f1b731",
+      "durationMs": 3150,
+      "checks": {
+        "source_full_duration_seconds": 2.8333332538604736,
+        "retained_source_duration_seconds": 2.75,
+        "excluded_export_reset": {
+          "reason": "Publisher reset suffix: non-root bone length outside 75\u2013125% of its median",
+          "firstExcludedSeconds": 2.7916667461395264,
+          "lastExcludedSeconds": 2.8333332538604736,
+          "excludedFrames": 2,
+          "retainedThroughSeconds": 2.75,
+          "sourceBytesUnchanged": true
+        },
+        "sampled_source_frames": 67,
+        "max_direction_error": 0.003568261740223425,
+        "max_inner_rotation_step_degrees": 26.971788088469346,
+        "wrist_span_m": 0.3879959036684366,
+        "finger_rotation_variation": 0.5818777471693679,
+        "source_translations": "Median non-root offsets calibrate bone-local axes; animated orientation tracks transferred, target bone lengths retained",
+        "facial_blendshapes": "Not present in this GLB motion release; not invented"
+      },
+      "shoulderCalibration": "Stable source preroll calibrated to existing relaxed shoulders; world hand/finger poses preserved",
+      "sourceUrl": "https://osf.io/mqzyk/",
+      "license": "CC-BY-4.0",
+      "qualifiedASLValidation": false,
+      "beforeFastSteps": 83,
+      "afterFastSteps": 0,
+      "selected": true,
+      "beforeGeometry": {
+        "bodyDepthMm": 0.0,
+        "handDepthMm": 0.0
+      },
+      "afterGeometry": {
+        "bodyDepthMm": 0.0,
+        "handDepthMm": 0.0
+      },
+      "selectionReason": "Fewer finger discontinuities / rotation warning with no >5mm sampled contact-depth regression"
+    },
+    {
+      "id": "chair",
+      "word": "chair",
+      "action": "SIGN_CHAIR",
+      "sourceWord": "chair",
+      "member": "ANIM_GLB/chair.glb",
+      "sourceSha256": "0586da13b9014016d7207554c73d3444f0ca1672813d104ec2692764e8bdc2b1",
+      "durationMs": 3400,
+      "checks": {
+        "source_full_duration_seconds": 3.0833332538604736,
+        "retained_source_duration_seconds": 3.0,
+        "excluded_export_reset": {
+          "reason": "Publisher reset suffix: non-root bone length outside 75\u2013125% of its median",
+          "firstExcludedSeconds": 3.0416667461395264,
+          "lastExcludedSeconds": 3.0833332538604736,
+          "excludedFrames": 2,
+          "retainedThroughSeconds": 3.0,
+          "sourceBytesUnchanged": true
+        },
+        "sampled_source_frames": 73,
+        "max_direction_error": 0.005589133876605781,
+        "max_inner_rotation_step_degrees": 25.43657154723598,
+        "wrist_span_m": 0.3694639088352625,
+        "finger_rotation_variation": 0.823915005643293,
+        "source_translations": "Median non-root offsets calibrate bone-local axes; animated orientation tracks transferred, target bone lengths retained",
+        "facial_blendshapes": "Not present in this GLB motion release; not invented"
+      },
+      "shoulderCalibration": "Stable source preroll calibrated to existing relaxed shoulders; world hand/finger poses preserved",
+      "sourceUrl": "https://osf.io/mqzyk/",
+      "license": "CC-BY-4.0",
+      "qualifiedASLValidation": false,
+      "beforeFastSteps": 5,
+      "afterFastSteps": 0,
+      "selected": true,
+      "beforeGeometry": {
+        "bodyDepthMm": 0.0,
+        "handDepthMm": 43.88049507197661
+      },
+      "afterGeometry": {
+        "bodyDepthMm": 0.0,
+        "handDepthMm": 44.43669105723291
+      },
+      "selectionReason": "Fewer finger discontinuities / rotation warning with no >5mm sampled contact-depth regression"
+    },
+    {
+      "id": "cold",
+      "word": "cold",
+      "action": "SIGN_COLD",
+      "sourceWord": "cold",
+      "member": "ANIM_GLB/cold.glb",
+      "sourceSha256": "78c268eb5ca95d8f3724e3cc72757914e56095ce1c51607511d46fc6ee6451d9",
+      "durationMs": 3025,
+      "checks": {
+        "source_full_duration_seconds": 2.7083332538604736,
+        "retained_source_duration_seconds": 2.625,
+        "excluded_export_reset": {
+          "reason": "Publisher reset suffix: non-root bone length outside 75\u2013125% of its median",
+          "firstExcludedSeconds": 2.6666667461395264,
+          "lastExcludedSeconds": 2.7083332538604736,
+          "excludedFrames": 2,
+          "retainedThroughSeconds": 2.625,
+          "sourceBytesUnchanged": true
+        },
+        "sampled_source_frames": 64,
+        "max_direction_error": 0.00443103895255354,
+        "max_inner_rotation_step_degrees": 25.153772323942103,
+        "wrist_span_m": 0.439558320927701,
+        "finger_rotation_variation": 0.6862580954566537,
+        "source_translations": "Median non-root offsets calibrate bone-local axes; animated orientation tracks transferred, target bone lengths retained",
+        "facial_blendshapes": "Not present in this GLB motion release; not invented"
+      },
+      "shoulderCalibration": "Stable source preroll calibrated to existing relaxed shoulders; world hand/finger poses preserved",
+      "sourceUrl": "https://osf.io/mqzyk/",
+      "license": "CC-BY-4.0",
+      "qualifiedASLValidation": false,
+      "beforeFastSteps": 34,
+      "afterFastSteps": 0,
+      "selected": true,
+      "beforeGeometry": {
+        "bodyDepthMm": 0.0,
+        "handDepthMm": 0.0
+      },
+      "afterGeometry": {
+        "bodyDepthMm": 0.0,
+        "handDepthMm": 0.0
+      },
+      "selectionReason": "Fewer finger discontinuities / rotation warning with no >5mm sampled contact-depth regression"
+    },
+    {
+      "id": "congratulations",
+      "word": "congratulations",
+      "action": "SIGN_CONGRATULATIONS",
+      "sourceWord": "congratulations",
+      "member": "ANIM_GLB/congratulations.glb",
+      "sourceSha256": "34adcc91b5ae4210dd065fb673415f544a0e71e2de3ad6e9f6d5c1bdd9e74434",
+      "durationMs": 2983,
+      "checks": {
+        "source_full_duration_seconds": 2.6666667461395264,
+        "retained_source_duration_seconds": 2.5833332538604736,
+        "excluded_export_reset": {
+          "reason": "Publisher reset suffix: non-root bone length outside 75\u2013125% of its median",
+          "firstExcludedSeconds": 2.625,
+          "lastExcludedSeconds": 2.6666667461395264,
+          "excludedFrames": 2,
+          "retainedThroughSeconds": 2.5833332538604736,
+          "sourceBytesUnchanged": true
+        },
+        "sampled_source_frames": 63,
+        "max_direction_error": 0.0025985179627971977,
+        "max_inner_rotation_step_degrees": 64.90852838873154,
+        "wrist_span_m": 0.49491677676736456,
+        "finger_rotation_variation": 0.5929505796155297,
+        "source_translations": "Median non-root offsets calibrate bone-local axes; animated orientation tracks transferred, target bone lengths retained",
+        "facial_blendshapes": "Not present in this GLB motion release; not invented"
+      },
+      "shoulderCalibration": "Intentional source posture preserved",
+      "sourceUrl": "https://osf.io/mqzyk/",
+      "license": "CC-BY-4.0",
+      "qualifiedASLValidation": false,
+      "beforeFastSteps": 82,
+      "afterFastSteps": 1,
+      "selected": true,
+      "beforeGeometry": {
+        "bodyDepthMm": 0.0,
+        "handDepthMm": 61.17256466651993
+      },
+      "afterGeometry": {
+        "bodyDepthMm": 0.0,
+        "handDepthMm": 47.64984450596288
+      },
+      "selectionReason": "Fewer finger discontinuities / rotation warning with no >5mm sampled contact-depth regression"
+    },
+    {
+      "id": "easy",
+      "word": "easy",
+      "action": "SIGN_EASY",
+      "sourceWord": "easy",
+      "member": "ANIM_GLB/easy.glb",
+      "sourceSha256": "885658d5935913f904d1fd38e82b5861527acfe0baeb7a27e46c2a180b5c5fc4",
+      "durationMs": 4400,
+      "checks": {
+        "source_full_duration_seconds": 4.041666507720947,
+        "retained_source_duration_seconds": 4.0,
+        "excluded_export_reset": {
+          "reason": "Terminal whole-skeleton bind-pose export reset",
+          "firstExcludedSeconds": 4.041666507720947,
+          "lastExcludedSeconds": 4.041666507720947,
+          "excludedFrames": 1,
+          "sourceBytesUnchanged": true,
+          "terminalHipReset": {
+            "timeSeconds": 4.041666507720947,
+            "jumpDegrees": 177.98566262764987,
+            "precedingFrameSeconds": 4.0,
+            "bindPoseRotationMatchFraction": 1.0,
+            "signature": "EXACT_BIND_RESET",
+            "reason": "Terminal global hip flip and publisher export-coordinate reset"
+          },
+          "retainedThroughSeconds": 4.0
+        },
+        "sampled_source_frames": 97,
+        "max_direction_error": 1.00464248810957e-06,
+        "max_inner_rotation_step_degrees": 30.287437728882306,
+        "wrist_span_m": 0.39162811034747,
+        "finger_rotation_variation": 1.9999483170211292,
+        "source_translations": "Median non-root offsets calibrate bone-local axes; animated orientation tracks transferred, target bone lengths retained",
+        "facial_blendshapes": "Not present in this GLB motion release; not invented"
+      },
+      "shoulderCalibration": "Stable source preroll calibrated to existing relaxed shoulders; world hand/finger poses preserved",
+      "sourceUrl": "https://osf.io/mqzyk/",
+      "license": "CC-BY-4.0",
+      "qualifiedASLValidation": false,
+      "beforeFastSteps": 53,
+      "afterFastSteps": 0,
+      "selected": true,
+      "beforeGeometry": {
+        "bodyDepthMm": 65.25587878883321,
+        "handDepthMm": 36.24958744261042
+      },
+      "afterGeometry": {
+        "bodyDepthMm": 0.0,
+        "handDepthMm": 16.448364274247062
+      },
+      "selectionReason": "Fewer finger discontinuities / rotation warning with no >5mm sampled contact-depth regression"
+    },
+    {
+      "id": "fast",
+      "word": "fast",
+      "action": "SIGN_FAST",
+      "sourceWord": "fast",
+      "member": "ANIM_GLB/fast.glb",
+      "sourceSha256": "47957ea09d7cb81630af4a1fbe0278e33d76766dae20f1af6ee2de61473815e0",
+      "durationMs": 3150,
+      "checks": {
+        "source_full_duration_seconds": 2.8333332538604736,
+        "retained_source_duration_seconds": 2.75,
+        "excluded_export_reset": {
+          "reason": "Publisher reset suffix: non-root bone length outside 75\u2013125% of its median",
+          "firstExcludedSeconds": 2.7916667461395264,
+          "lastExcludedSeconds": 2.8333332538604736,
+          "excludedFrames": 2,
+          "retainedThroughSeconds": 2.75,
+          "sourceBytesUnchanged": true
+        },
+        "sampled_source_frames": 67,
+        "max_direction_error": 0.006780813889792909,
+        "max_inner_rotation_step_degrees": 44.64624827135464,
+        "wrist_span_m": 0.3527658743734102,
+        "finger_rotation_variation": 0.7412765906545805,
+        "source_translations": "Median non-root offsets calibrate bone-local axes; animated orientation tracks transferred, target bone lengths retained",
+        "facial_blendshapes": "Not present in this GLB motion release; not invented"
+      },
+      "shoulderCalibration": "Stable source preroll calibrated to existing relaxed shoulders; world hand/finger poses preserved",
+      "sourceUrl": "https://osf.io/mqzyk/",
+      "license": "CC-BY-4.0",
+      "qualifiedASLValidation": false,
+      "beforeFastSteps": 29,
+      "afterFastSteps": 0,
+      "selected": true,
+      "beforeGeometry": {
+        "bodyDepthMm": 0.0,
+        "handDepthMm": 0.0
+      },
+      "afterGeometry": {
+        "bodyDepthMm": 0.0,
+        "handDepthMm": 0.0
+      },
+      "selectionReason": "Fewer finger discontinuities / rotation warning with no >5mm sampled contact-depth regression"
+    },
+    {
+      "id": "feel",
+      "word": "feel",
+      "action": "SIGN_FEEL",
+      "sourceWord": "feel",
+      "member": "ANIM_GLB/feel.glb",
+      "sourceSha256": "8f4d288a03918591fb54c9d7e28d920e78cad2e9d86ba31b528e1d6502db1ed4",
+      "durationMs": 3025,
+      "checks": {
+        "source_full_duration_seconds": 2.7083332538604736,
+        "retained_source_duration_seconds": 2.625,
+        "excluded_export_reset": {
+          "reason": "Publisher reset suffix: non-root bone length outside 75\u2013125% of its median",
+          "firstExcludedSeconds": 2.6666667461395264,
+          "lastExcludedSeconds": 2.7083332538604736,
+          "excludedFrames": 2,
+          "retainedThroughSeconds": 2.625,
+          "sourceBytesUnchanged": true
+        },
+        "sampled_source_frames": 64,
+        "max_direction_error": 0.0009568751151364592,
+        "max_inner_rotation_step_degrees": 29.008788639240677,
+        "wrist_span_m": 0.3184616322269618,
+        "finger_rotation_variation": 0.5688850988064447,
+        "source_translations": "Median non-root offsets calibrate bone-local axes; animated orientation tracks transferred, target bone lengths retained",
+        "facial_blendshapes": "Not present in this GLB motion release; not invented"
+      },
+      "shoulderCalibration": "Stable source preroll calibrated to existing relaxed shoulders; world hand/finger poses preserved",
+      "sourceUrl": "https://osf.io/mqzyk/",
+      "license": "CC-BY-4.0",
+      "qualifiedASLValidation": false,
+      "beforeFastSteps": 11,
+      "afterFastSteps": 0,
+      "selected": true,
+      "beforeGeometry": {
+        "bodyDepthMm": 0.0,
+        "handDepthMm": 0.0
+      },
+      "afterGeometry": {
+        "bodyDepthMm": 0.0,
+        "handDepthMm": 0.0
+      },
+      "selectionReason": "Fewer finger discontinuities / rotation warning with no >5mm sampled contact-depth regression"
+    },
+    {
+      "id": "free",
+      "word": "free",
+      "action": "SIGN_FREE",
+      "sourceWord": "free",
+      "member": "ANIM_GLB/free.glb",
+      "sourceSha256": "767116dede773f6eec045092ee23931ef33c2533326d0420e322b10bfa80300c",
+      "durationMs": 3692,
+      "checks": {
+        "source_full_duration_seconds": 3.4166667461395264,
+        "retained_source_duration_seconds": 3.2916667461395264,
+        "excluded_export_reset": {
+          "reason": "Publisher reset suffix: non-root bone length outside 75\u2013125% of its median",
+          "firstExcludedSeconds": 3.3333332538604736,
+          "lastExcludedSeconds": 3.4166667461395264,
+          "excludedFrames": 3,
+          "retainedThroughSeconds": 3.2916667461395264,
+          "sourceBytesUnchanged": true
+        },
+        "sampled_source_frames": 81,
+        "max_direction_error": 0.0017975434193595527,
+        "max_inner_rotation_step_degrees": 16.487547329356833,
+        "wrist_span_m": 0.5014069308401604,
+        "finger_rotation_variation": 0.4236940673072236,
+        "source_translations": "Median non-root offsets calibrate bone-local axes; animated orientation tracks transferred, target bone lengths retained",
+        "facial_blendshapes": "Not present in this GLB motion release; not invented"
+      },
+      "shoulderCalibration": "Stable source preroll calibrated to existing relaxed shoulders; world hand/finger poses preserved",
+      "sourceUrl": "https://osf.io/mqzyk/",
+      "license": "CC-BY-4.0",
+      "qualifiedASLValidation": false,
+      "beforeFastSteps": 32,
+      "afterFastSteps": 0,
+      "selected": true,
+      "beforeGeometry": {
+        "bodyDepthMm": 0.0,
+        "handDepthMm": 22.11489630097374
+      },
+      "afterGeometry": {
+        "bodyDepthMm": 0.0,
+        "handDepthMm": 4.729710309605617
+      },
+      "selectionReason": "Fewer finger discontinuities / rotation warning with no >5mm sampled contact-depth regression"
+    },
+    {
+      "id": "give",
+      "word": "give",
+      "action": "SIGN_GIVE",
+      "sourceWord": "give",
+      "member": "ANIM_GLB/give.glb",
+      "sourceSha256": "391a667394aac8059f6596e70195cd83c59de9a2b6f9fc701c992932747bd0ef",
+      "durationMs": 3483,
+      "checks": {
+        "source_full_duration_seconds": 3.125,
+        "retained_source_duration_seconds": 3.0833332538604736,
+        "excluded_export_reset": {
+          "reason": "Publisher reset suffix: non-root bone length outside 75\u2013125% of its median",
+          "firstExcludedSeconds": 3.125,
+          "lastExcludedSeconds": 3.125,
+          "excludedFrames": 1,
+          "retainedThroughSeconds": 3.0833332538604736,
+          "sourceBytesUnchanged": true
+        },
+        "sampled_source_frames": 75,
+        "max_direction_error": 0.0009658345865151636,
+        "max_inner_rotation_step_degrees": 14.361739241350092,
+        "wrist_span_m": 0.4001625133593154,
+        "finger_rotation_variation": 0.399020756636081,
+        "source_translations": "Median non-root offsets calibrate bone-local axes; animated orientation tracks transferred, target bone lengths retained",
+        "facial_blendshapes": "Not present in this GLB motion release; not invented"
+      },
+      "shoulderCalibration": "Stable source preroll calibrated to existing relaxed shoulders; world hand/finger poses preserved",
+      "sourceUrl": "https://osf.io/mqzyk/",
+      "license": "CC-BY-4.0",
+      "qualifiedASLValidation": false,
+      "beforeFastSteps": 6,
+      "afterFastSteps": 0,
+      "selected": true,
+      "beforeGeometry": {
+        "bodyDepthMm": 0.0,
+        "handDepthMm": 0.0
+      },
+      "afterGeometry": {
+        "bodyDepthMm": 0.0,
+        "handDepthMm": 0.0
+      },
+      "selectionReason": "Fewer finger discontinuities / rotation warning with no >5mm sampled contact-depth regression"
+    },
+    {
+      "id": "go",
+      "word": "go",
+      "action": "SIGN_GO",
+      "sourceWord": "go",
+      "member": "ANIM_GLB/go.glb",
+      "sourceSha256": "0c39c5e53f6e4ffeb0d78fdb19a58a1e0cf2d8f38879c83ce0dccdc48533dc97",
+      "durationMs": 3442,
+      "checks": {
+        "source_full_duration_seconds": 3.125,
+        "retained_source_duration_seconds": 3.0416667461395264,
+        "excluded_export_reset": {
+          "reason": "Publisher reset suffix: non-root bone length outside 75\u2013125% of its median",
+          "firstExcludedSeconds": 3.0833332538604736,
+          "lastExcludedSeconds": 3.125,
+          "excludedFrames": 2,
+          "retainedThroughSeconds": 3.0416667461395264,
+          "sourceBytesUnchanged": true
+        },
+        "sampled_source_frames": 75,
+        "max_direction_error": 0.0031587423897119914,
+        "max_inner_rotation_step_degrees": 18.374688700738584,
+        "wrist_span_m": 0.4226981546626667,
+        "finger_rotation_variation": 0.5142193369616246,
+        "source_translations": "Median non-root offsets calibrate bone-local axes; animated orientation tracks transferred, target bone lengths retained",
+        "facial_blendshapes": "Not present in this GLB motion release; not invented"
+      },
+      "shoulderCalibration": "Stable source preroll calibrated to existing relaxed shoulders; world hand/finger poses preserved",
+      "sourceUrl": "https://osf.io/mqzyk/",
+      "license": "CC-BY-4.0",
+      "qualifiedASLValidation": false,
+      "beforeFastSteps": 11,
+      "afterFastSteps": 0,
+      "selected": true,
+      "beforeGeometry": {
+        "bodyDepthMm": 0.0,
+        "handDepthMm": 55.622293099182315
+      },
+      "afterGeometry": {
+        "bodyDepthMm": 0.0,
+        "handDepthMm": 0.0
+      },
+      "selectionReason": "Fewer finger discontinuities / rotation warning with no >5mm sampled contact-depth regression"
+    },
+    {
+      "id": "hard",
+      "word": "hard",
+      "action": "SIGN_HARD",
+      "sourceWord": "hard",
+      "member": "ANIM_GLB/hard.glb",
+      "sourceSha256": "503e10268c58df1e92c1897845d1f0a273a48757db3bc0a3e99c670bf9b1504e",
+      "durationMs": 2692,
+      "checks": {
+        "source_full_duration_seconds": 2.4166667461395264,
+        "retained_source_duration_seconds": 2.2916667461395264,
+        "excluded_export_reset": {
+          "reason": "Publisher reset suffix: non-root bone length outside 75\u2013125% of its median",
+          "firstExcludedSeconds": 2.3333332538604736,
+          "lastExcludedSeconds": 2.4166667461395264,
+          "excludedFrames": 3,
+          "retainedThroughSeconds": 2.2916667461395264,
+          "sourceBytesUnchanged": true
+        },
+        "sampled_source_frames": 57,
+        "max_direction_error": 0.0022366920371916393,
+        "max_inner_rotation_step_degrees": 16.857661835684432,
+        "wrist_span_m": 0.47313263629630686,
+        "finger_rotation_variation": 0.6252557975905927,
+        "source_translations": "Median non-root offsets calibrate bone-local axes; animated orientation tracks transferred, target bone lengths retained",
+        "facial_blendshapes": "Not present in this GLB motion release; not invented"
+      },
+      "shoulderCalibration": "Stable source preroll calibrated to existing relaxed shoulders; world hand/finger poses preserved",
+      "sourceUrl": "https://osf.io/mqzyk/",
+      "license": "CC-BY-4.0",
+      "qualifiedASLValidation": false,
+      "beforeFastSteps": 50,
+      "afterFastSteps": 0,
+      "selected": true,
+      "beforeGeometry": {
+        "bodyDepthMm": 0.0,
+        "handDepthMm": 65.99474040796427
+      },
+      "afterGeometry": {
+        "bodyDepthMm": 0.0,
+        "handDepthMm": 26.69213398361969
+      },
+      "selectionReason": "Fewer finger discontinuities / rotation warning with no >5mm sampled contact-depth regression"
+    },
+    {
+      "id": "hospital",
+      "word": "hospital",
+      "action": "SIGN_HOSPITAL",
+      "sourceWord": "hospital",
+      "member": "ANIM_GLB/hospital.glb",
+      "sourceSha256": "c83b3c8981cb5a4672411083952af779d4fc5e4150b51acd920be8866f3cff7f",
+      "durationMs": 4025,
+      "checks": {
+        "source_full_duration_seconds": 3.7083332538604736,
+        "retained_source_duration_seconds": 3.625,
+        "excluded_export_reset": {
+          "reason": "Publisher reset suffix: non-root bone length outside 75\u2013125% of its median",
+          "firstExcludedSeconds": 3.6666667461395264,
+          "lastExcludedSeconds": 3.7083332538604736,
+          "excludedFrames": 2,
+          "retainedThroughSeconds": 3.625,
+          "sourceBytesUnchanged": true
+        },
+        "sampled_source_frames": 88,
+        "max_direction_error": 0.0018484155886362725,
+        "max_inner_rotation_step_degrees": 28.72542173001641,
+        "wrist_span_m": 0.40601815439680256,
+        "finger_rotation_variation": 0.6455230382655464,
+        "source_translations": "Median non-root offsets calibrate bone-local axes; animated orientation tracks transferred, target bone lengths retained",
+        "facial_blendshapes": "Not present in this GLB motion release; not invented"
+      },
+      "shoulderCalibration": "Stable source preroll calibrated to existing relaxed shoulders; world hand/finger poses preserved",
+      "sourceUrl": "https://osf.io/mqzyk/",
+      "license": "CC-BY-4.0",
+      "qualifiedASLValidation": false,
+      "beforeFastSteps": 49,
+      "afterFastSteps": 0,
+      "selected": true,
+      "beforeGeometry": {
+        "bodyDepthMm": 0.0,
+        "handDepthMm": 0.0
+      },
+      "afterGeometry": {
+        "bodyDepthMm": 0.0,
+        "handDepthMm": 0.0
+      },
+      "selectionReason": "Fewer finger discontinuities / rotation warning with no >5mm sampled contact-depth regression"
+    },
+    {
+      "id": "keep",
+      "word": "keep",
+      "action": "SIGN_KEEP",
+      "sourceWord": "keep",
+      "member": "ANIM_GLB/keep.glb",
+      "sourceSha256": "b923e9de908eb7eb3618034da392ad178d5c3be78a607116a2ae7f1650d02708",
+      "durationMs": 2942,
+      "checks": {
+        "source_full_duration_seconds": 2.625,
+        "retained_source_duration_seconds": 2.5416667461395264,
+        "excluded_export_reset": {
+          "reason": "Publisher reset suffix: non-root bone length outside 75\u2013125% of its median",
+          "firstExcludedSeconds": 2.5833332538604736,
+          "lastExcludedSeconds": 2.625,
+          "excludedFrames": 2,
+          "retainedThroughSeconds": 2.5416667461395264,
+          "sourceBytesUnchanged": true
+        },
+        "sampled_source_frames": 63,
+        "max_direction_error": 0.0049841759469137995,
+        "max_inner_rotation_step_degrees": 17.57841120821271,
+        "wrist_span_m": 0.42936361488745156,
+        "finger_rotation_variation": 0.6012534463231258,
+        "source_translations": "Median non-root offsets calibrate bone-local axes; animated orientation tracks transferred, target bone lengths retained",
+        "facial_blendshapes": "Not present in this GLB motion release; not invented"
+      },
+      "shoulderCalibration": "Stable source preroll calibrated to existing relaxed shoulders; world hand/finger poses preserved",
+      "sourceUrl": "https://osf.io/mqzyk/",
+      "license": "CC-BY-4.0",
+      "qualifiedASLValidation": false,
+      "beforeFastSteps": 53,
+      "afterFastSteps": 0,
+      "selected": true,
+      "beforeGeometry": {
+        "bodyDepthMm": 0.0,
+        "handDepthMm": 36.095929670711016
+      },
+      "afterGeometry": {
+        "bodyDepthMm": 0.0,
+        "handDepthMm": 23.46506131828591
+      },
+      "selectionReason": "Fewer finger discontinuities / rotation warning with no >5mm sampled contact-depth regression"
+    },
+    {
+      "id": "leave",
+      "word": "leave",
+      "action": "SIGN_LEAVE",
+      "sourceWord": "leave",
+      "member": "ANIM_GLB/leave.glb",
+      "sourceSha256": "2334fca3f7a86e60edbcec04a2678dbd87eaed94b563c0be1954375cd2811da6",
+      "durationMs": 2775,
+      "checks": {
+        "source_full_duration_seconds": 2.5,
+        "retained_source_duration_seconds": 2.375,
+        "excluded_export_reset": {
+          "reason": "Publisher reset suffix: non-root bone length outside 75\u2013125% of its median",
+          "firstExcludedSeconds": 2.4166667461395264,
+          "lastExcludedSeconds": 2.5,
+          "excludedFrames": 3,
+          "retainedThroughSeconds": 2.375,
+          "sourceBytesUnchanged": true
+        },
+        "sampled_source_frames": 58,
+        "max_direction_error": 0.004541120401599963,
+        "max_inner_rotation_step_degrees": 21.95598434689717,
+        "wrist_span_m": 0.36604192515623013,
+        "finger_rotation_variation": 0.5308666163105337,
+        "source_translations": "Median non-root offsets calibrate bone-local axes; animated orientation tracks transferred, target bone lengths retained",
+        "facial_blendshapes": "Not present in this GLB motion release; not invented"
+      },
+      "shoulderCalibration": "Stable source preroll calibrated to existing relaxed shoulders; world hand/finger poses preserved",
+      "sourceUrl": "https://osf.io/mqzyk/",
+      "license": "CC-BY-4.0",
+      "qualifiedASLValidation": false,
+      "beforeFastSteps": 168,
+      "afterFastSteps": 0,
+      "selected": true,
+      "beforeGeometry": {
+        "bodyDepthMm": 85.79161775948668,
+        "handDepthMm": 10.910681096611864
+      },
+      "afterGeometry": {
+        "bodyDepthMm": 0.0,
+        "handDepthMm": 0.0
+      },
+      "selectionReason": "Fewer finger discontinuities / rotation warning with no >5mm sampled contact-depth regression"
+    },
+    {
+      "id": "meet",
+      "word": "meet",
+      "action": "SIGN_MEET",
+      "sourceWord": "meet",
+      "member": "ANIM_GLB/meet.glb",
+      "sourceSha256": "4fd8fcae30856bdece65cc1abe84895acbe81040ef717abbb0ca618c3e977029",
+      "durationMs": 3442,
+      "checks": {
+        "source_full_duration_seconds": 3.125,
+        "retained_source_duration_seconds": 3.0416667461395264,
+        "excluded_export_reset": {
+          "reason": "Publisher reset suffix: non-root bone length outside 75\u2013125% of its median",
+          "firstExcludedSeconds": 3.0833332538604736,
+          "lastExcludedSeconds": 3.125,
+          "excludedFrames": 2,
+          "retainedThroughSeconds": 3.0416667461395264,
+          "sourceBytesUnchanged": true
+        },
+        "sampled_source_frames": 75,
+        "max_direction_error": 0.003960787222377016,
+        "max_inner_rotation_step_degrees": 18.824540975922705,
+        "wrist_span_m": 0.5037509271402677,
+        "finger_rotation_variation": 0.6778366245533903,
+        "source_translations": "Median non-root offsets calibrate bone-local axes; animated orientation tracks transferred, target bone lengths retained",
+        "facial_blendshapes": "Not present in this GLB motion release; not invented"
+      },
+      "shoulderCalibration": "Stable source preroll calibrated to existing relaxed shoulders; world hand/finger poses preserved",
+      "sourceUrl": "https://osf.io/mqzyk/",
+      "license": "CC-BY-4.0",
+      "qualifiedASLValidation": false,
+      "beforeFastSteps": 5,
+      "afterFastSteps": 0,
+      "selected": true,
+      "beforeGeometry": {
+        "bodyDepthMm": 101.42756236863238,
+        "handDepthMm": 49.81288900255954
+      },
+      "afterGeometry": {
+        "bodyDepthMm": 8.225151038930873,
+        "handDepthMm": 0.0
+      },
+      "selectionReason": "Fewer finger discontinuities / rotation warning with no >5mm sampled contact-depth regression"
+    },
+    {
+      "id": "minute",
+      "word": "minute",
+      "action": "SIGN_MINUTE",
+      "sourceWord": "minute",
+      "member": "ANIM_GLB/minute.glb",
+      "sourceSha256": "88212efcb698c92fa0f5bb217bf3b7ccf60fe68c1dfd08ab7e935bb16c34c7e5",
+      "durationMs": 3525,
+      "checks": {
+        "source_full_duration_seconds": 3.25,
+        "retained_source_duration_seconds": 3.125,
+        "excluded_export_reset": {
+          "reason": "Publisher reset suffix: non-root bone length outside 75\u2013125% of its median",
+          "firstExcludedSeconds": 3.1666667461395264,
+          "lastExcludedSeconds": 3.25,
+          "excludedFrames": 3,
+          "retainedThroughSeconds": 3.125,
+          "sourceBytesUnchanged": true
+        },
+        "sampled_source_frames": 76,
+        "max_direction_error": 0.0031021132964832374,
+        "max_inner_rotation_step_degrees": 22.81794669124061,
+        "wrist_span_m": 0.4563807729550575,
+        "finger_rotation_variation": 0.7445611453422285,
+        "source_translations": "Median non-root offsets calibrate bone-local axes; animated orientation tracks transferred, target bone lengths retained",
+        "facial_blendshapes": "Not present in this GLB motion release; not invented"
+      },
+      "shoulderCalibration": "Stable source preroll calibrated to existing relaxed shoulders; world hand/finger poses preserved",
+      "sourceUrl": "https://osf.io/mqzyk/",
+      "license": "CC-BY-4.0",
+      "qualifiedASLValidation": false,
+      "beforeFastSteps": 5,
+      "afterFastSteps": 0,
+      "selected": true,
+      "beforeGeometry": {
+        "bodyDepthMm": 0.0,
+        "handDepthMm": 45.67048879300067
+      },
+      "afterGeometry": {
+        "bodyDepthMm": 0.0,
+        "handDepthMm": 22.13927407472821
+      },
+      "selectionReason": "Fewer finger discontinuities / rotation warning with no >5mm sampled contact-depth regression"
+    },
+    {
+      "id": "morning",
+      "word": "morning",
+      "action": "SIGN_MORNING",
+      "sourceWord": "morning",
+      "member": "ANIM_GLB/morning.glb",
+      "sourceSha256": "128a4ec55fff5a7867926e4f6b61766388aa6ba2f271beb74657097ab7e2b39f",
+      "durationMs": 3400,
+      "checks": {
+        "source_full_duration_seconds": 3.0833332538604736,
+        "retained_source_duration_seconds": 3.0,
+        "excluded_export_reset": {
+          "reason": "Publisher reset suffix: non-root bone length outside 75\u2013125% of its median",
+          "firstExcludedSeconds": 3.0416667461395264,
+          "lastExcludedSeconds": 3.0833332538604736,
+          "excludedFrames": 2,
+          "retainedThroughSeconds": 3.0,
+          "sourceBytesUnchanged": true
+        },
+        "sampled_source_frames": 73,
+        "max_direction_error": 0.0015381322086326285,
+        "max_inner_rotation_step_degrees": 10.716765603626698,
+        "wrist_span_m": 0.46977844037242455,
+        "finger_rotation_variation": 0.3450135158109817,
+        "source_translations": "Median non-root offsets calibrate bone-local axes; animated orientation tracks transferred, target bone lengths retained",
+        "facial_blendshapes": "Not present in this GLB motion release; not invented"
+      },
+      "shoulderCalibration": "Stable source preroll calibrated to existing relaxed shoulders; world hand/finger poses preserved",
+      "sourceUrl": "https://osf.io/mqzyk/",
+      "license": "CC-BY-4.0",
+      "qualifiedASLValidation": false,
+      "beforeFastSteps": 43,
+      "afterFastSteps": 0,
+      "selected": true,
+      "beforeGeometry": {
+        "bodyDepthMm": 0.0,
+        "handDepthMm": 18.76671562421528
+      },
+      "afterGeometry": {
+        "bodyDepthMm": 0.0,
+        "handDepthMm": 0.0
+      },
+      "selectionReason": "Fewer finger discontinuities / rotation warning with no >5mm sampled contact-depth regression"
+    },
+    {
+      "id": "office",
+      "word": "office",
+      "action": "SIGN_OFFICE",
+      "sourceWord": "office",
+      "member": "ANIM_GLB/office.glb",
+      "sourceSha256": "57b60dfce30a43904c20fd07b34d995fa24efe1e244fdcc8e019c9188a0562fd",
+      "durationMs": 3358,
+      "checks": {
+        "source_full_duration_seconds": 3.0416667461395264,
+        "retained_source_duration_seconds": 2.9583332538604736,
+        "excluded_export_reset": {
+          "reason": "Publisher reset suffix: non-root bone length outside 75\u2013125% of its median",
+          "firstExcludedSeconds": 3.0,
+          "lastExcludedSeconds": 3.0416667461395264,
+          "excludedFrames": 2,
+          "retainedThroughSeconds": 2.9583332538604736,
+          "sourceBytesUnchanged": true
+        },
+        "sampled_source_frames": 72,
+        "max_direction_error": 0.00693616428139049,
+        "max_inner_rotation_step_degrees": 23.44741278256598,
+        "wrist_span_m": 0.3056354098362356,
+        "finger_rotation_variation": 0.5513293287059263,
+        "source_translations": "Median non-root offsets calibrate bone-local axes; animated orientation tracks transferred, target bone lengths retained",
+        "facial_blendshapes": "Not present in this GLB motion release; not invented"
+      },
+      "shoulderCalibration": "Stable source preroll calibrated to existing relaxed shoulders; world hand/finger poses preserved",
+      "sourceUrl": "https://osf.io/mqzyk/",
+      "license": "CC-BY-4.0",
+      "qualifiedASLValidation": false,
+      "beforeFastSteps": 50,
+      "afterFastSteps": 0,
+      "selected": true,
+      "beforeGeometry": {
+        "bodyDepthMm": 0.0,
+        "handDepthMm": 40.03943643862934
+      },
+      "afterGeometry": {
+        "bodyDepthMm": 0.0,
+        "handDepthMm": 5.904525133504535
+      },
+      "selectionReason": "Fewer finger discontinuities / rotation warning with no >5mm sampled contact-depth regression"
+    },
+    {
+      "id": "ok",
+      "word": "ok",
+      "action": "SIGN_OK",
+      "sourceWord": "ok",
+      "member": "ANIM_GLB/ok.glb",
+      "sourceSha256": "05f39031d8138d6eb1798b1161e5e6b81ca6a2c1344c2695af92211b4f777614",
+      "durationMs": 4067,
+      "checks": {
+        "source_full_duration_seconds": 3.7916667461395264,
+        "retained_source_duration_seconds": 3.6666667461395264,
+        "excluded_export_reset": {
+          "reason": "Publisher reset suffix: non-root bone length outside 75\u2013125% of its median",
+          "firstExcludedSeconds": 3.7083332538604736,
+          "lastExcludedSeconds": 3.7916667461395264,
+          "excludedFrames": 3,
+          "retainedThroughSeconds": 3.6666667461395264,
+          "sourceBytesUnchanged": true
+        },
+        "sampled_source_frames": 90,
+        "max_direction_error": 0.005485864929575704,
+        "max_inner_rotation_step_degrees": 20.010984374386805,
+        "wrist_span_m": 0.5328667982814633,
+        "finger_rotation_variation": 0.7709048077734024,
+        "source_translations": "Median non-root offsets calibrate bone-local axes; animated orientation tracks transferred, target bone lengths retained",
+        "facial_blendshapes": "Not present in this GLB motion release; not invented"
+      },
+      "shoulderCalibration": "Stable source preroll calibrated to existing relaxed shoulders; world hand/finger poses preserved",
+      "sourceUrl": "https://osf.io/mqzyk/",
+      "license": "CC-BY-4.0",
+      "qualifiedASLValidation": false,
+      "beforeFastSteps": 181,
+      "afterFastSteps": 0,
+      "selected": true,
+      "beforeGeometry": {
+        "bodyDepthMm": 106.92081112604757,
+        "handDepthMm": 61.44775553117837
+      },
+      "afterGeometry": {
+        "bodyDepthMm": 0.0,
+        "handDepthMm": 0.0
+      },
+      "selectionReason": "Fewer finger discontinuities / rotation warning with no >5mm sampled contact-depth regression"
+    },
+    {
+      "id": "paper",
+      "word": "paper",
+      "action": "SIGN_PAPER",
+      "sourceWord": "paper",
+      "member": "ANIM_GLB/paper.glb",
+      "sourceSha256": "a937bfb83e3e693f5865c4419ada5bec33abb8c3e0aaecfedbf39dde9f471c3e",
+      "durationMs": 5858,
+      "checks": {
+        "source_full_duration_seconds": 5.5,
+        "retained_source_duration_seconds": 5.458333492279053,
+        "excluded_export_reset": {
+          "reason": "Terminal whole-skeleton bind-pose export reset",
+          "firstExcludedSeconds": 5.5,
+          "lastExcludedSeconds": 5.5,
+          "excludedFrames": 1,
+          "sourceBytesUnchanged": true,
+          "terminalHipReset": {
+            "timeSeconds": 5.5,
+            "jumpDegrees": 178.24344813354756,
+            "precedingFrameSeconds": 5.458333492279053,
+            "bindPoseRotationMatchFraction": 1.0,
+            "signature": "EXACT_BIND_RESET",
+            "reason": "Terminal global hip flip and publisher export-coordinate reset"
+          },
+          "retainedThroughSeconds": 5.458333492279053
+        },
+        "sampled_source_frames": 133,
+        "max_direction_error": 8.934155275921118e-07,
+        "max_inner_rotation_step_degrees": 71.40537572301871,
+        "wrist_span_m": 0.460844627353445,
+        "finger_rotation_variation": 0.8293860205156075,
+        "source_translations": "Median non-root offsets calibrate bone-local axes; animated orientation tracks transferred, target bone lengths retained",
+        "facial_blendshapes": "Not present in this GLB motion release; not invented"
+      },
+      "shoulderCalibration": "Stable source preroll calibrated to existing relaxed shoulders; world hand/finger poses preserved",
+      "sourceUrl": "https://osf.io/mqzyk/",
+      "license": "CC-BY-4.0",
+      "qualifiedASLValidation": false,
+      "beforeFastSteps": 241,
+      "afterFastSteps": 6,
+      "selected": true,
+      "beforeGeometry": {
+        "bodyDepthMm": 56.457964197560024,
+        "handDepthMm": 69.60584157929279
+      },
+      "afterGeometry": {
+        "bodyDepthMm": 0.0,
+        "handDepthMm": 0.0
+      },
+      "selectionReason": "Fewer finger discontinuities / rotation warning with no >5mm sampled contact-depth regression"
+    },
+    {
+      "id": "play",
+      "word": "play",
+      "action": "SIGN_PLAY",
+      "sourceWord": "play",
+      "member": "ANIM_GLB/play.glb",
+      "sourceSha256": "06ffba699e21cf9e119eced59701e6340156c81bf5cfd98de51e551a009705f8",
+      "durationMs": 6192,
+      "checks": {
+        "source_full_duration_seconds": 5.875,
+        "retained_source_duration_seconds": 5.791666507720947,
+        "excluded_export_reset": {
+          "reason": "Publisher reset suffix: non-root bone length outside 75\u2013125% of its median",
+          "firstExcludedSeconds": 5.833333492279053,
+          "lastExcludedSeconds": 5.875,
+          "excludedFrames": 2,
+          "retainedThroughSeconds": 5.791666507720947,
+          "sourceBytesUnchanged": true
+        },
+        "sampled_source_frames": 140,
+        "max_direction_error": 0.004394488572163739,
+        "max_inner_rotation_step_degrees": 36.28879458315534,
+        "wrist_span_m": 0.4028988747594413,
+        "finger_rotation_variation": 0.7190912315567173,
+        "source_translations": "Median non-root offsets calibrate bone-local axes; animated orientation tracks transferred, target bone lengths retained",
+        "facial_blendshapes": "Not present in this GLB motion release; not invented"
+      },
+      "shoulderCalibration": "Stable source preroll calibrated to existing relaxed shoulders; world hand/finger poses preserved",
+      "sourceUrl": "https://osf.io/mqzyk/",
+      "license": "CC-BY-4.0",
+      "qualifiedASLValidation": false,
+      "beforeFastSteps": 5,
+      "afterFastSteps": 0,
+      "selected": true,
+      "beforeGeometry": {
+        "bodyDepthMm": 0.0,
+        "handDepthMm": 0.0
+      },
+      "afterGeometry": {
+        "bodyDepthMm": 0.0,
+        "handDepthMm": 0.0
+      },
+      "selectionReason": "Fewer finger discontinuities / rotation warning with no >5mm sampled contact-depth regression"
+    },
+    {
+      "id": "run",
+      "word": "run",
+      "action": "SIGN_RUN",
+      "sourceWord": "run",
+      "member": "ANIM_GLB/run.glb",
+      "sourceSha256": "1e900254c6a6d37f85738819389714a8c6abea00c5e9d3c96d434eae084a8b90",
+      "durationMs": 6817,
+      "checks": {
+        "source_full_duration_seconds": 6.458333492279053,
+        "retained_source_duration_seconds": 6.416666507720947,
+        "excluded_export_reset": {
+          "reason": "Publisher reset suffix: non-root bone length outside 75\u2013125% of its median",
+          "firstExcludedSeconds": 6.458333492279053,
+          "lastExcludedSeconds": 6.458333492279053,
+          "excludedFrames": 1,
+          "retainedThroughSeconds": 6.416666507720947,
+          "sourceBytesUnchanged": true
+        },
+        "sampled_source_frames": 155,
+        "max_direction_error": 0.0024004284993781226,
+        "max_inner_rotation_step_degrees": 28.392055254282937,
+        "wrist_span_m": 0.38527640311082123,
+        "finger_rotation_variation": 0.8452416958424122,
+        "source_translations": "Median non-root offsets calibrate bone-local axes; animated orientation tracks transferred, target bone lengths retained",
+        "facial_blendshapes": "Not present in this GLB motion release; not invented"
+      },
+      "shoulderCalibration": "Stable source preroll calibrated to existing relaxed shoulders; world hand/finger poses preserved",
+      "sourceUrl": "https://osf.io/mqzyk/",
+      "license": "CC-BY-4.0",
+      "qualifiedASLValidation": false,
+      "beforeFastSteps": 14,
+      "afterFastSteps": 0,
+      "selected": true,
+      "beforeGeometry": {
+        "bodyDepthMm": 0.0,
+        "handDepthMm": 68.12029335804337
+      },
+      "afterGeometry": {
+        "bodyDepthMm": 0.0,
+        "handDepthMm": 52.27743862033657
+      },
+      "selectionReason": "Fewer finger discontinuities / rotation warning with no >5mm sampled contact-depth regression"
+    },
+    {
+      "id": "shoes",
+      "word": "shoes",
+      "action": "SIGN_SHOES",
+      "sourceWord": "shoes",
+      "member": "ANIM_GLB/shoes.glb",
+      "sourceSha256": "afb2aa56df20d39dc34fc906340b3e19b36feba245fa195d25dff2fcce92e62f",
+      "durationMs": 5317,
+      "checks": {
+        "source_full_duration_seconds": 4.958333492279053,
+        "retained_source_duration_seconds": 4.916666507720947,
+        "excluded_export_reset": {
+          "reason": "Terminal whole-skeleton bind-pose export reset",
+          "firstExcludedSeconds": 4.958333492279053,
+          "lastExcludedSeconds": 4.958333492279053,
+          "excludedFrames": 1,
+          "sourceBytesUnchanged": true,
+          "terminalHipReset": {
+            "timeSeconds": 4.958333492279053,
+            "jumpDegrees": 179.08152231358173,
+            "precedingFrameSeconds": 4.916666507720947,
+            "bindPoseRotationMatchFraction": 1.0,
+            "signature": "EXACT_BIND_RESET",
+            "reason": "Terminal global hip flip and publisher export-coordinate reset"
+          },
+          "retainedThroughSeconds": 4.916666507720947
+        },
+        "sampled_source_frames": 119,
+        "max_direction_error": 1.429804131291775e-06,
+        "max_inner_rotation_step_degrees": 25.815697140399713,
+        "wrist_span_m": 0.4203890901539714,
+        "finger_rotation_variation": 1.9982289330174332,
+        "source_translations": "Median non-root offsets calibrate bone-local axes; animated orientation tracks transferred, target bone lengths retained",
+        "facial_blendshapes": "Not present in this GLB motion release; not invented"
+      },
+      "shoulderCalibration": "Stable source preroll calibrated to existing relaxed shoulders; world hand/finger poses preserved",
+      "sourceUrl": "https://osf.io/mqzyk/",
+      "license": "CC-BY-4.0",
+      "qualifiedASLValidation": false,
+      "beforeFastSteps": 72,
+      "afterFastSteps": 0,
+      "selected": true,
+      "beforeGeometry": {
+        "bodyDepthMm": 0.0,
+        "handDepthMm": 59.06733867285929
+      },
+      "afterGeometry": {
+        "bodyDepthMm": 0.0,
+        "handDepthMm": 62.223123055329395
+      },
+      "selectionReason": "Fewer finger discontinuities / rotation warning with no >5mm sampled contact-depth regression"
+    },
+    {
+      "id": "some",
+      "word": "some",
+      "action": "SIGN_SOME",
+      "sourceWord": "some",
+      "member": "ANIM_GLB/some.glb",
+      "sourceSha256": "b636871ab93b8fcc9fe3a66252aab67abd2f931e9b54f21d33fcea456b780c16",
+      "durationMs": 3317,
+      "checks": {
+        "source_full_duration_seconds": 3.0,
+        "retained_source_duration_seconds": 2.9166667461395264,
+        "excluded_export_reset": {
+          "reason": "Publisher reset suffix: non-root bone length outside 75\u2013125% of its median",
+          "firstExcludedSeconds": 2.9583332538604736,
+          "lastExcludedSeconds": 3.0,
+          "excludedFrames": 2,
+          "retainedThroughSeconds": 2.9166667461395264,
+          "sourceBytesUnchanged": true
+        },
+        "sampled_source_frames": 72,
+        "max_direction_error": 0.0005396321609350666,
+        "max_inner_rotation_step_degrees": 12.43074191926126,
+        "wrist_span_m": 0.40673021743869886,
+        "finger_rotation_variation": 0.3131517191106437,
+        "source_translations": "Median non-root offsets calibrate bone-local axes; animated orientation tracks transferred, target bone lengths retained",
+        "facial_blendshapes": "Not present in this GLB motion release; not invented"
+      },
+      "shoulderCalibration": "Stable source preroll calibrated to existing relaxed shoulders; world hand/finger poses preserved",
+      "sourceUrl": "https://osf.io/mqzyk/",
+      "license": "CC-BY-4.0",
+      "qualifiedASLValidation": false,
+      "beforeFastSteps": 20,
+      "afterFastSteps": 0,
+      "selected": true,
+      "beforeGeometry": {
+        "bodyDepthMm": 0.0,
+        "handDepthMm": 70.08095439279604
+      },
+      "afterGeometry": {
+        "bodyDepthMm": 0.0,
+        "handDepthMm": 23.32864117508854
+      },
+      "selectionReason": "Fewer finger discontinuities / rotation warning with no >5mm sampled contact-depth regression"
+    },
+    {
+      "id": "sorry",
+      "word": "sorry",
+      "action": "SIGN_SORRY",
+      "sourceWord": "sorry",
+      "member": "ANIM_GLB/sorry.glb",
+      "sourceSha256": "7a5d891673347b0f46dd655b501b1db4d7cf685f3c4d3a65dcd690a289f983bc",
+      "durationMs": 7525,
+      "checks": {
+        "source_full_duration_seconds": 7.166666507720947,
+        "retained_source_duration_seconds": 7.125,
+        "excluded_export_reset": {
+          "reason": "Terminal whole-skeleton bind-pose export reset",
+          "firstExcludedSeconds": 7.166666507720947,
+          "lastExcludedSeconds": 7.166666507720947,
+          "excludedFrames": 1,
+          "sourceBytesUnchanged": true,
+          "terminalHipReset": {
+            "timeSeconds": 7.166666507720947,
+            "jumpDegrees": 172.67226403370717,
+            "precedingFrameSeconds": 7.125,
+            "bindPoseRotationMatchFraction": 0.12962962962962962,
+            "signature": "PARTIALLY_BAKED_CONTAINER_RESET",
+            "reason": "Terminal global hip flip and publisher export-coordinate reset"
+          },
+          "retainedThroughSeconds": 7.125
+        },
+        "sampled_source_frames": 172,
+        "max_direction_error": 9.329397716243235e-07,
+        "max_inner_rotation_step_degrees": 29.937983877556878,
+        "wrist_span_m": 0.39678415559171887,
+        "finger_rotation_variation": 1.9991359491224057,
+        "source_translations": "Median non-root offsets calibrate bone-local axes; animated orientation tracks transferred, target bone lengths retained",
+        "facial_blendshapes": "Not present in this GLB motion release; not invented"
+      },
+      "shoulderCalibration": "Stable source preroll calibrated to existing relaxed shoulders; world hand/finger poses preserved",
+      "sourceUrl": "https://osf.io/mqzyk/",
+      "license": "CC-BY-4.0",
+      "qualifiedASLValidation": false,
+      "beforeFastSteps": 5,
+      "afterFastSteps": 0,
+      "selected": true,
+      "beforeGeometry": {
+        "bodyDepthMm": 0.0,
+        "handDepthMm": 0.0
+      },
+      "afterGeometry": {
+        "bodyDepthMm": 0.0,
+        "handDepthMm": 0.0
+      },
+      "selectionReason": "Fewer finger discontinuities / rotation warning with no >5mm sampled contact-depth regression"
+    },
+    {
+      "id": "student",
+      "word": "student",
+      "action": "SIGN_STUDENT",
+      "sourceWord": "student",
+      "member": "ANIM_GLB/student.glb",
+      "sourceSha256": "3379824674806f61118a3745a0201dc625ef098caf0fcfd5d32ee30436adce45",
+      "durationMs": 7358,
+      "checks": {
+        "source_full_duration_seconds": 7.0,
+        "retained_source_duration_seconds": 6.958333492279053,
+        "excluded_export_reset": {
+          "reason": "Publisher reset suffix: non-root bone length outside 75\u2013125% of its median",
+          "firstExcludedSeconds": 7.0,
+          "lastExcludedSeconds": 7.0,
+          "excludedFrames": 1,
+          "retainedThroughSeconds": 6.958333492279053,
+          "sourceBytesUnchanged": true
+        },
+        "sampled_source_frames": 169,
+        "max_direction_error": 0.002438781149045331,
+        "max_inner_rotation_step_degrees": 17.278667150916434,
+        "wrist_span_m": 0.46826283537633506,
+        "finger_rotation_variation": 0.5675374800646843,
+        "source_translations": "Median non-root offsets calibrate bone-local axes; animated orientation tracks transferred, target bone lengths retained",
+        "facial_blendshapes": "Not present in this GLB motion release; not invented"
+      },
+      "shoulderCalibration": "Intentional source posture preserved",
+      "sourceUrl": "https://osf.io/mqzyk/",
+      "license": "CC-BY-4.0",
+      "qualifiedASLValidation": false,
+      "beforeFastSteps": 37,
+      "afterFastSteps": 0,
+      "selected": true,
+      "beforeGeometry": {
+        "bodyDepthMm": 0.0,
+        "handDepthMm": 22.720328853036264
+      },
+      "afterGeometry": {
+        "bodyDepthMm": 0.0,
+        "handDepthMm": 0.0
+      },
+      "selectionReason": "Fewer finger discontinuities / rotation warning with no >5mm sampled contact-depth regression"
+    },
+    {
+      "id": "sure",
+      "word": "sure",
+      "action": "SIGN_SURE",
+      "sourceWord": "sure",
+      "member": "ANIM_GLB/sure.glb",
+      "sourceSha256": "47e91dd381c492e06cdaa8ad4cf1ec52388f0158fbcb69d29a3c330c73412130",
+      "durationMs": 4400,
+      "checks": {
+        "source_full_duration_seconds": 4.041666507720947,
+        "retained_source_duration_seconds": 4.0,
+        "excluded_export_reset": {
+          "reason": "Terminal whole-skeleton bind-pose export reset",
+          "firstExcludedSeconds": 4.041666507720947,
+          "lastExcludedSeconds": 4.041666507720947,
+          "excludedFrames": 1,
+          "sourceBytesUnchanged": true,
+          "terminalHipReset": {
+            "timeSeconds": 4.041666507720947,
+            "jumpDegrees": 171.30846024501784,
+            "precedingFrameSeconds": 4.0,
+            "bindPoseRotationMatchFraction": 0.18518518518518517,
+            "signature": "PARTIALLY_BAKED_CONTAINER_RESET",
+            "reason": "Terminal global hip flip and publisher export-coordinate reset"
+          },
+          "retainedThroughSeconds": 4.0
+        },
+        "sampled_source_frames": 97,
+        "max_direction_error": 8.942232402347448e-07,
+        "max_inner_rotation_step_degrees": 15.792419452077429,
+        "wrist_span_m": 0.4992780808664674,
+        "finger_rotation_variation": 1.9999593700429865,
+        "source_translations": "Median non-root offsets calibrate bone-local axes; animated orientation tracks transferred, target bone lengths retained",
+        "facial_blendshapes": "Not present in this GLB motion release; not invented"
+      },
+      "shoulderCalibration": "Stable source preroll calibrated to existing relaxed shoulders; world hand/finger poses preserved",
+      "sourceUrl": "https://osf.io/mqzyk/",
+      "license": "CC-BY-4.0",
+      "qualifiedASLValidation": false,
+      "beforeFastSteps": 12,
+      "afterFastSteps": 0,
+      "selected": true,
+      "beforeGeometry": {
+        "bodyDepthMm": 0.0,
+        "handDepthMm": 0.0
+      },
+      "afterGeometry": {
+        "bodyDepthMm": 0.0,
+        "handDepthMm": 0.0
+      },
+      "selectionReason": "Fewer finger discontinuities / rotation warning with no >5mm sampled contact-depth regression"
+    },
+    {
+      "id": "take",
+      "word": "take",
+      "action": "SIGN_TAKE",
+      "sourceWord": "take",
+      "member": "ANIM_GLB/take.glb",
+      "sourceSha256": "a9cae60068c0dbd8742a6d27bf0899c0bf1990be5f33137816dcb968a299c65e",
+      "durationMs": 3150,
+      "checks": {
+        "source_full_duration_seconds": 2.875,
+        "retained_source_duration_seconds": 2.75,
+        "excluded_export_reset": {
+          "reason": "Publisher reset suffix: non-root bone length outside 75\u2013125% of its median",
+          "firstExcludedSeconds": 2.7916667461395264,
+          "lastExcludedSeconds": 2.875,
+          "excludedFrames": 3,
+          "retainedThroughSeconds": 2.75,
+          "sourceBytesUnchanged": true
+        },
+        "sampled_source_frames": 67,
+        "max_direction_error": 0.002752680718659101,
+        "max_inner_rotation_step_degrees": 47.246104485090285,
+        "wrist_span_m": 0.3990405026558965,
+        "finger_rotation_variation": 0.8365242884193594,
+        "source_translations": "Median non-root offsets calibrate bone-local axes; animated orientation tracks transferred, target bone lengths retained",
+        "facial_blendshapes": "Not present in this GLB motion release; not invented"
+      },
+      "shoulderCalibration": "Stable source preroll calibrated to existing relaxed shoulders; world hand/finger poses preserved",
+      "sourceUrl": "https://osf.io/mqzyk/",
+      "license": "CC-BY-4.0",
+      "qualifiedASLValidation": false,
+      "beforeFastSteps": 14,
+      "afterFastSteps": 1,
+      "selected": true,
+      "beforeGeometry": {
+        "bodyDepthMm": 0.0,
+        "handDepthMm": 53.121883388073385
+      },
+      "afterGeometry": {
+        "bodyDepthMm": 0.0,
+        "handDepthMm": 0.0
+      },
+      "selectionReason": "Fewer finger discontinuities / rotation warning with no >5mm sampled contact-depth regression"
+    },
+    {
+      "id": "teacher",
+      "word": "teacher",
+      "action": "SIGN_TEACHER",
+      "sourceWord": "teacher",
+      "member": "ANIM_GLB/teacher.glb",
+      "sourceSha256": "4217fc9f33edcfd414a293ba543d8a8ec0d429b113e674fdf1af3a6e2992e4a8",
+      "durationMs": 4483,
+      "checks": {
+        "source_full_duration_seconds": 4.166666507720947,
+        "retained_source_duration_seconds": 4.083333492279053,
+        "excluded_export_reset": {
+          "reason": "Publisher reset suffix: non-root bone length outside 75\u2013125% of its median",
+          "firstExcludedSeconds": 4.125,
+          "lastExcludedSeconds": 4.166666507720947,
+          "excludedFrames": 2,
+          "retainedThroughSeconds": 4.083333492279053,
+          "sourceBytesUnchanged": true
+        },
+        "sampled_source_frames": 100,
+        "max_direction_error": 0.012690912173179955,
+        "max_inner_rotation_step_degrees": 28.11349104527273,
+        "wrist_span_m": 0.5719260345232918,
+        "finger_rotation_variation": 0.47535436871680486,
+        "source_translations": "Median non-root offsets calibrate bone-local axes; animated orientation tracks transferred, target bone lengths retained",
+        "facial_blendshapes": "Not present in this GLB motion release; not invented"
+      },
+      "shoulderCalibration": "Stable source preroll calibrated to existing relaxed shoulders; world hand/finger poses preserved",
+      "sourceUrl": "https://osf.io/mqzyk/",
+      "license": "CC-BY-4.0",
+      "qualifiedASLValidation": false,
+      "beforeFastSteps": 37,
+      "afterFastSteps": 0,
+      "selected": true,
+      "beforeGeometry": {
+        "bodyDepthMm": 97.88295974529369,
+        "handDepthMm": 0.0
+      },
+      "afterGeometry": {
+        "bodyDepthMm": 0.0,
+        "handDepthMm": 0.0
+      },
+      "selectionReason": "Fewer finger discontinuities / rotation warning with no >5mm sampled contact-depth regression"
+    },
+    {
+      "id": "today",
+      "word": "today",
+      "action": "SIGN_TODAY",
+      "sourceWord": "today",
+      "member": "ANIM_GLB/today.glb",
+      "sourceSha256": "3057a2d6da029e55e0e99f31e6d585f2381d561a3a8b1fc64a425d7fb91c1b25",
+      "durationMs": 3150,
+      "checks": {
+        "source_full_duration_seconds": 2.8333332538604736,
+        "retained_source_duration_seconds": 2.75,
+        "excluded_export_reset": {
+          "reason": "Publisher reset suffix: non-root bone length outside 75\u2013125% of its median",
+          "firstExcludedSeconds": 2.7916667461395264,
+          "lastExcludedSeconds": 2.8333332538604736,
+          "excludedFrames": 2,
+          "retainedThroughSeconds": 2.75,
+          "sourceBytesUnchanged": true
+        },
+        "sampled_source_frames": 67,
+        "max_direction_error": 0.008000915355745531,
+        "max_inner_rotation_step_degrees": 32.490690866996204,
+        "wrist_span_m": 0.3356497344647569,
+        "finger_rotation_variation": 0.7095183301305709,
+        "source_translations": "Median non-root offsets calibrate bone-local axes; animated orientation tracks transferred, target bone lengths retained",
+        "facial_blendshapes": "Not present in this GLB motion release; not invented"
+      },
+      "shoulderCalibration": "Stable source preroll calibrated to existing relaxed shoulders; world hand/finger poses preserved",
+      "sourceUrl": "https://osf.io/mqzyk/",
+      "license": "CC-BY-4.0",
+      "qualifiedASLValidation": false,
+      "beforeFastSteps": 34,
+      "afterFastSteps": 0,
+      "selected": true,
+      "beforeGeometry": {
+        "bodyDepthMm": 0.0,
+        "handDepthMm": 0.0
+      },
+      "afterGeometry": {
+        "bodyDepthMm": 0.0,
+        "handDepthMm": 0.0
+      },
+      "selectionReason": "Fewer finger discontinuities / rotation warning with no >5mm sampled contact-depth regression"
+    },
+    {
+      "id": "turn",
+      "word": "turn",
+      "action": "SIGN_TURN",
+      "sourceWord": "turn",
+      "member": "ANIM_GLB/turn.glb",
+      "sourceSha256": "6af31503e8ec8de44be7a6f23362da0c2f8dc88136088cf6ec68a7c84d15a75b",
+      "durationMs": 3483,
+      "checks": {
+        "source_full_duration_seconds": 3.1666667461395264,
+        "retained_source_duration_seconds": 3.0833332538604736,
+        "excluded_export_reset": {
+          "reason": "Publisher reset suffix: non-root bone length outside 75\u2013125% of its median",
+          "firstExcludedSeconds": 3.125,
+          "lastExcludedSeconds": 3.1666667461395264,
+          "excludedFrames": 2,
+          "retainedThroughSeconds": 3.0833332538604736,
+          "sourceBytesUnchanged": true
+        },
+        "sampled_source_frames": 75,
+        "max_direction_error": 0.004606590747624246,
+        "max_inner_rotation_step_degrees": 29.591647289171277,
+        "wrist_span_m": 0.41543206885609485,
+        "finger_rotation_variation": 0.7010530140774432,
+        "source_translations": "Median non-root offsets calibrate bone-local axes; animated orientation tracks transferred, target bone lengths retained",
+        "facial_blendshapes": "Not present in this GLB motion release; not invented"
+      },
+      "shoulderCalibration": "Stable source preroll calibrated to existing relaxed shoulders; world hand/finger poses preserved",
+      "sourceUrl": "https://osf.io/mqzyk/",
+      "license": "CC-BY-4.0",
+      "qualifiedASLValidation": false,
+      "beforeFastSteps": 28,
+      "afterFastSteps": 0,
+      "selected": true,
+      "beforeGeometry": {
+        "bodyDepthMm": 0.0,
+        "handDepthMm": 0.0
+      },
+      "afterGeometry": {
+        "bodyDepthMm": 0.0,
+        "handDepthMm": 0.0
+      },
+      "selectionReason": "Fewer finger discontinuities / rotation warning with no >5mm sampled contact-depth regression"
+    },
+    {
+      "id": "want",
+      "word": "want",
+      "action": "SIGN_WANT",
+      "sourceWord": "want",
+      "member": "ANIM_GLB/want.glb",
+      "sourceSha256": "bbdbe83106d7ab23c8ecedd938db3e5832ac0c00f27fb5739e2eec95b37bbb8a",
+      "durationMs": 6108,
+      "checks": {
+        "source_full_duration_seconds": 5.75,
+        "retained_source_duration_seconds": 5.708333492279053,
+        "excluded_export_reset": {
+          "reason": "Terminal whole-skeleton bind-pose export reset",
+          "firstExcludedSeconds": 5.75,
+          "lastExcludedSeconds": 5.75,
+          "excludedFrames": 1,
+          "sourceBytesUnchanged": true,
+          "terminalHipReset": {
+            "timeSeconds": 5.75,
+            "jumpDegrees": 178.9143795075819,
+            "precedingFrameSeconds": 5.708333492279053,
+            "bindPoseRotationMatchFraction": 1.0,
+            "signature": "EXACT_BIND_RESET",
+            "reason": "Terminal global hip flip and publisher export-coordinate reset"
+          },
+          "retainedThroughSeconds": 5.708333492279053
+        },
+        "sampled_source_frames": 139,
+        "max_direction_error": 1.1849450396820228e-06,
+        "max_inner_rotation_step_degrees": 21.99856876065118,
+        "wrist_span_m": 0.3188210806400069,
+        "finger_rotation_variation": 1.9991231266619955,
+        "source_translations": "Median non-root offsets calibrate bone-local axes; animated orientation tracks transferred, target bone lengths retained",
+        "facial_blendshapes": "Not present in this GLB motion release; not invented"
+      },
+      "shoulderCalibration": "Stable source preroll calibrated to existing relaxed shoulders; world hand/finger poses preserved",
+      "sourceUrl": "https://osf.io/mqzyk/",
+      "license": "CC-BY-4.0",
+      "qualifiedASLValidation": false,
+      "beforeFastSteps": 38,
+      "afterFastSteps": 0,
+      "selected": true,
+      "beforeGeometry": {
+        "bodyDepthMm": 0.0,
+        "handDepthMm": 0.0
+      },
+      "afterGeometry": {
+        "bodyDepthMm": 0.0,
+        "handDepthMm": 0.0
+      },
+      "selectionReason": "Fewer finger discontinuities / rotation warning with no >5mm sampled contact-depth regression"
+    },
+    {
+      "id": "watch",
+      "word": "watch",
+      "action": "SIGN_WATCH",
+      "sourceWord": "watch",
+      "member": "ANIM_GLB/watch.glb",
+      "sourceSha256": "e8f57e8b2d2ef810fb3b9cdfcf30cee23a3e4c41e8e3a972c1d626bb9bb7d0b3",
+      "durationMs": 5442,
+      "checks": {
+        "source_full_duration_seconds": 5.125,
+        "retained_source_duration_seconds": 5.041666507720947,
+        "excluded_export_reset": {
+          "reason": "Publisher reset suffix: non-root bone length outside 75\u2013125% of its median",
+          "firstExcludedSeconds": 5.083333492279053,
+          "lastExcludedSeconds": 5.125,
+          "excludedFrames": 2,
+          "retainedThroughSeconds": 5.041666507720947,
+          "sourceBytesUnchanged": true
+        },
+        "sampled_source_frames": 122,
+        "max_direction_error": 0.003798882284610137,
+        "max_inner_rotation_step_degrees": 27.377563661616104,
+        "wrist_span_m": 0.5059697821327509,
+        "finger_rotation_variation": 0.7855748095144945,
+        "source_translations": "Median non-root offsets calibrate bone-local axes; animated orientation tracks transferred, target bone lengths retained",
+        "facial_blendshapes": "Not present in this GLB motion release; not invented"
+      },
+      "shoulderCalibration": "Stable source preroll calibrated to existing relaxed shoulders; world hand/finger poses preserved",
+      "sourceUrl": "https://osf.io/mqzyk/",
+      "license": "CC-BY-4.0",
+      "qualifiedASLValidation": false,
+      "beforeFastSteps": 18,
+      "afterFastSteps": 0,
+      "selected": true,
+      "beforeGeometry": {
+        "bodyDepthMm": 0.0,
+        "handDepthMm": 0.0
+      },
+      "afterGeometry": {
+        "bodyDepthMm": 0.0,
+        "handDepthMm": 0.0
+      },
+      "selectionReason": "Fewer finger discontinuities / rotation warning with no >5mm sampled contact-depth regression"
+    },
+    {
+      "id": "write",
+      "word": "write",
+      "action": "SIGN_WRITE",
+      "sourceWord": "write",
+      "member": "ANIM_GLB/write.glb",
+      "sourceSha256": "946ff8021766550192f7cb36f7239042580f1ba1a01792aa1c1892acb617c419",
+      "durationMs": 5525,
+      "checks": {
+        "source_full_duration_seconds": 5.166666507720947,
+        "retained_source_duration_seconds": 5.125,
+        "excluded_export_reset": {
+          "reason": "Publisher reset suffix: non-root bone length outside 75\u2013125% of its median",
+          "firstExcludedSeconds": 5.166666507720947,
+          "lastExcludedSeconds": 5.166666507720947,
+          "excludedFrames": 1,
+          "retainedThroughSeconds": 5.125,
+          "sourceBytesUnchanged": true
+        },
+        "sampled_source_frames": 124,
+        "max_direction_error": 0.0013981797488999673,
+        "max_inner_rotation_step_degrees": 26.81245956497583,
+        "wrist_span_m": 0.42202701283421407,
+        "finger_rotation_variation": 0.6694926732914915,
+        "source_translations": "Median non-root offsets calibrate bone-local axes; animated orientation tracks transferred, target bone lengths retained",
+        "facial_blendshapes": "Not present in this GLB motion release; not invented"
+      },
+      "shoulderCalibration": "Stable source preroll calibrated to existing relaxed shoulders; world hand/finger poses preserved",
+      "sourceUrl": "https://osf.io/mqzyk/",
+      "license": "CC-BY-4.0",
+      "qualifiedASLValidation": false,
+      "beforeFastSteps": 12,
+      "afterFastSteps": 0,
+      "selected": true,
+      "beforeGeometry": {
+        "bodyDepthMm": 0.0,
+        "handDepthMm": 50.49392730277963
+      },
+      "afterGeometry": {
+        "bodyDepthMm": 0.0,
+        "handDepthMm": 26.4446715897938
+      },
+      "selectionReason": "Fewer finger discontinuities / rotation warning with no >5mm sampled contact-depth regression"
+    }
+  ]
+}

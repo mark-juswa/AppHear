@@ -1,0 +1,461 @@
+{
+  "baselineLexicalEntries": 743,
+  "baselineActions": 821,
+  "sourceArchiveSha256": "6ee2bd5b7ead8f601d2d77345cc6fcfe0b9a323970ca6a9ec316c408298336eb",
+  "qualifiedASLValidations": 0,
+  "entries": [
+    {
+      "id": "actor",
+      "english": [
+        "actor"
+      ],
+      "animationName": "SIGN_ACTOR_3DLEX_ASL_PREVIEW",
+      "sha256": "42ccb82c33cf6fda0650a614e9c67c247b82e48c9b9456f162dbd2aeb8456aa8",
+      "sourceSha256": "63161c0a59b72175ca750ba7b85fba6ae0d44daa41935e9a7eb1c36acd83853d",
+      "conversionMethod": "FIXED_ANATOMICAL_FRAME"
+    },
+    {
+      "id": "angel",
+      "english": [
+        "angel"
+      ],
+      "animationName": "SIGN_ANGEL_3DLEX_ASL_PREVIEW",
+      "sha256": "546efe02dce1d5fa349f5ae2dc016ef6f7e82e8a2fb03e2e8083f8be966ec1db",
+      "sourceSha256": "91379c34aedcacebc532fd94d84bbfe3336b466612c826db9da0fcdd6ef00b32",
+      "conversionMethod": "SOURCE_DIRECTION_WITH_MINIMAL_SWING"
+    },
+    {
+      "id": "asia",
+      "english": [
+        "asia"
+      ],
+      "animationName": "SIGN_ASIA_3DLEX_ASL_PREVIEW",
+      "sha256": "05855733c5ac8480de25844336c558bbba8cdb35f51184073cab90219c98a9a2",
+      "sourceSha256": "a55d183c7747bb7d3312f1599c21b46c1f4ed83bf1af65cb934bfae7c6a51578",
+      "conversionMethod": "FIXED_ANATOMICAL_FRAME"
+    },
+    {
+      "id": "bacon",
+      "english": [
+        "bacon"
+      ],
+      "animationName": "SIGN_BACON_3DLEX_ASL_PREVIEW",
+      "sha256": "5dc1ab5bf93c9d134f9af5a4e333c96f3e7cae143b8f0534c0cdf39177c5c9dc",
+      "sourceSha256": "b47b58cba0c8b56b03049548c2ac18f956fa1dcb9887f2ddf32d4e3c505ef82e",
+      "conversionMethod": "SOURCE_DIRECTION_WITH_MINIMAL_SWING"
+    },
+    {
+      "id": "body",
+      "english": [
+        "body"
+      ],
+      "animationName": "SIGN_BODY_3DLEX_ASL_PREVIEW",
+      "sha256": "3a70e6ec5088d33a2dfd1ec8e203cd12eefc2954a268b2792d1f0afbca300d8e",
+      "sourceSha256": "3c8535ed5a511d9110df00fba9ea36cd3c467855d7ac8f26079bb3cb7cfdb002",
+      "conversionMethod": "FIXED_ANATOMICAL_FRAME"
+    },
+    {
+      "id": "certificate",
+      "english": [
+        "certificate"
+      ],
+      "animationName": "SIGN_CERTIFICATE_3DLEX_ASL_PREVIEW",
+      "sha256": "34b1546acd61bc38549b9fc1b36ae5bb210b027564a7823e93cc423379a2e12b",
+      "sourceSha256": "3f3011b43c97c0da29d03b1ed0b5ed2ab32ec7eb13b2f20561d0c68d69c85ea7",
+      "conversionMethod": "SOURCE_DIRECTION_WITH_MINIMAL_SWING"
+    },
+    {
+      "id": "chance",
+      "english": [
+        "chance"
+      ],
+      "animationName": "SIGN_CHANCE_3DLEX_ASL_PREVIEW",
+      "sha256": "6509fac072bcae1a5abdf41df01d2797b85d6d616f08e288c04de681854a907b",
+      "sourceSha256": "bb51add3157bdd95fbd26ae98ea474941c7ab306fa6da7804fb318047eedd142",
+      "conversionMethod": "SOURCE_DIRECTION_WITH_MINIMAL_SWING"
+    },
+    {
+      "id": "china",
+      "english": [
+        "china"
+      ],
+      "animationName": "SIGN_CHINA_3DLEX_ASL_PREVIEW",
+      "sha256": "43e6dbded066096464f89e13d19019e0b7108b885075045cc3bb77ce95707b0c",
+      "sourceSha256": "88c690330f17dc4c58c7101af447ad8c579dc351734d6a60924e21a3dea11173",
+      "conversionMethod": "FIXED_ANATOMICAL_FRAME"
+    },
+    {
+      "id": "circle",
+      "english": [
+        "circle"
+      ],
+      "animationName": "SIGN_CIRCLE_3DLEX_ASL_PREVIEW",
+      "sha256": "a853a21eb48ce9d6706340839a6d08e69e375899371662da78156422181572a2",
+      "sourceSha256": "bd0400fcf005997d0d5355e6b20c880de34877da2a363b09dcbab4ae68ececed",
+      "conversionMethod": "FIXED_ANATOMICAL_FRAME"
+    },
+    {
+      "id": "color",
+      "english": [
+        "color"
+      ],
+      "animationName": "SIGN_COLOR_3DLEX_ASL_PREVIEW",
+      "sha256": "86148c83bbdc548f1b008d29f09a192d29b0e86bf10967412bd834f5dcba1dea",
+      "sourceSha256": "26194c7703e753e53a3a1c20ac689af644b9797eae14fb9845086a0f6c11cf99",
+      "conversionMethod": "FIXED_ANATOMICAL_FRAME"
+    },
+    {
+      "id": "delicious",
+      "english": [
+        "delicious"
+      ],
+      "animationName": "SIGN_DELICIOUS_3DLEX_ASL_PREVIEW",
+      "sha256": "f32894e941331744562d305dbb439710a7d696b983ef3e9be5e2ca6a0bfd0ab3",
+      "sourceSha256": "7e8b4027178088c2d22f51083ccac208d8b9e42cffd8a4c9c3cef3d0baae3e69",
+      "conversionMethod": "SOURCE_DIRECTION_WITH_MINIMAL_SWING"
+    },
+    {
+      "id": "disconnect",
+      "english": [
+        "disconnect"
+      ],
+      "animationName": "SIGN_DISCONNECT_3DLEX_ASL_PREVIEW",
+      "sha256": "0b9449a88750a7d89c28452f1f405dda3172c4895c3efcbfa878f8aae78c3b73",
+      "sourceSha256": "4a92c46dcb231db72c2b3445333542f1d40780647a6582bc6507f5784fcb0321",
+      "conversionMethod": "FIXED_ANATOMICAL_FRAME"
+    },
+    {
+      "id": "drop",
+      "english": [
+        "drop"
+      ],
+      "animationName": "SIGN_DROP_3DLEX_ASL_PREVIEW",
+      "sha256": "2da8140e11dee47be1be3fe885a2e3a7aaba05cfad393bc846f5311a3b28fb9c",
+      "sourceSha256": "12aeacf099cc650775a47e3adb3183761dd606bc0e9a1f6761329f375365f79c",
+      "conversionMethod": "SOURCE_DIRECTION_WITH_MINIMAL_SWING"
+    },
+    {
+      "id": "dumb",
+      "english": [
+        "dumb"
+      ],
+      "animationName": "SIGN_DUMB_3DLEX_ASL_PREVIEW",
+      "sha256": "2fe9b1659bf95faa08ec8612efbcdce80aa40277fc8e0ffd08dac3584ba7b175",
+      "sourceSha256": "afa701783b524dcd2f366a267bcec43bed5d11076ce8ed068b5b154dff4e3aab",
+      "conversionMethod": "FIXED_ANATOMICAL_FRAME"
+    },
+    {
+      "id": "eraser",
+      "english": [
+        "eraser"
+      ],
+      "animationName": "SIGN_ERASER_3DLEX_ASL_PREVIEW",
+      "sha256": "e0ca69bea1c2bf93112a3522c329811b575f3a0e9cc033546c9e5427be0f7130",
+      "sourceSha256": "d21ee2fcde2882a17709fa6cb240c4c27ff6398271aba2fb44c5f49277d92399",
+      "conversionMethod": "FIXED_ANATOMICAL_FRAME"
+    },
+    {
+      "id": "example",
+      "english": [
+        "example"
+      ],
+      "animationName": "SIGN_EXAMPLE_3DLEX_ASL_PREVIEW",
+      "sha256": "ff1d58b1ec64eab1dba5e12bcb8bc5104ac11875efbab48a1509e7d6ff762511",
+      "sourceSha256": "4f0e15ef9af321f0edef69e35adb06e97825cbf8aa6f9658760d2b0e27455c25",
+      "conversionMethod": "FIXED_ANATOMICAL_FRAME"
+    },
+    {
+      "id": "farm",
+      "english": [
+        "farm"
+      ],
+      "animationName": "SIGN_FARM_3DLEX_ASL_PREVIEW",
+      "sha256": "29677083333f3d707efe04b5a9181e33ddce15b362e86dd0b23c955302e04d15",
+      "sourceSha256": "2cbd5ec8771433d319f9062811c39d6bea83aaa9dfd3102e340889ec5e1f1ac3",
+      "conversionMethod": "FIXED_ANATOMICAL_FRAME"
+    },
+    {
+      "id": "fat",
+      "english": [
+        "fat"
+      ],
+      "animationName": "SIGN_FAT_3DLEX_ASL_PREVIEW",
+      "sha256": "e487c60effb8ec945598c4d58184e8f9ee22c11b8c4671a5f498533f9616e505",
+      "sourceSha256": "d879e7f60733fe9c3995ecb4c398fc49f7ca97794405d6f4ba9afacbfe653aed",
+      "conversionMethod": "FIXED_ANATOMICAL_FRAME"
+    },
+    {
+      "id": "first",
+      "english": [
+        "first"
+      ],
+      "animationName": "SIGN_FIRST_3DLEX_ASL_PREVIEW",
+      "sha256": "9e26852f26282a1bcdb5a26ced4c9dd1027e819d713c131202076b446935de59",
+      "sourceSha256": "52660f779aa20f0f2203d521677e3fe9553fda518c0cd05787e22419cee3717c",
+      "conversionMethod": "FIXED_ANATOMICAL_FRAME"
+    },
+    {
+      "id": "flag",
+      "english": [
+        "flag"
+      ],
+      "animationName": "SIGN_FLAG_3DLEX_ASL_PREVIEW",
+      "sha256": "1cfadc582026991060aef7d7b3e0f28bf67d9fba3237368984809a357679aa20",
+      "sourceSha256": "2d3391b846a548987d2cb6ded4c77a62bffc8d997dfee613f2d75b1f247c554c",
+      "conversionMethod": "FIXED_ANATOMICAL_FRAME"
+    },
+    {
+      "id": "fool",
+      "english": [
+        "fool"
+      ],
+      "animationName": "SIGN_FOOL_3DLEX_ASL_PREVIEW",
+      "sha256": "4426803d8e7911e57d98992790db3c5f995ab9af9a0af6f5d1daacaeed0ea6ed",
+      "sourceSha256": "ed4ec57748db2dbede2581ca61063749348f55b100d35cc2e7cc5ab83e4c8ece",
+      "conversionMethod": "FIXED_ANATOMICAL_FRAME"
+    },
+    {
+      "id": "front",
+      "english": [
+        "front"
+      ],
+      "animationName": "SIGN_FRONT_3DLEX_ASL_PREVIEW",
+      "sha256": "2afa86dd397e7b83f3dd760dac53e8a06021a6f250198337ae854ea3fc4b3639",
+      "sourceSha256": "ec17552220508d57eab63b40a4b0cf0785d248a3b9da05c207db3e8d03704835",
+      "conversionMethod": "FIXED_ANATOMICAL_FRAME"
+    },
+    {
+      "id": "gift",
+      "english": [
+        "gift"
+      ],
+      "animationName": "SIGN_GIFT_3DLEX_ASL_PREVIEW",
+      "sha256": "41bddf14431b5b4133a6d5f44d5ab69b73ae5f0eb1c937cb64b8fef82e3a0168",
+      "sourceSha256": "7df85eb083266744c3475b495e54592c1ac3ab38fa664634312ee45b272052df",
+      "conversionMethod": "SOURCE_DIRECTION_WITH_MINIMAL_SWING"
+    },
+    {
+      "id": "helicopter",
+      "english": [
+        "helicopter"
+      ],
+      "animationName": "SIGN_HELICOPTER_3DLEX_ASL_PREVIEW",
+      "sha256": "15705bec41815935f493b8431fdad240047b4ddcb683fc9284c3c04b3091f0a3",
+      "sourceSha256": "05688eff6636b11a9972356faf35b6709fe7d8410176331a6579a08c975c75ce",
+      "conversionMethod": "FIXED_ANATOMICAL_FRAME"
+    },
+    {
+      "id": "magic",
+      "english": [
+        "magic"
+      ],
+      "animationName": "SIGN_MAGIC_3DLEX_ASL_PREVIEW",
+      "sha256": "55c7fa485b75c6f38b505225cda75e4a475904f5bed4528d19702ebc04cee749",
+      "sourceSha256": "e61b528d2629bec501f425a1b3a8f4ff16ec8e4db511d85af59b6f9a8f0115aa",
+      "conversionMethod": "SOURCE_DIRECTION_WITH_MINIMAL_SWING"
+    },
+    {
+      "id": "mountain",
+      "english": [
+        "mountain"
+      ],
+      "animationName": "SIGN_MOUNTAIN_3DLEX_ASL_PREVIEW",
+      "sha256": "0fc616fae1d920189e4c4349bc715b9ea3ddb873462a5a39a6a06d8b2a16b585",
+      "sourceSha256": "9fcfb9326b674ad2b42baac9e9db198c4361bd86f7a1a6cdbddf6e0001cdb810",
+      "conversionMethod": "SOURCE_DIRECTION_WITH_MINIMAL_SWING"
+    },
+    {
+      "id": "pig",
+      "english": [
+        "pig"
+      ],
+      "animationName": "SIGN_PIG_3DLEX_ASL_PREVIEW",
+      "sha256": "34251fbc434715b1948064aab0581ae979a89274ad4dba24ffec982459d5802f",
+      "sourceSha256": "e3a7e8ec5dbe3abb0d954a8a8fb931b80e533cc7af8cf84c4b3d6e1883be26d9",
+      "conversionMethod": "FIXED_ANATOMICAL_FRAME"
+    },
+    {
+      "id": "rest",
+      "english": [
+        "rest"
+      ],
+      "animationName": "SIGN_REST_3DLEX_ASL_PREVIEW",
+      "sha256": "ea581de04aaf0dd8614f8db4c007d0c61341eeba9a97b2303830a3a45d100776",
+      "sourceSha256": "2aa8e0f3a7f695b97162c3db3d4446a09a1984677214a74b0c2820d29906676e",
+      "conversionMethod": "FIXED_ANATOMICAL_FRAME"
+    },
+    {
+      "id": "saturday",
+      "english": [
+        "saturday"
+      ],
+      "animationName": "SIGN_SATURDAY_3DLEX_ASL_PREVIEW",
+      "sha256": "ba3a38ac5eb6c8050f25fb57cf5ed14043e05aa598485e76b40354794f707077",
+      "sourceSha256": "1dc41279e10ce4107c9c0250fd3b97334ed030ac6bfcc8c32bb7bb669ca18640",
+      "conversionMethod": "FIXED_ANATOMICAL_FRAME"
+    },
+    {
+      "id": "science",
+      "english": [
+        "science"
+      ],
+      "animationName": "SIGN_SCIENCE_3DLEX_ASL_PREVIEW",
+      "sha256": "9f5b4a3b2eddc729ddb8b4f88c833a5ba62ed0c67e32902c56094e9a5df336cf",
+      "sourceSha256": "6b5266803996cbff8e8b310bc6e154789dc74616c51d4d414c2c6dea1df029a3",
+      "conversionMethod": "FIXED_ANATOMICAL_FRAME"
+    },
+    {
+      "id": "scientist",
+      "english": [
+        "scientist"
+      ],
+      "animationName": "SIGN_SCIENTIST_3DLEX_ASL_PREVIEW",
+      "sha256": "75f30955bac1686a5dba43146d31d6d7e54428696ca21203522198a8dacdc2b5",
+      "sourceSha256": "59ca0d85c087f268c280d286d1fb291cb8e464e58d38bf2303177fce7646fbba",
+      "conversionMethod": "FIXED_ANATOMICAL_FRAME"
+    },
+    {
+      "id": "secret",
+      "english": [
+        "secret"
+      ],
+      "animationName": "SIGN_SECRET_3DLEX_ASL_PREVIEW",
+      "sha256": "51e321c0e72c806f9f0ec8ce114ba82a33c078be76e5934c3547a1c7d8fce2ce",
+      "sourceSha256": "f2a0d42387417718c2bbbffca6d92d0766e7b1e3630f9baecc53f6054dd7134d",
+      "conversionMethod": "FIXED_ANATOMICAL_FRAME"
+    },
+    {
+      "id": "sequence",
+      "english": [
+        "sequence"
+      ],
+      "animationName": "SIGN_SEQUENCE_3DLEX_ASL_PREVIEW",
+      "sha256": "5d992365b57ced106b8bfb12b54f4b1fc398a06a875862a6c77ef22c90a831fa",
+      "sourceSha256": "67947b4dbe86509b9ffbcf65f52eff1635a3cb100893f26e36d24e39e669d08e",
+      "conversionMethod": "FIXED_ANATOMICAL_FRAME"
+    },
+    {
+      "id": "shape",
+      "english": [
+        "shape"
+      ],
+      "animationName": "SIGN_SHAPE_3DLEX_ASL_PREVIEW",
+      "sha256": "8c391b682c00b2605263611bc2bd98d6ad9b116f4e38d079bd093b2e4f5b6e95",
+      "sourceSha256": "53230a9749a9f68a0d702602aa61c29b6d79540f12f63feaef50ad2e4fdf93e0",
+      "conversionMethod": "FIXED_ANATOMICAL_FRAME"
+    },
+    {
+      "id": "shower",
+      "english": [
+        "shower"
+      ],
+      "animationName": "SIGN_SHOWER_3DLEX_ASL_PREVIEW",
+      "sha256": "d600862bef8762d5acfd94d3c7b2920e18fb38fcf91d0fbc04c15ad8bcf17232",
+      "sourceSha256": "2509006a2ca2717088a37bb69cf3928cb9576c30948122ecd89aefd807a84d1a",
+      "conversionMethod": "SOURCE_DIRECTION_WITH_MINIMAL_SWING"
+    },
+    {
+      "id": "shrimp",
+      "english": [
+        "shrimp"
+      ],
+      "animationName": "SIGN_SHRIMP_3DLEX_ASL_PREVIEW",
+      "sha256": "d45e33c44b54991c074c24ff600db7335d75b30abf8877b9b4d10dc002da7a7d",
+      "sourceSha256": "84cba4838b4a4d0f970b0e4df4c74caf4b99551f27154eeb13b1ed0b1c4a6043",
+      "conversionMethod": "FIXED_ANATOMICAL_FRAME"
+    },
+    {
+      "id": "sweep",
+      "english": [
+        "sweep"
+      ],
+      "animationName": "SIGN_SWEEP_3DLEX_ASL_PREVIEW",
+      "sha256": "96e8167168505d79c8e331d91baf1d72c3e4ed40026b4d02d0e1cd97d247b8e0",
+      "sourceSha256": "0c33dc882a8c1726e1c61a6d0e2d2aaa7cadde9df6321867b463ccf5af6283f6",
+      "conversionMethod": "SOURCE_DIRECTION_WITH_MINIMAL_SWING"
+    },
+    {
+      "id": "teeth",
+      "english": [
+        "teeth"
+      ],
+      "animationName": "SIGN_TEETH_3DLEX_ASL_PREVIEW",
+      "sha256": "887c0e035fa12557faefd77fa7b12084213fb1ff35ccb083ceda5d5161e7bc1b",
+      "sourceSha256": "6a9b7965acfa128197632d446005885611ba32d1a39e7c6a9ea2eed35d95f961",
+      "conversionMethod": "SOURCE_DIRECTION_WITH_MINIMAL_SWING"
+    },
+    {
+      "id": "that",
+      "english": [
+        "that"
+      ],
+      "animationName": "SIGN_THAT_3DLEX_ASL_PREVIEW",
+      "sha256": "c8ef09f468bc61044b80b36e5101f35fbbbaf32c072823fe70302942ef05affc",
+      "sourceSha256": "3906ec5a0cb0c407c50f229cfcebab1e7b6f51d8aff9be0a41d581b4cd703183",
+      "conversionMethod": "SOURCE_DIRECTION_WITH_MINIMAL_SWING"
+    },
+    {
+      "id": "tree",
+      "english": [
+        "tree"
+      ],
+      "animationName": "SIGN_TREE_3DLEX_ASL_PREVIEW",
+      "sha256": "96610fc09f4f5fb001099bc5751cd0e7541b511eeb34a83f21ff9a18572c10e8",
+      "sourceSha256": "0153277f372f09c28626cdd7b1ad4fc489840f5226a72069b7d74c0cd174789c",
+      "conversionMethod": "FIXED_ANATOMICAL_FRAME"
+    },
+    {
+      "id": "vacation",
+      "english": [
+        "vacation"
+      ],
+      "animationName": "SIGN_VACATION_3DLEX_ASL_PREVIEW",
+      "sha256": "5eb6d2f4439a1153cd837b4a16c1194aab63495bf6cf0d576e4b696d34e336f2",
+      "sourceSha256": "8f58b6ed4d268abb1cbf39877cc19fcbb8bd8bc47a9866d6b66a25320f9e1227",
+      "conversionMethod": "FIXED_ANATOMICAL_FRAME"
+    }
+  ],
+  "heldForContactReview": [
+    "announce",
+    "believe",
+    "blame",
+    "blood",
+    "bored",
+    "cannot",
+    "carry",
+    "check",
+    "conflict",
+    "demand",
+    "dirty",
+    "discuss",
+    "divide",
+    "escape",
+    "express",
+    "football",
+    "freeway",
+    "freeze",
+    "fun",
+    "game",
+    "jacket",
+    "lead",
+    "loud",
+    "near",
+    "out",
+    "process",
+    "promise",
+    "proof",
+    "rabbit",
+    "remember",
+    "shame",
+    "situation",
+    "soda",
+    "star",
+    "ticket",
+    "toast",
+    "vomit",
+    "wedding"
+  ],
+  "resolvedContactReview": {
+    "arrive": "contact-vocabulary-gates.json; explicit source/action hashes and dense mesh checks"
+  }
+}

@@ -77,7 +77,7 @@ class TextToAslPlaybackController(
         playbackCallback = callback
     }
 
-    fun play(asset: AslAnimationAsset?) {
+    fun play(asset: AslAnimationAsset?, continuousFromPrevious: Boolean = false, continuesToNext: Boolean = false) {
         if (asset == null || destroyed) return
         if (!AslSingleAvatarPolicy.permits(asset) || !AslAvatarCatalogPolicy.permits(asset, lockedAvatarProfile)) {
             playbackCallback?.onFailed(asset)
@@ -98,9 +98,11 @@ class TextToAslPlaybackController(
                 put("loop", asset.type == AslAnimationAsset.Type.POSE && asset.neutralFrameSeconds == null)
                 put("neutralFrame", asset.neutralFrameSeconds ?: JSONObject.NULL)
                 put("pinSource", asset.type == AslAnimationAsset.Type.POSE)
-                // Alphabet clips hold a raised signing posture; the WebView
-                // blends only these transitions, never full lexical actions.
+                // Keep alphabet behavior independent of lexical transition windows.
                 put("fingerspelling", asset.type == AslAnimationAsset.Type.LETTER)
+                put("continuation", continuousFromPrevious)
+                put("startAtSeconds", if (continuousFromPrevious) asset.syntheticPaddingSeconds else 0.0)
+                put("endPaddingSeconds", if (continuesToNext) asset.syntheticPaddingSeconds else 0.0)
             }
             webView.evaluateJavascript("playSign(${JSONObject.quote(BASE_URL + asset.assetPath)}, $options)", null)
         } else {

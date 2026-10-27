@@ -17,7 +17,7 @@ data class EverydayAslExpression(
         /** Reject ambiguity before requests reach the playback engine. */
         fun validate(entries: List<EverydayAslExpression>, normalizer: AslTextNormalizer) {
             require(entries.map { it.id }.distinct().size == entries.size)
-            val forms = mutableSetOf<String>()
+            val forms = mutableMapOf<String, String>()
             val prefixes = mutableSetOf<String>()
             for (entry in entries) {
                 require(entry.id.matches(Regex("[a-z][a-z0-9_]*")) && entry.meaning.isNotBlank())
@@ -26,7 +26,8 @@ data class EverydayAslExpression(
                 require(entry.nonManualReview.isNotBlank())
                 for (form in entry.english) {
                     val normalized = normalizer.normalizeSequence(form)
-                    require(normalized.isNotBlank() && forms.add(normalized)) { "Ambiguous everyday expression" }
+                    require(normalized.isNotBlank() && (forms[normalized] == null || forms[normalized] == entry.id)) { "Ambiguous everyday expression" }
+                    forms[normalized] = entry.id
                 }
                 for (prefix in entry.namePrefixes) {
                     val normalized = normalizer.normalizeSequence(prefix)

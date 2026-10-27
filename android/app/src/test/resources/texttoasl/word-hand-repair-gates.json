@@ -1,0 +1,4493 @@
+{
+  "sourceBundleSha256": "7c6d930e077ba9d1be75c709153f98c1e9af4ca33c99fb2bfb96731288150a20",
+  "candidateSha256": "d32a85ecdcc2290e2428fcb6c65fc7fa479c2d74cbd4574cf1f23591feccdf05",
+  "changedActions": 74,
+  "licensedMotionReplacements": 38,
+  "qualifiedASLValidation": false,
+  "actions": [
+    {
+      "name": "SIGN_ALL",
+      "changed": true,
+      "sha256": "1ef1b59179a920504a8546e9b7ca7e5575f28fe47e2251c57e68c55171d2c08c",
+      "fullReplacement": true
+    },
+    {
+      "name": "SIGN_BROTHER",
+      "changed": false,
+      "sha256": "42a8c105640fcc9aa4c69d7a4f5dfa4dbcfc068735937068606ff14768e71064"
+    },
+    {
+      "name": "SIGN_CHILD",
+      "changed": false,
+      "sha256": "c5b4dcd29c4f25176274cfd8380d6b7b6766e26f06076cd45dabc9f6a7eaceab"
+    },
+    {
+      "name": "SIGN_CITY",
+      "changed": false,
+      "sha256": "667fd782a009d24cdf8eceaa20ef319625940d5bc8c23f41206b7879ccefbdc0"
+    },
+    {
+      "name": "SIGN_FAMILY",
+      "changed": false,
+      "sha256": "68e0197e332c7e97edb4cf10f0761cc2ffc68f3f81af2cd296b15b2b2c18ec97"
+    },
+    {
+      "name": "SIGN_GOOD",
+      "changed": false,
+      "sha256": "61a93160b265792a84820ad0ae46a6ad893135d276d3af8622a717adad248481"
+    },
+    {
+      "name": "SIGN_GUY",
+      "changed": false,
+      "sha256": "6f083dd9c543f71595bd31c40c6b24e40f6459d1d5fc2b35f1e2c4d3969dc86c"
+    },
+    {
+      "name": "SIGN_HAVE",
+      "changed": false,
+      "sha256": "91c3d94e72be39b20fde3be511b1b24bb099af0f9674f1cdab414f8809e20ffb"
+    },
+    {
+      "name": "SIGN_HE",
+      "changed": false,
+      "sha256": "581cc5c68816cd05171ccec1ff20ec3c9968981c6394b92743880a9dc4b62cfc"
+    },
+    {
+      "name": "SIGN_HELLO",
+      "changed": false,
+      "sha256": "6d4106178b172f84da9fe0fa7666d88f9fe741e7309c9fdcb49eaf3935230788"
+    },
+    {
+      "name": "SIGN_HOUSE",
+      "changed": false,
+      "sha256": "9b2026e0ddad10f416d7fb762820230aa39860745ef8b66c5f1bf5ddbbcd6665"
+    },
+    {
+      "name": "SIGN_HUSBAND",
+      "changed": true,
+      "sha256": "f3898cc0e4a18e275aaf362706be8339d9c87ecfa494c008308e7004962ee67e",
+      "fullReplacement": false,
+      "excludedFingerBones": [
+        "LeftHandRing2",
+        "RightHandMiddle3",
+        "RightHandPinky1",
+        "RightHandPinky2",
+        "RightHandRing2"
+      ],
+      "protectedSha256": "e3e442562745e6a9e3b6b072c7d877fb205ce394e87e0580f9f7496271487a80",
+      "clockSha256": "2cc011ec215fecb6ee58029687448ab1fa37889c09d07a098ae1eacb52558e51"
+    },
+    {
+      "name": "SIGN_I",
+      "changed": false,
+      "sha256": "9aef348c49e76554152ebe57bf4cd69372d19866be715c14a93a917ad546c6da"
+    },
+    {
+      "name": "SIGN_LIKE",
+      "changed": true,
+      "sha256": "b043d21205a68e5a5e585bade63090383223927465222aa64261eafc9a6f5594",
+      "fullReplacement": false,
+      "excludedFingerBones": [
+        "RightHandMiddle1",
+        "RightHandRing1",
+        "RightHandRing2"
+      ],
+      "protectedSha256": "ae1f908b1527dccfe2bdb1945535b0a41e0984b443de4aa5079b6e829a340c8c",
+      "clockSha256": "6465101b5b0d572e3cdc27728ecf12e7a894ed43b89d12cb68d5036c392b8056"
+    },
+    {
+      "name": "SIGN_LITTLE",
+      "changed": true,
+      "sha256": "98e63c046d1d7feebf44c242eb2ae2da21353d642a29b81ea014875c7b838246",
+      "fullReplacement": false,
+      "excludedFingerBones": [
+        "LeftHandRing3",
+        "RightHandIndex1",
+        "RightHandIndex3",
+        "RightHandMiddle3",
+        "RightHandPinky1",
+        "RightHandPinky2",
+        "RightHandPinky3",
+        "RightHandRing1",
+        "RightHandRing2"
+      ],
+      "protectedSha256": "14bd41e19b41375eecd35e61e451b85a191544ffb88515822a950874eabecd37",
+      "clockSha256": "d19867572d2682b24ff0fe03edaadaed258f9a8417a2287d0d354687095d17cb"
+    },
+    {
+      "name": "SIGN_LIVE",
+      "changed": false,
+      "sha256": "d9a2fe25820e95912a897f647a1fe0faf6ca6f5bd753f78fbcda02511859645d"
+    },
+    {
+      "name": "SIGN_MAN",
+      "changed": false,
+      "sha256": "ab20b4a09a6c807af767f93749454e2e65353afccc065d2066b40d224e986aed"
+    },
+    {
+      "name": "SIGN_MORE",
+      "changed": false,
+      "sha256": "e2a9ceff7ae0f2f1c432165e03fd92eea6e7ab965fe400f8a42c9e58075e19be"
+    },
+    {
+      "name": "SIGN_MORNING",
+      "changed": true,
+      "sha256": "96fd0c30fba88772e5ced04807954131bd44ac71cafebe8fc3988a74272e2722",
+      "fullReplacement": true
+    },
+    {
+      "name": "SIGN_MY",
+      "changed": false,
+      "sha256": "fcb7ae3f55a241d5a470191e99b721c232743545f1c288f90a4b7b0958a100be"
+    },
+    {
+      "name": "SIGN_NEED",
+      "changed": true,
+      "sha256": "8953c9789532c285fcd7dd1a81df4a3a7e0eb8fe29e4904247499d220e629154",
+      "fullReplacement": false,
+      "excludedFingerBones": [
+        "RightHandIndex2",
+        "RightHandIndex3"
+      ],
+      "protectedSha256": "9fe34c0ea18109a0db40ca48121a6dfedba32922e1098b36ee95414e94045126",
+      "clockSha256": "8e0f0fdc47a225a234c26fe97e943df62dc98b40eba2b62f45f108352fc0c8a8"
+    },
+    {
+      "name": "SIGN_NO",
+      "changed": false,
+      "sha256": "da8e0a446645bf20982d53f6201c54a1dcb41bdb9f63654036004ff509133115"
+    },
+    {
+      "name": "SIGN_OUR",
+      "changed": false,
+      "sha256": "ebebcb6e925ede700dcbb93e7a579c890521af504c6433df124583997c65e6ba"
+    },
+    {
+      "name": "SIGN_SCHOOL",
+      "changed": true,
+      "sha256": "2c29163874977a2e7ee37321b0a2849d004e3b8f6abf763350fd5407ee1d656d",
+      "fullReplacement": false,
+      "excludedFingerBones": [
+        "LeftHandIndex1",
+        "LeftHandIndex2",
+        "LeftHandIndex3",
+        "LeftHandMiddle1",
+        "LeftHandMiddle2",
+        "LeftHandMiddle3",
+        "LeftHandPinky1",
+        "LeftHandPinky2",
+        "LeftHandPinky3",
+        "LeftHandRing1",
+        "LeftHandRing2",
+        "LeftHandRing3",
+        "RightHandIndex1",
+        "RightHandIndex2",
+        "RightHandIndex3",
+        "RightHandMiddle1",
+        "RightHandMiddle2",
+        "RightHandMiddle3",
+        "RightHandPinky1",
+        "RightHandPinky2",
+        "RightHandPinky3",
+        "RightHandRing1",
+        "RightHandRing2",
+        "RightHandRing3",
+        "RightHandThumb1",
+        "RightHandThumb2",
+        "RightHandThumb3"
+      ],
+      "protectedSha256": "42e990f803407cca96a27be4df4e63cd1b4051bf2982dce61bc544f7de0595fb",
+      "clockSha256": "6de325b01af48949a5811a1fe7f55111c80389efc8b31619538f80c254489931"
+    },
+    {
+      "name": "SIGN_SISTER",
+      "changed": false,
+      "sha256": "5c69b1ecb127378fc596b16eef3f77cbaa2977e0a4e405480ec3a4907898cf1c"
+    },
+    {
+      "name": "SIGN_THANKS",
+      "changed": false,
+      "sha256": "ea1fab5c84b67bc2bc505e86fd3d0f430d3243de6c1268b2f2acbd7abe68d1e5"
+    },
+    {
+      "name": "SIGN_THEM",
+      "changed": true,
+      "sha256": "bc363a4fd4a3b1c702916aa825998f852c2119e4356fedcc046645fec8e97849",
+      "fullReplacement": false,
+      "excludedFingerBones": [
+        "RightHandIndex2"
+      ],
+      "protectedSha256": "fabbca071028be057bba240012c5135d76b03a5a7d0008944de3b01bb2b5d915",
+      "clockSha256": "6465101b5b0d572e3cdc27728ecf12e7a894ed43b89d12cb68d5036c392b8056"
+    },
+    {
+      "name": "SIGN_THINK",
+      "changed": false,
+      "sha256": "b795f1d6ef9273c973f01876efca69c0e2a8b19af620a1693b47198ecaf1721a"
+    },
+    {
+      "name": "SIGN_US",
+      "changed": false,
+      "sha256": "053c325e020cdcc66a74b58be338f3824ef792c1ec03453672e92f37705d349d"
+    },
+    {
+      "name": "SIGN_WHAT",
+      "changed": false,
+      "sha256": "d131f287e17133ec97a34942c519a5ea32aa2db81f6638b17c94f84969c6f724"
+    },
+    {
+      "name": "SIGN_WOMAN",
+      "changed": false,
+      "sha256": "e3411de512aba6f34a70bd7c985032438918809dd69af2cbe281c281123a4ed6"
+    },
+    {
+      "name": "SIGN_YOUR",
+      "changed": false,
+      "sha256": "f58354cc8e42d161da59f33370073c21b4835da3931d2cab00f90c5b72df8ab4"
+    },
+    {
+      "name": "SIGN_AFTERNOON",
+      "changed": true,
+      "sha256": "5fdfff47d4409647cae64a4c92d44e6717e2a6fab59e64a619660c3178fb637e",
+      "fullReplacement": true
+    },
+    {
+      "name": "SIGN_ANY",
+      "changed": true,
+      "sha256": "a410e1f50fecaccb2b821c8924e75b9ab2e954a781bdb216c8497c9f44639b28",
+      "fullReplacement": false,
+      "excludedFingerBones": [
+        "RightHandMiddle3",
+        "RightHandPinky3",
+        "RightHandRing2"
+      ],
+      "protectedSha256": "04346b145e57aaa803124595e18fa15e35344d4c79530027c347fe8283a2212c",
+      "clockSha256": "8bce0c4b4fce659d8cc0106e6e3a25705ac670e89f76bafba59e989b673db4b0"
+    },
+    {
+      "name": "SIGN_ASK",
+      "changed": false,
+      "sha256": "9197d88eb531c46a2a7eed4d2078ebed575ef9ba6bdb981cb966c472185f0183"
+    },
+    {
+      "name": "SIGN_BABY",
+      "changed": true,
+      "sha256": "c25ccaf27cb9e91c9aef070ecd211b4d22ac323f82e6cd8c69a12c98bb73f55f",
+      "fullReplacement": false,
+      "excludedFingerBones": [
+        "LeftHandRing1",
+        "LeftHandRing2"
+      ],
+      "protectedSha256": "534d743c654640ecdd51a4558cf8bb09cf305fca03620034bcd0c6e73fc34cb7",
+      "clockSha256": "6e1d630e813fff36cdfe142c43996744deaadbebad4b5c14f9c17568b3f2886d"
+    },
+    {
+      "name": "SIGN_BAD",
+      "changed": true,
+      "sha256": "9fca1bb203e56047c98075caf5d9d45fd2c7a2e6296c468131ea087bf17cea74",
+      "fullReplacement": true
+    },
+    {
+      "name": "SIGN_BAG",
+      "changed": true,
+      "sha256": "e70b114e0e38468e5b366c37e417d5af0ef52c212f182b35c1750989dbbd8ae1",
+      "fullReplacement": false,
+      "excludedFingerBones": [
+        "RightHandIndex1",
+        "RightHandIndex2",
+        "RightHandIndex3",
+        "RightHandMiddle1",
+        "RightHandMiddle2",
+        "RightHandMiddle3",
+        "RightHandPinky1",
+        "RightHandPinky2",
+        "RightHandPinky3",
+        "RightHandRing1",
+        "RightHandRing2",
+        "RightHandRing3"
+      ],
+      "protectedSha256": "19ed718c57ea912f249202a5c41b3648da3369f42afc83cebdb47501ba88e5e3",
+      "clockSha256": "dd463986c3d214483481c37b9142943f6f38c93692347f8599f01be6258dd6fd"
+    },
+    {
+      "name": "SIGN_BE",
+      "changed": false,
+      "sha256": "f8de59f0d514162e41cfefba1755cd8b330665dce273e44f5fdfa87b3c175bc5"
+    },
+    {
+      "name": "SIGN_BEAUTIFUL",
+      "changed": false,
+      "sha256": "93c1ecfde9efd5a783fc2820883479c8475253eb94773cc0d5d9c365170a01ce"
+    },
+    {
+      "name": "SIGN_BECOME",
+      "changed": true,
+      "sha256": "9903f60e93ea869dd8a5e34f2aa99a6321d0809fb3486abbb73b04f3e198537f",
+      "fullReplacement": false,
+      "excludedFingerBones": [
+        "RightHandIndex1",
+        "RightHandIndex2"
+      ],
+      "protectedSha256": "285b4f715d230f2339af4ac3034d550853c097c688ed1df48f13f2dce68cf7d3",
+      "clockSha256": "f1249439b63ee0c12adba634a4b4ab90323d63f4369af7e1b26b23e719cd1746"
+    },
+    {
+      "name": "SIGN_BED",
+      "changed": false,
+      "sha256": "cfc61a518e84520ae477a82e5ac95ca3a9086aef9bb7cd4432acc486390c1023"
+    },
+    {
+      "name": "SIGN_BEGIN",
+      "changed": false,
+      "sha256": "caa5f45d47db31d5838b722f016d8c87290be99d071f70388b724152fac62556"
+    },
+    {
+      "name": "SIGN_BIG",
+      "changed": false,
+      "sha256": "1b7e0eb57cdda4949bbeb9d7e229efd9478c0f2e9c621ca3c7cd712635debe28"
+    },
+    {
+      "name": "SIGN_BOOK",
+      "changed": true,
+      "sha256": "1673abc9e9417b29419fbdeab955da039f39b5899cf6068c77f477a4fe8685ca",
+      "fullReplacement": false,
+      "excludedFingerBones": [
+        "LeftHandIndex3",
+        "LeftHandMiddle1",
+        "LeftHandPinky3",
+        "LeftHandRing1"
+      ],
+      "protectedSha256": "a799a0aaf8e855e4b98804e5b76dd7028b0636a019f157c0f23eb0f7f94c740c",
+      "clockSha256": "533a68f74c79ea783b17d249eecbb3f4a085de34b345cc1da82b56f016a0103f"
+    },
+    {
+      "name": "SIGN_BOSS",
+      "changed": true,
+      "sha256": "6f3d428eab74ef954c33116cd3c0e7267c91fcc8f9ceae862aada7540c4cf356",
+      "fullReplacement": true
+    },
+    {
+      "name": "SIGN_BUSY",
+      "changed": false,
+      "sha256": "8bbe9464b4fa3af0c78fc977436056066f96fbc3629cbc56e91d66055a1afdeb"
+    },
+    {
+      "name": "SIGN_BUY",
+      "changed": true,
+      "sha256": "ec017f240fa8951dfe193e243f359dbb61d832abc49293b151a9e609fe1faefa",
+      "fullReplacement": false,
+      "excludedFingerBones": [
+        "LeftHandIndex1",
+        "LeftHandMiddle2"
+      ],
+      "protectedSha256": "7f48e8638ffae56a1923224de43490d9fc72c556d0bf1f014afeb9ebc51e6ba0",
+      "clockSha256": "48f999b2adc2ac29595d32fb0b52f2af80cf4888e673edd924b324dcfe51cd3b"
+    },
+    {
+      "name": "SIGN_BYE",
+      "changed": false,
+      "sha256": "2f72f4193c9347784f47ec91a9b9b8d90393ab0615c077f6d0dd888446e80343"
+    },
+    {
+      "name": "SIGN_CALL",
+      "changed": false,
+      "sha256": "e4ab1bb88bf21a639c0f8f2edea76e6f3c29ac9a2f138ee9bc8f3017226aa5be"
+    },
+    {
+      "name": "SIGN_CALL__TO_CALL_SOMEONE_S_NAME",
+      "changed": false,
+      "sha256": "e4edf8d9798fc1b3317c316a502f36b724fcda5f090fcf360a0c53bece04fafb"
+    },
+    {
+      "name": "SIGN_CAR",
+      "changed": true,
+      "sha256": "91ebde8185535b7a0a5a5c3849c4f034d4cf08079779643c99a50fedc067bb7f",
+      "fullReplacement": true
+    },
+    {
+      "name": "SIGN_CHAIR",
+      "changed": true,
+      "sha256": "36d3e7758f577d3a8febfe51f88340a3437cebed7a526c9bd2fd64e239cc7821",
+      "fullReplacement": true
+    },
+    {
+      "name": "SIGN_CLEAN",
+      "changed": false,
+      "sha256": "7f2b1610bcae0a95d07a76004d1fb89b2f84f92fbe7fef7f193d9a08bd93310e"
+    },
+    {
+      "name": "SIGN_CLOSE",
+      "changed": true,
+      "sha256": "5665779e19afc52be932344d4c85aa09005d277913988e9e503c67c8f8eaa5a3",
+      "fullReplacement": false,
+      "excludedFingerBones": [
+        "RightHandMiddle3",
+        "RightHandRing3"
+      ],
+      "protectedSha256": "67c46b015399f218268b3c8911f2f05e796ec32756f6bdf51b8424686febf63e",
+      "clockSha256": "0cd88f9603a6adbba28c6124647bdcf43383e8b20a2b1194d4625ebc88f158e5"
+    },
+    {
+      "name": "SIGN_CLOTHES",
+      "changed": false,
+      "sha256": "d048a81e6d886d25d43d863a81c2e3379b4fcf0852aaa01e1d1b85ec3bcb638f"
+    },
+    {
+      "name": "SIGN_COLD",
+      "changed": true,
+      "sha256": "7ab9b3c4a1716ad98b5c3b37f3a4a40898256b35bf244f790e4d0ee2707c709d",
+      "fullReplacement": true
+    },
+    {
+      "name": "SIGN_COME",
+      "changed": true,
+      "sha256": "c993a70ca1ce425ec9c08ce1caf3722813c70c1df50aa11b0719d4c637fddf18",
+      "fullReplacement": false,
+      "excludedFingerBones": [
+        "RightHandIndex1"
+      ],
+      "protectedSha256": "b120776f963af132564509d50cc4adcf5be111e57d09fb8cb8801b9cf5682f09",
+      "clockSha256": "8689bec205e184b5e9811983d1c05a5a13a88fb855abdd278671e2a17b545a48"
+    },
+    {
+      "name": "SIGN_COMPUTER",
+      "changed": false,
+      "sha256": "316db7bbb95cf420bcafa816b678f068a673ca9c2a819e9aef8515a55a7342f4"
+    },
+    {
+      "name": "SIGN_CONGRATULATIONS",
+      "changed": true,
+      "sha256": "e7416b2b37c06e7ba4996c0b9bfeaf172567167d8e7a6e8df332b58af008c4ba",
+      "fullReplacement": true
+    },
+    {
+      "name": "SIGN_COOK",
+      "changed": false,
+      "sha256": "59cd6e224f87d491a680c48b177c2dd0f0e66b6ab68ce7e4eebac8f90cca3dc8"
+    },
+    {
+      "name": "SIGN_COUNTRY",
+      "changed": false,
+      "sha256": "eddfef67a764d08e024be00de02205864915854d2563d2656ee49a4488e232ce"
+    },
+    {
+      "name": "SIGN_DAY",
+      "changed": false,
+      "sha256": "94cf879249f3160635ce259c2cb10c944abced39bfebbf02400794c05bc33734"
+    },
+    {
+      "name": "SIGN_DIFFERENT",
+      "changed": false,
+      "sha256": "ee209cbdabaad15e7e3640eb518e7468631eb4bda721561583a1762ba270026a"
+    },
+    {
+      "name": "SIGN_DO",
+      "changed": true,
+      "sha256": "e7728d776a32153a7b31df7d12f8358e6d8291414598e30f009ee62a60d46996",
+      "fullReplacement": false,
+      "excludedFingerBones": [
+        "RightHandIndex1",
+        "RightHandPinky2",
+        "RightHandPinky3",
+        "RightHandRing1"
+      ],
+      "protectedSha256": "80274571022d2c300459a8c3aabf214813a20c78e990da744cb6f0059a795eeb",
+      "clockSha256": "0a40c42f4a6b59e1ee386835c8a194336f37646225bd6e47d0b67a841b1b0d51"
+    },
+    {
+      "name": "SIGN_DOOR",
+      "changed": false,
+      "sha256": "16960f5416bb1ca91c29c8dae3d9e220f88cb02a3ddceb67e96221cdcd8da12f"
+    },
+    {
+      "name": "SIGN_DRINK",
+      "changed": false,
+      "sha256": "a55161b9c888c86725de42a93a1dc9da6d0c2a68317d325b5c0fcdc614b691b4"
+    },
+    {
+      "name": "SIGN_DRIVE",
+      "changed": true,
+      "sha256": "2c2c7b7a56b5e0244b707580498d712f391a42b7e88629355a03ad2a98dddfa7",
+      "fullReplacement": false,
+      "excludedFingerBones": [
+        "LeftHandIndex3",
+        "LeftHandRing2"
+      ],
+      "protectedSha256": "2b9d19388cf83ee34685d14edb92e7f8006087832f8a03846847e79237fd1626",
+      "clockSha256": "20eb9f2b8019aeda4d6fdf15868196f4c8f8c0897b9bce4120809bfbb05d1932"
+    },
+    {
+      "name": "SIGN_EASY",
+      "changed": true,
+      "sha256": "6c2b2454eaf4fb9054189443fc059f052147f96b2571f3db0eed0dd21658131d",
+      "fullReplacement": true
+    },
+    {
+      "name": "SIGN_EAT",
+      "changed": false,
+      "sha256": "3e29f0bb663f168fb6790c28fad06ac15659c20e7d5799bee9bb18f0b1f9e2e9"
+    },
+    {
+      "name": "SIGN_EVENING",
+      "changed": false,
+      "sha256": "5e90b9b539816199acf40bb72a0e9c6a6115fa87e035de9d5ce83ea12632677c"
+    },
+    {
+      "name": "SIGN_EVERY",
+      "changed": false,
+      "sha256": "f3dd66613c18c492d13bbf297994b274beef9625f276efbbcc88dd8ec40f81cf"
+    },
+    {
+      "name": "SIGN_EXCUSE_ME",
+      "changed": false,
+      "sha256": "c3a0fda09447b71070d9d72bd11854a7bb419e94c068688f2f82cc6cefe18e96"
+    },
+    {
+      "name": "SIGN_EXHAUSTED",
+      "changed": false,
+      "sha256": "9a5978640555cf8437ebeefe1b0494f6369b59a3255a476ea3a4dfc3693fd8f4"
+    },
+    {
+      "name": "SIGN_FAST",
+      "changed": true,
+      "sha256": "93a048a8de9fe848c2786854686cc03e64ad0d140fa64bfce15831326a1a7145",
+      "fullReplacement": true
+    },
+    {
+      "name": "SIGN_FATHER",
+      "changed": false,
+      "sha256": "eeeb4a847613ece618b802b9990bc8ba02e0c7171bb001ed8546639e2b21577e"
+    },
+    {
+      "name": "SIGN_FEEL",
+      "changed": true,
+      "sha256": "3f5e8dbb79a46f14699c8ba69aab1e29dd865d6c18748420cfd09bb95b149701",
+      "fullReplacement": true
+    },
+    {
+      "name": "SIGN_FEW",
+      "changed": false,
+      "sha256": "dac3cf7e26b91c4aa78624caf71baa120ad2f22d393eafe1417e2e5864be038b"
+    },
+    {
+      "name": "SIGN_FIND",
+      "changed": true,
+      "sha256": "0608bf95e1ddde2a63c79a58110d6351b38ec9ce490085dfdeb8630cf8c29097",
+      "fullReplacement": false,
+      "excludedFingerBones": [
+        "RightHandPinky3"
+      ],
+      "protectedSha256": "9ab4aa7c1653f5313a84d628b953b78eb0758fbc2bdd37550c43cf3c9213cce9",
+      "clockSha256": "8689bec205e184b5e9811983d1c05a5a13a88fb855abdd278671e2a17b545a48"
+    },
+    {
+      "name": "SIGN_FREE",
+      "changed": true,
+      "sha256": "97e210552aa0372832cb39f79dd61a9d4503c0fcc3898724a7c468f87603562b",
+      "fullReplacement": true
+    },
+    {
+      "name": "SIGN_FRIEND",
+      "changed": false,
+      "sha256": "81da668d960a8867782fc0f9bdda239563e807c1e7eabd287e941015efa27147"
+    },
+    {
+      "name": "SIGN_GET",
+      "changed": false,
+      "sha256": "8437f28b355da7bb2a4edbf54621c0c21855a8ac0202a1df4b9c14abffc75368"
+    },
+    {
+      "name": "SIGN_GIVE",
+      "changed": true,
+      "sha256": "97435dfa63addcec21c808de82649ecffa8530a5c4b6e6c6de12fd42a8fe57b8",
+      "fullReplacement": true
+    },
+    {
+      "name": "SIGN_GO",
+      "changed": true,
+      "sha256": "4b142091fae69d875f89baa8e27bc436485d55b9a29eb6b7f34c1800c5352fb0",
+      "fullReplacement": true
+    },
+    {
+      "name": "SIGN_HAPPY",
+      "changed": false,
+      "sha256": "625608afc1b995d5e79b74b9c241b0348d59efc032e0da8c96dfd174c5bc131a"
+    },
+    {
+      "name": "SIGN_HARD",
+      "changed": true,
+      "sha256": "1e24827db7ae0d5d49651009af1919b1bdc1fbffe5ad1a5f73fc59e392ff50ff",
+      "fullReplacement": true
+    },
+    {
+      "name": "SIGN_HARD__SOLID",
+      "changed": false,
+      "sha256": "1a6f9f07a16e6ba1259579b5dc9d86b881b2e9313d9d037fad6970d71cf36721"
+    },
+    {
+      "name": "SIGN_HEAR",
+      "changed": false,
+      "sha256": "eb5fa8f4201411ad4defaff8056ba1143cfbda46a22cdddbf55bd99bb87cfcf4"
+    },
+    {
+      "name": "SIGN_HELP",
+      "changed": true,
+      "sha256": "548c58348a63b64fc10259a8b90084641483674e5e54323e9d79aa1e04b34bee",
+      "fullReplacement": false,
+      "excludedFingerBones": [
+        "RightHandIndex1",
+        "RightHandIndex2",
+        "RightHandIndex3",
+        "RightHandMiddle1",
+        "RightHandMiddle2",
+        "RightHandMiddle3",
+        "RightHandPinky1",
+        "RightHandPinky2",
+        "RightHandPinky3",
+        "RightHandRing1",
+        "RightHandRing2",
+        "RightHandRing3"
+      ],
+      "protectedSha256": "816f4d77f71bc96ff6e2737681e66600c4f42d0de6336fc2a08174681fac9943",
+      "clockSha256": "6074f1c359176e14d18e3b98e247b2e354cb7704e6884139f7b676c98b0df054"
+    },
+    {
+      "name": "SIGN_HOME",
+      "changed": false,
+      "sha256": "23bf499f8d21a77d5e893db9b3f243f9f04f34f49f468991e09c094a598fab21"
+    },
+    {
+      "name": "SIGN_HOSPITAL",
+      "changed": true,
+      "sha256": "0b7ab95c8d8a5d9fedf15dfb324378a71f3115188665a4f5ddb260aa0cdc0abe",
+      "fullReplacement": true
+    },
+    {
+      "name": "SIGN_HOT",
+      "changed": false,
+      "sha256": "6d929ef09d6a49b11b9116bb9115371b94a5faf4b766a60e66e8bf7fd789d573"
+    },
+    {
+      "name": "SIGN_HOUR",
+      "changed": false,
+      "sha256": "0b8dfb0f8fbf2933886688f3555a99d20607e77958513d9951af3565963a940f"
+    },
+    {
+      "name": "SIGN_HOW",
+      "changed": false,
+      "sha256": "5db52ad1522d4963a30aefa04c0e6f227cb0f6e530893538cd6e374a9f68d56a"
+    },
+    {
+      "name": "SIGN_IMPORTANT",
+      "changed": true,
+      "sha256": "2beb60c2972b8867e9a234dd1abae1757e784e675e144bff09ddacdbf39f4f0a",
+      "fullReplacement": false,
+      "excludedFingerBones": [
+        "LeftHandIndex1",
+        "LeftHandIndex3",
+        "LeftHandMiddle1",
+        "LeftHandRing2",
+        "RightHandIndex1",
+        "RightHandMiddle1",
+        "RightHandMiddle3",
+        "RightHandPinky1",
+        "RightHandRing1"
+      ],
+      "protectedSha256": "e54961c2280860d8e50c8c1fd69869b62f07bf7b3110b2b0de0f011a0ad23a54",
+      "clockSha256": "8ed327534be1902e580a38c43a5c50d46308a523ce0495b94095b272cc59836c"
+    },
+    {
+      "name": "SIGN_IN",
+      "changed": false,
+      "sha256": "5ad423fc6a5c44134b4896453d27a78fcbf58f9a0552c46a3997a909c259e131"
+    },
+    {
+      "name": "SIGN_KEEP",
+      "changed": true,
+      "sha256": "f394df5d0de5668a6ac7d4aa8440a54ad674c082a99b9b6ec79797cbd8f5ac35",
+      "fullReplacement": true
+    },
+    {
+      "name": "SIGN_KEEP__PRESERVE",
+      "changed": false,
+      "sha256": "273b237d65d1091aa0edf4f68cb11dc35f49f4482dc549750b5fc320d8a152a5"
+    },
+    {
+      "name": "SIGN_KEY",
+      "changed": false,
+      "sha256": "01f69163772202029f54f9ccc6c5ee85058da5b0834a74f1ebcddc14a4b35dbd"
+    },
+    {
+      "name": "SIGN_KNOW",
+      "changed": false,
+      "sha256": "63546468f275e493a81386fb04fb96626ea8dbbed7050d482d9163267494f04a"
+    },
+    {
+      "name": "SIGN_LEAVE",
+      "changed": true,
+      "sha256": "8efe9f0585585e5a7e3cd9304ae57cf47fcaad6f252943db9eb9c15d4593f250",
+      "fullReplacement": true
+    },
+    {
+      "name": "SIGN_LET",
+      "changed": true,
+      "sha256": "a7c8b678e90ee2b1b2eda346e518fc9f8474fa339a8399f02e866b59036ad198",
+      "fullReplacement": false,
+      "excludedFingerBones": [
+        "LeftHandIndex1",
+        "LeftHandIndex2",
+        "LeftHandIndex3",
+        "LeftHandMiddle1",
+        "LeftHandMiddle2",
+        "LeftHandMiddle3",
+        "LeftHandRing3",
+        "LeftHandThumb1",
+        "LeftHandThumb2",
+        "RightHandPinky2",
+        "RightHandRing2"
+      ],
+      "protectedSha256": "dae1c9f87dc63a6d02d4a2824d3a10ea3cbfeef794ae4e3f31e635372fb8f922",
+      "clockSha256": "aab878e86c2108367645e040800bf39f2e483d945e40fffa4656952c8e46ed60"
+    },
+    {
+      "name": "SIGN_LETTER",
+      "changed": false,
+      "sha256": "e56f80057a9081fdaa6332934a1f620fa1030e0f9ec135ca8fd9e4a4b1e406e6"
+    },
+    {
+      "name": "SIGN_LETTER__MAIL",
+      "changed": false,
+      "sha256": "85b8e14294aff00733934a5f84364a84d18ec4d25c898910ca829e3c71ebe809"
+    },
+    {
+      "name": "SIGN_LISTEN",
+      "changed": false,
+      "sha256": "e7cd10e8ed0634a552a856f9a529be94dbe7d755fc94a013ea1146aab9e1b882"
+    },
+    {
+      "name": "SIGN_LOOK",
+      "changed": false,
+      "sha256": "bf095ce9544d7998a122850553e5c972b8b91e3ab301e577a350edcdc355fb36"
+    },
+    {
+      "name": "SIGN_LOVE",
+      "changed": false,
+      "sha256": "c5320618b65ada97424a80dde74357e41e2505e9893b7b4ca02e3ac8302de63b"
+    },
+    {
+      "name": "SIGN_MAKE",
+      "changed": false,
+      "sha256": "cc1cd2e1178e04966132c9fc5731c7af98f31220f93b3ecdc6f691c0462d1e75"
+    },
+    {
+      "name": "SIGN_MANY",
+      "changed": false,
+      "sha256": "4af92f956a64bd25ce72af6c9ec52b373d3cd387f0486645367b79914f4a79f2"
+    },
+    {
+      "name": "SIGN_MEAN",
+      "changed": false,
+      "sha256": "fabffa199cc37a69239007980f3f19c2f48cceccf64d4596221f643d32610640"
+    },
+    {
+      "name": "SIGN_MEAN__MEANING_OR_DEFINITION_OF_SOMETHING",
+      "changed": false,
+      "sha256": "66dd09bea6a06ced68087beb1a5bcdb8c4ccd8c9ebdc5ca89bccb3a038537b08"
+    },
+    {
+      "name": "SIGN_MEET",
+      "changed": true,
+      "sha256": "e194a0d4994d222450530f2ddd88894e578d1d3b0576392e95180b89abe99af6",
+      "fullReplacement": true
+    },
+    {
+      "name": "SIGN_MEET__TO_MEET_MANY_PEOPLE",
+      "changed": true,
+      "sha256": "c1df8004563d9f288ccbe4610464eacbccdd63d278d490d35e2a6297c55b6814",
+      "fullReplacement": false,
+      "excludedFingerBones": [
+        "LeftHandPinky2"
+      ],
+      "protectedSha256": "6467ed353283df597a5835598247042c6c96a6839029930d0e99f486463620f2",
+      "clockSha256": "91f6fe4c9aaf54b5dd399264eb7d689d0e9571354fafd48a74c8800985e4f6d7"
+    },
+    {
+      "name": "SIGN_MINUTE",
+      "changed": true,
+      "sha256": "296660477ce62ad4f95bdd505fe211392687efdb4ab50ed85b728c543fefc873",
+      "fullReplacement": true
+    },
+    {
+      "name": "SIGN_MOMENT",
+      "changed": false,
+      "sha256": "8b8e41e40238fce368d5ff1395f9493ecaf3ea364af393be194565efb7e425de"
+    },
+    {
+      "name": "SIGN_MONEY",
+      "changed": false,
+      "sha256": "0aa9fbebd5a14a6cc249e3c3390fb14204a84a429d2f310022b01beccdb097b4"
+    },
+    {
+      "name": "SIGN_MONTH",
+      "changed": false,
+      "sha256": "c1cff21dfd506002239ad3cb29c5242b2548f05f8cf04d23e0721e0c649385d3"
+    },
+    {
+      "name": "SIGN_MOST",
+      "changed": false,
+      "sha256": "7c3ee0d4d351733232b4ee4e8356f5cfc30a3bf2efc2e1a46bd2914fecab4774"
+    },
+    {
+      "name": "SIGN_MOTHER",
+      "changed": false,
+      "sha256": "dca9a3942825c4b86a9a2cff72659ee60fea253f7878b730e9584a7c822abeae"
+    },
+    {
+      "name": "SIGN_MOVE",
+      "changed": false,
+      "sha256": "599782236a987ad38382e04483caa356f2ba0de4794037556d01081ad671eb38"
+    },
+    {
+      "name": "SIGN_MOVE__TO_MOVE_TO_NEW_LOCATION",
+      "changed": false,
+      "sha256": "ff3f554d7854ac8479fda389164d2bdeeb595f8e7d19b31802f522d2e30c1ed3"
+    },
+    {
+      "name": "SIGN_MUCH",
+      "changed": true,
+      "sha256": "d976aa04c6d656752a37a67540edd285cae965b1445366ffc18c0747d00a70f8",
+      "fullReplacement": false,
+      "excludedFingerBones": [
+        "LeftHandIndex1",
+        "LeftHandRing2"
+      ],
+      "protectedSha256": "bf200f03daa3376722e09f99314ab7f8bcf1d59eb64ffd346b663196e2b1cf87",
+      "clockSha256": "48f999b2adc2ac29595d32fb0b52f2af80cf4888e673edd924b324dcfe51cd3b"
+    },
+    {
+      "name": "SIGN_NEIGHBOR",
+      "changed": false,
+      "sha256": "5ccd965432003f768a02860e2b6ec9d1d2455208e9466a12f960044256748445"
+    },
+    {
+      "name": "SIGN_NEW",
+      "changed": false,
+      "sha256": "5e64fd30e4d3c0444cee5ad11158b641e06b8f08d129727c3b2c77894c2eddc2"
+    },
+    {
+      "name": "SIGN_OFFICE",
+      "changed": true,
+      "sha256": "0c6fb49edcd6eb7491a7135f0bc967888bd0afe31756303bf0d0069255cf46a5",
+      "fullReplacement": true
+    },
+    {
+      "name": "SIGN_OK",
+      "changed": true,
+      "sha256": "250a91d4c28ad40db8bf71269df7f00df000f45c3eafc3289124e56b17bedd52",
+      "fullReplacement": true
+    },
+    {
+      "name": "SIGN_OLD",
+      "changed": false,
+      "sha256": "4fd23eef89959636a7e33e3f8abc15b9a3337605ad3ac8d302d1ec0250b65e02"
+    },
+    {
+      "name": "SIGN_OPEN",
+      "changed": false,
+      "sha256": "eb72172bd40a5689c6d07ceb011c8e72be671b3aee2dd23edbf3775370d5f1e4"
+    },
+    {
+      "name": "SIGN_PAPER",
+      "changed": true,
+      "sha256": "45053b72b8ea21f846b65f3c8ffbef3d615440d6878a2a9cce5495c3f82991f8",
+      "fullReplacement": true
+    },
+    {
+      "name": "SIGN_PAY",
+      "changed": true,
+      "sha256": "e5b7951580548cf8f9e1c244dde6ff2d128e47bf290320b0e113929029ebdd59",
+      "fullReplacement": false,
+      "excludedFingerBones": [
+        "LeftHandIndex1",
+        "LeftHandMiddle3",
+        "LeftHandPinky1",
+        "LeftHandRing3",
+        "LeftHandThumb1"
+      ],
+      "protectedSha256": "642ac6b93625bd58f09d0881ecff3bd4c3ddde12d50cb7144102281a67228d84",
+      "clockSha256": "307a0b181299a0685e59c5d5142ea89fff0fff1ed17f0ad0b8f368a64124541b"
+    },
+    {
+      "name": "SIGN_PAY__TO_PAY_SOMEONE",
+      "changed": false,
+      "sha256": "4f1e4a7c7e1053646f85ceb101700ae8de43cb50ce87c1097f0a602235fec43d"
+    },
+    {
+      "name": "SIGN_PEOPLE",
+      "changed": true,
+      "sha256": "0c1be2bba0e9a1f0d45db5004260eb99548b6d9b8af8d2d5459302e7f6958130",
+      "fullReplacement": false,
+      "excludedFingerBones": [
+        "RightHandMiddle2",
+        "RightHandPinky3"
+      ],
+      "protectedSha256": "c05e4649d5d19d0c5688776462795455af020c64f5dab710ef6b44b66d576ee8",
+      "clockSha256": "83656d16098e261ce83b60b20cf484806abc3db4e259414516b1e04e4a15893d"
+    },
+    {
+      "name": "SIGN_PERSON",
+      "changed": true,
+      "sha256": "8698a19fc9266252b3ba5a3bca60b48b446e41bdc217f65deae9cc9f6d9ce1f7",
+      "fullReplacement": false,
+      "excludedFingerBones": [
+        "LeftHandIndex3",
+        "LeftHandMiddle1",
+        "LeftHandPinky1",
+        "RightHandIndex1",
+        "RightHandIndex3",
+        "RightHandMiddle2",
+        "RightHandMiddle3",
+        "RightHandPinky3",
+        "RightHandThumb3"
+      ],
+      "protectedSha256": "217aece30681f98a34320ed6d27a93dd02d00bb3ad7a8583e5c59a4c89df01f1",
+      "clockSha256": "0aa6404c02f09981494232ab188e80f63bb3907ee8e9e3ae2186ef58d777f122"
+    },
+    {
+      "name": "SIGN_PHONE",
+      "changed": false,
+      "sha256": "5d542093cfd5a4766041bc4ac0719480db418f91d3656feec6b7b036fb8312da"
+    },
+    {
+      "name": "SIGN_PLAY",
+      "changed": true,
+      "sha256": "3b21f62911ffadaf35e6bf396edab93e65adc0a24aca9fbc37794a2e0d3200d0",
+      "fullReplacement": true
+    },
+    {
+      "name": "SIGN_PLAY__TO_PLAY_A_GAME",
+      "changed": true,
+      "sha256": "5084eab97ef0c1a2f91616a42a3f76ddbee00ecaaa4732c982790898b0d43827",
+      "fullReplacement": false,
+      "excludedFingerBones": [
+        "RightHandPinky3",
+        "RightHandThumb2"
+      ],
+      "protectedSha256": "f0daa711f04664b1ec6666cf1305a5338e99e94fa28b50ce31c4f0688d3ab34d",
+      "clockSha256": "aab878e86c2108367645e040800bf39f2e483d945e40fffa4656952c8e46ed60"
+    },
+    {
+      "name": "SIGN_PLEASE",
+      "changed": false,
+      "sha256": "cb657707201b4a1d40d6b33a1809a535e4f5300918e309c94990bd38f3b38b39"
+    },
+    {
+      "name": "SIGN_READ",
+      "changed": false,
+      "sha256": "5d38a6977318f1837d86cc9193b210558f56c766938e8d4e0042e974a6ad0e8f"
+    },
+    {
+      "name": "SIGN_READY",
+      "changed": false,
+      "sha256": "4006bb15bbb09fff31b8f396b79beb664511631e7e6a1e80f712bca9675e9f17"
+    },
+    {
+      "name": "SIGN_RESTAURANT",
+      "changed": false,
+      "sha256": "12c7a2413547b6bde89f00fc2c1fe87ada62238a73368d7cc48a48a35a76c097"
+    },
+    {
+      "name": "SIGN_RIGHT",
+      "changed": false,
+      "sha256": "c5d6a11739d82bbb5bbbc6e3cd015ddee1822ffb16207b4ad44d9917bc772298"
+    },
+    {
+      "name": "SIGN_RIGHT__DIRECTION",
+      "changed": false,
+      "sha256": "9c11514e67ac2001fd008a16167c77c4c59aec39e1c3e2861c4e300eefb58646"
+    },
+    {
+      "name": "SIGN_ROAD",
+      "changed": true,
+      "sha256": "92c1b1213511c01dafe5229bf0bcdf7006f5181220f34461b211f4dfd00f4989",
+      "fullReplacement": false,
+      "excludedFingerBones": [
+        "LeftHandMiddle3",
+        "RightHandIndex2",
+        "RightHandMiddle2"
+      ],
+      "protectedSha256": "349719bdbe545d39bea895c10831f3e10f4061f7df01464c19a71665e9f0f374",
+      "clockSha256": "0aa6404c02f09981494232ab188e80f63bb3907ee8e9e3ae2186ef58d777f122"
+    },
+    {
+      "name": "SIGN_ROOM",
+      "changed": true,
+      "sha256": "618ecaf9fdbc63498fa8b8d82a5616b0b257c2883c1d8380903b8ae655356750",
+      "fullReplacement": false,
+      "excludedFingerBones": [
+        "LeftHandPinky1"
+      ],
+      "protectedSha256": "3095a68f9169341cc6131a0d609e7582eca00173460ef2b2dd4a6d2d15967c11",
+      "clockSha256": "a3b0ee3074f5a76be83deda55d576b784a7eeb7b76de8f46722970805ca59e79"
+    },
+    {
+      "name": "SIGN_RUN",
+      "changed": true,
+      "sha256": "6f924f0eb8d935909bb5d1d146d2b26d30f676df6c53f32db1aa71357f0c0dca",
+      "fullReplacement": true
+    },
+    {
+      "name": "SIGN_SAD",
+      "changed": false,
+      "sha256": "33fae74edbe2e96701bf8b0026140ab7ffc492615dd9d1e5a84c284803c37636"
+    },
+    {
+      "name": "SIGN_SAME",
+      "changed": true,
+      "sha256": "f3a3f1c22bdd7edf07275d1bd52537d5c6fe3836f358194f313fec45991e920e",
+      "fullReplacement": false,
+      "excludedFingerBones": [
+        "RightHandPinky3"
+      ],
+      "protectedSha256": "51ef61287deaa85aa82e2d7215a16747d7517f66d73c15e6152f01a3f62b038f",
+      "clockSha256": "0585e058edb7970eba20d4959f58155937218eb2095c99e2b2c85145ad699a68"
+    },
+    {
+      "name": "SIGN_SEE",
+      "changed": false,
+      "sha256": "5574282d842b20eca0cd2c9cd0927a6c967a7e07e119d4f6a9ae07f76fd81f02"
+    },
+    {
+      "name": "SIGN_SEEM",
+      "changed": false,
+      "sha256": "c984db1ee991eb754f7fba468cb3b117fddb04285cd9a0f2fb9699a1b63174ea"
+    },
+    {
+      "name": "SIGN_SELL",
+      "changed": false,
+      "sha256": "a596cf8ad9744b8574577d10b6ae178c2d7ab4fa08738b5ea14825971d6dbff5"
+    },
+    {
+      "name": "SIGN_SEND",
+      "changed": true,
+      "sha256": "d09a1783b82050f96d0dfaddf1eeb276b75bc5048c680462fc7ab6643486cdd2",
+      "fullReplacement": false,
+      "excludedFingerBones": [
+        "LeftHandThumb2",
+        "LeftHandThumb3"
+      ],
+      "protectedSha256": "1aee7d8a1a2da7da299a964a6dda9fd2182847517f712de47e9d428be2e95879",
+      "clockSha256": "8118f0f038187077eeb7aaf7b036b9e73da7798c5a474b2c6688f1d2d1b0f1fd"
+    },
+    {
+      "name": "SIGN_SHOES",
+      "changed": true,
+      "sha256": "18137a756e62fd396b9fa6a807f96410b36b424303586063c6cb7f0594bf79e9",
+      "fullReplacement": true
+    },
+    {
+      "name": "SIGN_SHOP__GOING_TO_STORE_TO_BUY_GOODS",
+      "changed": true,
+      "sha256": "2ad26a1701d4f3d4c7e53226cdd59ff47c4ec833692ccf63650379375e6cee26",
+      "fullReplacement": false,
+      "excludedFingerBones": [
+        "LeftHandIndex1",
+        "LeftHandIndex2",
+        "LeftHandIndex3",
+        "LeftHandMiddle3",
+        "LeftHandRing2",
+        "LeftHandRing3",
+        "RightHandPinky1",
+        "RightHandRing1",
+        "RightHandRing2"
+      ],
+      "protectedSha256": "3625b452a8149da576511cb0db6484cbe3777e94d01b41b5f2b96e41cc456e82",
+      "clockSha256": "307a0b181299a0685e59c5d5142ea89fff0fff1ed17f0ad0b8f368a64124541b"
+    },
+    {
+      "name": "SIGN_SHOW__TO_SHOW_SOMEONE",
+      "changed": false,
+      "sha256": "85b1377282a4427337804ea43356959d58994072ba32b3d2aaf60af0c6bd6eef"
+    },
+    {
+      "name": "SIGN_SICK",
+      "changed": true,
+      "sha256": "1297fa9a6276c46390dbde21c1190768c4cd1007eabeb19ef3f1d0ef87adb03f",
+      "fullReplacement": false,
+      "excludedFingerBones": [
+        "LeftHandPinky1"
+      ],
+      "protectedSha256": "8b38b063d03bac9498ec7145caf29cc9f9bd00ea8524df9f5cb0dfcabc288176",
+      "clockSha256": "0cd88f9603a6adbba28c6124647bdcf43383e8b20a2b1194d4625ebc88f158e5"
+    },
+    {
+      "name": "SIGN_SIT",
+      "changed": false,
+      "sha256": "6cec2ed734b000b08cfe1cb24aea6db56c9d073eb9a1515fc3a4bd873d580d62"
+    },
+    {
+      "name": "SIGN_SLEEP",
+      "changed": false,
+      "sha256": "67dd2398e513da62d60f657e056f81eca7feee68ecfd3c26847513e70d1a9732"
+    },
+    {
+      "name": "SIGN_SLOW",
+      "changed": false,
+      "sha256": "c73600311e2f35a6095559c461833bb919cd994ad0aaef9bad96ff9557cd0fae"
+    },
+    {
+      "name": "SIGN_SOME",
+      "changed": true,
+      "sha256": "bce0e1781c5142c066b332fd6c501ebc46bb9d58e8953f9dcddaefc0efeccf9a",
+      "fullReplacement": true
+    },
+    {
+      "name": "SIGN_SORRY",
+      "changed": true,
+      "sha256": "9686deefaa1d4bf9d43473b006904eae63850e6bc6fccf8178607994f1552d16",
+      "fullReplacement": true
+    },
+    {
+      "name": "SIGN_SPEAK",
+      "changed": false,
+      "sha256": "7704c0baca8976c1a9cc79e6a24f89c451416e0d48b993b157fe21a62346f817"
+    },
+    {
+      "name": "SIGN_STAY",
+      "changed": false,
+      "sha256": "d40fffb19fef5bcc0436360b5b4d5daa56405d5c3201855ab26f6125455db18b"
+    },
+    {
+      "name": "SIGN_STORE__TO_SAVE",
+      "changed": false,
+      "sha256": "913bc6eaeae8476ad27d7b2c3011690365494ccf67a20ec05fbdfffefa0ca18f"
+    },
+    {
+      "name": "SIGN_STRONG",
+      "changed": false,
+      "sha256": "373a3db56f53e0494c080a5ef3a70ca348a4b127488b934db8920705cb548e68"
+    },
+    {
+      "name": "SIGN_STUDENT",
+      "changed": true,
+      "sha256": "7562d2b67bc2cdcfa4fc8405293bf00079d8bed8a74f729f5258d77a98cff190",
+      "fullReplacement": true
+    },
+    {
+      "name": "SIGN_SURE",
+      "changed": true,
+      "sha256": "30d131cb471eac8c5ea4de1bb966587ade563e44884568399cbd44f6ae220492",
+      "fullReplacement": true
+    },
+    {
+      "name": "SIGN_TABLE",
+      "changed": false,
+      "sha256": "01385f9f4a10aacf0e524d275b3309ce6a1104b4c7a8a8c894df3b6171b5a00a"
+    },
+    {
+      "name": "SIGN_TAKE",
+      "changed": true,
+      "sha256": "92ae343815cf4314d653fd5b4cee50a553032e6707017ebdbfa82ed9f373b573",
+      "fullReplacement": true
+    },
+    {
+      "name": "SIGN_TEACHER",
+      "changed": true,
+      "sha256": "f4d71dea39a1a6c8054dba31b32ce05769e8d0f07b1125748e169f81bacc6b54",
+      "fullReplacement": true
+    },
+    {
+      "name": "SIGN_TELL",
+      "changed": false,
+      "sha256": "98d3e1a6953e5c0bc7605f773a96720f824140af32b0cc4763b13c470a00d8d1"
+    },
+    {
+      "name": "SIGN_THING",
+      "changed": true,
+      "sha256": "93d4e3f9ac6ecc8c422c265b0a3e7fcf11ce0f6d2350da391f101cde508dd5b6",
+      "fullReplacement": false,
+      "excludedFingerBones": [
+        "LeftHandIndex1"
+      ],
+      "protectedSha256": "11f5800a9b553a00880cec995c5465c3f0e04eff6c41150e453437b9414b0c78",
+      "clockSha256": "ec5f80758db686bafedbb9793ae2c29e313a0031e41e45e80750f953eb331c2c"
+    },
+    {
+      "name": "SIGN_TIME",
+      "changed": false,
+      "sha256": "d716e9ad6880662a662d47a51878fe84b7842990061b2c3474e9b3e17af55fe1"
+    },
+    {
+      "name": "SIGN_TODAY",
+      "changed": true,
+      "sha256": "cef0ce3f602c1390a5a075a9c40ec7b7c23baec049802286c92f52f9885eb06e",
+      "fullReplacement": true
+    },
+    {
+      "name": "SIGN_TOMORROW",
+      "changed": false,
+      "sha256": "c61c16cf6e34ce175900aeef2ef5e01edb5691af8647bd0e3e447f66ef651efc"
+    },
+    {
+      "name": "SIGN_TRY",
+      "changed": true,
+      "sha256": "e703baf2fc422b3169cc299936743fbf6a29cc1f8c3af117c166cef38111c294",
+      "fullReplacement": false,
+      "excludedFingerBones": [
+        "LeftHandPinky1"
+      ],
+      "protectedSha256": "dda77d80e5f89e461378f95ed61e839034d8e142b9130facbd97b92450f34993",
+      "clockSha256": "82d1d9266595146b4c75e8997afc9a739505eaa1795f0b6465001a785fb0e6ca"
+    },
+    {
+      "name": "SIGN_TURN",
+      "changed": true,
+      "sha256": "281a99a58e3be110e602a875364941badb7d939bc9909590295ecf4f9e22e4fc",
+      "fullReplacement": true
+    },
+    {
+      "name": "SIGN_TURN__TURN_AROUND",
+      "changed": false,
+      "sha256": "57bb8be65c90706afb21fc12fd7581cd33cea4bd6f16b12292ffcb5cb89afbfe"
+    },
+    {
+      "name": "SIGN_USE",
+      "changed": false,
+      "sha256": "0d521960daa776023e0f30a1d97688de0a8774fd1faa29500fb6fe0fcde84f18"
+    },
+    {
+      "name": "SIGN_VISIT",
+      "changed": false,
+      "sha256": "bc716296585088a2d24c351c2cb7743aeb17fd2db4d3cd9fa61e36db7369fca3"
+    },
+    {
+      "name": "SIGN_WAIT",
+      "changed": false,
+      "sha256": "24f1038b2004d3e9bbe35b822dc0c57e6a843f5dfe5daa09eb0996c5fb2aa351"
+    },
+    {
+      "name": "SIGN_WAKE",
+      "changed": false,
+      "sha256": "90008f06d410e313ea5a34eca3a0c70281cd74959e66f8d5e2e6eccf74831c58"
+    },
+    {
+      "name": "SIGN_WALK",
+      "changed": false,
+      "sha256": "5f1a905f548b4419b229f25d1fcd3c81c1235f86fad7d217e1374b741c0cf5ae"
+    },
+    {
+      "name": "SIGN_WANT",
+      "changed": true,
+      "sha256": "9a01136224ef2dd55d6d40d2fb844eab0a19a28e7877ff347b881ff248d15e5d",
+      "fullReplacement": true
+    },
+    {
+      "name": "SIGN_WASH",
+      "changed": false,
+      "sha256": "ca2c07bdec759ccf004a6b9613c09d17f93cc3b963e6fd44227004e9b33417a3"
+    },
+    {
+      "name": "SIGN_WATCH",
+      "changed": true,
+      "sha256": "d62e226e14c40fbc5f023f62eeb876b25cb4f92a2100bdf15507cd374045b43c",
+      "fullReplacement": true
+    },
+    {
+      "name": "SIGN_WATER",
+      "changed": false,
+      "sha256": "d2806cd5ccf862a782572278ba2822b56eb28614716ccd02a03e90ecb086e92c"
+    },
+    {
+      "name": "SIGN_WEEK",
+      "changed": true,
+      "sha256": "0258a6e11298dbe0fea4fb92cbeebd47f4b6af029ca5c2dcf561b263cfc4e779",
+      "fullReplacement": false,
+      "excludedFingerBones": [
+        "RightHandMiddle1",
+        "RightHandMiddle2",
+        "RightHandPinky1",
+        "RightHandPinky2",
+        "RightHandPinky3",
+        "RightHandRing1"
+      ],
+      "protectedSha256": "e43ab423462b94764f41cbbe4f450cc735d5be10893da31fa9ff9818926e5664",
+      "clockSha256": "3a29b267a00571746e85d0268d18f6dbf4aa6d12c50acf7baca74d37e128379c"
+    },
+    {
+      "name": "SIGN_WELCOME",
+      "changed": false,
+      "sha256": "d045d216d0b691a49d048941488ad1ae756e8030472afdc6739eb9e4777ab2e7"
+    },
+    {
+      "name": "SIGN_WHAT__RHETORICAL_WHAT",
+      "changed": false,
+      "sha256": "98f3867f18a6be2aa69c939c9a5ee4c916501c29eb877a30666864f79f2e3c1a"
+    },
+    {
+      "name": "SIGN_WHEN",
+      "changed": false,
+      "sha256": "a7490aa591567c47d15d3a27d84739137166974a0ea927e6cb4f7bf6bfe076c7"
+    },
+    {
+      "name": "SIGN_WHERE",
+      "changed": false,
+      "sha256": "b6454973ba9f003cec690c29abbbcc1079d3471cf69ddc2bb7770d5cbe0c249d"
+    },
+    {
+      "name": "SIGN_WHICH",
+      "changed": false,
+      "sha256": "ce32d9751e3682096e7d60c03fec932d3f3d550c21ee98f58e77113b59b64239"
+    },
+    {
+      "name": "SIGN_WHO",
+      "changed": false,
+      "sha256": "5d06ac18003120be14fd459ef7d6adb00e6c3dcd8031cceb9ab638a4577f68f2"
+    },
+    {
+      "name": "SIGN_WHY",
+      "changed": false,
+      "sha256": "1d17efc7860315ef58cb0181c4f32227972b76020e4e93c69850ea325c1eefaa"
+    },
+    {
+      "name": "SIGN_WIFE",
+      "changed": false,
+      "sha256": "def63232b59f16f767ad3a44fc6fb3cb51053098503842a1a52b09af2b4d28b8"
+    },
+    {
+      "name": "SIGN_WINDOW",
+      "changed": false,
+      "sha256": "849a648371fed69c8fff29069bb3166479c1ecaec249e46de010ec94a9f3093f"
+    },
+    {
+      "name": "SIGN_WORK",
+      "changed": false,
+      "sha256": "96976ad1379bb02c837bca175b7427614fb75fbc753f0f07ddaf05b78b0b0bf4"
+    },
+    {
+      "name": "SIGN_WORLD",
+      "changed": true,
+      "sha256": "d46fc8a8416515e1c05d995c2eb555a059a2501c10522a688e2a65fad67fa95a",
+      "fullReplacement": false,
+      "excludedFingerBones": [
+        "RightHandPinky1"
+      ],
+      "protectedSha256": "2fd539f9b2b0617d9ef94129b393633d2c2fe2f66ada58df2cc46900765570be",
+      "clockSha256": "83656d16098e261ce83b60b20cf484806abc3db4e259414516b1e04e4a15893d"
+    },
+    {
+      "name": "SIGN_WRITE",
+      "changed": true,
+      "sha256": "82efb3f5200c0a756977fa2c42feaec6f8791f4b680d6d9eec2e530ac03ef84e",
+      "fullReplacement": true
+    },
+    {
+      "name": "SIGN_WRONG",
+      "changed": false,
+      "sha256": "5bd1db345aa00d8a7715aaf5cfb42214e4540a63598dd4b7b334601283922dc9"
+    },
+    {
+      "name": "SIGN_YEAR",
+      "changed": false,
+      "sha256": "45b02e09a81c72db49b7251d2a46a4695b11e529c96c6da2fb0a345fc81b7d37"
+    },
+    {
+      "name": "SIGN_YES",
+      "changed": false,
+      "sha256": "39a21528c209d939c837e584f0a689b00dcedef0b7031b56d15b1e73dc897a2d"
+    },
+    {
+      "name": "SIGN_YESTERDAY",
+      "changed": false,
+      "sha256": "78b63f1132d7c75dfb36204fcb86131135ec76f503bb8bca250b1709bd5d2cb8"
+    },
+    {
+      "name": "SIGN_LETTER_A_WOLF3D_PREVIEW",
+      "changed": false,
+      "sha256": "f66c0b7e78dba8ae77a616af49c9e30acabeb575c8a48e8e4a9fa71e68af2025"
+    },
+    {
+      "name": "SIGN_LETTER_B_WOLF3D_PREVIEW",
+      "changed": false,
+      "sha256": "ea96417ce6edc21d542515bebe087478ab12524b03149e51e9bff59f86c2c617"
+    },
+    {
+      "name": "SIGN_LETTER_C_WOLF3D_PREVIEW",
+      "changed": false,
+      "sha256": "793fc6dfcbd010629a05d5805108656d5a9f32c653e41d0d26571fbfa6c07da8"
+    },
+    {
+      "name": "SIGN_LETTER_D_WOLF3D_PREVIEW",
+      "changed": false,
+      "sha256": "069993ad4dc3dec38d25eabfc402deeb24cb78c2ad298b1185374fde313b02f8"
+    },
+    {
+      "name": "SIGN_LETTER_E_WOLF3D_PREVIEW",
+      "changed": false,
+      "sha256": "f9c9503311ea6ffa5668270e8fc937a2554a952c4929abe142e95c8e28108f46"
+    },
+    {
+      "name": "SIGN_LETTER_F_WOLF3D_PREVIEW",
+      "changed": false,
+      "sha256": "d373727e9a64a65c5b6d392a5c85f5418a3cb0c467be63bc70e279265cbf668d"
+    },
+    {
+      "name": "SIGN_LETTER_G_WOLF3D_PREVIEW",
+      "changed": false,
+      "sha256": "e6c28d025360891ff847eafc2f4de5b576bb0c10add83e4f5df621ad7d15f100"
+    },
+    {
+      "name": "SIGN_LETTER_H_WOLF3D_PREVIEW",
+      "changed": false,
+      "sha256": "bb4741abdde1ce805cd8e75e8f3fa39f0ffbd27a24e162360e7aceadd3b2fe9c"
+    },
+    {
+      "name": "SIGN_LETTER_I_WOLF3D_PREVIEW",
+      "changed": false,
+      "sha256": "ea8d06431dce8376e5a6735ccc9ad67cda2fe1f4bbf98e2409df5f86c1561919"
+    },
+    {
+      "name": "SIGN_LETTER_J_WOLF3D_PREVIEW",
+      "changed": false,
+      "sha256": "8d6c503df4ba1657d2400bc646c42fcec8625da93b39c18a5938e4fcc2f1c0f0"
+    },
+    {
+      "name": "SIGN_LETTER_K_WOLF3D_PREVIEW",
+      "changed": false,
+      "sha256": "545d0506f1aac5e62f3062bf2b7db58f52b15ef9a35739d331783f7b485429cc"
+    },
+    {
+      "name": "SIGN_LETTER_L_WOLF3D_PREVIEW",
+      "changed": false,
+      "sha256": "77f1bcccddcedccff3d8872a890454d16b3d6edbd76e72974919130909cdd2c1"
+    },
+    {
+      "name": "SIGN_LETTER_M_WOLF3D_PREVIEW",
+      "changed": false,
+      "sha256": "831a65e2cdde616ee4dc073cfb69c1e2278524b64cff9612f741a1de677e1e42"
+    },
+    {
+      "name": "SIGN_LETTER_N_WOLF3D_PREVIEW",
+      "changed": false,
+      "sha256": "68a5f15bf04a7a4ea9d9a59d745bfbc6dc529bf5fc5664cc1b4373fffe80f82f"
+    },
+    {
+      "name": "SIGN_LETTER_O_WOLF3D_PREVIEW",
+      "changed": false,
+      "sha256": "908611d4ad9d8f555065912d67d6b4afe5fe6cd49c07d62664cb964e3b7142d4"
+    },
+    {
+      "name": "SIGN_LETTER_P_WOLF3D_PREVIEW",
+      "changed": false,
+      "sha256": "4cae0273078313e6968cbe2afe424696c69ca3ca101d1e2d35021437309f980a"
+    },
+    {
+      "name": "SIGN_LETTER_Q_WOLF3D_PREVIEW",
+      "changed": false,
+      "sha256": "b9422953882bc57fa7e45567cfb6f243defe180d44cbff7afc5dfa24702fcc0f"
+    },
+    {
+      "name": "SIGN_LETTER_R_WOLF3D_PREVIEW",
+      "changed": false,
+      "sha256": "8bedabf3a45ad8900ca749a73d8fdf16b97279d7274b3cea193ec3ab13f7b1c7"
+    },
+    {
+      "name": "SIGN_LETTER_S_WOLF3D_PREVIEW",
+      "changed": false,
+      "sha256": "c6ddcaf1611163b52a8b216c773924d047ebc40072b29f9bc86951071f5fbb8c"
+    },
+    {
+      "name": "SIGN_LETTER_T_WOLF3D_PREVIEW",
+      "changed": false,
+      "sha256": "5a430e6abd7135514c305efea1ea9787a8a922e377cf8a17e0383e62326a725f"
+    },
+    {
+      "name": "SIGN_LETTER_U_WOLF3D_PREVIEW",
+      "changed": false,
+      "sha256": "08504108bf0053c67964da36d1453d9e741057e26f109a3f39056768f4fd43aa"
+    },
+    {
+      "name": "SIGN_LETTER_V_WOLF3D_PREVIEW",
+      "changed": false,
+      "sha256": "eef2c87d1a821b48417b9ab0fb8500d225edebd6e5e9c024fefb7e408b4aa9b5"
+    },
+    {
+      "name": "SIGN_LETTER_W_WOLF3D_PREVIEW",
+      "changed": false,
+      "sha256": "02489e70aed7ecf5d514999e6b65a93021bb5bed6c160ad0ab7abf0b2563ae64"
+    },
+    {
+      "name": "SIGN_LETTER_X_WOLF3D_PREVIEW",
+      "changed": false,
+      "sha256": "7b8ee769ccfe8f627bc76b0d057292789260629ba0bb6db88c1863783401c201"
+    },
+    {
+      "name": "SIGN_LETTER_Y_WOLF3D_PREVIEW",
+      "changed": false,
+      "sha256": "0540c046d7995276f542a5a76477a5c79a71e1daca7d4229bec43c0445fbfd82"
+    },
+    {
+      "name": "SIGN_LETTER_Z_WOLF3D_PREVIEW",
+      "changed": false,
+      "sha256": "3486d6d6c766210078b608c95ec3feb657be39853745fae3a79fab8610e916c1"
+    },
+    {
+      "name": "SIGN_RELAXED_NEUTRAL",
+      "changed": false,
+      "sha256": "1b9fdc2f13b4141ebb6d23b5c39c3d37046364273e97285c9363f4e38fddcefe"
+    },
+    {
+      "name": "SIGN_YOU_HUMAN_RETARGETED_PREVIEW",
+      "changed": false,
+      "sha256": "7e7e171c30703bd69cd9175d58afbaed4407e9757360ebefc700621d577a1d54"
+    },
+    {
+      "name": "SIGN_YOU_ALL_HUMAN_RETARGETED_PREVIEW",
+      "changed": false,
+      "sha256": "6a1a526616868c6a49f7c194be5ac8d748d8772d07860852a5ec0ecd4b828b8f"
+    },
+    {
+      "name": "SIGN_BEST_HUMAN_RETARGETED_PREVIEW",
+      "changed": false,
+      "sha256": "0f5eed4191a92a981b293b1a0ab943ae64e249b719ebf7dea48e11b71948d227"
+    },
+    {
+      "name": "SIGN_BETTER_HUMAN_RETARGETED_PREVIEW",
+      "changed": false,
+      "sha256": "e58e1346b2a3ada3d5be3d9ba7eab5070360d8852fba3d303fe0f554ef3dc07b"
+    },
+    {
+      "name": "SIGN_DIVORCE_HUMAN_RETARGETED_PREVIEW",
+      "changed": false,
+      "sha256": "6d9216ba05a70560ba6c3e9a30472ffefda980bbdeb5859d4e6545c0f59a8d06"
+    },
+    {
+      "name": "SIGN_FROM_HUMAN_RETARGETED_PREVIEW",
+      "changed": false,
+      "sha256": "3ec107fbee5563cd4334cbc556ae2a38c0efcc5f4a73ee087f66ff3d1aaac5fb"
+    },
+    {
+      "name": "SIGN_GRANDMA_HUMAN_RETARGETED_PREVIEW",
+      "changed": false,
+      "sha256": "fb7ffea26b35b4d2f764bfc94c98b038b2671290c7a8554bebff8180fae2ea94"
+    },
+    {
+      "name": "SIGN_GRANDPA_HUMAN_RETARGETED_PREVIEW",
+      "changed": false,
+      "sha256": "b061f6f1c81772fbeae7f7bec23cb5355eb57f4bc7e848f362cdf895d0767598"
+    },
+    {
+      "name": "SIGN_HERE_HUMAN_RETARGETED_PREVIEW",
+      "changed": false,
+      "sha256": "14abf95b6ef861fe7c1b0c3615bfb0b2fb03bc8ca346866750c8a7151495ad47"
+    },
+    {
+      "name": "SIGN_PARENTS_HUMAN_RETARGETED_PREVIEW",
+      "changed": false,
+      "sha256": "f282af231c5e693f2b69ebb81d467771fe41e7ab6ec1861c270d1acbc4723f98"
+    },
+    {
+      "name": "SIGN_PREFER_HUMAN_RETARGETED_PREVIEW",
+      "changed": false,
+      "sha256": "9e9ca6d4d66596c8a277bf639e04e4708419c52237438b90cb8ad11072281e31"
+    },
+    {
+      "name": "SIGN_SINGLE_HUMAN_RETARGETED_PREVIEW",
+      "changed": false,
+      "sha256": "4d00a910a3847339517782a7a7befe7f0c67b200cb025ad21ffe0ff19207b4b2"
+    },
+    {
+      "name": "SIGN_AGAIN_HUMAN_RETARGETED_PREVIEW",
+      "changed": false,
+      "sha256": "54d52a42a1189beb113c5d6a2c98308d67530ac84d3cd6fc09ec3901bec728eb"
+    },
+    {
+      "name": "SIGN_CLASS_HUMAN_RETARGETED_PREVIEW",
+      "changed": false,
+      "sha256": "39132781bcd9e45163deb236eb5f70347055233762737681a7f433be73f9aa8d"
+    },
+    {
+      "name": "SIGN_MUST_HUMAN_RETARGETED_PREVIEW",
+      "changed": false,
+      "sha256": "8de1a9ef6bba92b8fd96e04fef2d3984debbd1db317329c755edab6245a1f830"
+    },
+    {
+      "name": "SIGN_FINGERSPELL_HUMAN_RETARGETED_PREVIEW",
+      "changed": false,
+      "sha256": "83d1b33678af276ed9b5c16e48b6203c7804c3a09b741648848d42df6a12cedb"
+    },
+    {
+      "name": "SIGN_SO_SO_HUMAN_RETARGETED_PREVIEW",
+      "changed": false,
+      "sha256": "ad027d654b06d81e277f58c2a930e1f36b332e01922895e5f785f0a1045511f9"
+    },
+    {
+      "name": "SIGN_GROW_UP_HUMAN_RETARGETED_PREVIEW",
+      "changed": false,
+      "sha256": "92a42f60ba196d6b253fb21daf84d4844f91579de03769c1b6b2dab665b15a21"
+    },
+    {
+      "name": "SIGN_STOP_HUMAN_AUTHORED_PREVIEW",
+      "changed": false,
+      "sha256": "933bee35f425d4769f6edfb676ea37f4455dd7553cce71154ad5a3370e2da079"
+    },
+    {
+      "name": "SIGN_UNDERSTAND_HUMAN_AUTHORED_PREVIEW",
+      "changed": false,
+      "sha256": "da7e3f34ed96ca56049936b054fd6a05d65b0c3bf08807fb38d2b6d688822fa6"
+    },
+    {
+      "name": "SIGN_HUNGRY_HUMAN_AUTHORED_PREVIEW",
+      "changed": false,
+      "sha256": "c6e6a6a1ec79463f76a952efcecebcf22df8bbaf3eed6b01515d272958185e0f"
+    },
+    {
+      "name": "SIGN_FINISH_HUMAN_AUTHORED_PREVIEW",
+      "changed": false,
+      "sha256": "a2d47f37d828bff4183622ab239d268d8a432b6fd417c5019b237b7c280ee642"
+    },
+    {
+      "name": "SIGN_TIRED_HUMAN_AUTHORED_PREVIEW",
+      "changed": false,
+      "sha256": "a68bc58403c0615d6a19a4c997f96c38cc062ff9295e107d06110b6845aaa188"
+    },
+    {
+      "name": "SIGN_DEAF_HUMAN_AUTHORED_PREVIEW",
+      "changed": false,
+      "sha256": "b9dff52000592766f8189eebaf822dac8746164f72a8673e406780db9c8840bf"
+    },
+    {
+      "name": "SIGN_HEARING_HUMAN_AUTHORED_PREVIEW",
+      "changed": false,
+      "sha256": "1e099c589a4c3431306c521675ab19c9c0560925064180488cf929b75a90e4a5"
+    },
+    {
+      "name": "SIGN_LEARN_HUMAN_AUTHORED_PREVIEW",
+      "changed": false,
+      "sha256": "d0589ad95d4033d017ec48192660246ba393e7a74c0587b8cdcd60fdd12baae3"
+    },
+    {
+      "name": "SIGN_RAIN_HUMAN_AUTHORED_PREVIEW",
+      "changed": false,
+      "sha256": "2bc019984f76ab4062857cea62a77fe603c39b56bb55f063a8d79dc567c00195"
+    },
+    {
+      "name": "SIGN_NOW_HUMAN_AUTHORED_PREVIEW",
+      "changed": false,
+      "sha256": "d12b08e84d824b5d10eb09c615508076ee5d877e3ffb37db67a65100438efabb"
+    },
+    {
+      "name": "SIGN_BATHROOM_HUMAN_AUTHORED_PREVIEW",
+      "changed": false,
+      "sha256": "1f0045e77fc8f0da119ee98a724354a763312845be020f41ac25493bd123c38e"
+    },
+    {
+      "name": "SIGN_DOCTOR_HUMAN_AUTHORED_PREVIEW",
+      "changed": false,
+      "sha256": "ef0a1c9ca61885691a974618d5a1d960596a466d0e2b0f1060ca0137c7e4ce4e"
+    },
+    {
+      "name": "SIGN_NURSE_HUMAN_AUTHORED_PREVIEW",
+      "changed": false,
+      "sha256": "ed9645ddfac387558686519356b9db8a523bfaaa4419c3b3438a2a1dfe1cd49f"
+    },
+    {
+      "name": "SIGN_PAIN_HUMAN_AUTHORED_PREVIEW",
+      "changed": false,
+      "sha256": "57fd24828d2d814b3ac6111d4abf5a7adb6bec7505984375b187cea333862b7b"
+    },
+    {
+      "name": "SIGN_MILK_HUMAN_AUTHORED_PREVIEW",
+      "changed": false,
+      "sha256": "0665771792f2bc177d04d19d64b87a969ce9d0da514a0e8bb0f085bc50dd213f"
+    },
+    {
+      "name": "SIGN_COFFEE_HUMAN_AUTHORED_PREVIEW",
+      "changed": false,
+      "sha256": "58edb7866e968da7b1d9c0e380fde80875236fba2bde9e89c257cd310a467118"
+    },
+    {
+      "name": "SIGN_TEA_HUMAN_AUTHORED_PREVIEW",
+      "changed": false,
+      "sha256": "53971ef3aa565d773b49d64bad2d45b5a1d8ea554dda158617ef5e7ebc1d1d08"
+    },
+    {
+      "name": "SIGN_ORANGE_HUMAN_AUTHORED_PREVIEW",
+      "changed": false,
+      "sha256": "4c1cb0a63eb8cf86fabbc6e49a9c53d9b85a977c641e0cc1864e3347cebeb967"
+    },
+    {
+      "name": "SIGN_APPLE_HUMAN_AUTHORED_PREVIEW",
+      "changed": false,
+      "sha256": "a8c9a4d7690f896d4cf12b4a3cbef463696112ed7d86463c93260ba2c38f4d84"
+    },
+    {
+      "name": "SIGN_BREAD_HUMAN_AUTHORED_PREVIEW",
+      "changed": false,
+      "sha256": "71569cf20c87ce5e296ce04aed92c9f76ce1b02bd5b183bf2bde08e23f876f0e"
+    },
+    {
+      "name": "SIGN_CHURCH_HUMAN_AUTHORED_PREVIEW",
+      "changed": false,
+      "sha256": "580a3fae7146e2129847823c91f117a9340c03cad815f9dcba44aadef4bce84d"
+    },
+    {
+      "name": "SIGN_LIBRARY_HUMAN_AUTHORED_PREVIEW",
+      "changed": false,
+      "sha256": "5a35e3e66149c96f7323d75a6495234026e97459f1254556f4d94580eb8e1779"
+    },
+    {
+      "name": "SIGN_COLLEGE_HUMAN_AUTHORED_PREVIEW",
+      "changed": false,
+      "sha256": "8959d01fdcc2366823caf3caea787de77ecf8f88f790192b695bf11d24c0049f"
+    },
+    {
+      "name": "SIGN_UNIVERSITY_HUMAN_AUTHORED_PREVIEW",
+      "changed": false,
+      "sha256": "0a55fb043343d5d381469a6c0011dda1371cff3a1c1ad6a78ee8c161b40fb16c"
+    },
+    {
+      "name": "SIGN_KITCHEN_HUMAN_AUTHORED_PREVIEW",
+      "changed": false,
+      "sha256": "973857d54f503a6a8d30e7be8babb8a1a7ad904490bd9ca29899786666d29db5"
+    },
+    {
+      "name": "SIGN_HOTEL_HUMAN_AUTHORED_PREVIEW",
+      "changed": false,
+      "sha256": "ef529d121360a0623eb34ef6b0528d1d9f79ebed8e7e762ec558883487031276"
+    },
+    {
+      "name": "SIGN_FINE_HUMAN_AUTHORED_PREVIEW",
+      "changed": false,
+      "sha256": "6abe0be52213b2f59672f5a1524de4afab04884d9cecb2aa6dd9b1545ef16b80"
+    },
+    {
+      "name": "SIGN_SIGN_HUMAN_AUTHORED_PREVIEW",
+      "changed": false,
+      "sha256": "51789e72e218ff828437ce2ff7ef5fb374400fe0758add8d904cbbd0dddb21ee"
+    },
+    {
+      "name": "SIGN_CAN_HUMAN_AUTHORED_PREVIEW",
+      "changed": false,
+      "sha256": "d89884580a6bbd9804e1d3030c86c3067a9bf01ecbc38ea15b7304192805d6e1"
+    },
+    {
+      "name": "SIGN_NOT_HUMAN_AUTHORED_PREVIEW",
+      "changed": false,
+      "sha256": "faa9cd33243f4d4593209398095cf70e05c95711448298ce4af4f2a0ae6a70ee"
+    },
+    {
+      "name": "SIGN_WITH_HUMAN_AUTHORED_PREVIEW",
+      "changed": false,
+      "sha256": "a8929196de5d79a0c7e325db7e4a9bf7e37769a2069d921f151e5f75516e28d0"
+    },
+    {
+      "name": "SIGN_TOGETHER_HUMAN_AUTHORED_PREVIEW",
+      "changed": false,
+      "sha256": "ee20bb32cad2ab9cab3f096c81ebe7f5a6a51f81c4319378cfa307205402eba3"
+    },
+    {
+      "name": "SIGN_NICE_HUMAN_AUTHORED_PREVIEW",
+      "changed": false,
+      "sha256": "18319b7b5078ee89b3ee0dca72710304bfee8f27a9c6b7516f5d01ce12dcf086"
+    },
+    {
+      "name": "SIGN_EXPLAIN_HUMAN_AUTHORED_PREVIEW",
+      "changed": false,
+      "sha256": "886e431d345455a99b9c5ee44364a3987ff902aa8127c9fb689cd7593ac2fbc3"
+    },
+    {
+      "name": "SIGN_STUDY_HUMAN_AUTHORED_PREVIEW",
+      "changed": false,
+      "sha256": "c4cd9107f1f717b8e51d14eba5985be0a085e9e58204b6e76b3b1a61d4ba7df3"
+    },
+    {
+      "name": "SIGN_COMMUNICATE_HUMAN_AUTHORED_PREVIEW",
+      "changed": false,
+      "sha256": "d4b342169820baa959e02322eaf999becc5ddaa5078c433ade4073c4d117b447"
+    },
+    {
+      "name": "SIGN_APPLE_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "37b7ae121cc593ec4626f547259e12ec6de93e4750cfb5f14b6b77d0266604f0"
+    },
+    {
+      "name": "SIGN_TEA_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "5ec5ff7a9c5132dacc9fd9ce289c61597846c6e898e93628fe44bd5654a154aa"
+    },
+    {
+      "name": "SIGN_SOUP_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "ac73ceb1db69894ea5cc42400cf8b362ab5467eed2f9906f3172d426c896b0f1"
+    },
+    {
+      "name": "SIGN_SANDWICH_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "7342dbd044c3d290ab1ff0a592a8e36dec107c18d0811b74a578559c7abc8a84"
+    },
+    {
+      "name": "SIGN_SALAD_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "240e8fa1d68bd30e0ef52620d9aaeea1d5b1e4e8e65ae5f354734fac58be670f"
+    },
+    {
+      "name": "SIGN_POTATO_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "54bc7ac84e17376072246592428d1e133daf5dd266a2912ead48a93a9b05566d"
+    },
+    {
+      "name": "SIGN_TOMATO_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "bacd2fe61818ec100da2f3a10afbd32f3257d159543affe08b37905a371e609d"
+    },
+    {
+      "name": "SIGN_FRUIT_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "01c8ca55310cae7148e56b677b2e970a48b187af67c569fbe77275c5875f6cf6"
+    },
+    {
+      "name": "SIGN_PEPPER_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "24489fdf88b0aa2de194e27633c4d7e6db28bb236f9297e91cc65eb24cf08011"
+    },
+    {
+      "name": "SIGN_CHOCOLATE_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "aac79c01e1ebb0aa1d58ba02e3905e794de6970bc0c4ef8d271c6796327e09ae"
+    },
+    {
+      "name": "SIGN_KITCHEN_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "5cbb71567ddb654a660b1f0ec3d43b17721a18d63b45bd7a75e78ad25b2e675b"
+    },
+    {
+      "name": "SIGN_BATHROOM_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "3b271b77c5adbae943f3c396f066d7949d55a69ef2acae9181ab9552144a72e5"
+    },
+    {
+      "name": "SIGN_BEDROOM_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "70e867e8ed9f9f49e50c5a63b70819f76a00b5d8ca87b0cefb21bf68d65e40d7"
+    },
+    {
+      "name": "SIGN_FLOWER_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "6cabc1897aabc2c8cdb1a314a2fa66e3e7b09b5f3362ff02cb96174a56661890"
+    },
+    {
+      "name": "SIGN_GRASS_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "ef1c3d860258530e838e5fd2ff2750bf7fca78f84680d8b5475b636b59dd0a08"
+    },
+    {
+      "name": "SIGN_MOON_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "c7cbd4654373f580e1499eaf983d294018e7d29818318acecff7d351278c33c2"
+    },
+    {
+      "name": "SIGN_WIND_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "b264f05b48d7d5697543bb1298304cdd4fb01e67de6391e28a9bec565309092a"
+    },
+    {
+      "name": "SIGN_SNOW_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "8239ee09971785a8a7a3619d6b4f6a290a8fdc9d90e5d56630045915c15c7d33"
+    },
+    {
+      "name": "SIGN_WEATHER_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "e50c097a6880df205530b83260329eb6468a8616283391600e968864196c8996"
+    },
+    {
+      "name": "SIGN_SPRING_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "291fdedf0cce5a6bea400b542e14084e3c91c1216c973e055ca6e257860d15ed"
+    },
+    {
+      "name": "SIGN_WEDNESDAY_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "10bc4d31b3c9b751834c766ae8ad7695dc9390d48e13dffc7f73cfbc27315643"
+    },
+    {
+      "name": "SIGN_THURSDAY_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "4b40c4edda847fb1dd997ef71798fb3405e3e86c0a98ca25e01cb27a1b545468"
+    },
+    {
+      "name": "SIGN_FRIDAY_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "adef451730086dd4303c7c5e57f08cb2eb16fad86749a82b4689195d0057cddf"
+    },
+    {
+      "name": "SIGN_BUS_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "cc00a3f05da0c7dfa59b2c04416048bbb29bb5081fb85753663575967cdccc1c"
+    },
+    {
+      "name": "SIGN_TRAIN_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "49ea45d537189193b1ed5fb42c61bf8930ce2810388706958363229ed630895a"
+    },
+    {
+      "name": "SIGN_UNIVERSITY_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "dc87334ce76ee25007ec3245a56f1199ed2ae480ce81f4b6556af5ee435805d7"
+    },
+    {
+      "name": "SIGN_COLLEGE_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "2d7732c8b7b780ed6500cb8be58f0e1f3007c8e2d04ff149720fb4e111314484"
+    },
+    {
+      "name": "SIGN_NURSE_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "f26a37f7b9fd2d49b284000a9e243332d4152651934d2895271920aa9f899582"
+    },
+    {
+      "name": "SIGN_DOCTOR_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "13d4840c0ee93e6d6d43d4be34d51591d46180931f5d6f52dfbfe0179b774072"
+    },
+    {
+      "name": "SIGN_FIRE_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "b905abda9f573bd1f9b5fcbfdf1fa40dd0f0e2d152b8b72c43de466093344338"
+    },
+    {
+      "name": "SIGN_HEALTH_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "0e7e5d079b260a0a7674f327bae59d6eaa6b92006fb031539f715c86916f06b7"
+    },
+    {
+      "name": "SIGN_BASKETBALL_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "02e01864b0fc5731aacd4d193d3723f773de579e7d658798c4ed57835b8a1e9e"
+    },
+    {
+      "name": "SIGN_SOCCER_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "95a0310fd71339d623122317d795c783c61ef95cc7cd17e37fe0479b3bae6642"
+    },
+    {
+      "name": "SIGN_BASEBALL_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "a9bd6b4a7ab0b193136a39fa047efbd1fb89eadb5ded8ed76291d45a34cefb0b"
+    },
+    {
+      "name": "SIGN_TENNIS_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "75c2f4b9651c0ec15d3acf7a0a7e53c82a322fe154c6e4f54bf7fcaa2094cd21"
+    },
+    {
+      "name": "SIGN_DANCE_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "c564a4179901da7f7bb39c7e2025b927083d8eafbde295c5a9482a64e603bd71"
+    },
+    {
+      "name": "SIGN_MUSIC_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "451385207f4ee8901f118d09573c2c264bb755357993f9bd0e010be14cbfe4ed"
+    },
+    {
+      "name": "SIGN_PIANO_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "4d11f3230580fb4bb1d13206bab25ee5332998de3d0da818268cd62d3fdd004c"
+    },
+    {
+      "name": "SIGN_VIOLIN_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "3ff8317fb74d03de43b318b88cbaeaca6ce76f635e44decb8b5713617e92c2d9"
+    },
+    {
+      "name": "SIGN_ART_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "3ad02226977ce36928aba65e256bdd9d067f06ac2aecbde33118c4be0dd049f7"
+    },
+    {
+      "name": "SIGN_PAINT_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "7fbc629026bb20e61b9cf89aa9c0918ddd8565835f3b573b4cec47dd28753d53"
+    },
+    {
+      "name": "SIGN_RED_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "f78bfbcd2b0b60d73235f27a5beef4d1dfbbb54168a67a1dd0f7e7f9e9c71b4b"
+    },
+    {
+      "name": "SIGN_GREEN_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "7a74120b1a6481ed62ec310bf89a0b9dc101321a450f6f745f55400461d0958f"
+    },
+    {
+      "name": "SIGN_YELLOW_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "c991535b85e352d3cc3cac63e08b846f7165fc2b20241873814a3a694fd9d932"
+    },
+    {
+      "name": "SIGN_PURPLE_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "aa52d5668123caf435d1ab84eef856a5a8bf93cf8cdf651eb6c9d092eecf8477"
+    },
+    {
+      "name": "SIGN_PINK_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "fee836cc3685083766c5f16d69a0ee312a0777bca3f4ac68baf50844d38d5ad3"
+    },
+    {
+      "name": "SIGN_BROWN_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "7489800f0b9e1eb73f11b6b1a9bd83db6ded730fb65631d9b6d423935a0cd12c"
+    },
+    {
+      "name": "SIGN_BLACK_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "67eb3a76bf214e5c8f35f4392e5b57b9a9755f84818e808a746cc43b7a32d780"
+    },
+    {
+      "name": "SIGN_GRAY_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "99803e244a536a27ab20026a1218f125ca89efc347db05f8357f706d80735de9"
+    },
+    {
+      "name": "SIGN_DOG_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "2d42928e34867b1f1d14a18eddf751d1b8adadc8bd9da0e091c4fb43fcbf6e3b"
+    },
+    {
+      "name": "SIGN_CAT_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "413cfbd5a948908252335d96c82fcdd8f026cb78b085925695870a35dd1f7d2d"
+    },
+    {
+      "name": "SIGN_HORSE_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "e7b8e31cde05f6a9145d1ac18aab65586bd4d9c234e6f8482d16dca866eb237a"
+    },
+    {
+      "name": "SIGN_COW_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "a252a9d557afdf93e27d3fcb5cfacb31225c4d6df018be8c615ad7ea514095cd"
+    },
+    {
+      "name": "SIGN_SHEEP_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "2f62208286c0dada1097e9981f7d2b7dd98af2372b6d2d266216d0e0356a4a2b"
+    },
+    {
+      "name": "SIGN_GOAT_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "a2ff3d1e3548007f6de667bd1381af93cc55eb7bf58de36332ca02fab2164340"
+    },
+    {
+      "name": "SIGN_DUCK_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "bdb7d43a7d78957d03ca37437a75ea3623a2fc3d164244f0088dbcbeaca6b2e3"
+    },
+    {
+      "name": "SIGN_ELEPHANT_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "d423f8462af2a2b8b06f9ca95ba8546563e3ff4ff5703790c7ac7134ee117aa4"
+    },
+    {
+      "name": "SIGN_MONKEY_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "d709ab9f8fd44a7d9a525527fd39ff50356b42c6f42dfb478a700482cb6f7a3e"
+    },
+    {
+      "name": "SIGN_SNAKE_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "e0f9d79b1ea425e32ef45ad728d6d8ecd582a44d65728141724a4c222076aa0b"
+    },
+    {
+      "name": "SIGN_TURTLE_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "3e1f13503586433541e04f6c37eab6432b7733e1c786a33ef251d3b168b81291"
+    },
+    {
+      "name": "SIGN_SPIDER_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "1f467829dd884c5ebe07668738c6aa223f0ca2c0b71d0bd82b12df8cb98a6e2e"
+    },
+    {
+      "name": "SIGN_UNCLE_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "20ddef75c175c3422ac73fba4f4aacb072aa4182dadc2dd8dabdeaf113b98a10"
+    },
+    {
+      "name": "SIGN_COUSIN_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "314ae107fd1f67b9ffd00bc6e9e75b98590fd8f42aef101626ec29379e631bda"
+    },
+    {
+      "name": "SIGN_NIECE_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "3a7b7d18c76af5193f61f1c4ab77fccb04e99fa168701e989b981762750ef62d"
+    },
+    {
+      "name": "SIGN_NEPHEW_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "3edd40d481e8efcc6b84b45eac971112c98b3990fc6b39ecaf0463d154294ed6"
+    },
+    {
+      "name": "SIGN_CHILDREN_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "6b923260171c4f3d5d4e71a27ac4ebe45e30c9c0b530c701443367acfd2d41d1"
+    },
+    {
+      "name": "SIGN_ADULT_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "7835d6c825a635f11fb1746b86bdeeb3197f7f851c4f001a906f497a8021604b"
+    },
+    {
+      "name": "SIGN_YOUNG_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "f1ba75073ac51c8740f4b49c5e9d9255c7203104d9e583c60622e3bb1fb355df"
+    },
+    {
+      "name": "SIGN_AGE_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "ee3c415a7be0657221fb5d47589e4dfaf33fc1b2c12ad9d24a1b771506a74d73"
+    },
+    {
+      "name": "SIGN_SCARED_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "623a50fdf1e5c7b1c14153ad87e501fa4aff925d403e1d5ec392319f3e3b17bb"
+    },
+    {
+      "name": "SIGN_LONELY_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "961e5b11a22211c0399491f102eb102fc64ca3a92ce0072840bd66acc558d004"
+    },
+    {
+      "name": "SIGN_WORRY_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "35ca490e8111c99b3c15beb9ebad099a9224105a28abcc1055ecd8ee11f00e8a"
+    },
+    {
+      "name": "SIGN_SMILE_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "dd674fc6169ad46b3dd2458841c69afaa2990a1176a20e6eb37addcff792340b"
+    },
+    {
+      "name": "SIGN_CRY_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "265c5e29cee222e13eb2cf3656f0acbd03ebe68f1d4fc9b7d5614f2b594854e5"
+    },
+    {
+      "name": "SIGN_FUNNY_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "63bee408279feffc6f2b3a173e41f849452a3a7c46996386b37f993cf8be0956"
+    },
+    {
+      "name": "SIGN_SERIOUS_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "ddcc16016a364af108ef323dca9a4283094360859f767d25abe674f4310e5273"
+    },
+    {
+      "name": "SIGN_RUDE_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "49f27aabedc283accffbad042b6b61ede0544b1ccd4e2ac88fc330e8040b7edb"
+    },
+    {
+      "name": "SIGN_SMART_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "c2edf48c947e16c8682f359a3ce2a6c71f8a8f93e5ed491f6edf63fd07e14859"
+    },
+    {
+      "name": "SIGN_HONEST_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "03f595808bb72053efa8d85ff56d4565355518ce62541dfb0c95c3a634a4de97"
+    },
+    {
+      "name": "SIGN_LIE_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "1ba61d26b2ca2e2fa415cd006da434e1ef707af420e74ce91d73da7a7a715db7"
+    },
+    {
+      "name": "SIGN_TRUTH_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "6390c4b8f7456b0ffab71cc55ca0c99dffdfc4e86a453017ffdaed25f673e5b3"
+    },
+    {
+      "name": "SIGN_HOPE_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "d15e9d91cbb821c60f9da2938dd2a4088ca5798560c0e0836fda9fbfd7e6ee46"
+    },
+    {
+      "name": "SIGN_ANSWER_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "d259375975e01016d92ea77c3e67429bf9bafc60c3c5809ae18abe961d8026e2"
+    },
+    {
+      "name": "SIGN_SENTENCE_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "0b3c8ad0fa0e842225506a45162eabe94f9edf4fe71aca8d1be4d11a566e5a0a"
+    },
+    {
+      "name": "SIGN_STUDY_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "68efba316ada190caa907617e3efb736bf3874c8098aa239b9f33ffebc08bff0"
+    },
+    {
+      "name": "SIGN_TEST_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "ed56e7534dc7f8ffa9053eaa48960dea69877f19e7a13f42aa7317c9beb1c97d"
+    },
+    {
+      "name": "SIGN_HOMEWORK_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "5c34e1d3054edeabcbcca71af4b4c5b3c6cb8836bd7370a2be57fe8f0d01b18e"
+    },
+    {
+      "name": "SIGN_WALL_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "929fcc4e8cfbaf3ff30fe0b710368f0708dde7a0b3ef31bc8fdbf8a418d798a9"
+    },
+    {
+      "name": "SIGN_FLOOR_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "275e6120f38a0c3699861741c45c727a5ec8f9fc47ff7a24c31201826605c06d"
+    },
+    {
+      "name": "SIGN_LOCK_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "8a5797965c5698b2a9da1869e082b40a8570876eab3d7cdbc1d4eab5ccf142b7"
+    },
+    {
+      "name": "SIGN_LAMP_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "fdb53af564f48ad6a49e9e2d758383ed1a8606937502ff62e70dd590cc59cc68"
+    },
+    {
+      "name": "SIGN_CAMERA_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "4a935803d30d178a44eb3ff120d1fb93c4613eda1ffa271dad01c49e49a10340"
+    },
+    {
+      "name": "SIGN_PICTURE_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "e582b9f84ef86e54b5969f4236680e7ca773f2381b0f3ad4a171a4fd2c24b4f3"
+    },
+    {
+      "name": "SIGN_INTERNET_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "f44b65de3f1db9fe936e7e9c16c66c6b2b1648e0d0d5ea88e6ecac4fa411f865"
+    },
+    {
+      "name": "SIGN_EMAIL_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "e03cac6bc56e75bfa3cc681b4bed1663eff79d2427a36e24501201fef5632020"
+    },
+    {
+      "name": "SIGN_BATTERY_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "dc7f978de359889e926c0ec0aad6dc0b76546758651b7b34228c941fcab8ddf5"
+    },
+    {
+      "name": "SIGN_WET_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "a227a5d33d07d6626c2197eaa1fd3201e6b96620c161ce61080baa91c56ea407"
+    },
+    {
+      "name": "SIGN_THIRSTY_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "ec5ea815784f6fab6fb00b98e7163680a7f7d984ee406febb210436988b4f683"
+    },
+    {
+      "name": "SIGN_THIN_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "9b5df85af6c46949a251d86d167410a1225bbec677b657800db4fe484ee0c74b"
+    },
+    {
+      "name": "SIGN_HEAVY_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "8672293704a7f1cd4bf6742d0e1b0be8fa0f09ae5d5582711eb4908d6813854e"
+    },
+    {
+      "name": "SIGN_SOFT_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "f8b3b7d925bcb1f27def71122d48e44134f05fce63f26c87d5fb4d04d8914c48"
+    },
+    {
+      "name": "SIGN_QUIET_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "ad1f8a0399e18127fbd4e438fbe8699b1007485a06f1a5ffa4045ab37ad166a9"
+    },
+    {
+      "name": "SIGN_COUNT_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "66d230a118e4d258b753db299241956c6fe8cea2553d2d47fa938f955e7ea739"
+    },
+    {
+      "name": "SIGN_PRICE_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "44e518c3012f63b6a52093c7c25618638527732e4670edcd17bc221afa44d2ac"
+    },
+    {
+      "name": "SIGN_CHEAP_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "57bb3f5f74782ce6ee925f4645ca35c99b909f4572e0894965df1892ef74bc04"
+    },
+    {
+      "name": "SIGN_EXPENSIVE_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "18e9c984ff33122a40c3a495cc47f43a6148f4d0326b0474f84e088ba4019c18"
+    },
+    {
+      "name": "SIGN_OTHER_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "be07360fdd03f1be0b5579d37d8660e22994e983c2641750563c468082b20bd7"
+    },
+    {
+      "name": "SIGN_ENOUGH_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "a6c4f03c3eefcf8a6eff0827a2c9c409811f4a479c9644b85e879a9b0c473b61"
+    },
+    {
+      "name": "SIGN_LESS_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "77970697fdf9c97ecd34bc997a0a6a14f43eae7fd0f44788069cbd73f556cfe4"
+    },
+    {
+      "name": "SIGN_NEVER_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "40f8f180b054b25a129b6eb6b54742188d1c281f1cc6c38a6ae9bbbd83f52e41"
+    },
+    {
+      "name": "SIGN_MAYBE_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "75311706e601176c91041d3e2f523554fbc7cc0d21153e7a5e64279f411a1287"
+    },
+    {
+      "name": "SIGN_IMPOSSIBLE_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "9d81b3a0a6a0805a512405141fc18ba096bbaa3e4fbda024b070b011e3b52372"
+    },
+    {
+      "name": "SIGN_CAN_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "f477446a109cba9fda37943039fe8433d0a46744ba42ab8b49f864441c266ba7"
+    },
+    {
+      "name": "SIGN_CONTINUE_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "550c5672a56912ad6f82c52226277d3970b6f1ca3a1f2ed05a4cae9445e0d274"
+    },
+    {
+      "name": "SIGN_JUMP_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "1d418d942749f6f088db6623d88820c88a41dca626f859305e3a0c9bc43b7fad"
+    },
+    {
+      "name": "SIGN_THROW_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "f4995cbee480330de893ad27606631e196f3fac0a41aa49ee2af8f9b61358042"
+    },
+    {
+      "name": "SIGN_PUSH_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "271970f02650e76ca1ec9a0293b968a872ceb04086cce8d54728fc03ac010c76"
+    },
+    {
+      "name": "SIGN_PULL_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "59d7954968814693902b62b4797602d7123c6edf288e229b1a7c346acb881698"
+    },
+    {
+      "name": "SIGN_PUT_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "f92f8e5b55b5b7c8e5a30b1ebf850f889ebc0122f00649a72f686fe65e96218d"
+    },
+    {
+      "name": "SIGN_SHOW_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "c7ac9fccfe5449b8a8139f0ce25623b1a64bea3dd15b4106f144aa49835c066d"
+    },
+    {
+      "name": "SIGN_TOUCH_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "46a1c4798312393512ce34d8d7bf5160a8490be1c7a1f9130de7bd2cf9f06076"
+    },
+    {
+      "name": "SIGN_EARN_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "5b81bca73e716a672e6b22d78b7202a38b38b02825d6c99ea0e7b91b64d377fd"
+    },
+    {
+      "name": "SIGN_DIE_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "c594c6ff456f08ed134cd6eb940cd97171c6127ad48da133b23e02f1607b6ff6"
+    },
+    {
+      "name": "SIGN_GROW_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "6bee8cea0fb3866f0dca62fba32c2cb9c2b830dcfb6ec18ea5542dc9d63828ce"
+    },
+    {
+      "name": "SIGN_CHANGE_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "b05bf0663d3f87f18794c15985814003b47051324eeb7b25f3be205a62241b72"
+    },
+    {
+      "name": "SIGN_ACT_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "55587c90924afa4aca46cad71c6542a388c853490c37bc8a6bb12327b225b763"
+    },
+    {
+      "name": "SIGN_ACCOMPLISH_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "b83816442535be77fc7a77293e76403ffd572a07569f113b82f779a45396bc40"
+    },
+    {
+      "name": "SIGN_ARM_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "dad3c3ebb4d39f6ef7206bcb33c5777db7e3d0797cd8598de979172a092b8116"
+    },
+    {
+      "name": "SIGN_AWARD_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "05b1536c19711fc976c20103a8f5f5fd44d5a2ac84c00d1b52c9e975a407452b"
+    },
+    {
+      "name": "SIGN_AWKWARD_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "b2490056c2132b1e5bb12ecb2222b12a1f44e756dad58067816b1e1c0fc14498"
+    },
+    {
+      "name": "SIGN_BACK_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "6ef436c3f8f874b0e04a43f39251a327d419c1ae22145238c5d453e05288bcfd"
+    },
+    {
+      "name": "SIGN_BALANCE_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "4ae86548497dfc50bc5439280f3d3610d1d5986bac47a30c8b7336b5b0a0ea61"
+    },
+    {
+      "name": "SIGN_BALL_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "c6a5c5b8e7ca3090ffdd18fd6bab5cc9872a81dca813bff6a4a6fb3e1e0201ce"
+    },
+    {
+      "name": "SIGN_BARELY_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "d678c31f826359d963ebfe4dba6fd8d5c66d05bd1a12e707770c6d303f5158da"
+    },
+    {
+      "name": "SIGN_BASEMENT_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "6ac4a35d7c5afd97058e139edb8f674d8ceab9dfbf9d8ced43efc067f1908743"
+    },
+    {
+      "name": "SIGN_BEG_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "4164e2587c0685f90888e4e998835d847ceba3b47acc91eed8a58ba305b71eec"
+    },
+    {
+      "name": "SIGN_BEHAVIOR_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "f10219debfe5d8ae75fdeba365b7d7f8eb60f09e56bfccd8714f498eb17b5f2a"
+    },
+    {
+      "name": "SIGN_BENEFIT_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "128ecaf84dafface1918adc3606a34d935bce3044f9bddbca3c289f530b95fde"
+    },
+    {
+      "name": "SIGN_BET_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "48a3b5f86fdf812fd28738599b1de0dc5075bae7233f8efee07f1d2f5117f08b"
+    },
+    {
+      "name": "SIGN_BLIND_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "6ff972789bd05e8f6fb66de07691d52aaddae2b7a79809a1e8587c5001533de8"
+    },
+    {
+      "name": "SIGN_BONE_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "3670efc0447cb0ff8283488acb21d7025cede6be11b3613b4ece2878654870af"
+    },
+    {
+      "name": "SIGN_BOTTLE_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "691eacf8723306520bfb7c84052f31777342885b4fc96d9a0dfe6d6de75d43da"
+    },
+    {
+      "name": "SIGN_BOWL_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "6182931a6e6bb01335316d1480f1d87c185d0eb89fa4c1836f845a392c972a2d"
+    },
+    {
+      "name": "SIGN_BRIDGE_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "a4bfbeb8e5e2714c721638e59f05d260fc161dd05cdfd1fd8de670cec0e73a05"
+    },
+    {
+      "name": "SIGN_BRIGHT_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "6dc931ecb718ef65a3532bd0b70eba0446d5bbb0bd6889e8ce0a04d26c8bd791"
+    },
+    {
+      "name": "SIGN_BRUSH_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "60d1e3976f26ba5281261fb2d89f06dec8013a4b5ddc12b9bc32b85052f686e2"
+    },
+    {
+      "name": "SIGN_CAREFUL_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "3a76256498e43bb807e4323606359b82d5d71a6df6880ec7e97ef3ea57e9e5ba"
+    },
+    {
+      "name": "SIGN_CENTER_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "f6cb60b81702df9f66f80e944b3d5971b3841211d310179aa1029c83c2fd9497"
+    },
+    {
+      "name": "SIGN_CHALLENGE_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "9aacd744b4a20435f2d0e11aadb1ca772e5bb4828dfbc8bbe01be6d0eba6b0de"
+    },
+    {
+      "name": "SIGN_CLOCK_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "6cf8cd1933d3981ae0afd0e384c5d616d0fdcaf735fe0afaf69f032c31bcfa52"
+    },
+    {
+      "name": "SIGN_COMB_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "7024f6e7ebc3185d514ca24081203fddeab161f9c0f036404dd88a3167b3bae8"
+    },
+    {
+      "name": "SIGN_COMFORTABLE_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "3ea39bec433c5593e657373fe98c4946f03fcefd086af428d7c5553ffc939f50"
+    },
+    {
+      "name": "SIGN_CRAZY_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "e523afbce4d9c4d25af00a7bb657597f88c3dde0bdc356dcb8344750ddb94902"
+    },
+    {
+      "name": "SIGN_CUP_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "2748b632eef5d998e2e08fb3d64e23ac90c2404ac520791028c64b0a6f4a51df"
+    },
+    {
+      "name": "SIGN_DATE_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "b80cabe93f6b8371dde5e7639b04815ff9c041d6a757c1bbd36a1f194e1eb768"
+    },
+    {
+      "name": "SIGN_DEEP_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "f50cb5e51af7584f1e892858994506404fa6adbfc88f26942e913a4b953c6f3b"
+    },
+    {
+      "name": "SIGN_EAR_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "f04356410b21c22042f1db9c2df283cbd826201ba4c5b4b67dbe081d5b3e8a43"
+    },
+    {
+      "name": "SIGN_EARTH_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "1116de88ec29de6a314dec7e2e4233fd652a0ece6c5131c843d9e17f288b5f7e"
+    },
+    {
+      "name": "SIGN_EQUAL_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "7c23c14d7ff89632667858660bd433d54f7f9415770dd4e2e93041a866d11e83"
+    },
+    {
+      "name": "SIGN_EVENT_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "6974abb165309d38f9df20297cd33aeb8c3fbf23511190d7c781a33a4f593896"
+    },
+    {
+      "name": "SIGN_FAIL_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "14b86c54eea475f7e3f37af73d69ace7866942ed0933c14a2b03cd545fb6d5c6"
+    },
+    {
+      "name": "SIGN_FAR_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "6ad7d5093242e7d22e870f831137a8435c30d2ab7900c9cd2a6c136b37635e5b"
+    },
+    {
+      "name": "SIGN_FLY_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "0ba2d9bbbc8b933145486f223c3dd28c3c9e40225b12ffe919aa00b5dd1f618c"
+    },
+    {
+      "name": "SIGN_FORM_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "2ff0dbbf29a3728e1947367922165548ec37aa215a7e4fb60d4ae1dfec6602ab"
+    },
+    {
+      "name": "SIGN_FOUR_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "5105301096370d46cdeb8b98b9fc84b0097add2e1bedd1103790923818cccd10"
+    },
+    {
+      "name": "SIGN_FUTURE_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "705f960e6178e6bfe7fe2405783c7ddaf7603684a85db7754d8531110116bc23"
+    },
+    {
+      "name": "SIGN_GOVERNMENT_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "d4756f58ad53caf694872c5496bec8ab7a0f7a066fb0b6db82c78c66969dd968"
+    },
+    {
+      "name": "SIGN_HAIR_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "6187f4aabbfce44512d4216152d6c9f97eadf64781817dbe185ac9a578643e7c"
+    },
+    {
+      "name": "SIGN_HEADACHE_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "ea84bad3b7add79555928e52a3cc2178c5630cbb67660ebd834a05b0bfbd6fc9"
+    },
+    {
+      "name": "SIGN_HISTORY_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "86a87854c90cad8f92e9a920442daec194a0140a560aaa0ae8171989d031c8ca"
+    },
+    {
+      "name": "SIGN_HURRY_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "682f27d9c98542c53eb2c06f385dd8ba762b3155083feff8060d70faea1510da"
+    },
+    {
+      "name": "SIGN_IDEA_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "7abda1d94145b341f55109191fa8fe297715204301000e175fc3917c4ea6b9b2"
+    },
+    {
+      "name": "SIGN_INSIDE_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "d77e1c15e7279bb7b6b63102fe9515b907266dcd7ec10234a0e20efba66bc580"
+    },
+    {
+      "name": "SIGN_INVITE_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "2f83c99258f58db3f8940937574f4cbcf7bb9c08458c91caca4475b59b3c9db0"
+    },
+    {
+      "name": "SIGN_JEALOUS_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "b005f6042f6fc45cf82f06d02fc0ba308ad4addb9dc0fe0cccb56153f6df7f1f"
+    },
+    {
+      "name": "SIGN_LAZY_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "b63cccc3903d478d3e8f67b0998b8d04324a30769fc8d0fce75b91b5db90c2d8"
+    },
+    {
+      "name": "SIGN_MOVIE_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "84e14f6a68a13dd755540b9c273283adeb19917d37f3551deca399ecff449462"
+    },
+    {
+      "name": "SIGN_NEWSPAPER_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "aeb2673524fd9b5c7ba53c8deba68e08eb75dcb154a3a45aeccb8f20c7494c4a"
+    },
+    {
+      "name": "SIGN_NORMAL_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "c5e04e853f666c7f41c6ef304ea21c77db8f27b1e3d0242e6680651ad25afa27"
+    },
+    {
+      "name": "SIGN_NORTH_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "f52402b76e6b7c8878382b67d792d0fa69c6133236d055ab0f50754da4861c6f"
+    },
+    {
+      "name": "SIGN_OUTSIDE_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "34b25a12e90648902af505e1ea510f3f3577b686dbb80421b75f5ea0074093f8"
+    },
+    {
+      "name": "SIGN_PERFECT_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "60465d1875b3f429419d3c2e4d969e84f7cbdeab00ca748eebceb273de8d2330"
+    },
+    {
+      "name": "SIGN_PIE_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "a8b9853b832c3fd976eeeea9762e76cf7fc10c190f131ce3a910e80b78201cf5"
+    },
+    {
+      "name": "SIGN_PLACE_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "e33ef5847cf8f3fdb87f85c50e02c40d39cd427c02f94c6ae87189a8f091255e"
+    },
+    {
+      "name": "SIGN_PLAN_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "cfa3485ca31484143cfcd7d2b6c662623fa2846c3d33a63fc0b05528992a0d9e"
+    },
+    {
+      "name": "SIGN_PLANT_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "dd5f6cfb5e76f8f644d6ad2e4ab6a405a137103f930561621b1197a783842c4b"
+    },
+    {
+      "name": "SIGN_PLENTY_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "fb4aa2b1199ad28e2c5d04774c66f8d72db64d1ce0553049b89f01620a48094e"
+    },
+    {
+      "name": "SIGN_POINT_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "4757587b5e351105794624c8e33df4afa6b79533c82da5e2924fc919c61bdd60"
+    },
+    {
+      "name": "SIGN_POPULAR_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "904b62a8a67950e3fc49d471dea190e624e49e317bab31488f293120fda27cd0"
+    },
+    {
+      "name": "SIGN_POSTPONE_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "0818db261261120d33888f0bf60091b9f363e1efb45e12c998674bba0650b6a3"
+    },
+    {
+      "name": "SIGN_POWER_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "e760fe04f1ea1ebed3de6b45d294406164b21e6abadd12a64d9f94163c708fc7"
+    },
+    {
+      "name": "SIGN_PRECIOUS_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "bbe472834277579f2c5284ba73bbac3a3f98453e858c5aa6936448af0172660a"
+    },
+    {
+      "name": "SIGN_PRESIDENT_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "29d8f4074f131a603719bea34508554bb05c0e664fd95ce665e54656ab05e30c"
+    },
+    {
+      "name": "SIGN_PRINT_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "5e49ac370ace81ce0f342014de4199042bee428cf3a2f15d854335758e8d6acd"
+    },
+    {
+      "name": "SIGN_QUEEN_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "8ee56ff1a47fdb0ee28c078d0d0ed84ee444d7f9480e46cd6f10343eef3c2e30"
+    },
+    {
+      "name": "SIGN_RACE_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "8b3f5e45ce50ebdf50aa34b8d3482e5359c0bd4fdeb9aedf73bc107a9a43dfe4"
+    },
+    {
+      "name": "SIGN_RAKE_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "0350b931c4bf0a37f271547f34134b11d5fcc5582a32ee60ceb1e3853c7d61b9"
+    },
+    {
+      "name": "SIGN_REALLY_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "bc6d8cb4c606865959f7e71056a32a9f89b2cdab96d25ca18fad1163d1e8338c"
+    },
+    {
+      "name": "SIGN_REFUSE_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "ec21cd0ee9120a7c0bdcf9a507028eeb7f2a7954ead313aaa673cc56238116ef"
+    },
+    {
+      "name": "SIGN_RELATIONSHIP_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "b071f0550547ded2bf5ceedfde096474939315bce5a51d2ebd21cc4f60f60480"
+    },
+    {
+      "name": "SIGN_WHY_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "844ba11d04b4b17fa36c562c1d5363b4ac40ce5ae5dad13de224fe741ec04388"
+    },
+    {
+      "name": "SIGN_YOU_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "3bb67a7a7f7a0107ef229cead40e2a55a6d6cb24131be4156c100370889c4177"
+    },
+    {
+      "name": "SIGN_YOUR_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "40622a68102c99cd61093464971399aceca62fd5ddb6a20e199d5dc06da8af42"
+    },
+    {
+      "name": "SIGN_TODAY_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "515218cf13e04fee90f722f0fb2b6b436a52ee3f69c5bc37031e052e4bd81939"
+    },
+    {
+      "name": "SIGN_WHERE_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "b841f1caaba0fdcb1e3b94b855235ddd7b3bd91a94aae653735847ddac08bdb5"
+    },
+    {
+      "name": "SIGN_AFRICA_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "7915d47ebca33fe9b4c170e1796f5210afd985c7519daf470adc48ceeca0d990"
+    },
+    {
+      "name": "SIGN_AGREEMENT_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "d0744d6d8533cfd57b65b363ac4ca9bf0d4376bf7732150f5818cc06ccae85c8"
+    },
+    {
+      "name": "SIGN_ALCOHOL_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "2a2917c35286479769aba441014425ae4575d3ef64cddb40b27015dfc8968a2a"
+    },
+    {
+      "name": "SIGN_AMAZING_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "ba26b4dc440ba4acddf9b501a1470013ce3a4438028945f02c19d88f3e922b1c"
+    },
+    {
+      "name": "SIGN_AMERICA_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "234edba65978fa8fa3042f03d02227a18bf249fc069b3948ffca4b8a8389451a"
+    },
+    {
+      "name": "SIGN_AND_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "172aaf0308d8c1a720eeab890dc882377263772004bf8ad7b77a693d234dc323"
+    },
+    {
+      "name": "SIGN_BLANKET_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "0d992e485ec58583d7c912750d3bbc438b377f71eb273f170abeab08910a1267"
+    },
+    {
+      "name": "SIGN_BLESS_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "3c2bfc2b42f959697aea67ca719ebd91ea17837b8698587fa65c578d95a44d3b"
+    },
+    {
+      "name": "SIGN_BOOTS_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "7f0158d2da6f89ae09b572ebdd1caf2835bcb9085cb9bee06d15a3816c22e67d"
+    },
+    {
+      "name": "SIGN_BRACELET_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "ee8def664456cd7ad152e00fdd44c4664d0d48a18bcb557dfa3a8e9364f61b7a"
+    },
+    {
+      "name": "SIGN_BRAVE_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "dc34161db1f844333c6de73aaa80fef5457d242e025671dee5057ecb042939ac"
+    },
+    {
+      "name": "SIGN_BREAKDOWN_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "5c2a860c9d49f682391ef33faec17fd314886b6dff30da4d5b2a775f3a3bc4ad"
+    },
+    {
+      "name": "SIGN_BREATHE_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "683c93897b779fbe75f330e7a0184888b6fa2c08f7de353ea05c72e7bd659159"
+    },
+    {
+      "name": "SIGN_CABINET_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "4563fc3e88f981679c5aeb87b213a8c05c9149ee9d5601e5da359d2eae33e317"
+    },
+    {
+      "name": "SIGN_CALIFORNIA_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "c4e5213ddf1eef51f5336384a3a9328b2364e3c1227dda85d2dda111b8b7f43e"
+    },
+    {
+      "name": "SIGN_CANADA_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "61e0f6c1695dafe26e03fd74706dfbae10b6cfe4026fa12f44bc6fafceeb35f2"
+    },
+    {
+      "name": "SIGN_CANOE_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "0f71c1904238403fc22727c9ab61d0ce1438231bac6d1a4592a2e992b2e60b99"
+    },
+    {
+      "name": "SIGN_CATHOLIC_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "f56c0bd9a2b46f56554c6e9fe99af1e0b7677cc63b1f01786e37a22b4b641482"
+    },
+    {
+      "name": "SIGN_CELEBRATE_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "f55b735b0f00369e5e38fccbfb8f173c408c589e3b20d23cece9560e174af827"
+    },
+    {
+      "name": "SIGN_CEREAL_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "4cf3197d4959bddd7b1e68449a428f22bbe90fb0a05f78b5b3d170e22374c596"
+    },
+    {
+      "name": "SIGN_CHARACTER_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "9fa99021ca635cddbc7994e8d4f95fac335a0602163facf41ac172c5985473f3"
+    },
+    {
+      "name": "SIGN_CHASE_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "6d1a7c0963825bde89c120fa113ced348930ae5bf14998ddcb9abd6b695ce42d"
+    },
+    {
+      "name": "SIGN_CHAT_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "4aec9f9f1c01a0ea0d562ef427860ef86fc3e092a11ab82ba55e2f6eddd8019c"
+    },
+    {
+      "name": "SIGN_CHERRY_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "2aff60ef0181a5e15e72f58c002b647ad50e67bf8743fa3e29891303c5480004"
+    },
+    {
+      "name": "SIGN_CHOKE_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "ca443d9c636e5e846ad848a28dcca0b80b2dc4d72941433b99e5ef16940f5481"
+    },
+    {
+      "name": "SIGN_CLEAR_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "dd8aa551195ab2004479b500aeeabdfd8fac4b2822ee506af272fb796733a87c"
+    },
+    {
+      "name": "SIGN_CLOWN_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "9afc02c5ec38f5e3ff8c73bcd2144e9eb50534fbb75fbde24335cdb12d158321"
+    },
+    {
+      "name": "SIGN_CLUELESS_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "87d719f404426f8ced710afcd8d2eb22b91a1f4e238247b158843a0a524d0fbd"
+    },
+    {
+      "name": "SIGN_CONCEPT_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "98cb12d47880518ef628677e7033858dda199d32efabecf307644519f5dda14d"
+    },
+    {
+      "name": "SIGN_COOPERATE_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "7122c6e86840cae7719e93b2c12001bcf38d8f6c2ecba7e2eb56195c35e739d8"
+    },
+    {
+      "name": "SIGN_COPY_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "b3837d6f54562e7501eb67e4dd33d8d8cc69489564c2e4b41d9e4601157d8439"
+    },
+    {
+      "name": "SIGN_COUGH_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "177953020e29ec8090168f3b187fd2e9a7cd557a7e0e797f1d230a72a9214f1c"
+    },
+    {
+      "name": "SIGN_COUNSELOR_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "9e3a67478fc9fe5bfb200b0945bf90432325f09fb3dc7b92f97cc81e5e5c1245"
+    },
+    {
+      "name": "SIGN_CRACKER_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "fa0b3d0a8b53308874e67bcf7a0111e37341d43c82e357839a0bb3fb0cf534db"
+    },
+    {
+      "name": "SIGN_CURIOUS_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "51680355fc78f9135108dd8be2164507492cf8d20049e6eb9cfab70f0d3e5722"
+    },
+    {
+      "name": "SIGN_DEATH_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "f5bce91371909b84ed17ea08552f1234c58c7e2adf25ce12bcfa68f80793e6ac"
+    },
+    {
+      "name": "SIGN_DEGREE_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "c1d027eb9e25ac1138f54aaf400620d97b026174768bd05da4d9706e956c9606"
+    },
+    {
+      "name": "SIGN_DENY_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "f2f2e0931787721899a45813b08efb7afb7bc5c0ab25702f4edda72dd4e6e5e1"
+    },
+    {
+      "name": "SIGN_DESSERT_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "080b1f1b447b439456f449261b231eefbf7c935259ad822bbac0d4860b7a7ac3"
+    },
+    {
+      "name": "SIGN_DESTROY_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "0cff5e3860b2ec77befbd4718d34746d2c83be118b7cf7812a2e0fb99b5b2886"
+    },
+    {
+      "name": "SIGN_DEVIL_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "fdd108354107a88582757e4e2ce8cce1400f8ea02d3d2e5e6cf7e91b462234ff"
+    },
+    {
+      "name": "SIGN_DIAMOND_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "90d8b82b625c2d96f4842050e1a9524327822f1a5e07567bd7e9ee4a1b0b1e84"
+    },
+    {
+      "name": "SIGN_DINOSAUR_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "75d9f30453a9bd6e1f7ac0c6a09a1dbf89b10e1110a5a849b797ee1601b5593d"
+    },
+    {
+      "name": "SIGN_DISAPPEAR_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "b927e90f63ff05b684b6049aca837c8deef4d5df008f7044d19a3d8c47f6b5dc"
+    },
+    {
+      "name": "SIGN_DOCUMENT_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "fcd984cf6581525df31d2373f22918dfb3157220d806d8547b42cf20935bd3f2"
+    },
+    {
+      "name": "SIGN_DOUBLE_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "136045ea46b68c4a814c0ab2eea5c1bf51cdfba34164607ca8743237fcf9a450"
+    },
+    {
+      "name": "SIGN_DOUBT_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "02d6607184430ae3432768e2af708cbd461d797dcdc6ea6d5cdacae1d7da8f3f"
+    },
+    {
+      "name": "SIGN_DOWN_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "9ac6c5a38b11e1319ec001d7d78cda3163132a7ed4d04529330f4a947c7f6bd9"
+    },
+    {
+      "name": "SIGN_DRUNK_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "d1181652037069cc3d954c59673c188427fe95c7eb8ff394ce13082dc79987c5"
+    },
+    {
+      "name": "SIGN_DYE_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "aca4033601b2dd6c260a07636905b18c412c22aebfe7a0a7c2858fa67caea58b"
+    },
+    {
+      "name": "SIGN_EAGLE_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "8cfcc38682a3ac732ce5a3069759c61731277b274131b2a2daf6650b5729c6e6"
+    },
+    {
+      "name": "SIGN_EARTHQUAKE_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "aa97fdc63d0b9cb76c94b8f6693b492bc7ba919a0106c6c809bab474c625da74"
+    },
+    {
+      "name": "SIGN_EGYPT_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "e84f5028222f2ef12aa0fa471d1bb3dbe96eec1991553b8db84a4dfd4780b7f5"
+    },
+    {
+      "name": "SIGN_ELECTRICIAN_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "b17f846905c39850c37322b0350e6c8fa4668818499a4e19a12d1bced3311c7f"
+    },
+    {
+      "name": "SIGN_EMBARRASS_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "90c3d9855d0a61b03ff5406021a913ece11afa35138c34d2e6cc91166edfd130"
+    },
+    {
+      "name": "SIGN_EUROPE_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "38d6fad66f6b7b1d9e9fe27f62fc615eb3638b2e789f630a6869dcbf7e4ebd10"
+    },
+    {
+      "name": "SIGN_EVERYDAY_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "afc69ed32e9968f08b660ae1a954a00aed8e658e9e9eda666eed883b0ad4c2cf"
+    },
+    {
+      "name": "SIGN_EVIDENCE_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "6503fce8803a4b1fcfea43abfbb4c54c1fd92be1669d36d1b5a9693da22d14f8"
+    },
+    {
+      "name": "SIGN_EXPERIMENT_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "0484231f2954544f786335c000bb8626a3bae20c0a8b9df6d0b73d5681c11b7b"
+    },
+    {
+      "name": "SIGN_EYEGLASSES_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "8d569b974c989977b72cd6a87a716820f223e660f6d69168f1e4ae00156308c5"
+    },
+    {
+      "name": "SIGN_FAKE_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "6ca75ac5e29da14305f7d8db6d87f1b991ae57b156784ffb678f33c776a3fc63"
+    },
+    {
+      "name": "SIGN_FAMOUS_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "286843cb0772470723c4bce12620aa5df8f161ac831d14e9cce9e987bcf00d63"
+    },
+    {
+      "name": "SIGN_FINALLY_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "e5bfd164d23f719b5d3582b3baf0056667503a0e950d40d9c634d145f9b25201"
+    },
+    {
+      "name": "SIGN_FLUTE_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "1b1eff62613b650fcc1195f1730529ea89d8b65be9acbf031fb63b5a0124a3f5"
+    },
+    {
+      "name": "SIGN_FORBID_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "e2c2a2cc9d1ee0fe03e7458c5e79b11f00f49d3201c6e875972f6284e85732ce"
+    },
+    {
+      "name": "SIGN_FORMER_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "b1a1cfdccc9d4ba1816250950704e5564a9f9e6e3c71721663d9a534f1747125"
+    },
+    {
+      "name": "SIGN_FRENCH_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "402d136aff6ca25fd164edef56198151f97ab54873015dab27ec1380db287f81"
+    },
+    {
+      "name": "SIGN_FURNITURE_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "d4a20fe352c54d2a5161cf68a82509ef29a8473c77238719a7490ea416f65ffa"
+    },
+    {
+      "name": "SIGN_GAS_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "e1d516674a355985495481a853819eca7e7444d22334a0572e3037a53964940a"
+    },
+    {
+      "name": "SIGN_GAY_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "800eec92d3900a809c62d597d91c2aa6e99b92bc9f1e570b71164b7358b214eb"
+    },
+    {
+      "name": "SIGN_GENERATION_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "ccbf4293fdaace96f34f382cf08adfdf089af0526bc3bbb1acb1969cb80ab5c0"
+    },
+    {
+      "name": "SIGN_GHOST_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "ca83856d31e46ecf6531c336cd6e75ecf114db140687c36f39336bf6df093a6e"
+    },
+    {
+      "name": "SIGN_GIRL_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "ade0ea30e1a862dee4fd52d610a20cb3ef832b1077be4a82ada3d5baf5058e79"
+    },
+    {
+      "name": "SIGN_GOAL_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "d8c3db78d80881c243fcf7732730e81245dd1314a929a4a1215f3609e16c4814"
+    },
+    {
+      "name": "SIGN_GONE_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "0ed48e5d12735d99620d19d6b3a532e7521bf3b52a077929099faa2d6c3e8a98"
+    },
+    {
+      "name": "SIGN_GOSSIP_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "ac258c5e891591fb6ae493f670de782cb97ca7d1d6cc8822877ca2839709555f"
+    },
+    {
+      "name": "SIGN_GRAPES_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "44c1bf98d32695b033b2eb1063b0c3bc952395a8a9b77ad622e18c61a1b2cfbd"
+    },
+    {
+      "name": "SIGN_HAIRCUT_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "0c9198f88b5eafc82ee800e5a0e31d4770e022caafa01445d2f97b95a6146b60"
+    },
+    {
+      "name": "SIGN_HANUKKAH_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "6d2fc42a5bd0089514efdf98305381347a6ae29bfd90737ac3d4962fb57b297a"
+    },
+    {
+      "name": "SIGN_HAT_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "ab5ec5f87829052b13ea9c2d2372c78cbcaa5dd0eb65ddbb614c8761f6c26641"
+    },
+    {
+      "name": "SIGN_HAWAII_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "ff571fc197e74abd4555ba62e99ec71d7f264091e4b1777a2d17548dc9f7ce53"
+    },
+    {
+      "name": "SIGN_HEAD_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "c8206760f7134918f1ff209390e126823db893a7c52fd14799d3c665368d22e5"
+    },
+    {
+      "name": "SIGN_HEAVEN_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "a0f7633a558732f4b7f77ec5589e66ac3c844f99385b3112fc2b96d9c2e5a499"
+    },
+    {
+      "name": "SIGN_HELMET_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "8e63a5808e224733cd95f8f3496a6fed756029a9bfdeb048432f4cc9ec960347"
+    },
+    {
+      "name": "SIGN_HOCKEY_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "9bc688345574a29fe1b2b0c1c570163b9b5339cd6f42fda485b5f0dbdb36bbcc"
+    },
+    {
+      "name": "SIGN_HONOR_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "925fdacc562113fcb7a5f136f5f0ddb8be46bf4872cfcf22bac9f6d50d78e3ff"
+    },
+    {
+      "name": "SIGN_HUNT_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "7e14fab872e1ea70ba90842cf0ed2d56a0d08ac1843a0a97132e1a99a847ecad"
+    },
+    {
+      "name": "SIGN_HURRICANE_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "c9e613ef84b4beaeabf7fee79c2ea47a1899dc09fd847fdd8dd8c95539bdf7a7"
+    },
+    {
+      "name": "SIGN_IMPACT_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "9dfb14a00fd06b44ffdd32e1b6b810d48a75b04de8cf80e0fb86ded0815ceff7"
+    },
+    {
+      "name": "SIGN_INNOCENT_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "153fc5d3ef2d46bf92e88edc8846059b633c5a35b6ef28d13d7248e82ac25c9c"
+    },
+    {
+      "name": "SIGN_INSURANCE_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "f80c69b12e27625789c6b2ee53e8fdf3c91e46d0fc62370f25818d10adc6a0b3"
+    },
+    {
+      "name": "SIGN_INTRODUCE_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "29ac4794cc2326360e5c1cfa5d53074b156eab1ba79abb82fc5c086eeeb58301"
+    },
+    {
+      "name": "SIGN_ITALY_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "e8f228755235e398f7aeb7dff19f801ba9ee18be1c325a316ecb3fcafb7c6c8a"
+    },
+    {
+      "name": "SIGN_JAPAN_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "01eea3c9507f0d0dc6223ac778fa1ff0a26f5ca7b417b83eff44107e965c3461"
+    },
+    {
+      "name": "SIGN_JEWISH_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "823a4a918c20816ac5460222089463112f57bb1bee4b14269b528d50c621b00c"
+    },
+    {
+      "name": "SIGN_JOIN_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "333c3443debcc9df3b02ce7e3c4f40e8a1162eea1fbaf5246d776f2d6cefd7f2"
+    },
+    {
+      "name": "SIGN_JOKE_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "2150b1de06f0b8c9a0a8fddebd2e2f62a353dc79985a058fce54b1e9b799d946"
+    },
+    {
+      "name": "SIGN_JOURNEY_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "91b5fe10fb1791280d9295cbe730800843f604d90b1b7560472fbf8902ede013"
+    },
+    {
+      "name": "SIGN_KEYBOARD_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "f09cdcbc8b407671c8f15198942ce04ff74e3e6a34bb5372570e979e5004d671"
+    },
+    {
+      "name": "SIGN_LABEL_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "7180b8f45434e50a88e496a864bce0fec946b5084ab9b97795c3baa6e18129a3"
+    },
+    {
+      "name": "SIGN_LAW_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "0100fd285cbe39201580539b17dc28c16f692777a08c4d3d97b38f6ae3aa10f6"
+    },
+    {
+      "name": "SIGN_LAWYER_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "5f86094b784d2dba30fd97d0a027aac536abcdb6fc685edc3c525ccd353a50d7"
+    },
+    {
+      "name": "SIGN_LEAK_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "828acad151a0e8ebf73b906cb4aa786ad01e96309faee4623eadb38201aa059e"
+    },
+    {
+      "name": "SIGN_LETTUCE_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "4a77d01939d4a06b9d9c368e64dbb9c157d7a0ebe6df98e9ad592bb4d5f5580b"
+    },
+    {
+      "name": "SIGN_LICENSE_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "4de793a9ace331796012a794c2e4facba8e17801109eafe0724828e070be477f"
+    },
+    {
+      "name": "SIGN_LIPSTICK_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "b3ee4841dc6ca90475799c3b04579c615cfcfbfd2cec89c62324fe5c65254eae"
+    },
+    {
+      "name": "SIGN_LOBSTER_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "927dda6b0cb125d799802883edd5632a486919197cf84bda5998a7eeacb68d08"
+    },
+    {
+      "name": "SIGN_LOUSY_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "7e1d0695c03f68b8186fbca4c6b2feb12fc1802cf81bb4b7b94c699fdf8adcfc"
+    },
+    {
+      "name": "SIGN_LUCKY_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "bdd9964acfd0275a31e7613839084a355dd457e91102dc98a39fed853931798e"
+    },
+    {
+      "name": "SIGN_MAGAZINE_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "723f2928dc2079614cf8ed63f5ff56fc4ef662c91535dc79e17a60637368f11a"
+    },
+    {
+      "name": "SIGN_MARRY_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "8c5aed96026f38f2f2ae1a2b32e29dc6551278691dc319e733b345e320fc170b"
+    },
+    {
+      "name": "SIGN_MATH_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "6b0592b8622936b0a500a0eb8db68c1a2137bd387e0d24f07285111a26e75591"
+    },
+    {
+      "name": "SIGN_MEETING_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "0280c8f26683edf5a55a10af9881cf53e2dc44462f99afa23b6683a1b39bf3c5"
+    },
+    {
+      "name": "SIGN_MEMBER_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "1b5b818928495f94a3a588a7e69c985bd7b69637a85eb159009c438703c7ddb0"
+    },
+    {
+      "name": "SIGN_MEMORIZE_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "5f508d3625dd2ebbcde0e729694ceefd1cf5554418176d037dc857a39656df43"
+    },
+    {
+      "name": "SIGN_MICROWAVE_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "a767efa93d8e504778fa83ebc07d49e60a7afb6289f85a82ed8c6194fe93d540"
+    },
+    {
+      "name": "SIGN_MISUNDERSTAND_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "270de6fc44a295a772bc0be479d692a8a13da6608cde4a8f1b3085a277f97629"
+    },
+    {
+      "name": "SIGN_MOCK_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "c96572486e4e64e5274312518c1b172cb4bf90fc50c789ff9f268a9b80f38b48"
+    },
+    {
+      "name": "SIGN_MONSTER_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "a95da8edb4bc7d58dbcbc23103133ca69c00d2a79f96cffaecb830e223ca527b"
+    },
+    {
+      "name": "SIGN_NAPKIN_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "3c6a96d1c5fed4a09fa590f6138f8b73f1506eec63002c3e22f6a10d46ab231f"
+    },
+    {
+      "name": "SIGN_NEGATIVE_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "f4918e027f3ad4c5567e179181bb7d9ae371db349bf2b8a3c6e384141c179cfd"
+    },
+    {
+      "name": "SIGN_NOT_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "61ecc5adf33c6caf3aa9446be85e5a7856251c4ba848565d55fc93d58faff8f0"
+    },
+    {
+      "name": "SIGN_OBSESS_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "e437482c169e758ce72a1fda726aa9170bcec1adf5ce22f4525197143ed4d0f4"
+    },
+    {
+      "name": "SIGN_OFF_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "d2f12ba85f8ba37a5ae603d3d53fb834716d9b5bb2ae5cf94d3affc99640364f"
+    },
+    {
+      "name": "SIGN_ON_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "9c537fb138cbb2ed2b081c0eb0570be92614bf559880961bb0c4500904cc8052"
+    },
+    {
+      "name": "SIGN_OVER_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "a6c418780516f4bd999428490d2707710da55812f018ac5e7e820343e593229c"
+    },
+    {
+      "name": "SIGN_OVERLOOK_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "84e658337b0dc3616cfc0cf3382e9b28eb2563691f42803ede549808d7d3e712"
+    },
+    {
+      "name": "SIGN_OWL_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "378af370a83c79b7ae6e1e16e8396f610306aa8f38559ba11b1cf4f9a4c81bd1"
+    },
+    {
+      "name": "SIGN_PACK_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "3c5c0555a8c8e2bdf0b6560cd768e8d80d4aa28bf020173712f9b2c7b8b3f4dc"
+    },
+    {
+      "name": "SIGN_PARADE_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "0668794b63f9d44c598b89d18d2a5daafd98bdabd72f11fbacaade04ce74420b"
+    },
+    {
+      "name": "SIGN_PASS_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "61ece48cf5df6e6ab0ea98f928172f5432c5a49f09c0d3e150138f58e78abace"
+    },
+    {
+      "name": "SIGN_PERSPECTIVE_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "66846a5c64ff5003547ccbb6f61da6aada9404eff0d0e6ee555d80ff29205286"
+    },
+    {
+      "name": "SIGN_PITY_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "e159f9b6f8a43ee299f9855a0a010cdd6a30e6413047eed6b1bc5e8c8c8fc506"
+    },
+    {
+      "name": "SIGN_PLATE_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "b6c0a1d23466b9477936372665a4d545d652bd5f647d4c726a308c94eb6d997e"
+    },
+    {
+      "name": "SIGN_PLUS_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "6ea139aa917132fe70349ab6532b883fddb98661c723dfafcb52da076cee17a2"
+    },
+    {
+      "name": "SIGN_POOP_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "f3a71ca2e7ead43786a6d7464af8231ba59b91d8e8a80c35a801b25a316e94fb"
+    },
+    {
+      "name": "SIGN_PROMOTE_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "9b4d007f886bedcb45a0fae6ab2cccf0a003958fd71e546f43ebc95b613c1d8e"
+    },
+    {
+      "name": "SIGN_REQUEST_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "ee5e0adba20d17149e25d033b7ba531303609727fb33a69c0e9c733d2223336e"
+    },
+    {
+      "name": "SIGN_RESEARCH_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "e24aa0049075803e1e1a8bdbe5b9bdbd0027e9a76853e9b28eada57c2111801f"
+    },
+    {
+      "name": "SIGN_RESPONSIBILITY_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "8d20774c84bc5825a88ba77551463299b150779779b35d182890d8e26d2eb90e"
+    },
+    {
+      "name": "SIGN_RESULT_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "dc7da1ef7efca82c985f7bf89507a40fc010d2fadf70b9372d85913b20787533"
+    },
+    {
+      "name": "SIGN_ROB_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "cbea6ba93bffa9888409a4bd8683cb8a296697d2411d8585228011363f1b627a"
+    },
+    {
+      "name": "SIGN_ROCK_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "bf3c211a41c9dadcab27c2652b9c28300dbe4773d82484a80eba2c5b30a5aa36"
+    },
+    {
+      "name": "SIGN_RUIN_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "0d3ba0eeb2e58cef1190e136d95e4f80eb905c9c04ed99a93a09b58b9976db45"
+    },
+    {
+      "name": "SIGN_SCHEDULE_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "13ff14c2f36e4a3b20bfec6e33d72233ca68edd8057ab772ff3d45db0a66ca74"
+    },
+    {
+      "name": "SIGN_SCOLD_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "866cd5f0e17d51b3055b8ce519e10862a1ebcf6d05ac4cc301005b112ff5fde6"
+    },
+    {
+      "name": "SIGN_SCREAM_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "e06b1fb05f0207cea6fc334a2b6140eebe78c051f2eec2ce8d32bed147b5c59c"
+    },
+    {
+      "name": "SIGN_SCREWDRIVER_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "2e18737da87a5f5c0fb2ad890908952279b4bace930028b5d12e623221acd0f7"
+    },
+    {
+      "name": "SIGN_SECRETARY_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "0546048f30f9a40333cb4f9cff638b7f561b7588edd813c4bbe551669e2cd5ee"
+    },
+    {
+      "name": "SIGN_SENSITIVE_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "a70d68987a214258e250e7a22155106a95ae93395983f5cc1e1ecb1940929566"
+    },
+    {
+      "name": "SIGN_SEW_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "88f477305b19523cddf1d31669d9926e03c8fdc426988dec38d0d55ab72c384e"
+    },
+    {
+      "name": "SIGN_SHELF_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "0fa68a9d3935205130807b242f402568b20d0e583cb0b9d1525134d249d3af5c"
+    },
+    {
+      "name": "SIGN_SHIRT_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "83c4542cf16dbd2495b121db08d6295b7e0bd1ed8d37c90504807522b8883b3c"
+    },
+    {
+      "name": "SIGN_SHOVEL_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "58240084e5041655338d5db3446a52147a3a1ae23c7de0dea19cdedbd7d8c8a4"
+    },
+    {
+      "name": "SIGN_SILLY_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "2194015018a400f81655ccbe43f422c7791ed1b3cabe66adb5ee0a632e7204d7"
+    },
+    {
+      "name": "SIGN_SINCE_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "b94ab01daf36e7c1984783981c7e855c03419b574a6e0ffb05a56002b7051de0"
+    },
+    {
+      "name": "SIGN_SKILL_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "fe9ce350c3285fb7862b2ceae9bf75df54d2f145073a9410dbea3efa97b74b51"
+    },
+    {
+      "name": "SIGN_SKIN_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "029811cd0dac8040651782659e93b9dfb8e94c6bd7eb9a27e0c1f65a9e7d907b"
+    },
+    {
+      "name": "SIGN_SMOOTH_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "2560344838e6be495dbfbd6edb8c500442a0908f170220a2b3b2516c256f4374"
+    },
+    {
+      "name": "SIGN_SOFA_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "e50289ed510a435b0bd58a785628a3bab91af64cc8fa3da169dfc4e285237b45"
+    },
+    {
+      "name": "SIGN_SOUND_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "9e857eb490dae46391afc65e0f56556b4be6926e11ac4ad778fccb15388bb625"
+    },
+    {
+      "name": "SIGN_SPOON_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "69ac1beab21d0bcf632f45543ffa452cd5948e58924375d0c801e3e0d4fa6920"
+    },
+    {
+      "name": "SIGN_SQUARE_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "eb647415551246cfe5660bde8048d98e1b9444e734075563b8471305b42e4936"
+    },
+    {
+      "name": "SIGN_SQUIRREL_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "cbb611a842877c55c140824c2cc839df3bf7d9c5e208c42c24010374f1710e57"
+    },
+    {
+      "name": "SIGN_STAFF_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "b3048b315e950a4c9e349a416cfff563de03e2d0fe66d08e127cabd061bb1542"
+    },
+    {
+      "name": "SIGN_STAIRS_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "32a640aa8f620161aecf1b6ec6265c461c3b41b6331c83cbc21db296605b0999"
+    },
+    {
+      "name": "SIGN_STAMP_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "0c33f2dc3c074a550801b6a45d692e2d02677c612cc9afae8b71e3fb60c5fc79"
+    },
+    {
+      "name": "SIGN_STARE_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "ba1ff87212437091ab8bf04f1276de538b019a80cb8f5440dfcb31fc33d7233b"
+    },
+    {
+      "name": "SIGN_STEAL_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "6d54e22335c56b93622e27407179099a194230f9479f786ba324c73c3344c3a4"
+    },
+    {
+      "name": "SIGN_STING_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "665d655648189e685a775b9079d3e8e2ff8c1e9126e83c6224ede44cab827a48"
+    },
+    {
+      "name": "SIGN_STIR_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "49fd8132b3d1bd9da1a703e63ae0695a5b9cfb690a5ac502a468751601d918da"
+    },
+    {
+      "name": "SIGN_STRAIGHT_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "8520ec4a7cfe0d5370b1446a416e6c662fc45188d395159f9f868e51f5baafb1"
+    },
+    {
+      "name": "SIGN_STRANGE_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "ae3b7c124071481fc555b275ee8a8e7b50dc54720364232e70513c17e30365aa"
+    },
+    {
+      "name": "SIGN_STRESS_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "bae2de79bf56c32ea22463136985e1357deabfe7f2b9cb4b1a53cfcb0e671edf"
+    },
+    {
+      "name": "SIGN_STRUGGLE_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "5a720dbce3c412bad5168020ad0203c774b0233921b2c3aa39bce61c86a38c23"
+    },
+    {
+      "name": "SIGN_STUCK_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "f37cbf0fe48397f916ed55db5a41398fd83ab5cdf25a0690f2d72a4825deb611"
+    },
+    {
+      "name": "SIGN_SUNRISE_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "f5117935ee10ba22e27713acbc1e171fb83122ecbaba6692d1787c765703111c"
+    },
+    {
+      "name": "SIGN_SURGERY_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "bb32dfb9b3a94127458963917e928b7f719e68d9d22d84eeab9bd5c148db63a8"
+    },
+    {
+      "name": "SIGN_SURPRISE_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "a277abcdf2c57489489963a22c1af481328b9e7a368778e54e2d3e48b46521c0"
+    },
+    {
+      "name": "SIGN_SWALLOW_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "3ff916f4c0edea08fbfd5674d188a05312e3c03421ede5f7fc05fa94345b79d0"
+    },
+    {
+      "name": "SIGN_SWEET_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "f9a0f99f6c0b6d85362e46911a251f3fae0cc3d6c2222db1ac668a618b7b87b3"
+    },
+    {
+      "name": "SIGN_SWING_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "8a44b00a9458b6361a51b07f9b2c6b311b9c3dbe6b7d724a03fc8685e1dc2e2b"
+    },
+    {
+      "name": "SIGN_TAN_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "4cea2b30ec8cba4acc44d6e17cb115cad6199a84a29f65d39556b8182de26d6e"
+    },
+    {
+      "name": "SIGN_THERAPY_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "b8dc0c1aa74f2d07a3d68f5b6b50ab95a9f918f2c46e3e6c73339d2719cdb61c"
+    },
+    {
+      "name": "SIGN_THERMOMETER_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "59ab463bc60b20cbd2d2b8497533ceac15a90bbe020518f927bbcd8554562b7e"
+    },
+    {
+      "name": "SIGN_THREE_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "0ed2244e7e2448ba15dd809b212a1bdd9fea6ffe48922ab13d7505a0700a1e36"
+    },
+    {
+      "name": "SIGN_TISSUE_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "6ce873807815c02d462d94c7c219610314a21b23d8d8a96a05f603e20ab35790"
+    },
+    {
+      "name": "SIGN_TOBACCO_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "7816c9f94f15e60592d08dafe1a6ef68293c27f5ae455ec0214743d0dabfbcdf"
+    },
+    {
+      "name": "SIGN_TOILET_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "9ea1e954082440dbfb49813dbb73b194870545957319281e5f52abe5174114cf"
+    },
+    {
+      "name": "SIGN_TOP_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "5f43ce8e5b672988ab836314ebd28d301b52d1dc1fc8d373b9a35968c32907bf"
+    },
+    {
+      "name": "SIGN_TORNADO_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "e178d3bc450c1bd35fe17c00703242ab16f184b912005e0294519dede235db1e"
+    },
+    {
+      "name": "SIGN_TOURNAMENT_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "5d49158303b9ebaa38a5cdd73e1f632cb7f62e5456adfc354b55a584a7b263be"
+    },
+    {
+      "name": "SIGN_TOWEL_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "7b83604e9035654d3fd6ece189d3fa23b7f7c1098893bf0742482c8466fd6fbe"
+    },
+    {
+      "name": "SIGN_TRANSFER_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "275632dc88fe199fabd56f0158e0d9da92c86ca646a2b88914eed0248ad0979b"
+    },
+    {
+      "name": "SIGN_TROUBLE_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "1dc5ffa866e8b98f78cc18be50ecbcc6df1207c2c7ecb5a8f3e57297b4316e14"
+    },
+    {
+      "name": "SIGN_TWO_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "f4d03c9d53fb5348a1aacef2b4f8ce275c9a5fb71edc9816e473dbb5ec6ee87d"
+    },
+    {
+      "name": "SIGN_UGLY_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "6c707126aefdbd5ff1cef115d62d84ca7468e92586dfc22d3673ac2e42468365"
+    },
+    {
+      "name": "SIGN_UNIQUE_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "9b5446894cbf3295d4b17ef9ca4eff389f571c42e3818c4445e39cf844ebb37c"
+    },
+    {
+      "name": "SIGN_VAMPIRE_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "5df7a5f913bd7dcade7972174b6ae96178f37aca9971e1334854fd527171b5c1"
+    },
+    {
+      "name": "SIGN_VERB_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "dfdce91bd4d92c2a2c38c3239642622b27b3db9ceb21e367cc9655be86e95139"
+    },
+    {
+      "name": "SIGN_VISUALIZE_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "0d5e3dd7a4bcdcc545017af1bb3736c2cd69eeb9dd7eb3238e810c0c735b58c7"
+    },
+    {
+      "name": "SIGN_VOICE_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "0cb304d5daaeba023be35bed4b0e0eef5268c5e2bc41b1f51dda7230fee5fee5"
+    },
+    {
+      "name": "SIGN_VOLUNTEER_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "b436dd8be016229d9296f5581fb5c7c974a355b829d06f49d714de5fe8cee3e5"
+    },
+    {
+      "name": "SIGN_VOTE_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "419d663d7eb86710ecc63b6500d92daf9915eba3ef5bfd8a1e07905acc86c862"
+    },
+    {
+      "name": "SIGN_WAITER_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "617ff4c1bbca8677ee2f28401bd4bacc1f182af33ab7169cbb04876d3e942f76"
+    },
+    {
+      "name": "SIGN_WANDER_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "4038f7fc020ee66352636427e64f409e0e86869e1230a47fb52578b9981556c0"
+    },
+    {
+      "name": "SIGN_WARN_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "befd5b3ce44406ccea1b92375bbddc5fbff082f96f7c50a5df6efd98c8f2f6ba"
+    },
+    {
+      "name": "SIGN_WEAK_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "e2921559e42c0ef157b9e9b9a46606c4279eb1ecec2a127109bb7c9b85a049fd"
+    },
+    {
+      "name": "SIGN_WEIGHT_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "eb69f5359bbbddcc0180f695ed7628bd92b7d62d2478baeb8b178990a20e6166"
+    },
+    {
+      "name": "SIGN_WHATEVER_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "52544a1e61984199a3a8b172eb7fd097263986f3b08b0291b29002bf9e5a03f8"
+    },
+    {
+      "name": "SIGN_WILL_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "6bf1e2eca59428062a23381f170ae357fb4803ad72d6b4272b09fbd2044adf57"
+    },
+    {
+      "name": "SIGN_WINE_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "e4a251c93684719ff04c8ab7ffe1176e547c16486942a5952ccef2c191ee7fbb"
+    },
+    {
+      "name": "SIGN_WOLF_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "56e11ed1f9c986f124d8d5afa5965a4e741425052de90c0c73b4ac86c25661bd"
+    },
+    {
+      "name": "SIGN_WORSE_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "9be22e6cebb252fec771eb8ce1d434675ec75b09df72519577fdf7eea91f2885"
+    },
+    {
+      "name": "SIGN_ZERO_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "cdae74f1c7414732436978eec598e5ee79320a319a4b7df637914eab99c843d3"
+    },
+    {
+      "name": "REVIEW_PRIMARY__SIGN_HAVE",
+      "changed": false,
+      "sha256": "d42945722f117ac144390e84413e22c22fa7ba972b80ae5bc538e2b32fe79f08"
+    },
+    {
+      "name": "REVIEW_PRIMARY__SIGN_I",
+      "changed": false,
+      "sha256": "f35e03cd2e719c0e2af005328f359f5c2fb75cce91a531829bf771f196114638"
+    },
+    {
+      "name": "REVIEW_PRIMARY__SIGN_SCHOOL",
+      "changed": false,
+      "sha256": "923829c8ec4fd3138a796b020b6a8528b56c283f33e443a3ebba8fd7215f6b91"
+    },
+    {
+      "name": "REVIEW_PRIMARY__SIGN_CLEAN",
+      "changed": false,
+      "sha256": "042c860a0a3281a22c184f0ca4e3e5c04ef3916ce9bf9c31e9ef05d575254f9c"
+    },
+    {
+      "name": "REVIEW_PRIMARY__SIGN_CONGRATULATIONS",
+      "changed": false,
+      "sha256": "4e4d2b1cb0c9aeafe150c13cc7121a584102b98ceba906549f6255d5c52e0f2f"
+    },
+    {
+      "name": "REVIEW_PRIMARY__SIGN_DRIVE",
+      "changed": false,
+      "sha256": "9ae61364a6d9fa80ccc1ed9b14bb8f458569c96307a3718d1d3cd37b36273f04"
+    },
+    {
+      "name": "REVIEW_PRIMARY__SIGN_EAT",
+      "changed": false,
+      "sha256": "8dc45aa8352803b7f8559d6fb9c5f22646f38a47667b299563756e977adfde9e"
+    },
+    {
+      "name": "REVIEW_PRIMARY__SIGN_FRIEND",
+      "changed": false,
+      "sha256": "24bc74d8d4979ed48d92fa9e8c7b7497f54e8789c08a927c4e904f697444d854"
+    },
+    {
+      "name": "REVIEW_PRIMARY__SIGN_HAPPY",
+      "changed": false,
+      "sha256": "a04c7069da23123c9b440f898cbc65b962c1ec84308e0dad71504e12eed61231"
+    },
+    {
+      "name": "REVIEW_PRIMARY__SIGN_HOT",
+      "changed": false,
+      "sha256": "1253a6fb4f0cd42cf60156f1c6e4ba09d8b1e5cf17f18b54ae5f98868e9d7b83"
+    },
+    {
+      "name": "REVIEW_PRIMARY__SIGN_HOW",
+      "changed": false,
+      "sha256": "6d93844b24e4ae86bf985f3da7e0d3c0cf4e1377a1662a99fa3881d4a50d1a26"
+    },
+    {
+      "name": "REVIEW_PRIMARY__SIGN_KEEP__PRESERVE",
+      "changed": false,
+      "sha256": "b250c58505d9e42da8495fabfaeca64bf1fcc60dc69dd4009ed36b0658abd31e"
+    },
+    {
+      "name": "REVIEW_PRIMARY__SIGN_LOVE",
+      "changed": false,
+      "sha256": "7e955ae51b3feb548659619a0f65a11f1b53ebc274c2ea2130e7a2092a582762"
+    },
+    {
+      "name": "REVIEW_PRIMARY__SIGN_MEAN__MEANING_OR_DEFINITION_OF_SOMETHING",
+      "changed": false,
+      "sha256": "6d2791e584a4f00058f0810d9e446d9e0fe1a9d1ff5eecde9b6caf0c88afc19f"
+    },
+    {
+      "name": "REVIEW_PRIMARY__SIGN_MEET",
+      "changed": false,
+      "sha256": "041cb3144adfeaced833968f589daec6d81fd41f3930f06e2b22b6026605042a"
+    },
+    {
+      "name": "REVIEW_PRIMARY__SIGN_OFFICE",
+      "changed": false,
+      "sha256": "926e0a616f4709766675bc9f1ff427fc76dcbb9b8255ef15a0dbd23491549fee"
+    },
+    {
+      "name": "REVIEW_PRIMARY__SIGN_ROOM",
+      "changed": false,
+      "sha256": "26273dd71acc1c0de3bd58b8cf788c84305552f6aeafe943af89e9d0a3fc8c0e"
+    },
+    {
+      "name": "REVIEW_PRIMARY__SIGN_SAD",
+      "changed": false,
+      "sha256": "3ae9346b6b3ff609e5eb46d6cc8e0ff98bda83c5b38bd51a8e9759614dcbd942"
+    },
+    {
+      "name": "REVIEW_PRIMARY__SIGN_SHOW__TO_SHOW_SOMEONE",
+      "changed": false,
+      "sha256": "401acaf89c07dfb7976e6d01f049f5f57831fa1e2f23427a165429557926b151"
+    },
+    {
+      "name": "REVIEW_PRIMARY__SIGN_TABLE",
+      "changed": false,
+      "sha256": "7070bb866ffc0cfdfddb0cbf0e0f232559d0d212f4498fd9388efe885c73338d"
+    },
+    {
+      "name": "REVIEW_PRIMARY__SIGN_TODAY",
+      "changed": false,
+      "sha256": "54048f14fca407bfd7a1525a6cdb4d84ec6f03c8e6b0403c6612dca3a670bbe6"
+    },
+    {
+      "name": "REVIEW_PRIMARY__SIGN_TURN__TURN_AROUND",
+      "changed": false,
+      "sha256": "583427679af78c6ed8d8e2fcd1d19d22e77f297b6d60b3d1f1be947eb5113e59"
+    },
+    {
+      "name": "REVIEW_PRIMARY__SIGN_VISIT",
+      "changed": false,
+      "sha256": "a0663448f14c8650e5299a56ba6d054e998af787cdf2ed55c199b693c5797c56"
+    },
+    {
+      "name": "REVIEW_PRIMARY__SIGN_WHEN",
+      "changed": false,
+      "sha256": "4c9a0c8b7160d73d65588e72f1d38bd1750de37d6aba62dd4821ad258b53a150"
+    },
+    {
+      "name": "REVIEW_PRIMARY__SIGN_WRONG",
+      "changed": false,
+      "sha256": "bb9441b6906874a95542e0abc4c1ec2b4196cc4fb16f01158dd9b52da87c6e95"
+    },
+    {
+      "name": "REVIEW_PRIMARY__SIGN_YEAR",
+      "changed": false,
+      "sha256": "4b7188fd115551a3d63927bda6acb8364ea514fff6e166662ee9f1164165a77d"
+    },
+    {
+      "name": "REVIEW_PRIMARY__SIGN_DIVORCE_HUMAN_RETARGETED_PREVIEW",
+      "changed": false,
+      "sha256": "e7b2aef82fc20c246771f34fbe3baf47aed2644e1f386d7ef33c34244108733d"
+    },
+    {
+      "name": "REVIEW_PRIMARY__SIGN_AGAIN_HUMAN_RETARGETED_PREVIEW",
+      "changed": false,
+      "sha256": "888967510e7e3ef5b7b2460a44aef35804cf26020fe0fe018552b7c4684c30cd"
+    },
+    {
+      "name": "REVIEW_PRIMARY__SIGN_CLASS_HUMAN_RETARGETED_PREVIEW",
+      "changed": false,
+      "sha256": "c6f0c147f9a3783521491a427c27f4c456ee92016887013075a1dad2b78f1ffa"
+    },
+    {
+      "name": "REVIEW_PRIMARY__SIGN_UNDERSTAND_HUMAN_AUTHORED_PREVIEW",
+      "changed": false,
+      "sha256": "b12cf2e84a6824aa0d4638fd4e42b14a85625f134d6c0a901b63d0ed0ea7250d"
+    },
+    {
+      "name": "REVIEW_PRIMARY__SIGN_FINISH_HUMAN_AUTHORED_PREVIEW",
+      "changed": false,
+      "sha256": "32b45fe81d91a63252ec5249677067f8b433199a63ee0b7ae08ca079f011fdd7"
+    },
+    {
+      "name": "REVIEW_PRIMARY__SIGN_TIRED_HUMAN_AUTHORED_PREVIEW",
+      "changed": false,
+      "sha256": "aa4c2919054f22a879d5f818eadda21f4e0a9d4f271e4067637b7f87d871ad5b"
+    },
+    {
+      "name": "REVIEW_PRIMARY__SIGN_DEAF_HUMAN_AUTHORED_PREVIEW",
+      "changed": false,
+      "sha256": "30b3241d8d300c6bbf862b5673de90a6addf90df18a2a2e5fbd7a608ba6e6118"
+    },
+    {
+      "name": "REVIEW_PRIMARY__SIGN_HEARING_HUMAN_AUTHORED_PREVIEW",
+      "changed": false,
+      "sha256": "4a016b0105223299a8d11f5b259233c10c95fb4047b5bde439d8a8bc66d39257"
+    },
+    {
+      "name": "REVIEW_PRIMARY__SIGN_LEARN_HUMAN_AUTHORED_PREVIEW",
+      "changed": false,
+      "sha256": "97d9284848b3118db51a513fe971943f9e53f9a8e424d097c217bc6da2d30646"
+    },
+    {
+      "name": "REVIEW_PRIMARY__SIGN_NOW_HUMAN_AUTHORED_PREVIEW",
+      "changed": false,
+      "sha256": "f0afd41b8964cbce2603299b55a6941587e2afd1847f4a5aaadc508a79911a2c"
+    },
+    {
+      "name": "SIGN_ALONE_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "130658d810b0633785c49028a769b71f773e54e6e6b05c01316438ed499f13c9"
+    },
+    {
+      "name": "SIGN_ALWAYS_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "e8f9946c787380f1aa78a5b4f9f411ce4cb7d80c49989b495822b1d1fe359b02"
+    },
+    {
+      "name": "SIGN_ANGRY_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "5897e64ec5383b5ce22df073614d920503b2a6928459e13e00f9923bb60d3268"
+    },
+    {
+      "name": "SIGN_BEHIND_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "e554280021bc04f2e0aab573f58a3bc37af39f7ac168712e46ffe093be5d2bca"
+    },
+    {
+      "name": "SIGN_FULL_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "c4aa1648043827661e59970510196834a8c272a164e20dc27f2daa1c38b393c4"
+    },
+    {
+      "name": "SIGN_LATE_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "ed2c28aadda4c21e1f000111fea6f914f64a2d8b79c8475376083204be3d3ab8"
+    },
+    {
+      "name": "SIGN_LONG_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "0fb17e5f81b39d677c50e5845ebdbb2ed3c831f98df7e2060014eb9b7dbf3ab1"
+    },
+    {
+      "name": "SIGN_NEXT_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "5f084a32c48acde1af10958ca8bad47145d00f0fb6ac7be4547de343497fc86b"
+    },
+    {
+      "name": "SIGN_WAY_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "00fba6e31f16be542a1bb16c885d1164871e6d51b40e5edd8794d5ba9b62154a"
+    },
+    {
+      "name": "SIGN_AGAINST_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "30487a5084b54176016473b068c7069b8435ef108d07cb81c87786502d9905c1"
+    },
+    {
+      "name": "SIGN_APPEAR_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "e28d12e8ba971c9a1e8d1776a464f665107bb413bfbaa7c59458e8597ea070fc"
+    },
+    {
+      "name": "SIGN_AREA_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "1f6f6a75e24bf9d40b39890a29c77c9c0fed6ea33b9aeffc94f5e5c27b89ea5c"
+    },
+    {
+      "name": "SIGN_ARGUE_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "3948501d7470c5513046fb7ad50448ba7a3f7f87f420112c5ec089f47974c642"
+    },
+    {
+      "name": "SIGN_ARMY_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "437aa7c6580001e6e1e6736176df46c3da710564a0eee4c84c2fd3ed9c4f0ea2"
+    },
+    {
+      "name": "SIGN_BAR_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "b4a6df28d65666d4163dc3f2741222a160db35a5bcf9dce5ff97a0e0f25516c2"
+    },
+    {
+      "name": "SIGN_BEAR_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "923b6c7d27cd7bd6657414ff3fb4bde4cb76dbd7089bacafa744d033a575dfc8"
+    },
+    {
+      "name": "SIGN_BIRTH_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "3bbf7ad6b006708e0f80745505ccb7daad2bf71871b937c943405ba92b535a39"
+    },
+    {
+      "name": "SIGN_BREAK_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "1738edf069402293d63eaf08f6bb9670effe8c22f0f427cf4635a946a0d2d40e"
+    },
+    {
+      "name": "SIGN_BUTTERFLY_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "379b2729e215c915761f8c8dbef4ffa6d2b81f7f936e54c566f5ae84f5042683"
+    },
+    {
+      "name": "SIGN_DANGER_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "1a34510f0bb7982b4eb06dbff6da4e5bb5e474250fbdf2f332ebbd5f266affe7"
+    },
+    {
+      "name": "SIGN_DEER_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "690b301d8165b85ce286aa1c78ff5e27b8ed318bdd653ab39dc6ad6dc3cadb3d"
+    },
+    {
+      "name": "SIGN_DORMITORY_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "a7d46f3617eb5a006cde0e233c9c73df449d3170e96ae84153340125d675abf0"
+    },
+    {
+      "name": "SIGN_DRUG_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "bffe9bdde9e40f9ae82429c6698332b28a8313063bd646e178e3de6fcf70ad4f"
+    },
+    {
+      "name": "SIGN_DRY_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "351cbbc150c30d10771d656961a2ba45f46c96126bf932c0985f6a15ef117d22"
+    },
+    {
+      "name": "SIGN_END_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "d08709beb35e9d40620fe7978dc476ca154b407c4830ae5e872e288897da8d5a"
+    },
+    {
+      "name": "SIGN_EXPECT_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "4c78f8524a6d937932ac76c680eef9e64756dd11bf0347ae21815f3e5d4d4371"
+    },
+    {
+      "name": "SIGN_FIGHT_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "c8b0f8e2a2757b854e237ba990ad614ec8c2411e301d1a29b2b6141addbef7a0"
+    },
+    {
+      "name": "SIGN_FISH_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "aad1e41ba1899ff2a1ff23bd4f5a10070b07e5d548d2973dee1d88e62c59c437"
+    },
+    {
+      "name": "SIGN_FOREST_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "07b37052a5cbdd30bbfb462cfb90230fc346bc7ebc8d2b56f4097fd2acff044d"
+    },
+    {
+      "name": "SIGN_FRIENDLY_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "0105acbfa1bb530207378de2848793ec2f79befbf91a6522da448d479d0f8efa"
+    },
+    {
+      "name": "SIGN_GAMBLE_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "28275ac6dd3af1913f66822ff48d84d5d2e78ab3523d3662e13d725aff929621"
+    },
+    {
+      "name": "SIGN_HURT_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "4af98c4c9b9c2a7a6377593d3e898c885c6a13f97d65427dbce411c5d65dfaed"
+    },
+    {
+      "name": "SIGN_LAPTOP_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "ec945168f48daaa52b100adae71818705a7064e4ecae5af5939ce714e1906ce6"
+    },
+    {
+      "name": "SIGN_MAD_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "947e24ae54352f418b0f2929870ed02aff369a588abe8bb06669715873378b24"
+    },
+    {
+      "name": "SIGN_MIRROR_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "08c608a555c712d0ad1e8ff167252e63c1047bd88e6e094a3efa48ff9929023c"
+    },
+    {
+      "name": "SIGN_MOUTH_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "51b67a7f435fb891ee11317fff646f36defc506f1cf838ea1315cea1cf02b8c6"
+    },
+    {
+      "name": "SIGN_NECKLACE_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "91c5ab3697460dbd38b8dce386662509207d31917e398462100c40eea5f4c04a"
+    },
+    {
+      "name": "SIGN_NOSE_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "2b9841095967d826ab2ed25b3578fe6c85ae8a33b76fdc611b5a4f088204da99"
+    },
+    {
+      "name": "SIGN_OCEAN_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "3fff0532e15ae6faf2c835346fb6d11a69eb1cefe5c4e96f093c9e465c13b17d"
+    },
+    {
+      "name": "SIGN_PUNISH_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "fde65465c33d811fdd935b013d7e0a1133f1cfbcf077550af028b1a0d328fc9d"
+    },
+    {
+      "name": "SIGN_RICH_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "44f72766c2112b10e7bd8f08f9d8f2d027a1748baf3e229395be167286e7d9f6"
+    },
+    {
+      "name": "SIGN_SOAP_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "8a0c26014bc971b36280141f12e504a82dd4ae4977cf23a1480636d98857d013"
+    },
+    {
+      "name": "SIGN_SOUR_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "6b0a49dd8f94a201c3aa9bc0deab9a6424d280bdabc694bebd3c1bd7ddd40f31"
+    },
+    {
+      "name": "SIGN_STUBBORN_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "4f6ecf44e4c074d5c369d5ce4c13fb0e27af7511addd1543c64bd878b7dce637"
+    },
+    {
+      "name": "SIGN_TEXT_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "b8899ec749a6775d3b4783f6da110faca8e4a020925c09a4fa2c147c42545617"
+    },
+    {
+      "name": "SIGN_UNDER_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "406a8b5b993545927e45c063492374d9ccaa86eaf54d8c4e8f87949c58e93448"
+    },
+    {
+      "name": "SIGN_UP_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "8a7a81a98342087a515091b0bad4ea95b5d2bef432fc3c84566cc341802c6ac9"
+    },
+    {
+      "name": "SIGN_WE_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "32ad630b9bdb19b3941f2d4ae242e0bfa46272f827459ca18bf146b14b26f4c3"
+    },
+    {
+      "name": "SIGN_WONDER_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "4ce940c322527415a138e09ec380012d6c71bb2607ed28910fb4ed513c02042f"
+    },
+    {
+      "name": "SIGN_BICYCLE_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "103be3f478706bec50c1f6d3db75cd0e2f491c31c2c41e97466ead61f4a0a6d1"
+    },
+    {
+      "name": "SIGN_DREAM_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "5672925f6e2acdd1ad7cbf190f5cedd53af1c51663d95576133f4c939615fb6f"
+    },
+    {
+      "name": "SIGN_HAPPEN_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "548855c49077a965b9dc320052a1bca1bd918896dc50f188bfe14d6ccb771c9a"
+    },
+    {
+      "name": "SIGN_SUMMER_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "6d15f2b1e05656b21eee610c353e91ec245fc2310f3d5d4f399b7ed540c15a0b"
+    },
+    {
+      "name": "SIGN_ADDRESS_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "8171a913a24693c101038e70daffd19acbc3b17f60eaeb5d7fb02fa15d3e7ffd"
+    },
+    {
+      "name": "SIGN_AUDIENCE_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "bee82c350f678d0e97e810891c36603fd7b723b1bbc97aaf6463cc7e90e4f327"
+    },
+    {
+      "name": "SIGN_AVOID_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "a46c67deb6e44a8f871efa0b5230b90ae551d06c09052bece559455320c17f9e"
+    },
+    {
+      "name": "SIGN_BALLOON_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "f07d9435f320c63ea232ed1609cd8834e7300e03f3019e8b25462fbbff46ac06"
+    },
+    {
+      "name": "SIGN_BATH_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "9054fa929db51422ef752d196ae9b1293fca9460856ccb06260be20aded458e4"
+    },
+    {
+      "name": "SIGN_COMPLEX_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "56b3e47917992ca9ef3a6f811591440559c7f7a632bb263a9c7c06a247312603"
+    },
+    {
+      "name": "SIGN_ENTER_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "88f369a759d3a4c15018bc3ae6aa30717b5b3afedd08d6b6b91a440678a9d9f8"
+    },
+    {
+      "name": "SIGN_EXPERT_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "a636b1c9193444c7efd650cd3fc73ac2c59bc256f0a31f022c3eefe60e706981"
+    },
+    {
+      "name": "SIGN_GLOVES_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "3609d3a0ff1e3f2c65603b240420d9745bc13c74ccf32f081db2a002d4603077"
+    },
+    {
+      "name": "SIGN_HIDE_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "cea02e5bd88d1370de5e29a5993998b827eb5a5b1aa776840e29e3acb5244666"
+    },
+    {
+      "name": "SIGN_IMPROVE_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "265cee4d48ff217a632e58ba030e052034ca05c4ebd3f84e53a3ef8c050248f3"
+    },
+    {
+      "name": "SIGN_IRON_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "89a78b717c38b8fc091e62ce6dc1ee112d30b2785bbb49e57a19529658fdaedb"
+    },
+    {
+      "name": "SIGN_KNIFE_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "055472bd961d3b8d7bbedc8d77f14fb229e9515585190afb797a188cb9dfb8ac"
+    },
+    {
+      "name": "SIGN_LECTURE_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "0933ef63a8feb5ae4fd61f67f500f3987adf17aed8d3269b64320940eb364889"
+    },
+    {
+      "name": "SIGN_MOUSE_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "7245808e16fa58f329d70fa711232101d64de04a120dea1311220c89766bf370"
+    },
+    {
+      "name": "SIGN_PAST_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "6e0dba21c8e4fe255ce0cc915e2c0a27ee6980a855240decf755ef4cba7032b3"
+    },
+    {
+      "name": "SIGN_PRIDE_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "0f5c957561faf336ba4fe17bc47300fdd28fd86fe3f9e4060454433705805839"
+    },
+    {
+      "name": "SIGN_PUZZLED_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "670dae51d5a35e5b39a58674a1ef27121b7aea882e126ac699318aaafc2bb784"
+    },
+    {
+      "name": "SIGN_RELAX_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "82b1872e03ae16f0abe8986c2c44ebee2f31c5492985fff8021342a8a1b30251"
+    },
+    {
+      "name": "SIGN_SHARE_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "99b12d06a48efa18fb2a959f818d124c224c90b134c9b73a514652f7d18bb9bb"
+    },
+    {
+      "name": "SIGN_SING_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "6daa9691bc0033b01c9ac124640d32938d7abc57bdfe75e479870b511f43b33a"
+    },
+    {
+      "name": "SIGN_SMELL_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "26424ba606727467d64c41a75eeb8699e5fb9f7ca2d8dcb69d60b7753576ffcf"
+    },
+    {
+      "name": "SIGN_SUSPECT_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "5cea57b1034bfc4d3ee2d9b222c17585351edd69f0906661368c163909ac91f5"
+    },
+    {
+      "name": "SIGN_SWEETHEART_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "b0704f8bc20584d8394a2a342e46ea53b020365ee212961f0053fb35ebcc58c1"
+    },
+    {
+      "name": "SIGN_TIGER_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "8bfb296fa38db1c19d81aae8da2a86ad29d6f25a31f1cffe6145a8d3531f62a3"
+    },
+    {
+      "name": "SIGN_TRAFFIC_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "ca1c04b7870cc0096a24bd09dafa4e646f84fdf850ae23dc128376dd7083e4a0"
+    },
+    {
+      "name": "SIGN_WOOD_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "37df9e94ab8fde824f23467945851dd1053ad8461143ff14eb7d04321a0cbae6"
+    },
+    {
+      "name": "SIGN_WOW_3DLEX_ASL_PREVIEW",
+      "changed": false,
+      "sha256": "083ca6c1564c7a3230e1d62b688c317ead076f9f4548478cb7a6d4c2cdf0bb7d"
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "language": "ASL",
+  "purpose": "English preview tests, not validated ASL sentence translations",
+  "qualifiedAslValidation": false,
+  "cases": [
+    {"adverb":"just", "english":"I just arrived.", "expectedSignId":null},
+    {"adverb":"already", "english":"I already ate.", "expectedSignId":null},
+    {"adverb":"still", "english":"I am still learning ASL.", "expectedSignId":null},
+    {"adverb":"always", "english":"I always help.", "expectedSignId":null},
+    {"adverb":"never", "english":"I never drink coffee.", "expectedSignId":null},
+    {"adverb":"sometimes", "english":"I sometimes study.", "expectedSignId":null},
+    {"adverb":"often", "english":"I often go to school.", "expectedSignId":null},
+    {"adverb":"only", "english":"I only want water.", "expectedSignId":null},
+    {"adverb":"even", "english":"Even you need help.", "expectedSignId":null},
+    {"adverb":"maybe", "english":"Maybe we can meet tomorrow.", "expectedSignId":null},
+    {"adverb":"probably", "english":"I will probably go.", "expectedSignId":null},
+    {"adverb":"really", "english":"I really need help.", "expectedSignId":null},
+    {"adverb":"very", "english":"I am very tired.", "expectedSignId":null},
+    {"adverb":"quickly", "english":"Please come quickly.", "expectedSignId":"fast"},
+    {"adverb":"slowly", "english":"Please sign slowly.", "expectedSignId":"slow"},
+    {"adverb":"here", "english":"Come here.", "expectedSignId":"here"},
+    {"adverb":"there", "english":"Go there.", "expectedSignId":null},
+    {"adverb":"now", "english":"Help me now.", "expectedSignId":"now"},
+    {"adverb":"later", "english":"See you later.", "expectedSignId":null}
+  ]
+}

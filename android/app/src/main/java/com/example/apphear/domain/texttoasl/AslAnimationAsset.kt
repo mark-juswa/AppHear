@@ -9,6 +9,8 @@ data class AslAnimationAsset(
     val replacement: Replacement? = null,
     val metadata: SignDictionaryMetadata = SignDictionaryMetadata(),
     val neutralFrameSeconds: Double? = null,
+    // Converter-added entry/exit only; never trim a sign's recorded motion.
+    val syntheticPaddingSeconds: Double = 0.0,
 ) {
     fun originalFallback(): AslAnimationAsset? = replacement?.fallbackAssetPath?.let { path ->
         copy(assetPath = path, replacement = null)
