@@ -34,3 +34,14 @@ Applied the repository review checklist to this source-transfer task.
 - Production readiness: NOT ESTABLISHED. No new device rendering test or release APK build in this cloning task. Existing native viewer/storage limitations and zero qualified ASL validations remain.
 
 No critical transfer or scope issues found. Important limitation: registered/structurally checked entries must not be presented as independently validated working ASL signs. Recommendation: ready as a local development clone; retain preview labels and complete native/ASL review before production use.
+
+
+## Fresh clone unit-test result
+
+Android `testDebugUnitTest` completed successfully in 16m 8s (26 tasks executed), using the existing SDK, Java17, cached dependencies and fake configuration solely for unit tests. Results: 374 tests across 74 suites; 0 failures, 0 errors, 0 skipped. No APK export or new native rendering test was performed.
+
+Command from repository root, with existing Java17/Android SDK environment variables configured:
+
+    .\android\tools\build-integrated-preview.ps1 -Configuration fake -Tasks @('testDebugUnitTest','--offline','-Pkotlin.compiler.execution.strategy=out-of-process','--init-script','<existing workspace>\work\verified-onnx.init.gradle')
+
+The init-script path denotes the existing local dependency setup and is not copied into this repository.
