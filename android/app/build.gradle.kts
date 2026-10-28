@@ -110,6 +110,31 @@ android {
     // Recognition screen placement guide; placementGate also pauses WORD while a raised hand is outside it.
     val placementGuide = providers.gradleProperty("placementGuide").map { it.equals("true", ignoreCase=true) }.getOrElse(false)
     val placementGate = placementGuide && providers.gradleProperty("placementGate").map { it.equals("true", ignoreCase=true) }.getOrElse(false)
+    // One-screen conversation (conversationFlowV2): reply listening, captions and the avatar stay on the
+    // recognition screen. conversationLab installs that build as a separate app beside AppHear.
+    val conversationFlowV2 = providers.gradleProperty("conversationFlowV2").map { it.equals("true", ignoreCase=true) }.getOrElse(false)
+    val conversationLab = conversationFlowV2 && providers.gradleProperty("conversationLab").map { it.equals("true", ignoreCase=true) }.getOrElse(false)
+    if (conversationFlowV2) {
+        // In-app listening needs the microphone, and Android 11+ hides the speech service unless the app
+        // declares it. Added to the debug manifest only; the release manifest never gains either.
+        val flowManifestDir = layout.buildDirectory.dir("generated/conversationFlowV2Manifest")
+        val flowManifest = tasks.register<Copy>("prepareConversationFlowV2Manifest") {
+            from("src/debug/AndroidManifest.xml")
+            into(flowManifestDir)
+            filter { line: String ->
+                line.replace("</manifest>",
+                    "    <uses-permission android:name=\"android.permission.RECORD_AUDIO\" />\n" +
+                    "    <queries><intent><action android:name=\"android.speech.RecognitionService\" /></intent></queries>\n" +
+                    "</manifest>")
+            }
+            doLast {
+                val text = flowManifestDir.get().file("AndroidManifest.xml").asFile.readText()
+                check("RECORD_AUDIO" in text) { "conversationFlowV2 debug manifest was not generated" }
+            }
+        }
+        sourceSets.getByName("debug").manifest.srcFile(flowManifestDir.map { it.file("AndroidManifest.xml") })
+        tasks.configureEach { if (name == "preDebugBuild") dependsOn(flowManifest) }
+    }
     // Backup LLM for the sentence builder and Context Assist when Gemini is slow or failing. Any
     // OpenAI-compatible service; Groq's free tier by default. The key lives only in the gitignored
     // android/gradle.properties (or the environment) and never reaches release builds.
@@ -156,6 +181,7 @@ android {
 
     defaultConfig {
         applicationId = "com.example.apphear"
+        manifestPlaceholders["appLabel"] = "@string/app_name"
         minSdk = 26
         targetSdk = 36
         versionCode = 1
@@ -183,6 +209,12 @@ android {
             buildConfigField("boolean", "RECOGNITION_MODE_TOOLBAR_ENABLED", recognitionModeToolbar.toString())
             buildConfigField("boolean", "PLACEMENT_GUIDE_ENABLED", placementGuide.toString())
             buildConfigField("boolean", "PLACEMENT_GATE_ENABLED", placementGate.toString())
+            buildConfigField("boolean", "CONVERSATION_FLOW_V2_ENABLED", conversationFlowV2.toString())
+            if (conversationLab) {
+                applicationIdSuffix = ".conversationlab"
+                versionNameSuffix = "-conversation-lab"
+                manifestPlaceholders["appLabel"] = "@string/conversation_lab_app_name"
+            }
             buildConfigField("String", "LLM_FALLBACK_API_KEY", "\"$llmFallbackApiKey\"")
             buildConfigField("String", "LLM_FALLBACK_BASE_URL", "\"$llmFallbackBaseUrl\"")
             buildConfigField("String", "LLM_FALLBACK_MODEL", "\"$llmFallbackModel\"")
@@ -234,6 +266,7 @@ android {
             buildConfigField("boolean", "RECOGNITION_MODE_TOOLBAR_ENABLED", "false")
             buildConfigField("boolean", "PLACEMENT_GUIDE_ENABLED", "false")
             buildConfigField("boolean", "PLACEMENT_GATE_ENABLED", "false")
+            buildConfigField("boolean", "CONVERSATION_FLOW_V2_ENABLED", "false")
             buildConfigField("String", "LLM_FALLBACK_API_KEY", "\"\"")
             buildConfigField("String", "LLM_FALLBACK_BASE_URL", "\"\"")
             buildConfigField("String", "LLM_FALLBACK_MODEL", "\"\"")

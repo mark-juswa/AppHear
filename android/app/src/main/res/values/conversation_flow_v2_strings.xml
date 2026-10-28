@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- One-screen conversation (conversationFlowV2). Shown only in builds with that flag. -->
+    <string name="conversation_lab_app_name">AppHear Conversation</string>
+</resources>

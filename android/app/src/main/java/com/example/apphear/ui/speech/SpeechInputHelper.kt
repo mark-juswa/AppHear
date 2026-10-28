@@ -7,8 +7,8 @@ import com.example.apphear.conversation.ConversationScreens
 import java.util.Locale
 
 object SpeechInputHelper {
-    /** conversationFlowV1: ask the recognizer to finish after this much silence. */
-    private const val END_OF_SPEECH_SILENCE_MS = 1_500L
+    /** conversationFlowV1/V2: ask the recognizer to finish after this much silence. */
+    internal const val END_OF_SPEECH_SILENCE_MS = 1_500L
 
     fun createSpeechIntent(prompt: String): Intent {
         return Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH).apply {
