@@ -135,6 +135,8 @@ class RecognitionActivity : AppCompatActivity() {
     private var degradedBannerDismissed = false
     private lateinit var speechPlayer: AppHearSpeechPlayer
     private var speakSentence: (String) -> Unit = { speechPlayer.speak(it) }
+    /** conversationFlowV2: the whole conversation on this screen; null when the flag is off. */
+    private var conversationFlow: com.example.apphear.conversation.flow2.ConversationFlowController? = null
     private lateinit var ruD1: RuD1Diagnostics
     private var ruD1Transitioning = false
     private var ruD1DisplayState = RuD1DisplayState.READY
@@ -213,7 +215,7 @@ class RecognitionActivity : AppCompatActivity() {
                                     getString(R.string.signing),getString(R.string.sentence_placeholder)))
                             }
                         }
-                    }, speak={speechPlayer.speak(it)}, initial=selectedRecognitionMode)
+                    }, speak={ text -> conversationFlow?.sayText(text) ?: speechPlayer.speak(text) }, initial=selectedRecognitionMode)
             }.onFailure { Log.w(TAG,"Context routing unavailable; existing manual recognition preserved",it) }.getOrNull()
         }
         if (BuildConfig.RECOGNITION_MODE_TOOLBAR_ENABLED && recognitionSettings.selectionAvailable) installModeToolbar()
@@ -298,7 +300,33 @@ class RecognitionActivity : AppCompatActivity() {
             }
         }
 
+        if (BuildConfig.CONVERSATION_FLOW_V2_ENABLED) installConversationFlow()
         if (hasCameraPermission()) start() else requestCamera.launch(Manifest.permission.CAMERA)
+    }
+
+    /**
+     * conversationFlowV2: say it, listen and show the reply on this screen. Takes over the bottom
+     * pill; Hear, spelling confirmation, sentence assist and Context Assist keep their owners.
+     */
+    private fun installConversationFlow() {
+        val flow = com.example.apphear.conversation.flow2.ConversationFlowController(this, binding,
+            object : com.example.apphear.conversation.flow2.ConversationFlowController.Host {
+                override fun sayIt() = speakRecognizedSentence()
+                override fun speak(text: String, onDone: () -> Unit) = speechPlayer.speak(text, onDone)
+                override fun stopSpeaking() = speechPlayer.stop()
+                override fun clearSignedWords() = clearRecognized()
+                override fun hearingRecorded() {
+                    openingHearingTurnId = ConversationPhraseAssist.presentationState.value.hearingTurnId
+                }
+                override fun playAvatar(text: String, ticket: Long): Boolean {
+                    Toast.makeText(this@RecognitionActivity, R.string.conversation_v2_avatar_pending,
+                        Toast.LENGTH_SHORT).show()
+                    return false
+                }
+                override fun stopAvatar() = Unit
+            })
+        conversationFlow = flow
+        speakSentence = { flow.sayText(it) }
     }
 
     /** The Clear button's reset; also used when a reused screen starts a new hearing turn. */
@@ -325,6 +353,7 @@ class RecognitionActivity : AppCompatActivity() {
             binding.sentenceText.text = getString(R.string.sentence_placeholder)
         }
         updateSentenceCardVisibility()
+        conversationFlow?.signedWordsChanged("")
     }
 
     override fun onNewIntent(intent: Intent) {
@@ -996,6 +1025,8 @@ class RecognitionActivity : AppCompatActivity() {
         binding.altText.visibility = if (snapshot.showCandidates) View.VISIBLE else View.GONE
         binding.sentenceText.text = sentenceAssistDisplay(snapshot.sentenceText)
         updateSentenceCardVisibility()
+        conversationFlow?.signedWordsChanged(snapshot.sentenceText.toString().trim()
+            .takeUnless { it == getString(R.string.sentence_placeholder) }.orEmpty())
     }
 
     /**
@@ -1255,6 +1286,7 @@ class RecognitionActivity : AppCompatActivity() {
                 binding.glossText.text = s.currentLetter.ifBlank { getString(R.string.gloss_placeholder) }
                 binding.altText.visibility = View.GONE
                 val spelling = s.confirmed + s.preview
+                conversationFlow?.signedWordsChanged(spelling.trim())
                 binding.sentenceText.text = spelling.ifBlank { getString(R.string.sentence_placeholder) }
                 binding.sentenceText.contentDescription = if (s.preview.isNotEmpty())
                     "Detected spelling: $spelling. Tap Hear to review and confirm." else spelling.ifBlank { "Waiting for letters" }
@@ -1365,6 +1397,7 @@ class RecognitionActivity : AppCompatActivity() {
     }
 
     override fun onDestroy() {
+        conversationFlow?.onDestroy()
         ConversationTimeline.screenDestroyed("recognition")
         ConversationScreens.recognitionDestroyed(this)
         sentenceShadow?.reset()
@@ -1430,6 +1463,7 @@ class RecognitionActivity : AppCompatActivity() {
     }
 
     override fun onStop() {
+        conversationFlow?.onStop()
         if (BuildConfig.PLACEMENT_GUIDE_ENABLED) {
             showPlacementPause(false)
             if (::cameraExecutor.isInitialized && !cameraExecutor.isShutdown) cameraExecutor.execute { placementGuard.reset() }
@@ -1455,6 +1489,7 @@ class RecognitionActivity : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
+        conversationFlow?.onStart()
         timelineAwaitingFrame = ConversationTimeline.enabled
         ConversationTimeline.mark("recognition_started")
         selectedRecognitionMode = recognitionSettings.current()

@@ -121,6 +121,21 @@ object ConversationFlow {
             failure = null, ticket = ticket), listOf(FlowEffect.Speak(text, ticket)))
     }
 
+    /**
+     * Says [text] chosen by the existing Hear path (which handles spelling confirmation and
+     * sentence assist). The current signed words are remembered so the reply clears only them.
+     */
+    fun sayText(s: FlowState, text: String): Transition {
+        val clean = text.trim()
+        if (clean.isEmpty() || s.phase !in setOf(FlowPhase.READY, FlowPhase.NOT_HEARD, FlowPhase.REPLY)) {
+            return Transition(s)
+        }
+        val ticket = s.ticket + 1
+        return Transition(s.copy(phase = FlowPhase.SAYING, speaking = clean,
+            speakingSignedWords = s.message?.signedWords ?: clean, failure = null, ticket = ticket),
+            listOf(FlowEffect.Speak(clean, ticket)))
+    }
+
     /** Speech output finished: the message is in the conversation; listen for the reply. */
     fun sayingDone(s: FlowState, ticket: Long): Transition {
         if (ticket != s.ticket || s.phase != FlowPhase.SAYING) return Transition(s)
@@ -234,9 +249,10 @@ object ConversationFlow {
         // Clear the signed words only while they are still exactly what was said; words signed
         // since then have not been said yet and must survive the reply.
         val clearSigned = s.saidSignedWords != null && s.message?.signedWords == s.saidSignedWords
+        // Clear first, so Context Assist sees the new hearing turn against an empty sentence.
         val effects = buildList {
-            add(FlowEffect.RecordHearing(text, source))
             if (clearSigned) add(FlowEffect.ClearSignedWords)
+            add(FlowEffect.RecordHearing(text, source))
         }
         return Transition(s.copy(phase = FlowPhase.REPLY, reply = text, partialReply = "",
             message = if (clearSigned) null else s.message, history = capped(history),

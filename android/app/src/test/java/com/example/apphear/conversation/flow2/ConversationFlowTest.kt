@@ -39,7 +39,7 @@ class ConversationFlowTest {
         assertEquals(FlowPhase.REPLY, reply.state.phase)
         assertEquals("Here you go.", reply.state.reply)
         assertNull(reply.state.message)
-        assertEquals(listOf(FlowEffect.RecordHearing("Here you go.", ReplySource.SPEECH), FlowEffect.ClearSignedWords),
+        assertEquals(listOf(FlowEffect.ClearSignedWords, FlowEffect.RecordHearing("Here you go.", ReplySource.SPEECH)),
             reply.effects)
         assertEquals(listOf(Exchange("ME WANT WATER", "Here you go.")), reply.state.history)
         assertEquals(PrimaryAction.SIGN_IT, f.primaryAction(reply.state))
@@ -160,8 +160,8 @@ class ConversationFlowTest {
     @Test fun `typed reply stops listening and is recorded as typed`() {
         val listening = saidAndListening("HELLO")
         val typed = f.typedReply(listening, " Please wait ")
-        assertEquals(listOf(FlowEffect.StopListening, FlowEffect.RecordHearing("Please wait", ReplySource.TYPED),
-            FlowEffect.ClearSignedWords), typed.effects)
+        assertEquals(listOf(FlowEffect.StopListening, FlowEffect.ClearSignedWords,
+            FlowEffect.RecordHearing("Please wait", ReplySource.TYPED)), typed.effects)
         assertEquals("Please wait", typed.state.reply)
         assertSame(listening, f.typedReply(listening, "   ").state)
     }
@@ -267,5 +267,20 @@ class ConversationFlowTest {
         val cleared = f.clear(signed("HELLO"))
         assertNull(cleared.state.message)
         assertEquals(listOf(FlowEffect.ClearSignedWords), cleared.effects)
+    }
+
+    @Test fun `sayText says the Hear path's text and clears only the signed words it came from`() {
+        val ready = signed("ME WANT WATER")
+        val say = f.sayText(ready, " I want water. ")
+        assertEquals(listOf(FlowEffect.Speak("I want water.", say.state.ticket)), say.effects)
+        val listening = f.sayingDone(say.state, say.state.ticket).state
+        assertEquals(listOf(Exchange("I want water.", null)), listening.history)
+        val reply = f.replyHeard(listening, listening.ticket, "Sure")
+        assertTrue(FlowEffect.ClearSignedWords in reply.effects)
+
+        assertSame(ready, f.sayText(ready, "  ").state)
+        assertSame(listening, f.sayText(listening, "again").state)
+        // Confirmed spelling can be said with no WORD message on screen.
+        assertEquals(FlowPhase.SAYING, f.sayText(FlowState(), "AMY").state.phase)
     }
 }

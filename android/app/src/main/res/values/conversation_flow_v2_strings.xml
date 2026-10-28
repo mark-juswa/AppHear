@@ -2,4 +2,44 @@
 <resources>
     <!-- One-screen conversation (conversationFlowV2). Shown only in builds with that flag. -->
     <string name="conversation_lab_app_name">AppHear Conversation</string>
+
+    <!-- Sheet overlines: same spaced-caps style as CURRENT SIGN. -->
+    <string name="conversation_v2_current_sign">CURRENT SIGN</string>
+    <string name="conversation_v2_saying">SAYING</string>
+    <string name="conversation_v2_listening">LISTENING</string>
+    <string name="conversation_v2_their_reply">THEIR REPLY</string>
+    <string name="conversation_v2_typing">TYPE THEIR REPLY</string>
+    <string name="conversation_v2_not_heard_title">NOT HEARD</string>
+    <string name="conversation_v2_listen_error_title">COULDN\'T LISTEN</string>
+    <string name="conversation_v2_no_permission_title">MICROPHONE OFF</string>
+
+    <!-- Main pill. -->
+    <string name="conversation_v2_say_it">SAY IT</string>
+    <string name="conversation_v2_listen">LISTEN</string>
+    <string name="conversation_v2_stop">STOP</string>
+    <string name="conversation_v2_sign_it">SIGN IT</string>
+    <string name="conversation_v2_replay">REPLAY</string>
+    <string name="conversation_v2_send">SEND</string>
+
+    <!-- Tan secondary pills. -->
+    <string name="conversation_v2_type_reply">TYPE REPLY</string>
+    <string name="conversation_v2_type_instead">TYPE INSTEAD</string>
+    <string name="conversation_v2_cancel">CANCEL</string>
+
+    <!-- Main line text. -->
+    <string name="conversation_v2_listening_waiting">Waiting for them to speak…</string>
+    <string name="conversation_v2_not_heard">Ask them to speak again, or type their reply.</string>
+    <string name="conversation_v2_listen_error">Check the connection, or type their reply.</string>
+    <string name="conversation_v2_no_permission">Allow the microphone in Settings, or type their reply.</string>
+    <string name="conversation_v2_type_hint">Type what they said</string>
+
+    <!-- Temporary until avatar playback is added (plan step 7). -->
+    <string name="conversation_v2_avatar_pending">ASL playback for replies comes in the next build.</string>
+
+    <!-- Accessibility. -->
+    <string name="conversation_v2_say_it_description">Say your message aloud, then listen for their reply</string>
+    <string name="conversation_v2_listen_description">Listen for the hearing person\'s reply</string>
+    <string name="conversation_v2_stop_description">Stop</string>
+    <string name="conversation_v2_sign_it_description">Show their reply in ASL</string>
+    <string name="conversation_v2_send_description">Add this reply to the conversation</string>
 </resources>
