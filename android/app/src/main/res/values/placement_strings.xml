@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="placement_paused_title">Keep your hands inside the frame</string>
+    <string name="placement_paused_body">Recognition is paused until your hands are back</string>
+    <string name="placement_hint_too_close">Move back a little</string>
+    <string name="placement_hint_no_shoulders">Show your shoulders</string>
+</resources>

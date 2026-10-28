@@ -55,6 +55,8 @@ import com.example.apphear.pipeline.recognition.Handedness
 import com.example.apphear.pipeline.recognition.RecognitionPipeline
 import com.example.apphear.pipeline.recognition.RuntimeConfig
 import com.example.apphear.perceptionvnext.Candidate01FrameAnalyzer
+import com.example.apphear.perceptionvnext.PhoneRawObservation
+import com.example.apphear.placement.PlacementGuard
 import com.example.apphear.perceptionvnext.PhoneProductionSession
 import com.example.apphear.contextassist.ConversationPhraseAssist
 import com.example.apphear.contextassist.EvidenceAwareReplies
@@ -95,6 +97,13 @@ class RecognitionActivity : AppCompatActivity() {
     private var fingerspellStatus: TextView? = null
     private val fingerspellButtons = mutableMapOf<String, MaterialButton>()
     private val signingTurn = SigningTurnBuffer()
+    /** placementGuide / placementGate: camera-thread confined; the UI only renders its decisions. */
+    private val placementGuard = PlacementGuard(
+        if (BuildConfig.PLACEMENT_GATE_ENABLED) PlacementGuard.Config()
+        else PlacementGuard.Config(enterFrames = Int.MAX_VALUE),
+    )
+    private var placementPausedShown = false
+    private var placementTracking = false // camera thread
     private var evidenceInterrupted = false
     private var signingVisible = false
     private var signingInProgress = false
@@ -208,6 +217,7 @@ class RecognitionActivity : AppCompatActivity() {
             }.onFailure { Log.w(TAG,"Context routing unavailable; existing manual recognition preserved",it) }.getOrNull()
         }
         if (BuildConfig.RECOGNITION_MODE_TOOLBAR_ENABLED && recognitionSettings.selectionAvailable) installModeToolbar()
+        if (BuildConfig.PLACEMENT_GUIDE_ENABLED) installPlacementGuide()
         a1ShutdownExecutor = Executors.newSingleThreadExecutor { runnable ->
             Thread(runnable, "apphear-a1-lifecycle-shutdown")
         }
@@ -631,12 +641,17 @@ class RecognitionActivity : AppCompatActivity() {
                         } else null
                         Triple(session, Candidate01FrameAnalyzer(
                             applicationContext, session, ::onFrame,
-                            ownsObservation = if (BuildConfig.FINGERSPELL_EXPERIMENT_ENABLED) { observation, image ->
+                            ownsObservation = if (BuildConfig.FINGERSPELL_EXPERIMENT_ENABLED ||
+                                BuildConfig.PLACEMENT_GUIDE_ENABLED) { observation, image ->
                                 // Routing policy reads current visibility/idle only; Candidate01 and WORD are unchanged.
                                 coordination?.observation(session.isReady,(0..1).any { s ->
                                     observation.handObserved[s] && observation.handJointValid[s].any { it } })
                                 val spelling = fingerspellRuntime
-                                if (spelling?.fingerspellOwnsFrames == true) {
+                                if (placementOwns(observation)) {
+                                    true // A raised hand left the guide: WORD sees no frames until it is back.
+                                } else if (!BuildConfig.FINGERSPELL_EXPERIMENT_ENABLED) {
+                                    false
+                                } else if (spelling?.fingerspellOwnsFrames == true) {
                                     spelling.consume(observation, image)
                                     true
                                 } else {
@@ -799,6 +814,7 @@ class RecognitionActivity : AppCompatActivity() {
             // Drain old camera callbacks and invalidate any in-flight spelling result before binding.
             fingerspellRuntime?.let { it.pause(); it.select(selectedRecognitionMode) }
                 ?: frameAnalyzer.resetTemporalSession()
+            placementGuard.reset()
             cameraInputFrames = 0
             runOnUiThread {
                 if (ticket != cameraGeneration || isFinishing || isDestroyed) return@runOnUiThread
@@ -894,6 +910,7 @@ class RecognitionActivity : AppCompatActivity() {
         val r = if(phoneSession != null) frame.copy(isFrontCamera = processingFrontCamera) else frame
         runOnUiThread {
             if (ticket != cameraGeneration || isFinishing || isDestroyed) return@runOnUiThread
+            if (BuildConfig.PLACEMENT_GUIDE_ENABLED) binding.placementGuide.setImage(r.imageWidth, r.imageHeight, r.isFrontCamera)
             if (ConversationTimeline.enabled) {
                 if (timelineAwaitingFrame) {
                     timelineAwaitingFrame = false
@@ -979,6 +996,95 @@ class RecognitionActivity : AppCompatActivity() {
         binding.altText.visibility = if (snapshot.showCandidates) View.VISIBLE else View.GONE
         binding.sentenceText.text = sentenceAssistDisplay(snapshot.sentenceText)
         updateSentenceCardVisibility()
+    }
+
+    /**
+     * placementGuide: draws where to keep the signing hands. The guide stops above the bottom panel,
+     * so it follows the panel when it expands.
+     */
+    private fun installPlacementGuide() {
+        val guide = binding.placementGuide
+        guide.visibility = View.VISIBLE
+        guide.hints = mapOf(
+            PlacementGuard.Status.TOO_CLOSE to getString(R.string.placement_hint_too_close),
+            PlacementGuard.Status.NO_SHOULDERS to getString(R.string.placement_hint_no_shoulders),
+        )
+        binding.bottomSheet.addOnLayoutChangeListener { sheet, _, top, _, _, _, _, _, _ ->
+            guide.bottomLimit = if (sheet.visibility == View.VISIBLE) top.toFloat() else Float.NaN
+        }
+    }
+
+    /**
+     * Camera thread. Checks the hands against the guide and returns true while recognition should
+     * skip frames (placementGate, WORD mode only). On the frame the pause ends it restarts the word
+     * session, the same reset fingerspelling uses when it hands the camera back to WORD.
+     */
+    private fun placementOwns(observation: PhoneRawObservation): Boolean {
+        if (!BuildConfig.PLACEMENT_GUIDE_ENABLED) return false
+        val region = binding.placementGuide.imageRegion ?: return false
+        if (selectedRecognitionMode != RecognitionMode.WORD || fingerspellRuntime?.fingerspellOwnsFrames == true) {
+            // Fingerspelling owns the camera and resets the word session itself; clear our state once.
+            if (placementTracking) {
+                placementTracking = false
+                placementGuard.reset()
+                runOnUiThread { if (!isFinishing && !isDestroyed) renderPlacement(PlacementGuard.Status.HANDS_DOWN, false) }
+            }
+            return false
+        }
+        placementTracking = true
+        val decision = placementGuard.update(placementGuard.evaluate(placementFrame(observation), region))
+        if (decision.resumeNow) phoneAnalyzer?.resetTemporalSession()
+        if (decision.changed) runOnUiThread {
+            if (!isFinishing && !isDestroyed) {
+                if (decision.resumeNow) {
+                    // Event ids restart with the session; earlier words keep their text, but this
+                    // turn's evidence is incomplete, so Context Assist does not match against it.
+                    if (signingTurn.snapshot().isNotEmpty()) evidenceInterrupted = true
+                    signingTurn.clear()
+                }
+                renderPlacement(decision.status, decision.paused && !decision.resumeNow)
+            }
+        }
+        return decision.paused
+    }
+
+    private fun placementFrame(observation: PhoneRawObservation): PlacementGuard.Frame {
+        val w = observation.sourceWidth.toFloat()
+        val h = observation.sourceHeight.toFloat()
+        val hands = (0..1).filter { observation.handObserved[it] }.map { side ->
+            val joints = ArrayList<Float>(42)
+            for (joint in 0 until 21) if (observation.handJointValid[side][joint]) {
+                joints += observation.handXy[side][joint * 2] / w
+                joints += observation.handXy[side][joint * 2 + 1] / h
+            }
+            PlacementGuard.Hand(joints.toFloatArray())
+        }
+        // Body points 0 and 1 are the shoulders (Candidate01 whole-body indices 5 and 6).
+        val shoulders = if (observation.bodyValid[0] && observation.bodyValid[1]) floatArrayOf(
+            observation.bodyXy[0] / w, observation.bodyXy[1] / h, observation.bodyXy[2] / w, observation.bodyXy[3] / h,
+        ) else null
+        return PlacementGuard.Frame(hands, shoulders)
+    }
+
+    private fun renderPlacement(status: PlacementGuard.Status, paused: Boolean) {
+        binding.placementGuide.setStatus(status, paused)
+        showPlacementPause(paused)
+    }
+
+    /** The dim layer and small card while paused; both fade and never block touches. */
+    private fun showPlacementPause(show: Boolean) {
+        if (show == placementPausedShown) return
+        placementPausedShown = show
+        ConversationTimeline.mark(if (show) "placement_paused" else "placement_resumed")
+        for (view in listOf(binding.placementScrim, binding.placementWarning)) {
+            view.animate().cancel()
+            if (show) {
+                view.visibility = View.VISIBLE
+                view.animate().alpha(1f).setDuration(150).start()
+            } else {
+                view.animate().alpha(0f).setDuration(150).withEndAction { view.visibility = View.GONE }.start()
+            }
+        }
     }
 
     /**
@@ -1324,6 +1430,10 @@ class RecognitionActivity : AppCompatActivity() {
     }
 
     override fun onStop() {
+        if (BuildConfig.PLACEMENT_GUIDE_ENABLED) {
+            showPlacementPause(false)
+            if (::cameraExecutor.isInitialized && !cameraExecutor.isShutdown) cameraExecutor.execute { placementGuard.reset() }
+        }
         autoListenTicket++
         ConversationTimeline.mark("recognition_stopped")
         coordination?.stopped()
