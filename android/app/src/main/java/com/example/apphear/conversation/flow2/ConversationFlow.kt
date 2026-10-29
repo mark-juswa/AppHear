@@ -226,7 +226,7 @@ object ConversationFlow {
     /** Genuine playback completion only; never a timer. */
     fun avatarFinished(s: FlowState, ticket: Long): Transition {
         if (ticket != s.ticket || s.phase != FlowPhase.AVATAR) return Transition(s)
-        return Transition(rest(s.copy(avatarText = null, ticket = s.ticket + 1)))
+        return Transition(rest(s.copy(avatarText = null, ticket = s.ticket + 1)), listOf(FlowEffect.StopAvatar))
     }
 
     fun clear(s: FlowState): Transition =

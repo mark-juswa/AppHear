@@ -1,6 +1,6 @@
 # One-screen conversation (conversationFlowV2): implementation plan
 
-Status: PLAN, waiting for the user's confirmation. No code written yet.
+Status: steps 1-8 built (2026-10-29); step 9 (phone checks) pending. See conversation-flow-v2-handoff.md.
 Worktree: `I:/AppHear-Conversation-Claude/worktree`, branch `claude/conversation-flow-ux`.
 Baseline: `557f0313` = pushed `ae7afc98` (claude/text-to-asl-integration-c98d88) plus the
 previously uncommitted placement-guide work, copied byte-for-byte.

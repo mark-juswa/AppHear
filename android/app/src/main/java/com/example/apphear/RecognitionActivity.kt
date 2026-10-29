@@ -318,12 +318,6 @@ class RecognitionActivity : AppCompatActivity() {
                 override fun hearingRecorded() {
                     openingHearingTurnId = ConversationPhraseAssist.presentationState.value.hearingTurnId
                 }
-                override fun playAvatar(text: String, ticket: Long): Boolean {
-                    Toast.makeText(this@RecognitionActivity, R.string.conversation_v2_avatar_pending,
-                        Toast.LENGTH_SHORT).show()
-                    return false
-                }
-                override fun stopAvatar() = Unit
             })
         conversationFlow = flow
         speakSentence = { flow.sayText(it) }
@@ -454,11 +448,15 @@ class RecognitionActivity : AppCompatActivity() {
             is SentenceAssistShadow.DisplayState.Plain -> displayed.sentence
             else -> sentence
         }
-        if (ConversationScreens.autoListen) speakThenListen(spoken) else speakSentence(spoken)
+        // conversationFlowV2 speaks the signer's choice: the signed words unless they tapped the suggestion.
+        val flowChoice = conversationFlow?.let { it.chosenFor(sentence) ?: sentence }
+        val said = flowChoice ?: spoken
+        if (ConversationScreens.autoListen) speakThenListen(said) else speakSentence(said)
         sentenceShadow?.let { shadow ->
             val hearing = ConversationPhraseAssist.presentationState.value
             shadow.hearTapped(sentence, signingTurn.snapshot(), !(evidenceInterrupted || signingTurn.overflowed),
-                hearing.hearingText, hearing.hearingTurnId, spokeAi = shownAi != null)
+                hearing.hearingText, hearing.hearingTurnId,
+                spokeAi = if (flowChoice != null) flowChoice != sentence else shownAi != null)
         }
         ConversationTimeline.mark("hear_spoken", "words" to sentence.split(' ').count { it.isNotBlank() })
         if (ConversationPhraseAssist.enabled &&
@@ -574,6 +572,15 @@ class RecognitionActivity : AppCompatActivity() {
     private fun sentenceAssistDisplay(raw: CharSequence): CharSequence {
         val shadow = sentenceShadow
         val words = raw.toString().trim()
+        conversationFlow?.let { flow ->
+            // conversationFlowV2: RECOGNIZED keeps the signed words; an accepted AI sentence is only offered.
+            binding.signedDetailGroup.visibility = View.GONE
+            val done = if (shadow == null || words.isEmpty() || words == getString(R.string.sentence_placeholder)) null
+                else shadow.displayState(words, ConversationPhraseAssist.presentationState.value.hearingTurnId)
+                    as? SentenceAssistShadow.DisplayState.Done
+            flow.suggestionFor(words, done?.outcome?.takeIf { it.aiStatus == AiStatus.ACCEPTED }?.chosenSentence)
+            return raw
+        }
         val state = if (SentenceAssistMode.current != SentenceAssistMode.VISIBLE || shadow == null ||
             words.isEmpty() || words == getString(R.string.sentence_placeholder)) {
             SentenceAssistShadow.DisplayState.Idle

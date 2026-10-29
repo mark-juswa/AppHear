@@ -310,3 +310,22 @@ Decision: existing resources from prior Home/Recognition imports were reused (`g
 - AppHear2 `row_setting_*.xml` layouts were imported as passive visual resources, but AppHear2-only/beta runtime rows are no longer included in visible Profile/Settings screens. Visible settings are limited to safe passive rows: account type, voice output, accessibility, privacy, and about.
 - Existing semantic `apphear_*` settings components remain available for future refactors; do not delete until usage is audited.
 - 2026-07-22 cleanup: removed visible AppHear2-only settings for duplicate suppression, hand-presence gate, face landmarks, beta detector/model/vocabulary controls, rotate/parallel/profiling dev toggles, and detection header from Profile/Settings layouts. Unused row resource files remain for later audited cleanup.
+
+## One-screen conversation (conversationFlowV2) - 2026-10-29
+
+Branch `claude/conversation-flow-ux`; flag `conversationFlowV2` (debug only, default off, release hard-off).
+Built on the established recognition sheet instead of a new conversation look; no new palette, type or
+component family. New copy lives in `conversation_flow_v2_strings.xml`.
+
+| Need | Established resource reused |
+|---|---|
+| Sheet states | existing `bottomSheet`; CURRENT SIGN overline style (`#8C775B`, Inter SemiBold 10sp, 0.25 spacing) for SAYING, LISTENING, THEIR REPLY, NOT HEARD, SIGNING (`text_to_asl_signing_label`) |
+| Main action | existing `speakButton` (`btn_start_bg`, Inter Black spaced caps, cream text) relabelled SAY IT / LISTEN / SIGN IT / REPLAY / SEND; STOP uses `btn_stop_bg` |
+| Secondary actions | `bg_chip_inactive` tan pills like CLEAR: LISTEN, TYPE REPLY, TYPE INSTEAD, CANCEL, CLOSE |
+| Reply text | Inter Black 24sp `color_text_primary`; notices Inter Regular 16sp `color_text_secondary`; listening shows `soundwaves` tinted `color_brand_primary` |
+| Typed reply | Text-to-ASL input line (`apphear_translator_input_line_bg`, teal Inter SemiBold) |
+| Suggested sentence | chip in RECOGNIZED: `recognition_reply_chip` when offered, `bg_toggle_active` (Text-to-ASL toggle) when chosen |
+| Avatar | Text-to-ASL stage colour `#0B201F` behind the top controls; progress copy "1 / 3 • Unsupported: …" as on Text-to-ASL |
+| History | AppHear2 `item_chat_bubble_signing/response` + `bg_bubble_*`, renamed `item_conversation_bubble_*` / `conversation_bubble_*_bg`, Inter instead of system sans |
+
+The expanded sheet is capped at 40% of the screen height so history cannot cover the top controls.

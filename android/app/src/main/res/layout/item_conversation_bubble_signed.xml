@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- AppHear2 item_chat_bubble_signing.xml with the app's Inter type. The signer's message, start side. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="start"
+    android:orientation="horizontal"
+    android:paddingVertical="4dp">
+
+    <TextView
+        android:id="@+id/bubbleText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/conversation_bubble_signed_bg"
+        android:fontFamily="@font/inter_semibold"
+        android:maxWidth="260dp"
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="12dp"
+        android:textColor="@color/color_text_primary"
+        android:textSize="15sp" />
+
+</LinearLayout>

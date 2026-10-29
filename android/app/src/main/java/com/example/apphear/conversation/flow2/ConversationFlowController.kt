@@ -42,20 +42,29 @@ class ConversationFlowController(
         fun clearSignedWords()
         /** A hearing turn was just recorded for Context Assist while this screen is open. */
         fun hearingRecorded()
-        /** Returns false if playback could not start. */
-        fun playAvatar(text: String, ticket: Long): Boolean
-        fun stopAvatar()
     }
 
     private val main = Handler(Looper.getMainLooper())
-    private val binder = ConversationSheetBinder(binding)
+    private val binder = ConversationSheetBinder(binding) { reply -> apply(ConversationFlow.signIt(state, reply)) }
     private val listener = InAppSpeechListener(AndroidSpeechBackend(activity)) { micPermitted() }
     private var state = FlowState()
     private var editorOpen = false
     private var lastWords: String? = null
+    /** Latest suggestion from sentence assist, kept so it survives arriving before its words do. */
+    private var lastSuggestion: Pair<String, String?>? = null
     private var permissionTicket: Long? = null
     private var systemDialogTicket: Long? = null
     private var stopped = false
+    private var avatarNote: String? = null
+    private val avatar = ReplyAvatarStage(activity, binding.conversationAvatarStage, object : ReplyAvatarStage.Listener {
+        override fun note(ticket: Long, text: String) {
+            if (ticket != state.ticket || state.phase != FlowPhase.AVATAR) return
+            avatarNote = text
+            render()
+        }
+
+        override fun finished(ticket: Long) = apply(ConversationFlow.avatarFinished(state, ticket))
+    })
 
     private val permissionLauncher = activity.registerForActivityResult(
         ActivityResultContracts.RequestPermission(),
@@ -89,6 +98,11 @@ class ConversationFlowController(
         binding.speakButton.setOnClickListener { onPrimary() }
         binding.conversationSecondaryA.setOnClickListener { onSecondary(binder.secondaryA) }
         binding.conversationSecondaryB.setOnClickListener { onSecondary(binder.secondaryB) }
+        binding.conversationSuggestion.setOnClickListener {
+            val use = state.message?.useSuggestion != true
+            ConversationTimeline.mark("suggestion_choice", "use" to use)
+            apply(ConversationFlow.chooseSuggestion(state, use))
+        }
         binding.conversationTypeReplyExpanded.setOnClickListener { onSecondary(ConversationSheetBinder.Secondary.TYPE_REPLY) }
         binding.conversationEditor.setOnEditorActionListener { _, actionId, _ ->
             if (actionId == EditorInfo.IME_ACTION_SEND) { sendTyped(); true } else false
@@ -101,7 +115,19 @@ class ConversationFlowController(
         if (words == lastWords) return
         lastWords = words
         apply(ConversationFlow.signedWordsChanged(state, words))
+        lastSuggestion?.takeIf { it.first == words }?.let { apply(ConversationFlow.suggestionReady(state, it.first, it.second)) }
     }
+
+    /** An accepted sentence-assist rendering for [words], or null; called every frame, so cheap. */
+    fun suggestionFor(words: String, suggestion: String?) {
+        val next = words.trim() to suggestion
+        if (next == lastSuggestion) return
+        lastSuggestion = next
+        apply(ConversationFlow.suggestionReady(state, next.first, suggestion))
+    }
+
+    /** What SAY IT should speak for [words]: the chosen wording, or null if [words] are not the message. */
+    fun chosenFor(words: String): String? = state.message?.takeIf { it.signedWords == words.trim() }?.chosen
 
     /** Final wording from the existing Hear path. */
     fun sayText(text: String) {
@@ -124,6 +150,7 @@ class ConversationFlowController(
     fun onDestroy() {
         main.removeCallbacksAndMessages(null)
         listener.destroy()
+        avatar.destroy()
     }
 
     private fun onPrimary() {
@@ -142,6 +169,7 @@ class ConversationFlowController(
             ConversationSheetBinder.Secondary.LISTEN -> apply(ConversationFlow.listen(state))
             ConversationSheetBinder.Secondary.TYPE_REPLY, ConversationSheetBinder.Secondary.TYPE_INSTEAD -> openEditor()
             ConversationSheetBinder.Secondary.CANCEL -> closeEditor()
+            ConversationSheetBinder.Secondary.CLOSE -> apply(ConversationFlow.stop(state))
             null -> Unit
         }
     }
@@ -199,9 +227,13 @@ class ConversationFlowController(
             }
             is FlowEffect.PlayAvatar -> {
                 ConversationTimeline.mark("sign_it", "chars" to effect.text.length)
-                if (!host.playAvatar(effect.text, effect.ticket)) main.post { apply(ConversationFlow.stop(state)) }
+                avatarNote = null
+                avatar.play(effect.text, effect.ticket)
             }
-            FlowEffect.StopAvatar -> host.stopAvatar()
+            FlowEffect.StopAvatar -> {
+                avatarNote = null
+                avatar.stop()
+            }
         }
     }
 
@@ -247,7 +279,7 @@ class ConversationFlowController(
     }
 
     private fun render() {
-        binder.render(state, editorOpen)
+        binder.render(state, editorOpen, avatarNote)
         back.isEnabled = editorOpen ||
             state.phase in setOf(FlowPhase.SAYING, FlowPhase.LISTENING, FlowPhase.AVATAR)
     }

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- AppHear2 bg_bubble_response.xml (the hearing person's reply), on the brand teal token. -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <solid android:color="@color/color_brand_primary" />
+    <corners
+        android:bottomLeftRadius="16dp"
+        android:bottomRightRadius="4dp"
+        android:topLeftRadius="16dp"
+        android:topRightRadius="16dp" />
+</shape>

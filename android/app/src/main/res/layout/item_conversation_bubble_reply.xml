@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- AppHear2 item_chat_bubble_response.xml with the app's Inter type. The hearing reply, end side;
+     tapping it signs that reply again. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="end"
+    android:orientation="horizontal"
+    android:paddingVertical="4dp">
+
+    <TextView
+        android:id="@+id/bubbleText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/conversation_bubble_reply_bg"
+        android:clickable="true"
+        android:focusable="true"
+        android:fontFamily="@font/inter_semibold"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:maxWidth="260dp"
+        android:minHeight="48dp"
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="12dp"
+        android:textColor="#FFFFFF"
+        android:textSize="15sp" />
+
+</LinearLayout>

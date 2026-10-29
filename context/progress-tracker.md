@@ -16,6 +16,17 @@ provisioning remain open; no automatic new experiment is authorized. See docs/te
 
 # Progress Tracker
 
+**2026-10-29 - One-screen conversation (`conversationFlowV2`) built; phone testing pending (branch `claude/conversation-flow-ux`).**
+Plan `docs/conversation-flow-v2-plan.md`, handoff/test checklist `docs/conversation-flow-v2-handoff.md`. Debug-only
+flag, release hard-off; `conversationLab` installs it as "AppHear Conversation" beside AppHear. Presentation after S8
+only: no recognition, model, feature-contract, threshold or S4/F change.
+- [x] Steps 1-8 in code: turn logic + in-app listening (fallback to the system dialog), sheet states (SAY IT /
+  LISTENING / THEIR REPLY / NOT HEARD), suggested-sentence chip in RECOGNIZED (sentence assist, AI-accepted only),
+  inline avatar for SIGN IT (existing renderer/planners), history bubbles (AppHear2 layouts). Unit tests pass.
+- [x] Phone (2026-10-28, step 5 build): LISTEN, live listening, a spoken reply and the not-heard state work.
+- [ ] Step 9: phone walkthrough of SAY IT, typing, expanded sheet/history, avatar, suggestion (needs a build with
+  sentence-assist keys); timeline dialogues D1-D3; recognition FPS while listening and during avatar playback.
+
 **2026-10-22 - Conversation flow Phase 1 completed in code (branch `claude/text-to-asl-integration-c98d88`).**
 All debug-only flags; release builds hard-set them off. WORD recognition, SentenceBuilder and Context Assist unchanged.
 - [x] `conversationTimeline` (Phase 0 log, `tools/conversation_flow/`), `sentenceAssist=off|shadow|visible`

@@ -211,8 +211,10 @@ class ConversationFlowTest {
         assertEquals(listOf(FlowEffect.PlayAvatar("Nice to meet you", replay.state.ticket)), replay.effects)
         assertSame(replay.state, f.avatarFinished(replay.state, play.state.ticket).state)
 
-        val done = f.avatarFinished(replay.state, replay.state.ticket).state
-        assertEquals(FlowPhase.REPLY, done.phase)
+        val finished = f.avatarFinished(replay.state, replay.state.ticket)
+        assertEquals(FlowPhase.REPLY, finished.state.phase)
+        // Genuine completion hides the stage, exactly like CLOSE.
+        assertEquals(listOf(FlowEffect.StopAvatar), finished.effects)
 
         val closed = f.stop(f.signIt(reply).state)
         assertEquals(listOf(FlowEffect.StopAvatar), closed.effects)

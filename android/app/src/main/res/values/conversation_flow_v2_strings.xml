@@ -12,6 +12,7 @@
     <string name="conversation_v2_not_heard_title">NOT HEARD</string>
     <string name="conversation_v2_listen_error_title">COULDN\'T LISTEN</string>
     <string name="conversation_v2_no_permission_title">MICROPHONE OFF</string>
+    <string name="conversation_v2_recent">RECENT</string>
 
     <!-- Main pill. -->
     <string name="conversation_v2_say_it">SAY IT</string>
@@ -25,6 +26,7 @@
     <string name="conversation_v2_type_reply">TYPE REPLY</string>
     <string name="conversation_v2_type_instead">TYPE INSTEAD</string>
     <string name="conversation_v2_cancel">CANCEL</string>
+    <string name="conversation_v2_close">CLOSE</string>
 
     <!-- Main line text. -->
     <string name="conversation_v2_listening_waiting">Waiting for them to speak…</string>
@@ -33,13 +35,25 @@
     <string name="conversation_v2_no_permission">Allow the microphone in Settings, or type their reply.</string>
     <string name="conversation_v2_type_hint">Type what they said</string>
 
-    <!-- Temporary until avatar playback is added (plan step 7). -->
-    <string name="conversation_v2_avatar_pending">ASL playback for replies comes in the next build.</string>
+    <!-- Avatar notes in the sheet; progress wording matches the Text-to-ASL screen. -->
+    <string name="conversation_v2_avatar_loading">Getting the avatar ready…</string>
+    <string name="conversation_v2_avatar_complete">Complete</string>
+    <string name="conversation_v2_avatar_nothing">Nothing to sign</string>
+    <string name="conversation_v2_avatar_stalled">Playback stopped responding. Tap REPLAY to retry.</string>
+    <string name="conversation_v2_avatar_failed">The avatar couldn\'t play this. Tap REPLAY to retry.</string>
+    <string name="conversation_v2_avatar_unsupported">%1$s • Unsupported: %2$s</string>
+
+    <!-- Suggested sentence chip in RECOGNIZED. -->
+    <string name="conversation_v2_suggestion_chosen">✓ %1$s</string>
 
     <!-- Accessibility. -->
+    <string name="conversation_v2_suggestion_description">Suggested sentence: %1$s. Tap to say this instead of the signed words.</string>
+    <string name="conversation_v2_suggestion_chosen_description">Suggested sentence chosen: %1$s. Tap to go back to the signed words.</string>
     <string name="conversation_v2_say_it_description">Say your message aloud, then listen for their reply</string>
     <string name="conversation_v2_listen_description">Listen for the hearing person\'s reply</string>
     <string name="conversation_v2_stop_description">Stop</string>
     <string name="conversation_v2_sign_it_description">Show their reply in ASL</string>
+    <string name="conversation_v2_bubble_signed_description">You said: %1$s</string>
+    <string name="conversation_v2_bubble_reply_description">They said: %1$s. Tap to see it in ASL.</string>
     <string name="conversation_v2_send_description">Add this reply to the conversation</string>
 </resources>
