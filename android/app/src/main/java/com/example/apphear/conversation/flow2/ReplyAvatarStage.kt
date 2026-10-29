@@ -5,6 +5,7 @@ import android.os.Looper
 import android.util.Log
 import android.view.View
 import android.view.ViewGroup
+import android.view.ViewOutlineProvider
 import android.webkit.WebView
 import android.widget.FrameLayout
 import androidx.activity.ComponentActivity
@@ -65,6 +66,12 @@ class ReplyAvatarStage(
     private var unsupported: List<String> = emptyList()
     private var index = 0
     private var playing = false
+
+    init {
+        // Keep the avatar inside the card's rounded corners.
+        stage.outlineProvider = ViewOutlineProvider.BACKGROUND
+        stage.clipToOutline = true
+    }
 
     fun play(text: String, ticket: Long) {
         if (destroyed || text.isBlank()) return

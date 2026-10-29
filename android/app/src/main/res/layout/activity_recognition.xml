@@ -92,19 +92,23 @@
             android:textSize="12sp" />
     </LinearLayout>
 
-    <!-- conversationFlowV2 only: SIGN IT plays the reply here, over the camera, on the Text-to-ASL
-         stage colour. Top controls, RECOGNIZED and the sheet stay above it. -->
+    <!-- conversationFlowV2 only: SIGN IT plays the reply in this card, between the top controls and
+         the sheet, so the sheet never covers the avatar. Text-to-ASL stage colour, sheet's edges and
+         corner radius. -->
     <FrameLayout
         android:id="@+id/conversationAvatarStage"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="#0B201F"
+        android:layout_marginHorizontal="7dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="12dp"
+        android:background="@drawable/conversation_avatar_stage_bg"
         android:importantForAccessibility="no"
         android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/bottomSheet"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/btnBack" />
 
     <View
         android:id="@+id/topGradient"
