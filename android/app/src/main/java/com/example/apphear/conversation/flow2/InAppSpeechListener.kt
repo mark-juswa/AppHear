@@ -25,10 +25,16 @@ interface SpeechEvents {
  * Offline recognition is tried first; if the phone lacks the offline language it retries once
  * online. A missing permission or recognizer is reported as such so the caller can fall back to
  * the existing system speech dialog.
+ *
+ * The recognizer gives up within about two seconds if nobody has started talking, which is too soon
+ * for a hearing person answering a message that was just spoken. Until something is heard, such a
+ * give-up quietly restarts listening, up to [patienceMs] after [start]; then it is reported.
  */
 class InAppSpeechListener(
     private val backend: SpeechBackend,
     private val hasPermission: () -> Boolean,
+    private val clockMs: () -> Long = { android.os.SystemClock.elapsedRealtime() },
+    private val patienceMs: Long = WAIT_FOR_SPEECH_MS,
 ) {
     interface Callback {
         fun partial(ticket: Long, text: String)
@@ -38,6 +44,8 @@ class InAppSpeechListener(
     }
 
     private var session: Any? = null
+    private var startedAtMs = 0L
+    private var heardSomething = false
 
     val isListening: Boolean get() = session != null
 
@@ -46,7 +54,11 @@ class InAppSpeechListener(
         when {
             !hasPermission() -> callback.failed(ticket, ListenFailure.NO_PERMISSION)
             !backend.isAvailable() -> callback.failed(ticket, ListenFailure.UNAVAILABLE)
-            else -> begin(ticket, preferOffline = true, callback)
+            else -> {
+                startedAtMs = clockMs()
+                heardSomething = false
+                begin(ticket, preferOffline = true, callback)
+            }
         }
     }
 
@@ -68,7 +80,9 @@ class InAppSpeechListener(
             private val current get() = session === token
 
             override fun onPartial(text: String) {
-                if (current && text.isNotBlank()) callback.partial(ticket, text)
+                if (!current || text.isBlank()) return
+                heardSomething = true
+                callback.partial(ticket, text)
             }
 
             override fun onLevel(rmsDb: Float) {
@@ -78,20 +92,32 @@ class InAppSpeechListener(
             override fun onFinal(text: String) {
                 if (!current) return
                 session = null
-                if (text.isBlank()) callback.failed(ticket, ListenFailure.NOT_HEARD) else callback.heard(ticket, text)
+                when {
+                    text.isNotBlank() -> callback.heard(ticket, text)
+                    keepWaiting() -> begin(ticket, preferOffline, callback)
+                    else -> callback.failed(ticket, ListenFailure.NOT_HEARD)
+                }
             }
 
             override fun onError(code: Int) {
                 if (!current) return
                 session = null
-                if (preferOffline && code in OFFLINE_LANGUAGE_MISSING) {
-                    begin(ticket, preferOffline = false, callback)
-                } else callback.failed(ticket, failureFor(code))
+                when {
+                    preferOffline && code in OFFLINE_LANGUAGE_MISSING -> begin(ticket, preferOffline = false, callback)
+                    failureFor(code) == ListenFailure.NOT_HEARD && keepWaiting() -> begin(ticket, preferOffline, callback)
+                    else -> callback.failed(ticket, failureFor(code))
+                }
             }
         })
     }
 
+    /** Nothing heard yet and still inside the patience window: listen again instead of giving up. */
+    private fun keepWaiting() = !heardSomething && clockMs() - startedAtMs < patienceMs
+
     companion object {
+        /** How long to keep listening for someone to start talking (the system dialog waits about as long). */
+        const val WAIT_FOR_SPEECH_MS = 8_000L
+
         private val OFFLINE_LANGUAGE_MISSING = setOf(
             SpeechRecognizer.ERROR_LANGUAGE_NOT_SUPPORTED, SpeechRecognizer.ERROR_LANGUAGE_UNAVAILABLE)
 

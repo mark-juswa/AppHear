@@ -52,7 +52,7 @@ class ConversationFlowController(
 
     private val main = Handler(Looper.getMainLooper())
     private val binder = ConversationSheetBinder(binding) { reply -> apply(ConversationFlow.signIt(state, reply)) }
-    private val listener = InAppSpeechListener(AndroidSpeechBackend(activity)) { micPermitted() }
+    private val listener = InAppSpeechListener(AndroidSpeechBackend(activity), hasPermission = { micPermitted() })
     private var state = FlowState()
     private var editorOpen = false
     private var lastWords: String? = null

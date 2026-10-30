@@ -31,7 +31,8 @@ class InAppSpeechListenerTest {
 
     private val backend = FakeBackend()
     private var permitted = true
-    private val listener = InAppSpeechListener(backend) { permitted }
+    private var nowMs = 0L
+    private val listener = InAppSpeechListener(backend, { permitted }, { nowMs }, patienceMs = 8_000)
     private val recorder = Recorder()
 
     @Test fun `partial then final result are reported with the ticket`() {
@@ -46,10 +47,46 @@ class InAppSpeechListenerTest {
         assertFalse(listener.isListening)
     }
 
-    @Test fun `empty final result is not heard`() {
+    @Test fun `empty final result is not heard once the wait for speech is over`() {
         listener.start(1, recorder)
+        nowMs = 8_000
         backend.events!!.onFinal(" ")
         assertEquals(listOf("failed 1 NOT_HEARD"), recorder.log)
+    }
+
+    @Test fun `an early give-up before anyone speaks quietly listens again`() {
+        listener.start(5, recorder)
+        nowMs = 1_800
+        backend.events!!.onError(SpeechRecognizer.ERROR_NO_MATCH)
+        nowMs = 3_600
+        backend.events!!.onError(SpeechRecognizer.ERROR_SPEECH_TIMEOUT)
+        nowMs = 5_000
+        backend.events!!.onFinal("")
+        assertEquals(4, backend.starts.size)
+        assertTrue(recorder.log.isEmpty())
+        assertTrue(listener.isListening)
+
+        backend.events!!.onFinal("Sorry, I was thinking")
+        assertEquals(listOf("heard 5 Sorry, I was thinking"), recorder.log)
+    }
+
+    @Test fun `waiting for speech stops at the patience limit`() {
+        listener.start(6, recorder)
+        nowMs = 2_000
+        backend.events!!.onError(SpeechRecognizer.ERROR_NO_MATCH)
+        nowMs = 8_100
+        backend.events!!.onError(SpeechRecognizer.ERROR_NO_MATCH)
+        assertEquals(listOf("failed 6 NOT_HEARD"), recorder.log)
+        assertEquals(2, backend.starts.size)
+    }
+
+    @Test fun `once something was heard a no-match is reported, not retried`() {
+        listener.start(7, recorder)
+        backend.events!!.onPartial("um")
+        nowMs = 1_000
+        backend.events!!.onError(SpeechRecognizer.ERROR_NO_MATCH)
+        assertEquals(listOf("partial 7 um", "failed 7 NOT_HEARD"), recorder.log)
+        assertEquals(1, backend.starts.size)
     }
 
     @Test fun `missing permission or recognizer is reported without starting`() {
