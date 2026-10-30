@@ -67,10 +67,11 @@ class ConversationFlowController(
     private var autoSaySeconds: Int? = null
     private var detectionHeld = false
     /** conversationAutoSay: says the message after the signer stops; null when the flag is off. */
-    private val autoSay: AutoSay? = if (!BuildConfig.CONVERSATION_AUTO_SAY_ENABLED) null else
+    private val autoSayPolicy: AutoSayPolicy? = if (!BuildConfig.CONVERSATION_AUTO_SAY_ENABLED) null else
         runCatching { AutoSayPolicy.load(activity) }
             .onFailure { Log.w(TAG, "[conversation/flow2] auto-say policy unavailable; SAY IT stays manual", it) }
-            .getOrNull()?.let { policy ->
+            .getOrNull()
+    private val autoSay: AutoSay? = autoSayPolicy?.let { policy ->
                 AutoSay(policy, { delayMs, task -> main.postDelayed(task, delayMs) }, main::removeCallbacks,
                     onCountdown = { seconds ->
                         autoSaySeconds = seconds
@@ -156,7 +157,10 @@ class ConversationFlowController(
     /** What SAY IT should speak for [words]: the chosen wording, or null if [words] are not the message. */
     fun chosenFor(words: String): String? = state.message?.takeIf { it.signedWords == words.trim() }?.chosen
 
-    /** The WORD recognizer is mid-sign right now: auto-say waits for the signer to stop again. */
+    /** Camera-height fraction above which a hand counts as raised for auto-say; null when auto-say is off. */
+    val autoSayRaisedHandMaxY: Float? get() = autoSay?.let { autoSayPolicy?.raisedHandMaxY }
+
+    /** The signer is mid-sign or has a hand raised: auto-say waits for them to stop again. */
     fun signingActivity() {
         autoSay?.activity()
     }
@@ -316,6 +320,7 @@ class ConversationFlowController(
     }
 
     override fun failed(ticket: Long, failure: ListenFailure) {
+        ConversationTimeline.mark("listen_failed", "reason" to failure.name)
         main.post { apply(ConversationFlow.listenFailed(state, ticket, failure)) }
     }
 

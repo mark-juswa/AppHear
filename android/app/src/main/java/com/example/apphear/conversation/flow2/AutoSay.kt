@@ -10,28 +10,35 @@ data class AutoSayPolicy(
     val stillnessMs: Long,
     /** The visible "SAYING IN 3, 2, 1" countdown before the message is spoken. */
     val countdownMs: Long,
+    /**
+     * A hand with any joint above this fraction of the camera height counts as raised: the signer is
+     * still signing (or about to), so no countdown starts, however long the gap between words.
+     */
+    val raisedHandMaxY: Float,
 ) {
     init {
         require(stillnessMs in MIN_STILLNESS_MS..MAX_STILLNESS_MS) { "[conversation/autosay] stillnessMs out of range" }
         require(countdownMs in MIN_COUNTDOWN_MS..MAX_COUNTDOWN_MS) { "[conversation/autosay] countdownMs out of range" }
+        require(raisedHandMaxY in 0.3f..1f) { "[conversation/autosay] raisedHandMaxY out of range" }
     }
 
     companion object {
         const val ASSET = "conversation/auto_say_policy_v1.json"
-        const val SCHEMA_VERSION = 1
+        const val SCHEMA_VERSION = 2
         const val MIN_STILLNESS_MS = 1_000L
         const val MAX_STILLNESS_MS = 8_000L
         const val MIN_COUNTDOWN_MS = 1_000L
         const val MAX_COUNTDOWN_MS = 5_000L
 
-        fun parse(schemaVersion: Int, stillnessMs: Long, countdownMs: Long): AutoSayPolicy {
+        fun parse(schemaVersion: Int, stillnessMs: Long, countdownMs: Long, raisedHandMaxY: Double): AutoSayPolicy {
             require(schemaVersion == SCHEMA_VERSION) { "[conversation/autosay] schema mismatch" }
-            return AutoSayPolicy(stillnessMs, countdownMs)
+            return AutoSayPolicy(stillnessMs, countdownMs, raisedHandMaxY.toFloat())
         }
 
         fun load(context: Context): AutoSayPolicy {
             val json = JSONObject(context.assets.open(ASSET).bufferedReader().use { it.readText() })
-            return parse(json.getInt("schemaVersion"), json.getLong("stillnessMs"), json.getLong("countdownMs"))
+            return parse(json.getInt("schemaVersion"), json.getLong("stillnessMs"), json.getLong("countdownMs"),
+                json.getDouble("raisedHandMaxY"))
         }
     }
 }
@@ -39,7 +46,8 @@ data class AutoSayPolicy(
 /**
  * conversationAutoSay: speaks the signer's message once they stop signing, without a tap.
  *
- * When there is a message the signer may say and they have been still for [AutoSayPolicy.stillnessMs],
+ * When there is a message the signer may say and they have been still (no sign in progress and no
+ * raised hand; see [AutoSayPolicy.raisedHandMaxY]) for [AutoSayPolicy.stillnessMs],
  * a visible countdown runs and then [onFire] says the message. Signing again resets the wait (new words
  * are added, nothing is cut off); WAIT holds this message until its words change; a message that was
  * already said is never said again automatically. Scheduling is injected so this runs in plain JVM

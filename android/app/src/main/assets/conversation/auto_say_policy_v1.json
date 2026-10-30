@@ -1,5 +1,6 @@
 {
-  "schemaVersion": 1,
-  "stillnessMs": 2500,
-  "countdownMs": 3000
+  "schemaVersion": 2,
+  "stillnessMs": 3500,
+  "countdownMs": 3000,
+  "raisedHandMaxY": 0.8
 }

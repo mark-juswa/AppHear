@@ -31,7 +31,7 @@ class AutoSayTest {
     private val clock = FakeScheduler()
     private val ticks = mutableListOf<Int?>()
     private var fired = 0
-    private val autoSay = AutoSay(AutoSayPolicy(stillnessMs = 2_500, countdownMs = 3_000),
+    private val autoSay = AutoSay(AutoSayPolicy(stillnessMs = 2_500, countdownMs = 3_000, raisedHandMaxY = 0.8f),
         clock::schedule, clock::unschedule, { ticks += it }, { fired++ })
 
     @Test fun `still signer gets a 3-2-1 countdown and the message is said once`() {
@@ -64,6 +64,17 @@ class AutoSayTest {
         assertEquals(listOf<Int?>(3, null), ticks)
         assertFalse(autoSay.counting)
 
+        clock.advance(5_500)
+        assertEquals(1, fired)
+    }
+
+    @Test fun `raised hands keep the signer's turn open across long gaps between words`() {
+        autoSay.update("ME", canSay = true)
+        // Hands stay up (one activity per camera frame, ~4 per second) for 10 seconds without a new word.
+        repeat(40) { clock.advance(250); autoSay.activity() }
+        assertTrue(ticks.isEmpty())
+        assertEquals(0, fired)
+        // Hands down: the wait and the countdown run, then the message is said.
         clock.advance(5_500)
         assertEquals(1, fired)
     }
@@ -134,15 +145,17 @@ class AutoSayTest {
     }
 
     @Test fun `policy rejects out-of-range timings and other schema versions`() {
-        assertThrows(IllegalArgumentException::class.java) { AutoSayPolicy(stillnessMs = 500, countdownMs = 3_000) }
-        assertThrows(IllegalArgumentException::class.java) { AutoSayPolicy(stillnessMs = 2_500, countdownMs = 9_000) }
-        assertThrows(IllegalArgumentException::class.java) { AutoSayPolicy.parse(2, 2_500, 3_000) }
+        assertThrows(IllegalArgumentException::class.java) { AutoSayPolicy(500, 3_000, 0.8f) }
+        assertThrows(IllegalArgumentException::class.java) { AutoSayPolicy(2_500, 9_000, 0.8f) }
+        assertThrows(IllegalArgumentException::class.java) { AutoSayPolicy(2_500, 3_000, 0.1f) }
+        assertThrows(IllegalArgumentException::class.java) { AutoSayPolicy.parse(1, 2_500, 3_000, 0.8) }
     }
 
     @Test fun `shipped policy asset parses`() {
         val json = JsonParser.parseString(
             String(Files.readAllBytes(Path.of("src/main/assets/${AutoSayPolicy.ASSET}")))).asJsonObject
-        val policy = AutoSayPolicy.parse(json["schemaVersion"].asInt, json["stillnessMs"].asLong, json["countdownMs"].asLong)
-        assertEquals(AutoSayPolicy(2_500, 3_000), policy)
+        val policy = AutoSayPolicy.parse(json["schemaVersion"].asInt, json["stillnessMs"].asLong, json["countdownMs"].asLong,
+            json["raisedHandMaxY"].asDouble)
+        assertEquals(AutoSayPolicy(3_500, 3_000, 0.8f), policy)
     }
 }

@@ -135,6 +135,8 @@ class RecognitionActivity : AppCompatActivity() {
     private var conversationFlow: com.example.apphear.conversation.flow2.ConversationFlowController? = null
     /** conversationFlowV2: set on the main thread while the hearing person replies; read on the camera thread. */
     @Volatile private var conversationHold = false
+    /** conversationAutoSay raised-hand threshold (camera-height fraction); NaN when auto-say is off. */
+    @Volatile private var autoSayHandsUpY = Float.NaN
     private var conversationHoldActive = false // camera thread
     private lateinit var ruD1: RuD1Diagnostics
     private var ruD1Transitioning = false
@@ -323,6 +325,7 @@ class RecognitionActivity : AppCompatActivity() {
             })
         conversationFlow = flow
         speakSentence = { flow.sayText(it) }
+        flow.autoSayRaisedHandMaxY?.let { autoSayHandsUpY = it }
     }
 
     /** The Clear button's reset; also used when a reused screen starts a new hearing turn. */
@@ -684,6 +687,9 @@ class RecognitionActivity : AppCompatActivity() {
                                 // Routing policy reads current visibility/idle only; Candidate01 and WORD are unchanged.
                                 coordination?.observation(session.isReady,(0..1).any { s ->
                                     observation.handObserved[s] && observation.handJointValid[s].any { it } })
+                                if (signerHandsUp(observation)) runOnUiThread {
+                                    if (!isFinishing && !isDestroyed) conversationFlow?.signingActivity()
+                                }
                                 val spelling = fingerspellRuntime
                                 if (conversationHolds() || placementOwns(observation)) {
                                     true // A raised hand left the guide: WORD sees no frames until it is back.
@@ -1128,6 +1134,21 @@ class RecognitionActivity : AppCompatActivity() {
             return true
         }
         return false
+    }
+
+    /**
+     * conversationAutoSay, camera thread: a hand with a joint above the raised-hand line means the signer
+     * is still signing or about to, so auto-say keeps waiting even when no new word has committed yet.
+     */
+    private fun signerHandsUp(observation: PhoneRawObservation): Boolean {
+        val limit = autoSayHandsUpY
+        if (limit.isNaN()) return false
+        val height = observation.sourceHeight.toFloat()
+        return (0..1).any { side ->
+            observation.handObserved[side] && (0 until 21).any { joint ->
+                observation.handJointValid[side][joint] && observation.handXy[side][joint * 2 + 1] / height < limit
+            }
+        }
     }
 
     /** Shoulders, hips and hand joints in the guide's view coordinates (mirrored like the preview). */

@@ -19,8 +19,8 @@ The whole conversation stays on the recognition screen. The existing bottom shee
 4. Signing again moves the reply into **RECENT** history (expanded sheet, up to six exchanges, AppHear2
    chat bubbles; tap a reply bubble to sign it again).
 
-**Auto-say** (`conversationAutoSay`, on in the Lab build): once the signer has been still for 2.5 s after
-their last sign, the pill counts down **SAYING IN 3, 2, 1** and then says the message, exactly like tapping
+**Auto-say** (`conversationAutoSay`, on in the Lab build): once the signer's hands are down (no hand above
+80% of the camera height) and no sign is in progress for 3.5 s, the pill counts down **SAYING IN 3, 2, 1** and then says the message, exactly like tapping
 SAY IT. Signing again restarts the wait and adds the new words; tapping the pill says it now; **WAIT** holds
 this message until its words change. A message is never auto-said twice. Word signing only: fingerspelling
 keeps its confirm step. Timings: `assets/conversation/auto_say_policy_v1.json`.
