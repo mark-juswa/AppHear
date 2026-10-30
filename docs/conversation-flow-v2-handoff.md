@@ -30,12 +30,18 @@ signs, WORD recognition skips camera frames (fingerspelling pauses too), so the 
 cannot commit a word. The sheet says "Sign detection paused while they reply". When it ends, the word
 session restarts (the placement gate's own reset).
 
-**Positioning guide** (`placementGuide`, `placementGate`): replaces the fixed frame, dim overlay and
-pop-up. Corner brackets follow the signer's signing space (shoulders/hips): teal when centered at a
-comfortable distance, tan with a hint pill ("Move left", "Move right", "Step back a little", "Come a
-little closer", "Step into the middle") otherwise, red while paused. The gate pauses WORD only for a
-raised hand cut off by the edge or the signer far off-center; distance is a hint only. Thresholds:
-`assets/placement/position_policy_v1.json`.
+**Positioning guide** (`placementGuide`; visual only in the Lab build, `placementGate` off): a
+person-shaped placeholder (head, shoulders, torso, arms in a signing pose) marks where the signer should
+stand, sized for a comfortable distance; it pulses while nobody is detected. The detected signer is drawn
+as a soft body shape on top of them (estimated head, torso from shoulders/hips, arms through elbows and
+wrists, hand joints), built only from points the recognizer already tracks: no extra model, no effect on
+recognition speed. Both turn teal when lined up ("Good spot"); otherwise chevrons point toward the
+placeholder and a pill says "Shift into the outline", "A little too close", "A little too far" or "Stand
+in the outline". Thresholds: `assets/placement/position_policy_v1.json`.
+
+**Status text**: with the flag on, "Initializing recognition..." shows only during the first start-up, and
+"...signing..." is not shown before the recognizer has been ready once. Restarts after a reply and the V4
+hybrid's wait between a sign and its word show the normal idle text.
 
 Listening failures show **NOT HEARD**, **COULDN'T LISTEN** or **MICROPHONE OFF** with LISTEN/TYPE REPLY.
 If in-app listening is unavailable or the microphone is denied, the old system dialog is used once.
@@ -44,7 +50,7 @@ If in-app listening is unavailable or the microphone is denied, the old system d
 
 ```powershell
 # Same switches as the everyday app build (private keys from the gitignored android/gradle.properties).
-& 'I:\AppHear-Conversation-Claude\build-lab.ps1' -Private -Log 'lab.log' -Extra @('-PconversationFlowV2=true','-PconversationLab=true','-PconversationAutoSay=true','-PsentenceAssist=visible','-PllmFallback=true','-PrecognitionModeToolbar=true','-PplacementGuide=true','-PplacementGate=true','-PconversationTimeline=true','-PdefaultRecognitionEngine=EXPERIMENTAL_WORD_V4_HYBRID')
+& 'I:\AppHear-Conversation-Claude\build-lab.ps1' -Private -Log 'lab.log' -Extra @('-PconversationFlowV2=true','-PconversationLab=true','-PconversationAutoSay=true','-PsentenceAssist=visible','-PllmFallback=true','-PrecognitionModeToolbar=true','-PplacementGuide=true','-PconversationTimeline=true','-PdefaultRecognitionEngine=EXPERIMENTAL_WORD_V4_HYBRID')
 ```
 
 Recognition: the V4 engines were copied (not merged) from `v4/recognition` @ `80a8f103`; the Lab starts on

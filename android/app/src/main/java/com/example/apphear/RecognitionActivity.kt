@@ -116,6 +116,8 @@ class RecognitionActivity : AppCompatActivity() {
     private var analyzer: CloseableFrameAnalyzer? = null
     private var cameraProvider: ProcessCameraProvider? = null
     private var frameCount = 0
+    /** conversationFlowV2: the recognizer has been ready at least once since this screen opened. */
+    private var phoneEverReady = false
     private var phoneAnalysis: ImageAnalysis? = null
     @Volatile private var cameraGeneration = 0
     private var processingCameraGeneration = 0
@@ -1016,7 +1018,13 @@ class RecognitionActivity : AppCompatActivity() {
                 return@runOnUiThread
             }
 
-            if (r.phoneReady == false && r.recognition is com.example.apphear.pipeline.recognition.RecognitionState.Idle) {
+            if (r.phoneReady == true) phoneEverReady = true
+            // conversationFlowV2: "Initializing" (and no "signing") only during the first start-up. Later
+            // restarts (after a reply, a camera switch) and the V4 hybrid's wait between a sign and its
+            // word show the normal idle text instead. Flag off: unchanged.
+            val initializing = if (BuildConfig.CONVERSATION_FLOW_V2_ENABLED) r.phoneReady == false && !phoneEverReady
+                else r.phoneReady == false && r.recognition is com.example.apphear.pipeline.recognition.RecognitionState.Idle
+            if (initializing) {
                 binding.glossText.text = "Initializing recognition…"
                 binding.altText.visibility = View.GONE
                 binding.sentenceText.text = sentenceAssistDisplay(r.phoneSentence.orEmpty()
@@ -1067,6 +1075,8 @@ class RecognitionActivity : AppCompatActivity() {
             PositionGuide.Status.HAND_OUT to getString(R.string.placement_hint_hand_out),
         )
         guide.inPositionText = getString(R.string.placement_in_position)
+        // The placeholder is drawn at the middle of the comfortable distance range.
+        guide.targetShoulderWidth = (policy.minShoulderWidth + policy.maxShoulderWidth) / 2f
         guide.pausedText = getString(R.string.placement_paused)
         binding.bottomSheet.addOnLayoutChangeListener { sheet, _, top, _, _, _, _, _, _ ->
             guide.bottomLimit = if (sheet.visibility == View.VISIBLE) top.toFloat() else Float.NaN
@@ -1082,21 +1092,22 @@ class RecognitionActivity : AppCompatActivity() {
     private fun placementOwns(observation: PhoneRawObservation): Boolean {
         val guide = positionGuide ?: return false
         val mapping = binding.placementGuide.mapping ?: return false
-        val assessment = guide.assess(positionBody(observation, mapping))
+        val body = positionBody(observation, mapping)
+        val assessment = guide.assess(body)
         if (selectedRecognitionMode != RecognitionMode.WORD || fingerspellRuntime?.fingerspellOwnsFrames == true) {
             // Fingerspelling owns the camera and resets the word session itself: guidance only, no gate.
             if (placementTracking) {
                 placementTracking = false
                 guide.reset()
             }
-            binding.placementGuide.post { binding.placementGuide.show(assessment, false) }
+            binding.placementGuide.post { binding.placementGuide.show(assessment, false, body) }
             return false
         }
         placementTracking = true
         val decision = guide.update(assessment)
         if (decision.resumeNow) phoneAnalyzer?.resetTemporalSession()
         val showPaused = decision.paused && !decision.resumeNow
-        binding.placementGuide.post { binding.placementGuide.show(assessment, showPaused) }
+        binding.placementGuide.post { binding.placementGuide.show(assessment, showPaused, body) }
         if (decision.pauseChanged) runOnUiThread {
             if (!isFinishing && !isDestroyed) {
                 ConversationTimeline.mark(if (showPaused) "placement_paused" else "placement_resumed")
@@ -1155,7 +1166,7 @@ class RecognitionActivity : AppCompatActivity() {
     private fun positionBody(observation: PhoneRawObservation, mapping: com.example.apphear.placement.PlacementGuideView.Mapping): PositionGuide.Body {
         val w = observation.sourceWidth.toFloat()
         val h = observation.sourceHeight.toFloat()
-        // Candidate01 body points 0, 1 are the shoulders and 6, 7 the hips (whole-body 5, 6, 11, 12).
+        // Candidate01 body points: 0, 1 shoulders, 2, 3 elbows, 4, 5 wrists, 6, 7 hips (whole-body 5..12).
         fun body(point: Int) = if (observation.bodyValid[point])
             mapping.toView(observation.bodyXy[point * 2] / w, observation.bodyXy[point * 2 + 1] / h) else null
         val hands = (0..1).filter { observation.handObserved[it] }.map { side ->
@@ -1163,7 +1174,8 @@ class RecognitionActivity : AppCompatActivity() {
                 mapping.toView(observation.handXy[side][joint * 2] / w, observation.handXy[side][joint * 2 + 1] / h)
             }
         }
-        return PositionGuide.Body(body(0), body(1), body(6), body(7), hands)
+        return PositionGuide.Body(body(0), body(1), body(6), body(7), hands,
+            leftElbow = body(2), rightElbow = body(3), leftWrist = body(4), rightWrist = body(5))
     }
 
     /**

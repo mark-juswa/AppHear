@@ -5,24 +5,30 @@ import android.graphics.Canvas
 import android.graphics.DashPathEffect
 import android.graphics.Paint
 import android.graphics.Path
+import android.graphics.PointF
 import android.graphics.RectF
 import android.os.SystemClock
 import android.util.AttributeSet
 import android.view.View
 import com.example.apphear.R
 import com.example.apphear.placement.PositionGuide.Status
+import kotlin.math.abs
+import kotlin.math.hypot
 import kotlin.math.max
 import kotlin.math.min
+import kotlin.math.sin
 
 /**
- * Augmented signing-position guide over the camera preview. Corner brackets follow the signer's
- * signing space (from their shoulders and hips), teal when they are centered at a comfortable
- * distance, tan when they should adjust and red while placementGate pauses recognition. When they
- * are off-center or not in view, a faint target shows where to stand, and a dark-glass pill (the
- * RECOGNIZED card's colour) says what to do. It never takes touches.
+ * Augmented signing-position guide over the camera preview, for whoever sets the phone up.
+ *
+ * A person-shaped placeholder (head, shoulders, torso, arms in a signing pose) marks where the signer
+ * should stand, sized for a comfortable distance. The detected signer is drawn as a soft body shape
+ * on top of them, built only from the body and hand points the recognizer already tracks (no extra
+ * model, so recognition speed is untouched). Both turn teal when they line up; otherwise chevrons
+ * point toward the placeholder and a pill says what to adjust. It never takes touches.
  *
  * [mapping] converts camera-image coordinates into this view's normalized coordinates with the same
- * FILL_CENTER crop and front-camera mirroring as the preview, so the guide sits on the signer.
+ * FILL_CENTER crop and front-camera mirroring as the preview, so the overlay sits on the signer.
  */
 class PlacementGuideView @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null,
@@ -46,13 +52,13 @@ class PlacementGuideView @JvmOverloads constructor(
     }
 
     private val density = resources.displayMetrics.density
-    private val bracketPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
-        style = Paint.Style.STROKE; strokeWidth = 3.5f * density; strokeCap = Paint.Cap.ROUND
+    private val fill = Paint(Paint.ANTI_ALIAS_FLAG).apply { style = Paint.Style.FILL }
+    private val outline = Paint(Paint.ANTI_ALIAS_FLAG).apply {
+        style = Paint.Style.STROKE; strokeWidth = 2.5f * density; strokeJoin = Paint.Join.ROUND; strokeCap = Paint.Cap.ROUND
     }
-    private val targetPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
-        style = Paint.Style.STROKE; strokeWidth = 2f * density; color = 0x66FFFFFF
-        pathEffect = DashPathEffect(floatArrayOf(8f * density, 7f * density), 0f)
-    }
+    private val dashed = DashPathEffect(floatArrayOf(10f * density, 8f * density), 0f)
+    private val limb = Paint(Paint.ANTI_ALIAS_FLAG).apply { style = Paint.Style.STROKE; strokeCap = Paint.Cap.ROUND }
+    private val dot = Paint(Paint.ANTI_ALIAS_FLAG).apply { style = Paint.Style.FILL }
     private val pillPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply { color = 0x9C303738.toInt() }
     private val pillText = Paint(Paint.ANTI_ALIAS_FLAG).apply {
         color = 0xFFFFFFFF.toInt(); textSize = 14f * density; textAlign = Paint.Align.CENTER
@@ -60,20 +66,23 @@ class PlacementGuideView @JvmOverloads constructor(
     }
     private val subText = Paint(pillText).apply { textSize = 11.5f * density; color = 0xD9FFFFFF.toInt() }
     private val path = Path()
-    private val target = RectF()
-    private val smooth = RectF()
-    private var hasSmooth = false
 
     private var imageWidth = 0
     private var imageHeight = 0
     private var frontCamera = true
     private var assessment: PositionGuide.Assessment? = null
+    private var body: PositionGuide.Body? = null
     private var paused = false
     private var centeredSinceMs = 0L
+    /** Eased screen positions of the drawn body points, keyed by part, so the overlay glides. */
+    private val eased = HashMap<String, PointF>()
 
     /** Top of the bottom panel in this view's coordinates; the guide stays above it. */
     var bottomLimit: Float = Float.NaN
         set(value) { field = value; invalidate() }
+
+    /** Shoulder width (fraction of view width) the placeholder is drawn at: the comfortable distance. */
+    var targetShoulderWidth: Float = 0.36f
 
     /** Text for each status; set by the screen from string resources. */
     var hints: Map<Status, String> = emptyMap()
@@ -89,21 +98,23 @@ class PlacementGuideView @JvmOverloads constructor(
         updateMapping()
     }
 
-    /** The latest assessment of the signer; [paused] while placementGate holds recognition. */
-    fun show(newAssessment: PositionGuide.Assessment, newPaused: Boolean) {
+    /** The latest assessment and body points (view-normalized); [paused] while placementGate holds recognition. */
+    fun show(newAssessment: PositionGuide.Assessment, newPaused: Boolean, newBody: PositionGuide.Body?) {
         val wasCentered = assessment?.status == Status.CENTERED
         if (newAssessment.status == Status.CENTERED && !wasCentered) centeredSinceMs = SystemClock.uptimeMillis()
         assessment = newAssessment
         paused = newPaused
-        if (newAssessment.anchor == null) hasSmooth = false
+        body = newBody
+        if (newAssessment.anchor == null) eased.clear()
         invalidate()
     }
 
-    /** Nothing to show (fingerspelling owns the camera, the screen stopped, or a conversation hold). */
+    /** Nothing to show (the screen stopped, or a conversation hold). */
     fun clear() {
         assessment = null
+        body = null
         paused = false
-        hasSmooth = false
+        eased.clear()
         invalidate()
     }
 
@@ -122,78 +133,189 @@ class PlacementGuideView @JvmOverloads constructor(
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
         val current = assessment ?: return
-        val anchor = current.anchor
+        val top = TOP_CLEARANCE_DP * density
         val floor = if (bottomLimit.isNaN() || bottomLimit <= 0f) height.toFloat() else bottomLimit - 8f * density
-        if (anchor != null) {
-            spaceAround(anchor.centerX, anchor, floor, target)
-            // Ease toward the new position so the brackets glide with the signer instead of jittering.
-            if (!hasSmooth) { smooth.set(target); hasSmooth = true } else {
-                smooth.left += (target.left - smooth.left) * EASE; smooth.top += (target.top - smooth.top) * EASE
-                smooth.right += (target.right - smooth.right) * EASE; smooth.bottom += (target.bottom - smooth.bottom) * EASE
+        if (floor - top < 120f * density) return
+        val centered = current.status == Status.CENTERED
+        val person = current.anchor != null
+
+        // The placeholder: where the signer should stand.
+        val target = placeholder(top, floor)
+        val pulse = if (person) 1f else (0.65f + 0.35f * sin(SystemClock.uptimeMillis() / 420.0).toFloat())
+        drawPlaceholder(canvas, target, centered, pulse)
+
+        // The detected signer, drawn on top of them.
+        val shape = if (person) personShape() else null
+        if (shape != null) {
+            val color = when {
+                paused || current.status == Status.HAND_OUT -> RED
+                centered -> TEAL
+                else -> CREAM
             }
-            bracketPaint.color = when {
-                paused || current.status == Status.HAND_OUT -> 0xFFFF4455.toInt()
-                current.status == Status.CENTERED -> 0xFF2AA897.toInt()
-                else -> 0xFFE9D8B8.toInt()
-            }
+            drawPerson(canvas, shape, color)
             if (current.status == Status.MOVE_LEFT || current.status == Status.MOVE_RIGHT) {
-                spaceAround(0.5f, anchor, floor, target)
-                drawBrackets(canvas, target, targetPaint)
+                drawChevrons(canvas, shape.center, target.center, shape.shoulderY)
             }
-            drawBrackets(canvas, smooth, bracketPaint)
-        } else {
-            drawStandHere(canvas, floor)
         }
+
         val label = when {
-            current.status == Status.CENTERED ->
-                inPositionText.takeIf { SystemClock.uptimeMillis() - centeredSinceMs < IN_POSITION_SHOW_MS }
-                    .also { if (it != null) postInvalidateDelayed(IN_POSITION_SHOW_MS) }
+            centered -> inPositionText.takeIf { SystemClock.uptimeMillis() - centeredSinceMs < IN_POSITION_SHOW_MS }
+                ?.also { postInvalidateDelayed(IN_POSITION_SHOW_MS) }
             else -> hints[current.status]
         }
         if (label != null) drawPill(canvas, label, pausedText.takeIf { paused })
+        // Keep the placeholder breathing, and the chevrons moving, only while they are shown.
+        // ~20 frames a second is smooth enough here and keeps the UI thread light.
+        if (!person || current.status == Status.MOVE_LEFT || current.status == Status.MOVE_RIGHT) {
+            postInvalidateDelayed(ANIMATION_FRAME_MS)
+        }
     }
 
-    /** The signing space for a torso centered at [centerX]: room above the head for raised signs. */
-    private fun spaceAround(centerX: Float, anchor: PositionGuide.Anchor, floor: Float, out: RectF) {
-        val shoulderPx = anchor.shoulderWidth * width
-        val cx = centerX * width
-        val shoulderY = anchor.shoulderY * height
-        val bottom = anchor.hipY?.let { it * height + shoulderPx * 0.15f } ?: (shoulderY + shoulderPx * 1.6f)
-        out.set(cx - shoulderPx * 1.5f, max(shoulderY - shoulderPx * 1.35f, TOP_CLEARANCE_DP * density),
-            cx + shoulderPx * 1.5f, min(bottom, floor))
+    /** Geometry shared by the placeholder and the detected person. */
+    private class Figure(val center: PointF, val shoulderY: Float, val shoulderWidth: Float)
+
+    private class PersonShape(
+        val center: PointF, val shoulderY: Float, val shoulderWidth: Float,
+        val leftShoulder: PointF, val rightShoulder: PointF, val leftHip: PointF, val rightHip: PointF,
+        val leftElbow: PointF?, val rightElbow: PointF?, val leftWrist: PointF?, val rightWrist: PointF?,
+        val hands: List<List<PointF>>,
+    )
+
+    private fun placeholder(top: Float, floor: Float): Figure {
+        // Head top to hips is about 2.6 shoulder widths; keep the figure inside the visible camera area.
+        val shoulderWidth = min(targetShoulderWidth * width, (floor - top) * 0.92f / FIGURE_HEIGHT)
+        val shoulderY = top + (floor - top - FIGURE_HEIGHT * shoulderWidth) / 2f + HEAD_ABOVE * shoulderWidth
+        return Figure(PointF(width / 2f, shoulderY), shoulderY, shoulderWidth)
     }
 
-    /** No one in view: a faint head-and-shoulders target in the center. */
-    private fun drawStandHere(canvas: Canvas, floor: Float) {
-        val cx = width / 2f
-        val headRadius = width * 0.1f
-        val headCy = max(height * 0.3f, TOP_CLEARANCE_DP * density + headRadius * 1.6f)
-        if (headCy + headRadius * 3f > floor) return
-        canvas.drawCircle(cx, headCy, headRadius, targetPaint)
-        val shoulderY = headCy + headRadius * 1.75f
-        val half = width * 0.26f
+    private fun drawPlaceholder(canvas: Canvas, f: Figure, centered: Boolean, pulse: Float) {
+        val sw = f.shoulderWidth
+        val cx = f.center.x
+        val y = f.shoulderY
+        val color = if (centered) TEAL else 0xFFFFFFFF.toInt()
+        // Arms in a signing pose: elbows out, hands in front of the chest.
+        limb.strokeWidth = 0.17f * sw
+        limb.color = withAlpha(color, (if (centered) 0x40 else 0x26) * pulse)
+        for (side in listOf(-1f, 1f)) {
+            path.reset()
+            path.moveTo(cx + side * 0.5f * sw, y + 0.12f * sw)
+            path.lineTo(cx + side * 0.66f * sw, y + 0.82f * sw)
+            path.lineTo(cx + side * 0.2f * sw, y + (if (side < 0) 0.55f else 0.45f) * sw)
+            canvas.drawPath(path, limb)
+        }
+        // Head and torso: a light fill with a dashed outline (solid teal once the signer lines up).
+        buildBust(cx, y, sw, y + HIP_BELOW * sw)
+        fill.color = withAlpha(color, (if (centered) 0x33 else 0x1A) * pulse)
+        canvas.drawPath(path, fill)
+        canvas.drawCircle(cx, y - HEAD_ABOVE_CENTER * sw, HEAD_RADIUS * sw, fill)
+        outline.color = withAlpha(color, 0xD9 * pulse)
+        outline.pathEffect = if (centered) null else dashed
+        canvas.drawPath(path, outline)
+        canvas.drawCircle(cx, y - HEAD_ABOVE_CENTER * sw, HEAD_RADIUS * sw, outline)
+        outline.pathEffect = null
+    }
+
+    /** Neck, rounded shoulders and torso down to [hipY], into [path]. */
+    private fun buildBust(cx: Float, y: Float, sw: Float, hipY: Float) {
+        val neck = 0.13f * sw
         path.reset()
-        path.moveTo(cx - half, shoulderY + headRadius * 1.1f)
-        path.quadTo(cx - half, shoulderY, cx - headRadius * 1.1f, shoulderY)
-        path.lineTo(cx + headRadius * 1.1f, shoulderY)
-        path.quadTo(cx + half, shoulderY, cx + half, shoulderY + headRadius * 1.1f)
-        canvas.drawPath(path, targetPaint)
+        path.moveTo(cx - neck, y - 0.16f * sw)
+        path.quadTo(cx - 0.44f * sw, y - 0.12f * sw, cx - 0.5f * sw, y + 0.08f * sw)
+        path.cubicTo(cx - 0.56f * sw, y + 0.5f * sw, cx - 0.44f * sw, hipY - 0.35f * sw, cx - 0.42f * sw, hipY)
+        path.lineTo(cx + 0.42f * sw, hipY)
+        path.cubicTo(cx + 0.44f * sw, hipY - 0.35f * sw, cx + 0.56f * sw, y + 0.5f * sw, cx + 0.5f * sw, y + 0.08f * sw)
+        path.quadTo(cx + 0.44f * sw, y - 0.12f * sw, cx + neck, y - 0.16f * sw)
+        path.close()
     }
 
-    private fun drawBrackets(canvas: Canvas, box: RectF, paint: Paint) {
-        if (box.width() <= 0f || box.height() <= 0f) return
-        val len = min(box.width(), box.height()) * 0.16f
-        val r = 14f * density
+    private fun personShape(): PersonShape? {
+        val b = body ?: return null
+        val ls = ease("ls", b.leftShoulder) ?: return null
+        val rs = ease("rs", b.rightShoulder) ?: return null
+        val sw = hypot(rs.x - ls.x, rs.y - ls.y)
+        if (sw < 12f * density) return null
+        val shoulderY = (ls.y + rs.y) / 2f
+        val center = PointF((ls.x + rs.x) / 2f, shoulderY)
+        val left = if (ls.x <= rs.x) ls else rs
+        val right = if (left === ls) rs else ls
+        // Hips when seen; otherwise straight down from the shoulders, as far as a torso usually reaches.
+        val lh = ease("lh", b.leftHip) ?: PointF(center.x - 0.42f * sw, shoulderY + HIP_BELOW * sw)
+        val rh = ease("rh", b.rightHip) ?: PointF(center.x + 0.42f * sw, shoulderY + HIP_BELOW * sw)
+        val leftHip = if (lh.x <= rh.x) lh else rh
+        val rightHip = if (leftHip === lh) rh else lh
+        val hands = b.hands.map { joints -> joints.map { PointF(it.x * width, it.y * height) } }
+        return PersonShape(center, shoulderY, sw, left, right, leftHip, rightHip,
+            ease("le", b.leftElbow), ease("re", b.rightElbow), ease("lw", b.leftWrist), ease("rw", b.rightWrist), hands)
+    }
+
+    private fun drawPerson(canvas: Canvas, s: PersonShape, color: Int) {
+        val sw = s.shoulderWidth
+        // Arms first, under the torso: shoulder -> elbow -> wrist, as soft capsules.
+        limb.strokeWidth = 0.18f * sw
+        limb.color = withAlpha(color, 0x4D)
+        for ((shoulder, elbow, wrist) in listOf(Triple(s.leftShoulder, s.leftElbow, s.leftWrist),
+                Triple(s.rightShoulder, s.rightElbow, s.rightWrist))) {
+            if (elbow == null) continue
+            path.reset()
+            path.moveTo(shoulder.x, shoulder.y)
+            path.lineTo(elbow.x, elbow.y)
+            wrist?.let { path.lineTo(it.x, it.y) }
+            canvas.drawPath(path, limb)
+        }
+        // Torso from the real shoulders and hips, with rounded shoulders.
         path.reset()
-        path.moveTo(box.left, box.top + len); path.lineTo(box.left, box.top + r)
-        path.quadTo(box.left, box.top, box.left + r, box.top); path.lineTo(box.left + len, box.top)
-        path.moveTo(box.right - len, box.top); path.lineTo(box.right - r, box.top)
-        path.quadTo(box.right, box.top, box.right, box.top + r); path.lineTo(box.right, box.top + len)
-        path.moveTo(box.right, box.bottom - len); path.lineTo(box.right, box.bottom - r)
-        path.quadTo(box.right, box.bottom, box.right - r, box.bottom); path.lineTo(box.right - len, box.bottom)
-        path.moveTo(box.left + len, box.bottom); path.lineTo(box.left + r, box.bottom)
-        path.quadTo(box.left, box.bottom, box.left, box.bottom - r); path.lineTo(box.left, box.bottom - len)
-        canvas.drawPath(path, paint)
+        path.moveTo(s.center.x - 0.13f * sw, s.shoulderY - 0.16f * sw)
+        path.quadTo(s.leftShoulder.x + 0.06f * sw, s.leftShoulder.y - 0.12f * sw, s.leftShoulder.x, s.leftShoulder.y + 0.08f * sw)
+        path.quadTo(s.leftShoulder.x - 0.04f * sw, (s.leftShoulder.y + s.leftHip.y) / 2f, s.leftHip.x, s.leftHip.y)
+        path.lineTo(s.rightHip.x, s.rightHip.y)
+        path.quadTo(s.rightShoulder.x + 0.04f * sw, (s.rightShoulder.y + s.rightHip.y) / 2f, s.rightShoulder.x, s.rightShoulder.y + 0.08f * sw)
+        path.quadTo(s.rightShoulder.x - 0.06f * sw, s.rightShoulder.y - 0.12f * sw, s.center.x + 0.13f * sw, s.shoulderY - 0.16f * sw)
+        path.close()
+        fill.color = withAlpha(color, 0x40)
+        canvas.drawPath(path, fill)
+        outline.color = withAlpha(color, 0xE6)
+        canvas.drawPath(path, outline)
+        // The head is not tracked: drawn where it sits above the shoulders.
+        val headY = s.shoulderY - HEAD_ABOVE_CENTER * sw
+        canvas.drawCircle(s.center.x, headY, HEAD_RADIUS * sw, fill)
+        canvas.drawCircle(s.center.x, headY, HEAD_RADIUS * sw, outline)
+        // Hands: their tracked joints as small dots.
+        dot.color = withAlpha(color, 0xCC)
+        for (hand in s.hands) for (joint in hand) canvas.drawCircle(joint.x, joint.y, 2.4f * density, dot)
+    }
+
+    /** Three chevrons from the signer toward the placeholder, drifting in that direction. */
+    private fun drawChevrons(canvas: Canvas, from: PointF, to: PointF, y: Float) {
+        val gap = to.x - from.x
+        if (abs(gap) < 24f * density) return
+        val direction = if (gap > 0) 1f else -1f
+        val size = 9f * density
+        val drift = ((SystemClock.uptimeMillis() % 900L) / 900f) * size * 1.6f
+        outline.color = withAlpha(CREAM, 0xE6)
+        outline.pathEffect = null
+        val start = from.x + direction * (abs(gap) * 0.25f)
+        for (i in 0 until 3) {
+            val x = start + direction * (i * size * 1.6f + drift)
+            path.reset()
+            path.moveTo(x - direction * size * 0.6f, y - size)
+            path.lineTo(x + direction * size * 0.4f, y)
+            path.lineTo(x - direction * size * 0.6f, y + size)
+            canvas.drawPath(path, outline)
+        }
+    }
+
+    private fun ease(key: String, point: PositionGuide.Point?): PointF? {
+        if (point == null) {
+            eased.remove(key)
+            return null
+        }
+        val x = point.x * width
+        val y = point.y * height
+        val previous = eased[key]
+        val next = if (previous == null) PointF(x, y)
+            else PointF(previous.x + (x - previous.x) * EASE, previous.y + (y - previous.y) * EASE)
+        eased[key] = next
+        return next
     }
 
     /** Below the top row of buttons (back, mode label, camera flip) so it never covers them. */
@@ -203,18 +325,31 @@ class PlacementGuideView @JvmOverloads constructor(
         val textWidth = max(pillText.measureText(text), sub?.let(subText::measureText) ?: 0f)
         val lineGap = 4f * density
         val textHeight = pillText.textSize + (sub?.let { subText.textSize + lineGap } ?: 0f)
-        val top = PILL_TOP_DP * density
-        val rect = RectF(width / 2f - textWidth / 2 - padX, top, width / 2f + textWidth / 2 + padX, top + textHeight + padY * 2)
+        val pillTop = PILL_TOP_DP * density
+        val rect = RectF(width / 2f - textWidth / 2 - padX, pillTop, width / 2f + textWidth / 2 + padX,
+            pillTop + textHeight + padY * 2)
         canvas.drawRoundRect(rect, 22f * density, 22f * density, pillPaint)
         val baseline = rect.top + padY + pillText.textSize * 0.85f
         canvas.drawText(text, width / 2f, baseline, pillText)
         if (sub != null) canvas.drawText(sub, width / 2f, baseline + lineGap + subText.textSize, subText)
     }
 
+    private fun withAlpha(color: Int, alpha: Float): Int = withAlpha(color, alpha.toInt())
+    private fun withAlpha(color: Int, alpha: Int): Int = (alpha.coerceIn(0, 255) shl 24) or (color and 0xFFFFFF)
+
     private companion object {
+        const val TEAL = 0xFF2AA897.toInt()
+        const val CREAM = 0xFFF6EBDD.toInt()
+        const val RED = 0xFFFF4455.toInt()
         const val EASE = 0.45f
+        const val HEAD_RADIUS = 0.3f
+        const val HEAD_ABOVE_CENTER = 0.78f
+        const val HEAD_ABOVE = HEAD_ABOVE_CENTER + HEAD_RADIUS
+        const val HIP_BELOW = 1.35f
+        const val FIGURE_HEIGHT = HEAD_ABOVE + HIP_BELOW
         const val IN_POSITION_SHOW_MS = 1_500L
+        const val ANIMATION_FRAME_MS = 50L
         const val PILL_TOP_DP = 120f
-        const val TOP_CLEARANCE_DP = 112f
+        const val TOP_CLEARANCE_DP = 168f
     }
 }

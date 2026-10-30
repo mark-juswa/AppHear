@@ -79,13 +79,20 @@ class PositionGuide(private val policy: Policy) {
 
     class Point(val x: Float, val y: Float)
 
-    /** Shoulders and hips (null when not seen) and each visible hand's valid joints. */
+    /**
+     * Shoulders and hips (null when not seen) and each visible hand's valid joints. Elbows and wrists
+     * are only drawn by the guide; the assessment never uses them.
+     */
     class Body(
         val leftShoulder: Point?,
         val rightShoulder: Point?,
         val leftHip: Point?,
         val rightHip: Point?,
         val hands: List<List<Point>>,
+        val leftElbow: Point? = null,
+        val rightElbow: Point? = null,
+        val leftWrist: Point? = null,
+        val rightWrist: Point? = null,
     )
 
     /** Where the signer's torso is, for drawing the guide around them. */

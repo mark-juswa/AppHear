@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- placementGuide: augmented position hints, shown in a pill under the top controls. -->
-    <string name="placement_hint_move_left">Move left</string>
-    <string name="placement_hint_move_right">Move right</string>
-    <string name="placement_hint_step_back">Step back a little</string>
-    <string name="placement_hint_come_closer">Come a little closer</string>
-    <string name="placement_hint_no_person">Step into the middle</string>
-    <string name="placement_hint_hand_out">Keep your hands in view</string>
-    <string name="placement_in_position">In position</string>
+    <!-- placementGuide: hints in a pill under the top controls, for whoever sets the phone up. -->
+    <string name="placement_hint_move_left">Shift into the outline</string>
+    <string name="placement_hint_move_right">Shift into the outline</string>
+    <string name="placement_hint_step_back">A little too close</string>
+    <string name="placement_hint_come_closer">A little too far</string>
+    <string name="placement_hint_no_person">Stand in the outline</string>
+    <string name="placement_hint_hand_out">Keep both hands in view</string>
+    <string name="placement_in_position">Good spot</string>
     <string name="placement_paused">Signing waits until you are centered</string>
 </resources>
