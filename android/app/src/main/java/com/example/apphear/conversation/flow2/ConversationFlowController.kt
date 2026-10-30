@@ -16,6 +16,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.OnBackPressedCallback
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
+import com.example.apphear.BuildConfig
 import com.example.apphear.R
 import com.example.apphear.contextassist.ConversationPhraseAssist
 import com.example.apphear.contextassist.ConversationSource
@@ -50,12 +51,28 @@ class ConversationFlowController(
     private var state = FlowState()
     private var editorOpen = false
     private var lastWords: String? = null
+    /** The current message came from fingerspelling, which keeps its confirm step (never auto-said). */
+    private var messageIsSpelling = false
     /** Latest suggestion from sentence assist, kept so it survives arriving before its words do. */
     private var lastSuggestion: Pair<String, String?>? = null
     private var permissionTicket: Long? = null
     private var systemDialogTicket: Long? = null
     private var stopped = false
     private var avatarNote: String? = null
+    private var autoSaySeconds: Int? = null
+    /** conversationAutoSay: says the message after the signer stops; null when the flag is off. */
+    private val autoSay: AutoSay? = if (!BuildConfig.CONVERSATION_AUTO_SAY_ENABLED) null else
+        runCatching { AutoSayPolicy.load(activity) }
+            .onFailure { Log.w(TAG, "[conversation/flow2] auto-say policy unavailable; SAY IT stays manual", it) }
+            .getOrNull()?.let { policy ->
+                AutoSay(policy, { delayMs, task -> main.postDelayed(task, delayMs) }, main::removeCallbacks,
+                    onCountdown = { seconds ->
+                        autoSaySeconds = seconds
+                        draw()
+                    },
+                    onFire = ::autoSayNow,
+                )
+            }
     private val avatar = ReplyAvatarStage(activity, binding.conversationAvatarStage, object : ReplyAvatarStage.Listener {
         override fun note(ticket: Long, text: String) {
             if (ticket != state.ticket || state.phase != FlowPhase.AVATAR) return
@@ -110,8 +127,12 @@ class ConversationFlowController(
         render()
     }
 
-    /** Raw signed words as displayed (S8 sentence or spelling); called every frame, so cheap. */
-    fun signedWordsChanged(words: String) {
+    /** Raw signed words as displayed (S8 sentence or [spelling]); called every frame, so cheap. */
+    fun signedWordsChanged(words: String, spelling: Boolean = false) {
+        if (spelling != messageIsSpelling) {
+            messageIsSpelling = spelling
+            render()
+        }
         if (words == lastWords) return
         lastWords = words
         apply(ConversationFlow.signedWordsChanged(state, words))
@@ -129,14 +150,22 @@ class ConversationFlowController(
     /** What SAY IT should speak for [words]: the chosen wording, or null if [words] are not the message. */
     fun chosenFor(words: String): String? = state.message?.takeIf { it.signedWords == words.trim() }?.chosen
 
+    /** The WORD recognizer is mid-sign right now: auto-say waits for the signer to stop again. */
+    fun signingActivity() {
+        autoSay?.activity()
+    }
+
     /** Final wording from the existing Hear path. */
     fun sayText(text: String) {
+        // Said now (by tap, Hear or auto-say): never say these words again automatically.
+        autoSay?.hold()
         ConversationTimeline.mark("say_it", "chars" to text.length)
         apply(ConversationFlow.sayText(state, text))
     }
 
     fun onStop() {
         stopped = true
+        autoSay?.cancel()
         // The permission prompt and the system speech dialog pause this screen; their results return here.
         if (permissionTicket != null || systemDialogTicket != null) return
         if (editorOpen) closeEditor()
@@ -145,6 +174,7 @@ class ConversationFlowController(
 
     fun onStart() {
         stopped = false
+        render()
     }
 
     fun onDestroy() {
@@ -170,6 +200,11 @@ class ConversationFlowController(
             ConversationSheetBinder.Secondary.TYPE_REPLY, ConversationSheetBinder.Secondary.TYPE_INSTEAD -> openEditor()
             ConversationSheetBinder.Secondary.CANCEL -> closeEditor()
             ConversationSheetBinder.Secondary.CLOSE -> apply(ConversationFlow.stop(state))
+            ConversationSheetBinder.Secondary.WAIT -> {
+                ConversationTimeline.mark("auto_say_wait")
+                autoSay?.hold()
+                render()
+            }
             null -> Unit
         }
     }
@@ -279,9 +314,22 @@ class ConversationFlowController(
     }
 
     private fun render() {
-        binder.render(state, editorOpen, avatarNote)
+        autoSay?.update(state.message?.signedWords, canSay = state.phase == FlowPhase.READY && !editorOpen &&
+            !messageIsSpelling && !stopped)
+        draw()
+    }
+
+    private fun draw() {
+        binder.render(state, editorOpen, avatarNote, autoSaySeconds)
         back.isEnabled = editorOpen ||
             state.phase in setOf(FlowPhase.SAYING, FlowPhase.LISTENING, FlowPhase.AVATAR)
+    }
+
+    /** The auto-say countdown ran out: the same path as tapping SAY IT. */
+    private fun autoSayNow() {
+        if (state.phase != FlowPhase.READY || state.message == null || editorOpen || stopped) return
+        ConversationTimeline.mark("auto_say")
+        host.sayIt()
     }
 
     private fun micPermitted() = ContextCompat.checkSelfPermission(activity, Manifest.permission.RECORD_AUDIO) ==

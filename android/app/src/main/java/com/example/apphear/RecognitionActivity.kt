@@ -965,6 +965,9 @@ class RecognitionActivity : AppCompatActivity() {
                 return@runOnUiThread
             }
             if (r.qualityLabel == "FINGERSPELL") return@runOnUiThread
+            if (r.recognition is com.example.apphear.pipeline.recognition.RecognitionState.Signing) {
+                conversationFlow?.signingActivity()
+            }
             if (ConversationPhraseAssist.enabled && lifecycle.currentState.isAtLeast(Lifecycle.State.STARTED)) {
                 val nowSigning = r.recognition is com.example.apphear.pipeline.recognition.RecognitionState.Signing
                 if (nowSigning && !signingInProgress) {
@@ -1293,7 +1296,7 @@ class RecognitionActivity : AppCompatActivity() {
                 binding.glossText.text = s.currentLetter.ifBlank { getString(R.string.gloss_placeholder) }
                 binding.altText.visibility = View.GONE
                 val spelling = s.confirmed + s.preview
-                conversationFlow?.signedWordsChanged(spelling.trim())
+                conversationFlow?.signedWordsChanged(spelling.trim(), spelling = true)
                 binding.sentenceText.text = spelling.ifBlank { getString(R.string.sentence_placeholder) }
                 binding.sentenceText.contentDescription = if (s.preview.isNotEmpty())
                     "Detected spelling: $spelling. Tap Hear to review and confirm." else spelling.ifBlank { "Waiting for letters" }

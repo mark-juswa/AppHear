@@ -114,6 +114,8 @@ android {
     // recognition screen. conversationLab installs that build as a separate app beside AppHear.
     val conversationFlowV2 = providers.gradleProperty("conversationFlowV2").map { it.equals("true", ignoreCase=true) }.getOrElse(false)
     val conversationLab = conversationFlowV2 && providers.gradleProperty("conversationLab").map { it.equals("true", ignoreCase=true) }.getOrElse(false)
+    // conversationAutoSay (needs conversationFlowV2): say the signer's words after they stop signing, with a countdown.
+    val conversationAutoSay = conversationFlowV2 && providers.gradleProperty("conversationAutoSay").map { it.equals("true", ignoreCase=true) }.getOrElse(false)
     if (conversationFlowV2) {
         // In-app listening needs the microphone, and Android 11+ hides the speech service unless the app
         // declares it. Added to the debug manifest only; the release manifest never gains either.
@@ -210,6 +212,7 @@ android {
             buildConfigField("boolean", "PLACEMENT_GUIDE_ENABLED", placementGuide.toString())
             buildConfigField("boolean", "PLACEMENT_GATE_ENABLED", placementGate.toString())
             buildConfigField("boolean", "CONVERSATION_FLOW_V2_ENABLED", conversationFlowV2.toString())
+            buildConfigField("boolean", "CONVERSATION_AUTO_SAY_ENABLED", conversationAutoSay.toString())
             if (conversationLab) {
                 applicationIdSuffix = ".conversationlab"
                 versionNameSuffix = "-conversation-lab"
@@ -267,6 +270,7 @@ android {
             buildConfigField("boolean", "PLACEMENT_GUIDE_ENABLED", "false")
             buildConfigField("boolean", "PLACEMENT_GATE_ENABLED", "false")
             buildConfigField("boolean", "CONVERSATION_FLOW_V2_ENABLED", "false")
+            buildConfigField("boolean", "CONVERSATION_AUTO_SAY_ENABLED", "false")
             buildConfigField("String", "LLM_FALLBACK_API_KEY", "\"\"")
             buildConfigField("String", "LLM_FALLBACK_BASE_URL", "\"\"")
             buildConfigField("String", "LLM_FALLBACK_MODEL", "\"\"")

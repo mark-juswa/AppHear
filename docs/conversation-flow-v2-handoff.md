@@ -19,13 +19,19 @@ The whole conversation stays on the recognition screen. The existing bottom shee
 4. Signing again moves the reply into **RECENT** history (expanded sheet, up to six exchanges, AppHear2
    chat bubbles; tap a reply bubble to sign it again).
 
+**Auto-say** (`conversationAutoSay`, on in the Lab build): once the signer has been still for 2.5 s after
+their last sign, the pill counts down **SAYING IN 3, 2, 1** and then says the message, exactly like tapping
+SAY IT. Signing again restarts the wait and adds the new words; tapping the pill says it now; **WAIT** holds
+this message until its words change. A message is never auto-said twice. Word signing only: fingerspelling
+keeps its confirm step. Timings: `assets/conversation/auto_say_policy_v1.json`.
+
 Listening failures show **NOT HEARD**, **COULDN'T LISTEN** or **MICROPHONE OFF** with LISTEN/TYPE REPLY.
 If in-app listening is unavailable or the microphone is denied, the old system dialog is used once.
 
 ## Build and install
 
 ```powershell
-& 'I:\AppHear-Conversation-Claude\build-lab.ps1' -Log 'lab.log' -Extra @('-PconversationFlowV2=true','-PconversationLab=true')
+& 'I:\AppHear-Conversation-Claude\build-lab.ps1' -Log 'lab.log' -Extra @('-PconversationFlowV2=true','-PconversationLab=true','-PconversationAutoSay=true')
 ```
 
 Installs as **AppHear Conversation** (`com.example.apphear.conversationlab`) beside AppHear:
@@ -42,7 +48,9 @@ reply under THEIR REPLY, and the not-heard state.
 
 Still to check on the phone:
 
-- [ ] Sign a few words -> SAY IT -> SAYING -> listening starts by itself -> reply.
+- [ ] Sign a few words, stop -> SAYING IN 3, 2, 1 -> spoken -> listening starts by itself -> reply.
+- [ ] Auto-say: sign, pause briefly, sign more (countdown restarts, longer message said); WAIT (not said
+      until the words change); tap the pill during the countdown (said at once); STOP after it (not re-said).
 - [ ] Fingerspell -> SAY IT -> the existing confirm-spelling dialog -> spoken -> listening.
 - [ ] TYPE REPLY / TYPE INSTEAD -> keyboard -> SEND; CANCEL; Back closes the editor.
 - [ ] SIGN IT -> avatar over the camera -> returns on completion; REPLAY; CLOSE; a reply with an

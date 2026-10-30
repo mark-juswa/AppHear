@@ -21,7 +21,7 @@ class ConversationSheetBinder(
     /** A reply bubble in history was tapped: sign that reply. */
     private val onReplyTapped: (String) -> Unit,
 ) {
-    enum class Secondary { LISTEN, TYPE_REPLY, TYPE_INSTEAD, CANCEL, CLOSE }
+    enum class Secondary { LISTEN, TYPE_REPLY, TYPE_INSTEAD, CANCEL, CLOSE, WAIT }
 
     /** What the two tan pills currently mean; read by the click handlers. */
     var secondaryA: Secondary? = null
@@ -44,16 +44,20 @@ class ConversationSheetBinder(
         setTint(ContextCompat.getColor(context, R.color.color_brand_primary))
     }
 
-    /** [avatarNote]: avatar progress or problem, shown under the reply while it is being signed. */
-    fun render(s: FlowState, editorOpen: Boolean, avatarNote: String? = null) {
+    /**
+     * [avatarNote]: avatar progress or problem, shown under the reply while it is being signed.
+     * [autoSaySeconds]: the auto-say countdown, or null when none is running.
+     */
+    fun render(s: FlowState, editorOpen: Boolean, avatarNote: String? = null, autoSaySeconds: Int? = null) {
+        val countdown = autoSaySeconds?.takeIf { !editorOpen && s.phase == FlowPhase.READY && s.message != null }
         val action = ConversationFlow.primaryAction(s)
         renderOverline(s, editorOpen)
         renderLine(s, editorOpen)
         val note = avatarNote?.takeIf { !editorOpen && s.phase == FlowPhase.AVATAR && it.isNotBlank() }
         binding.conversationNote.visibility = if (note == null) View.GONE else View.VISIBLE
         binding.conversationNote.text = note
-        renderPill(action, editorOpen)
-        renderSecondary(s, editorOpen)
+        renderPill(action, editorOpen, countdown)
+        renderSecondary(s, editorOpen, countdown)
         renderSuggestion(s, editorOpen)
         renderHistory(s)
         binding.conversationEditor.visibility = if (editorOpen) View.VISIBLE else View.GONE
@@ -122,7 +126,7 @@ class ConversationSheetBinder(
     /** Speech results arrive lowercase; show them as a sentence. Context Assist keeps the exact words. */
     private fun caption(text: String): String = text.replaceFirstChar { it.titlecase() }
 
-    private fun renderPill(action: PrimaryAction, editorOpen: Boolean) {
+    private fun renderPill(action: PrimaryAction, editorOpen: Boolean, countdown: Int?) {
         val (label, icon, description) = when {
             editorOpen -> Triple(R.string.conversation_v2_send, null, R.string.conversation_v2_send_description)
             action == PrimaryAction.SAY_IT ->
@@ -135,8 +139,14 @@ class ConversationSheetBinder(
                 Triple(R.string.conversation_v2_sign_it, R.drawable.play, R.string.conversation_v2_sign_it_description)
             else -> Triple(R.string.conversation_v2_replay, R.drawable.ic_replay, R.string.conversation_v2_replay)
         }
-        binding.speakButtonLabel.setText(label)
-        binding.speakButton.contentDescription = context.getString(description)
+        if (countdown != null) {
+            // Auto-say: the same coffee pill counts down; tapping it says the message now.
+            binding.speakButtonLabel.text = context.getString(R.string.conversation_v2_saying_in, countdown)
+            binding.speakButton.contentDescription = context.getString(R.string.conversation_v2_saying_in_description, countdown)
+        } else {
+            binding.speakButtonLabel.setText(label)
+            binding.speakButton.contentDescription = context.getString(description)
+        }
         binding.speakButton.setBackgroundResource(
             if (!editorOpen && action == PrimaryAction.STOP) R.drawable.btn_stop_bg else R.drawable.btn_start_bg)
         if (icon == null) {
@@ -216,9 +226,10 @@ class ConversationSheetBinder(
         }
     }
 
-    private fun renderSecondary(s: FlowState, editorOpen: Boolean) {
+    private fun renderSecondary(s: FlowState, editorOpen: Boolean, countdown: Int?) {
         val (a, b) = when {
             editorOpen -> null to Secondary.CANCEL
+            countdown != null -> null to Secondary.WAIT
             s.phase == FlowPhase.LISTENING -> null to Secondary.TYPE_INSTEAD
             s.phase == FlowPhase.NOT_HEARD -> null to Secondary.TYPE_REPLY
             s.phase == FlowPhase.REPLY -> Secondary.LISTEN to Secondary.TYPE_REPLY
@@ -242,6 +253,7 @@ class ConversationSheetBinder(
             Secondary.TYPE_INSTEAD -> R.string.conversation_v2_type_instead
             Secondary.CANCEL -> R.string.conversation_v2_cancel
             Secondary.CLOSE -> R.string.conversation_v2_close
+            Secondary.WAIT -> R.string.conversation_v2_wait
         })
         button.contentDescription = label.text
     }
