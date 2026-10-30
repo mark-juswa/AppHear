@@ -44,8 +44,12 @@ If in-app listening is unavailable or the microphone is denied, the old system d
 
 ```powershell
 # Same switches as the everyday app build (private keys from the gitignored android/gradle.properties).
-& 'I:\AppHear-Conversation-Claude\build-lab.ps1' -Private -Log 'lab.log' -Extra @('-PconversationFlowV2=true','-PconversationLab=true','-PconversationAutoSay=true','-PsentenceAssist=visible','-PllmFallback=true','-PrecognitionModeToolbar=true','-PplacementGuide=true','-PplacementGate=true','-PconversationTimeline=true')
+& 'I:\AppHear-Conversation-Claude\build-lab.ps1' -Private -Log 'lab.log' -Extra @('-PconversationFlowV2=true','-PconversationLab=true','-PconversationAutoSay=true','-PsentenceAssist=visible','-PllmFallback=true','-PrecognitionModeToolbar=true','-PplacementGuide=true','-PplacementGate=true','-PconversationTimeline=true','-PdefaultRecognitionEngine=EXPERIMENTAL_WORD_V4_HYBRID')
 ```
+
+Recognition: the V4 engines were copied (not merged) from `v4/recognition` @ `80a8f103`; the Lab starts on
+"WORD V4 + continuous hybrid" until another engine is picked in Settings. Their weights are gitignored and must
+be copied from `I:/AppHearDev/worktrees/apphear-v4/android/app/src/debug/assets/{word_v4,lexical_v4,word_mirror_blend}_candidate_01/`.
 
 The private APK holds the user's keys: keep it on I: and the user's phone only. Without `-Private` the
 build uses the fake Context Assist provider and no keys (no suggestion chip).
