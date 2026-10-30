@@ -32,10 +32,11 @@ session restarts (the placement gate's own reset).
 
 **Positioning guide** (`placementGuide`; visual only in the Lab build, `placementGate` off): a
 person-shaped placeholder (head, shoulders, torso, arms in a signing pose) marks where the signer should
-stand, sized for a comfortable distance; it pulses while nobody is detected. The detected signer is drawn
-as a soft body shape on top of them (estimated head, torso from shoulders/hips, arms through elbows and
-wrists, hand joints), built only from points the recognizer already tracks: no extra model, no effect on
-recognition speed. Both turn teal when lined up ("Good spot"); otherwise chevrons point toward the
+stand, sized for a comfortable distance; it pulses while nobody is detected and otherwise shows only when
+the signer is off to one side. The detected signer is drawn as one soft outline on top of them (estimated
+head, neck, shoulders, sides to the hips or open at the bottom of the view; arms and hands stay with the
+recognizer's own landmark overlay), built only from points the recognizer already tracks: no extra model, no
+effect on recognition speed. Comfortable distance: shoulders 18-70% of the view width. Both turn teal when lined up ("Good spot"); otherwise chevrons point toward the
 placeholder and a pill says "Shift into the outline", "A little too close", "A little too far" or "Stand
 in the outline". Thresholds: `assets/placement/position_policy_v1.json`.
 
