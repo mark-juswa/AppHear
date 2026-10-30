@@ -1122,7 +1122,10 @@ class RecognitionActivity : AppCompatActivity() {
         }
         if (conversationHoldActive) {
             conversationHoldActive = false
+            // Restart the word session and skip this one frame: it was numbered before the reset, and
+            // the session refuses a gap (APP_PHONE_SOURCE_INDEX_DISCONTINUITY). The next frame starts clean.
             phoneAnalyzer?.resetTemporalSession()
+            return true
         }
         return false
     }
