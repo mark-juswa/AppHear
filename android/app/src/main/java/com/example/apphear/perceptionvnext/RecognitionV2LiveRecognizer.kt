@@ -20,7 +20,14 @@ internal data class RecognizerPackageSpec(
     val modelSha256: String,
 )
 
-/** Debug-only, fail-closed consumer for the already-authorized Gate-2 recognizer. */
+/**
+ * Debug-only, fail-closed consumer for the already-authorized Gate-2 recognizer.
+ *
+ * A package manifest may also declare a `short_model` (same weights, fewer input rows, e.g. WORD_V4's
+ * 32-row model). It is used only when every valid mask entry sits in its first rows, where its output
+ * equals the 96-row model's (padded rows are masked out; host parity in the manifest). Its hash is
+ * pinned through the manifest hash. Packages without one behave exactly as before.
+ */
 internal class RecognitionV2LiveRecognizer(
     context: Context,
     private val spec: RecognizerPackageSpec = FROZEN_GATE2,
@@ -29,14 +36,27 @@ internal class RecognitionV2LiveRecognizer(
         val probabilities: FloatArray,
         val top5: IntArray,
         val invocationMs: Double,
+        /** Input rows of the model that ran: 96, or the short model's rows. */
+        val modelRows: Int = RecognitionV2.MAX_SEQUENCE_LENGTH,
     )
+
+    private class ShortModel(val rows: Int, val sha256: String, val interpreter: Interpreter) {
+        val features: ByteBuffer = ByteBuffer.allocateDirect(rows * 350 * 4).order(ByteOrder.nativeOrder())
+        val mask: ByteBuffer = ByteBuffer.allocateDirect(rows).order(ByteOrder.nativeOrder())
+        var featureInput = -1
+        var maskInput = -1
+        lateinit var inputs: Array<Any>
+    }
 
     private val contractBytes = context.assets.open(CONTRACT_ASSET).use { it.readBytes() }
     private val contract = JSONObject(contractBytes.toString(Charsets.UTF_8))
     private val gate2Bytes = context.assets.open(spec.manifestAsset).use { it.readBytes() }
     private val gate2 = JSONObject(gate2Bytes.toString(Charsets.UTF_8))
     val glosses: List<String>
-    private val interpreter: Interpreter
+    private val modelAsset: String
+    private val appContext = context.applicationContext
+    private var fullInterpreter: Interpreter? = null
+    private val shortModel: ShortModel?
     private val featureBuffer = ByteBuffer.allocateDirect(FEATURE_ELEMENTS * 4)
         .order(ByteOrder.nativeOrder())
     private val maskBuffer = ByteBuffer.allocateDirect(RecognitionV2.MAX_SEQUENCE_LENGTH)
@@ -64,16 +84,55 @@ internal class RecognitionV2LiveRecognizer(
         val labels = gate2.getJSONArray("class_index_to_gloss")
         require(labels.length() == OUTPUTS)
         glosses = List(OUTPUTS) { labels.getString(it) }
-        val modelAsset = gate2.getString("model_asset")
+        modelAsset = gate2.getString("model_asset")
         require(assetSha256(context, modelAsset) == spec.modelSha256) { "GATE4A1_MODEL_DRIFT" }
-        val options = Interpreter.Options().setNumThreads(4).setUseXNNPACK(true).setUseNNAPI(false)
-        interpreter = Interpreter(mapAsset(context, modelAsset), options).also { it.allocateTensors() }
-        inspectIo()
+        shortModel = gate2.optJSONObject("short_model")?.let { loadShort(context, it) }
+        // With a short model the 96-row model is only needed for long windows: load it on first use.
+        if (shortModel == null) full()
+    }
+
+    private fun options() = Interpreter.Options().setNumThreads(4).setUseXNNPACK(true).setUseNNAPI(false)
+
+    private fun full(): Interpreter = fullInterpreter ?: Interpreter(mapAsset(appContext, modelAsset), options())
+        .also {
+            it.allocateTensors()
+            fullInterpreter = it
+            inspectIo(it)
+        }
+
+    private fun loadShort(context: Context, json: JSONObject): ShortModel {
+        val rows = json.getInt("rows")
+        require(rows in 1 until RecognitionV2.MAX_SEQUENCE_LENGTH) { "SHORT_MODEL_ROWS" }
+        val asset = json.getString("model_asset")
+        val sha = json.getString("model_sha256")
+        require(assetSha256(context, asset) == sha) { "SHORT_MODEL_DRIFT" }
+        val model = ShortModel(rows, sha, Interpreter(mapAsset(context, asset), options()).also { it.allocateTensors() })
+        val interpreter = model.interpreter
+        for (index in 0 until interpreter.inputTensorCount) {
+            val tensor = interpreter.getInputTensor(index)
+            if (tensor.dataType() == DataType.FLOAT32 && tensor.shape().contentEquals(intArrayOf(1, rows, 350))) model.featureInput = index
+            if (tensor.dataType() == DataType.BOOL && tensor.shape().contentEquals(intArrayOf(1, rows))) model.maskInput = index
+        }
+        require(model.featureInput >= 0 && model.maskInput >= 0 && interpreter.outputTensorCount == 1)
+        val output = interpreter.getOutputTensor(0)
+        require(output.dataType() == DataType.FLOAT32 && output.shape().contentEquals(intArrayOf(1, OUTPUTS)))
+        model.inputs = Array(interpreter.inputTensorCount) { ByteBuffer.allocateDirect(0) }
+        return model
+    }
+
+    /** Rows needed by this view if its valid entries are a prefix of the mask, else null. */
+    private fun prefixLength(mask: BooleanArray): Int? {
+        val n = mask.count { it }
+        return if ((0 until n).all { mask[it] }) n else null
     }
 
     fun invoke(view: RecognitionV2.TemporalView, featureSchema: String): Prediction {
         require(featureSchema == RecognitionV2.FEATURE_SCHEMA) { "GATE4A1_CONSUMER_SCHEMA_MISMATCH" }
         require(view.features.size == FEATURE_ELEMENTS && view.mask.size == 96)
+        val short = shortModel
+        val valid = prefixLength(view.mask)
+        if (short != null && valid != null && valid <= short.rows) return invokeShort(short, view)
+        val interpreter = full()
         featureBuffer.clear()
         featureBuffer.asFloatBuffer().put(view.features)
         featureBuffer.position(0)
@@ -96,6 +155,29 @@ internal class RecognitionV2LiveRecognizer(
         return Prediction(probabilities, topK(probabilities), elapsed)
     }
 
+    private fun invokeShort(short: ShortModel, view: RecognitionV2.TemporalView): Prediction {
+        short.features.clear()
+        short.features.asFloatBuffer().put(view.features, 0, short.rows * 350)
+        short.features.position(0)
+        short.features.limit(short.features.capacity())
+        short.mask.clear()
+        for (i in 0 until short.rows) short.mask.put(if (view.mask[i]) 1 else 0)
+        short.mask.flip()
+        outputBuffer.clear()
+        outputBuffer.asFloatBuffer().put(FloatArray(OUTPUTS))
+        outputBuffer.position(0)
+        outputBuffer.limit(outputBuffer.capacity())
+        short.inputs[short.featureInput] = short.features
+        short.inputs[short.maskInput] = short.mask
+        val started = System.nanoTime()
+        short.interpreter.runForMultipleInputsOutputs(short.inputs, mutableMapOf<Int, Any>(0 to outputBuffer))
+        val elapsed = (System.nanoTime() - started) / 1_000_000.0
+        outputBuffer.position(0)
+        val probabilities = FloatArray(OUTPUTS).also { outputBuffer.asFloatBuffer().get(it) }
+        require(probabilities.all { it.isFinite() })
+        return Prediction(probabilities, topK(probabilities), elapsed, short.rows)
+    }
+
     fun identityJson(): JSONObject = JSONObject()
         .put("contract_asset", CONTRACT_ASSET)
         .put("contract_sha256", sha256(contractBytes))
@@ -109,10 +191,14 @@ internal class RecognitionV2LiveRecognizer(
         .put("runtime", JSONObject().put("precision", "FP32").put("cpu_threads", 4)
             .put("xnnpack", true).put("nnapi", false).put("gpu", false))
         .also { if (spec != FROZEN_GATE2) it.put("package_id", spec.packageId) }
+        .also { json -> shortModel?.let { json.put("short_model_sha256", it.sha256).put("short_model_rows", it.rows) } }
 
-    override fun close() = interpreter.close()
+    override fun close() {
+        fullInterpreter?.close()
+        shortModel?.interpreter?.close()
+    }
 
-    private fun inspectIo() {
+    private fun inspectIo(interpreter: Interpreter) {
         for (index in 0 until interpreter.inputTensorCount) {
             val tensor = interpreter.getInputTensor(index)
             if (tensor.dataType() == DataType.FLOAT32 && tensor.shape().contentEquals(intArrayOf(1, 96, 350))) featureInput = index

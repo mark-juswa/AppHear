@@ -1,0 +1,77 @@
+{
+ "branch": "v4/recognition",
+ "decode": {
+  "blank_token": 0,
+  "classes": 238,
+  "dedup": 2,
+  "keep_other_as_marker": true,
+  "min_prob": 0.5,
+  "other_token": 237,
+  "stability_windows": 2,
+  "window": 24
+ },
+ "evidence": {
+  "dev_baseline_event_v4_word_correct": {
+   "CONTINUOUS": 0.2956,
+   "NATURAL": 0.5727
+  },
+  "dev_causal_correct": {
+   "CONTINUOUS": 0.3916,
+   "NATURAL": 0.6256
+  },
+  "host_tflite_parity": {
+   "max_abs_logit_diff_valid_rows": 1.52587890625e-05,
+   "row_argmax_agreement": "320538/320538",
+   "streams_identical_markers": "406/406",
+   "streams_identical_words": "406/406"
+  },
+  "phone_benchmark_median_ms_1_thread": 3.961
+ },
+ "feature_schema": "apphear.perception_vnext.recognition.v2",
+ "fixtures_gitignored": [
+  "resolver_fixture.json",
+  "decoder_fixture.json",
+  "stream_fixture.json",
+  "stream_fixture_logits.f32"
+ ],
+ "hybrid": {
+  "a": 2,
+  "arm": "H_SPLIT_ADD",
+  "b": 2,
+  "causal_spec": "eval/v4/hybrid_causal.py",
+  "d": 4,
+  "naming_word_package": "WORD_V4",
+  "plan": "context/recognition_v4/M3_HYBRID_PLAN.md"
+ },
+ "inputs": {
+  "features": [
+   1,
+   24,
+   350
+  ],
+  "mask": [
+   1,
+   24
+  ]
+ },
+ "milestone": "V4_M3_CONTINUOUS_HYBRID_01",
+ "model_asset": "lexical_v4_candidate_01/lexical_c2_w24_fp32.tflite",
+ "model_sha256": "66135ea85b74bac6511b13633b4b1a749306a8a88dc3c19effa20f1f3dca1f91",
+ "output": [
+  1,
+  24,
+  238
+ ],
+ "package_id": "LEXICAL_C2",
+ "protected_test_accessed": false,
+ "raw_schema": "apphear.perception_vnext.raw.v1",
+ "runtime": {
+  "cpu_threads": 1,
+  "gpu": false,
+  "nnapi": false,
+  "precision": "FP32",
+  "xnnpack": true
+ },
+ "schema": "apphear.v4.lexical_package.v1",
+ "source_keras_sha256": "803613bdd48768c1a879ee775230eda0d4b3d9631df6025c6daa1a6985bf9d62"
+}

@@ -121,6 +121,70 @@ class ExperimentalRecognitionConfigurationTest {
         assertEquals(PhoneRecognitionConfiguration.STABLE, PhoneRecognitionConfiguration.resolve("EXPERIMENTAL_WORD_BLEND_02", false))
     }
 
+    @Test fun wordMirrorBlendChangesOnlyTheWordStageAndIsComparedAgainstBlend02() {
+        val blend02 = PhoneRecognitionConfiguration.EXPERIMENTAL_WORD_BLEND_02
+        val mirror = PhoneRecognitionConfiguration.EXPERIMENTAL_WORD_MIRROR_BLEND
+        assertEquals(blend02.s2Package(), mirror.s2Package())
+        assertEquals(blend02.decoderConfig(), mirror.decoderConfig())
+        assertEquals("WORD_MIRROR_BLEND", mirror.wordPackage().packageId)
+        assertEquals("8f854bf0f4a1224b6db74855bb5f15109034798d0c40a47282ecf6ce7bf3c43d", mirror.wordPackage().modelSha256)
+        assertEquals(PhoneRecognitionConfiguration.WORD_BLEND_02, mirror.pairedWordPackage())
+        // Rollback: BLEND_02 is unchanged and still selectable; release builds cannot reach either.
+        assertEquals("40533bc38c2c416ae2f48e4955029dbdd11d16325765df7aea66db278aaafb30", blend02.wordPackage().modelSha256)
+        assertEquals(blend02, PhoneRecognitionConfiguration.resolve("EXPERIMENTAL_WORD_BLEND_02", true))
+        assertEquals(mirror, PhoneRecognitionConfiguration.resolve("EXPERIMENTAL_WORD_MIRROR_BLEND", true))
+        assertEquals(PhoneRecognitionConfiguration.STABLE, PhoneRecognitionConfiguration.resolve("EXPERIMENTAL_WORD_MIRROR_BLEND", false))
+        assertEquals(PhoneRecognitionConfiguration.STABLE, PhoneRecognitionConfiguration.resolve(null, true))
+    }
+
+    @Test fun onlyTheMirrorAndV4EnginesFallBackToBlend02BeforeStable() {
+        val withFallback = setOf(
+            PhoneRecognitionConfiguration.EXPERIMENTAL_WORD_MIRROR_BLEND,
+            PhoneRecognitionConfiguration.EXPERIMENTAL_WORD_V4,
+        )
+        for (engine in withFallback) {
+            val fallback = checkNotNull(engine.wordFallback())
+            assertEquals(PhoneRecognitionConfiguration.EXPERIMENTAL_WORD_BLEND_02, fallback)
+            // The fallback changes only the WORD stage: same S2 package and decoder.
+            assertEquals(engine.s2Package(), fallback.s2Package())
+            assertEquals(engine.decoderConfig(), fallback.decoderConfig())
+        }
+        val hybrid = PhoneRecognitionConfiguration.EXPERIMENTAL_WORD_V4_HYBRID
+        PhoneRecognitionConfiguration.entries.filter { it !in withFallback && it != hybrid }.forEach { assertNull(it.wordFallback()) }
+    }
+
+    @Test fun v4HybridAddsOnlyTheLexicalPathAndFallsBackToWordV4() {
+        val v4 = PhoneRecognitionConfiguration.EXPERIMENTAL_WORD_V4
+        val hybrid = PhoneRecognitionConfiguration.EXPERIMENTAL_WORD_V4_HYBRID
+        // Same S2 package, decoder and WORD package as WORD V4; only the lexical path is added.
+        assertEquals(v4.s2Package(), hybrid.s2Package())
+        assertEquals(v4.decoderConfig(), hybrid.decoderConfig())
+        assertEquals(v4.wordPackage(), hybrid.wordPackage())
+        assertNull(hybrid.pairedWordPackage())
+        assertEquals(v4, hybrid.wordFallback())
+        assertEquals(PhoneRecognitionConfiguration.LEXICAL_C2, hybrid.lexicalPackage())
+        assertEquals("66135ea85b74bac6511b13633b4b1a749306a8a88dc3c19effa20f1f3dca1f91", hybrid.lexicalPackage()!!.modelSha256)
+        // No other engine runs the lexical path; release builds cannot reach the hybrid.
+        PhoneRecognitionConfiguration.entries.filter { it != hybrid }.forEach { assertNull(it.lexicalPackage()) }
+        assertEquals(hybrid, PhoneRecognitionConfiguration.resolve("EXPERIMENTAL_WORD_V4_HYBRID", true))
+        assertEquals(PhoneRecognitionConfiguration.STABLE, PhoneRecognitionConfiguration.resolve("EXPERIMENTAL_WORD_V4_HYBRID", false))
+    }
+
+    @Test fun wordV4ChangesOnlyTheWordStageAndIsComparedAgainstBlend02() {
+        val blend02 = PhoneRecognitionConfiguration.EXPERIMENTAL_WORD_BLEND_02
+        val v4 = PhoneRecognitionConfiguration.EXPERIMENTAL_WORD_V4
+        assertEquals(blend02.s2Package(), v4.s2Package())
+        assertEquals(blend02.decoderConfig(), v4.decoderConfig())
+        assertEquals("WORD_V4", v4.wordPackage().packageId)
+        assertEquals("3e4d79c0ee2b371679a015d835322daf4ef3ec78c7824d718d286c75bef77cd4", v4.wordPackage().modelSha256)
+        assertEquals(PhoneRecognitionConfiguration.WORD_BLEND_02, v4.pairedWordPackage())
+        // The saved default stays WORD_BLEND_02 / STABLE; V4 is reachable only when selected in a debug build.
+        assertEquals("40533bc38c2c416ae2f48e4955029dbdd11d16325765df7aea66db278aaafb30", blend02.wordPackage().modelSha256)
+        assertEquals(v4, PhoneRecognitionConfiguration.resolve("EXPERIMENTAL_WORD_V4", true))
+        assertEquals(PhoneRecognitionConfiguration.STABLE, PhoneRecognitionConfiguration.resolve("EXPERIMENTAL_WORD_V4", false))
+        assertEquals(PhoneRecognitionConfiguration.STABLE, PhoneRecognitionConfiguration.resolve(null, true))
+    }
+
     @Test fun confirmBoundaryRefusesToRunWithoutPostProbability() {
         val producer = PhoneCausalEventProducer(PhoneRecognitionConfiguration.EXPERIMENTAL.decoderConfig())
         assertThrows(IllegalArgumentException::class.java) { producer.consume(0.0, 0) }

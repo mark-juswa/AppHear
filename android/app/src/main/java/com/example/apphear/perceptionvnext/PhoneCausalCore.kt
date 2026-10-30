@@ -341,6 +341,16 @@ internal class PhoneCausalEventProducer(private val config: PhoneDecoderConfig =
     private var rearmCandidateState: Int? = null
     private var postPeak = 0.0
 
+    /**
+     * Start index of the candidate the decoder is currently building (it may still become an event or be
+     * discarded), or null when none is open. Read-only; used by the V4 continuous hybrid to wait for it.
+     */
+    val openCandidateStartIndex: Int?
+        get() = when (state) {
+            PhoneDecoderState.ACTIVE_CANDIDATE, PhoneDecoderState.PRE_GAP, PhoneDecoderState.POST_CANDIDATE -> candidateStartIndex
+            else -> null
+        }
+
     /** [postProbability] is required only when the experimental confirm-boundary split is on. */
     fun consume(timestampMs: Double, argmaxState: Int, postProbability: Double? = null): PhoneDecoderUpdate {
         require(timestampMs.isFinite() && (lastTimestampMs == null || timestampMs > lastTimestampMs!!))
@@ -633,4 +643,10 @@ internal class PhoneObservationRingBuffer(
     }
 
     fun reset() = items.clear()
+
+    /** The last [n] observations (fewer if the buffer holds fewer), oldest first. Read-only. */
+    fun tail(n: Int): List<PhoneRawObservation> = items.toList().takeLast(n)
+
+    /** Timestamp of the buffered observation with [sourceIndex]. */
+    fun timestampOf(sourceIndex: Int): Double = items.first { it.sourceIndex == sourceIndex }.timestampMs
 }

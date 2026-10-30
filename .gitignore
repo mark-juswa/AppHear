@@ -91,3 +91,13 @@ datasets/fingerspelling/**/features/
 datasets/fingerspelling/**/embeddings/
 datasets/fingerspelling/**/crops/
 datasets/fingerspelling/**/execution/
+# WORD_MIRROR_BLEND weights: derived from licence-restricted data (ASL Citizen); keep out of the public repo.
+# Provision locally from artifacts/.../word_mirror_01/package_debug_engine/ (see docs/audit/FEATURE_COMPLETE_INTEGRATION_2026-10-26.md).
+android/app/src/debug/assets/word_mirror_blend_candidate_01/*.tflite
+# V4 WORD weights: derived from licence-restricted data (ASL Citizen); keep out of the public repo.
+# Provision locally: python -m deploy.export_word_v4_candidate (source I:/AppHearDev/v4/exports/v4_word_mean2).
+android/app/src/debug/assets/word_v4_candidate_01/*.tflite
+# V4 M3 continuous hybrid lexical package: licensed-data model and TRAIN-signer fixtures stay local.
+# Provision locally: python -m deploy.export_lexical_v4_candidate (source I:/AppHearDev/v4/exports/v4_lexical_c2).
+android/app/src/debug/assets/lexical_v4_candidate_01/*
+!android/app/src/debug/assets/lexical_v4_candidate_01/manifest.json

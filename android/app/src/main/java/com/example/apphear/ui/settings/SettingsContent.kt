@@ -33,7 +33,11 @@ class SettingsContent(private val context: Context, private val view: View) {
         val labels = arrayOf(context.getString(R.string.recognition_engine_stable),
             context.getString(R.string.recognition_engine_experimental),
             context.getString(R.string.recognition_engine_experimental_blend),
-            context.getString(R.string.recognition_engine_experimental_blend_02))
+            context.getString(R.string.recognition_engine_experimental_blend_02),
+            context.getString(R.string.recognition_engine_experimental_mirror_blend),
+            context.getString(R.string.recognition_engine_experimental_word_v4),
+            context.getString(R.string.recognition_engine_experimental_word_v4_hybrid))
+        check(labels.size == choices.size) { "one label per recognition engine" }
         val value = view.findViewById<TextView>(R.id.recognitionEngineValue)
         fun renderChoice() {
             value.text = labels[choices.indexOf(settings.current())]
