@@ -48,12 +48,15 @@ class ConversationSheetBinder(
      * [avatarNote]: avatar progress or problem, shown under the reply while it is being signed.
      * [autoSaySeconds]: the auto-say countdown, or null when none is running.
      */
-    fun render(s: FlowState, editorOpen: Boolean, avatarNote: String? = null, autoSaySeconds: Int? = null) {
+    fun render(s: FlowState, editorOpen: Boolean, avatarNote: String? = null, autoSaySeconds: Int? = null,
+               detectionHeld: Boolean = false) {
         val countdown = autoSaySeconds?.takeIf { !editorOpen && s.phase == FlowPhase.READY && s.message != null }
         val action = ConversationFlow.primaryAction(s)
         renderOverline(s, editorOpen)
         renderLine(s, editorOpen)
         val note = avatarNote?.takeIf { !editorOpen && s.phase == FlowPhase.AVATAR && it.isNotBlank() }
+            ?: context.getString(R.string.conversation_v2_detection_paused)
+                .takeIf { detectionHeld && (editorOpen || s.phase == FlowPhase.LISTENING) }
         binding.conversationNote.visibility = if (note == null) View.GONE else View.VISIBLE
         binding.conversationNote.text = note
         renderPill(action, editorOpen, countdown)

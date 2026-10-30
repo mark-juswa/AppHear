@@ -43,6 +43,11 @@ class ConversationFlowController(
         fun clearSignedWords()
         /** A hearing turn was just recorded for Context Assist while this screen is open. */
         fun hearingRecorded()
+        /**
+         * True while the hearing person replies (listening or typing), the phone speaks the message or
+         * the avatar signs: recognition skips frames so the signer's resting hands cannot commit a word.
+         */
+        fun detectionHold(held: Boolean)
     }
 
     private val main = Handler(Looper.getMainLooper())
@@ -60,6 +65,7 @@ class ConversationFlowController(
     private var stopped = false
     private var avatarNote: String? = null
     private var autoSaySeconds: Int? = null
+    private var detectionHeld = false
     /** conversationAutoSay: says the message after the signer stops; null when the flag is off. */
     private val autoSay: AutoSay? = if (!BuildConfig.CONVERSATION_AUTO_SAY_ENABLED) null else
         runCatching { AutoSayPolicy.load(activity) }
@@ -320,7 +326,13 @@ class ConversationFlowController(
     }
 
     private fun draw() {
-        binder.render(state, editorOpen, avatarNote, autoSaySeconds)
+        val held = editorOpen || state.phase in setOf(FlowPhase.SAYING, FlowPhase.LISTENING, FlowPhase.AVATAR)
+        if (held != detectionHeld) {
+            detectionHeld = held
+            ConversationTimeline.mark("detection_hold", "held" to held)
+            host.detectionHold(held)
+        }
+        binder.render(state, editorOpen, avatarNote, autoSaySeconds, detectionHeld)
         back.isEnabled = editorOpen ||
             state.phase in setOf(FlowPhase.SAYING, FlowPhase.LISTENING, FlowPhase.AVATAR)
     }

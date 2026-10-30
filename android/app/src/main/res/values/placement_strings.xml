@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="placement_paused_title">Keep your hands inside the frame</string>
-    <string name="placement_paused_body">Recognition is paused until your hands are back</string>
-    <string name="placement_hint_too_close">Move back a little</string>
-    <string name="placement_hint_no_shoulders">Show your shoulders</string>
+    <!-- placementGuide: augmented position hints, shown in a pill under the top controls. -->
+    <string name="placement_hint_move_left">Move left</string>
+    <string name="placement_hint_move_right">Move right</string>
+    <string name="placement_hint_step_back">Step back a little</string>
+    <string name="placement_hint_come_closer">Come a little closer</string>
+    <string name="placement_hint_no_person">Step into the middle</string>
+    <string name="placement_hint_hand_out">Keep your hands in view</string>
+    <string name="placement_in_position">In position</string>
+    <string name="placement_paused">Signing waits until you are centered</string>
 </resources>

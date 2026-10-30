@@ -35,6 +35,7 @@
     <string name="conversation_v2_not_heard">Ask them to speak again, or type their reply.</string>
     <string name="conversation_v2_listen_error">Check the connection, or type their reply.</string>
     <string name="conversation_v2_no_permission">Allow the microphone in Settings, or type their reply.</string>
+    <string name="conversation_v2_detection_paused">Sign detection paused while they reply</string>
     <string name="conversation_v2_type_hint">Type what they said</string>
 
     <!-- Avatar notes in the sheet; progress wording matches the Text-to-ASL screen. -->
