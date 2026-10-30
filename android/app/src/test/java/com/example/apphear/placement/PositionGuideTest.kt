@@ -15,8 +15,8 @@ import org.junit.Assert.assertTrue
 import org.junit.Test
 
 class PositionGuideTest {
-    private val policy = Policy(centerTolerance = 0.1f, blockOffset = 0.28f, minShoulderWidth = 0.2f,
-        maxShoulderWidth = 0.55f, edgeMargin = 0.02f, minValidJoints = 8, enterFrames = 4, exitFrames = 3, gate = true)
+    private val policy = Policy(centerTolerance = 0.1f, blockOffset = 0.28f, minShoulderWidth = 0.18f,
+        maxShoulderWidth = 0.7f, edgeMargin = 0.02f, minValidJoints = 8, enterFrames = 4, exitFrames = 3, gate = true)
 
     /** A torso centered at [cx] with the given shoulder width, plus optional hands. */
     private fun body(cx: Float, width: Float = 0.35f, hands: List<List<Point>> = emptyList(), hips: Boolean = true) = Body(
@@ -46,7 +46,7 @@ class PositionGuideTest {
 
     @Test fun `distance gives hints only`() {
         val guide = PositionGuide(policy)
-        val close = guide.assess(body(0.5f, width = 0.7f))
+        val close = guide.assess(body(0.5f, width = 0.8f))
         assertEquals(Status.STEP_BACK, close.status)
         assertFalse(close.blocking)
         val far = guide.assess(body(0.5f, width = 0.12f))

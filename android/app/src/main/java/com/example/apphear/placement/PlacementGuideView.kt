@@ -58,7 +58,6 @@ class PlacementGuideView @JvmOverloads constructor(
     }
     private val dashed = DashPathEffect(floatArrayOf(10f * density, 8f * density), 0f)
     private val limb = Paint(Paint.ANTI_ALIAS_FLAG).apply { style = Paint.Style.STROKE; strokeCap = Paint.Cap.ROUND }
-    private val dot = Paint(Paint.ANTI_ALIAS_FLAG).apply { style = Paint.Style.FILL }
     private val pillPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply { color = 0x9C303738.toInt() }
     private val pillText = Paint(Paint.ANTI_ALIAS_FLAG).apply {
         color = 0xFFFFFFFF.toInt(); textSize = 14f * density; textAlign = Paint.Align.CENTER
@@ -139,10 +138,12 @@ class PlacementGuideView @JvmOverloads constructor(
         val centered = current.status == Status.CENTERED
         val person = current.anchor != null
 
-        // The placeholder: where the signer should stand.
+        // The placeholder: where the signer should stand. Shown only when it helps (nobody detected, or
+        // off to one side), so it is never drawn over a signer who is already roughly in place.
         val target = placeholder(top, floor)
+        val offCenter = current.status == Status.MOVE_LEFT || current.status == Status.MOVE_RIGHT
         val pulse = if (person) 1f else (0.65f + 0.35f * sin(SystemClock.uptimeMillis() / 420.0).toFloat())
-        drawPlaceholder(canvas, target, centered, pulse)
+        if (!person || offCenter) drawPlaceholder(canvas, target, false, pulse)
 
         // The detected signer, drawn on top of them.
         val shape = if (person) personShape() else null
@@ -152,8 +153,8 @@ class PlacementGuideView @JvmOverloads constructor(
                 centered -> TEAL
                 else -> CREAM
             }
-            drawPerson(canvas, shape, color)
-            if (current.status == Status.MOVE_LEFT || current.status == Status.MOVE_RIGHT) {
+            drawPerson(canvas, shape, color, floor)
+            if (offCenter) {
                 drawChevrons(canvas, shape.center, target.center, shape.shoulderY)
             }
         }
@@ -248,30 +249,21 @@ class PlacementGuideView @JvmOverloads constructor(
             ease("le", b.leftElbow), ease("re", b.rightElbow), ease("lw", b.leftWrist), ease("rw", b.rightWrist), hands)
     }
 
-    private fun drawPerson(canvas: Canvas, s: PersonShape, color: Int) {
+    private fun drawPerson(canvas: Canvas, s: PersonShape, color: Int, floor: Float) {
         val sw = s.shoulderWidth
-        // Arms first, under the torso: shoulder -> elbow -> wrist, as soft capsules.
-        limb.strokeWidth = 0.18f * sw
-        limb.color = withAlpha(color, 0x4D)
-        for ((shoulder, elbow, wrist) in listOf(Triple(s.leftShoulder, s.leftElbow, s.leftWrist),
-                Triple(s.rightShoulder, s.rightElbow, s.rightWrist))) {
-            if (elbow == null) continue
-            path.reset()
-            path.moveTo(shoulder.x, shoulder.y)
-            path.lineTo(elbow.x, elbow.y)
-            wrist?.let { path.lineTo(it.x, it.y) }
-            canvas.drawPath(path, limb)
-        }
-        // Torso from the real shoulders and hips, with rounded shoulders.
+        // Sides run down to the hips when they are seen, otherwise to the bottom of the camera area,
+        // left open there so nothing is invented below the frame.
+        val bottom = min(max(s.leftHip.y, s.rightHip.y), floor)
+        val hipsSeen = body?.leftHip != null && body?.rightHip != null && bottom < floor
         path.reset()
-        path.moveTo(s.center.x - 0.13f * sw, s.shoulderY - 0.16f * sw)
-        path.quadTo(s.leftShoulder.x + 0.06f * sw, s.leftShoulder.y - 0.12f * sw, s.leftShoulder.x, s.leftShoulder.y + 0.08f * sw)
-        path.quadTo(s.leftShoulder.x - 0.04f * sw, (s.leftShoulder.y + s.leftHip.y) / 2f, s.leftHip.x, s.leftHip.y)
-        path.lineTo(s.rightHip.x, s.rightHip.y)
-        path.quadTo(s.rightShoulder.x + 0.04f * sw, (s.rightShoulder.y + s.rightHip.y) / 2f, s.rightShoulder.x, s.rightShoulder.y + 0.08f * sw)
-        path.quadTo(s.rightShoulder.x - 0.06f * sw, s.rightShoulder.y - 0.12f * sw, s.center.x + 0.13f * sw, s.shoulderY - 0.16f * sw)
-        path.close()
-        fill.color = withAlpha(color, 0x40)
+        path.moveTo(s.leftHip.x, bottom)
+        path.quadTo(s.leftShoulder.x - 0.04f * sw, (s.leftShoulder.y + bottom) / 2f, s.leftShoulder.x, s.leftShoulder.y + 0.08f * sw)
+        path.quadTo(s.leftShoulder.x + 0.06f * sw, s.leftShoulder.y - 0.12f * sw, s.center.x - 0.13f * sw, s.shoulderY - 0.16f * sw)
+        path.lineTo(s.center.x + 0.13f * sw, s.shoulderY - 0.16f * sw)
+        path.quadTo(s.rightShoulder.x - 0.06f * sw, s.rightShoulder.y - 0.12f * sw, s.rightShoulder.x, s.rightShoulder.y + 0.08f * sw)
+        path.quadTo(s.rightShoulder.x + 0.04f * sw, (s.rightShoulder.y + bottom) / 2f, s.rightHip.x, bottom)
+        if (hipsSeen) path.close()
+        fill.color = withAlpha(color, 0x33)
         canvas.drawPath(path, fill)
         outline.color = withAlpha(color, 0xE6)
         canvas.drawPath(path, outline)
@@ -279,9 +271,6 @@ class PlacementGuideView @JvmOverloads constructor(
         val headY = s.shoulderY - HEAD_ABOVE_CENTER * sw
         canvas.drawCircle(s.center.x, headY, HEAD_RADIUS * sw, fill)
         canvas.drawCircle(s.center.x, headY, HEAD_RADIUS * sw, outline)
-        // Hands: their tracked joints as small dots.
-        dot.color = withAlpha(color, 0xCC)
-        for (hand in s.hands) for (joint in hand) canvas.drawCircle(joint.x, joint.y, 2.4f * density, dot)
     }
 
     /** Three chevrons from the signer toward the placeholder, drifting in that direction. */

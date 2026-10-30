@@ -5,7 +5,12 @@ import android.os.Looper
 import android.util.Log
 import android.view.View
 import android.view.ViewGroup
+import android.view.Gravity
 import android.view.ViewOutlineProvider
+import android.widget.LinearLayout
+import android.widget.ProgressBar
+import android.widget.TextView
+import androidx.core.content.ContextCompat
 import android.webkit.WebView
 import android.widget.FrameLayout
 import androidx.activity.ComponentActivity
@@ -67,10 +72,30 @@ class ReplyAvatarStage(
     private var index = 0
     private var playing = false
 
+    /** Shown in the card until the first sign plays, so the first (slow) load is not an empty box. */
+    private val loading = LinearLayout(activity).apply {
+        orientation = LinearLayout.VERTICAL
+        gravity = Gravity.CENTER
+        addView(ProgressBar(activity).apply {
+            isIndeterminate = true
+            indeterminateTintList = ContextCompat.getColorStateList(activity, R.color.color_brand_primary)
+        })
+        addView(TextView(activity).apply {
+            setText(R.string.conversation_v2_avatar_loading)
+            setTextColor(0xFFF6EBDD.toInt())
+            textSize = 14f
+            typeface = runCatching { activity.resources.getFont(R.font.inter_semibold) }.getOrNull()
+            setPadding(0, (12 * activity.resources.displayMetrics.density).toInt(), 0, 0)
+        })
+    }
+
     init {
         // Keep the avatar inside the card's rounded corners.
         stage.outlineProvider = ViewOutlineProvider.BACKGROUND
         stage.clipToOutline = true
+        stage.addView(loading, FrameLayout.LayoutParams(FrameLayout.LayoutParams.WRAP_CONTENT,
+            FrameLayout.LayoutParams.WRAP_CONTENT, Gravity.CENTER))
+        loading.visibility = View.GONE
     }
 
     fun play(text: String, ticket: Long) {
@@ -84,6 +109,8 @@ class ReplyAvatarStage(
         player?.pause()
         handler.removeCallbacksAndMessages(null)
         stage.visibility = View.VISIBLE
+        loading.visibility = if (avatarReady) View.GONE else View.VISIBLE
+        loading.bringToFront()
         listener.note(ticket, activity.getString(R.string.conversation_v2_avatar_loading))
         ensureEngine()
         webView?.onResume()
@@ -132,6 +159,7 @@ class ReplyAvatarStage(
                     webView = null
                     avatarReady = false
                     playing = false
+                    loading.visibility = View.GONE
                     if (active) listener.note(ticket, activity.getString(R.string.conversation_v2_avatar_failed))
                 }
             }
@@ -144,6 +172,7 @@ class ReplyAvatarStage(
                     if (asset.id == "idle") {
                         if (!avatarReady) {
                             avatarReady = true
+                            loading.visibility = View.GONE
                             tryPlay()
                         }
                         return
