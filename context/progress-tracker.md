@@ -24,6 +24,9 @@ only: no recognition, model, feature-contract, threshold or S4/F change.
   LISTENING / THEIR REPLY / NOT HEARD), suggested-sentence chip in RECOGNIZED (sentence assist, AI-accepted only),
   inline avatar for SIGN IT (existing renderer/planners), history bubbles (AppHear2 layouts). Unit tests pass.
 - [x] Phone (2026-10-28, step 5 build): LISTEN, live listening, a spoken reply and the not-heard state work.
+- [x] 2026-10-30: auto-say (SAYING IN 3-2-1 after 2.5 s still), detection pause while the hearing person replies,
+  augmented positioning guide (PositionGuide replaces PlacementGuard). Lab now built like the everyday app
+  (private config, sentence assist visible, llmFallback, mode toolbar, placement guide/gate). V4 kept separate.
 - [ ] Step 9: phone walkthrough of SAY IT, typing, expanded sheet/history, avatar, suggestion (needs a build with
   sentence-assist keys); timeline dialogues D1-D3; recognition FPS while listening and during avatar playback.
 

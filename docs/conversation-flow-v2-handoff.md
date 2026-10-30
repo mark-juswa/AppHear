@@ -25,19 +25,33 @@ SAY IT. Signing again restarts the wait and adds the new words; tapping the pill
 this message until its words change. A message is never auto-said twice. Word signing only: fingerspelling
 keeps its confirm step. Timings: `assets/conversation/auto_say_policy_v1.json`.
 
+**Detection pause**: while the phone listens, a reply is typed, the message is spoken or the avatar
+signs, WORD recognition skips camera frames (fingerspelling pauses too), so the signer's resting hands
+cannot commit a word. The sheet says "Sign detection paused while they reply". When it ends, the word
+session restarts (the placement gate's own reset).
+
+**Positioning guide** (`placementGuide`, `placementGate`): replaces the fixed frame, dim overlay and
+pop-up. Corner brackets follow the signer's signing space (shoulders/hips): teal when centered at a
+comfortable distance, tan with a hint pill ("Move left", "Move right", "Step back a little", "Come a
+little closer", "Step into the middle") otherwise, red while paused. The gate pauses WORD only for a
+raised hand cut off by the edge or the signer far off-center; distance is a hint only. Thresholds:
+`assets/placement/position_policy_v1.json`.
+
 Listening failures show **NOT HEARD**, **COULDN'T LISTEN** or **MICROPHONE OFF** with LISTEN/TYPE REPLY.
 If in-app listening is unavailable or the microphone is denied, the old system dialog is used once.
 
 ## Build and install
 
 ```powershell
-& 'I:\AppHear-Conversation-Claude\build-lab.ps1' -Log 'lab.log' -Extra @('-PconversationFlowV2=true','-PconversationLab=true','-PconversationAutoSay=true')
+# Same switches as the everyday app build (private keys from the gitignored android/gradle.properties).
+& 'I:\AppHear-Conversation-Claude\build-lab.ps1' -Private -Log 'lab.log' -Extra @('-PconversationFlowV2=true','-PconversationLab=true','-PconversationAutoSay=true','-PsentenceAssist=visible','-PllmFallback=true','-PrecognitionModeToolbar=true','-PplacementGuide=true','-PplacementGate=true','-PconversationTimeline=true')
 ```
+
+The private APK holds the user's keys: keep it on I: and the user's phone only. Without `-Private` the
+build uses the fake Context Assist provider and no keys (no suggestion chip).
 
 Installs as **AppHear Conversation** (`com.example.apphear.conversationlab`) beside AppHear:
 `adb -s 3ab64582 install -r I:/AppHear-Conversation-Claude/apks/<apk>`. Never uninstall other apps.
-The build uses the fake Context Assist provider and no API keys, so the suggested-sentence chip cannot
-appear; checking it needs a private build with the sentence-assist keys and `-PsentenceAssist=shadow`.
 The phone blocks adb taps: launch with `adb shell am start -n com.example.apphear.conversationlab/com.example.apphear.SplashActivity`
 and capture with `bash I:/AppHear-Conversation-Claude/capture-lab.sh <minutes> <folder>` while walking through.
 
@@ -56,6 +70,10 @@ Still to check on the phone:
 - [ ] SIGN IT -> avatar over the camera -> returns on completion; REPLAY; CLOSE; a reply with an
       unsupported word stays with "Unsupported: ..." until CLOSE.
 - [ ] Expand the sheet: RECENT bubbles, tap a reply bubble to sign it, sheet stays below the top controls.
+- [ ] Detection pause: during LISTENING / typing / avatar, move your hands: no words appear; after the
+      reply, signing works again straight away.
+- [ ] Positioning: stand off to one side (hint + tan brackets), far off-center (red, signing waits),
+      come back to the middle (teal "In position"); too close / too far hints; step out of view.
 - [ ] Suggested-sentence chip (private build with keys): offered, chosen, spoken, reset when words change.
 - [ ] Context Assist: "What's your name?" as a reply switches to FINGERSPELL as before.
 - [ ] Back / home during SAYING, LISTENING and avatar playback: stops, nothing restarts on return.
