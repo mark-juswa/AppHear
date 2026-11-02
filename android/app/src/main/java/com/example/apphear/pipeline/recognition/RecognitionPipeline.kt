@@ -36,6 +36,9 @@ class RecognitionPipeline(
     private val sentence = SentenceBuilder()
     val sentenceText: String get() = sentence.text()
     fun clearSentence() = sentence.clear()
+    /** Called on the analysis executor only, behind conversationFlowV2's explicit edit action. */
+    fun removeSentenceWord(index: Int, expectedText: String): Boolean =
+        sentence.removeAt(index, expectedText)
 
     private var awaitingRelease = false
     private var lastCommit: RecognitionState.Committed? = null

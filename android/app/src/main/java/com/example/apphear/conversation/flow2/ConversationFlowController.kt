@@ -16,6 +16,8 @@ import androidx.activity.ComponentActivity
 import androidx.activity.OnBackPressedCallback
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
+import androidx.appcompat.app.AlertDialog
+import com.example.apphear.sentenceassist.ConversationLine
 import com.example.apphear.BuildConfig
 import com.example.apphear.R
 import com.example.apphear.contextassist.ConversationPhraseAssist
@@ -41,6 +43,8 @@ class ConversationFlowController(
         fun speak(text: String, onDone: () -> Unit)
         fun stopSpeaking()
         fun clearSignedWords()
+        /** Remove only from the exact phrase reviewed by the signer. */
+        fun removeSignedWord(forWords: String, index: Int)
         /** A hearing turn was just recorded for Context Assist while this screen is open. */
         fun hearingRecorded()
         /**
@@ -51,7 +55,10 @@ class ConversationFlowController(
     }
 
     private val main = Handler(Looper.getMainLooper())
-    private val binder = ConversationSheetBinder(binding) { reply -> apply(ConversationFlow.signIt(state, reply)) }
+    private val binder = ConversationSheetBinder(binding,
+        onReplyTapped = { reply -> apply(ConversationFlow.signIt(state, reply)) },
+        onSignedWordTapped = ::offerRemoval,
+    )
     private val listener = InAppSpeechListener(AndroidSpeechBackend(activity), hasPermission = { micPermitted() })
     private var state = FlowState()
     private var editorOpen = false
@@ -59,7 +66,9 @@ class ConversationFlowController(
     /** The current message came from fingerspelling, which keeps its confirm step (never auto-said). */
     private var messageIsSpelling = false
     /** Latest suggestion from sentence assist, kept so it survives arriving before its words do. */
-    private var lastSuggestion: Pair<String, String?>? = null
+    private data class SentenceState(val words: String, val suggestion: String?, val plain: String?, val building: Boolean)
+    private var lastSuggestion: SentenceState? = null
+    private var removalDialog: AlertDialog? = null
     private var permissionTicket: Long? = null
     private var systemDialogTicket: Long? = null
     private var stopped = false
@@ -123,7 +132,7 @@ class ConversationFlowController(
         binding.conversationSecondaryA.setOnClickListener { onSecondary(binder.secondaryA) }
         binding.conversationSecondaryB.setOnClickListener { onSecondary(binder.secondaryB) }
         binding.conversationSuggestion.setOnClickListener {
-            val use = state.message?.useSuggestion != true
+            val use = state.message?.preferSigned == true
             ConversationTimeline.mark("suggestion_choice", "use" to use)
             apply(ConversationFlow.chooseSuggestion(state, use))
         }
@@ -143,19 +152,46 @@ class ConversationFlowController(
         if (words == lastWords) return
         lastWords = words
         apply(ConversationFlow.signedWordsChanged(state, words))
-        lastSuggestion?.takeIf { it.first == words }?.let { apply(ConversationFlow.suggestionReady(state, it.first, it.second)) }
+        lastSuggestion?.takeIf { it.words == words.trim() }?.let {
+            apply(ConversationFlow.suggestionReady(state, it.words, it.suggestion, it.plain, it.building))
+        }
     }
 
     /** An accepted sentence-assist rendering for [words], or null; called every frame, so cheap. */
-    fun suggestionFor(words: String, suggestion: String?) {
-        val next = words.trim() to suggestion
+    fun suggestionFor(words: String, suggestion: String?, plain: String? = null, building: Boolean = false) {
+        val next = SentenceState(words.trim(), suggestion, plain, building)
         if (next == lastSuggestion) return
         lastSuggestion = next
-        apply(ConversationFlow.suggestionReady(state, next.first, suggestion))
+        apply(ConversationFlow.suggestionReady(state, next.words, suggestion, plain, building))
+    }
+
+    /** Actual prior exchanges only; the prompt applies its configured context bound. */
+    fun conversationLines(): List<ConversationLine> = ConversationFlow.contextLines(state)
+
+    private fun offerRemoval(index: Int, word: String) {
+        if (messageIsSpelling || stopped || editorOpen || state.phase != FlowPhase.READY || removalDialog != null) return
+        val words = state.message?.signedWords ?: return
+        val dialog = AlertDialog.Builder(activity)
+            .setTitle(activity.getString(R.string.conversation_v2_remove_title, word))
+            .setMessage(R.string.conversation_v2_remove_body)
+            .setNegativeButton(R.string.conversation_v2_cancel, null)
+            .setPositiveButton(R.string.conversation_v2_remove) { _, _ ->
+                if (!stopped && state.phase == FlowPhase.READY && state.message?.signedWords == words) {
+                    host.removeSignedWord(words, index)
+                }
+            }.create()
+        removalDialog = dialog
+        dialog.setOnDismissListener {
+            removalDialog = null
+            render()
+        }
+        render()
+        dialog.show()
     }
 
     /** What SAY IT should speak for [words]: the chosen wording, or null if [words] are not the message. */
-    fun chosenFor(words: String): String? = state.message?.takeIf { it.signedWords == words.trim() }?.chosen
+    fun chosenFor(words: String): String? = if (state.message?.signedWords == words.trim())
+        ConversationFlow.displayedMessage(state) else null
 
     /** Camera-height fraction above which a hand counts as raised for auto-say; null when auto-say is off. */
     val autoSayRaisedHandMaxY: Float? get() = autoSay?.let { autoSayPolicy?.raisedHandMaxY }
@@ -175,6 +211,7 @@ class ConversationFlowController(
 
     fun onStop() {
         stopped = true
+        removalDialog?.dismiss()
         autoSay?.cancel()
         // The permission prompt and the system speech dialog pause this screen; their results return here.
         if (permissionTicket != null || systemDialogTicket != null) return
@@ -188,6 +225,8 @@ class ConversationFlowController(
     }
 
     fun onDestroy() {
+        stopped = true
+        removalDialog?.dismiss()
         main.removeCallbacksAndMessages(null)
         listener.destroy()
         avatar.destroy()
@@ -326,7 +365,8 @@ class ConversationFlowController(
 
     private fun render() {
         autoSay?.update(state.message?.signedWords, canSay = state.phase == FlowPhase.READY && !editorOpen &&
-            !messageIsSpelling && !stopped)
+            !messageIsSpelling && !stopped && removalDialog == null,
+            ready = state.message?.let { !it.building || it.preferSigned } != false)
         draw()
     }
 
@@ -337,7 +377,7 @@ class ConversationFlowController(
             ConversationTimeline.mark("detection_hold", "held" to held)
             host.detectionHold(held)
         }
-        binder.render(state, editorOpen, avatarNote, autoSaySeconds, detectionHeld)
+        binder.render(state, editorOpen, avatarNote, autoSaySeconds, detectionHeld, messageIsSpelling)
         back.isEnabled = editorOpen ||
             state.phase in setOf(FlowPhase.SAYING, FlowPhase.LISTENING, FlowPhase.AVATAR)
     }

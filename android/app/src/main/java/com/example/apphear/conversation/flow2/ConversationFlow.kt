@@ -1,5 +1,7 @@
 package com.example.apphear.conversation.flow2
 
+import com.example.apphear.sentenceassist.ConversationLine
+
 /**
  * One-screen conversation (conversationFlowV2) turn logic. Pure Kotlin, no Android types: the
  * recognition screen feeds it events and carries out the [FlowEffect]s it returns.
@@ -25,13 +27,20 @@ enum class ListenFailure {
 
 enum class PrimaryAction { LISTEN, SAY_IT, STOP, SIGN_IT, REPLAY }
 
-/** What the signer is about to say: the exact signed words plus an optional suggested sentence. */
+/**
+ * What the signer is about to say: the exact signed words, the sentence built from them by sentence
+ * assist ([suggestion], validator-accepted only) and its plain-English fallback ([plain]). The built
+ * sentence is said unless the signer chose their signed words instead ([preferSigned]).
+ */
 data class SignedMessage(
     val signedWords: String,
     val suggestion: String? = null,
-    val useSuggestion: Boolean = false,
+    val plain: String? = null,
+    val preferSigned: Boolean = false,
+    /** A sentence for these words is still being built. */
+    val building: Boolean = false,
 ) {
-    val chosen: String get() = if (useSuggestion && suggestion != null) suggestion else signedWords
+    val chosen: String get() = if (!preferSigned && suggestion != null) suggestion else plain ?: signedWords
 }
 
 /** One row of history: what the signer said and/or what the hearing person replied. */
@@ -77,6 +86,15 @@ data class Transition(val state: FlowState, val effects: List<FlowEffect> = empt
 object ConversationFlow {
     const val MAX_EXCHANGES = 6
 
+    fun contextLines(s: FlowState): List<ConversationLine> = s.history.flatMap { exchange ->
+        listOfNotNull(exchange.signed?.let { ConversationLine(true, it) },
+            exchange.reply?.let { ConversationLine(false, it) })
+    }
+
+    /** A late rendering must not change the text while an earlier wording is being spoken. */
+    fun displayedMessage(s: FlowState): String? =
+        if (s.phase == FlowPhase.SAYING) s.speaking else s.message?.chosen
+
     fun primaryAction(s: FlowState): PrimaryAction = when (s.phase) {
         FlowPhase.READY -> if (s.message != null) PrimaryAction.SAY_IT else PrimaryAction.LISTEN
         FlowPhase.SAYING, FlowPhase.LISTENING -> PrimaryAction.STOP
@@ -97,19 +115,26 @@ object ConversationFlow {
         } else s.copy(message = message))
     }
 
-    /** A suggestion arrived for [forWords]; ignored if the signed words have moved on. */
-    fun suggestionReady(s: FlowState, forWords: String, suggestion: String?): Transition {
+    /**
+     * Sentence assist's state for [forWords]: the accepted sentence (or null), the plain fallback and
+     * whether a sentence is still being built. Ignored if the signed words have moved on.
+     */
+    fun suggestionReady(
+        s: FlowState, forWords: String, suggestion: String?, plain: String? = null, building: Boolean = false,
+    ): Transition {
         val message = s.message ?: return Transition(s)
         if (message.signedWords != forWords.trim()) return Transition(s)
         val clean = suggestion?.trim()?.takeIf { it.isNotEmpty() && it != message.signedWords }
-        return Transition(s.copy(message = message.copy(suggestion = clean,
-            useSuggestion = message.useSuggestion && clean != null)))
+        val next = message.copy(suggestion = clean, plain = plain?.trim()?.takeIf { it.isNotEmpty() },
+            building = building)
+        return if (next == message) Transition(s) else Transition(s.copy(message = next))
     }
 
+    /** [use] the built sentence, or (false) say the signed words instead. */
     fun chooseSuggestion(s: FlowState, use: Boolean): Transition {
         val message = s.message ?: return Transition(s)
         if (use && message.suggestion == null) return Transition(s)
-        return Transition(s.copy(message = message.copy(useSuggestion = use)))
+        return Transition(s.copy(message = message.copy(preferSigned = !use)))
     }
 
     fun sayIt(s: FlowState): Transition {

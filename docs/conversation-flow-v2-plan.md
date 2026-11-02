@@ -1,3 +1,9 @@
+> **2026-10-30 sentence-builder continuation:** The latest approved behavior makes the validated
+> AI sentence primary in RECOGNIZED, adds a Signed line/removal, waits before auto-say and passes recent
+> exchanges to prompt v3. This supersedes older optional-chip wording below. Implementation is locally
+> built; external evaluation and device acceptance remain pending. See
+> [continuation report](sentence-builder-v3-continuation-2026-10-30.md).
+
 # One-screen conversation (conversationFlowV2): implementation plan
 
 Status: steps 1-8 built (2026-10-29); step 9 (phone checks) pending. See conversation-flow-v2-handoff.md.

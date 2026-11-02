@@ -8,6 +8,25 @@ import org.junit.Assert.assertTrue
 import org.junit.Test
 
 class ConversationFlowTest {
+    @Test fun `a late sentence cannot change the words already being spoken`() {
+        val draft = ConversationFlow.signedWordsChanged(FlowState(), "ME WANT WATER").state
+        val saying = ConversationFlow.sayIt(draft).state
+        val late = ConversationFlow.suggestionReady(saying, "ME WANT WATER", "I want water.").state
+        assertEquals("ME WANT WATER", ConversationFlow.displayedMessage(late))
+        val stopped = ConversationFlow.stop(late).state
+        assertEquals("I want water.", ConversationFlow.displayedMessage(stopped))
+    }
+
+    @Test fun `prompt context contains actual prior exchanges but no unsaid draft`() {
+        val s = FlowState(message = SignedMessage("SECRET DRAFT"), history = listOf(
+            Exchange(null, "How are you?"), Exchange("I am good.", "What do you want?")))
+        assertEquals(listOf(
+            com.example.apphear.sentenceassist.ConversationLine(false, "How are you?"),
+            com.example.apphear.sentenceassist.ConversationLine(true, "I am good."),
+            com.example.apphear.sentenceassist.ConversationLine(false, "What do you want?")),
+            ConversationFlow.contextLines(s))
+    }
+
     private val f = ConversationFlow
 
     private fun signed(words: String, from: FlowState = FlowState()) = f.signedWordsChanged(from, words).state
@@ -166,18 +185,30 @@ class ConversationFlowTest {
         assertSame(listening, f.typedReply(listening, "   ").state)
     }
 
-    @Test fun `suggestion is optional, chosen explicitly and reset when the signed words change`() {
+    @Test fun `the built sentence is said by default, the signed words on request, reset when words change`() {
         val ready = signed("ME WANT WATER")
-        val suggested = f.suggestionReady(ready, "ME WANT WATER", "I want water.").state
-        assertEquals("ME WANT WATER", suggested.message?.chosen)
+        val building = f.suggestionReady(ready, "ME WANT WATER", null, plain = "Me want water.", building = true).state
+        assertTrue(building.message!!.building)
+        assertEquals("Me want water.", building.message?.chosen)
 
-        val chosen = f.chooseSuggestion(suggested, true).state
-        assertEquals("I want water.", chosen.message?.chosen)
-        assertEquals(FlowEffect.Speak("I want water.", 1), f.sayIt(chosen).effects.single())
+        val built = f.suggestionReady(building, "ME WANT WATER", "I want water.", plain = "Me want water.").state
+        assertFalse(built.message!!.building)
+        assertEquals("I want water.", built.message?.chosen)
+        assertEquals(FlowEffect.Speak("I want water.", 1), f.sayIt(built).effects.single())
 
-        val changed = signed("ME WANT WATER NOW", chosen)
+        val signedChoice = f.chooseSuggestion(built, false).state
+        assertEquals("Me want water.", signedChoice.message?.chosen)
+        assertEquals("I want water.", f.chooseSuggestion(signedChoice, true).state.message?.chosen)
+
+        val changed = signed("ME WANT WATER NOW", signedChoice)
         assertNull(changed.message?.suggestion)
+        assertFalse(changed.message!!.preferSigned)
         assertEquals("ME WANT WATER NOW", changed.message?.chosen)
+    }
+
+    @Test fun `an unchanged suggestion keeps the same state`() {
+        val built = f.suggestionReady(signed("HELLO HOME"), "HELLO HOME", "Hello, home.", plain = "Hello home.").state
+        assertSame(built, f.suggestionReady(built, "HELLO HOME", "Hello, home.", plain = "Hello home.").state)
     }
 
     @Test fun `stale or useless suggestions are ignored`() {

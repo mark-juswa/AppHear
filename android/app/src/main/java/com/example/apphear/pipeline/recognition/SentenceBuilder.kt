@@ -12,16 +12,27 @@ class SentenceBuilder(private val maxGlosses: Int = 20) {
     private val glosses = ArrayDeque<String>()
 
     /** Append a committed gloss; a consecutive duplicate is ignored. Returns true if it changed. */
-    fun add(gloss: String): Boolean {
+    @Synchronized fun add(gloss: String): Boolean {
         if (glosses.lastOrNull() == gloss) return false
         glosses.addLast(gloss)
         while (glosses.size > maxGlosses) glosses.removeFirst() // bound growth; drop oldest
         return true
     }
 
-    fun text(): String = glosses.joinToString(" ")
+    @Synchronized fun text(): String = glosses.joinToString(" ")
 
-    fun isEmpty(): Boolean = glosses.isEmpty()
+    /**
+     * Removes the gloss at [index] (a word the signer marked as misrecognized). Returns false for an
+     * index outside the phrase. Used only by the conversation screen (conversationFlowV2).
+     */
+    @Synchronized fun removeAt(index: Int, expectedText: String? = null): Boolean {
+        if (expectedText != null && text() != expectedText) return false
+        if (index !in glosses.indices) return false
+        glosses.removeAt(index)
+        return true
+    }
 
-    fun clear() = glosses.clear()
+    @Synchronized fun isEmpty(): Boolean = glosses.isEmpty()
+
+    @Synchronized fun clear() = glosses.clear()
 }

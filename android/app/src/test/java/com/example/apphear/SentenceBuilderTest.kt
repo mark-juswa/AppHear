@@ -8,6 +8,33 @@ import org.junit.Test
 
 /** S8 passthrough+dedup accumulator. Pure JVM. */
 class SentenceBuilderTest {
+    @Test fun removalRejectsAChangedPhraseAndDoesNotDeleteTheSameIndexTwice() {
+        val s = SentenceBuilder()
+        listOf("ME", "WANT", "HOT", "WATER").forEach { s.add(it) }
+        val reviewed = s.text()
+        s.add("NOW")
+        assertFalse(s.removeAt(2, reviewed))
+        assertEquals("ME WANT HOT WATER NOW", s.text())
+        val current = s.text()
+        assertTrue(s.removeAt(2, current))
+        assertFalse(s.removeAt(2, current))
+        assertEquals("ME WANT WATER NOW", s.text())
+        s.clear()
+        s.add("HELLO")
+        assertTrue(s.removeAt(0, "HELLO"))
+        assertTrue(s.isEmpty())
+    }
+
+    @Test fun removeAtDropsOneWordAndRefusesBadIndexes() {
+        val s = SentenceBuilder()
+        listOf("ME", "WANT", "HOT", "WATER").forEach { s.add(it) }
+        org.junit.Assert.assertTrue(s.removeAt(2))
+        org.junit.Assert.assertEquals("ME WANT WATER", s.text())
+        org.junit.Assert.assertFalse(s.removeAt(3))
+        org.junit.Assert.assertFalse(s.removeAt(-1))
+        org.junit.Assert.assertEquals("ME WANT WATER", s.text())
+    }
+
 
     @Test
     fun appendsInOrderJoinedBySpaces() {

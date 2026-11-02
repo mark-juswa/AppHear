@@ -59,6 +59,7 @@ class SentenceAssistAssetLoader(private val context: Context) {
             substitutionRuleWithoutAlternatives = promptJson.getString("substitutionRuleWithoutAlternatives"),
             noHearingContext = promptJson.getString("noHearingContext"),
             responseSchemaJson = promptJson.getJSONObject("responseSchema").toString(),
+            conversationLines = promptJson.optInt("conversationLines", 0),
         )
         val substitution = json(policy.substitutionPolicyAsset)
         val substitutionPolicy = PhraseMatchPolicy(

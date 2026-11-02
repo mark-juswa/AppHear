@@ -20,6 +20,7 @@ class SentenceAssistEvalTest {
     private val lexicon = SentenceAssistAssets.lexicon()
     private val template = SentenceAssistAssets.template()
     private val cases = SentenceAssistEvaluator.loadCases(evalRoot.resolve("cases_v1.jsonl"))
+    private val contextCases = SentenceAssistEvaluator.loadCases(evalRoot.resolve("cases_context_v3.jsonl"))
     private val gson = GsonBuilder().setPrettyPrinting().serializeNulls().create()
 
     @Test
@@ -57,12 +58,23 @@ class SentenceAssistEvalTest {
                 addProperty("promptVersion", template.promptVersion)
                 addProperty("model", template.model)
                 addProperty("systemInstruction", template.systemInstruction)
-                addProperty("input", prompt.input(RenderRequest(case.turn, case.hearing)))
+                addProperty("input", prompt.input(RenderRequest(case.turn, case.hearing, case.conversation)))
                 add("responseSchema", schema)
             }.toString()
         }
         Files.write(outputRoot.resolve("prompts_${template.promptVersion}.jsonl"), lines)
         assertEquals(cases.size, lines.size)
+        val extra = contextCases.map { case ->
+            JsonObject().apply {
+                addProperty("id", case.id)
+                addProperty("promptVersion", template.promptVersion)
+                addProperty("model", template.model)
+                addProperty("systemInstruction", template.systemInstruction)
+                addProperty("input", prompt.input(RenderRequest(case.turn, case.hearing, case.conversation)))
+                add("responseSchema", schema)
+            }.toString()
+        }
+        Files.write(outputRoot.resolve("prompts_${template.promptVersion}_context.jsonl"), extra)
     }
 
     @Test
@@ -99,14 +111,14 @@ class SentenceAssistEvalTest {
     fun scoresRecordedRunsWhenPresent() {
         val runs = evalRoot.resolve("runs")
         if (!Files.isDirectory(runs)) return
-        val byId = cases.associateBy { it.id }
-        val evaluator = SentenceAssistEvaluator(SentenceAssistAssets.validator(),
-            SentenceAssistAssets.substitutionPolicy(), template.promptVersion)
+        val byId = (cases + contextCases).associateBy { it.id }
         val fallback = PlainGlossRenderer(lexicon)
         runs.toFile().listFiles().orEmpty().map { it.toPath() }
             .filter { Files.isRegularFile(it.resolve("outputs.jsonl")) }.sorted()
             .forEach { run ->
                 val outputs = SentenceAssistEvaluator.loadOutputs(run.resolve("outputs.jsonl"))
+                val evaluator = SentenceAssistEvaluator(SentenceAssistAssets.validator(),
+                    SentenceAssistAssets.substitutionPolicy(), outputs.firstOrNull()?.promptVersion ?: template.promptVersion)
                 val scored = outputs.mapNotNull { output ->
                     byId[output.id]?.let { evaluator.score(it, output, fallback) }
                 }

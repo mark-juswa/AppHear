@@ -318,6 +318,7 @@ class RecognitionActivity : AppCompatActivity() {
                 override fun speak(text: String, onDone: () -> Unit) = speechPlayer.speak(text, onDone)
                 override fun stopSpeaking() = speechPlayer.stop()
                 override fun clearSignedWords() = clearRecognized()
+                override fun removeSignedWord(forWords: String, index: Int) = this@RecognitionActivity.removeSignedWord(forWords, index)
                 override fun hearingRecorded() {
                     openingHearingTurnId = ConversationPhraseAssist.presentationState.value.hearingTurnId
                 }
@@ -328,6 +329,34 @@ class RecognitionActivity : AppCompatActivity() {
         conversationFlow = flow
         speakSentence = { flow.sayText(it) }
         flow.autoSayRaisedHandMaxY?.let { autoSayHandsUpY = it }
+    }
+
+    /** User-requested sentence edit only; no recognition policy or model state is changed. */
+    private fun removeSignedWord(forWords: String, index: Int) {
+        if (!BuildConfig.CONVERSATION_FLOW_V2_ENABLED || currentRecognitionMode() == RecognitionMode.FINGERSPELL || cameraExecutor.isShutdown) return
+        val session = phoneSession
+        val legacy = recognizer
+        cameraExecutor.execute {
+            val removed = if (session != null) session.removeSentenceWord(index, forWords)
+                else legacy?.removeSentenceWord(index, forWords) == true
+            if (removed) runOnUiThread {
+                if (isFinishing || isDestroyed || phoneSession !== session || recognizer !== legacy) return@runOnUiThread
+                // Old Top-5 event indices no longer match the edited sentence. Disable substitutions
+                // for this turn rather than assigning the removed sign's evidence to another word.
+                signingTurn.clear()
+                evidenceInterrupted = true
+                sentenceShadow?.reset()
+                ConversationPhraseAssist.clearDisplayedInterpretation()
+                val words = (session?.sentenceText ?: legacy?.sentenceText).orEmpty()
+                conversationFlow?.signedWordsChanged(words)
+                val hearing = ConversationPhraseAssist.presentationState.value
+                sentenceShadow?.signsChanged(words, emptyList(), false, hearing.hearingText, hearing.hearingTurnId,
+                    conversationFlow?.conversationLines().orEmpty())
+                binding.sentenceText.text = sentenceAssistDisplay(words)
+                updateSentenceCardVisibility()
+                ConversationTimeline.mark("signed_word_removed", "index" to index)
+            }
+        }
     }
 
     /** The Clear button's reset; also used when a reused screen starts a new hearing turn. */
@@ -443,7 +472,6 @@ class RecognitionActivity : AppCompatActivity() {
             Toast.makeText(this, R.string.speech_no_text_to_speak, Toast.LENGTH_SHORT).show()
             return
         }
-        // VISIBLE mode speaks exactly the grounded wording shown under RECOGNIZED; otherwise the raw words.
         // VISIBLE mode speaks exactly what RECOGNIZED shows: the AI sentence or the plain words.
         val displayed = if (SentenceAssistMode.current == SentenceAssistMode.VISIBLE) {
             sentenceShadow?.displayState(sentence, ConversationPhraseAssist.presentationState.value.hearingTurnId)
@@ -455,7 +483,7 @@ class RecognitionActivity : AppCompatActivity() {
             is SentenceAssistShadow.DisplayState.Plain -> displayed.sentence
             else -> sentence
         }
-        // conversationFlowV2 speaks the signer's choice: the signed words unless they tapped the suggestion.
+        // conversationFlowV2 speaks exactly the wording shown in RECOGNIZED.
         val flowChoice = conversationFlow?.let { it.chosenFor(sentence) ?: sentence }
         val said = flowChoice ?: spoken
         if (ConversationScreens.autoListen) speakThenListen(said) else speakSentence(said)
@@ -463,7 +491,7 @@ class RecognitionActivity : AppCompatActivity() {
             val hearing = ConversationPhraseAssist.presentationState.value
             shadow.hearTapped(sentence, signingTurn.snapshot(), !(evidenceInterrupted || signingTurn.overflowed),
                 hearing.hearingText, hearing.hearingTurnId,
-                spokeAi = if (flowChoice != null) flowChoice != sentence else shownAi != null)
+                spokeAi = shownAi != null && said == shownAi.chosenSentence)
         }
         ConversationTimeline.mark("hear_spoken", "words" to sentence.split(' ').count { it.isNotBlank() })
         if (ConversationPhraseAssist.enabled &&
@@ -580,13 +608,15 @@ class RecognitionActivity : AppCompatActivity() {
         val shadow = sentenceShadow
         val words = raw.toString().trim()
         conversationFlow?.let { flow ->
-            // conversationFlowV2: RECOGNIZED keeps the signed words; an accepted AI sentence is only offered.
             binding.signedDetailGroup.visibility = View.GONE
-            val done = if (shadow == null || words.isEmpty() || words == getString(R.string.sentence_placeholder)) null
+            val displayed = if (SentenceAssistMode.current != SentenceAssistMode.VISIBLE || shadow == null ||
+                words.isEmpty() || words == getString(R.string.sentence_placeholder)) null
                 else shadow.displayState(words, ConversationPhraseAssist.presentationState.value.hearingTurnId)
-                    as? SentenceAssistShadow.DisplayState.Done
-            flow.suggestionFor(words, done?.outcome?.takeIf { it.aiStatus == AiStatus.ACCEPTED }?.chosenSentence)
-            return raw
+            val done = (displayed as? SentenceAssistShadow.DisplayState.Done)?.outcome
+            val plain = (displayed as? SentenceAssistShadow.DisplayState.Plain)
+            flow.suggestionFor(words, done?.takeIf { it.aiStatus == AiStatus.ACCEPTED }?.chosenSentence,
+                plain = done?.fallbackSentence ?: plain?.sentence, building = plain?.improving == true)
+            return flow.chosenFor(words) ?: raw
         }
         val state = if (SentenceAssistMode.current != SentenceAssistMode.VISIBLE || shadow == null ||
             words.isEmpty() || words == getString(R.string.sentence_placeholder)) {
@@ -1000,7 +1030,8 @@ class RecognitionActivity : AppCompatActivity() {
                         sentenceShadow?.let { shadow ->
                             val hearing = ConversationPhraseAssist.presentationState.value
                             shadow.signsChanged(r.phoneSentence.orEmpty(), signingTurn.snapshot(),
-                                !(evidenceInterrupted || signingTurn.overflowed), hearing.hearingText, hearing.hearingTurnId)
+                                !(evidenceInterrupted || signingTurn.overflowed), hearing.hearingText, hearing.hearingTurnId,
+                                conversationFlow?.conversationLines().orEmpty())
                         }
                         renderPhraseAssist(ConversationPhraseAssist.presentationState.value)
                     }

@@ -10,6 +10,20 @@ import org.junit.Assert.assertTrue
 import org.junit.Test
 
 class AutoSayTest {
+    @Test fun `a word edit or lifecycle pause cannot leave a delayed say callback armed`() {
+        autoSay.update("ME WANT HOT WATER", canSay = true, ready = false)
+        clock.advance(9_000)
+        autoSay.update("ME WANT HOT WATER", canSay = false, ready = false)
+        autoSay.update("ME WANT WATER", canSay = true, ready = false)
+        clock.advance(1_000)
+        autoSay.update("ME WANT WATER", canSay = true, ready = true)
+        clock.advance(4_499)
+        assertEquals(0, fired)
+        autoSay.cancel()
+        clock.advance(20_000)
+        assertEquals(0, fired)
+    }
+
     /** A manual clock standing in for the main-thread Handler. */
     private class FakeScheduler {
         var now = 0L
@@ -76,6 +90,30 @@ class AutoSayTest {
         assertEquals(0, fired)
         // Hands down: the wait and the countdown run, then the message is said.
         clock.advance(5_500)
+        assertEquals(1, fired)
+    }
+
+    @Test fun `the countdown waits for the sentence that is still being built`() {
+        autoSay.update("ME WANT WATER", canSay = true, ready = false)
+        clock.advance(10_000)
+        assertTrue(ticks.isEmpty())
+        // The sentence arrives after the signer has long been still: the countdown starts at once.
+        autoSay.update("ME WANT WATER", canSay = true, ready = true)
+        assertEquals(listOf<Int?>(3), ticks)
+        clock.advance(3_000)
+        assertEquals(1, fired)
+    }
+
+    @Test fun `a new build during the countdown pauses it until the sentence is ready`() {
+        autoSay.update("HELLO HOME", canSay = true)
+        clock.advance(3_500)
+        assertTrue(autoSay.counting)
+        autoSay.update("HELLO HOME", canSay = true, ready = false)
+        assertFalse(autoSay.counting)
+        clock.advance(10_000)
+        assertEquals(0, fired)
+        autoSay.update("HELLO HOME", canSay = true, ready = true)
+        clock.advance(3_000)
         assertEquals(1, fired)
     }
 

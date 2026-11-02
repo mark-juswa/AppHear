@@ -46,12 +46,18 @@
     <string name="conversation_v2_avatar_failed">The avatar couldn\'t play this. Tap REPLAY to retry.</string>
     <string name="conversation_v2_avatar_unsupported">%1$s • Unsupported: %2$s</string>
 
-    <!-- Suggested sentence chip in RECOGNIZED. -->
-    <string name="conversation_v2_suggestion_chosen">✓ %1$s</string>
+    <!-- Sentence builder in RECOGNIZED: the signed words under the sentence, and the signer's choice. -->
+    <string name="conversation_v2_signed_prefix">Signed: </string>
+    <string name="conversation_v2_use_signed">Use signed words</string>
+    <string name="conversation_v2_use_sentence">Use sentence</string>
+    <string name="conversation_v2_remove_title">Remove “%1$s”?</string>
+    <string name="conversation_v2_remove_body">Take this sign out of your message if it was recognized by mistake.</string>
+    <string name="conversation_v2_remove">Remove</string>
 
     <!-- Accessibility. -->
-    <string name="conversation_v2_suggestion_description">Suggested sentence: %1$s. Tap to say this instead of the signed words.</string>
-    <string name="conversation_v2_suggestion_chosen_description">Suggested sentence chosen: %1$s. Tap to go back to the signed words.</string>
+    <string name="conversation_v2_use_signed_description">Say your signed words instead of the built sentence</string>
+    <string name="conversation_v2_use_sentence_description">Say the built sentence: %1$s</string>
+    <string name="conversation_v2_signed_word_description">Signed word %1$s. Tap to remove it.</string>
     <string name="conversation_v2_say_it_description">Say your message aloud, then listen for their reply</string>
     <string name="conversation_v2_listen_description">Listen for the hearing person\'s reply</string>
     <string name="conversation_v2_stop_description">Stop</string>

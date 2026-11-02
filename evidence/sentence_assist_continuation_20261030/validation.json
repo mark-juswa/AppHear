@@ -1,0 +1,182 @@
+{
+  "flags-off": {
+    "jvm": {
+      "tests": 399,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "configs": {
+      "debug": {
+        "APPLICATION_ID": "com.example.apphear",
+        "CONVERSATION_FLOW_V2_ENABLED": "false",
+        "CONVERSATION_AUTO_SAY_ENABLED": "false",
+        "SENTENCE_ASSIST_MODE": "OFF"
+      },
+      "release": {
+        "APPLICATION_ID": "com.example.apphear",
+        "CONVERSATION_FLOW_V2_ENABLED": "false",
+        "CONVERSATION_AUTO_SAY_ENABLED": "false",
+        "SENTENCE_ASSIST_MODE": "OFF"
+      }
+    },
+    "apk": "I:\\AppHear-Conversation-Claude\\apks\\codex-sentence-builder-v3-20261030-flags-off-fake.apk",
+    "apkBytes": 906022351,
+    "apkSha256": "2024edbbc5c5f01894cd9be8e4e2f16dfc56f9328fb6c4084dce25d76fe04303",
+    "applicationId": "com.example.apphear",
+    "deviceInstalled": false
+  },
+  "baseline": {
+    "promptVersion": "v2",
+    "outputs": 163,
+    "promptVersionMismatches": 0,
+    "aiStatus": {
+      "ACCEPTED": 136,
+      "REJECTED": 26,
+      "UNAVAILABLE": 1
+    },
+    "rejectReasons": {
+      "INVALID_SUBSTITUTION": 11,
+      "MISSING_SIGN": 2,
+      "UNSUPPORTED_WORD": 13
+    },
+    "byCategory": {
+      "clean": {
+        "outputs": 26,
+        "acceptedRate": 0.9230769230769231
+      },
+      "context_mismatch": {
+        "outputs": 6,
+        "acceptedRate": 1.0
+      },
+      "long": {
+        "outputs": 8,
+        "acceptedRate": 0.875
+      },
+      "negation": {
+        "outputs": 9,
+        "acceptedRate": 0.7777777777777778
+      },
+      "noisy_real": {
+        "outputs": 4,
+        "acceptedRate": 0.75
+      },
+      "perturbed_delete": {
+        "outputs": 8,
+        "acceptedRate": 1.0
+      },
+      "perturbed_insert": {
+        "outputs": 8,
+        "acceptedRate": 0.625
+      },
+      "perturbed_substitute": {
+        "outputs": 8,
+        "acceptedRate": 1.0
+      },
+      "pronoun": {
+        "outputs": 4,
+        "acceptedRate": 1.0
+      },
+      "question": {
+        "outputs": 7,
+        "acceptedRate": 1.0
+      },
+      "repeated": {
+        "outputs": 5,
+        "acceptedRate": 1.0
+      },
+      "swap_decoy": {
+        "outputs": 50,
+        "acceptedRate": 0.82
+      },
+      "swap_help": {
+        "outputs": 20,
+        "acceptedRate": 0.55
+      }
+    },
+    "cleanAcceptedRate": 0.9152542372881356,
+    "acceptedWithInferredPronoun": 33,
+    "substitutions": {
+      "proposed": 12,
+      "acceptedHelped": 0,
+      "acceptedHarmed": 0,
+      "acceptedNeutral": 0,
+      "helpOpportunities": 20,
+      "correctTop1WithEligibleAlternative": 51
+    },
+    "latencyMs": {
+      "n": 162,
+      "p50": 1030,
+      "p95": 1421
+    },
+    "gates": {
+      "cleanAcceptedRateAtLeast90": true,
+      "harmRateAtMost2Percent": true,
+      "helpedAtLeastHarmed": true,
+      "humanReview": "pending: fill review.csv (meaning_preserved, adds_information)"
+    }
+  },
+  "protected": {
+    "protected_files": 620,
+    "mismatches": [],
+    "candidate01_model_feature_camera_changes": false
+  },
+  "v3ProviderEvaluation": "NOT_SENT_AUTO_REVIEW_REQUIRES_EXPLICIT_APPROVAL",
+  "humanSemanticReview": "PENDING",
+  "deviceSmoke": "INSTALL_AND_LAUNCH_VERIFIED_FULL_F22_PENDING",
+  "accuracyClaim": "NONE",
+  "private": {
+    "jvm": {
+      "tests": 399,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "configs": {
+      "debug": {
+        "APPLICATION_ID": "com.example.apphear.conversationlab",
+        "CONVERSATION_FLOW_V2_ENABLED": "true",
+        "CONVERSATION_AUTO_SAY_ENABLED": "true",
+        "SENTENCE_ASSIST_MODE": "VISIBLE"
+      },
+      "release": {
+        "APPLICATION_ID": "com.example.apphear",
+        "CONVERSATION_FLOW_V2_ENABLED": "false",
+        "CONVERSATION_AUTO_SAY_ENABLED": "false",
+        "SENTENCE_ASSIST_MODE": "OFF"
+      }
+    },
+    "apk": "I:\\AppHear-Conversation-Claude\\apks\\codex-sentence-builder-v3-20261030-private.apk",
+    "apkBytes": 906022467,
+    "apkSha256": "41dcfdb78bdf02f1acf5a03d6fd858614ff84984ec92dcec1621494641488f72",
+    "applicationId": "com.example.apphear.conversationlab",
+    "deviceInstalled": true,
+    "testApk": "I:\\AppHear-Conversation-Claude\\apks\\codex-sentence-builder-v3-20261030-androidTest.apk",
+    "geminiConfigured": true,
+    "uiSmokeTestsCompiled": 2,
+    "uiSmokeTestsExecuted": false,
+    "installation": {
+      "timeAsiaManila": "2026-10-30T12:46:30+08:00",
+      "device": "adb-3ab64582-bpsj8N._adb-tls-connect._tcp",
+      "model": "M2101K7AG",
+      "command": "adb install -r",
+      "installedApkSha256": "41dcfdb78bdf02f1acf5a03d6fd858614ff84984ec92dcec1621494641488f72",
+      "launchVerified": true,
+      "uninstallOrDataClearPerformed": false,
+      "authorization": "User explicitly requested wireless installation of the built Lab APK.",
+      "providerComparisonStillPending": true
+    }
+  },
+  "review": {
+    "planAlignment": "IMPLEMENTED_PROVIDER_COMPARISON_PENDING",
+    "systemIntegrity": "PASS",
+    "rolloutReadiness": "PENDING",
+    "criticalCodeFindings": 0,
+    "importantOpenGates": [
+      "Explicit approval for Gemini v3 payload and provider comparison",
+      "Human semantic review",
+      "Developer UI/F22 device acceptance"
+    ]
+  },
+  "gitDiffCheck": "PASS"
+}

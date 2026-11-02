@@ -64,6 +64,10 @@ internal class PhoneProductionSession private constructor(
 
     @Synchronized fun clearSentence() = sentence.clear()
 
+    /** conversationFlowV2: the signer removed a misrecognized word ([index] in [sentenceText]). */
+    @Synchronized fun removeSentenceWord(index: Int, expectedText: String): Boolean =
+        sentence.removeAt(index, expectedText)
+
     /** Called only on the single CameraX analysis executor. */
     @Synchronized fun consume(observation: PhoneRawObservation): Update {
         require(observation.sourceIndex == nextSourceIndex) { "APP_PHONE_SOURCE_INDEX_DISCONTINUITY" }

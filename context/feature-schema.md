@@ -1016,3 +1016,17 @@ This is metadata/annotation schema only. Raw-v1, segmentation_features.v1[378], 
 recognition.v2[96,350]+mask, all model weights and FINGERSPELL Adapter405 remain unchanged.
 Neither protocol documents nor human labels are model inputs. No feature schema upgrade or
 frozen-model validation exemption is implied. Device capture/accuracy remains pending.
+
+
+## Sentence-builder presentation/context/edit continuation — 2026-10-30
+
+| Component | Source | Input -> output | Contract / preservation |
+|---|---|---|---|
+| Sentence-assist prompt v3 | sentenceassist/SentencePrompt.kt + sentence_assist/prompt_v3.json | current signed glosses/eligible alternatives + last four actual dialogue lines, <=200 chars/line -> provider prompt -> unchanged grounding validator | Debug sentenceAssist; prompt asset version only, no recognition schema or F/S4 change; v2 retained; provider comparison pending |
+| Conversation sentence presentation | conversation/flow2/{ConversationFlow,ConversationFlowController,ConversationSheetBinder}.kt | current signed words + accepted/plain/pending state -> shared RECOGNIZED/TTS choice and readiness-gated auto-say | Existing conversationFlowV2/conversationAutoSay, default/release off; saying snapshots wording; no model or confirmation change |
+| Explicit gloss removal | pipeline/recognition/SentenceBuilder.removeAt + session adapters + RecognitionActivity | user-confirmed exact phrase + index -> one removal or unchanged store | Serialized/synchronized store edit only; stale phrase rejected; pending rendering/old indexed Top-5 evidence invalidated; FINGERSPELL excluded; normal add/dedup/cap semantics retained |
+
+Operational report: docs/sentence-builder-v3-continuation-2026-10-30.md. This supersedes historical
+raw-only/optional-chip descriptions only in the opted-in conversation build. Schema versions,
+feature-vector shapes, train/serve normalization and model artifacts are unchanged. Provider and
+developer-run device/semantic gates remain open; no recognition accuracy promotion.

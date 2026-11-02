@@ -68,6 +68,7 @@ object SentenceAssistAssets {
             substitutionRuleWithoutAlternatives = it["substitutionRuleWithoutAlternatives"].asString,
             noHearingContext = it["noHearingContext"].asString,
             responseSchemaJson = it["responseSchema"].toString(),
+            conversationLines = it["conversationLines"]?.asInt ?: 0,
         )
     }
 

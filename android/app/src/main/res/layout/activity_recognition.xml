@@ -314,8 +314,23 @@
                 android:textColor="#FFFFFF"
                 android:textSize="18sp" />
 
-            <!-- conversationFlowV2 only: an optional grounded sentence for the signed words above.
-                 Tapping it chooses it for SAY IT; the signed words stay the default. -->
+            <!-- conversationFlowV2 only: the signed words behind the sentence above ("Improving..." while
+                 it is built). Tapping a word offers to remove it from the message. -->
+            <TextView
+                android:id="@+id/conversationSignedLine"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:fontFamily="@font/inter_regular"
+                android:gravity="center"
+                android:lineSpacingExtra="2dp"
+                android:maxWidth="280dp"
+                android:minHeight="32dp"
+                android:textColor="#B3FFFFFF"
+                android:textSize="13sp"
+                android:visibility="gone" />
+
+            <!-- conversationFlowV2 only: switch between saying the built sentence and the signed words. -->
             <TextView
                 android:id="@+id/conversationSuggestion"
                 android:layout_width="wrap_content"

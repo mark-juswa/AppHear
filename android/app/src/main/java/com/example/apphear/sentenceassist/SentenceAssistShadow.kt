@@ -69,7 +69,7 @@ class SentenceAssistShadow private constructor(private val scope: CoroutineScope
 
     /** After each committed sign, with the screen's current RECOGNIZED text and Top-5 evidence. */
     fun signsChanged(recognizedText: String, evidence: List<RecognitionEvidence>, evidenceComplete: Boolean,
-                     hearingText: String?, hearingTurnId: Long?) {
+                     hearingText: String?, hearingTurnId: Long?, conversation: List<ConversationLine> = emptyList()) {
         val pipeline = pipeline ?: return
         val policy = policy ?: return
         val debounceMs = policy.debounceMs
@@ -80,7 +80,7 @@ class SentenceAssistShadow private constructor(private val scope: CoroutineScope
         val key = Key(turn.glosses, turn.evidence != null, hearingTurnId)
         if (latest?.first == key || inFlight?.first == key) return
         inFlight?.second?.cancel()
-        val request = RenderRequest(turn, hearingText)
+        val request = RenderRequest(turn, hearingText, conversation)
         val deferred = scope.async {
             delay(debounceMs)
             pipeline.run(request)
@@ -89,7 +89,8 @@ class SentenceAssistShadow private constructor(private val scope: CoroutineScope
         scope.launch {
             val outcome = try { deferred.await() } catch (_: CancellationException) { return@launch }
             val current = inFlight?.second === deferred
-            if (current) inFlight = null
+            if (!current) return@launch
+            inFlight = null
             latest = key to outcome
             log("sign", outcome, hearingTurnId, readyAtHear = null, waitMs = null)
             if (current) onRendered?.invoke(outcome)

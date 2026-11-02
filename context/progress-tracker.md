@@ -1,3 +1,20 @@
+## 2026-10-30 — Claude sentence-builder continuation
+
+Implemented the five approved improvements in `claude/conversation-flow-ux`; see
+[continuation report](../docs/sentence-builder-v3-continuation-2026-10-30.md).
+- [x] Shared displayed/spoken AI sentence with signed words underneath and escape toggle.
+- [x] Auto-say waits for current rendering; stillness/countdown policy unchanged (3.5 s + 3 s).
+- [x] Last four bounded actual dialogue lines wired into prompt v3; validator/limits unchanged.
+- [x] Explicit stale-phrase-guarded gloss removal; old indexed alternatives invalidated; spelling preserved.
+- [x] v2 baseline scored: clean acceptance 54/59 (91.53%), accepted harms 0/51; p50/p95 1030/1421 ms.
+- [x] Exact v3 comparison prompts exported; original 163 cases plus eight separate dialogue fixtures.
+- [ ] Send v3 payload: automatic approval review requires explicit user authorization for Gemini transfer.
+- [ ] Compare v3 results, human meaning review and developer UI/F22 phone acceptance before rollout.
+
+Build/test/protection receipts: `evidence/sentence_assist_continuation_20261030/validation.json`.
+No training, model/feature-schema/camera change, reset or phone installation. Existing Claude edits
+preserved separately. Memory handoff appended; older entries retained.
+
 
 ## Team handoff published — 2026-10-09 (Asia/Manila)
 
@@ -5693,3 +5710,14 @@ Recognition remains experimental; this baseline does not certify A–Z accuracy.
 ## Original word batch delivery — 2026-10-09
 
 273-entry Original catalog installed as flagged private debug extension: 32 ZIP replacements, 171 additions, STAND excluded/idle retained. 186 host tests and 2 device playback/catalog tests passed; ownership regression passed separately after combined window-focus timeout. Recognition and New Character remain untouched. Authoritative app checkout: C:/Users/Gigabyte/.codex/worktrees/fingerspell-continuous-oct05/5. Apphear3; branch codex/original-character-word-batch-2026-10-09. Frozen baseline remains 34f24ab6d7aea8179decb1688a82fc5734f6d370. See context/text-to-asl-original-words-v1.md. Mixed avatars and all-clips ASL correctness remain review limitations; no baseline commit/push performed. Next: supervisor reviews actual Original playback and appearance; do not change recognition.
+
+2026-10-30 sentence-builder final local receipt: private ON and fake OFF each 399/399 JVM tests; debug/test APKs and OFF unsigned release PASS; 620 protected files unchanged; no v3 provider calls or phone install. See the continuation report and validation.json.
+
+
+## Wireless installation — 2026-10-30T12:46:30+08:00
+
+User explicitly requested installing the built Lab candidate while the v3 provider comparison
+remains pending. Updated only com.example.apphear.conversationlab on Xiaomi M2101K7AG over
+wireless ADB using install -r. No uninstall or app-data clear. Installed base.apk SHA-256 matches
+the saved private APK; SplashActivity launch verified. Provider comparison, human semantic review
+and the full developer UI/F22 smoke remain pending. This supersedes earlier not-installed status.

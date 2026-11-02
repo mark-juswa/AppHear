@@ -13,6 +13,11 @@ data class PromptTemplate(
     val noHearingContext: String,
     /** The JSON schema exactly as stored in the asset; sent verbatim to the provider. */
     val responseSchemaJson: String,
+    /**
+     * Recent conversation lines offered as context, labelled "Them:" / "You:" (prompt v3+). 0 keeps the
+     * older behaviour: only the latest hearing message, unlabelled.
+     */
+    val conversationLines: Int = 0,
 ) {
     init {
         require(PLACEHOLDERS.all { it in inputTemplate }) { "Prompt template is missing a placeholder" }
@@ -29,7 +34,15 @@ data class PromptTemplate(
 }
 
 /** What the renderer is asked to turn into a sentence. */
-data class RenderRequest(val turn: SignedTurn, val hearingContext: String? = null)
+data class RenderRequest(
+    val turn: SignedTurn,
+    val hearingContext: String? = null,
+    /** Recent exchanges, oldest first, used when the prompt asks for [PromptTemplate.conversationLines]. */
+    val conversation: List<ConversationLine> = emptyList(),
+)
+
+/** One earlier line of the conversation: the hearing person's reply, or what the signer said. */
+data class ConversationLine(val fromSigner: Boolean, val text: String)
 
 /**
  * Builds the provider input. Pure, so the offline evaluation can record the exact prompt the
@@ -62,7 +75,7 @@ class SentencePrompt(
         } else {
             template.substitutionRuleWithoutAlternatives
         }
-        val hearing = request.hearingContext?.trim()?.takeIf { it.isNotEmpty() } ?: template.noHearingContext
+        val hearing = context(request) ?: template.noHearingContext
         return template.inputTemplate
             .replace("{{SIGNS}}", signs.joinToString("\n"))
             .replace("{{HEARING}}", hearing)
@@ -70,6 +83,19 @@ class SentencePrompt(
             .replace("{{MAX_INFERRED}}", policy.maxInferredPronouns.toString())
             .replace("{{PRONOUNS}}", lexicon.inferablePronouns.sorted().joinToString(", "))
             .replace("{{SUBSTITUTION_RULE}}", substitutionRule)
+    }
+
+    /**
+     * The context block: with [PromptTemplate.conversationLines], the last few exchanges labelled
+     * "Them:" / "You:" (or just the latest hearing message, labelled); otherwise the latest hearing
+     * message as before. Context never supplies words: the validator rejects anything unsigned.
+     */
+    private fun context(request: RenderRequest): String? {
+        val hearing = request.hearingContext?.trim()?.takeIf { it.isNotEmpty() }
+        if (template.conversationLines <= 0) return hearing
+        val lines = request.conversation.filter { it.text.isNotBlank() }.takeLast(template.conversationLines)
+            .map { (if (it.fromSigner) "You: " else "Them: ") + it.text.trim().take(policy.maxOutputChars) }
+        return if (lines.isNotEmpty()) lines.joinToString("\n") else hearing?.let { "Them: ${it.take(policy.maxOutputChars)}" }
     }
 
     private fun line(index: Int, gloss: String, alternatives: List<String>): String {

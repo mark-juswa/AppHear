@@ -16,6 +16,7 @@ data class EvalCase(
     val turn: SignedTurn,
     val intended: List<String>,
     val intendedByEvent: List<String?>?,
+    val conversation: List<ConversationLine> = emptyList(),
 )
 
 /** One recorded provider reply written by `tools/sentence_assist/collect_outputs.py`. */
@@ -55,6 +56,7 @@ class SentenceAssistEvaluator(
 
     fun metrics(scored: List<Scored>): JsonObject {
         val root = JsonObject()
+        root.addProperty("promptVersion", promptVersion)
         root.addProperty("outputs", scored.size)
         root.addProperty("promptVersionMismatches", scored.count { it.output.promptVersion != promptVersion })
         root.add("aiStatus", counts(scored.map { it.aiStatus.name }))
@@ -180,6 +182,9 @@ class SentenceAssistEvaluator(
                 id = json["id"].asString,
                 category = json["category"].asString,
                 hearing = json["hearing"].takeUnless { it.isJsonNull }?.asString,
+                conversation = json["conversation"]?.asJsonArray?.map { item ->
+                    item.asJsonObject.let { ConversationLine(it["fromSigner"].asBoolean, it["text"].asString) }
+                }.orEmpty(),
                 turn = SignedTurn(json["glosses"].asJsonArray.map { it.asString }, evidence),
                 intended = json["intended"].asJsonArray.map { it.asString },
                 intendedByEvent = json["intendedByEvent"].takeUnless { it.isJsonNull }?.asJsonArray

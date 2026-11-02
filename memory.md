@@ -1435,3 +1435,33 @@ ACTIVE acquisition, not400ms-only tuning; qualified well-framed capture/review m
 sign/repeat/hold intervals before a transition policy is promoted. Keep Stage1 off and prior reset
 rejected. No more phone loops required for this capture. Reviewer may remain open locally for
 inspection; raw finalized recording is preserved on F:, normal app repeat sentence gate unmeasured.
+
+
+# Memory — Claude sentence-builder continuation, 2026-10-30 (Asia/Manila)
+
+## Decisions and current state
+Continue only I:/AppHear-Conversation-Claude/worktree, branch claude/conversation-flow-ux.
+User approved the verified five-item scope with "Build it". Completed display/TTS choice, AI-ready
+auto-say, bounded actual history context, prompt v3 and guarded removal. Existing edits backed up;
+no reset, branch switch, training/model/camera change or phone install. See the new continuation
+report and evidence receipt for exact build/test state. Earlier raw-only/chip-only plans are superseded
+only in the opt-in Lab build. Baseline scored; v3 payload prepared but NOT SENT.
+
+## Next session starts with
+Obtain explicit permission for the prepared 171 text prompts to Gemini. Automatic approval review
+rejected that transfer for lack of explicit payload/destination approval; do not bypass it. Exact
+payload/hash manifest is under artifacts/sentence_assist_continuation_20261030/evaluation_payload
+in the F: workspace. After approval run the prepared evaluator script once, score with the unchanged
+Kotlin validator, compare against v2, and complete human semantic and developer-run phone gates.
+Keep private APKs local. Existing memory entries remain intact; no secrets stored here.
+
+Final local result: private ON and fake OFF each 399/399 JVM tests pass; private Lab/test APKs and OFF unsigned release built; 620 protected files unchanged; two new UI checks compile but are unrun. Source remains uncommitted. Private APK is I:/AppHear-Conversation-Claude/apks/codex-sentence-builder-v3-20261030-private.apk. No v3 calls sent; explicit approval remains next action.
+
+
+## Wireless installation — 2026-10-30T12:46:30+08:00
+
+User explicitly requested installing the built Lab candidate while the v3 provider comparison
+remains pending. Updated only com.example.apphear.conversationlab on Xiaomi M2101K7AG over
+wireless ADB using install -r. No uninstall or app-data clear. Installed base.apk SHA-256 matches
+the saved private APK; SplashActivity launch verified. Provider comparison, human semantic review
+and the full developer UI/F22 smoke remain pending. This supersedes earlier not-installed status.

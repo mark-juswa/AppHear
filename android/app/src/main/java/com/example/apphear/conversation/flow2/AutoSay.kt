@@ -75,21 +75,37 @@ class AutoSay(
     /** Words that must not be said automatically: WAIT was tapped, or they were already said. */
     private var heldWords: String? = null
     private var stillness: Runnable? = null
+    /** The sentence for the current words is still being built: the countdown waits for it. */
+    private var ready = true
+    /** The signer has been still long enough; only the sentence is missing. */
+    private var stillEnough = false
 
     val counting: Boolean get() = countdown.running
 
     /**
      * The current message ([words], null when none) and whether it may be said now: the signer's
-     * turn, word signing (not spelling) and no text box open.
+     * turn, word signing (not spelling) and no text box open. While [ready] is false (the sentence is
+     * still being built) the countdown does not run, so the message is never said a moment before its
+     * sentence arrives; the stillness wait carries on meanwhile.
      */
-    fun update(words: String?, canSay: Boolean) {
+    fun update(words: String?, canSay: Boolean, ready: Boolean = true) {
         val changed = words != this.words
         this.words = words
         this.canSay = canSay
+        this.ready = ready
         if (changed && heldWords != words) heldWords = null
         when {
             !armed() -> reset()
-            changed || (stillness == null && !countdown.running) -> restartWait()
+            changed || (stillness == null && !countdown.running && !stillEnough) -> restartWait()
+            !ready && countdown.running -> {
+                countdown.cancel()
+                onCountdown(null)
+                stillEnough = true
+            }
+            ready && stillEnough && !countdown.running -> {
+                stillEnough = false
+                countdown.start()
+            }
         }
     }
 
@@ -112,7 +128,11 @@ class AutoSay(
         reset()
         val task = Runnable {
             stillness = null
-            if (armed()) countdown.start()
+            when {
+                !armed() -> Unit
+                ready -> countdown.start()
+                else -> stillEnough = true
+            }
         }
         stillness = task
         schedule(stillnessMs, task)
@@ -121,6 +141,7 @@ class AutoSay(
     private fun reset() {
         stillness?.let(unschedule)
         stillness = null
+        stillEnough = false
         if (countdown.cancel()) onCountdown(null)
     }
 }

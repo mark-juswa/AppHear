@@ -9,6 +9,24 @@ import org.junit.Assert.assertTrue
 import org.junit.Test
 
 class SentenceRenderingTest {
+    @Test fun conversationContextIsLabelledAndBoundedOnlyWhenThePromptAsksForIt() {
+        val base = SentenceAssistAssets.template()
+        val labelled = SentencePrompt(base.copy(conversationLines = 2), SentenceAssistAssets.lexicon(),
+            SentenceAssistAssets.policy(), SentenceAssistAssets.substitutionPolicy())
+        val conversation = listOf(ConversationLine(false, "Hi!"), ConversationLine(true, "Hello."),
+            ConversationLine(false, " Where are you going? "))
+        val input = labelled.input(RenderRequest(SignedTurn(listOf("HOME")), "Where are you going?", conversation))
+        assertTrue(input.contains("You: Hello.\nThem: Where are you going?"))
+        assertTrue(!input.contains("Them: Hi!"))
+        // No exchanges yet: the latest hearing message, labelled.
+        assertTrue(labelled.input(RenderRequest(SignedTurn(listOf("HOME")), "Hi")).contains("Them: Hi"))
+        // Older prompts are unchanged.
+        val plain = SentencePrompt(base.copy(conversationLines = 0), SentenceAssistAssets.lexicon(),
+            SentenceAssistAssets.policy(), SentenceAssistAssets.substitutionPolicy())
+            .input(RenderRequest(SignedTurn(listOf("HOME")), "Hi", conversation))
+        assertTrue(!plain.contains("Them:"))
+    }
+
     private val template = SentenceAssistAssets.template()
     private val prompt = SentenceAssistAssets.prompt()
     private val lexicon = SentenceAssistAssets.lexicon()
@@ -39,7 +57,7 @@ class SentenceRenderingTest {
     @Test
     fun promptCarriesHearingContextVerbatim() {
         val input = prompt.input(RenderRequest(SignedTurn(listOf("GOOD")), "  How are you?  "))
-        assertTrue(input.contains("\nHow are you?\n"))
+        assertTrue(input.contains(if (template.conversationLines > 0) "\nThem: How are you?\n" else "\nHow are you?\n"))
     }
 
     @Test

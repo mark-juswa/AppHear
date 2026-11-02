@@ -101,3 +101,6 @@ android/app/src/debug/assets/word_v4_candidate_01/*.tflite
 # Provision locally: python -m deploy.export_lexical_v4_candidate (source I:/AppHearDev/v4/exports/v4_lexical_c2).
 android/app/src/debug/assets/lexical_v4_candidate_01/*
 !android/app/src/debug/assets/lexical_v4_candidate_01/manifest.json
+
+# Sentence-assist evaluation runs: raw model replies stay local.
+eval/sentence_assist/runs/

@@ -1,6 +1,11 @@
 package com.example.apphear.conversation.flow2
 
 import android.graphics.drawable.Drawable
+import android.text.SpannableStringBuilder
+import android.text.Spanned
+import android.text.TextPaint
+import android.text.method.LinkMovementMethod
+import android.text.style.ClickableSpan
 import android.text.TextUtils
 import android.util.TypedValue
 import android.view.LayoutInflater
@@ -20,6 +25,8 @@ class ConversationSheetBinder(
     private val binding: ActivityRecognitionBinding,
     /** A reply bubble in history was tapped: sign that reply. */
     private val onReplyTapped: (String) -> Unit,
+    /** A signed word ([index] in the signed words) was tapped: offer to remove it. */
+    private val onSignedWordTapped: (Int, String) -> Unit,
 ) {
     enum class Secondary { LISTEN, TYPE_REPLY, TYPE_INSTEAD, CANCEL, CLOSE, WAIT }
 
@@ -49,7 +56,7 @@ class ConversationSheetBinder(
      * [autoSaySeconds]: the auto-say countdown, or null when none is running.
      */
     fun render(s: FlowState, editorOpen: Boolean, avatarNote: String? = null, autoSaySeconds: Int? = null,
-               detectionHeld: Boolean = false) {
+               detectionHeld: Boolean = false, spelling: Boolean = false) {
         val countdown = autoSaySeconds?.takeIf { !editorOpen && s.phase == FlowPhase.READY && s.message != null }
         val action = ConversationFlow.primaryAction(s)
         renderOverline(s, editorOpen)
@@ -61,7 +68,7 @@ class ConversationSheetBinder(
         binding.conversationNote.text = note
         renderPill(action, editorOpen, countdown)
         renderSecondary(s, editorOpen, countdown)
-        renderSuggestion(s, editorOpen)
+        renderSentence(s, editorOpen, spelling)
         renderHistory(s)
         binding.conversationEditor.visibility = if (editorOpen) View.VISIBLE else View.GONE
         binding.conversationTypeReplyExpanded.visibility =
@@ -160,29 +167,53 @@ class ConversationSheetBinder(
         }
     }
 
-    /**
-     * The optional sentence sits under the signed words in RECOGNIZED: a glass chip when offered,
-     * the Text-to-ASL teal toggle when chosen, with the signed words dimmed but still readable.
-     */
-    private fun renderSuggestion(s: FlowState, editorOpen: Boolean) {
+    /** RECOGNIZED and SAY IT share the same choice; signed glosses remain inspectable. */
+    private fun renderSentence(s: FlowState, editorOpen: Boolean, spelling: Boolean) {
         val chip = binding.conversationSuggestion
+        val signed = binding.conversationSignedLine
         val message = s.message
-        val suggestion = message?.suggestion
-        if (editorOpen || suggestion == null ||
+        if (spelling || editorOpen || message == null ||
             s.phase !in setOf(FlowPhase.READY, FlowPhase.SAYING, FlowPhase.NOT_HEARD)) {
             chip.visibility = View.GONE
-            binding.sentenceText.alpha = 1f
+            signed.visibility = View.GONE
             return
         }
-        val chosen = message.useSuggestion
-        chip.visibility = View.VISIBLE
-        chip.text = if (chosen) context.getString(R.string.conversation_v2_suggestion_chosen, suggestion) else suggestion
-        chip.setBackgroundResource(if (chosen) R.drawable.bg_toggle_active else R.drawable.recognition_reply_chip)
-        chip.setTextColor(if (chosen) 0xFFFFFFFF.toInt() else 0xFFD9F5ED.toInt())
-        chip.contentDescription = context.getString(if (chosen) R.string.conversation_v2_suggestion_chosen_description
-            else R.string.conversation_v2_suggestion_description, suggestion)
+        binding.sentenceText.alpha = 1f
+        binding.sentenceText.text = ConversationFlow.displayedMessage(s)
+        val editable = s.phase == FlowPhase.READY
+        val line = SpannableStringBuilder()
+        if (message.building && !message.preferSigned) {
+            line.append(context.getString(R.string.sentence_assist_improving)).append(" · ")
+        }
+        line.append(context.getString(R.string.conversation_v2_signed_prefix)).append(" ")
+        message.signedWords.split(Regex("\\s+")).forEachIndexed { index, word ->
+            if (index > 0) line.append("  ")
+            val start = line.length
+            line.append(word)
+            if (editable) line.setSpan(object : ClickableSpan() {
+                override fun onClick(widget: View) = onSignedWordTapped(index, word)
+                override fun updateDrawState(ds: TextPaint) {
+                    ds.color = signed.currentTextColor
+                    ds.isUnderlineText = true
+                }
+            }, start, line.length, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+        }
+        // Avoid resetting selection and clickable spans on every camera frame.
+        val renderKey = Triple(line.toString(), editable, message.signedWords)
+        if (signed.tag != renderKey) {
+            signed.tag = renderKey
+            signed.text = line
+            signed.movementMethod = if (editable) LinkMovementMethod.getInstance() else null
+        }
+        signed.visibility = View.VISIBLE
+        chip.visibility = if (message.suggestion != null) View.VISIBLE else View.GONE
+        chip.setText(if (message.preferSigned) R.string.conversation_v2_use_sentence else R.string.conversation_v2_use_signed)
+        chip.setBackgroundResource(R.drawable.recognition_reply_chip)
+        chip.setTextColor(0xFFD9F5ED.toInt())
+        chip.contentDescription = if (message.preferSigned)
+            context.getString(R.string.conversation_v2_use_sentence_description, message.suggestion)
+            else context.getString(R.string.conversation_v2_use_signed_description)
         chip.isEnabled = s.phase != FlowPhase.SAYING
-        binding.sentenceText.alpha = if (chosen) 0.6f else 1f
     }
 
     private fun renderHistory(s: FlowState) {
