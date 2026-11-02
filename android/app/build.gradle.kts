@@ -120,6 +120,9 @@ android {
     val defaultRecognitionEngine = providers.gradleProperty("defaultRecognitionEngine").getOrElse("STABLE")
     require(defaultRecognitionEngine.matches(Regex("[A-Z0-9_]+"))) { "defaultRecognitionEngine must be an engine name" }
     val conversationAutoSay = conversationFlowV2 && providers.gradleProperty("conversationAutoSay").map { it.equals("true", ignoreCase=true) }.getOrElse(false)
+    // Remote conversation: pair a second phone with a QR code; it shows the host's messages as text and signing.
+    // Needs supabase/migrations/20261102_remote_conversation.sql and anonymous sign-ins on the project.
+    val remoteConversation = providers.gradleProperty("remoteConversation").map { it.equals("true", ignoreCase=true) }.getOrElse(false)
     if (conversationFlowV2) {
         // In-app listening needs the microphone, and Android 11+ hides the speech service unless the app
         // declares it. Added to the debug manifest only; the release manifest never gains either.
@@ -188,6 +191,7 @@ android {
     defaultConfig {
         applicationId = "com.example.apphear"
         manifestPlaceholders["appLabel"] = "@string/app_name"
+        manifestPlaceholders["remoteConversationEnabled"] = "false"
         minSdk = 26
         targetSdk = 36
         versionCode = 1
@@ -217,6 +221,8 @@ android {
             buildConfigField("boolean", "PLACEMENT_GATE_ENABLED", placementGate.toString())
             buildConfigField("boolean", "CONVERSATION_FLOW_V2_ENABLED", conversationFlowV2.toString())
             buildConfigField("boolean", "CONVERSATION_AUTO_SAY_ENABLED", conversationAutoSay.toString())
+            buildConfigField("boolean", "REMOTE_CONVERSATION_ENABLED", remoteConversation.toString())
+            manifestPlaceholders["remoteConversationEnabled"] = remoteConversation.toString()
             buildConfigField("String", "DEFAULT_RECOGNITION_ENGINE", "\"$defaultRecognitionEngine\"")
             if (conversationLab) {
                 applicationIdSuffix = ".conversationlab"
@@ -276,6 +282,7 @@ android {
             buildConfigField("boolean", "PLACEMENT_GATE_ENABLED", "false")
             buildConfigField("boolean", "CONVERSATION_FLOW_V2_ENABLED", "false")
             buildConfigField("boolean", "CONVERSATION_AUTO_SAY_ENABLED", "false")
+            buildConfigField("boolean", "REMOTE_CONVERSATION_ENABLED", "false")
             buildConfigField("String", "DEFAULT_RECOGNITION_ENGINE", "\"STABLE\"")
             buildConfigField("String", "LLM_FALLBACK_API_KEY", "\"\"")
             buildConfigField("String", "LLM_FALLBACK_BASE_URL", "\"\"")
@@ -363,6 +370,10 @@ dependencies {
     implementation(libs.androidx.navigation.ui.ktx)
     implementation(libs.androidx.viewpager2)
     implementation(libs.androidx.webkit)
+
+    // Remote conversation: live channel (WebSocket) and QR codes.
+    implementation(libs.okhttp)
+    implementation(libs.zxing.core)
 
     // S6 recognition: the INT8 streaming model (custom .tflite, separate from MediaPipe's landmarkers).
     implementation(libs.tensorflow.lite)

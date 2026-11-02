@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Remote conversation (remoteConversation flag): two phones paired with a QR code. -->
+    <string name="remote_connect_button">Connect a device</string>
+    <string name="remote_qr_description">QR code to join this conversation</string>
+    <string name="remote_scanner_description">Camera view for scanning a QR code</string>
+    <string name="remote_code_hint">ABC-123</string>
+
+    <string name="remote_choose_overline">CONNECT A DEVICE</string>
+    <string name="remote_choose_title">Talk on two phones</string>
+    <string name="remote_choose_body">Show a code for the other person to scan. What you type or say appears on their phone as text and signing.</string>
+    <string name="remote_show_code">SHOW MY CODE</string>
+    <string name="remote_join_with_code">JOIN WITH A CODE</string>
+    <string name="remote_cancel">CANCEL</string>
+    <string name="remote_close">CLOSE</string>
+    <string name="remote_ok">OK</string>
+
+    <string name="remote_working_overline">CONNECTING</string>
+    <string name="remote_working_title">One moment…</string>
+
+    <string name="remote_invite_overline">WAITING FOR THEM TO JOIN</string>
+    <string name="remote_invite_title">Scan to connect</string>
+    <string name="remote_invite_body">Ask them to scan this with their phone camera, or open AppHear, tap Connect and type the code.\nCode expires in %1$s.</string>
+    <string name="remote_invite_expired_title">This code has expired</string>
+    <string name="remote_invite_expired_body">Make a new code when they are ready to scan.</string>
+    <string name="remote_new_code">NEW CODE</string>
+    <string name="remote_stop_inviting">STOP</string>
+
+    <string name="remote_join_overline">JOIN A CONVERSATION</string>
+    <string name="remote_join_title">Enter the code</string>
+    <string name="remote_join_body">Type the 6-character code shown on the other phone.</string>
+    <string name="remote_join">JOIN</string>
+    <string name="remote_scan_qr">SCAN QR CODE</string>
+    <string name="remote_type_code">TYPE THE CODE</string>
+    <string name="remote_scan_title">Scan their code</string>
+    <string name="remote_scan_body">Point the camera at the QR code on the other phone.</string>
+    <string name="remote_camera_needed">Allow the camera to scan, or type the code instead.</string>
+    <string name="remote_code_incomplete">Enter all 6 characters.</string>
+
+    <string name="remote_invitation_overline">INVITATION</string>
+    <string name="remote_invitation_title">Join this conversation?</string>
+    <string name="remote_invitation_body">Code %1$s. You\'ll see their messages as text and signing on this phone.</string>
+    <string name="remote_not_now">NOT NOW</string>
+
+    <string name="remote_connected_overline">CONNECTED</string>
+    <string name="remote_connected_title_host">You\'re connected</string>
+    <string name="remote_connected_title_viewer">Connected to %1$s</string>
+    <string name="remote_connected_body_host">Type or speak below. Each message appears on their phone as text and signing.</string>
+    <string name="remote_connected_body_viewer">Their messages appear here as text and signing.</string>
+    <string name="remote_end">END</string>
+    <string name="remote_end_conversation">END CONVERSATION</string>
+    <string name="remote_the_host">the other person</string>
+
+    <string name="remote_status_connected">CONNECTED</string>
+    <string name="remote_status_connected_to">CONNECTED TO %1$s</string>
+    <string name="remote_status_reconnecting">RECONNECTING…</string>
+    <string name="remote_status_away">THEY\'RE AWAY</string>
+    <string name="remote_status_waiting">WAITING FOR THEM TO JOIN</string>
+    <string name="remote_status_sending">SENDING…</string>
+    <string name="remote_status_sent">SENT</string>
+    <string name="remote_status_seen">SEEN</string>
+    <string name="remote_status_not_sent">NOT SENT · WILL RETRY</string>
+    <string name="remote_viewer_heading">THEY SAID</string>
+    <string name="remote_viewer_waiting">Waiting for their first message…</string>
+    <string name="remote_history_heading">EARLIER · TAP TO SIGN AGAIN</string>
+
+    <string name="remote_ended_overline">CONVERSATION ENDED</string>
+    <string name="remote_ended_title">Conversation ended</string>
+    <string name="remote_ended_you">You ended the conversation.</string>
+    <string name="remote_ended_other">The other person ended the conversation.</string>
+    <string name="remote_ended_timeout">The conversation ended after a while with no activity.</string>
+
+    <string name="remote_failed_overline">COULDN\'T CONNECT</string>
+    <string name="remote_failed_title">Something went wrong</string>
+    <string name="remote_try_again">TRY AGAIN</string>
+    <string name="remote_issue_offline">No internet connection. Connect to Wi-Fi or mobile data and try again.</string>
+    <string name="remote_issue_not_configured">This build has no server set up for connecting devices.</string>
+    <string name="remote_issue_guest_off">The server does not allow guest sign-in yet. Turn on anonymous sign-ins in Supabase.</string>
+    <string name="remote_issue_server_not_ready">The server is not set up for connecting devices yet. Run the remote conversation SQL in Supabase.</string>
+    <string name="remote_issue_invite_invalid">That code has expired or was already used. Ask for a new code.</string>
+    <string name="remote_issue_rate_limited">Too many tries. Wait a minute, then try again.</string>
+    <string name="remote_issue_own_invite">This is your own code. Scan it with the other phone.</string>
+    <string name="remote_issue_server">The server could not complete that. Try again.</string>
+</resources>

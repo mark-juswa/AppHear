@@ -54,6 +54,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         handleTextToAslIntent(intent)
+        handleRemoteInvite(intent)
     }
 
     override fun onPause() {
@@ -73,6 +74,18 @@ class MainActivity : AppCompatActivity() {
         ConversationTimeline.mark("main_new_intent")
         setIntent(intent)
         handleTextToAslIntent(intent)
+        handleRemoteInvite(intent)
+    }
+
+    /** remoteConversation: an invite link opened the app; the Text-to-ASL screen asks to join. */
+    private fun handleRemoteInvite(intent: Intent?) {
+        if (intent?.getBooleanExtra(EXTRA_OPEN_REMOTE_INVITE, false) != true) return
+        intent.removeExtra(EXTRA_OPEN_REMOTE_INVITE)
+        if (com.example.apphear.remote.RemoteConversations.pendingLink == null) return
+        val navController = (supportFragmentManager.findFragmentById(R.id.app_shell_nav_host) as NavHostFragment).navController
+        if (navController.currentDestination?.id == R.id.textToAslFragment) return // its onResume picks it up
+        navController.navigate(R.id.textToAslFragment, null,
+            NavOptions.Builder().setLaunchSingleTop(true).setPopUpTo(R.id.homeFragment, false).build())
     }
 
     private fun handleTextToAslIntent(intent: Intent?) {
@@ -124,6 +137,7 @@ class MainActivity : AppCompatActivity() {
     companion object {
         const val EXTRA_OPEN_TEXT_TO_ASL = "com.example.apphear.extra.OPEN_TEXT_TO_ASL"
         const val EXTRA_TEXT_TO_ASL_INPUT = "com.example.apphear.extra.TEXT_TO_ASL_INPUT"
+        const val EXTRA_OPEN_REMOTE_INVITE = "com.example.apphear.extra.OPEN_REMOTE_INVITE"
     }
 }
 

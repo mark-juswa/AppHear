@@ -1,6 +1,7 @@
 # Connect two devices with a QR code (remoteConversation): concept and plan
 
-Status: design only (2026-11-02). Nothing built. Needs the user's answers in section 9 before code.
+Status: built behind the debug-only `remoteConversation` flag (2026-11-02); see section 10. Server setup and
+two-phone testing pending.
 Branch: `claude/conversation-flow-ux` (worktree `I:/AppHear-Conversation-Claude/worktree`).
 It is an addition: existing screens keep working unchanged when the flag is off.
 
@@ -133,3 +134,42 @@ Security notes:
    app, others type the code.
 2. Should the viewer be able to send short replies/reactions back (section 2)?
 3. Must the host be logged in, or is anonymous use fine for both sides?
+
+## 10. Implementation (2026-11-02)
+
+Defaults chosen while the section 9 questions were open: guests (no account) on both sides; the viewer
+only watches; no invite web page yet, so the QR holds `apphear://join?c=CODE&s=SECRET`.
+
+| Part | Where |
+|---|---|
+| Server: tables, row-level security, invite/join/end functions, cleanup job | `supabase/migrations/20261102_remote_conversation.sql` |
+| Invite codes and links (pure, tested) | `remote/RemoteInvite.kt`, `RemoteInviteTest` |
+| Conversation state: order, de-duplication, retries, seen (pure, tested) | `remote/RemoteState.kt`, `RemoteStateTest` |
+| HTTPS calls (same hardening as `SupabaseAccountApi`) | `remote/RemoteBackend.kt` |
+| Live channel: Supabase Realtime over OkHttp WebSocket, presence | `remote/RemoteRealtime.kt` |
+| Session: guest sign-in (encrypted store), reconnect with catch-up, send queue, keep-alive, restore after the app closes | `remote/RemoteSession.kt` |
+| QR drawing and in-app scanning (ZXing + CameraX) | `remote/RemoteQr.kt` |
+| Invite link entry point (disabled unless the flag is on) | `remote/RemoteJoinActivity.kt`, manifest |
+| Screen: connect button, card, status pill, END, viewer history | `ui/texttoasl/RemoteConversationBinder.kt`, `res/layout/remote_connect_card.xml`, hooks in `TextToAslFragment.kt` |
+
+How it behaves:
+- Text-to-ASL gets a two-phones button next to the speaker. **SHOW MY CODE** shows a QR and a code
+  (`K7P-4QM`, valid 10 minutes, one use); **JOIN WITH A CODE** takes the code or **SCAN QR CODE**.
+- Scanning the QR with the phone camera opens AppHear on "Join this conversation?" (`apphear://join`).
+- Host: the normal Text-to-ASL screen; everything typed or spoken and signed is also sent. The pill shows
+  CONNECTED · SENDING / SENT / SEEN, THEY'RE AWAY, or RECONNECTING.
+- Viewer: the input panel is hidden; each message shows under THEY SAID and is signed, one after another.
+  EARLIER lists the last four; tap one to sign it again.
+- Leaving the screen disconnects; returning reconnects and fetches what was missed. A conversation saved
+  before the app was closed resumes on the next visit. END (either side) ends it on both phones.
+
+Setup before testing (once, in the Supabase dashboard of the project in `android/gradle.properties`):
+1. SQL Editor: paste and run `supabase/migrations/20261102_remote_conversation.sql`.
+2. Authentication -> Sign In / Providers: turn on "Allow anonymous sign-ins".
+3. Build with `-PremoteConversation=true` (the Lab command in `conversation-flow-v2-handoff.md` plus it)
+   and install on both phones.
+
+Not done yet: the invite web page (install + App Link) for phones without AppHear, which needs a hosted
+HTTPS page you control; automatic join after install (needs Google Play); end-to-end encryption.
+Proof so far: 409/409 JVM tests (10 new), private Lab APK built and installed; the phone resolves
+`apphear://join` to the Lab app. No two-phone test has run.

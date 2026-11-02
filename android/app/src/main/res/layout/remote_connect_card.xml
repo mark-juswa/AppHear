@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Remote conversation (remoteConversation flag): the connect / invite / join card shown over the
+     Text-to-ASL avatar. Same white card, tan overline, coffee and tan-outlined pills as the app. -->
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardBackgroundColor="#FFFFFF"
+    app:cardCornerRadius="28dp"
+    app:cardElevation="18dp"
+    app:strokeWidth="0dp">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:animateLayoutChanges="true"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:paddingHorizontal="22dp"
+            android:paddingTop="22dp"
+            android:paddingBottom="20dp">
+
+            <TextView
+                android:id="@+id/remoteOverline"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/inter_semibold"
+                android:letterSpacing="0.22"
+                android:textColor="#8C775B"
+                android:textSize="11sp" />
+
+            <TextView
+                android:id="@+id/remoteTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:accessibilityHeading="true"
+                android:fontFamily="@font/inter_black"
+                android:textColor="#0D1B1E"
+                android:textSize="22sp" />
+
+            <TextView
+                android:id="@+id/remoteBody"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:accessibilityLiveRegion="polite"
+                android:fontFamily="@font/inter_regular"
+                android:lineSpacingExtra="2dp"
+                android:textColor="#5A5A55"
+                android:textSize="14sp" />
+
+            <ProgressBar
+                android:id="@+id/remoteSpinner"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_marginTop="18dp"
+                android:indeterminateTint="#29AC9B"
+                android:visibility="gone" />
+
+            <ImageView
+                android:id="@+id/remoteQr"
+                android:layout_width="220dp"
+                android:layout_height="220dp"
+                android:layout_marginTop="16dp"
+                android:contentDescription="@string/remote_qr_description"
+                android:scaleType="fitCenter"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/remoteCode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/inter_black"
+                android:letterSpacing="0.12"
+                android:textColor="#29AC9B"
+                android:textIsSelectable="true"
+                android:textSize="32sp"
+                android:visibility="gone" />
+
+            <EditText
+                android:id="@+id/remoteCodeInput"
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/bg_chip_inactive"
+                android:fontFamily="@font/inter_black"
+                android:gravity="center"
+                android:hint="@string/remote_code_hint"
+                android:importantForAutofill="no"
+                android:imeOptions="actionGo"
+                android:inputType="textCapCharacters|textNoSuggestions|textVisiblePassword"
+                android:letterSpacing="0.12"
+                android:maxLength="7"
+                android:textColor="#0D1B1E"
+                android:textColorHint="#BDB3A3"
+                android:textSize="26sp"
+                android:visibility="gone" />
+
+            <androidx.camera.view.PreviewView
+                android:id="@+id/remoteScanner"
+                android:layout_width="240dp"
+                android:layout_height="240dp"
+                android:layout_marginTop="16dp"
+                android:contentDescription="@string/remote_scanner_description"
+                android:visibility="gone" />
+
+            <FrameLayout
+                android:id="@+id/remotePrimary"
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/btn_start_bg"
+                android:clickable="true"
+                android:focusable="true">
+
+                <TextView
+                    android:id="@+id/remotePrimaryLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/inter_semibold"
+                    android:letterSpacing="0.08"
+                    android:textColor="#FFFFFF"
+                    android:textSize="15sp" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/remoteSecondary"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/bg_chip_inactive"
+                android:clickable="true"
+                android:focusable="true">
+
+                <TextView
+                    android:id="@+id/remoteSecondaryLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/inter_semibold"
+                    android:letterSpacing="0.08"
+                    android:textColor="#8C775B"
+                    android:textSize="14sp" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/remoteTertiary"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/bg_chip_inactive"
+                android:clickable="true"
+                android:focusable="true">
+
+                <TextView
+                    android:id="@+id/remoteTertiaryLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/inter_semibold"
+                    android:letterSpacing="0.08"
+                    android:textColor="#8C775B"
+                    android:textSize="14sp" />
+            </FrameLayout>
+        </LinearLayout>
+    </ScrollView>
+</com.google.android.material.card.MaterialCardView>

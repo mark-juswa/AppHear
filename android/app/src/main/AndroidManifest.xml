@@ -25,6 +25,21 @@
         <activity
             android:name=".MainActivity"
             android:exported="false" />
+        <!-- Remote conversation invite links (apphear://join). Enabled only with the remoteConversation flag. -->
+        <activity
+            android:name=".remote.RemoteJoinActivity"
+            android:enabled="${remoteConversationEnabled}"
+            android:excludeFromRecents="true"
+            android:exported="true"
+            android:noHistory="true"
+            android:theme="@android:style/Theme.NoDisplay">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="apphear" android:host="join" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".SplashActivity"
             android:exported="true">

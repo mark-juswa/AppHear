@@ -107,6 +107,23 @@ class TextToAslFragment : Fragment(R.layout.fragment_text_to_asl) {
         fragmentBinding.tvSpeechStatus.setText(R.string.speech_tap_mic)
     }
 
+    // Remote conversation (remoteConversation flag): this screen on two connected phones.
+    private var remote: RemoteConversationBinder? = null
+    private var remoteSigning = false
+    private val remoteCameraPermission = registerForActivityResult(ActivityResultContracts.RequestPermission()) { granted ->
+        remote?.cameraPermissionResult(granted)
+    }
+    private val remotePlayer = object : RemoteConversationBinder.Player {
+        override val busySigning: Boolean get() = remoteSigning || pendingAutoSubmitText != null
+        override fun playRemote(text: String) {
+            remoteSigning = true
+            consumedAutoSubmitText = null // the same words can legitimately arrive twice
+            pendingAutoSubmitText = text
+            consumePendingAutoSubmitIfReady()
+        }
+        override fun restoreInputPanel() = showInputPanel(false)
+    }
+
     private val playHandler = Handler(Looper.getMainLooper())
     private val advanceRunnable = Runnable {
         if (BuildConfig.ASL_ASSET_PILOT_ENABLED) {
@@ -129,6 +146,9 @@ class TextToAslFragment : Fragment(R.layout.fragment_text_to_asl) {
 
         setupTextToAslEngine(fragmentBinding)
         setupListeners(fragmentBinding)
+        if (RemoteConversationBinder.enabled) {
+            remote = RemoteConversationBinder(this, fragmentBinding, remotePlayer, remoteCameraPermission)
+        }
         // conversationFlowV1: a spoken reply for this already-open screen arrives here instead of
         // recreating the screen; it uses the same auto-submit path as a reply passed at creation.
         parentFragmentManager.setFragmentResultListener(ConversationScreens.INCOMING_TRANSCRIPT_RESULT,
@@ -298,6 +318,7 @@ class TextToAslFragment : Fragment(R.layout.fragment_text_to_asl) {
             if (ConversationScreens.oneTapTalk) startSpeechInput()
         }
         fragmentBinding.signedText.setOnClickListener {
+            if (remote?.viewerActive == true) return@setOnClickListener // the viewer only watches
             if (!fragmentBinding.expandableContent.isVisible) setSpeechMode(false)
         }
         fragmentBinding.modeTextShortcut.setOnClickListener {
@@ -416,6 +437,7 @@ class TextToAslFragment : Fragment(R.layout.fragment_text_to_asl) {
         if (recordTurn) ConversationPhraseAssist.recordHearingMessage(
             requireContext().applicationContext, requestedText, source)
         lastInputText = requestedText
+        if (recordTurn) remote?.hostSubmitted(requestedText) // host: also show it on the other phone
         currentQueue = plan.queue
         unsupportedWords = plan.unsupportedTokens
         currentIndex = 0
@@ -434,6 +456,7 @@ class TextToAslFragment : Fragment(R.layout.fragment_text_to_asl) {
                 fragmentBinding.currentProgressText.setText(R.string.text_to_asl_no_animation)
             }
             showIdleAvatar()
+            remoteSigningIdle()
             return
         }
 
@@ -526,6 +549,14 @@ class TextToAslFragment : Fragment(R.layout.fragment_text_to_asl) {
         avatarController?.pause()
         binding?.currentProgressText?.text = progressWithUnsupported(message)
         // Keep the plan for the existing Repeat action; failure never means success.
+        remoteSigningIdle()
+    }
+
+    /** A remote message finished signing (or could not be signed): the next one may start. */
+    private fun remoteSigningIdle() {
+        if (!remoteSigning) return
+        remoteSigning = false
+        remote?.signingIdle()
     }
 
     private fun advancePlayback() {
@@ -537,6 +568,7 @@ class TextToAslFragment : Fragment(R.layout.fragment_text_to_asl) {
             ConversationTimeline.mark("signing_complete", "signs" to currentQueue.size)
             showIdleAvatar()
             startAutoReply()
+            remoteSigningIdle()
         }
     }
 
@@ -676,6 +708,7 @@ class TextToAslFragment : Fragment(R.layout.fragment_text_to_asl) {
 
     override fun onStart() {
         super.onStart()
+        remote?.attach()
         val fragmentBinding = binding ?: return
         // Returning from settings must not recreate the resident engine or change its rig.
         if (resumeColdIdle && BuildConfig.ASL_ALPHABET_FALLBACK_ENABLED &&
@@ -691,6 +724,7 @@ class TextToAslFragment : Fragment(R.layout.fragment_text_to_asl) {
 
     override fun onResume() {
         super.onResume()
+        remote?.checkPendingLink()
         if (ConversationScreens.reuseScreens) awaitVisibleAvatarFrame()
     }
 
@@ -720,6 +754,7 @@ class TextToAslFragment : Fragment(R.layout.fragment_text_to_asl) {
     }
 
     override fun onStop() {
+        remote?.detach()
         cancelAutoReply("left_screen")
         avatarVisibleSinceStart = false
         visibleFrameRequest++
@@ -734,6 +769,8 @@ class TextToAslFragment : Fragment(R.layout.fragment_text_to_asl) {
 
     override fun onDestroyView() {
         ConversationTimeline.screenDestroyed("text_to_asl")
+        remote?.destroy()
+        remote = null
         playHandler.removeCallbacks(advanceRunnable)
         engineJob?.cancel()
         engineJob = null
