@@ -15,12 +15,55 @@ class SettingsContent(private val context: Context, private val view: View) {
     private var characterDialog: AlertDialog? = null
     private var recognitionDialog: AlertDialog? = null
     private var engineDialog: AlertDialog? = null
+    private var nameDialog: AlertDialog? = null
 
     fun render() {
         renderSettings(view)
         setupCharacterChoice(view)
         setupRecognitionChoice()
         setupRecognitionEngineChoice()
+        setupRemoteConversation()
+    }
+
+    /** remoteConversation: connect a second phone, offline-only, and the name the other phone sees. */
+    private fun setupRemoteConversation() {
+        val group = view.findViewById<View>(R.id.remoteSettingsGroup) ?: return
+        group.isVisible = com.example.apphear.remote.RemoteSession.enabled
+        if (!group.isVisible) return
+        val preferences = com.example.apphear.remote.RemotePreferences(context)
+        val offline = view.findViewById<TextView>(R.id.remoteOfflineValue)
+        val name = view.findViewById<TextView>(R.id.remoteNameValue)
+        fun renderValues() {
+            offline.setText(if (preferences.offlineOnly) R.string.remote_settings_on else R.string.remote_settings_off)
+            name.text = preferences.displayName.ifBlank { context.getString(R.string.remote_settings_no_name) }
+        }
+        renderValues()
+        view.findViewById<TextView>(R.id.remoteConnectValue).setText(R.string.remote_settings_open)
+        view.findViewById<View>(R.id.remoteConnectRow).setOnClickListener { row ->
+            androidx.navigation.Navigation.findNavController(row).navigate(R.id.textToAslFragment,
+                android.os.Bundle().apply { putBoolean(com.example.apphear.TextToAslArgument.OPEN_CONNECT, true) })
+        }
+        view.findViewById<View>(R.id.remoteOfflineRow).setOnClickListener {
+            preferences.offlineOnly = !preferences.offlineOnly
+            renderValues()
+        }
+        view.findViewById<View>(R.id.remoteNameRow).setOnClickListener {
+            val input = android.widget.EditText(context).apply {
+                setText(preferences.displayName)
+                setSingleLine()
+                filters = arrayOf(android.text.InputFilter.LengthFilter(com.example.apphear.remote.RemotePreferences.MAX_NAME))
+                inputType = android.text.InputType.TYPE_CLASS_TEXT or android.text.InputType.TYPE_TEXT_FLAG_CAP_WORDS
+            }
+            nameDialog?.dismiss()
+            nameDialog = AlertDialog.Builder(context).setTitle(R.string.remote_settings_name_title)
+                .setView(android.widget.FrameLayout(context).apply {
+                    val pad = (20 * context.resources.displayMetrics.density).toInt()
+                    setPadding(pad, pad / 2, pad, 0)
+                    addView(input)
+                })
+                .setPositiveButton(android.R.string.ok) { _, _ -> preferences.displayName = input.text.toString(); renderValues() }
+                .setNegativeButton(android.R.string.cancel, null).show()
+        }
     }
 
     /** Debug builds only: Stable (production) or Experimental live recognition. */
@@ -146,5 +189,6 @@ class SettingsContent(private val context: Context, private val view: View) {
         characterDialog = null
         recognitionDialog?.dismiss(); recognitionDialog = null
         engineDialog?.dismiss(); engineDialog = null
+        nameDialog?.dismiss(); nameDialog = null
     }
 }

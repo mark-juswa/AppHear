@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Remote conversation (remoteConversation flag): connect a second phone. Hidden otherwise. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/remoteSettingsGroup"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:visibility="gone">
+
+    <LinearLayout
+        android:id="@+id/remoteConnectRow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/space_12"
+        android:background="@drawable/bg_setting_row"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?attr/selectableItemBackground"
+        android:minHeight="@dimen/touch_target_min"
+        android:orientation="vertical"
+        android:padding="@dimen/space_16">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/inter_semibold"
+            android:text="@string/remote_settings_connect_title"
+            android:textColor="@color/color_text_primary"
+            android:textSize="15sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_4"
+            android:fontFamily="@font/inter_regular"
+            android:text="@string/remote_settings_connect_body"
+            android:textColor="@color/color_text_secondary"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/remoteConnectValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_8"
+            android:background="@drawable/bg_setting_value_pill"
+            android:fontFamily="@font/inter_semibold"
+            android:paddingHorizontal="@dimen/space_12"
+            android:paddingVertical="@dimen/space_8"
+            android:textColor="@color/color_text_primary"
+            android:textSize="13sp" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/remoteOfflineRow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/space_12"
+        android:background="@drawable/bg_setting_row"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?attr/selectableItemBackground"
+        android:minHeight="@dimen/touch_target_min"
+        android:orientation="vertical"
+        android:padding="@dimen/space_16">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/inter_semibold"
+            android:text="@string/remote_settings_offline_title"
+            android:textColor="@color/color_text_primary"
+            android:textSize="15sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_4"
+            android:fontFamily="@font/inter_regular"
+            android:text="@string/remote_settings_offline_body"
+            android:textColor="@color/color_text_secondary"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/remoteOfflineValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_8"
+            android:background="@drawable/bg_setting_value_pill"
+            android:fontFamily="@font/inter_semibold"
+            android:paddingHorizontal="@dimen/space_12"
+            android:paddingVertical="@dimen/space_8"
+            android:textColor="@color/color_text_primary"
+            android:textSize="13sp" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/remoteNameRow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/space_12"
+        android:background="@drawable/bg_setting_row"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?attr/selectableItemBackground"
+        android:minHeight="@dimen/touch_target_min"
+        android:orientation="vertical"
+        android:padding="@dimen/space_16">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/inter_semibold"
+            android:text="@string/remote_settings_name_title"
+            android:textColor="@color/color_text_primary"
+            android:textSize="15sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_4"
+            android:fontFamily="@font/inter_regular"
+            android:text="@string/remote_settings_name_body"
+            android:textColor="@color/color_text_secondary"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/remoteNameValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_8"
+            android:background="@drawable/bg_setting_value_pill"
+            android:fontFamily="@font/inter_semibold"
+            android:paddingHorizontal="@dimen/space_12"
+            android:paddingVertical="@dimen/space_8"
+            android:textColor="@color/color_text_primary"
+            android:textSize="13sp" />
+    </LinearLayout>
+</LinearLayout>

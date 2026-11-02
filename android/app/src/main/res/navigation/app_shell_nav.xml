@@ -17,6 +17,10 @@
             android:name="incoming_text"
             app:argType="string"
             app:nullable="true" />
+        <argument
+            android:name="open_connect"
+            android:defaultValue="false"
+            app:argType="boolean" />
     </fragment>
 
     <fragment

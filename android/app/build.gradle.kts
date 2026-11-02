@@ -121,24 +121,34 @@ android {
     require(defaultRecognitionEngine.matches(Regex("[A-Z0-9_]+"))) { "defaultRecognitionEngine must be an engine name" }
     val conversationAutoSay = conversationFlowV2 && providers.gradleProperty("conversationAutoSay").map { it.equals("true", ignoreCase=true) }.getOrElse(false)
     // Remote conversation: pair a second phone with a QR code; it shows the host's messages as text and signing.
-    // Needs supabase/migrations/20261102_remote_conversation.sql and anonymous sign-ins on the project.
+    // Through the server (supabase/migrations/20261102_remote_conversation.sql + anonymous sign-ins) or,
+    // without internet, phone to phone with Nearby Connections (Bluetooth / Wi-Fi Direct permissions).
     val remoteConversation = providers.gradleProperty("remoteConversation").map { it.equals("true", ignoreCase=true) }.getOrElse(false)
-    if (conversationFlowV2) {
+    if (conversationFlowV2 || remoteConversation) {
         // In-app listening needs the microphone, and Android 11+ hides the speech service unless the app
-        // declares it. Added to the debug manifest only; the release manifest never gains either.
+        // declares it; phone-to-phone conversations need Bluetooth / Wi-Fi Direct. Added to the debug
+        // manifest only; the release manifest never gains any of them.
+        val flowPermissions = if (!conversationFlowV2) "" else
+            "    <uses-permission android:name=\"android.permission.RECORD_AUDIO\" />\n" +
+            "    <queries><intent><action android:name=\"android.speech.RecognitionService\" /></intent></queries>\n"
+        val remotePermissions = if (!remoteConversation) "" else listOf(
+            "ACCESS_NETWORK_STATE\"", "ACCESS_WIFI_STATE\"", "CHANGE_WIFI_STATE\"",
+            "BLUETOOTH\" android:maxSdkVersion=\"30\"", "BLUETOOTH_ADMIN\" android:maxSdkVersion=\"30\"",
+            "ACCESS_COARSE_LOCATION\" android:maxSdkVersion=\"32\"", "ACCESS_FINE_LOCATION\" android:maxSdkVersion=\"32\"",
+            "BLUETOOTH_SCAN\" android:usesPermissionFlags=\"neverForLocation\"",
+            "BLUETOOTH_ADVERTISE\"", "BLUETOOTH_CONNECT\"",
+            "NEARBY_WIFI_DEVICES\" android:usesPermissionFlags=\"neverForLocation\"",
+        ).joinToString("") { "    <uses-permission android:name=\"android.permission.$it />\n" }
         val flowManifestDir = layout.buildDirectory.dir("generated/conversationFlowV2Manifest")
         val flowManifest = tasks.register<Copy>("prepareConversationFlowV2Manifest") {
             from("src/debug/AndroidManifest.xml")
             into(flowManifestDir)
-            filter { line: String ->
-                line.replace("</manifest>",
-                    "    <uses-permission android:name=\"android.permission.RECORD_AUDIO\" />\n" +
-                    "    <queries><intent><action android:name=\"android.speech.RecognitionService\" /></intent></queries>\n" +
-                    "</manifest>")
-            }
+            inputs.property("permissions", flowPermissions + remotePermissions)
+            filter { line: String -> line.replace("</manifest>", flowPermissions + remotePermissions + "</manifest>") }
             doLast {
                 val text = flowManifestDir.get().file("AndroidManifest.xml").asFile.readText()
-                check("RECORD_AUDIO" in text) { "conversationFlowV2 debug manifest was not generated" }
+                check(!conversationFlowV2 || "RECORD_AUDIO" in text) { "conversationFlowV2 debug manifest was not generated" }
+                check(!remoteConversation || "BLUETOOTH_CONNECT" in text) { "remoteConversation debug manifest was not generated" }
             }
         }
         sourceSets.getByName("debug").manifest.srcFile(flowManifestDir.map { it.file("AndroidManifest.xml") })
@@ -374,6 +384,7 @@ dependencies {
     // Remote conversation: live channel (WebSocket) and QR codes.
     implementation(libs.okhttp)
     implementation(libs.zxing.core)
+    implementation(libs.play.services.nearby)
 
     // S6 recognition: the INT8 streaming model (custom .tflite, separate from MediaPipe's landmarkers).
     implementation(libs.tensorflow.lite)

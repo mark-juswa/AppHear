@@ -3,14 +3,19 @@ package com.example.apphear.remote
 enum class RemoteRole { HOST, VIEWER }
 
 /** Why something failed, in words the screen can explain. */
-enum class RemoteIssue { NOT_CONFIGURED, OFFLINE, GUEST_SIGN_IN_OFF, SERVER_NOT_READY, INVITE_INVALID, RATE_LIMITED, OWN_INVITE, SERVER }
+enum class RemoteIssue {
+    NOT_CONFIGURED, OFFLINE, GUEST_SIGN_IN_OFF, SERVER_NOT_READY, INVITE_INVALID, RATE_LIMITED, OWN_INVITE, SERVER,
+    /** Phone to phone: Bluetooth / nearby-devices permission missing, radios off, or no phone with that code close by. */
+    NEARBY_PERMISSION, NEARBY_UNAVAILABLE, NOT_FOUND_NEARBY,
+}
 
 enum class RemoteEndReason { YOU_ENDED, OTHER_ENDED, TIMED_OUT }
 
 sealed interface RemotePhase {
     object Idle : RemotePhase
     object Working : RemotePhase
-    data class Inviting(val code: String, val secret: String, val expiresAtMs: Long) : RemotePhase
+    /** [nearby]: the invite is phone to phone (no internet), so the QR says so. */
+    data class Inviting(val code: String, val secret: String, val expiresAtMs: Long, val nearby: Boolean = false) : RemotePhase
     object Connected : RemotePhase
     data class Ended(val reason: RemoteEndReason) : RemotePhase
     data class Failed(val issue: RemoteIssue) : RemotePhase

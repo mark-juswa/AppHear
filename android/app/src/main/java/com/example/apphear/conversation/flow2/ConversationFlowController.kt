@@ -108,6 +108,22 @@ class ConversationFlowController(
         if (ticket == state.ticket && state.phase == FlowPhase.LISTENING) listener.start(ticket, this)
     }
 
+    // Remote conversation (remoteConversation flag): replies typed or said here also appear on a
+    // paired phone as text and signing. This screen only shows a code; joining is on Text-to-ASL.
+    private var remotePermissionsDone: ((Boolean) -> Unit)? = null
+    private val remotePermissionLauncher = activity.registerForActivityResult(
+        ActivityResultContracts.RequestMultiplePermissions(),
+    ) { result ->
+        remotePermissionsDone?.invoke(result.values.all { it })
+        remotePermissionsDone = null
+    }
+    private val remoteCard = if (!com.example.apphear.remote.RemoteConnectCard.enabled) null else
+        com.example.apphear.remote.RemoteConnectCard(activity, activity, binding.remoteCard, binding.btnRemoteConnect,
+            binding.remoteStatusPill, { permissions, done ->
+                remotePermissionsDone = done
+                remotePermissionLauncher.launch(permissions)
+            }, hostOnly = true)
+
     private val systemDialog = activity.registerForActivityResult(
         ActivityResultContracts.StartActivityForResult(),
     ) { result ->
@@ -210,6 +226,7 @@ class ConversationFlowController(
     }
 
     fun onStop() {
+        remoteCard?.stop()
         stopped = true
         removalDialog?.dismiss()
         autoSay?.cancel()
@@ -220,6 +237,7 @@ class ConversationFlowController(
     }
 
     fun onStart() {
+        remoteCard?.start()
         stopped = false
         render()
     }
@@ -230,6 +248,7 @@ class ConversationFlowController(
         main.removeCallbacksAndMessages(null)
         listener.destroy()
         avatar.destroy()
+        remoteCard?.destroy()
     }
 
     private fun onPrimary() {
@@ -304,6 +323,7 @@ class ConversationFlowController(
                 ConversationPhraseAssist.recordHearingMessage(activity.applicationContext, effect.text,
                     if (effect.source == ReplySource.SPEECH) ConversationSource.SPEECH else ConversationSource.TYPED_TEXT)
                 host.hearingRecorded()
+                com.example.apphear.remote.RemoteConversations.sendFromHost(effect.text)
             }
             FlowEffect.ClearSignedWords -> {
                 lastWords = null

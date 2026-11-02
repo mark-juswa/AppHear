@@ -27,7 +27,7 @@ class RemoteBackend(baseUrl: String, private val publicKey: String) {
     data class JoinResult(val conversationId: String, val hostName: String)
     data class ConversationRow(
         val id: String, val hostId: String, val hostName: String, val viewerId: String?,
-        val viewerSeenSeq: Long, val ended: Boolean, val endedBy: String?,
+        val viewerSeenSeq: Long, val ended: Boolean, val endedBy: String?, val viewerName: String = "",
     )
     data class MessageRow(val id: String, val conversationId: String, val seq: Long, val senderId: String, val body: String)
 
@@ -50,9 +50,9 @@ class RemoteBackend(baseUrl: String, private val publicKey: String) {
         return Invite(conversationId, row.getString("code"), row.getString("secret"), millis(row.getString("expires_at")))
     }
 
-    fun join(token: String, code: String, secret: String?): JoinResult {
-        val row = single(rpc(token, "join_remote_conversation",
-            JSONObject().put("p_code", code).put("p_secret", secret ?: JSONObject.NULL)))
+    fun join(token: String, code: String, secret: String?, viewerName: String): JoinResult {
+        val row = single(rpc(token, "join_remote_conversation", JSONObject().put("p_code", code)
+            .put("p_secret", secret ?: JSONObject.NULL).put("p_viewer_name", viewerName)))
         when (row.optString("status")) {
             "joined" -> return JoinResult(row.getString("id"), row.optString("host_name"))
             "rate_limited" -> throw RemoteException(RemoteIssue.RATE_LIMITED)
@@ -174,6 +174,7 @@ class RemoteBackend(baseUrl: String, private val publicKey: String) {
             viewerId = value.optString("viewer_id").takeIf { it.isNotBlank() && it != "null" },
             viewerSeenSeq = value.optLong("viewer_seen_seq"),
             ended = !value.isNull("ended_at"), endedBy = value.optString("ended_by").takeIf { it.isNotBlank() && it != "null" },
+            viewerName = value.optString("viewer_name").takeIf { it != "null" }.orEmpty(),
         )
 
         fun millis(timestamp: String): Long = OffsetDateTime.parse(timestamp).toInstant().toEpochMilli()

@@ -22,6 +22,7 @@ create table if not exists public.remote_conversations (
     host_id uuid not null references auth.users(id) on delete cascade,
     host_name text not null default '' check (char_length(host_name) <= 40),
     viewer_id uuid references auth.users(id) on delete set null,
+    viewer_name text not null default '' check (char_length(viewer_name) <= 40),
     invite_code text unique,
     invite_secret_hash bytea,
     invite_expires_at timestamptz,
@@ -40,6 +41,9 @@ create table if not exists public.remote_conversation_messages (
     body text not null check (char_length(body) between 1 and 500),
     created_at timestamptz not null default now()
 );
+alter table public.remote_conversations add column if not exists viewer_name text not null default ''
+    check (char_length(viewer_name) <= 40);
+
 create index if not exists remote_conversation_messages_order
     on public.remote_conversation_messages (conversation_id, seq);
 
@@ -148,8 +152,10 @@ begin
 end $$;
 
 -- Returns a status instead of raising so failed attempts stay recorded for the rate limit.
--- status: joined | rejoined | invalid | rate_limited | own_invite | not_signed_in
-create or replace function public.join_remote_conversation(p_code text, p_secret text default null)
+-- status: joined | invalid | rate_limited | own_invite | not_signed_in
+drop function if exists public.join_remote_conversation(text, text);
+create or replace function public.join_remote_conversation(p_code text, p_secret text default null,
+    p_viewer_name text default '')
 returns table (status text, id uuid, host_name text)
 language plpgsql security definer set search_path = public as $$
 declare
@@ -176,7 +182,7 @@ begin
         return query select 'own_invite', null::uuid, null::text; return;
     end if;
     update public.remote_conversations c
-       set viewer_id = uid, invite_code = null, invite_secret_hash = null, invite_expires_at = null,
+       set viewer_id = uid, viewer_name = left(coalesce(trim(p_viewer_name), ''), 40), invite_code = null, invite_secret_hash = null, invite_expires_at = null,
            last_activity_at = now()
      where c.id = target.id;
     insert into public.remote_join_attempts (user_id, ok) values (uid, true);
@@ -212,10 +218,10 @@ language sql security definer set search_path = public as $$
 $$;
 
 revoke all on function public.create_remote_conversation(text), public.renew_remote_invite(uuid),
-    public.join_remote_conversation(text, text), public.touch_remote_conversation(uuid),
+    public.join_remote_conversation(text, text, text), public.touch_remote_conversation(uuid),
     public.mark_remote_seen(uuid, bigint), public.end_remote_conversation(uuid) from public, anon;
 grant execute on function public.create_remote_conversation(text), public.renew_remote_invite(uuid),
-    public.join_remote_conversation(text, text), public.touch_remote_conversation(uuid),
+    public.join_remote_conversation(text, text, text), public.touch_remote_conversation(uuid),
     public.mark_remote_seen(uuid, bigint), public.end_remote_conversation(uuid) to authenticated;
 
 -- Live updates: new messages and conversation changes (viewer joined, seen, ended) reach members only (RLS).

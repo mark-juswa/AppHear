@@ -30,7 +30,7 @@ import java.util.UUID
  * after a lost reply is never a duplicate). Lives for the process, not for a screen: screens attach
  * while visible and detach when hidden. Main-thread API.
  */
-class RemoteSession internal constructor(context: Context, role: RemoteRole) {
+class RemoteSession internal constructor(context: Context, role: RemoteRole, private val myName: String) : RemoteLink {
     private val app = context.applicationContext
     private val backend = RemoteBackend(AppConfiguration.supabaseUrl, AppConfiguration.supabaseAnonKey)
     private val authStore = EncryptedAccountSessionStore(app, AppConfiguration.supabaseUrl.trimEnd('/'),
@@ -38,18 +38,19 @@ class RemoteSession internal constructor(context: Context, role: RemoteRole) {
     private val scope = CoroutineScope(SupervisorJob() + Dispatchers.Main.immediate)
     private val authLock = Mutex()
     private val mutable = MutableStateFlow(RemoteState(role))
-    val state: StateFlow<RemoteState> = mutable.asStateFlow()
+    override val state: StateFlow<RemoteState> = mutable.asStateFlow()
 
     private var auth: AccountSession? = null
     private var channel: RemoteRealtime? = null
-    private var attached = false
+    private var attachCount = 0
+    private val attached get() = attachCount > 0
     private var reconnectDelayMs = FIRST_RETRY_MS
     private var reconnectJob: Job? = null
     private var keepAliveJob: Job? = null
     private var flushing = false
 
     /** Viewer: the newest message already signed on this phone (survives the screen being recreated). */
-    var playedSeq: Long = 0L
+    override var playedSeq: Long = 0L
 
     private val active: Boolean
         get() = state.value.conversationId != null &&
@@ -57,11 +58,11 @@ class RemoteSession internal constructor(context: Context, role: RemoteRole) {
 
     // ---- starting ----
 
-    fun host(hostName: String) {
+    fun host() {
         mutable.update { it.copy(phase = RemotePhase.Working) }
         scope.launch {
             try {
-                val invite = call { backend.createConversation(it, hostName) }
+                val invite = call { backend.createConversation(it, myName) }
                 mutable.update { it.copy(conversationId = invite.conversationId,
                     phase = RemotePhase.Inviting(invite.code, invite.secret, invite.expiresAtMs)) }
                 remember()
@@ -72,7 +73,7 @@ class RemoteSession internal constructor(context: Context, role: RemoteRole) {
         }
     }
 
-    fun renewInvite() {
+    override fun renewInvite() {
         val id = state.value.conversationId ?: return
         scope.launch {
             try {
@@ -89,7 +90,7 @@ class RemoteSession internal constructor(context: Context, role: RemoteRole) {
         mutable.update { it.copy(phase = RemotePhase.Working) }
         scope.launch {
             try {
-                val joined = call { backend.join(it, code, secret) }
+                val joined = call { backend.join(it, code, secret, myName) }
                 mutable.update { it.copy(conversationId = joined.conversationId, peerName = joined.hostName,
                     phase = RemotePhase.Connected) }
                 remember()
@@ -133,13 +134,14 @@ class RemoteSession internal constructor(context: Context, role: RemoteRole) {
 
     // ---- screen lifecycle ----
 
-    fun attach() {
-        attached = true
+    override fun attach() {
+        attachCount++
         connect()
     }
 
-    fun detach() {
-        attached = false
+    override fun detach() {
+        attachCount = (attachCount - 1).coerceAtLeast(0)
+        if (attached) return
         reconnectJob?.cancel()
         keepAliveJob?.cancel()
         dropChannel()
@@ -148,7 +150,7 @@ class RemoteSession internal constructor(context: Context, role: RemoteRole) {
     // ---- conversation ----
 
     /** Host only: sends typed or spoken text to the viewer. Ignored unless connected. */
-    fun send(text: String) {
+    override fun send(text: String) {
         val body = text.trim().take(MAX_MESSAGE_CHARS)
         if (body.isEmpty() || state.value.role != RemoteRole.HOST || state.value.phase != RemotePhase.Connected) return
         mutable.update { it.withOutgoing(UUID.randomUUID().toString(), body) }
@@ -156,18 +158,19 @@ class RemoteSession internal constructor(context: Context, role: RemoteRole) {
     }
 
     /** Viewer only: everything up to [seq] has been shown. */
-    fun markSeen(seq: Long) {
+    override fun markSeen(seq: Long) {
         val id = state.value.conversationId ?: return
         if (state.value.role != RemoteRole.VIEWER) return
         scope.launch { try { call { backend.markSeen(it, id, seq) } } catch (_: RemoteException) { /* best effort */ } }
     }
 
-    fun end() {
+    override fun end() {
         if (state.value.phase is RemotePhase.Ended) return
         finish(RemoteEndReason.YOU_ENDED, notifyServer = true)
     }
 
-    internal fun close() {
+    override fun close() {
+        attachCount = 1
         detach()
         scope.cancel()
     }
@@ -274,6 +277,7 @@ class RemoteSession internal constructor(context: Context, role: RemoteRole) {
                 next = next.copy(phase = RemotePhase.Connected)
             }
             if (it.role == RemoteRole.VIEWER && row.hostName.isNotBlank()) next = next.copy(peerName = row.hostName)
+            if (it.role == RemoteRole.HOST && row.viewerName.isNotBlank()) next = next.copy(peerName = row.viewerName)
             next
         }
         if (state.value.role == RemoteRole.HOST) remember()
@@ -399,36 +403,5 @@ class RemoteSession internal constructor(context: Context, role: RemoteRole) {
 
         val enabled: Boolean get() = BuildConfig.REMOTE_CONVERSATION_ENABLED
         private val serverCalls = CoroutineScope(SupervisorJob() + Dispatchers.IO)
-    }
-}
-
-/** The process's one remote conversation, plus an invite link waiting for the Text-to-ASL screen. */
-object RemoteConversations {
-    private var session: RemoteSession? = null
-
-    /** Set when an invite link or QR opened the app; the Text-to-ASL screen asks to join. */
-    var pendingLink: RemoteInvite.Link? = null
-
-    fun current(context: Context): RemoteSession? {
-        session?.let { return it }
-        val saved = context.applicationContext.getSharedPreferences(RemoteSession.CONVERSATION_PREFERENCES, Context.MODE_PRIVATE)
-        val id = saved.getString(RemoteSession.KEY_ID, null) ?: return null
-        val role = saved.getString(RemoteSession.KEY_ROLE, null)?.let { runCatching { RemoteRole.valueOf(it) }.getOrNull() } ?: return null
-        return RemoteSession(context, role).also {
-            session = it
-            it.restore(id, saved.getString(RemoteSession.KEY_PEER, "").orEmpty())
-        }
-    }
-
-    fun start(context: Context, role: RemoteRole): RemoteSession {
-        session?.let { if (it.state.value.phase.let { p -> p is RemotePhase.Inviting || p is RemotePhase.Connected }) it.end() }
-        session?.close()
-        return RemoteSession(context, role).also { session = it }
-    }
-
-    /** Forgets a finished or failed session once its result has been shown. */
-    fun clear() {
-        session?.close()
-        session = null
     }
 }

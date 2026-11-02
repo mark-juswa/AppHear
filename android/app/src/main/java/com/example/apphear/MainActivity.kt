@@ -142,5 +142,7 @@ class MainActivity : AppCompatActivity() {
 }
 
 object TextToAslArgument {
+    /** remoteConversation: open the Text-to-ASL screen with the connect card showing. */
+    const val OPEN_CONNECT = "open_connect"
     const val INCOMING_TEXT = "incoming_text"
 }

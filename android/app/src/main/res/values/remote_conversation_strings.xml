@@ -81,4 +81,22 @@
     <string name="remote_issue_rate_limited">Too many tries. Wait a minute, then try again.</string>
     <string name="remote_issue_own_invite">This is your own code. Scan it with the other phone.</string>
     <string name="remote_issue_server">The server could not complete that. Try again.</string>
+
+    <string name="remote_choose_body_host">Show a code for the other person to scan. Each reply you type or say appears on their phone as text and signing.</string>
+    <string name="remote_invite_body_nearby">Phone to phone, no internet needed. Ask them to scan this with their phone camera, or open AppHear, tap Connect and type the code. Keep the phones close.
+Code expires in %1$s.</string>
+    <string name="remote_issue_nearby_permission">AppHear needs the Nearby devices (Bluetooth) permission to connect without internet. Allow it and try again.</string>
+    <string name="remote_issue_nearby_unavailable">Could not connect phone to phone. Turn on Bluetooth and Wi-Fi (no network needed) and try again.</string>
+    <string name="remote_issue_not_found_nearby">No phone showing that code was found nearby. Keep the phones close, check the code, and try again.</string>
+
+    <string name="remote_settings_connect_title">Connect a device</string>
+    <string name="remote_settings_connect_body">Show a code so another phone sees what you type or say as text and signing.</string>
+    <string name="remote_settings_offline_title">Connect without internet only</string>
+    <string name="remote_settings_offline_body">Always connect phone to phone with Bluetooth and Wi-Fi Direct. Without this, AppHear uses the internet when it can and phone to phone when it cannot.</string>
+    <string name="remote_settings_name_title">My display name</string>
+    <string name="remote_settings_name_body">Shown on the other phone, for example \"Connected to Sam\".</string>
+    <string name="remote_settings_open">Open</string>
+    <string name="remote_settings_on">On</string>
+    <string name="remote_settings_off">Off</string>
+    <string name="remote_settings_no_name">Not set</string>
 </resources>

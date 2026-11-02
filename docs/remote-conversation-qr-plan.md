@@ -173,3 +173,30 @@ Not done yet: the invite web page (install + App Link) for phones without AppHea
 HTTPS page you control; automatic join after install (needs Google Play); end-to-end encryption.
 Proof so far: 409/409 JVM tests (10 new), private Lab APK built and installed; the phone resolves
 `apphear://join` to the Lab app. No two-phone test has run.
+
+## 11. Offline, Recognition screen and Settings (2026-11-02)
+
+- **Offline (phone to phone):** Google Nearby Connections (`play-services-nearby`, Bluetooth + Wi-Fi
+  Direct, no internet or router). `RemoteConversations` picks the route: the server when the phone has
+  validated internet, phone to phone otherwise, or always phone to phone with Settings' offline-only
+  switch. A server invite that finds no internet, or a typed code the server does not know, falls back
+  to phone to phone by itself. The QR says which: `apphear://join?c=...` (server) or `?n=...` (nearby).
+  `NearbySession`: the host advertises `AH1|CODE|name`; the viewer finds that code, connects and sends
+  the invite secret (a typed code alone only for the first join); the host numbers messages and re-sends
+  what the viewer missed after a dropped link; both sides reconnect by themselves. A phone-to-phone
+  conversation ends when either phone ends it or the app is closed (it is not restored like a server one).
+  Permissions (asked the first time a code is shown or joined): Nearby devices / Bluetooth on Android
+  12+, location on Android 11 and older. They are added to the debug manifest only, with the flag.
+  Release gains only `ACCESS_NETWORK_STATE` (normal permission, no prompt) from the Nearby library.
+- **Recognition screen:** a two-phones button next to the camera switch shows a code (show-only; joining
+  is on Text-to-ASL). Each reply recorded there (typed or heard) is also sent to the paired phone, where
+  it appears as text and signing. The status pill shows the connection.
+- **Settings:** "Connect a device" (opens Text-to-ASL with the card), "Connect without internet only",
+  and "My display name" (shown on the other phone; defaults to the account username). The server stores
+  the viewer's name too (`viewer_name`, `p_viewer_name`).
+- Shared code: `remote/RemoteLink.kt` (interface), `RemoteConversations.kt` (route + fallback),
+  `NearbySession.kt`, `RemoteConnectCard.kt` (card, button, status pill for both screens),
+  `RemotePreferences.kt`.
+
+Proof: 411/411 JVM tests; private Lab APK built and installed. No two-phone test has run (online or
+offline).

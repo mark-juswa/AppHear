@@ -110,8 +110,14 @@ class TextToAslFragment : Fragment(R.layout.fragment_text_to_asl) {
     // Remote conversation (remoteConversation flag): this screen on two connected phones.
     private var remote: RemoteConversationBinder? = null
     private var remoteSigning = false
-    private val remoteCameraPermission = registerForActivityResult(ActivityResultContracts.RequestPermission()) { granted ->
-        remote?.cameraPermissionResult(granted)
+    private var remotePermissionsDone: ((Boolean) -> Unit)? = null
+    private val remotePermissionLauncher = registerForActivityResult(ActivityResultContracts.RequestMultiplePermissions()) { result ->
+        remotePermissionsDone?.invoke(result.values.all { it })
+        remotePermissionsDone = null
+    }
+    private val remotePermissions = com.example.apphear.remote.RemoteConnectCard.Permissions { permissions, done ->
+        remotePermissionsDone = done
+        remotePermissionLauncher.launch(permissions)
     }
     private val remotePlayer = object : RemoteConversationBinder.Player {
         override val busySigning: Boolean get() = remoteSigning || pendingAutoSubmitText != null
@@ -147,7 +153,9 @@ class TextToAslFragment : Fragment(R.layout.fragment_text_to_asl) {
         setupTextToAslEngine(fragmentBinding)
         setupListeners(fragmentBinding)
         if (RemoteConversationBinder.enabled) {
-            remote = RemoteConversationBinder(this, fragmentBinding, remotePlayer, remoteCameraPermission)
+            remote = RemoteConversationBinder(this, fragmentBinding, remotePlayer, remotePermissions)
+            // Settings' "Connect a device" opens this screen with the card showing.
+            if (savedInstanceState == null && arguments?.getBoolean(TextToAslArgument.OPEN_CONNECT) == true) remote?.openConnect()
         }
         // conversationFlowV1: a spoken reply for this already-open screen arrives here instead of
         // recreating the screen; it uses the same auto-submit path as a reply passed at creation.

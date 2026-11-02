@@ -26,6 +26,23 @@ class RemoteInviteTest {
     }
 
     @Test
+    fun nearbyLinkRoundTrips() {
+        val link = RemoteInvite.link("K7P4QM", secret, nearby = true)
+        assertEquals("apphear://join?n=K7P4QM&s=$secret", link)
+        assertEquals(RemoteInvite.Link("K7P4QM", secret, nearby = true), RemoteInvite.parse(link))
+    }
+
+    @Test
+    fun randomCodesAndSecretsAreWellFormed() {
+        repeat(50) {
+            val code = RemoteInvite.randomCode()
+            assertEquals(code, RemoteInvite.normalizeCode(code))
+            val made = RemoteInvite.link(code, RemoteInvite.randomSecret(), nearby = true)
+            assertEquals(code, RemoteInvite.parse(made)?.code)
+        }
+    }
+
+    @Test
     fun invitePageKeepsTheSecretInTheFragment() {
         val page = "https://apphear.example.org/join"
         val link = RemoteInvite.link("K7P4QM", secret, page)
