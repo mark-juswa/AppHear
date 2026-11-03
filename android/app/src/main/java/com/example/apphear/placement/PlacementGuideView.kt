@@ -196,7 +196,7 @@ class PlacementGuideView @JvmOverloads constructor(
         val color = if (centered) TEAL else 0xFFFFFFFF.toInt()
         // Arms in a signing pose: elbows out, hands in front of the chest.
         limb.strokeWidth = 0.17f * sw
-        limb.color = withAlpha(color, (if (centered) 0x40 else 0x26) * pulse)
+        limb.color = withAlpha(color, (if (centered) 0x40 else 0x26) * pulse * SHAPE_OPACITY)
         for (side in listOf(-1f, 1f)) {
             path.reset()
             path.moveTo(cx + side * 0.5f * sw, y + 0.12f * sw)
@@ -206,10 +206,10 @@ class PlacementGuideView @JvmOverloads constructor(
         }
         // Head and torso: a light fill with a dashed outline (solid teal once the signer lines up).
         buildBust(cx, y, sw, y + HIP_BELOW * sw)
-        fill.color = withAlpha(color, (if (centered) 0x33 else 0x1A) * pulse)
+        fill.color = withAlpha(color, (if (centered) 0x33 else 0x1A) * pulse * SHAPE_OPACITY)
         canvas.drawPath(path, fill)
         canvas.drawCircle(cx, y - HEAD_ABOVE_CENTER * sw, HEAD_RADIUS * sw, fill)
-        outline.color = withAlpha(color, 0xD9 * pulse)
+        outline.color = withAlpha(color, 0xD9 * pulse * SHAPE_OPACITY)
         outline.pathEffect = if (centered) null else dashed
         canvas.drawPath(path, outline)
         canvas.drawCircle(cx, y - HEAD_ABOVE_CENTER * sw, HEAD_RADIUS * sw, outline)
@@ -263,9 +263,9 @@ class PlacementGuideView @JvmOverloads constructor(
         path.quadTo(s.rightShoulder.x - 0.06f * sw, s.rightShoulder.y - 0.12f * sw, s.rightShoulder.x, s.rightShoulder.y + 0.08f * sw)
         path.quadTo(s.rightShoulder.x + 0.04f * sw, (s.rightShoulder.y + bottom) / 2f, s.rightHip.x, bottom)
         if (hipsSeen) path.close()
-        fill.color = withAlpha(color, 0x33)
+        fill.color = withAlpha(color, 0x33 * SHAPE_OPACITY)
         canvas.drawPath(path, fill)
-        outline.color = withAlpha(color, 0xE6)
+        outline.color = withAlpha(color, 0xE6 * SHAPE_OPACITY)
         canvas.drawPath(path, outline)
         // The head is not tracked: drawn where it sits above the shoulders.
         val headY = s.shoulderY - HEAD_ABOVE_CENTER * sw
@@ -327,6 +327,8 @@ class PlacementGuideView @JvmOverloads constructor(
     private fun withAlpha(color: Int, alpha: Int): Int = (alpha.coerceIn(0, 255) shl 24) or (color and 0xFFFFFF)
 
     private companion object {
+        /** The placeholder and the person outline are drawn at 80% so they do not distract. */
+        const val SHAPE_OPACITY = 0.8f
         const val TEAL = 0xFF2AA897.toInt()
         const val CREAM = 0xFFF6EBDD.toInt()
         const val RED = 0xFFFF4455.toInt()
