@@ -92,6 +92,7 @@ class ConversationFlowController(
     // Guided conversation demo (guidedDemo flag + Settings): a script drives this flow; real words are ignored.
     private val demoFlow = object : com.example.apphear.demo.GuidedDemoController.Flow {
         override val state: FlowState get() = this@ConversationFlowController.state
+        override val typing: Boolean get() = editorOpen
         override fun showMessage(words: String, sentence: String) {
             lastWords = words
             apply(ConversationFlow.signedWordsChanged(state, words))
@@ -350,7 +351,10 @@ class ConversationFlowController(
         val text = binding.conversationEditor.text?.toString().orEmpty()
         if (text.isBlank()) return
         closeEditor()
-        apply(ConversationFlow.typedReply(state, text))
+        // Demo: typing ends the hearing person's turn like speaking does; the script supplies the line.
+        val scripted = demo?.scriptedReply()
+        apply(ConversationFlow.typedReply(state, scripted ?: text))
+        if (scripted != null && state.phase == FlowPhase.REPLY) demo?.replyDelivered()
     }
 
     private fun apply(transition: Transition) {

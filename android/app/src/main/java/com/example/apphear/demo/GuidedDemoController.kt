@@ -30,6 +30,8 @@ class GuidedDemoController(
     /** What the demo asks of the conversation flow. */
     interface Flow {
         val state: FlowState
+        /** The reply editor (keyboard) is open. */
+        val typing: Boolean
         /** Shows [sentence] as the message for [words], as if sentence assist had built it. */
         fun showMessage(words: String, sentence: String)
         /** Says the message on screen now. */
@@ -115,7 +117,9 @@ class GuidedDemoController(
         // Nothing heard during a hearing turn: listen again, so the demo never needs a tap.
         if (new.phase == FlowPhase.NOT_HEARD && old.phase != FlowPhase.NOT_HEARD &&
             current.step?.speaker == DemoSpeaker.HEARING) {
-            handler.postDelayed({ if (run === current && flow.state.phase == FlowPhase.NOT_HEARD) flow.listen() }, 600)
+            handler.postDelayed({
+                if (run === current && flow.state.phase == FlowPhase.NOT_HEARD && !flow.typing) flow.listen()
+            }, 600)
         }
         // The signer's scripted message was said: their step is done.
         if (old.phase == FlowPhase.SAYING && new.phase == FlowPhase.LISTENING &&
@@ -222,10 +226,9 @@ class GuidedDemoController(
     /** Volume-down / Page Down / right = NEXT; volume-up / Page Up / left = AGAIN. Only while a scenario runs. */
     fun onKey(event: KeyEvent): Boolean {
         val current = run ?: return false
-        if (current.finished) return false
+        if (current.finished || flow.typing) return false // never take keys from the keyboard
         val action: (() -> Unit)? = when (event.keyCode) {
-            KeyEvent.KEYCODE_VOLUME_DOWN, KeyEvent.KEYCODE_PAGE_DOWN, KeyEvent.KEYCODE_DPAD_RIGHT,
-            KeyEvent.KEYCODE_SPACE, KeyEvent.KEYCODE_ENTER -> ::next
+            KeyEvent.KEYCODE_VOLUME_DOWN, KeyEvent.KEYCODE_PAGE_DOWN, KeyEvent.KEYCODE_DPAD_RIGHT -> ::next
             KeyEvent.KEYCODE_VOLUME_UP, KeyEvent.KEYCODE_PAGE_UP, KeyEvent.KEYCODE_DPAD_LEFT -> ::again
             else -> null
         }
