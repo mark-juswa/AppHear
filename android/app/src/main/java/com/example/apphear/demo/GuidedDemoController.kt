@@ -10,6 +10,7 @@ import android.widget.FrameLayout
 import android.widget.TextView
 import androidx.core.view.isVisible
 import com.example.apphear.R
+import com.example.apphear.conversation.ConversationTimeline
 import com.example.apphear.conversation.flow2.FlowPhase
 import com.example.apphear.conversation.flow2.FlowState
 import com.example.apphear.databinding.ActivityRecognitionBinding
@@ -57,6 +58,8 @@ class GuidedDemoController(
     private var lastActivityMs = 0L
     /** Signer turn: how many scripted signs are on screen, and the recognizer's word count they follow. */
     private var revealed = 0
+    /** When the current step began; the first moments are ignored (hands still on the phone). */
+    private var turnStartMs = 0L
     private var baselineWords = -1
     /** Scripted reply text -> the avatar wording for it (SIGN IT). */
     private val avatarFor = mutableMapOf<String, String>()
@@ -74,18 +77,16 @@ class GuidedDemoController(
 
     // ---- what the conversation flow asks ----
 
-    /** The signer's cue for the sheet, while it is their turn and the message is not on screen yet. */
-    val cue: String?
+    /** It is the signer's turn and their message is not on screen yet. (No cue is shown: it would give the answer away.) */
+    private val signerWaiting: Boolean
         get() {
-            val current = run ?: return null
-            val step = current.step ?: return null
-            if (step.speaker != DemoSpeaker.SIGNER || current.shown) return null
-            if (flow.state.phase !in setOf(FlowPhase.READY, FlowPhase.REPLY)) return null
-            return context.getString(R.string.guided_demo_cue, DemoValues.cue(step.gloss ?: step.text, values))
+            val current = run ?: return false
+            return current.step?.speaker == DemoSpeaker.SIGNER && !current.shown &&
+                flow.state.phase in setOf(FlowPhase.READY, FlowPhase.REPLY)
         }
 
-    /** The primary pill says the scripted message (one tap shows and says it) during the signer's cue. */
-    val primaryShowsSayIt: Boolean get() = cue != null && flow.state.phase == FlowPhase.READY
+    /** The primary pill says the scripted message (one tap shows and says it) during the signer's turn. */
+    val primaryShowsSayIt: Boolean get() = signerWaiting && flow.state.phase == FlowPhase.READY
 
     /** The scripted line for the current hearing step, replacing whatever speech recognition heard. */
     fun scriptedReply(): String? {
@@ -107,7 +108,7 @@ class GuidedDemoController(
 
     /** Primary pill pressed while [primaryShowsSayIt]: show the scripted message and say it at once. */
     fun sayScripted() {
-        showSignerMessage()
+        showSignerMessage("say_it")
         flow.sayNow()
     }
 
@@ -151,7 +152,8 @@ class GuidedDemoController(
             return true
         }
         val signs = scriptedSigns(step!!)
-        if (baselineWords < 0 || count < baselineWords) baselineWords = count
+        // Words finished during the first moments of the turn belong to whatever came before it.
+        if (baselineWords < 0 || count < baselineWords || inGrace()) baselineWords = count
         if (count > baselineWords) {
             revealed = (revealed + count - baselineWords).coerceAtMost(signs.size)
             baselineWords = count
@@ -178,7 +180,7 @@ class GuidedDemoController(
     }
 
     private fun markActivity() {
-        if (settings.presenterOnly) return
+        if (settings.presenterOnly || inGrace()) return
         val now = System.currentTimeMillis()
         if (firstActivityMs == 0L || now - lastActivityMs > RESTART_GAP_MS) firstActivityMs = now
         lastActivityMs = now
@@ -189,8 +191,9 @@ class GuidedDemoController(
     private val handsDownCheck = Runnable {
         val current = run ?: return@Runnable
         if (current.shown || current.step?.speaker != DemoSpeaker.SIGNER) return@Runnable
-        // Hands down after signing: the rest of the scripted signs and the full sentence appear.
-        if (revealed > 0 || lastActivityMs - firstActivityMs >= MIN_SIGNING_MS) showSignerMessage()
+        // Hands down after the recognizer noticed real signing: the full scripted sentence appears.
+        // Hands near the camera alone (holding or typing on the phone) never count.
+        if (revealed > 0) showSignerMessage("signed")
     }
 
     /** NEXT: whatever completes the current step. */
@@ -199,7 +202,7 @@ class GuidedDemoController(
         val step = current.step ?: return
         when (step.speaker) {
             DemoSpeaker.SIGNER -> when {
-                !current.shown -> showSignerMessage()
+                !current.shown -> showSignerMessage("next")
                 flow.state.phase == FlowPhase.READY -> flow.sayNow()
             }
             DemoSpeaker.HEARING -> if (flow.state.phase != FlowPhase.SAYING) {
@@ -267,10 +270,12 @@ class GuidedDemoController(
         renderAll()
     }
 
-    private fun showSignerMessage() {
+    private fun showSignerMessage(reason: String) {
         val current = run ?: return
         val step = current.step?.takeIf { it.speaker == DemoSpeaker.SIGNER && !current.shown } ?: return
         handler.removeCallbacks(handsDownCheck)
+        ConversationTimeline.mark("demo_message", "reason" to reason, "signs_seen" to revealed,
+            "turn_ms" to (System.currentTimeMillis() - turnStartMs))
         run = current.showing()
         val sentence = DemoValues.fill(step.text, values)
         // The "words" key is the cue text: never shown in demo mode, only used to tie sentence to message.
@@ -287,7 +292,10 @@ class GuidedDemoController(
         renderAll()
     }
 
+    private fun inGrace() = System.currentTimeMillis() - turnStartMs < TURN_GRACE_MS
+
     private fun resetPacing() {
+        turnStartMs = System.currentTimeMillis()
         firstActivityMs = 0L
         lastActivityMs = 0L
         revealed = 0
@@ -357,8 +365,8 @@ class GuidedDemoController(
     private companion object {
         /** Hands down this long after signing = the signer finished; only then does MESSAGE show the sentence. */
         const val HANDS_DOWN_MS = 1_500L
-        /** Shorter bursts (a hand passing the camera) do not count as signing. */
-        const val MIN_SIGNING_MS = 600L
+        /** After a turn starts, hands and words are ignored this long (closing the keyboard, putting the phone down). */
+        const val TURN_GRACE_MS = 1_500L
         /** A pause longer than this starts a new burst. */
         const val RESTART_GAP_MS = 2_500L
     }

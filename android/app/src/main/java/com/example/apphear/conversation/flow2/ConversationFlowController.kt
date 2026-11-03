@@ -468,7 +468,7 @@ class ConversationFlowController(
             host.detectionHold(held)
         }
         binder.render(state, editorOpen, avatarNote, autoSaySeconds, detectionHeld && !demoRunning, messageIsSpelling,
-            demo = if (!demoRunning) null else ConversationSheetBinder.Demo(demo?.cue, demo?.primaryShowsSayIt == true))
+            demo = if (!demoRunning) null else ConversationSheetBinder.Demo(null, demo?.primaryShowsSayIt == true))
         back.isEnabled = editorOpen ||
             state.phase in setOf(FlowPhase.SAYING, FlowPhase.LISTENING, FlowPhase.AVATAR)
     }
