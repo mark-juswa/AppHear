@@ -305,7 +305,7 @@ Settings switch "Guided conversation demo" (off by default).
 | Script model, value filling, fingerspelling cue | `demo/DemoScript.kt` (`DemoValues.fill`, `DemoValues.cue`) |
 | Step tracker | `demo/GuidedDemo.kt` (`DemoRun`) |
 | 16 scenarios | `assets/guided_demo/scenarios_v1.json` |
-| Settings: switch, demo details, presenter-only | `demo/GuidedDemoSettings.kt`, `row_setting_guided_demo.xml`, `SettingsContent.setupGuidedDemo` |
+| Settings: one row (On/Off pill switches it; tapping the row opens the script details window: values + presenter-only); the scenario card has EDIT DETAILS too | `demo/GuidedDemoSettings.kt`, `demo/GuidedDemoDetailsDialog.kt`, `row_setting_guided_demo.xml`, `SettingsContent.setupGuidedDemo` |
 | Recognition screen glue | `demo/GuidedDemoController.kt`; hooks in `ConversationFlowController` and `ConversationSheetBinder`; `RecognitionActivity.dispatchKeyEvent` (volume / clicker keys) |
 | Scenarios button + card | `btnGuidedDemo`, `guided_demo_card.xml`, `item_guided_demo_pill.xml` |
 | Tests | `GuidedDemoTest` (filling, cues, step order, every shipped scenario well formed) |

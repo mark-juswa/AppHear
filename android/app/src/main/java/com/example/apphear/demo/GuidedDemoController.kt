@@ -330,6 +330,9 @@ class GuidedDemoController(
                 card.demoTitle.setText(R.string.guided_demo_pick_title)
                 card.demoBody.setText(R.string.guided_demo_pick_body)
                 settings.scenarios().forEach { scenario -> list.addView(pill(scenario.title) { start(scenario) }) }
+                list.addView(pill(context.getString(R.string.guided_demo_edit_details)) {
+                    GuidedDemoDetailsDialog.show(context) { values = settings.values }
+                })
                 list.addView(pill(context.getString(R.string.guided_demo_close)) { cardOpen = false; renderCard() })
             }
             current.finished -> {

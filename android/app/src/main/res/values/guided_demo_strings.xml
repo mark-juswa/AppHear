@@ -7,7 +7,7 @@
 
     <string name="guided_demo_pick_overline">CONVERSATION SCENARIOS</string>
     <string name="guided_demo_pick_title">Choose a conversation</string>
-    <string name="guided_demo_pick_body">The conversation follows the chosen script. Details such as the name and city come from Settings.</string>
+    <string name="guided_demo_pick_body">The conversation follows the chosen script. Set the name, place and other details with EDIT DETAILS.</string>
     <string name="guided_demo_running_overline">STEP %1$d OF %2$d</string>
     <string name="guided_demo_running_body">Volume down: next. Volume up: repeat this step.</string>
     <string name="guided_demo_done_overline">CONVERSATION COMPLETE</string>
@@ -20,8 +20,11 @@
     <string name="guided_demo_close">CLOSE</string>
 
     <string name="guided_demo_settings_title">Guided conversation demo</string>
-    <string name="guided_demo_settings_body">Adds a scenarios button to the sign recognition screen. A chosen scenario follows its script; the recognizer\'s predictions are not used while it runs.</string>
-    <string name="guided_demo_details_title">Demo details</string>
+    <string name="guided_demo_settings_body">Adds a scenarios button to the sign recognition screen; a chosen scenario follows its script. Tap On/Off to switch it, or tap here for the script details (name, place and more).</string>
+    <string name="guided_demo_details_hint">The scenarios fill these in. Leave a field empty to use the example shown.</string>
+    <string name="guided_demo_save">SAVE</string>
+    <string name="guided_demo_edit_details">EDIT DETAILS</string>
+    <string name="guided_demo_details_title">Script details</string>
     <string name="guided_demo_details_body">Name, age, city, school and other details the scenarios use.</string>
     <string name="guided_demo_details_value">Edit</string>
     <string name="guided_demo_presenter_title">Presenter control only</string>
