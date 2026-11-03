@@ -316,11 +316,12 @@ Behaviour as built:
 - While a scenario runs, `renderRecognitionSnapshot` hands the live area to the demo and
   `signedWordsChanged`/`suggestionFor`/Context Assist ignore the recognizer, so none of its predicted words
   can appear; only the moment a sign is recognized is used.
-- Signer turn (revised 2026-11-03 after user feedback): the recognizer keeps running so it can time
-  each sign. Every time it recognizes a sign, the next **scripted** sign appears as the current sign and in
-  the card (its own label is discarded). When the hands go down (about 1.3 s), any remaining scripted signs
-  and the full scripted sentence appear under MESSAGE; auto-say says it. No tap is needed; SAY IT, the
-  chip, NEXT or volume-down do the same at once. The AI Helper row shows the scripted answer.
+- Signer turn (revised twice on 2026-11-03 after user feedback): MESSAGE shows only the scripted
+  sentence ("My name is Mark."), which appears as soon as the signer starts signing (first sign the
+  recognizer notices, or hands up then down). The recognizer keeps running only to notice signing; its
+  words never reach MESSAGE. CURRENT SIGN steps through the scripted signs as signs are noticed. When the
+  hands go down, auto-say says the sentence. No tap is needed; SAY IT, the chip, NEXT or volume-down say
+  it at once. The AI Helper row shows the scripted answer.
 - Hearing turn: if nothing is heard, listening restarts by itself.
 - Hearing turn: listening starts by itself; when they finish speaking (or STOP / NEXT / volume-down) the
   scripted line appears as THEIR REPLY. Their actual words are not shown. SIGN IT uses the script's avatar
