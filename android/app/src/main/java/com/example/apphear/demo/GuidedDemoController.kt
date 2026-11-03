@@ -159,6 +159,8 @@ class GuidedDemoController(
             baselineWords = count
             markActivity()
         }
+        // "...signing..." on screen means the signer has not finished: keep waiting.
+        if (signing) markActivity()
         binding.altText.visibility = View.GONE
         binding.glossText.text = when {
             signing -> context.getString(R.string.signing)
@@ -364,7 +366,7 @@ class GuidedDemoController(
 
     private companion object {
         /** Hands down this long after signing = the signer finished; only then does MESSAGE show the sentence. */
-        const val HANDS_DOWN_MS = 1_500L
+        const val HANDS_DOWN_MS = 2_000L
         /** After a turn starts, hands and words are ignored this long (closing the keyboard, putting the phone down). */
         const val TURN_GRACE_MS = 1_500L
         /** A pause longer than this starts a new burst. */

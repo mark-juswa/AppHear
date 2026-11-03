@@ -318,7 +318,7 @@ Behaviour as built:
   can appear; only the moment a sign is recognized is used.
 - Signer turn (revised twice on 2026-11-03 after user feedback): MESSAGE shows only the scripted
   sentence ("My name is Mark."), which appears once the signer finishes: the recognizer must have noticed
-  at least one sign, then the hands stay down for about 1.5 s. Hands near the camera alone (holding or
+  at least one sign, then signing stops (no "...signing..." and hands down) for about 2 s. Hands near the camera alone (holding or
   typing on the phone) never trigger it, and the first 1.5 s of each turn are ignored. No "next to sign"
   cue is shown. Each appearance is logged as `demo_message` with its reason. The recognizer keeps running only to notice signing; its
   words never reach MESSAGE. CURRENT SIGN steps through the scripted signs as signs are noticed. When the
