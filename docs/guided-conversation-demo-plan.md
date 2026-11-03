@@ -313,12 +313,15 @@ Settings switch "Guided conversation demo" (off by default).
 Behaviour as built:
 - The scenarios button (left, under Back) opens the card: choose a conversation; while it runs the card
   shows STEP n OF m, NEXT, REPEAT THIS STEP, START AGAIN, CHOOSE ANOTHER, BACK TO NORMAL RECOGNITION.
-- While a scenario runs, WORD recognition stays paused (existing detection hold) and
-  `signedWordsChanged`/`suggestionFor` ignore the recognizer, so nothing it predicts can appear.
-- Signer turn: the sheet note shows "Next to sign: MY NAME M-A-R-K"; the AI Helper chip row shows the
-  scripted answer. Hands up then down (about 1.3 s, at least 0.6 s of signing) puts the sentence on screen
-  under MESSAGE; auto-say counts down and says it. Tapping SAY IT, the chip, NEXT or volume-down does the
-  same at once.
+- While a scenario runs, `renderRecognitionSnapshot` hands the live area to the demo and
+  `signedWordsChanged`/`suggestionFor`/Context Assist ignore the recognizer, so none of its predicted words
+  can appear; only the moment a sign is recognized is used.
+- Signer turn (revised 2026-11-03 after user feedback): the recognizer keeps running so it can time
+  each sign. Every time it recognizes a sign, the next **scripted** sign appears as the current sign and in
+  the card (its own label is discarded). When the hands go down (about 1.3 s), any remaining scripted signs
+  and the full scripted sentence appear under MESSAGE; auto-say says it. No tap is needed; SAY IT, the
+  chip, NEXT or volume-down do the same at once. The AI Helper row shows the scripted answer.
+- Hearing turn: if nothing is heard, listening restarts by itself.
 - Hearing turn: listening starts by itself; when they finish speaking (or STOP / NEXT / volume-down) the
   scripted line appears as THEIR REPLY. Their actual words are not shown. SIGN IT uses the script's avatar
   wording when it has one.

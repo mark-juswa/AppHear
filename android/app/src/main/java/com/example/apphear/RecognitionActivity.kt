@@ -507,6 +507,7 @@ class RecognitionActivity : AppCompatActivity() {
     }
 
     private fun renderPhraseAssist(state: PhraseAssistUiState) {
+        if (conversationFlow?.demoActive == true) return // the demo fills the suggestion row from its script
         coordination?.context(state)
         if (fingerspellRuntime?.snapshot?.mode == RecognitionMode.FINGERSPELL) {
             // WORD advisory remains cached; spelling never feeds its matcher/provider.
@@ -1077,6 +1078,10 @@ class RecognitionActivity : AppCompatActivity() {
 
     private fun renderRecognitionSnapshot(snapshot: RecognitionUiSnapshot) {
         if (renderRuD1QueueStatus()) return
+        // Guided demo: the recognizer only times each sign; the script supplies the words shown.
+        if (conversationFlow?.demoRecognition(snapshot.sentenceText.toString().trim()
+                .takeUnless { it == getString(R.string.sentence_placeholder) }.orEmpty(),
+                snapshot.primaryText.toString() == getString(R.string.signing)) == true) return
         binding.glossText.text = snapshot.primaryText
         binding.altText.text = snapshot.candidatesText
         binding.altText.visibility = if (snapshot.showCandidates) View.VISIBLE else View.GONE

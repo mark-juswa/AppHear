@@ -251,6 +251,16 @@ class ConversationFlowController(
         demo?.signingActivity()
     }
 
+    /** A guided demo is running: the script, not the recognizer, decides what is shown. */
+    val demoActive: Boolean get() = demo?.active == true
+
+    /**
+     * The recognizer's latest sentence ([words], labels unused) and whether a sign is in progress.
+     * True when a running demo drew the live area instead (each new recognized sign reveals the next
+     * scripted sign).
+     */
+    fun demoRecognition(words: String, signing: Boolean): Boolean = demo?.recognizerUpdate(words, signing) == true
+
     /** Hardware keys (volume, presentation clicker) move a running demo on. */
     fun onKey(event: android.view.KeyEvent): Boolean = demo?.onKey(event) == true
 
@@ -447,8 +457,7 @@ class ConversationFlowController(
 
     private fun draw() {
         val demoRunning = demo?.active == true
-        // A running demo keeps WORD recognition paused throughout; the hand signal still paces it.
-        val held = demoRunning || editorOpen || state.phase in setOf(FlowPhase.SAYING, FlowPhase.LISTENING, FlowPhase.AVATAR)
+        val held = editorOpen || state.phase in setOf(FlowPhase.SAYING, FlowPhase.LISTENING, FlowPhase.AVATAR)
         if (held != detectionHeld) {
             detectionHeld = held
             ConversationTimeline.mark("detection_hold", "held" to held)

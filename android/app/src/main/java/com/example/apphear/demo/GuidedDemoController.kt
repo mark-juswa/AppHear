@@ -54,6 +54,9 @@ class GuidedDemoController(
     private var cardOpen = false
     private var firstActivityMs = 0L
     private var lastActivityMs = 0L
+    /** Signer turn: how many scripted signs are on screen, and the recognizer's word count they follow. */
+    private var revealed = 0
+    private var baselineWords = -1
     /** Scripted reply text -> the avatar wording for it (SIGN IT). */
     private val avatarFor = mutableMapOf<String, String>()
     private val card = binding.demoCard
@@ -109,6 +112,11 @@ class GuidedDemoController(
 
     fun onFlowChanged(old: FlowState, new: FlowState) {
         val current = run ?: return
+        // Nothing heard during a hearing turn: listen again, so the demo never needs a tap.
+        if (new.phase == FlowPhase.NOT_HEARD && old.phase != FlowPhase.NOT_HEARD &&
+            current.step?.speaker == DemoSpeaker.HEARING) {
+            handler.postDelayed({ if (run === current && flow.state.phase == FlowPhase.NOT_HEARD) flow.listen() }, 600)
+        }
         // The signer's scripted message was said: their step is done.
         if (old.phase == FlowPhase.SAYING && new.phase == FlowPhase.LISTENING &&
             current.step?.speaker == DemoSpeaker.SIGNER && current.shown) {
@@ -122,11 +130,56 @@ class GuidedDemoController(
         }
     }
 
+    /**
+     * The recognizer's sentence changed. Its words are never shown: each newly recognized sign only
+     * reveals the next scripted sign (timing), so the screen follows the signer sign by sign.
+     * Returns true when the demo drew the live area.
+     */
+    fun recognizerUpdate(words: String, signing: Boolean): Boolean {
+        val current = run ?: return false
+        val step = current.step
+        val count = if (words.isBlank()) 0 else words.trim().split(Regex("\\s+")).size
+        val signerTurn = step?.speaker == DemoSpeaker.SIGNER && !current.shown &&
+            flow.state.phase in setOf(FlowPhase.READY, FlowPhase.REPLY)
+        if (!signerTurn) {
+            baselineWords = count
+            binding.glossText.setText(R.string.gloss_placeholder)
+            binding.altText.visibility = View.GONE
+            return true
+        }
+        val signs = scriptedSigns(step!!)
+        if (baselineWords < 0 || count < baselineWords) baselineWords = count
+        if (count > baselineWords) {
+            revealed = (revealed + count - baselineWords).coerceAtMost(signs.size)
+            baselineWords = count
+            markActivity()
+        }
+        binding.altText.visibility = View.GONE
+        binding.glossText.text = when {
+            signing -> context.getString(R.string.signing)
+            revealed > 0 -> signs[revealed - 1]
+            else -> context.getString(R.string.gloss_placeholder)
+        }
+        if (revealed > 0) {
+            binding.sentenceText.text = signs.take(revealed).joinToString(" ")
+            binding.sentenceCard.visibility = View.VISIBLE
+        }
+        return true
+    }
+
+    private fun scriptedSigns(step: DemoStep): List<String> =
+        DemoValues.cue(step.gloss ?: step.text, values).split(Regex("\\s+")).filter { it.isNotBlank() }
+
     /** Camera thread posts: a hand is up. Paces the signer's turn only; the content is the script's. */
     fun signingActivity() {
         val current = run ?: return
         if (settings.presenterOnly || current.shown || current.step?.speaker != DemoSpeaker.SIGNER) return
         if (flow.state.phase !in setOf(FlowPhase.READY, FlowPhase.REPLY)) return
+        markActivity()
+    }
+
+    private fun markActivity() {
+        if (settings.presenterOnly) return
         val now = System.currentTimeMillis()
         if (firstActivityMs == 0L || now - lastActivityMs > RESTART_GAP_MS) firstActivityMs = now
         lastActivityMs = now
@@ -137,7 +190,8 @@ class GuidedDemoController(
     private val handsDownCheck = Runnable {
         val current = run ?: return@Runnable
         if (current.shown || current.step?.speaker != DemoSpeaker.SIGNER) return@Runnable
-        if (lastActivityMs - firstActivityMs >= MIN_SIGNING_MS) showSignerMessage()
+        // Hands down after signing: the rest of the scripted signs and the full sentence appear.
+        if (revealed > 0 || lastActivityMs - firstActivityMs >= MIN_SIGNING_MS) showSignerMessage()
     }
 
     /** NEXT: whatever completes the current step. */
@@ -238,6 +292,8 @@ class GuidedDemoController(
     private fun resetPacing() {
         firstActivityMs = 0L
         lastActivityMs = 0L
+        revealed = 0
+        baselineWords = -1
         handler.removeCallbacks(handsDownCheck)
     }
 

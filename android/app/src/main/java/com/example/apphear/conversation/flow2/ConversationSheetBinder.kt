@@ -181,9 +181,11 @@ class ConversationSheetBinder(
         if (demo) {
             chip.visibility = View.GONE
             signed.visibility = View.GONE
-            val showing = !editorOpen && message != null && s.phase in setOf(FlowPhase.READY, FlowPhase.SAYING)
-            if (showing) binding.sentenceText.text = ConversationFlow.displayedMessage(s)
-            binding.sentenceCard.visibility = if (showing) View.VISIBLE else View.GONE
+            // While the signer signs, the demo draws the scripted signs here itself.
+            if (!editorOpen && message != null && s.phase in setOf(FlowPhase.READY, FlowPhase.SAYING)) {
+                binding.sentenceText.text = ConversationFlow.displayedMessage(s)
+                binding.sentenceCard.visibility = View.VISIBLE
+            }
             return
         }
         if (spelling || editorOpen || message == null ||
