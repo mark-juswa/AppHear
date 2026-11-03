@@ -317,8 +317,8 @@ Behaviour as built:
   `signedWordsChanged`/`suggestionFor`/Context Assist ignore the recognizer, so none of its predicted words
   can appear; only the moment a sign is recognized is used.
 - Signer turn (revised twice on 2026-11-03 after user feedback): MESSAGE shows only the scripted
-  sentence ("My name is Mark."), which appears as soon as the signer starts signing (first sign the
-  recognizer notices, or hands up then down). The recognizer keeps running only to notice signing; its
+  sentence ("My name is Mark."), which appears once the signer finishes: hands down for about 1.5 s
+  after signing. The recognizer keeps running only to notice signing; its
   words never reach MESSAGE. CURRENT SIGN steps through the scripted signs as signs are noticed. When the
   hands go down, auto-say says the sentence. No tap is needed; SAY IT, the chip, NEXT or volume-down say
   it at once. The AI Helper row shows the scripted answer.

@@ -158,8 +158,6 @@ class GuidedDemoController(
             baselineWords = count
             markActivity()
         }
-        // The first sign puts the scripted sentence in MESSAGE; signing on never changes it.
-        if (signing || revealed > 0) showSignerMessage()
         binding.altText.visibility = View.GONE
         binding.glossText.text = when {
             signing -> context.getString(R.string.signing)
@@ -377,8 +375,8 @@ class GuidedDemoController(
     private fun dp(value: Int) = (value * context.resources.displayMetrics.density).toInt()
 
     private companion object {
-        /** Hands down this long after signing = the signer finished. */
-        const val HANDS_DOWN_MS = 1_300L
+        /** Hands down this long after signing = the signer finished; only then does MESSAGE show the sentence. */
+        const val HANDS_DOWN_MS = 1_500L
         /** Shorter bursts (a hand passing the camera) do not count as signing. */
         const val MIN_SIGNING_MS = 600L
         /** A pause longer than this starts a new burst. */
