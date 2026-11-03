@@ -251,7 +251,7 @@ for noisy rooms. Back steps back one turn; Restart resets the scenario.
 | `demo/GuidedDemo.kt` | Pure state machine: step pointer, phases (CUE, SIGNING, READY, SAYING, HEARING, DONE), next/back/restart | Unit-tested like `ConversationFlow` |
 | `demo/GuidedDemoController.kt` | Glue: drives `ConversationFlowController`, volume/clicker keys, scenario card | Only Android part |
 | `demo/DemoProfile.kt` | The dynamic values (SharedPreferences) | Settings "Demo details" |
-| Recognition screen | DEMO pill, scenario card (reuses the remote-conversation card style), NEXT pill, cue line, SCRIPTED label | Existing views, strings in `guided_demo_strings.xml` |
+| Recognition screen | Scenario card (reuses the remote-conversation card style), NEXT pill, cue line, MESSAGE heading | Existing views, strings in `guided_demo_strings.xml` |
 | Settings | "Guided conversation demo" switch, "Demo details", "Presenter control only", "Show live recognizer" | Same row style as the new remote rows |
 | Test: avatar coverage | Every hearing `avatar` text plans to existing clips/fingerspelling | Catches unsupported words before demo day |
 
@@ -261,7 +261,7 @@ phone's offline English speech pack; otherwise Next is used.
 ### Roadmap
 
 1. **Core (offline, tested):** script format, template filling, state machine, 3 scenarios; unit tests.
-2. **Recognition integration:** cue, SCRIPTED reveal, auto-say, hearing step, avatar, NEXT/volume keys.
+2. **Recognition integration:** cue, MESSAGE reveal, auto-say, hearing step, avatar, NEXT/volume keys.
 3. **Settings + scenario card:** switch, demo details, scenario picker, restart/back.
 4. **Library + checks:** the six capstone scenarios, avatar-coverage test, rehearsal on the phone.
 5. **Review:** FSL/ASL signer review of glosses; defense script and paper wording.
