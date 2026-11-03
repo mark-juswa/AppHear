@@ -139,7 +139,7 @@ class GuidedDemoController(
         val current = run ?: return false
         val step = current.step
         val count = if (words.isBlank()) 0 else words.trim().split(Regex("\\s+")).size
-        val signerTurn = step?.speaker == DemoSpeaker.SIGNER && !current.shown &&
+        val signerTurn = step?.speaker == DemoSpeaker.SIGNER &&
             flow.state.phase in setOf(FlowPhase.READY, FlowPhase.REPLY)
         if (!signerTurn) {
             baselineWords = count
@@ -154,15 +154,13 @@ class GuidedDemoController(
             baselineWords = count
             markActivity()
         }
+        // The first sign puts the scripted sentence in MESSAGE; signing on never changes it.
+        if (signing || revealed > 0) showSignerMessage()
         binding.altText.visibility = View.GONE
         binding.glossText.text = when {
             signing -> context.getString(R.string.signing)
             revealed > 0 -> signs[revealed - 1]
             else -> context.getString(R.string.gloss_placeholder)
-        }
-        if (revealed > 0) {
-            binding.sentenceText.text = signs.take(revealed).joinToString(" ")
-            binding.sentenceCard.visibility = View.VISIBLE
         }
         return true
     }

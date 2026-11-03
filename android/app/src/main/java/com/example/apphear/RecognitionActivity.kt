@@ -656,6 +656,7 @@ class RecognitionActivity : AppCompatActivity() {
 
     /** A rendering finished: show it now rather than waiting for the next camera frame. */
     private fun refreshSentenceAssistDisplay() {
+        if (conversationFlow?.demoActive == true) return // the demo shows only its scripted sentence
         val raw = (phoneSession?.sentenceText ?: recognizer?.sentenceText).orEmpty()
         if (raw.isBlank()) return
         binding.sentenceText.text = sentenceAssistDisplay(raw)
@@ -1056,6 +1057,7 @@ class RecognitionActivity : AppCompatActivity() {
             // word show the normal idle text instead. Flag off: unchanged.
             val initializing = if (BuildConfig.CONVERSATION_FLOW_V2_ENABLED) r.phoneReady == false && !phoneEverReady
                 else r.phoneReady == false && r.recognition is com.example.apphear.pipeline.recognition.RecognitionState.Idle
+            if (initializing && conversationFlow?.demoActive == true) return@runOnUiThread
             if (initializing) {
                 binding.glossText.text = "Initializing recognition…"
                 binding.altText.visibility = View.GONE
