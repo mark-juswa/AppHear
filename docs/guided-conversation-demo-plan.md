@@ -321,7 +321,7 @@ Behaviour as built:
   after signing. The recognizer keeps running only to notice signing; its
   words never reach MESSAGE. CURRENT SIGN steps through the scripted signs as signs are noticed. When the
   hands go down, auto-say says the sentence. No tap is needed; SAY IT, the chip, NEXT or volume-down say
-  it at once. The AI Helper row shows the scripted answer.
+  it at once. The AI Helper suggestion row stays hidden in demo mode (showing the answer early gave it away).
 - Hearing turn: if nothing is heard, listening restarts by itself.
 - Hearing turn: listening starts by itself; when they finish speaking (or STOP / NEXT / volume-down) the
   scripted line appears as THEIR REPLY. Their actual words are not shown. SIGN IT uses the script's avatar

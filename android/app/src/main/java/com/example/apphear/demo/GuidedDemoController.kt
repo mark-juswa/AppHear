@@ -7,7 +7,6 @@ import android.view.KeyEvent
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.FrameLayout
-import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.core.view.isVisible
 import com.example.apphear.R
@@ -304,27 +303,9 @@ class GuidedDemoController(
         flow.redraw()
     }
 
-    /** The AI Helper's suggestion row shows the scripted answer for the signer's turn (deterministic). */
+    /** The suggestion row stays hidden: showing the scripted answer early would give it away. */
     private fun renderChips() {
-        val sentence = run?.takeIf { !it.shown }?.step?.takeIf { it.speaker == DemoSpeaker.SIGNER }?.text
-            ?.let { DemoValues.fill(it, values) }
-        if (sentence == null || flow.state.phase !in setOf(FlowPhase.READY, FlowPhase.REPLY)) {
-            if (active) binding.possibleRepliesGroup.visibility = View.GONE
-            return
-        }
-        val container = binding.replyChipContainer
-        container.removeAllViews()
-        container.addView(TextView(context).apply {
-            text = sentence
-            setTextColor(context.getColor(R.color.white))
-            textSize = 15f
-            typeface = context.resources.getFont(R.font.inter_semibold)
-            gravity = android.view.Gravity.CENTER
-            minHeight = dp(40)
-            setPadding(dp(6), dp(3), dp(6), dp(3))
-            setOnClickListener { showSignerMessage() }
-        }, LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT))
-        binding.possibleRepliesGroup.visibility = View.VISIBLE
+        if (active) binding.possibleRepliesGroup.visibility = View.GONE
     }
 
     private fun renderCard() {
@@ -372,7 +353,6 @@ class GuidedDemoController(
         return view
     }
 
-    private fun dp(value: Int) = (value * context.resources.displayMetrics.density).toInt()
 
     private companion object {
         /** Hands down this long after signing = the signer finished; only then does MESSAGE show the sentence. */
