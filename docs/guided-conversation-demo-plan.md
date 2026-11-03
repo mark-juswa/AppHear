@@ -6,7 +6,7 @@ Status: planning only (2026-11-03). No code written. Builds on the one-screen co
 
 ## 1. What this feature is, and is not
 
-**Is:** a clearly labelled, script-driven demonstration of the AppHear conversation workflow on the real
+**Is:** a script-driven demonstration of the AppHear conversation workflow on the real
 Recognition screen. A prepared scenario decides every signed message, its English sentence, and the order
 of the dialogue. The camera, the bottom sheet, SAY IT / auto-say, listening, the avatar, history and the
 AI Helper's suggestion chips all behave as in a real conversation, so the audience sees the intended
@@ -168,8 +168,8 @@ Each scenario is a list of steps. The demo keeps a step pointer and drives the e
    "NEXT TO SIGN: MY NAME M-A-R-K". The camera and overlay run as usual.
 2. **Signing:** the existing hands-up signal shows "...signing..." (pacing only).
 3. **Done:** when the hands are down and still (the auto-say timing) or the presenter presses Next, the
-   RECOGNIZED card shows the scripted sentence under a **SCRIPTED** label (in place of "RECOGNIZED"), with
-   the gloss as "Script: MY NAME M-A-R-K" (never "Signed"/"Recognized"). No confidence bar.
+   card shows the scripted sentence under the neutral heading **MESSAGE** (in place of "RECOGNIZED", so the
+   screen never claims the signs were recognized). No gloss line, no confidence bar.
 4. **Say:** auto-say counts down and speaks the sentence (Android TTS), exactly like a real turn.
 5. **Hearing step:** listening starts as usual. When the hearing person finishes speaking (or Next), the
    sheet shows **the scripted line** under THEIR REPLY (the transcript only times the step; a mismatch does
@@ -232,8 +232,9 @@ for noisy rooms. Back steps back one turn; Restart resets the scenario.
 
 - **Switch:** Settings -> "Guided conversation demo" (off by default; debug builds only via a `guidedDemo`
   Gradle flag, release hard-off). Turning it off returns the Recognition screen to normal at once.
-- **Always labelled:** a fixed pill at the top, "GUIDED DEMO - SCRIPTED", and the SCRIPTED overline on
-  every scripted sentence. Screenshots and recordings therefore carry the label.
+- **No on-screen demo label** (user decision, 2026-11-03). The screen stays neutral instead: scripted
+  sentences appear under MESSAGE, never under RECOGNIZED, and no confidence or accuracy is shown. The
+  demo is disclosed by the presenter and in the paper (section 10), not by a banner.
 - **No shared outputs:** the demo never writes into the recognizer's sentence store, confidence values,
   evaluation logs or recognition evidence. Timeline events are tagged `mode=demo`; evaluation tools ignore
   them. Models, thresholds, feature contract and V4 experiments are untouched.
@@ -266,6 +267,9 @@ phone's offline English speech pack; otherwise Next is used.
 5. **Review:** FSL/ASL signer review of glosses; defense script and paper wording.
 
 ## 10. Limitations and how to describe the feature
+
+Disclosure: because the screen carries no demo label, the presenter states before the demo that it is the
+scripted Guided Conversation Demo, and recordings or screenshots used in the paper are captioned the same way.
 
 Limitations: the demo shows the intended experience, not recognition ability; inserted names and places are
 not recognized; glosses are unverified drafts; natural pacing can trigger early or late; listening may need
