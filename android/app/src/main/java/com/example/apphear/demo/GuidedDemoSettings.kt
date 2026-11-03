@@ -19,12 +19,12 @@ class GuidedDemoSettings(context: Context) {
         get() = preferences.getBoolean(KEY_PRESENTER, false)
         set(value) { preferences.edit().putBoolean(KEY_PRESENTER, value).apply() }
 
-    /** The details scenarios fill in; blank means "use the default". */
+    /** The details scenarios fill in; a blank one shows as [key] in the conversation. */
     var values: Map<String, String>
-        get() = DemoValues.defaults.keys.associateWith { preferences.getString("value_$it", "").orEmpty() }
+        get() = DemoValues.keys.associateWith { preferences.getString("value_$it", "").orEmpty() }
         set(value) {
             val edit = preferences.edit()
-            DemoValues.defaults.keys.forEach { key -> edit.putString("value_$key", value[key].orEmpty().trim().take(DemoValues.MAX_VALUE)) }
+            DemoValues.keys.forEach { key -> edit.putString("value_$key", value[key].orEmpty().trim().take(DemoValues.MAX_VALUE)) }
             edit.apply()
         }
 

@@ -10,10 +10,11 @@ import java.io.File
 
 class GuidedDemoTest {
     @Test
-    fun valuesFillTemplatesWithDefaultsForMissingOnes() {
+    fun valuesFillTemplatesAndEmptyOnesShowAsBrackets() {
         val values = mapOf("name" to "Joshua", "city" to "Naga City", "province" to " ")
         assertEquals("My name is Joshua.", DemoValues.fill("My name is {name}.", values))
-        assertEquals("I live in Naga City, Camarines Norte.", DemoValues.fill("I live in {city}, {province}.", values))
+        assertEquals("I live in Naga City, [province].", DemoValues.fill("I live in {city}, {province}.", values))
+        assertEquals("My name is [name].", DemoValues.fill("My name is {name}.", emptyMap()))
         assertEquals("Hi {unknown}", DemoValues.fill("Hi {unknown}", values)) // left visible so tests catch typos
     }
 
@@ -23,6 +24,7 @@ class GuidedDemoTest {
         assertEquals("MY NAME J-O-S-H-U-A", DemoValues.cue("MY NAME FS:{name}", values))
         assertEquals("ME LIVE2 N-A-G-A C-I-T-Y", DemoValues.cue("ME LIVE2 FS:{city}", values))
         assertEquals("ONE TICKET N-A-G-A PLEASE", DemoValues.cue("ONE TICKET FS:NAGA PLEASE", values))
+        assertEquals("MY NAME [name]", DemoValues.cue("MY NAME FS:{name}", emptyMap()))
     }
 
     @Test
@@ -63,7 +65,7 @@ class GuidedDemoTest {
                 assertTrue("$id: who=$who", who == "hearing" || who == "signer")
                 val texts = listOfNotNull(step["text"]?.asString, step["gloss"]?.asString, step["avatar"]?.asString)
                 for (text in texts) {
-                    val unknown = DemoValues.keysIn(text) - DemoValues.defaults.keys
+                    val unknown = DemoValues.keysIn(text) - DemoValues.keys.toSet()
                     assertTrue("$id uses unknown values $unknown", unknown.isEmpty())
                 }
                 if (who == "signer") assertNotNull("$id signer step needs a gloss", step["gloss"])

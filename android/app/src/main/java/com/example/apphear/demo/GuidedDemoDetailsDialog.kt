@@ -39,7 +39,7 @@ object GuidedDemoDetailsDialog {
             setTextColor(context.getColor(R.color.color_text_secondary))
             textSize = 13f
         })
-        val inputs = DemoValues.defaults.map { (key, default) ->
+        val inputs = DemoValues.keys.map { key ->
             form.addView(TextView(context).apply {
                 labels[key]?.let(::setText)
                 setTextColor(context.getColor(R.color.color_text_secondary))
@@ -48,7 +48,6 @@ object GuidedDemoDetailsDialog {
             })
             key to EditText(context).apply {
                 setText(current[key].orEmpty())
-                hint = default
                 setSingleLine()
                 filters = arrayOf(InputFilter.LengthFilter(DemoValues.MAX_VALUE))
                 inputType = if (key == "age") InputType.TYPE_CLASS_NUMBER

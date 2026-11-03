@@ -280,7 +280,7 @@ class PlacementGuideView @JvmOverloads constructor(
         val direction = if (gap > 0) 1f else -1f
         val size = 9f * density
         val drift = ((SystemClock.uptimeMillis() % 900L) / 900f) * size * 1.6f
-        outline.color = withAlpha(CREAM, 0xE6)
+        outline.color = withAlpha(CREAM, 0xE6 * SHAPE_OPACITY)
         outline.pathEffect = null
         val start = from.x + direction * (abs(gap) * 0.25f)
         for (i in 0 until 3) {
@@ -327,8 +327,8 @@ class PlacementGuideView @JvmOverloads constructor(
     private fun withAlpha(color: Int, alpha: Int): Int = (alpha.coerceIn(0, 255) shl 24) or (color and 0xFFFFFF)
 
     private companion object {
-        /** The placeholder and the person outline are drawn at 80% so they do not distract. */
-        const val SHAPE_OPACITY = 0.8f
+        /** The placeholder, the person outline and the chevrons are drawn faint so they do not distract. */
+        const val SHAPE_OPACITY = 0.35f
         const val TEAL = 0xFF2AA897.toInt()
         const val CREAM = 0xFFF6EBDD.toInt()
         const val RED = 0xFFFF4455.toInt()

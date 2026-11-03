@@ -21,7 +21,7 @@
 
     <string name="guided_demo_settings_title">Guided conversation demo</string>
     <string name="guided_demo_settings_body">Adds a scenarios button to the sign recognition screen; a chosen scenario follows its script. Tap On/Off to switch it, or tap here for the script details (name, place and more).</string>
-    <string name="guided_demo_details_hint">The scenarios fill these in. Leave a field empty to use the example shown.</string>
+    <string name="guided_demo_details_hint">The scenarios fill these in. An empty field shows as [name] in the conversation.</string>
     <string name="guided_demo_save">SAVE</string>
     <string name="guided_demo_edit_details">EDIT DETAILS</string>
     <string name="guided_demo_details_title">Script details</string>

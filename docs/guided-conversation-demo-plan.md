@@ -40,22 +40,11 @@ accuracy is measured separately and honestly in the evaluation chapter).
 
 ### 3.1 Dynamic values (one demo profile, reused by every scenario)
 
-Entered once in Settings -> "Demo details"; every scenario reads them. Defaults let a demo run with no setup.
+Entered in the script details window (Settings, or EDIT DETAILS on the scenarios card); every scenario
+reads them. Nothing is built in: an empty value shows as `[name]`, `[city]`, ... so it is easy to spot.
 
-| Key | Default | Example sentence | In the signed gloss |
-|---|---|---|---|
-| `name` | Mark | My name is {name}. | fingerspelled: `FS:{name}` |
-| `age` | 21 | I am {age} years old. | number sign `#{age}` |
-| `city` | Daet | I live in {city}, {province}. | fingerspelled or local sign (consult) |
-| `province` | Camarines Norte | | fingerspelled `FS:CN` or local sign |
-| `school` | Camarines Norte State College | I study at {school}. | initialism `FS:{school_short}` |
-| `school_short` | CNSC | | |
-| `course` | Information Technology | I am taking {course}. | `FS:IT` |
-| `year_level` | third year | I am a {year_level} college student. | |
-| `occupation` | student | I work as a {occupation}. | |
-| `destination` | the public market | I am going to {destination}. | |
-| `companion` | my friend | I am here with {companion}. | |
-| `hearing_name` | Ana | Nice to meet you, {hearing_name}. | `FS:{hearing_name}` |
+Keys: `name`, `age`, `city`, `province`, `school`, `school_short`, `course`, `year_level`, `occupation`,
+`destination`, `hearing_name` (the other person). Fingerspelled values in a gloss use `FS:{key}`.
 
 Rules: values are plain text, length-limited, and only inserted where a scenario uses `{key}`. A name or
 place appearing in the demo is **inserted from the profile, not detected**; the documentation says so.

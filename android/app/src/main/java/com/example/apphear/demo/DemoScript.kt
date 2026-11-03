@@ -19,20 +19,15 @@ data class DemoStep(
 
 data class DemoScenario(val id: String, val title: String, val category: String, val steps: List<DemoStep>)
 
-/** The values the scenarios fill in (name, city, ...), with defaults so a demo runs with no setup. */
+/**
+ * The values the scenarios fill in (name, city, ...). Nothing is built in: every value comes from the
+ * script details window, and an empty one shows as `[name]` so it is easy to spot.
+ */
 object DemoValues {
-    val defaults: Map<String, String> = linkedMapOf(
-        "name" to "Mark",
-        "age" to "21",
-        "city" to "Daet",
-        "province" to "Camarines Norte",
-        "school" to "Camarines Norte State College",
-        "school_short" to "CNSC",
-        "course" to "Information Technology",
-        "year_level" to "third year",
-        "occupation" to "student",
-        "destination" to "the public market",
-        "hearing_name" to "Ana",
+    /** Every value a scenario may use, in the order the script details window lists them. */
+    val keys: List<String> = listOf(
+        "name", "age", "city", "province", "school", "school_short", "course", "year_level", "occupation",
+        "destination", "hearing_name",
     )
 
     const val MAX_VALUE = 60
@@ -41,20 +36,22 @@ object DemoValues {
     /** Every `{key}` the text uses. */
     fun keysIn(text: String): Set<String> = PLACEHOLDER.findAll(text).map { it.groupValues[1] }.toSet()
 
-    /** Replaces `{key}` with the value (or its default); unknown keys stay visible so a test catches them. */
+    /** Replaces `{key}` with its value; an empty value shows as `[key]`, an unknown key stays as `{key}`. */
     fun fill(text: String, values: Map<String, String>): String = PLACEHOLDER.replace(text) { match ->
         val key = match.groupValues[1]
-        values[key]?.trim()?.takeIf { it.isNotEmpty() }?.take(MAX_VALUE) ?: defaults[key] ?: match.value
+        values[key]?.trim()?.takeIf { it.isNotEmpty() }?.take(MAX_VALUE)
+            ?: if (key in keys) "[$key]" else match.value
     }
 
     /**
      * The signer's cue: fills values, then shows fingerspelled words letter by letter
-     * (`FS:Mark` -> `M-A-R-K`, `FS:{city}` with city "Naga City" -> `N-A-G-A C-I-T-Y`).
+     * (`FS:Juan` -> `J-U-A-N`, `FS:{city}` with city "Naga City" -> `N-A-G-A C-I-T-Y`).
      */
     fun cue(gloss: String, values: Map<String, String>): String =
         gloss.trim().split(Regex("\\s+")).joinToString(" ") { token ->
-            if (!token.startsWith("FS:")) fill(token, values)
-            else fill(token.removePrefix("FS:"), values).split(Regex("\\s+")).joinToString(" ") { word ->
+            val filled = fill(token.removePrefix("FS:"), values)
+            if (!token.startsWith("FS:") || filled.startsWith("[")) filled
+            else filled.split(Regex("\\s+")).joinToString(" ") { word ->
                 word.filter { it.isLetterOrDigit() }.uppercase().toCharArray().joinToString("-")
             }
         }
