@@ -30,6 +30,9 @@ class ConversationSheetBinder(
 ) {
     enum class Secondary { LISTEN, TYPE_REPLY, TYPE_INSTEAD, CANCEL, CLOSE, WAIT }
 
+    /** A guided demo is running: [cue] for the signer, and whether the pill says the scripted message. */
+    data class Demo(val cue: String?, val sayItPill: Boolean)
+
     /** What the two tan pills currently mean; read by the click handlers. */
     var secondaryA: Secondary? = null
         private set
@@ -56,19 +59,20 @@ class ConversationSheetBinder(
      * [autoSaySeconds]: the auto-say countdown, or null when none is running.
      */
     fun render(s: FlowState, editorOpen: Boolean, avatarNote: String? = null, autoSaySeconds: Int? = null,
-               detectionHeld: Boolean = false, spelling: Boolean = false) {
+               detectionHeld: Boolean = false, spelling: Boolean = false, demo: Demo? = null) {
         val countdown = autoSaySeconds?.takeIf { !editorOpen && s.phase == FlowPhase.READY && s.message != null }
-        val action = ConversationFlow.primaryAction(s)
+        val action = if (demo?.sayItPill == true && !editorOpen) PrimaryAction.SAY_IT else ConversationFlow.primaryAction(s)
         renderOverline(s, editorOpen)
         renderLine(s, editorOpen)
         val note = avatarNote?.takeIf { !editorOpen && s.phase == FlowPhase.AVATAR && it.isNotBlank() }
+            ?: demo?.cue?.takeIf { !editorOpen }
             ?: context.getString(R.string.conversation_v2_detection_paused)
                 .takeIf { detectionHeld && (editorOpen || s.phase == FlowPhase.LISTENING) }
         binding.conversationNote.visibility = if (note == null) View.GONE else View.VISIBLE
         binding.conversationNote.text = note
         renderPill(action, editorOpen, countdown)
         renderSecondary(s, editorOpen, countdown)
-        renderSentence(s, editorOpen, spelling)
+        renderSentence(s, editorOpen, spelling, demo != null)
         renderHistory(s)
         binding.conversationEditor.visibility = if (editorOpen) View.VISIBLE else View.GONE
         binding.conversationTypeReplyExpanded.visibility =
@@ -168,10 +172,20 @@ class ConversationSheetBinder(
     }
 
     /** RECOGNIZED and SAY IT share the same choice; signed glosses remain inspectable. */
-    private fun renderSentence(s: FlowState, editorOpen: Boolean, spelling: Boolean) {
+    private fun renderSentence(s: FlowState, editorOpen: Boolean, spelling: Boolean, demo: Boolean = false) {
         val chip = binding.conversationSuggestion
         val signed = binding.conversationSignedLine
         val message = s.message
+        // Demo: the scripted sentence sits under a neutral heading (it was not recognized), with no glosses.
+        binding.recognizedLabel.setText(if (demo) R.string.guided_demo_message_label else R.string.recognized_label)
+        if (demo) {
+            chip.visibility = View.GONE
+            signed.visibility = View.GONE
+            val showing = !editorOpen && message != null && s.phase in setOf(FlowPhase.READY, FlowPhase.SAYING)
+            if (showing) binding.sentenceText.text = ConversationFlow.displayedMessage(s)
+            binding.sentenceCard.visibility = if (showing) View.VISIBLE else View.GONE
+            return
+        }
         if (spelling || editorOpen || message == null ||
             s.phase !in setOf(FlowPhase.READY, FlowPhase.SAYING, FlowPhase.NOT_HEARD)) {
             chip.visibility = View.GONE

@@ -68,6 +68,7 @@
                 <include layout="@layout/row_setting_recognition_mode" />
                 <include layout="@layout/row_setting_recognition_engine" />
                 <include layout="@layout/row_setting_remote" />
+                <include layout="@layout/row_setting_guided_demo" />
             <include layout="@layout/row_setting_asl_character" />
                 <include layout="@layout/row_setting_voice" />
                 <include layout="@layout/row_setting_accessibility" />

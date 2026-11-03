@@ -92,6 +92,22 @@
         app:layout_constraintTop_toTopOf="parent"
         app:tint="#0D1B1E" />
 
+    <!-- Guided conversation demo (guidedDemo flag + Settings): scripted scenarios. Hidden otherwise. -->
+    <ImageButton
+        android:id="@+id/btnGuidedDemo"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/circle_btn_white"
+        android:contentDescription="@string/guided_demo_button"
+        android:padding="12dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_demo_script"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnBack" />
+
     <TextView
         android:id="@+id/fpsText"
         android:layout_width="wrap_content"
@@ -831,5 +847,21 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/cameraToggle"
+        app:layout_constraintVertical_bias="0" />
+
+    <include
+        android:id="@+id/demoCard"
+        layout="@layout/guided_demo_card"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="24dp"
+        android:visibility="gone"
+        app:layout_constrainedHeight="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnGuidedDemo"
         app:layout_constraintVertical_bias="0" />
 </androidx.constraintlayout.widget.ConstraintLayout>

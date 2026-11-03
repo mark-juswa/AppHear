@@ -16,6 +16,7 @@ class SettingsContent(private val context: Context, private val view: View) {
     private var recognitionDialog: AlertDialog? = null
     private var engineDialog: AlertDialog? = null
     private var nameDialog: AlertDialog? = null
+    private var demoDialog: AlertDialog? = null
 
     fun render() {
         renderSettings(view)
@@ -23,6 +24,71 @@ class SettingsContent(private val context: Context, private val view: View) {
         setupRecognitionChoice()
         setupRecognitionEngineChoice()
         setupRemoteConversation()
+        setupGuidedDemo()
+    }
+
+    /** guidedDemo: scripted conversation scenarios on the Recognition screen, their details and pacing. */
+    private fun setupGuidedDemo() {
+        val group = view.findViewById<View>(R.id.guidedDemoSettingsGroup) ?: return
+        group.isVisible = com.example.apphear.demo.GuidedDemoSettings.available
+        if (!group.isVisible) return
+        val settings = com.example.apphear.demo.GuidedDemoSettings(context)
+        val enabled = view.findViewById<TextView>(R.id.guidedDemoValue)
+        val presenter = view.findViewById<TextView>(R.id.guidedDemoPresenterValue)
+        fun renderValues() {
+            enabled.setText(if (settings.enabled) R.string.remote_settings_on else R.string.remote_settings_off)
+            presenter.setText(if (settings.presenterOnly) R.string.remote_settings_on else R.string.remote_settings_off)
+            view.findViewById<View>(R.id.guidedDemoDetailsRow).isVisible = settings.enabled
+            view.findViewById<View>(R.id.guidedDemoPresenterRow).isVisible = settings.enabled
+        }
+        renderValues()
+        view.findViewById<TextView>(R.id.guidedDemoDetailsValue).setText(R.string.guided_demo_details_value)
+        view.findViewById<View>(R.id.guidedDemoRow).setOnClickListener { settings.enabled = !settings.enabled; renderValues() }
+        view.findViewById<View>(R.id.guidedDemoPresenterRow).setOnClickListener {
+            settings.presenterOnly = !settings.presenterOnly
+            renderValues()
+        }
+        view.findViewById<View>(R.id.guidedDemoDetailsRow).setOnClickListener { showDemoDetails(settings) }
+    }
+
+    private fun showDemoDetails(settings: com.example.apphear.demo.GuidedDemoSettings) {
+        val labels = mapOf(
+            "name" to R.string.guided_demo_field_name, "age" to R.string.guided_demo_field_age,
+            "city" to R.string.guided_demo_field_city, "province" to R.string.guided_demo_field_province,
+            "school" to R.string.guided_demo_field_school, "school_short" to R.string.guided_demo_field_school_short,
+            "course" to R.string.guided_demo_field_course, "year_level" to R.string.guided_demo_field_year_level,
+            "occupation" to R.string.guided_demo_field_occupation, "destination" to R.string.guided_demo_field_destination,
+            "hearing_name" to R.string.guided_demo_field_hearing_name,
+        )
+        val current = settings.values
+        val pad = (20 * context.resources.displayMetrics.density).toInt()
+        val form = android.widget.LinearLayout(context).apply {
+            orientation = android.widget.LinearLayout.VERTICAL
+            setPadding(pad, pad / 2, pad, 0)
+        }
+        val inputs = com.example.apphear.demo.DemoValues.defaults.map { (key, default) ->
+            form.addView(TextView(context).apply {
+                labels[key]?.let(::setText)
+                setTextColor(context.getColor(R.color.color_text_secondary))
+                textSize = 12f
+            })
+            key to android.widget.EditText(context).apply {
+                setText(current[key].orEmpty())
+                hint = default
+                setSingleLine()
+                filters = arrayOf(android.text.InputFilter.LengthFilter(com.example.apphear.demo.DemoValues.MAX_VALUE))
+                inputType = if (key == "age") android.text.InputType.TYPE_CLASS_NUMBER
+                    else android.text.InputType.TYPE_CLASS_TEXT or android.text.InputType.TYPE_TEXT_FLAG_CAP_WORDS
+                form.addView(this)
+            }
+        }
+        demoDialog?.dismiss()
+        demoDialog = AlertDialog.Builder(context).setTitle(R.string.guided_demo_details_title)
+            .setView(android.widget.ScrollView(context).apply { addView(form) })
+            .setPositiveButton(android.R.string.ok) { _, _ ->
+                settings.values = inputs.associate { (key, input) -> key to input.text.toString() }
+            }
+            .setNegativeButton(android.R.string.cancel, null).show()
     }
 
     /** remoteConversation: connect a second phone, offline-only, and the name the other phone sees. */
@@ -190,5 +256,6 @@ class SettingsContent(private val context: Context, private val view: View) {
         recognitionDialog?.dismiss(); recognitionDialog = null
         engineDialog?.dismiss(); engineDialog = null
         nameDialog?.dismiss(); nameDialog = null
+        demoDialog?.dismiss(); demoDialog = null
     }
 }

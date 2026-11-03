@@ -56,7 +56,7 @@ class ConversationFlowController(
 
     private val main = Handler(Looper.getMainLooper())
     private val binder = ConversationSheetBinder(binding,
-        onReplyTapped = { reply -> apply(ConversationFlow.signIt(state, reply)) },
+        onReplyTapped = { reply -> apply(ConversationFlow.signIt(state, demo?.avatarText(reply) ?: reply)) },
         onSignedWordTapped = ::offerRemoval,
     )
     private val listener = InAppSpeechListener(AndroidSpeechBackend(activity), hasPermission = { micPermitted() })
@@ -89,6 +89,37 @@ class ConversationFlowController(
                     onFire = ::autoSayNow,
                 )
             }
+    // Guided conversation demo (guidedDemo flag + Settings): a script drives this flow; real words are ignored.
+    private val demoFlow = object : com.example.apphear.demo.GuidedDemoController.Flow {
+        override val state: FlowState get() = this@ConversationFlowController.state
+        override fun showMessage(words: String, sentence: String) {
+            lastWords = words
+            apply(ConversationFlow.signedWordsChanged(state, words))
+            apply(ConversationFlow.suggestionReady(state, words, sentence))
+        }
+        override fun sayNow() { ConversationFlow.displayedMessage(state)?.let(::sayText) }
+        override fun listen() = apply(ConversationFlow.listen(state))
+        override fun deliverReply(text: String) {
+            if (state.phase == FlowPhase.AVATAR) apply(ConversationFlow.stop(state))
+            apply(ConversationFlow.typedReply(state, text))
+            demo?.replyDelivered()
+        }
+        override fun reset() {
+            if (editorOpen) closeEditor()
+            apply(ConversationFlow.stop(state))
+            this@ConversationFlowController.state = FlowState(ticket = state.ticket + 1)
+            lastWords = null
+            lastSuggestion = null
+            host.clearSignedWords()
+            render()
+        }
+        override fun stop() = apply(ConversationFlow.stop(state))
+        override fun clearMessage() = apply(ConversationFlow.clear(state))
+        override fun redraw() = render()
+    }
+    private val demo: com.example.apphear.demo.GuidedDemoController? = if (!com.example.apphear.demo.GuidedDemoSettings.available) null else
+        com.example.apphear.demo.GuidedDemoController(activity, binding, demoFlow)
+
     private val avatar = ReplyAvatarStage(activity, binding.conversationAvatarStage, object : ReplyAvatarStage.Listener {
         override fun note(ticket: Long, text: String) {
             if (ticket != state.ticket || state.phase != FlowPhase.AVATAR) return
@@ -161,6 +192,7 @@ class ConversationFlowController(
 
     /** Raw signed words as displayed (S8 sentence or [spelling]); called every frame, so cheap. */
     fun signedWordsChanged(words: String, spelling: Boolean = false) {
+        if (demo?.active == true) return // the script, not the recognizer, decides the message
         if (spelling != messageIsSpelling) {
             messageIsSpelling = spelling
             render()
@@ -175,6 +207,7 @@ class ConversationFlowController(
 
     /** An accepted sentence-assist rendering for [words], or null; called every frame, so cheap. */
     fun suggestionFor(words: String, suggestion: String?, plain: String? = null, building: Boolean = false) {
+        if (demo?.active == true) return
         val next = SentenceState(words.trim(), suggestion, plain, building)
         if (next == lastSuggestion) return
         lastSuggestion = next
@@ -215,7 +248,11 @@ class ConversationFlowController(
     /** The signer is mid-sign or has a hand raised: auto-say waits for them to stop again. */
     fun signingActivity() {
         autoSay?.activity()
+        demo?.signingActivity()
     }
+
+    /** Hardware keys (volume, presentation clicker) move a running demo on. */
+    fun onKey(event: android.view.KeyEvent): Boolean = demo?.onKey(event) == true
 
     /** Final wording from the existing Hear path. */
     fun sayText(text: String) {
@@ -238,6 +275,7 @@ class ConversationFlowController(
 
     fun onStart() {
         remoteCard?.start()
+        demo?.onStart()
         stopped = false
         render()
     }
@@ -249,15 +287,20 @@ class ConversationFlowController(
         listener.destroy()
         avatar.destroy()
         remoteCard?.destroy()
+        demo?.onDestroy()
     }
 
     private fun onPrimary() {
         if (editorOpen) { sendTyped(); return }
+        val demoRunning = demo?.active == true
+        if (demoRunning && demo?.primaryShowsSayIt == true) { demo.sayScripted(); return }
         when (ConversationFlow.primaryAction(state)) {
-            PrimaryAction.SAY_IT -> host.sayIt()
+            PrimaryAction.SAY_IT -> if (demoRunning) ConversationFlow.displayedMessage(state)?.let(::sayText) else host.sayIt()
             PrimaryAction.LISTEN -> apply(ConversationFlow.listen(state))
-            PrimaryAction.STOP -> apply(ConversationFlow.stop(state))
-            PrimaryAction.SIGN_IT -> apply(ConversationFlow.signIt(state))
+            // Demo: STOP while the hearing person speaks means they finished their scripted line.
+            PrimaryAction.STOP -> if (demoRunning && state.phase == FlowPhase.LISTENING) demo?.next()
+                else apply(ConversationFlow.stop(state))
+            PrimaryAction.SIGN_IT -> apply(ConversationFlow.signIt(state, demo?.avatarText(state.reply)))
             PrimaryAction.REPLAY -> apply(ConversationFlow.replay(state))
         }
     }
@@ -301,9 +344,11 @@ class ConversationFlowController(
     }
 
     private fun apply(transition: Transition) {
+        val before = state
         state = transition.state
         transition.effects.forEach(::run)
         render()
+        demo?.onFlowChanged(before, state)
     }
 
     private fun run(effect: FlowEffect) {
@@ -319,10 +364,14 @@ class ConversationFlowController(
             }
             is FlowEffect.OpenSystemListening -> openSystemDialog(effect.ticket)
             is FlowEffect.RecordHearing -> {
-                ConversationTimeline.mark("reply_ready", "source" to effect.source.name, "chars" to effect.text.length)
-                ConversationPhraseAssist.recordHearingMessage(activity.applicationContext, effect.text,
-                    if (effect.source == ReplySource.SPEECH) ConversationSource.SPEECH else ConversationSource.TYPED_TEXT)
-                host.hearingRecorded()
+                ConversationTimeline.mark("reply_ready", "source" to effect.source.name, "chars" to effect.text.length,
+                    "mode" to if (demo?.active == true) "demo" else "live")
+                // A scripted reply never reaches Context Assist: its suggestions come from the script.
+                if (demo?.active != true) {
+                    ConversationPhraseAssist.recordHearingMessage(activity.applicationContext, effect.text,
+                        if (effect.source == ReplySource.SPEECH) ConversationSource.SPEECH else ConversationSource.TYPED_TEXT)
+                    host.hearingRecorded()
+                }
                 com.example.apphear.remote.RemoteConversations.sendFromHost(effect.text)
             }
             FlowEffect.ClearSignedWords -> {
@@ -367,6 +416,7 @@ class ConversationFlowController(
 
     // Listener callbacks arrive on the main thread, possibly inside start(); post to avoid re-entry.
     override fun partial(ticket: Long, text: String) {
+        if (demo?.active == true) return // the scripted line is shown when they finish
         main.post { apply(ConversationFlow.partialReply(state, ticket, text)) }
     }
 
@@ -375,7 +425,12 @@ class ConversationFlowController(
     }
 
     override fun heard(ticket: Long, text: String) {
-        main.post { apply(ConversationFlow.replyHeard(state, ticket, text)) }
+        main.post {
+            // Demo: speech only marks the end of the hearing person's turn; the script supplies the words.
+            val scripted = demo?.scriptedReply()
+            apply(ConversationFlow.replyHeard(state, ticket, scripted ?: text))
+            if (scripted != null && state.phase == FlowPhase.REPLY) demo?.replyDelivered()
+        }
     }
 
     override fun failed(ticket: Long, failure: ListenFailure) {
@@ -391,13 +446,16 @@ class ConversationFlowController(
     }
 
     private fun draw() {
-        val held = editorOpen || state.phase in setOf(FlowPhase.SAYING, FlowPhase.LISTENING, FlowPhase.AVATAR)
+        val demoRunning = demo?.active == true
+        // A running demo keeps WORD recognition paused throughout; the hand signal still paces it.
+        val held = demoRunning || editorOpen || state.phase in setOf(FlowPhase.SAYING, FlowPhase.LISTENING, FlowPhase.AVATAR)
         if (held != detectionHeld) {
             detectionHeld = held
             ConversationTimeline.mark("detection_hold", "held" to held)
             host.detectionHold(held)
         }
-        binder.render(state, editorOpen, avatarNote, autoSaySeconds, detectionHeld, messageIsSpelling)
+        binder.render(state, editorOpen, avatarNote, autoSaySeconds, detectionHeld && !demoRunning, messageIsSpelling,
+            demo = if (!demoRunning) null else ConversationSheetBinder.Demo(demo?.cue, demo?.primaryShowsSayIt == true))
         back.isEnabled = editorOpen ||
             state.phase in setOf(FlowPhase.SAYING, FlowPhase.LISTENING, FlowPhase.AVATAR)
     }
@@ -406,7 +464,7 @@ class ConversationFlowController(
     private fun autoSayNow() {
         if (state.phase != FlowPhase.READY || state.message == null || editorOpen || stopped) return
         ConversationTimeline.mark("auto_say")
-        host.sayIt()
+        if (demo?.active == true) ConversationFlow.displayedMessage(state)?.let(::sayText) else host.sayIt()
     }
 
     private fun micPermitted() = ContextCompat.checkSelfPermission(activity, Manifest.permission.RECORD_AUDIO) ==

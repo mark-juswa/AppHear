@@ -1553,6 +1553,10 @@ class RecognitionActivity : AppCompatActivity() {
         if (::speechPlayer.isInitialized) speechPlayer.close()
     }
 
+    /** Guided demo: volume keys / a presentation clicker move a running scenario on. */
+    override fun dispatchKeyEvent(event: android.view.KeyEvent): Boolean =
+        conversationFlow?.onKey(event) == true || super.dispatchKeyEvent(event)
+
     override fun onStop() {
         conversationFlow?.onStop()
         if (BuildConfig.PLACEMENT_GUIDE_ENABLED) {

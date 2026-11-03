@@ -1,0 +1,183 @@
+{
+  "schemaVersion": 1,
+  "note": "Guided conversation demo scripts. Glosses are draft ASL-style cues for the signer and must be reviewed by a qualified signer (see docs/guided-conversation-demo-plan.md section 7). {key} values come from Settings > Demo details.",
+  "scenarios": [
+    {
+      "id": "introductions", "title": "Introducing yourself", "category": "Greetings and introductions",
+      "steps": [
+        { "who": "hearing", "text": "Hello! What is your name?" },
+        { "who": "signer", "text": "My name is {name}.", "gloss": "MY NAME FS:{name}" },
+        { "who": "hearing", "text": "Nice to meet you, {name}. Where do you live?", "avatar": "Nice to meet you. Where do you live?" },
+        { "who": "signer", "text": "I live in {city}, {province}.", "gloss": "ME LIVE2 FS:{city}" },
+        { "who": "hearing", "text": "Are you a student?" },
+        { "who": "signer", "text": "Yes, I am a {year_level} college student.", "gloss": "YES ME STUDENT" },
+        { "who": "hearing", "text": "Nice talking to you!" },
+        { "who": "signer", "text": "Nice talking to you too!", "gloss": "NICE TALK1 YOU" }
+      ]
+    },
+    {
+      "id": "meeting_friend", "title": "Meeting a new friend", "category": "Greetings and introductions",
+      "steps": [
+        { "who": "hearing", "text": "Hi! I'm {hearing_name}. How are you?" },
+        { "who": "signer", "text": "I'm good, thank you. And you?", "gloss": "GOOD THANK-YOU YOU" },
+        { "who": "hearing", "text": "I'm fine. How old are you?" },
+        { "who": "signer", "text": "I am {age} years old.", "gloss": "ME AGE #{age}" },
+        { "who": "hearing", "text": "Where are you from?" },
+        { "who": "signer", "text": "I am from {city}.", "gloss": "ME FROM FS:{city}" },
+        { "who": "hearing", "text": "That's nice. See you around!" },
+        { "who": "signer", "text": "See you!", "gloss": "SEE YOU" }
+      ]
+    },
+    {
+      "id": "school", "title": "Talking about school", "category": "School and work",
+      "steps": [
+        { "who": "hearing", "text": "Where do you study?" },
+        { "who": "signer", "text": "I study at {school}.", "gloss": "ME STUDENT FS:{school_short}" },
+        { "who": "hearing", "text": "What course are you taking?" },
+        { "who": "signer", "text": "I am taking {course}.", "gloss": "ME LEARN FS:{course}" },
+        { "who": "hearing", "text": "Is it hard?" },
+        { "who": "signer", "text": "Sometimes, but I like it.", "gloss": "SOMETIMES HARD BUT ME LIKE" },
+        { "who": "hearing", "text": "Good luck with your studies!" },
+        { "who": "signer", "text": "Thank you very much!", "gloss": "THANK-YOU VERY MUCH" }
+      ]
+    },
+    {
+      "id": "first_day_work", "title": "First day at work", "category": "School and work",
+      "steps": [
+        { "who": "hearing", "text": "Welcome! Are you the new staff member?" },
+        { "who": "signer", "text": "Yes, I start today.", "gloss": "YES ME START TODAY" },
+        { "who": "hearing", "text": "What did you do before?" },
+        { "who": "signer", "text": "I was a {occupation}.", "gloss": "BEFORE ME FS:{occupation}" },
+        { "who": "hearing", "text": "Do you need anything?" },
+        { "who": "signer", "text": "Please write the instructions for me. Thank you.", "gloss": "PLEASE WRITE FOR ME THANK-YOU" }
+      ]
+    },
+    {
+      "id": "directions", "title": "Asking for directions", "category": "Getting around",
+      "steps": [
+        { "who": "signer", "text": "Excuse me, where is {destination}?", "gloss": "EXCUSE-ME WHERE FS:{destination}" },
+        { "who": "hearing", "text": "Go straight, then turn right at the church." },
+        { "who": "signer", "text": "Is it far?", "gloss": "FAR" },
+        { "who": "hearing", "text": "No, about five minutes walking." },
+        { "who": "signer", "text": "Thank you very much!", "gloss": "THANK-YOU VERY MUCH" },
+        { "who": "hearing", "text": "You're welcome. Take care!" }
+      ]
+    },
+    {
+      "id": "jeepney", "title": "Riding a jeepney", "category": "Getting around",
+      "steps": [
+        { "who": "signer", "text": "Does this jeepney go to {destination}?", "gloss": "THIS CAR GO FS:{destination}" },
+        { "who": "hearing", "text": "Yes, get in." },
+        { "who": "signer", "text": "How much is the fare?", "gloss": "PAY HOW-MUCH" },
+        { "who": "hearing", "text": "Fifteen pesos." },
+        { "who": "signer", "text": "Please tell me when we get there.", "gloss": "PLEASE TELL ME WHEN ARRIVE" },
+        { "who": "hearing", "text": "Okay, I will tell you." }
+      ]
+    },
+    {
+      "id": "bus_terminal", "title": "At the bus terminal", "category": "Getting around",
+      "steps": [
+        { "who": "signer", "text": "One ticket to Naga, please.", "gloss": "ONE TICKET FS:NAGA PLEASE" },
+        { "who": "hearing", "text": "The bus leaves at two o'clock." },
+        { "who": "signer", "text": "Where do I wait?", "gloss": "ME WAIT WHERE" },
+        { "who": "hearing", "text": "Over there, at gate three." },
+        { "who": "signer", "text": "Thank you.", "gloss": "THANK-YOU" }
+      ]
+    },
+    {
+      "id": "sari_sari", "title": "Buying at a sari-sari store", "category": "Shopping and food",
+      "steps": [
+        { "who": "signer", "text": "How much is this?", "gloss": "THIS HOW-MUCH" },
+        { "who": "hearing", "text": "Twenty pesos." },
+        { "who": "signer", "text": "I will buy two.", "gloss": "ME BUY TWO" },
+        { "who": "hearing", "text": "That's forty pesos." },
+        { "who": "signer", "text": "Here is fifty.", "gloss": "HERE FIFTY" },
+        { "who": "hearing", "text": "Here is your ten pesos change. Thank you!" }
+      ]
+    },
+    {
+      "id": "carinderia", "title": "Ordering food", "category": "Shopping and food",
+      "steps": [
+        { "who": "hearing", "text": "Good afternoon! What would you like?" },
+        { "who": "signer", "text": "One chicken meal and water, please.", "gloss": "ONE CHICKEN EAT1 AND WATER PLEASE" },
+        { "who": "hearing", "text": "For here or take out?" },
+        { "who": "signer", "text": "For here.", "gloss": "EAT1 HERE" },
+        { "who": "hearing", "text": "That's one hundred twenty pesos." },
+        { "who": "signer", "text": "Here you go. Thank you.", "gloss": "HERE PAY THANK-YOU" }
+      ]
+    },
+    {
+      "id": "assistance", "title": "Asking for help", "category": "Help, health and services",
+      "steps": [
+        { "who": "signer", "text": "Excuse me, can you help me? I am Deaf.", "gloss": "EXCUSE-ME HELP ME PLEASE ME DEAF" },
+        { "who": "hearing", "text": "Of course. What do you need?" },
+        { "who": "signer", "text": "I lost my bag. Can you call the guard?", "gloss": "MY BAG2 LOST PLEASE CALL1 GUARD" },
+        { "who": "hearing", "text": "Okay, I will call them now." },
+        { "who": "signer", "text": "Thank you for your help.", "gloss": "THANK-YOU HELP" }
+      ]
+    },
+    {
+      "id": "clinic", "title": "At the health center", "category": "Help, health and services",
+      "steps": [
+        { "who": "hearing", "text": "Good morning. What do you feel?" },
+        { "who": "signer", "text": "I feel sick. My head hurts.", "gloss": "ME FEEL SICK HEAD HURT" },
+        { "who": "hearing", "text": "Since when?" },
+        { "who": "signer", "text": "Since yesterday.", "gloss": "SINCE YESTERDAY" },
+        { "who": "hearing", "text": "Please sit and wait to be called." },
+        { "who": "signer", "text": "Okay, thank you.", "gloss": "OK THANK-YOU" }
+      ]
+    },
+    {
+      "id": "barangay_hall", "title": "At the barangay hall", "category": "Help, health and services",
+      "steps": [
+        { "who": "signer", "text": "Good morning. I need a barangay clearance.", "gloss": "GOOD MORNING ME NEED PAPER" },
+        { "who": "hearing", "text": "Please fill out this form." },
+        { "who": "signer", "text": "When can I get it?", "gloss": "ME GET WHEN" },
+        { "who": "hearing", "text": "Tomorrow afternoon." },
+        { "who": "signer", "text": "Thank you.", "gloss": "THANK-YOU" }
+      ]
+    },
+    {
+      "id": "plans", "title": "Making plans with a friend", "category": "Friends and daily life",
+      "steps": [
+        { "who": "hearing", "text": "Are you free tomorrow?" },
+        { "who": "signer", "text": "Yes, in the afternoon.", "gloss": "YES TOMORROW AFTERNOON" },
+        { "who": "hearing", "text": "Let's eat lunch together." },
+        { "who": "signer", "text": "Okay! Where should we meet?", "gloss": "OK WE MEET WHERE" },
+        { "who": "hearing", "text": "At the plaza, twelve o'clock." },
+        { "who": "signer", "text": "See you tomorrow!", "gloss": "SEE YOU TOMORROW" }
+      ]
+    },
+    {
+      "id": "routine", "title": "Daily routine", "category": "Friends and daily life",
+      "steps": [
+        { "who": "hearing", "text": "What time do you wake up?" },
+        { "who": "signer", "text": "I wake up at six in the morning.", "gloss": "MORNING SIX ME WAKE-UP" },
+        { "who": "hearing", "text": "What do you do after class?" },
+        { "who": "signer", "text": "I go home and study.", "gloss": "ME GO HOME STUDY" },
+        { "who": "hearing", "text": "You're busy!" },
+        { "who": "signer", "text": "Yes, very busy.", "gloss": "YES VERY BUSY" }
+      ]
+    },
+    {
+      "id": "feelings", "title": "How are you feeling?", "category": "Friends and daily life",
+      "steps": [
+        { "who": "hearing", "text": "How are you today?" },
+        { "who": "signer", "text": "I am tired but happy.", "gloss": "TODAY ME TIRED BUT HAPPY" },
+        { "who": "hearing", "text": "Why?" },
+        { "who": "signer", "text": "We finished our project.", "gloss": "OUR PROJECT FINISH" },
+        { "who": "hearing", "text": "Congratulations!" },
+        { "who": "signer", "text": "Thank you!", "gloss": "THANK-YOU" }
+      ]
+    },
+    {
+      "id": "goodbye", "title": "Ending politely", "category": "Ending a conversation",
+      "steps": [
+        { "who": "hearing", "text": "I have to go now." },
+        { "who": "signer", "text": "Okay. Take care!", "gloss": "OK TAKE-CARE" },
+        { "who": "hearing", "text": "See you next time!" },
+        { "who": "signer", "text": "Bye! See you!", "gloss": "BYE SEE YOU" }
+      ]
+    }
+  ]
+}

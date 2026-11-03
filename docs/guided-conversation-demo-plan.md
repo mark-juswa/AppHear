@@ -294,3 +294,36 @@ unexpected answer?" (The script continues; real recognition mode handles free co
 2. Default pacing: natural + Next (recommended) or presenter only?
 3. Which six scenarios for the defense, and should hearing lines be English, Taglish or both?
 4. Whether to show the "live recognizer (not used)" line during the defense.
+
+## 12. Implementation (2026-11-03)
+
+Built behind the debug-only `guidedDemo` Gradle flag (needs `conversationFlowV2`; release hard-off) and the
+Settings switch "Guided conversation demo" (off by default).
+
+| Part | Where |
+|---|---|
+| Script model, value filling, fingerspelling cue | `demo/DemoScript.kt` (`DemoValues.fill`, `DemoValues.cue`) |
+| Step tracker | `demo/GuidedDemo.kt` (`DemoRun`) |
+| 16 scenarios | `assets/guided_demo/scenarios_v1.json` |
+| Settings: switch, demo details, presenter-only | `demo/GuidedDemoSettings.kt`, `row_setting_guided_demo.xml`, `SettingsContent.setupGuidedDemo` |
+| Recognition screen glue | `demo/GuidedDemoController.kt`; hooks in `ConversationFlowController` and `ConversationSheetBinder`; `RecognitionActivity.dispatchKeyEvent` (volume / clicker keys) |
+| Scenarios button + card | `btnGuidedDemo`, `guided_demo_card.xml`, `item_guided_demo_pill.xml` |
+| Tests | `GuidedDemoTest` (filling, cues, step order, every shipped scenario well formed) |
+
+Behaviour as built:
+- The scenarios button (left, under Back) opens the card: choose a conversation; while it runs the card
+  shows STEP n OF m, NEXT, REPEAT THIS STEP, START AGAIN, CHOOSE ANOTHER, BACK TO NORMAL RECOGNITION.
+- While a scenario runs, WORD recognition stays paused (existing detection hold) and
+  `signedWordsChanged`/`suggestionFor` ignore the recognizer, so nothing it predicts can appear.
+- Signer turn: the sheet note shows "Next to sign: MY NAME M-A-R-K"; the AI Helper chip row shows the
+  scripted answer. Hands up then down (about 1.3 s, at least 0.6 s of signing) puts the sentence on screen
+  under MESSAGE; auto-say counts down and says it. Tapping SAY IT, the chip, NEXT or volume-down does the
+  same at once.
+- Hearing turn: listening starts by itself; when they finish speaking (or STOP / NEXT / volume-down) the
+  scripted line appears as THEIR REPLY. Their actual words are not shown. SIGN IT uses the script's avatar
+  wording when it has one.
+- Scripted replies are not sent to Context Assist; timeline events carry `mode=demo`.
+- No on-screen demo label (user decision); the presenter and the paper disclose it (section 10).
+
+Not done: Taglish line variants, the "live recognizer (not used)" line, avatar-coverage test, signer review.
+Proof: 415/415 JVM tests; private Lab APK built and installed on the Xiaomi. Not yet run through on the phone.

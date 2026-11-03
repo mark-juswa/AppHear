@@ -124,6 +124,9 @@ android {
     // Through the server (supabase/migrations/20261102_remote_conversation.sql + anonymous sign-ins) or,
     // without internet, phone to phone with Nearby Connections (Bluetooth / Wi-Fi Direct permissions).
     val remoteConversation = providers.gradleProperty("remoteConversation").map { it.equals("true", ignoreCase=true) }.getOrElse(false)
+    // Guided conversation demo (needs conversationFlowV2): scripted scenarios on the Recognition screen, switched
+    // on in Settings. The script decides every message; recognizer predictions are not used while it runs.
+    val guidedDemo = conversationFlowV2 && providers.gradleProperty("guidedDemo").map { it.equals("true", ignoreCase=true) }.getOrElse(false)
     if (conversationFlowV2 || remoteConversation) {
         // In-app listening needs the microphone, and Android 11+ hides the speech service unless the app
         // declares it; phone-to-phone conversations need Bluetooth / Wi-Fi Direct. Added to the debug
@@ -232,6 +235,7 @@ android {
             buildConfigField("boolean", "CONVERSATION_FLOW_V2_ENABLED", conversationFlowV2.toString())
             buildConfigField("boolean", "CONVERSATION_AUTO_SAY_ENABLED", conversationAutoSay.toString())
             buildConfigField("boolean", "REMOTE_CONVERSATION_ENABLED", remoteConversation.toString())
+            buildConfigField("boolean", "GUIDED_DEMO_ENABLED", guidedDemo.toString())
             manifestPlaceholders["remoteConversationEnabled"] = remoteConversation.toString()
             buildConfigField("String", "DEFAULT_RECOGNITION_ENGINE", "\"$defaultRecognitionEngine\"")
             if (conversationLab) {
@@ -293,6 +297,7 @@ android {
             buildConfigField("boolean", "CONVERSATION_FLOW_V2_ENABLED", "false")
             buildConfigField("boolean", "CONVERSATION_AUTO_SAY_ENABLED", "false")
             buildConfigField("boolean", "REMOTE_CONVERSATION_ENABLED", "false")
+            buildConfigField("boolean", "GUIDED_DEMO_ENABLED", "false")
             buildConfigField("String", "DEFAULT_RECOGNITION_ENGINE", "\"STABLE\"")
             buildConfigField("String", "LLM_FALLBACK_API_KEY", "\"\"")
             buildConfigField("String", "LLM_FALLBACK_BASE_URL", "\"\"")

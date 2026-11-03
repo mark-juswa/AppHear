@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Guided conversation demo (guidedDemo flag): scripted scenarios on the Recognition screen. -->
+    <string name="guided_demo_button">Conversation scenarios</string>
+    <string name="guided_demo_message_label">MESSAGE</string>
+    <string name="guided_demo_cue">Next to sign: %1$s</string>
+
+    <string name="guided_demo_pick_overline">CONVERSATION SCENARIOS</string>
+    <string name="guided_demo_pick_title">Choose a conversation</string>
+    <string name="guided_demo_pick_body">The conversation follows the chosen script. Details such as the name and city come from Settings.</string>
+    <string name="guided_demo_running_overline">STEP %1$d OF %2$d</string>
+    <string name="guided_demo_running_body">Volume down: next. Volume up: repeat this step.</string>
+    <string name="guided_demo_done_overline">CONVERSATION COMPLETE</string>
+    <string name="guided_demo_done_body">Run it again, choose another conversation, or return to normal recognition.</string>
+    <string name="guided_demo_next">NEXT</string>
+    <string name="guided_demo_again">REPEAT THIS STEP</string>
+    <string name="guided_demo_restart">START AGAIN</string>
+    <string name="guided_demo_another">CHOOSE ANOTHER</string>
+    <string name="guided_demo_stop">BACK TO NORMAL RECOGNITION</string>
+    <string name="guided_demo_close">CLOSE</string>
+
+    <string name="guided_demo_settings_title">Guided conversation demo</string>
+    <string name="guided_demo_settings_body">Adds a scenarios button to the sign recognition screen. A chosen scenario follows its script; the recognizer\'s predictions are not used while it runs.</string>
+    <string name="guided_demo_details_title">Demo details</string>
+    <string name="guided_demo_details_body">Name, age, city, school and other details the scenarios use.</string>
+    <string name="guided_demo_details_value">Edit</string>
+    <string name="guided_demo_presenter_title">Presenter control only</string>
+    <string name="guided_demo_presenter_body">Only NEXT, the volume keys or a clicker move the conversation on; the camera does not pace it.</string>
+
+    <string name="guided_demo_field_name">Name</string>
+    <string name="guided_demo_field_age">Age</string>
+    <string name="guided_demo_field_city">City or municipality</string>
+    <string name="guided_demo_field_province">Province</string>
+    <string name="guided_demo_field_school">School</string>
+    <string name="guided_demo_field_school_short">School (short name)</string>
+    <string name="guided_demo_field_course">Course</string>
+    <string name="guided_demo_field_year_level">Year level</string>
+    <string name="guided_demo_field_occupation">Occupation</string>
+    <string name="guided_demo_field_destination">Destination</string>
+    <string name="guided_demo_field_hearing_name">The other person\'s name</string>
+</resources>
