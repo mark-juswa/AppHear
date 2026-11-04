@@ -105,6 +105,10 @@ class GuidedDemoController(
                 flow.state.phase in setOf(FlowPhase.READY, FlowPhase.REPLY)
         }
 
+    /** STOP while listening means "they finished their scripted line" (sequential scripts only). */
+    val stopEndsHearingTurn: Boolean
+        get() = run?.step?.let { it.speaker == DemoSpeaker.HEARING && !it.open } == true
+
     /** The primary pill says the scripted message (one tap shows and says it) during the signer's turn. */
     val primaryShowsSayIt: Boolean get() = signerWaiting && flow.state.phase == FlowPhase.READY
 

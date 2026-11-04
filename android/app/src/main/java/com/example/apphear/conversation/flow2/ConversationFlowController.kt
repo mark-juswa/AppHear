@@ -322,8 +322,9 @@ class ConversationFlowController(
             PrimaryAction.SAY_IT -> if (demoRunning) ConversationFlow.displayedMessage(state)?.let(::sayText) else host.sayIt()
             PrimaryAction.LISTEN -> apply(ConversationFlow.listen(state))
             // Demo: STOP while the hearing person speaks means they finished their scripted line.
-            PrimaryAction.STOP -> if (demoRunning && state.phase == FlowPhase.LISTENING) demo?.next()
-                else apply(ConversationFlow.stop(state))
+            // Open questions (any order) have no scripted line: STOP just stops listening.
+            PrimaryAction.STOP -> if (demoRunning && state.phase == FlowPhase.LISTENING && demo?.stopEndsHearingTurn == true)
+                demo.next() else apply(ConversationFlow.stop(state))
             PrimaryAction.SIGN_IT -> apply(ConversationFlow.signIt(state, demo?.avatarText(state.reply)))
             PrimaryAction.REPLAY -> apply(ConversationFlow.replay(state))
         }
