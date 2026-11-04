@@ -729,8 +729,9 @@ class RecognitionActivity : AppCompatActivity() {
                                     observation.handObserved[s] && observation.handJointValid[s].any { it } })
                                 // Raised hands keep auto-say waiting; a guided demo also needs the frames with hands down.
                                 val handsUp = signerHandsUp(observation)
+                                val handSeen = (0..1).any { observation.handObserved[it] }
                                 if (handsUp || conversationFlow?.demoActive == true) runOnUiThread {
-                                    if (!isFinishing && !isDestroyed) conversationFlow?.handsObserved(handsUp)
+                                    if (!isFinishing && !isDestroyed) conversationFlow?.handsObserved(handsUp, handSeen)
                                 }
                                 val spelling = fingerspellRuntime
                                 if (conversationHolds() || placementOwns(observation)) {

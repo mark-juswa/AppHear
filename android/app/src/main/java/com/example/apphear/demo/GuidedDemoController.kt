@@ -271,16 +271,19 @@ class GuidedDemoController(
     }
 
     /**
-     * Each analysed camera frame: whether the signer's hands are up. The turn ends from what the camera
-     * sees, not a stopwatch: once real signing was noticed, the sentence completes when the recognizer
-     * no longer shows a sign in progress and the hands have been down for a few frames in a row.
+     * Each analysed camera frame: whether the signer's hands are up ([up]) and whether any hand is in view
+     * ([seen]). The turn ends from what the camera sees, not a stopwatch: once real signing was noticed, the
+     * sentence completes when the recognizer no longer shows a sign in progress and the hands have been at
+     * rest for a few frames in a row. Signs: hands below the raised-hand line. Fingerspelling happens low
+     * (chest height), so a spelled answer rests only when no hand is in view.
      */
-    fun handsObserved(up: Boolean) {
+    fun handsObserved(up: Boolean, seen: Boolean) {
         val current = run ?: return
         if (current.shown || current.step?.speaker != DemoSpeaker.SIGNER) return
         // Hands up: it is the signer's turn now, so CURRENT SIGN ("...signing...", letters) is on screen.
         if (up && !inGrace()) startSignerTurn()
-        restFrames = if (up) 0 else restFrames + 1
+        val resting = if (current.step?.spell == true) !seen else !up
+        restFrames = if (resting) restFrames + 1 else 0
         checkFinished()
     }
 

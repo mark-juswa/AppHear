@@ -260,9 +260,9 @@ class ConversationFlowController(
     }
 
     /** Camera thread posts every analysed frame while a demo runs (and raised-hand frames otherwise). */
-    fun handsObserved(up: Boolean) {
+    fun handsObserved(up: Boolean, seen: Boolean) {
         if (up) signingActivity()
-        demo?.handsObserved(up)
+        demo?.handsObserved(up, seen)
     }
 
     /** A guided demo is running: the script, not the recognizer, decides what is shown. */

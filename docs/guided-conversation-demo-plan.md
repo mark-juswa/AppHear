@@ -363,3 +363,9 @@ any of them, in any order and in their own words; the question asked decides the
    in progress, and the hands have been down in 4 consecutive analysed frames (`REST_FRAMES`). Signing again
    resets the count, so pauses with hands up never end the sentence. The 1.5 s start-of-turn grace (phone
    handling) stays.
+
+Follow-up (2026-11-04, from the phone log): a spelled answer finished after one letter because fingerspelling
+happens at chest height, below the raised-hand line, so the spelling hand counted as "down". Spelled answers
+now rest only when no hand is in view (4 frames); word answers keep the raised-hand rule. Also fixed: the
+conversation hold paused continuous fingerspelling and never re-armed it (no letters after the first reply);
+releasing the hold now re-selects FINGERSPELL. The demo sets FINGERSPELL for name/place answers and WORD otherwise.
