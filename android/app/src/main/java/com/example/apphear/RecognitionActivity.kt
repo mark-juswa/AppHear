@@ -1185,6 +1185,8 @@ class RecognitionActivity : AppCompatActivity() {
         }
         if (conversationHoldActive) {
             conversationHoldActive = false
+            // Fingerspelling was paused when the hold began: start it again (select() re-arms it, as after a camera restart).
+            fingerspellRuntime?.takeIf { it.fingerspellOwnsFrames }?.select(RecognitionMode.FINGERSPELL)
             // Restart the word session and skip this one frame: it was numbered before the reset, and
             // the session refuses a gap (APP_PHONE_SOURCE_INDEX_DISCONTINUITY). The next frame starts clean.
             phoneAnalyzer?.resetTemporalSession()

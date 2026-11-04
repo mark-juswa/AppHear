@@ -163,7 +163,7 @@ class GuidedDemoController(
         val step = DemoStep(DemoSpeaker.SIGNER, question.answer, question.gloss, spell = question.spell)
         run = current.copy(scenario = current.scenario.copy(steps = current.scenario.steps + step)).advance()
         resetPacing()
-        if (question.spell) flow.setSpelling(true)
+        enterSignerStep()
         renderAll()
     }
 
@@ -202,10 +202,10 @@ class GuidedDemoController(
         // The signer's scripted message was said: their step is done.
         if (old.phase == FlowPhase.SAYING && new.phase == FlowPhase.LISTENING &&
             current.step?.speaker == DemoSpeaker.SIGNER && current.shown) {
-            if (current.step?.spell == true) flow.setSpelling(false)
             val next = (if (topic != null) withNextQuestion(current) else current).advance()
             run = next
             resetPacing()
+            enterSignerStep()
             // Listening only belongs to a hearing step; otherwise stop it again.
             if (next.step?.speaker != DemoSpeaker.HEARING) handler.post { flow.stop(); renderAll() }
             if (next.finished) cardOpen = true
@@ -364,6 +364,7 @@ class GuidedDemoController(
         run = DemoRun(scenario)
         cardOpen = false
         resetPacing()
+        enterSignerStep()
         if (scenario.steps.firstOrNull()?.speaker == DemoSpeaker.HEARING) flow.listen()
         renderAll()
     }
@@ -416,10 +417,20 @@ class GuidedDemoController(
     private fun moveOn(next: DemoRun) {
         run = next
         resetPacing()
+        enterSignerStep()
         if (next.finished) cardOpen = true
         // Two hearing lines in a row: keep listening for the second.
         if (next.step?.speaker == DemoSpeaker.HEARING) handler.postDelayed({ if (run === next) flow.listen() }, 400)
         renderAll()
+    }
+
+    /**
+     * A signer step begins: fingerspelling for a name or place answer, words for every other answer
+     * (so a mode left over from earlier never decides how the signer is read).
+     */
+    private fun enterSignerStep() {
+        val step = run?.step?.takeIf { it.speaker == DemoSpeaker.SIGNER } ?: return
+        flow.setSpelling(step.spell)
     }
 
     private fun inGrace() = System.currentTimeMillis() - turnStartMs < TURN_GRACE_MS
