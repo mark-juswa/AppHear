@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Recognition screen tool tray (chevron) and positioning guide toggle. -->
+    <string name="tools_more_show">Show more tools</string>
+    <string name="tools_more_hide">Hide more tools</string>
+    <string name="tools_guide_hide">Hide the positioning guide</string>
+    <string name="tools_guide_show">Show the positioning guide</string>
+</resources>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- The positioning guide: a person outline (head and shoulders). -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M12,4.5m-3.3,0a3.3,3.3 0,1 1,6.6 0a3.3,3.3 0,1 1,-6.6 0"
+        android:strokeWidth="1.8"
+        android:strokeColor="#FF0D1B1E" />
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M4.5,20.5v-1.8c0,-3.4 3.4,-6.2 7.5,-6.2s7.5,2.8 7.5,6.2v1.8"
+        android:strokeLineCap="round"
+        android:strokeWidth="1.8"
+        android:strokeColor="#FF0D1B1E" />
+</vector>

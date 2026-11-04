@@ -129,8 +129,17 @@ class PlacementGuideView @JvmOverloads constructor(
             (width - imageWidth * scale) / 2f, (height - imageHeight * scale) / 2f, imageWidth, imageHeight, frontCamera)
     }
 
+    /** The signer hid the guide (Recognition tool tray): nothing is drawn, positioning keeps working. */
+    var userHidden = false
+        set(value) {
+            if (field == value) return
+            field = value
+            invalidate()
+        }
+
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
+        if (userHidden) return
         val current = assessment ?: return
         val top = TOP_CLEARANCE_DP * density
         val floor = if (bottomLimit.isNaN() || bottomLimit <= 0f) height.toFloat() else bottomLimit - 8f * density

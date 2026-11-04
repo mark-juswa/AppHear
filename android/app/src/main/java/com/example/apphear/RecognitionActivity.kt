@@ -181,6 +181,7 @@ class RecognitionActivity : AppCompatActivity() {
         window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
         binding = ActivityRecognitionBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        com.example.apphear.ui.recognition.RecognitionToolsBar(this, binding) // right-side tool tray (chevron)
         ConversationTimeline.screenCreated("recognition")
         ConversationScreens.recognitionCreated(this)
         sentenceShadow = SentenceAssistShadow.create(this, lifecycleScope)

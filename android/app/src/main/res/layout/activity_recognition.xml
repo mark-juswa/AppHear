@@ -92,22 +92,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:tint="#0D1B1E" />
 
-    <!-- Guided conversation demo (guidedDemo flag + Settings): scripted scenarios. Hidden otherwise. -->
-    <ImageButton
-        android:id="@+id/btnGuidedDemo"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/circle_btn_white"
-        android:contentDescription="@string/guided_demo_button"
-        android:padding="12dp"
-        android:scaleType="fitCenter"
-        android:src="@drawable/ic_demo_script"
-        android:visibility="gone"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btnBack" />
-
     <TextView
         android:id="@+id/fpsText"
         android:layout_width="wrap_content"
@@ -149,22 +133,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" ></com.google.android.material.button.MaterialButton>
 
-    <!-- Remote conversation (remoteConversation flag): show a code so another phone sees the replies. -->
-    <ImageButton
-        android:id="@+id/btnRemoteConnect"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="52dp"
-        android:layout_marginEnd="12dp"
-        android:background="@drawable/circle_btn_white"
-        android:contentDescription="@string/remote_connect_button"
-        android:padding="12dp"
-        android:scaleType="fitCenter"
-        android:src="@drawable/ic_remote_devices"
-        android:visibility="gone"
-        app:layout_constraintEnd_toStartOf="@id/cameraToggle"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <TextView
         android:id="@+id/remoteStatusPill"
         android:layout_width="wrap_content"
@@ -199,59 +167,130 @@
         app:layout_constraintTop_toBottomOf="@id/cameraToggle"
         app:tint="#0D1B1E" />
 
-    <!-- recognitionModeToolbar: a toggle that shows or hides the WORD / FINGERSPELL mode buttons. -->
-    <ImageButton
-        android:id="@+id/modeToolsToggle"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="16dp"
-        android:background="@drawable/circle_btn_white"
-        android:contentDescription="@string/mode_toolbar_show"
-        android:padding="12dp"
-        android:scaleType="fitCenter"
-        android:src="@drawable/ic_tune"
-        android:visibility="gone"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/hearButton"
-        app:tint="#0D1B1E" />
-
+    <!-- Right-side tools under the speaker: the less-used buttons sit in a tray that the chevron opens
+         and closes (RecognitionToolsBar). Each button still shows only when its feature is on. -->
     <LinearLayout
-        android:id="@+id/modeToolsGroup"
+        android:id="@+id/recognitionToolColumn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:gravity="center_horizontal"
         android:orientation="vertical"
-        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/modeToolsToggle">
+        app:layout_constraintTop_toBottomOf="@id/hearButton">
+
+        <LinearLayout
+            android:id="@+id/recognitionToolsMore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <!-- recognitionModeToolbar: shows or hides the WORD / FINGERSPELL mode buttons. -->
+            <ImageButton
+                android:id="@+id/modeToolsToggle"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/circle_btn_white"
+                android:contentDescription="@string/mode_toolbar_show"
+                android:padding="12dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_tune"
+                android:visibility="gone"
+                app:tint="#0D1B1E" />
+
+            <LinearLayout
+                android:id="@+id/modeToolsGroup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <ImageButton
+                    android:id="@+id/modeWordButton"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/circle_btn_white"
+                    android:contentDescription="@string/mode_toolbar_word"
+                    android:padding="11dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/hand" />
+
+                <TextView
+                    android:id="@+id/modeSpellButton"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/circle_btn_white"
+                    android:clickable="true"
+                    android:contentDescription="@string/mode_toolbar_spell"
+                    android:focusable="true"
+                    android:fontFamily="@font/inter_semibold"
+                    android:gravity="center"
+                    android:text="@string/mode_toolbar_spell_short"
+                    android:textColor="#0D1B1E"
+                    android:textSize="13sp" />
+            </LinearLayout>
+
+            <!-- Guided conversation demo (guidedDemo flag + Settings): scripted scenarios. -->
+            <ImageButton
+                android:id="@+id/btnGuidedDemo"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/circle_btn_white"
+                android:contentDescription="@string/guided_demo_button"
+                android:padding="12dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_demo_script"
+                android:visibility="gone"
+                app:tint="#0D1B1E" />
+
+            <!-- Remote conversation (remoteConversation flag): show a code for another phone. -->
+            <ImageButton
+                android:id="@+id/btnRemoteConnect"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/circle_btn_white"
+                android:contentDescription="@string/remote_connect_button"
+                android:padding="12dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_remote_devices"
+                android:visibility="gone"
+                app:tint="#0D1B1E" />
+
+            <!-- placementGuide: show or hide the positioning outline and its hints. -->
+            <ImageButton
+                android:id="@+id/btnPlacementToggle"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/circle_btn_white"
+                android:contentDescription="@string/tools_guide_hide"
+                android:padding="12dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_guide_person"
+                android:visibility="gone"
+                app:tint="#0D1B1E" />
+        </LinearLayout>
 
         <ImageButton
-            android:id="@+id/modeWordButton"
+            android:id="@+id/btnToolsExpand"
             android:layout_width="48dp"
-            android:layout_height="48dp"
+            android:layout_height="30dp"
             android:layout_marginTop="10dp"
-            android:background="@drawable/circle_btn_white"
-            android:contentDescription="@string/mode_toolbar_word"
-            android:padding="11dp"
+            android:background="@drawable/bg_white_pill"
+            android:contentDescription="@string/tools_more_show"
+            android:padding="4dp"
             android:scaleType="fitCenter"
-            android:src="@drawable/hand" />
-
-        <TextView
-            android:id="@+id/modeSpellButton"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/circle_btn_white"
-            android:clickable="true"
-            android:contentDescription="@string/mode_toolbar_spell"
-            android:focusable="true"
-            android:fontFamily="@font/inter_semibold"
-            android:gravity="center"
-            android:text="@string/mode_toolbar_spell_short"
-            android:textColor="#0D1B1E"
-            android:textSize="13sp" />
+            android:src="@drawable/ic_chevron_down"
+            android:visibility="gone"
+            app:tint="#0D1B1E" />
     </LinearLayout>
 
     <com.google.android.material.button.MaterialButton
@@ -862,6 +901,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btnGuidedDemo"
+        app:layout_constraintTop_toBottomOf="@id/btnBack"
         app:layout_constraintVertical_bias="0" />
 </androidx.constraintlayout.widget.ConstraintLayout>
