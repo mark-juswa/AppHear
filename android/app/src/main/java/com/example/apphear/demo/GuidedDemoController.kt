@@ -236,6 +236,7 @@ class GuidedDemoController(
         if (count > baselineWords) {
             revealed = (revealed + count - baselineWords).coerceAtMost(signs.size)
             baselineWords = count
+            ConversationTimeline.mark("demo_sign_seen", "revealed" to revealed)
         }
         // "...signing..." means the signer has not finished; it never ends the turn on its own.
         recognizerSigning = signing && !inGrace()
@@ -264,6 +265,7 @@ class GuidedDemoController(
         val clean = reading.trim()
         if (clean.isEmpty() || clean == spelled) return
         spelled = clean
+        ConversationTimeline.mark("demo_letters", "count" to clean.length)
         startSignerTurn()
         checkFinished()
     }
@@ -276,6 +278,8 @@ class GuidedDemoController(
     fun handsObserved(up: Boolean) {
         val current = run ?: return
         if (current.shown || current.step?.speaker != DemoSpeaker.SIGNER) return
+        // Hands up: it is the signer's turn now, so CURRENT SIGN ("...signing...", letters) is on screen.
+        if (up && !inGrace()) startSignerTurn()
         restFrames = if (up) 0 else restFrames + 1
         checkFinished()
     }
@@ -285,14 +289,17 @@ class GuidedDemoController(
         val step = current.step ?: return
         if (settings.presenterOnly || current.shown || step.speaker != DemoSpeaker.SIGNER) return
         if (flow.state.phase !in setOf(FlowPhase.READY, FlowPhase.REPLY)) return
-        // Real signing must have been noticed: a recognized sign, or fingerspelled letters for a spelled answer.
-        val signed = if (step.spell) spelled.isNotEmpty() else revealed > 0
+        // Real signing must have been noticed: fingerspelled letters, or a recognized sign (also for a spelled
+        // answer when fingerspelling could not be switched on).
+        val signed = spelled.isNotEmpty() || revealed > 0
         if (signed && !recognizerSigning && restFrames >= REST_FRAMES) showSignerMessage("signed")
     }
 
     /** The first real sign of the answer: show the signer's turn (CURRENT SIGN) instead of the question. */
     private fun startSignerTurn() {
-        if (flow.state.phase == FlowPhase.REPLY) flow.signerStarted()
+        if (flow.state.phase != FlowPhase.REPLY) return
+        ConversationTimeline.mark("demo_signer_turn", "spell" to (run?.step?.spell == true))
+        flow.signerStarted()
     }
 
     /** NEXT: whatever completes the current step. */

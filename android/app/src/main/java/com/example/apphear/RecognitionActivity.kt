@@ -326,6 +326,8 @@ class RecognitionActivity : AppCompatActivity() {
                     conversationHold = held
                 }
                 override fun setSpelling(on: Boolean) {
+                    ConversationTimeline.mark("demo_spelling_mode", "on" to on, "current" to currentRecognitionMode().name,
+                        "runtime" to (fingerspellRuntime != null))
                     if (on) requestRecognitionMode(RecognitionMode.FINGERSPELL)
                     else if (currentRecognitionMode() == RecognitionMode.FINGERSPELL) switchRecognitionMode(RecognitionMode.WORD)
                 }
