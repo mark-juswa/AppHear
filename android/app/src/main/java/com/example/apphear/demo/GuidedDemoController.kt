@@ -53,15 +53,18 @@ class GuidedDemoController(
         fun redraw()
         /** Switches recognition to fingerspelling (true) or back to words. */
         fun setSpelling(on: Boolean)
+        /** The signer began their answer: the reply moves to history and CURRENT SIGN shows. */
+        fun signerStarted()
     }
 
     private val settings = GuidedDemoSettings(context)
     private val handler = Handler(Looper.getMainLooper())
     private var run: DemoRun? = null
-    private var values: Map<String, String> = emptyMap()
     private var cardOpen = false
-    private var firstActivityMs = 0L
-    private var lastActivityMs = 0L
+    /** Signer turn: the recognizer currently shows a sign in progress. */
+    private var recognizerSigning = false
+    /** Signer turn: camera frames in a row with the signer's hands down (at rest or out of view). */
+    private var restFrames = 0
     /** Signer turn: how many scripted signs are on screen, and the recognizer's word count they follow. */
     private var revealed = 0
     /** When the current step began; the first moments are ignored (hands still on the phone). */
@@ -108,8 +111,8 @@ class GuidedDemoController(
     /** The scripted line for the current hearing step, replacing whatever speech recognition heard. */
     fun scriptedReply(): String? {
         val step = run?.step?.takeIf { it.speaker == DemoSpeaker.HEARING && !it.open } ?: return null
-        val text = DemoValues.fill(step.text, values)
-        step.avatar?.let { avatarFor[text] = DemoValues.fill(it, values) }
+        val text = step.text
+        step.avatar?.let { avatarFor[text] = it }
         return text
     }
 
@@ -160,7 +163,7 @@ class GuidedDemoController(
         val step = DemoStep(DemoSpeaker.SIGNER, question.answer, question.gloss, spell = question.spell)
         run = current.copy(scenario = current.scenario.copy(steps = current.scenario.steps + step)).advance()
         resetPacing()
-        if (question.spell != null) flow.setSpelling(true)
+        if (question.spell) flow.setSpelling(true)
         renderAll()
     }
 
@@ -199,7 +202,7 @@ class GuidedDemoController(
         // The signer's scripted message was said: their step is done.
         if (old.phase == FlowPhase.SAYING && new.phase == FlowPhase.LISTENING &&
             current.step?.speaker == DemoSpeaker.SIGNER && current.shown) {
-            if (current.step?.spell != null) flow.setSpelling(false)
+            if (current.step?.spell == true) flow.setSpelling(false)
             val next = (if (topic != null) withNextQuestion(current) else current).advance()
             run = next
             resetPacing()
@@ -233,10 +236,11 @@ class GuidedDemoController(
         if (count > baselineWords) {
             revealed = (revealed + count - baselineWords).coerceAtMost(signs.size)
             baselineWords = count
-            markActivity()
         }
-        // "...signing..." on screen means the signer has not finished: keep waiting.
-        if (signing) markActivity()
+        // "...signing..." means the signer has not finished; it never ends the turn on its own.
+        recognizerSigning = signing && !inGrace()
+        if (recognizerSigning || revealed > 0) startSignerTurn()
+        checkFinished()
         binding.altText.visibility = View.GONE
         binding.glossText.text = when {
             signing -> context.getString(R.string.signing)
@@ -246,8 +250,7 @@ class GuidedDemoController(
         return true
     }
 
-    private fun scriptedSigns(step: DemoStep): List<String> =
-        DemoValues.cue(step.gloss ?: step.text, values).split(Regex("\\s+")).filter { it.isNotBlank() }
+    private fun scriptedSigns(step: DemoStep): List<String> = DemoGloss.signs(step.gloss ?: step.text)
 
     /**
      * Fingerspelling reading changed. Used only during a spelled answer; its letters become the name or
@@ -256,37 +259,40 @@ class GuidedDemoController(
     fun spellingUpdate(reading: String) {
         val current = run ?: return
         val step = current.step ?: return
-        if (step.speaker != DemoSpeaker.SIGNER || step.spell == null || current.shown || inGrace()) return
+        if (step.speaker != DemoSpeaker.SIGNER || !step.spell || current.shown || inGrace()) return
         if (flow.state.phase !in setOf(FlowPhase.READY, FlowPhase.REPLY)) return
         val clean = reading.trim()
         if (clean.isEmpty() || clean == spelled) return
         spelled = clean
-        markActivity()
+        startSignerTurn()
+        checkFinished()
     }
 
-    /** Camera thread posts: a hand is up. Paces the signer's turn only; the content is the script's. */
-    fun signingActivity() {
+    /**
+     * Each analysed camera frame: whether the signer's hands are up. The turn ends from what the camera
+     * sees, not a stopwatch: once real signing was noticed, the sentence completes when the recognizer
+     * no longer shows a sign in progress and the hands have been down for a few frames in a row.
+     */
+    fun handsObserved(up: Boolean) {
         val current = run ?: return
-        if (settings.presenterOnly || current.shown || current.step?.speaker != DemoSpeaker.SIGNER) return
+        if (current.shown || current.step?.speaker != DemoSpeaker.SIGNER) return
+        restFrames = if (up) 0 else restFrames + 1
+        checkFinished()
+    }
+
+    private fun checkFinished() {
+        val current = run ?: return
+        val step = current.step ?: return
+        if (settings.presenterOnly || current.shown || step.speaker != DemoSpeaker.SIGNER) return
         if (flow.state.phase !in setOf(FlowPhase.READY, FlowPhase.REPLY)) return
-        markActivity()
+        // Real signing must have been noticed: a recognized sign, or fingerspelled letters for a spelled answer.
+        val signed = if (step.spell) spelled.isNotEmpty() else revealed > 0
+        if (signed && !recognizerSigning && restFrames >= REST_FRAMES) showSignerMessage("signed")
     }
 
-    private fun markActivity() {
-        if (settings.presenterOnly || inGrace()) return
-        val now = System.currentTimeMillis()
-        if (firstActivityMs == 0L || now - lastActivityMs > RESTART_GAP_MS) firstActivityMs = now
-        lastActivityMs = now
-        handler.removeCallbacks(handsDownCheck)
-        handler.postDelayed(handsDownCheck, HANDS_DOWN_MS)
-    }
-
-    private val handsDownCheck = Runnable {
-        val current = run ?: return@Runnable
-        if (current.shown || current.step?.speaker != DemoSpeaker.SIGNER) return@Runnable
-        // Hands down after the recognizer noticed real signing: the full scripted sentence appears.
-        // Hands near the camera alone (holding or typing on the phone) never count.
-        if (revealed > 0 || spelled.isNotEmpty()) showSignerMessage("signed")
+    /** The first real sign of the answer: show the signer's turn (CURRENT SIGN) instead of the question. */
+    private fun startSignerTurn() {
+        if (flow.state.phase == FlowPhase.REPLY) flow.signerStarted()
     }
 
     /** NEXT: whatever completes the current step. */
@@ -334,7 +340,6 @@ class GuidedDemoController(
     /** Screen became visible: the Settings switch may have changed. */
     fun onStart() {
         binding.btnGuidedDemo.isVisible = settings.enabled || active
-        values = settings.values
         renderAll()
     }
 
@@ -347,7 +352,6 @@ class GuidedDemoController(
 
     private fun start(scenario: DemoScenario) {
         clearRun()
-        values = settings.values
         avatarFor.clear()
         flow.reset()
         run = DemoRun(scenario)
@@ -366,7 +370,7 @@ class GuidedDemoController(
     /** Forgets the current run's matching, spelling mode and notices. */
     private fun clearRun() {
         matching?.cancel()
-        if (run?.step?.spell != null) flow.setSpelling(false)
+        if (run?.step?.spell == true) flow.setSpelling(false)
         topic = null
         answered = 0
         notice = null
@@ -383,7 +387,6 @@ class GuidedDemoController(
         clearRun()
         run = null
         cardOpen = false
-        handler.removeCallbacks(handsDownCheck)
         flow.reset()
         binding.btnGuidedDemo.isVisible = settings.enabled
         renderAll()
@@ -392,17 +395,14 @@ class GuidedDemoController(
     private fun showSignerMessage(reason: String) {
         val current = run ?: return
         val step = current.step?.takeIf { it.speaker == DemoSpeaker.SIGNER && !current.shown } ?: return
-        handler.removeCallbacks(handsDownCheck)
         ConversationTimeline.mark("demo_message", "reason" to reason, "signs_seen" to revealed,
-            "turn_ms" to (System.currentTimeMillis() - turnStartMs))
+            "spelled" to spelled.length, "turn_ms" to (System.currentTimeMillis() - turnStartMs))
         run = current.showing()
-        // A spelled answer uses what the fingerspelling model read; if it read nothing, the detail from Script details.
-        val reading = DemoQuestionMatcher.spelledWords(spelled)
-        val spelledValue = reading.ifEmpty { step.spell?.let { values[it]?.trim() }.orEmpty() }
-            .ifEmpty { step.spell?.let { "[$it]" }.orEmpty() }
-        val sentence = DemoValues.fill(step.text, values + ("spelled" to spelledValue))
-        // The "words" key is the cue text: never shown in demo mode, only used to tie sentence to message.
-        flow.showMessage(DemoValues.cue(step.gloss ?: step.text, values), sentence)
+        // A spelled answer's name or place is exactly what the fingerspelling model read.
+        val reading = DemoQuestionMatcher.spelledWords(spelled).ifEmpty { "\u2026" }
+        val sentence = step.text.replace(DemoGloss.SPELLED, reading)
+        // The "words" key ties the sentence to the message; it is never shown in demo mode.
+        flow.showMessage(step.gloss ?: step.text, sentence)
         renderAll()
     }
 
@@ -419,12 +419,11 @@ class GuidedDemoController(
 
     private fun resetPacing() {
         turnStartMs = System.currentTimeMillis()
-        firstActivityMs = 0L
-        lastActivityMs = 0L
+        recognizerSigning = false
+        restFrames = 0
         revealed = 0
         baselineWords = -1
         spelled = ""
-        handler.removeCallbacks(handsDownCheck)
     }
 
     // ---- drawing ----
@@ -447,9 +446,6 @@ class GuidedDemoController(
         val bank = topic
         val list = card.demoScenarioList
         list.removeAllViews()
-        val details = { list.addView(pill(context.getString(R.string.guided_demo_edit_details)) {
-            GuidedDemoDetailsDialog.show(context) { values = settings.values }
-        }) }
         when {
             current == null -> {
                 card.demoOverline.setText(R.string.guided_demo_pick_overline)
@@ -457,7 +453,6 @@ class GuidedDemoController(
                 card.demoBody.setText(R.string.guided_demo_pick_body)
                 settings.topics().forEach { t -> list.addView(pill(t.title) { start(t) }) }
                 settings.scenarios().forEach { scenario -> list.addView(pill(scenario.title) { start(scenario) }) }
-                details()
                 list.addView(pill(context.getString(R.string.guided_demo_close)) { cardOpen = false; renderCard() })
             }
             bank != null -> {
@@ -465,7 +460,6 @@ class GuidedDemoController(
                 card.demoTitle.text = bank.title
                 card.demoBody.text = context.getString(R.string.guided_demo_topic_body,
                     bank.questions.joinToString("\n") { "\u2022 " + it.phrasings.first() })
-                details()
                 list.addView(pill(context.getString(R.string.guided_demo_restart)) { start(bank) })
                 list.addView(pill(context.getString(R.string.guided_demo_another)) { chooseAnother() })
                 list.addView(pill(context.getString(R.string.guided_demo_stop)) { stopDemo() })
@@ -504,15 +498,13 @@ class GuidedDemoController(
 
 
     private companion object {
-        /** Hands down this long after signing = the signer finished; only then does MESSAGE show the sentence. */
-        const val HANDS_DOWN_MS = 2_000L
+        /** Camera frames in a row with the hands down (after real signing) that end the signer's answer. */
+        const val REST_FRAMES = 4
         /** After a turn starts, hands and words are ignored this long (closing the keyboard, putting the phone down). */
         const val TURN_GRACE_MS = 1_500L
         /** How long "not in this conversation" shows before listening again. */
         const val NOT_IN_CONVERSATION_MS = 2_500L
         /** Question-based: the hearing person may ask any of the topic's questions. */
         val OPEN_QUESTION = DemoStep(DemoSpeaker.HEARING, "", open = true)
-        /** A pause longer than this starts a new burst. */
-        const val RESTART_GAP_MS = 2_500L
     }
 }

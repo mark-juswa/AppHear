@@ -14,7 +14,7 @@ class DemoQuestionMatcherTest {
         val topic = root["topics"].asJsonArray.map { it.asJsonObject }.first { it["id"].asString == "school" }
         DemoTopic(topic["id"].asString, topic["title"].asString, topic["questions"].asJsonArray.map { it.asJsonObject }.map { q ->
             DemoQuestion(q["id"].asString, q["phrasings"].asJsonArray.map { it.asString }, q["answer"].asString,
-                q["gloss"].asString, q["spell"]?.asString)
+                q["gloss"].asString, q["spell"]?.asBoolean == true)
         })
     }
 
@@ -49,10 +49,10 @@ class DemoQuestionMatcherTest {
         assertTrue(school.questions.size >= 12)
         assertEquals(school.questions.size, school.questions.map { it.id }.toSet().size)
         for (q in school.questions) {
-            val unknown = (DemoValues.keysIn(q.answer) + DemoValues.keysIn(q.gloss)) - DemoValues.keys.toSet() - "spelled"
-            assertTrue("${q.id} uses unknown values $unknown", unknown.isEmpty())
-            assertEquals("${q.id}: {spelled} only with spell", q.spell != null, "{spelled}" in q.answer)
-            q.spell?.let { assertTrue("${q.id} spells unknown key $it", it in DemoValues.keys) }
+            // Fixed answers; only a spelled answer has the {spelled} part, read by the fingerspelling model.
+            val slots = Regex("""\{[a-z_]+}""").findAll(q.answer + " " + q.gloss).map { it.value }.toSet()
+            assertTrue("${q.id} has unexpected slots $slots", slots.isEmpty() || (q.spell && slots == setOf("{spelled}")))
+            assertEquals("${q.id}: {spelled} only with spell", q.spell, "{spelled}" in q.answer)
         }
     }
 

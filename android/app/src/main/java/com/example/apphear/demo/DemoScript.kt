@@ -17,46 +17,18 @@ data class DemoStep(
     val avatar: String? = null,
     /** Question-based demo, hearing step: any question may be asked (no scripted line). */
     val open: Boolean = false,
-    /** Signer step whose answer uses the fingerspelling model's reading; the value key it stands for. */
-    val spell: String? = null,
+    /** Signer step whose `{spelled}` part is the fingerspelling model's reading (a name or place). */
+    val spell: Boolean = false,
 )
 
 data class DemoScenario(val id: String, val title: String, val category: String, val steps: List<DemoStep>)
 
-/**
- * The values the scenarios fill in (name, city, ...). Nothing is built in: every value comes from the
- * script details window, and an empty one shows as `[name]` so it is easy to spot.
- */
-object DemoValues {
-    /** Every value a scenario may use, in the order the script details window lists them. */
-    val keys: List<String> = listOf(
-        "name", "age", "city", "province", "school", "school_short", "course", "year_level", "occupation",
-        "favorite_subject", "adviser", "destination", "hearing_name",
-    )
+/** Draft glosses as the signer's individual signs; `FS:WORD` is shown letter by letter. */
+object DemoGloss {
+    const val SPELLED = "{spelled}"
 
-    const val MAX_VALUE = 60
-    private val PLACEHOLDER = Regex("\\{([a-z_]+)\\}")
-
-    /** Every `{key}` the text uses. */
-    fun keysIn(text: String): Set<String> = PLACEHOLDER.findAll(text).map { it.groupValues[1] }.toSet()
-
-    /** Replaces `{key}` with its value; an empty value shows as `[key]`, an unknown key stays as `{key}`. */
-    fun fill(text: String, values: Map<String, String>): String = PLACEHOLDER.replace(text) { match ->
-        val key = match.groupValues[1]
-        values[key]?.trim()?.takeIf { it.isNotEmpty() }?.take(MAX_VALUE)
-            ?: if (key in keys) "[$key]" else match.value
+    fun signs(gloss: String): List<String> = gloss.trim().split(Regex("\\s+")).filter { it.isNotBlank() }.map { token ->
+        if (!token.startsWith("FS:")) token
+        else token.removePrefix("FS:").filter { it.isLetterOrDigit() }.uppercase().toCharArray().joinToString("-")
     }
-
-    /**
-     * The signer's cue: fills values, then shows fingerspelled words letter by letter
-     * (`FS:Juan` -> `J-U-A-N`, `FS:{city}` with city "Naga City" -> `N-A-G-A C-I-T-Y`).
-     */
-    fun cue(gloss: String, values: Map<String, String>): String =
-        gloss.trim().split(Regex("\\s+")).joinToString(" ") { token ->
-            val filled = fill(token.removePrefix("FS:"), values)
-            if (!token.startsWith("FS:") || filled.startsWith("[")) filled
-            else filled.split(Regex("\\s+")).joinToString(" ") { word ->
-                word.filter { it.isLetterOrDigit() }.uppercase().toCharArray().joinToString("-")
-            }
-        }
 }

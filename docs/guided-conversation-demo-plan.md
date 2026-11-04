@@ -344,3 +344,22 @@ any of them, in any order and in their own words; the question asked decides the
   the answer is said.
 - Tests: `DemoQuestionMatcherTest` (every phrasing matches its own question, rewordings match,
   unrelated questions are not confident, bank well formed, spelled readings shown as words).
+
+## 14. Fixes (2026-11-04): no variables, visible fingerspelling, finish from signing activity
+
+1. **No variables** (instructor's instruction). The `{key}` values and the Script details fields are
+   removed; `DemoValues` is gone. Answers in `scenarios_v1.json` and `topics_v1.json` are fixed text,
+   chosen by the question (orchestrator). The only filled part is `{spelled}` in a name or place answer
+   (`"spell": true`), and it is exactly what the fingerspelling model read. The options window keeps only
+   "Presenter control only"; EDIT DETAILS is removed. Supersedes the values described in sections 3.1, 12
+   and 13.
+2. **Fingerspelled letters stay visible.** When the signer starts answering, the sheet switches from THEIR
+   REPLY to CURRENT SIGN (`ConversationFlow.signerStarted`, the reply stays in history), and during a
+   spelled answer CURRENT SIGN shows the letters read so far (or the live letter before the first one).
+   Normal fingerspelling outside the demo is unchanged.
+3. **Sentence completion from signing activity, not a timer.** The 2-second wait is removed. The camera
+   reports every analysed frame while a demo runs (`handsObserved`); the answer completes when real
+   signing was noticed (a recognized sign, or fingerspelled letters), the recognizer no longer shows a sign
+   in progress, and the hands have been down in 4 consecutive analysed frames (`REST_FRAMES`). Signing again
+   resets the count, so pauses with hands up never end the sentence. The 1.5 s start-of-turn grace (phone
+   handling) stays.

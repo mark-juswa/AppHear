@@ -11,8 +11,8 @@ data class DemoQuestion(
     /** The signer's answer; `{spelled}` is the fingerspelling model's reading when [spell] is set. */
     val answer: String,
     val gloss: String,
-    /** For answers with a name or place: the value key that is fingerspelled (fallback when nothing was read). */
-    val spell: String? = null,
+    /** The answer's `{spelled}` part (a name or place) is the fingerspelling model's reading. */
+    val spell: Boolean = false,
 )
 
 data class DemoTopic(val id: String, val title: String, val questions: List<DemoQuestion>)

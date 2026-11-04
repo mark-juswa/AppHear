@@ -19,15 +19,6 @@ class GuidedDemoSettings(context: Context) {
         get() = preferences.getBoolean(KEY_PRESENTER, false)
         set(value) { preferences.edit().putBoolean(KEY_PRESENTER, value).apply() }
 
-    /** The details scenarios fill in; a blank one shows as [key] in the conversation. */
-    var values: Map<String, String>
-        get() = DemoValues.keys.associateWith { preferences.getString("value_$it", "").orEmpty() }
-        set(value) {
-            val edit = preferences.edit()
-            DemoValues.keys.forEach { key -> edit.putString("value_$key", value[key].orEmpty().trim().take(DemoValues.MAX_VALUE)) }
-            edit.apply()
-        }
-
     fun scenarios(): List<DemoScenario> = load(app)
     fun topics(): List<DemoTopic> = loadTopics(app)
 
@@ -56,7 +47,7 @@ class GuidedDemoSettings(context: Context) {
                     val q = questions.getJSONObject(j)
                     val phrasings = q.getJSONArray("phrasings")
                     DemoQuestion(q.getString("id"), (0 until phrasings.length()).map { phrasings.getString(it) },
-                        q.getString("answer"), q.getString("gloss"), q.optString("spell").takeIf { it.isNotBlank() })
+                        q.getString("answer"), q.getString("gloss"), q.optBoolean("spell"))
                 })
             }
         }
@@ -82,6 +73,7 @@ class GuidedDemoSettings(context: Context) {
                             text = step.getString("text"),
                             gloss = step.optString("gloss").takeIf { it.isNotBlank() },
                             avatar = step.optString("avatar").takeIf { it.isNotBlank() },
+                            spell = step.optBoolean("spell"),
                         )
                     },
                 )

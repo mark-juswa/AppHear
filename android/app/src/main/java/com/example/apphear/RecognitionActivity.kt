@@ -725,8 +725,10 @@ class RecognitionActivity : AppCompatActivity() {
                                 // Routing policy reads current visibility/idle only; Candidate01 and WORD are unchanged.
                                 coordination?.observation(session.isReady,(0..1).any { s ->
                                     observation.handObserved[s] && observation.handJointValid[s].any { it } })
-                                if (signerHandsUp(observation)) runOnUiThread {
-                                    if (!isFinishing && !isDestroyed) conversationFlow?.signingActivity()
+                                // Raised hands keep auto-say waiting; a guided demo also needs the frames with hands down.
+                                val handsUp = signerHandsUp(observation)
+                                if (handsUp || conversationFlow?.demoActive == true) runOnUiThread {
+                                    if (!isFinishing && !isDestroyed) conversationFlow?.handsObserved(handsUp)
                                 }
                                 val spelling = fingerspellRuntime
                                 if (conversationHolds() || placementOwns(observation)) {
@@ -1389,7 +1391,11 @@ class RecognitionActivity : AppCompatActivity() {
                 binding.altText.visibility = View.GONE
                 val spelling = s.confirmed + s.preview
                 conversationFlow?.signedWordsChanged(spelling.trim(), spelling = true)
-                if (conversationFlow?.demoActive == true) return // MESSAGE waits until the signer finishes
+                if (conversationFlow?.demoActive == true) {
+                    // Demo: the letters spelled so far stay in CURRENT SIGN; MESSAGE waits until the signer finishes.
+                    binding.glossText.text = spelling.trim().ifBlank { s.currentLetter }.ifBlank { getString(R.string.gloss_placeholder) }
+                    return
+                }
                 binding.sentenceText.text = spelling.ifBlank { getString(R.string.sentence_placeholder) }
                 binding.sentenceText.contentDescription = if (s.preview.isNotEmpty())
                     "Detected spelling: $spelling. Tap Hear to review and confirm." else spelling.ifBlank { "Waiting for letters" }

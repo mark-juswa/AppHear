@@ -254,6 +254,11 @@ object ConversationFlow {
         return Transition(rest(s.copy(avatarText = null, ticket = s.ticket + 1)), listOf(FlowEffect.StopAvatar))
     }
 
+    /** The signer began signing after a reply (the reply is already in history): their turn shows. */
+    fun signerStarted(s: FlowState): Transition =
+        if (s.phase == FlowPhase.REPLY || s.phase == FlowPhase.NOT_HEARD)
+            Transition(s.copy(phase = FlowPhase.READY, reply = null, failure = null)) else Transition(s)
+
     fun clear(s: FlowState): Transition =
         Transition(s.copy(message = null), listOf(FlowEffect.ClearSignedWords))
 

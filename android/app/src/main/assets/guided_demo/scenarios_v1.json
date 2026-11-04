@@ -1,16 +1,16 @@
 {
   "schemaVersion": 1,
-  "note": "Guided conversation demo scripts. Glosses are draft ASL-style cues for the signer and must be reviewed by a qualified signer (see docs/guided-conversation-demo-plan.md section 7). {key} values come from Settings > Demo details.",
+  "note": "Guided conversation demo scripts. Answers are fixed text; {spelled} is what the fingerspelling model reads for a name or place (spell: true). Glosses are draft ASL-style cues and must be reviewed by a qualified signer (docs/guided-conversation-demo-plan.md section 7).",
   "scenarios": [
     {
       "id": "introductions", "title": "Introducing yourself", "category": "Greetings and introductions",
       "steps": [
         { "who": "hearing", "text": "Hello! What is your name?" },
-        { "who": "signer", "text": "My name is {name}.", "gloss": "MY NAME FS:{name}" },
-        { "who": "hearing", "text": "Nice to meet you, {name}. Where do you live?", "avatar": "Nice to meet you. Where do you live?" },
-        { "who": "signer", "text": "I live in {city}, {province}.", "gloss": "ME LIVE2 FS:{city}" },
+        { "who": "signer", "text": "My name is {spelled}.", "gloss": "MY NAME FS", "spell": true },
+        { "who": "hearing", "text": "Nice to meet you. Where do you live?" },
+        { "who": "signer", "text": "I live in {spelled}.", "gloss": "ME LIVE2 FS", "spell": true },
         { "who": "hearing", "text": "Are you a student?" },
-        { "who": "signer", "text": "Yes, I am a {year_level} college student.", "gloss": "YES ME STUDENT" },
+        { "who": "signer", "text": "Yes, I am a college student.", "gloss": "YES ME STUDENT" },
         { "who": "hearing", "text": "Nice talking to you!" },
         { "who": "signer", "text": "Nice talking to you too!", "gloss": "NICE TALK1 YOU" }
       ]
@@ -18,12 +18,12 @@
     {
       "id": "meeting_friend", "title": "Meeting a new friend", "category": "Greetings and introductions",
       "steps": [
-        { "who": "hearing", "text": "Hi! I'm {hearing_name}. How are you?" },
+        { "who": "hearing", "text": "Hi! How are you?" },
         { "who": "signer", "text": "I'm good, thank you. And you?", "gloss": "GOOD THANK-YOU YOU" },
         { "who": "hearing", "text": "I'm fine. How old are you?" },
-        { "who": "signer", "text": "I am {age} years old.", "gloss": "ME AGE #{age}" },
+        { "who": "signer", "text": "I am twenty years old.", "gloss": "ME AGE #20" },
         { "who": "hearing", "text": "Where are you from?" },
-        { "who": "signer", "text": "I am from {city}.", "gloss": "ME FROM FS:{city}" },
+        { "who": "signer", "text": "I am from {spelled}.", "gloss": "ME FROM FS", "spell": true },
         { "who": "hearing", "text": "That's nice. See you around!" },
         { "who": "signer", "text": "See you!", "gloss": "SEE YOU" }
       ]
@@ -32,9 +32,9 @@
       "id": "school", "title": "Talking about school", "category": "School and work",
       "steps": [
         { "who": "hearing", "text": "Where do you study?" },
-        { "who": "signer", "text": "I study at {school}.", "gloss": "ME STUDENT FS:{school_short}" },
+        { "who": "signer", "text": "I study at {spelled}.", "gloss": "ME STUDENT FS", "spell": true },
         { "who": "hearing", "text": "What course are you taking?" },
-        { "who": "signer", "text": "I am taking {course}.", "gloss": "ME LEARN FS:{course}" },
+        { "who": "signer", "text": "I am taking Information Technology.", "gloss": "ME LEARN FS:IT" },
         { "who": "hearing", "text": "Is it hard?" },
         { "who": "signer", "text": "Sometimes, but I like it.", "gloss": "SOMETIMES HARD BUT ME LIKE" },
         { "who": "hearing", "text": "Good luck with your studies!" },
@@ -47,7 +47,7 @@
         { "who": "hearing", "text": "Welcome! Are you the new staff member?" },
         { "who": "signer", "text": "Yes, I start today.", "gloss": "YES ME START TODAY" },
         { "who": "hearing", "text": "What did you do before?" },
-        { "who": "signer", "text": "I was a {occupation}.", "gloss": "BEFORE ME FS:{occupation}" },
+        { "who": "signer", "text": "I was a student assistant.", "gloss": "BEFORE ME STUDENT HELP" },
         { "who": "hearing", "text": "Do you need anything?" },
         { "who": "signer", "text": "Please write the instructions for me. Thank you.", "gloss": "PLEASE WRITE FOR ME THANK-YOU" }
       ]
@@ -55,7 +55,7 @@
     {
       "id": "directions", "title": "Asking for directions", "category": "Getting around",
       "steps": [
-        { "who": "signer", "text": "Excuse me, where is {destination}?", "gloss": "EXCUSE-ME WHERE FS:{destination}" },
+        { "who": "signer", "text": "Excuse me, where is the public market?", "gloss": "EXCUSE-ME WHERE MARKET" },
         { "who": "hearing", "text": "Go straight, then turn right at the church." },
         { "who": "signer", "text": "Is it far?", "gloss": "FAR" },
         { "who": "hearing", "text": "No, about five minutes walking." },
@@ -66,7 +66,7 @@
     {
       "id": "jeepney", "title": "Riding a jeepney", "category": "Getting around",
       "steps": [
-        { "who": "signer", "text": "Does this jeepney go to {destination}?", "gloss": "THIS CAR GO FS:{destination}" },
+        { "who": "signer", "text": "Does this jeepney go to the public market?", "gloss": "THIS CAR GO MARKET" },
         { "who": "hearing", "text": "Yes, get in." },
         { "who": "signer", "text": "How much is the fare?", "gloss": "PAY HOW-MUCH" },
         { "who": "hearing", "text": "Fifteen pesos." },

@@ -3,7 +3,6 @@
     <!-- Guided conversation demo (guidedDemo flag): scripted scenarios on the Recognition screen. -->
     <string name="guided_demo_button">Conversation scenarios</string>
     <string name="guided_demo_message_label">MESSAGE</string>
-    <string name="guided_demo_cue">Next to sign: %1$s</string>
 
     <string name="guided_demo_pick_overline">CONVERSATION SCENARIOS</string>
     <string name="guided_demo_pick_title">Choose a conversation</string>
@@ -11,7 +10,7 @@
     <string name="guided_demo_topic_body">Ask any of these, in any order and in your own words:\n%1$s</string>
     <string name="guided_demo_not_in_conversation">That question is not in this conversation. Ask another one.</string>
     <string name="guided_demo_matching">Finding the question…</string>
-    <string name="guided_demo_pick_body">The conversation follows the chosen script. Set the name, place and other details with EDIT DETAILS.</string>
+    <string name="guided_demo_pick_body">The conversation follows the chosen script. Names and places are fingerspelled.</string>
     <string name="guided_demo_running_overline">STEP %1$d OF %2$d</string>
     <string name="guided_demo_running_body">Volume down: next. Volume up: repeat this step.</string>
     <string name="guided_demo_done_overline">CONVERSATION COMPLETE</string>
@@ -24,27 +23,10 @@
     <string name="guided_demo_close">CLOSE</string>
 
     <string name="guided_demo_settings_title">Guided conversation demo</string>
-    <string name="guided_demo_settings_body">Adds a scenarios button to the sign recognition screen; a chosen scenario follows its script. Tap On/Off to switch it, or tap here for the script details (name, place and more).</string>
-    <string name="guided_demo_details_hint">The scenarios fill these in. An empty field shows as [name] in the conversation.</string>
+    <string name="guided_demo_settings_body">Adds a scenarios button to the sign recognition screen; a chosen scenario follows its script. Tap On/Off to switch it, or tap here for the demo options.</string>
     <string name="guided_demo_save">SAVE</string>
-    <string name="guided_demo_edit_details">EDIT DETAILS</string>
-    <string name="guided_demo_details_title">Script details</string>
-    <string name="guided_demo_details_body">Name, age, city, school and other details the scenarios use.</string>
-    <string name="guided_demo_details_value">Edit</string>
+    <string name="guided_demo_details_title">Demo options</string>
     <string name="guided_demo_presenter_title">Presenter control only</string>
     <string name="guided_demo_presenter_body">Only NEXT, the volume keys or a clicker move the conversation on; the camera does not pace it.</string>
 
-    <string name="guided_demo_field_name">Name</string>
-    <string name="guided_demo_field_age">Age</string>
-    <string name="guided_demo_field_city">City or municipality</string>
-    <string name="guided_demo_field_province">Province</string>
-    <string name="guided_demo_field_school">School</string>
-    <string name="guided_demo_field_school_short">School (short name)</string>
-    <string name="guided_demo_field_course">Course</string>
-    <string name="guided_demo_field_year_level">Year level</string>
-    <string name="guided_demo_field_occupation">Occupation or dream job</string>
-    <string name="guided_demo_field_favorite_subject">Favorite subject</string>
-    <string name="guided_demo_field_adviser">Adviser or teacher</string>
-    <string name="guided_demo_field_destination">Destination</string>
-    <string name="guided_demo_field_hearing_name">The other person\'s name</string>
 </resources>

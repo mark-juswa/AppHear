@@ -120,6 +120,7 @@ class ConversationFlowController(
         override fun clearMessage() = apply(ConversationFlow.clear(state))
         override fun redraw() = render()
         override fun setSpelling(on: Boolean) = host.setSpelling(on)
+        override fun signerStarted() = apply(ConversationFlow.signerStarted(state))
     }
     private val demo: com.example.apphear.demo.GuidedDemoController? = if (!com.example.apphear.demo.GuidedDemoSettings.available) null else
         com.example.apphear.demo.GuidedDemoController(activity, binding, demoFlow)
@@ -256,7 +257,12 @@ class ConversationFlowController(
     /** The signer is mid-sign or has a hand raised: auto-say waits for them to stop again. */
     fun signingActivity() {
         autoSay?.activity()
-        demo?.signingActivity()
+    }
+
+    /** Camera thread posts every analysed frame while a demo runs (and raised-hand frames otherwise). */
+    fun handsObserved(up: Boolean) {
+        if (up) signingActivity()
+        demo?.handsObserved(up)
     }
 
     /** A guided demo is running: the script, not the recognizer, decides what is shown. */
