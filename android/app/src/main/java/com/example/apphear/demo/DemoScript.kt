@@ -15,6 +15,10 @@ data class DemoStep(
     val gloss: String? = null,
     /** Hearing steps: a simpler wording for the avatar when [text] has words it cannot sign. */
     val avatar: String? = null,
+    /** Question-based demo, hearing step: any question may be asked (no scripted line). */
+    val open: Boolean = false,
+    /** Signer step whose answer uses the fingerspelling model's reading; the value key it stands for. */
+    val spell: String? = null,
 )
 
 data class DemoScenario(val id: String, val title: String, val category: String, val steps: List<DemoStep>)
@@ -27,7 +31,7 @@ object DemoValues {
     /** Every value a scenario may use, in the order the script details window lists them. */
     val keys: List<String> = listOf(
         "name", "age", "city", "province", "school", "school_short", "course", "year_level", "occupation",
-        "destination", "hearing_name",
+        "favorite_subject", "adviser", "destination", "hearing_name",
     )
 
     const val MAX_VALUE = 60

@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "note": "Question-based guided demo. The hearing person asks any question in any order; the matched question's answer is the signer's turn. {spelled} is the fingerspelling model's actual reading; {key} values come from Script details. Glosses are draft ASL-style cues for the signer.",
+  "topics": [
+    {
+      "id": "school", "title": "School (ask in any order)",
+      "questions": [
+        { "id": "greeting", "phrasings": ["Hello!", "Hi, good morning!", "Good afternoon!", "Kumusta?", "Hello, nice to meet you."],
+          "answer": "Hello! Nice to meet you.", "gloss": "HELLO NICE MEET YOU" },
+        { "id": "name", "phrasings": ["What is your name?", "May I know your name?", "Who are you?", "Ano ang pangalan mo?", "What should I call you?"],
+          "answer": "My name is {spelled}.", "gloss": "MY NAME FS:{name}", "spell": "name" },
+        { "id": "year_level", "phrasings": ["What year are you in?", "What is your year level?", "What year are you now?", "Anong year mo na?", "Are you a freshman?"],
+          "answer": "I am in {year_level}.", "gloss": "ME YEAR FS:{year_level}" },
+        { "id": "course", "phrasings": ["What course are you taking?", "What is your course?", "What is your program?", "Anong course mo?", "What are you studying?"],
+          "answer": "I am taking {course}.", "gloss": "ME LEARN FS:{course}" },
+        { "id": "school", "phrasings": ["What school do you go to?", "Where do you study?", "What school are you from?", "Saan ka nag-aaral?", "Which school?"],
+          "answer": "I study at {spelled}.", "gloss": "ME STUDENT FS:{school_short}", "spell": "school_short" },
+        { "id": "age", "phrasings": ["How old are you?", "What is your age?", "Ilang taon ka na?"],
+          "answer": "I am {age} years old.", "gloss": "ME AGE #{age}" },
+        { "id": "home", "phrasings": ["Where do you live?", "Where are you from?", "Taga saan ka?", "Saan ka nakatira?", "Where is your home?"],
+          "answer": "I live in {spelled}.", "gloss": "ME LIVE2 FS:{city}", "spell": "city" },
+        { "id": "favorite_subject", "phrasings": ["What is your favorite subject?", "What subject do you like most?", "Which subject do you enjoy?"],
+          "answer": "My favorite subject is {favorite_subject}.", "gloss": "MY FAVORITE SUBJECT FS:{favorite_subject}" },
+        { "id": "adviser", "phrasings": ["Who is your adviser?", "Who is your teacher?", "Who is your instructor?", "Sino ang adviser mo?"],
+          "answer": "Our adviser is {spelled}.", "gloss": "OUR TEACHER FS:{adviser}", "spell": "adviser" },
+        { "id": "commute", "phrasings": ["How do you go to school?", "How do you get to school?", "What do you ride to school?", "Paano ka pumapasok?"],
+          "answer": "I ride a tricycle to school.", "gloss": "ME RIDE TRICYCLE GO SCHOOL" },
+        { "id": "class_time", "phrasings": ["What time is your class?", "When does your class start?", "What is your schedule?", "Anong oras klase mo?"],
+          "answer": "My class starts at eight in the morning.", "gloss": "MY CLASS START MORNING EIGHT" },
+        { "id": "like_course", "phrasings": ["Do you like your course?", "Is your course hard?", "Are you enjoying your studies?", "Is it difficult?"],
+          "answer": "Yes, I like it, but sometimes it is hard.", "gloss": "YES ME LIKE BUT SOMETIMES HARD" },
+        { "id": "project", "phrasings": ["What is your project about?", "What is your capstone?", "What is your thesis about?", "Tell me about your project."],
+          "answer": "Our project is AppHear, an app that helps Deaf and hearing people talk.", "gloss": "OUR PROJECT APPHEAR HELP DEAF HEARING TALK1" },
+        { "id": "dream_job", "phrasings": ["What do you want to be after graduation?", "What is your dream job?", "What will you do after you graduate?"],
+          "answer": "I want to be a {occupation}.", "gloss": "FUTURE ME WANT2 BECOME FS:{occupation}" },
+        { "id": "classroom", "phrasings": ["Where is your classroom?", "Where is the library?", "Where is your room?"],
+          "answer": "It is on the second floor.", "gloss": "SECOND FLOOR" },
+        { "id": "busy", "phrasings": ["Are you busy?", "Do you have a lot of homework?", "Do you have many projects?"],
+          "answer": "Yes, we have many projects this week.", "gloss": "YES WE MANY PROJECT THIS WEEK" },
+        { "id": "goodbye", "phrasings": ["Thank you!", "Goodbye!", "See you!", "Nice talking to you.", "Thanks, bye!"],
+          "answer": "Thank you! See you next time.", "gloss": "THANK-YOU SEE YOU NEXT TIME" }
+      ]
+    }
+  ]
+}

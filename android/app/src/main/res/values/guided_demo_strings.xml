@@ -7,6 +7,10 @@
 
     <string name="guided_demo_pick_overline">CONVERSATION SCENARIOS</string>
     <string name="guided_demo_pick_title">Choose a conversation</string>
+    <string name="guided_demo_topic_overline">QUESTIONS ANSWERED: %1$d</string>
+    <string name="guided_demo_topic_body">Ask any of these, in any order and in your own words:\n%1$s</string>
+    <string name="guided_demo_not_in_conversation">That question is not in this conversation. Ask another one.</string>
+    <string name="guided_demo_matching">Finding the question…</string>
     <string name="guided_demo_pick_body">The conversation follows the chosen script. Set the name, place and other details with EDIT DETAILS.</string>
     <string name="guided_demo_running_overline">STEP %1$d OF %2$d</string>
     <string name="guided_demo_running_body">Volume down: next. Volume up: repeat this step.</string>
@@ -38,7 +42,9 @@
     <string name="guided_demo_field_school_short">School (short name)</string>
     <string name="guided_demo_field_course">Course</string>
     <string name="guided_demo_field_year_level">Year level</string>
-    <string name="guided_demo_field_occupation">Occupation</string>
+    <string name="guided_demo_field_occupation">Occupation or dream job</string>
+    <string name="guided_demo_field_favorite_subject">Favorite subject</string>
+    <string name="guided_demo_field_adviser">Adviser or teacher</string>
     <string name="guided_demo_field_destination">Destination</string>
     <string name="guided_demo_field_hearing_name">The other person\'s name</string>
 </resources>

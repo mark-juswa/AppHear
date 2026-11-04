@@ -22,6 +22,7 @@ object GuidedDemoDetailsDialog {
         "school" to R.string.guided_demo_field_school, "school_short" to R.string.guided_demo_field_school_short,
         "course" to R.string.guided_demo_field_course, "year_level" to R.string.guided_demo_field_year_level,
         "occupation" to R.string.guided_demo_field_occupation, "destination" to R.string.guided_demo_field_destination,
+        "favorite_subject" to R.string.guided_demo_field_favorite_subject, "adviser" to R.string.guided_demo_field_adviser,
         "hearing_name" to R.string.guided_demo_field_hearing_name,
     )
 

@@ -52,6 +52,8 @@ class ConversationFlowController(
          * the avatar signs: recognition skips frames so the signer's resting hands cannot commit a word.
          */
         fun detectionHold(held: Boolean)
+        /** Guided demo: switch recognition to fingerspelling (true) or back to words for a spelled answer. */
+        fun setSpelling(on: Boolean)
     }
 
     private val main = Handler(Looper.getMainLooper())
@@ -103,7 +105,7 @@ class ConversationFlowController(
         override fun deliverReply(text: String) {
             if (state.phase == FlowPhase.AVATAR) apply(ConversationFlow.stop(state))
             apply(ConversationFlow.typedReply(state, text))
-            demo?.replyDelivered()
+            demo?.replyDelivered(text)
         }
         override fun reset() {
             if (editorOpen) closeEditor()
@@ -117,6 +119,7 @@ class ConversationFlowController(
         override fun stop() = apply(ConversationFlow.stop(state))
         override fun clearMessage() = apply(ConversationFlow.clear(state))
         override fun redraw() = render()
+        override fun setSpelling(on: Boolean) = host.setSpelling(on)
     }
     private val demo: com.example.apphear.demo.GuidedDemoController? = if (!com.example.apphear.demo.GuidedDemoSettings.available) null else
         com.example.apphear.demo.GuidedDemoController(activity, binding, demoFlow)
@@ -193,7 +196,11 @@ class ConversationFlowController(
 
     /** Raw signed words as displayed (S8 sentence or [spelling]); called every frame, so cheap. */
     fun signedWordsChanged(words: String, spelling: Boolean = false) {
-        if (demo?.active == true) return // the script, not the recognizer, decides the message
+        if (demo?.active == true) {
+            // The script, not the recognizer, decides the message; a spelled answer only reads the letters.
+            if (spelling) demo.spellingUpdate(words)
+            return
+        }
         if (spelling != messageIsSpelling) {
             messageIsSpelling = spelling
             render()
@@ -354,7 +361,7 @@ class ConversationFlowController(
         // Demo: typing ends the hearing person's turn like speaking does; the script supplies the line.
         val scripted = demo?.scriptedReply()
         apply(ConversationFlow.typedReply(state, scripted ?: text))
-        if (scripted != null && state.phase == FlowPhase.REPLY) demo?.replyDelivered()
+        if (demo?.active == true && state.phase == FlowPhase.REPLY) demo.replyDelivered(scripted ?: text)
     }
 
     private fun apply(transition: Transition) {
@@ -443,7 +450,7 @@ class ConversationFlowController(
             // Demo: speech only marks the end of the hearing person's turn; the script supplies the words.
             val scripted = demo?.scriptedReply()
             apply(ConversationFlow.replyHeard(state, ticket, scripted ?: text))
-            if (scripted != null && state.phase == FlowPhase.REPLY) demo?.replyDelivered()
+            if (demo?.active == true && state.phase == FlowPhase.REPLY) demo.replyDelivered(scripted ?: text)
         }
     }
 
@@ -468,7 +475,7 @@ class ConversationFlowController(
             host.detectionHold(held)
         }
         binder.render(state, editorOpen, avatarNote, autoSaySeconds, detectionHeld && !demoRunning, messageIsSpelling,
-            demo = if (!demoRunning) null else ConversationSheetBinder.Demo(null, demo?.primaryShowsSayIt == true))
+            demo = if (!demoRunning) null else ConversationSheetBinder.Demo(demo?.notice, demo?.primaryShowsSayIt == true))
         back.isEnabled = editorOpen ||
             state.phase in setOf(FlowPhase.SAYING, FlowPhase.LISTENING, FlowPhase.AVATAR)
     }

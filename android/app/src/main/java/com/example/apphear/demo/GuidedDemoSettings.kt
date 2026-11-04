@@ -29,6 +29,7 @@ class GuidedDemoSettings(context: Context) {
         }
 
     fun scenarios(): List<DemoScenario> = load(app)
+    fun topics(): List<DemoTopic> = loadTopics(app)
 
     companion object {
         val available: Boolean get() = BuildConfig.GUIDED_DEMO_ENABLED
@@ -36,6 +37,29 @@ class GuidedDemoSettings(context: Context) {
         private const val KEY_PRESENTER = "presenter_only"
         private const val ASSET = "guided_demo/scenarios_v1.json"
         @Volatile private var cached: List<DemoScenario>? = null
+        @Volatile private var cachedTopics: List<DemoTopic>? = null
+        private const val TOPICS_ASSET = "guided_demo/topics_v1.json"
+
+        fun loadTopics(context: Context): List<DemoTopic> = cachedTopics ?: synchronized(this) {
+            cachedTopics ?: parseTopics(context.assets.open(TOPICS_ASSET).bufferedReader().use { it.readText() })
+                .also { cachedTopics = it }
+        }
+
+        private fun parseTopics(text: String): List<DemoTopic> {
+            val root = JSONObject(text)
+            check(root.getInt("schemaVersion") == 1) { "guided demo: unknown topics schema" }
+            val list = root.getJSONArray("topics")
+            return (0 until list.length()).map { i ->
+                val topic = list.getJSONObject(i)
+                val questions = topic.getJSONArray("questions")
+                DemoTopic(topic.getString("id"), topic.getString("title"), (0 until questions.length()).map { j ->
+                    val q = questions.getJSONObject(j)
+                    val phrasings = q.getJSONArray("phrasings")
+                    DemoQuestion(q.getString("id"), (0 until phrasings.length()).map { phrasings.getString(it) },
+                        q.getString("answer"), q.getString("gloss"), q.optString("spell").takeIf { it.isNotBlank() })
+                })
+            }
+        }
 
         fun load(context: Context): List<DemoScenario> = cached ?: synchronized(this) {
             cached ?: parse(context.assets.open(ASSET).bufferedReader().use { it.readText() }).also { cached = it }

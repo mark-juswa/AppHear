@@ -322,3 +322,25 @@ Behaviour as built:
 
 Not done: Taglish line variants, the "live recognizer (not used)" line, avatar-coverage test, signer review.
 Proof: 415/415 JVM tests; private Lab APK built and installed on the Xiaomi. Not yet run through on the phone.
+
+## 13. Question-based topic: School, any order (2026-11-04)
+
+The instructor asked for a school-focused demo. Besides the sequential scenarios, the scenarios card now
+offers **School (ask in any order)**: a bank of questions with their answers. The hearing person may ask
+any of them, in any order and in their own words; the question asked decides the signer's answer.
+
+- Bank: `assets/guided_demo/topics_v1.json` (17 school questions, each with English and Filipino/Taglish
+  phrasings). Answers use Script details values (`{year_level}`, `{course}`, `{favorite_subject}`, ...).
+- Matching (`demo/DemoQuestionBank.kt`): on the phone first (content-word overlap with every phrasing;
+  confident at >= 0.6 with a 0.15 lead). When unsure and online, `GeminiQuestionPicker` asks Gemini to
+  pick one listed question id or "none"; it can never invent an answer. Offline or on failure the
+  phone's best guess is used. A question that is not in the bank shows "That question is not in this
+  conversation" and listening starts again. Events: `demo_question` with `id` and `by` (phone / ai).
+- The hearing person's actual words are shown as THEIR REPLY (speech recognition is real); the signer's
+  answer comes from the bank and appears in MESSAGE after the signer finishes, as before.
+- Names and places (user decision): the answers for name, school and home switch recognition to
+  FINGERSPELL for the signer's turn and use the **fingerspelling model's actual reading** ("My name is
+  Nicole."). If it read nothing, the value from Script details is used. Recognition returns to WORD after
+  the answer is said.
+- Tests: `DemoQuestionMatcherTest` (every phrasing matches its own question, rewordings match,
+  unrelated questions are not confident, bank well formed, spelled readings shown as words).

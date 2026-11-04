@@ -325,6 +325,10 @@ class RecognitionActivity : AppCompatActivity() {
                 override fun detectionHold(held: Boolean) {
                     conversationHold = held
                 }
+                override fun setSpelling(on: Boolean) {
+                    if (on) requestRecognitionMode(RecognitionMode.FINGERSPELL)
+                    else if (currentRecognitionMode() == RecognitionMode.FINGERSPELL) switchRecognitionMode(RecognitionMode.WORD)
+                }
             })
         conversationFlow = flow
         speakSentence = { flow.sayText(it) }
@@ -1385,6 +1389,7 @@ class RecognitionActivity : AppCompatActivity() {
                 binding.altText.visibility = View.GONE
                 val spelling = s.confirmed + s.preview
                 conversationFlow?.signedWordsChanged(spelling.trim(), spelling = true)
+                if (conversationFlow?.demoActive == true) return // MESSAGE waits until the signer finishes
                 binding.sentenceText.text = spelling.ifBlank { getString(R.string.sentence_placeholder) }
                 binding.sentenceText.contentDescription = if (s.preview.isNotEmpty())
                     "Detected spelling: $spelling. Tap Hear to review and confirm." else spelling.ifBlank { "Waiting for letters" }

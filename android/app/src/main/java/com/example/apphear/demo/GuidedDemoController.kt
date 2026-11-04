@@ -14,6 +14,10 @@ import com.example.apphear.conversation.ConversationTimeline
 import com.example.apphear.conversation.flow2.FlowPhase
 import com.example.apphear.conversation.flow2.FlowState
 import com.example.apphear.databinding.ActivityRecognitionBinding
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.MainScope
+import kotlinx.coroutines.cancel
+import kotlinx.coroutines.launch
 
 /**
  * Plays a scripted conversation through the Recognition screen's existing conversation flow
@@ -47,6 +51,8 @@ class GuidedDemoController(
         fun clearMessage()
         /** Redraws the sheet (cue, labels). */
         fun redraw()
+        /** Switches recognition to fingerspelling (true) or back to words. */
+        fun setSpelling(on: Boolean)
     }
 
     private val settings = GuidedDemoSettings(context)
@@ -64,6 +70,17 @@ class GuidedDemoController(
     /** Scripted reply text -> the avatar wording for it (SIGN IT). */
     private val avatarFor = mutableMapOf<String, String>()
     private val card = binding.demoCard
+    private val scope = MainScope()
+
+    /** Question-based demo: the topic whose questions may be asked in any order (null for a sequential scenario). */
+    private var topic: DemoTopic? = null
+    private var answered = 0
+    /** Shown in the sheet while it matters: "not in this conversation", "matching...". */
+    var notice: String? = null
+        private set
+    private var matching: Job? = null
+    /** Signer turn of a spelled answer: the fingerspelling model's latest reading. */
+    private var spelled = ""
 
     /** A scenario is running (or just finished): real recognition output is ignored. */
     val active: Boolean get() = run != null
@@ -90,7 +107,7 @@ class GuidedDemoController(
 
     /** The scripted line for the current hearing step, replacing whatever speech recognition heard. */
     fun scriptedReply(): String? {
-        val step = run?.step?.takeIf { it.speaker == DemoSpeaker.HEARING } ?: return null
+        val step = run?.step?.takeIf { it.speaker == DemoSpeaker.HEARING && !it.open } ?: return null
         val text = DemoValues.fill(step.text, values)
         step.avatar?.let { avatarFor[text] = DemoValues.fill(it, values) }
         return text
@@ -99,12 +116,70 @@ class GuidedDemoController(
     /** SIGN IT for a scripted reply uses its avatar wording when the script gives one. */
     fun avatarText(reply: String?): String? = reply?.let { avatarFor[it] ?: it }
 
-    /** The scripted reply is on screen: the hearing step is done. */
-    fun replyDelivered() {
+    /**
+     * The hearing person's turn ended with [heard] on screen. Sequential scenario: the scripted line is
+     * done. Question-based topic: [heard] decides which answer the signer gives.
+     */
+    fun replyDelivered(heard: String = "") {
         val current = run ?: return
-        if (current.step?.speaker != DemoSpeaker.HEARING) return
-        moveOn(current.advance())
+        val step = current.step ?: return
+        if (step.speaker != DemoSpeaker.HEARING) return
+        if (step.open) answer(heard) else moveOn(current.advance())
     }
+
+    /** Question-based: finds the asked question (on the phone first, the AI helper only when unsure). */
+    private fun answer(heard: String) {
+        val bank = topic ?: return
+        matching?.cancel()
+        when (val match = DemoQuestionMatcher.match(heard, bank)) {
+            is QuestionMatch.Confident -> useAnswer(match.question, "phone")
+            is QuestionMatch.Unsure -> if (GeminiQuestionPicker.available && heard.isNotBlank()) {
+                notice = context.getString(R.string.guided_demo_matching)
+                renderAll()
+                val asked = run
+                matching = scope.launch {
+                    val id = GeminiQuestionPicker.pick(heard, bank)
+                    if (run !== asked) return@launch
+                    val question = bank.questions.firstOrNull { it.id == id }
+                    when {
+                        question != null -> useAnswer(question, "ai")
+                        id == "none" -> notInConversation()
+                        match.best != null -> useAnswer(match.best, "phone_fallback") // helper unavailable
+                        else -> notInConversation()
+                    }
+                }
+            } else match.best?.let { useAnswer(it, "phone_unsure") } ?: notInConversation()
+        }
+    }
+
+    private fun useAnswer(question: DemoQuestion, by: String) {
+        val current = run ?: return
+        notice = null
+        answered++
+        ConversationTimeline.mark("demo_question", "id" to question.id, "by" to by)
+        val step = DemoStep(DemoSpeaker.SIGNER, question.answer, question.gloss, spell = question.spell)
+        run = current.copy(scenario = current.scenario.copy(steps = current.scenario.steps + step)).advance()
+        resetPacing()
+        if (question.spell != null) flow.setSpelling(true)
+        renderAll()
+    }
+
+    private fun notInConversation() {
+        val current = run ?: return
+        notice = context.getString(R.string.guided_demo_not_in_conversation)
+        ConversationTimeline.mark("demo_question", "id" to "none")
+        renderAll()
+        handler.postDelayed({
+            if (run === current && flow.state.phase in setOf(FlowPhase.REPLY, FlowPhase.NOT_HEARD) && !flow.typing) {
+                notice = null
+                flow.listen()
+            }
+        }, NOT_IN_CONVERSATION_MS)
+    }
+
+    /** Question-based: after an answer, the next question may be any of them again. */
+    private fun withNextQuestion(current: DemoRun): DemoRun =
+        current.copy(scenario = current.scenario.copy(steps = current.scenario.steps + OPEN_QUESTION))
 
     /** Primary pill pressed while [primaryShowsSayIt]: show the scripted message and say it at once. */
     fun sayScripted() {
@@ -124,7 +199,8 @@ class GuidedDemoController(
         // The signer's scripted message was said: their step is done.
         if (old.phase == FlowPhase.SAYING && new.phase == FlowPhase.LISTENING &&
             current.step?.speaker == DemoSpeaker.SIGNER && current.shown) {
-            val next = current.advance()
+            if (current.step?.spell != null) flow.setSpelling(false)
+            val next = (if (topic != null) withNextQuestion(current) else current).advance()
             run = next
             resetPacing()
             // Listening only belongs to a hearing step; otherwise stop it again.
@@ -173,6 +249,21 @@ class GuidedDemoController(
     private fun scriptedSigns(step: DemoStep): List<String> =
         DemoValues.cue(step.gloss ?: step.text, values).split(Regex("\\s+")).filter { it.isNotBlank() }
 
+    /**
+     * Fingerspelling reading changed. Used only during a spelled answer; its letters become the name or
+     * place in the answer when the signer finishes.
+     */
+    fun spellingUpdate(reading: String) {
+        val current = run ?: return
+        val step = current.step ?: return
+        if (step.speaker != DemoSpeaker.SIGNER || step.spell == null || current.shown || inGrace()) return
+        if (flow.state.phase !in setOf(FlowPhase.READY, FlowPhase.REPLY)) return
+        val clean = reading.trim()
+        if (clean.isEmpty() || clean == spelled) return
+        spelled = clean
+        markActivity()
+    }
+
     /** Camera thread posts: a hand is up. Paces the signer's turn only; the content is the script's. */
     fun signingActivity() {
         val current = run ?: return
@@ -195,7 +286,7 @@ class GuidedDemoController(
         if (current.shown || current.step?.speaker != DemoSpeaker.SIGNER) return@Runnable
         // Hands down after the recognizer noticed real signing: the full scripted sentence appears.
         // Hands near the camera alone (holding or typing on the phone) never count.
-        if (revealed > 0) showSignerMessage("signed")
+        if (revealed > 0 || spelled.isNotEmpty()) showSignerMessage("signed")
     }
 
     /** NEXT: whatever completes the current step. */
@@ -207,7 +298,7 @@ class GuidedDemoController(
                 !current.shown -> showSignerMessage("next")
                 flow.state.phase == FlowPhase.READY -> flow.sayNow()
             }
-            DemoSpeaker.HEARING -> if (flow.state.phase != FlowPhase.SAYING) {
+            DemoSpeaker.HEARING -> if (!step.open && flow.state.phase != FlowPhase.SAYING) {
                 scriptedReply()?.let(flow::deliverReply)
             }
         }
@@ -221,6 +312,7 @@ class GuidedDemoController(
         if (current.step?.speaker == DemoSpeaker.SIGNER && current.shown) flow.clearMessage()
         run = current.again()
         resetPacing()
+        notice = null
         if (current.step?.speaker == DemoSpeaker.HEARING) flow.listen()
         renderAll()
     }
@@ -248,11 +340,13 @@ class GuidedDemoController(
 
     fun onDestroy() {
         handler.removeCallbacksAndMessages(null)
+        scope.cancel()
     }
 
     // ---- running a scenario ----
 
     private fun start(scenario: DemoScenario) {
+        clearRun()
         values = settings.values
         avatarFor.clear()
         flow.reset()
@@ -263,7 +357,30 @@ class GuidedDemoController(
         renderAll()
     }
 
+    /** Question-based topic: open-ended; each answer is followed by another open question. */
+    private fun start(bank: DemoTopic) {
+        start(DemoScenario(bank.id, bank.title, "topic", listOf(OPEN_QUESTION)))
+        topic = bank
+    }
+
+    /** Forgets the current run's matching, spelling mode and notices. */
+    private fun clearRun() {
+        matching?.cancel()
+        if (run?.step?.spell != null) flow.setSpelling(false)
+        topic = null
+        answered = 0
+        notice = null
+    }
+
+    private fun chooseAnother() {
+        clearRun()
+        run = null
+        flow.reset()
+        renderAll()
+    }
+
     private fun stopDemo() {
+        clearRun()
         run = null
         cardOpen = false
         handler.removeCallbacks(handsDownCheck)
@@ -279,7 +396,11 @@ class GuidedDemoController(
         ConversationTimeline.mark("demo_message", "reason" to reason, "signs_seen" to revealed,
             "turn_ms" to (System.currentTimeMillis() - turnStartMs))
         run = current.showing()
-        val sentence = DemoValues.fill(step.text, values)
+        // A spelled answer uses what the fingerspelling model read; if it read nothing, the detail from Script details.
+        val reading = DemoQuestionMatcher.spelledWords(spelled)
+        val spelledValue = reading.ifEmpty { step.spell?.let { values[it]?.trim() }.orEmpty() }
+            .ifEmpty { step.spell?.let { "[$it]" }.orEmpty() }
+        val sentence = DemoValues.fill(step.text, values + ("spelled" to spelledValue))
         // The "words" key is the cue text: never shown in demo mode, only used to tie sentence to message.
         flow.showMessage(DemoValues.cue(step.gloss ?: step.text, values), sentence)
         renderAll()
@@ -302,6 +423,7 @@ class GuidedDemoController(
         lastActivityMs = 0L
         revealed = 0
         baselineWords = -1
+        spelled = ""
         handler.removeCallbacks(handsDownCheck)
     }
 
@@ -322,17 +444,31 @@ class GuidedDemoController(
         card.root.isVisible = cardOpen
         if (!cardOpen) return
         val current = run
+        val bank = topic
         val list = card.demoScenarioList
         list.removeAllViews()
+        val details = { list.addView(pill(context.getString(R.string.guided_demo_edit_details)) {
+            GuidedDemoDetailsDialog.show(context) { values = settings.values }
+        }) }
         when {
             current == null -> {
                 card.demoOverline.setText(R.string.guided_demo_pick_overline)
                 card.demoTitle.setText(R.string.guided_demo_pick_title)
                 card.demoBody.setText(R.string.guided_demo_pick_body)
+                settings.topics().forEach { t -> list.addView(pill(t.title) { start(t) }) }
                 settings.scenarios().forEach { scenario -> list.addView(pill(scenario.title) { start(scenario) }) }
-                list.addView(pill(context.getString(R.string.guided_demo_edit_details)) {
-                    GuidedDemoDetailsDialog.show(context) { values = settings.values }
-                })
+                details()
+                list.addView(pill(context.getString(R.string.guided_demo_close)) { cardOpen = false; renderCard() })
+            }
+            bank != null -> {
+                card.demoOverline.text = context.getString(R.string.guided_demo_topic_overline, answered)
+                card.demoTitle.text = bank.title
+                card.demoBody.text = context.getString(R.string.guided_demo_topic_body,
+                    bank.questions.joinToString("\n") { "\u2022 " + it.phrasings.first() })
+                details()
+                list.addView(pill(context.getString(R.string.guided_demo_restart)) { start(bank) })
+                list.addView(pill(context.getString(R.string.guided_demo_another)) { chooseAnother() })
+                list.addView(pill(context.getString(R.string.guided_demo_stop)) { stopDemo() })
                 list.addView(pill(context.getString(R.string.guided_demo_close)) { cardOpen = false; renderCard() })
             }
             current.finished -> {
@@ -340,7 +476,7 @@ class GuidedDemoController(
                 card.demoTitle.text = current.scenario.title
                 card.demoBody.setText(R.string.guided_demo_done_body)
                 list.addView(pill(context.getString(R.string.guided_demo_restart)) { start(current.scenario) })
-                list.addView(pill(context.getString(R.string.guided_demo_another)) { run = null; flow.reset(); renderCard() })
+                list.addView(pill(context.getString(R.string.guided_demo_another)) { chooseAnother() })
                 list.addView(pill(context.getString(R.string.guided_demo_stop)) { stopDemo() })
             }
             else -> {
@@ -351,7 +487,7 @@ class GuidedDemoController(
                 list.addView(pill(context.getString(R.string.guided_demo_next)) { next() })
                 list.addView(pill(context.getString(R.string.guided_demo_again)) { again() })
                 list.addView(pill(context.getString(R.string.guided_demo_restart)) { start(current.scenario) })
-                list.addView(pill(context.getString(R.string.guided_demo_another)) { run = null; flow.reset(); renderCard() })
+                list.addView(pill(context.getString(R.string.guided_demo_another)) { chooseAnother() })
                 list.addView(pill(context.getString(R.string.guided_demo_stop)) { stopDemo() })
                 list.addView(pill(context.getString(R.string.guided_demo_close)) { cardOpen = false; renderCard() })
             }
@@ -372,6 +508,10 @@ class GuidedDemoController(
         const val HANDS_DOWN_MS = 2_000L
         /** After a turn starts, hands and words are ignored this long (closing the keyboard, putting the phone down). */
         const val TURN_GRACE_MS = 1_500L
+        /** How long "not in this conversation" shows before listening again. */
+        const val NOT_IN_CONVERSATION_MS = 2_500L
+        /** Question-based: the hearing person may ask any of the topic's questions. */
+        val OPEN_QUESTION = DemoStep(DemoSpeaker.HEARING, "", open = true)
         /** A pause longer than this starts a new burst. */
         const val RESTART_GAP_MS = 2_500L
     }
