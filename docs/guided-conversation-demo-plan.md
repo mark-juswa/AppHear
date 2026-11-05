@@ -398,7 +398,10 @@ Demo changes:
 - **Pacing by activity.** A signed answer ends when the signer stops (no hand in view, both forearms down
   for 5 frames), however many signs were caught. Real signing must have happened: a caught sign or 6 frames
   with arms raised. The expected-sign-count rule is removed.
-- **Caught signs in order.** CURRENT SIGN shows the recognizer's own caught signs in order (last 4).
+- **CURRENT SIGN matches MESSAGE** (revised after user feedback): it shows the answer's signs, never the
+  recognizer's raw labels. One more appears for each sign the recognizer notices; when the signer finishes,
+  all of them appear, including words the model's 236-word vocabulary lacks (e.g. SECOND, FLOOR), which the
+  orchestrator supplies with the answer. A spelled part shows the letters the fingerspelling model read.
 - **Orchestrator completes from listed answers.** Questions may list `alternatives` in `topics_v1.json`.
   When the signer finishes, `DemoAnswerChooser` picks the answer whose signs the caught signs single out
   (shared signs like ME/LEARN do not decide; variant digits ignored). If none is singled out and Gemini is
