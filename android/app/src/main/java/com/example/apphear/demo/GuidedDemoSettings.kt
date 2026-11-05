@@ -51,7 +51,8 @@ class GuidedDemoSettings(context: Context) {
                         q.getString("answer"), q.getString("gloss"), q.optBoolean("spell"),
                         (0 until (alternatives?.length() ?: 0)).map { k ->
                             alternatives!!.getJSONObject(k).let { DemoAnswer(it.getString("answer"), it.getString("gloss")) }
-                        })
+                        },
+                        q.optJSONArray("known").let { list -> (0 until (list?.length() ?: 0)).map { list!!.getString(it) } })
                 })
             }
         }

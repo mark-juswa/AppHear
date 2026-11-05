@@ -409,3 +409,13 @@ Demo changes:
   signs (enum of answer ids or "none"; it cannot write an answer). Otherwise the default (first) answer.
   Logged as `demo_answer` with `by` = phone / ai / default / only.
 - Example alternatives added for year level, course, favorite subject, commute, like course, dream job, busy.
+
+## 17. Spelled answers pick a listed name or place (2026-11-05)
+
+Phone log: fingerspelling read only 1-2 letters per name at the phone's frame rate. Spelled questions in
+`topics_v1.json` now have a `"known"` list (empty by default; the group fills it, e.g. `["Nicole"]`,
+`["Naga City", "Daet"]`). When the signer finishes, `DemoSpelledChooser` keeps the listed entries whose
+letters contain the read letters in order with the same first letter: one fit is used exactly as listed;
+several fits go to Gemini (`pickAnswer`, listed entries only); none, or an empty list, shows the letters
+read. Logged as `demo_answer` with `by` = phone / ai / first / letters. CURRENT SIGN shows the chosen
+entry's letters.

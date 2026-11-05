@@ -69,6 +69,8 @@ class GuidedDemoController(
     private var activeFrames = 0
     /** Signer turn: the signs the recognizer caught, in order (its own labels). */
     private val caught = mutableListOf<String>()
+    /** Spelled answer: the listed name or place the letters picked (shown exactly as listed). */
+    private var knownPick: String? = null
     /** The signs of the answer on screen (after the signer finished). */
     private var shownGloss: String? = null
     /** An answer is being chosen by the AI helper. */
@@ -178,7 +180,7 @@ class GuidedDemoController(
         answered++
         ConversationTimeline.mark("demo_question", "id" to question.id, "by" to by)
         val step = DemoStep(DemoSpeaker.SIGNER, question.answer, question.gloss, spell = question.spell,
-            answers = if (question.spell) emptyList() else question.answers, question = lastQuestion)
+            answers = if (question.spell) emptyList() else question.answers, question = lastQuestion, known = question.known)
         run = current.copy(scenario = current.scenario.copy(steps = current.scenario.steps + step)).advance()
         resetPacing()
         enterSignerStep()
@@ -283,7 +285,7 @@ class GuidedDemoController(
 
     /** The answer's signs; a spelled part ("FS") shows the letters the fingerspelling model read. */
     private fun answerSigns(gloss: String): List<String> = DemoGloss.signs(gloss).map { sign ->
-        if (sign == "FS" && spelled.isNotBlank()) spelled.filter { it.isLetterOrDigit() }.uppercase().toCharArray().joinToString("-")
+        if (sign == "FS" && (knownPick ?: spelled).isNotBlank()) (knownPick ?: spelled).filter { it.isLetterOrDigit() }.uppercase().toCharArray().joinToString("-")
         else sign
     }
 
@@ -470,6 +472,7 @@ class GuidedDemoController(
         val step = current.step?.takeIf { it.speaker == DemoSpeaker.SIGNER && !current.shown } ?: return
         if (choosing) return
         if (step.answers.size > 1) return chooseAnswer(current, step, reason)
+        if (step.spell && step.known.isNotEmpty()) return chooseSpelled(current, step, reason)
         display(current, step, reason, step.text, step.gloss ?: step.text, "only")
     }
 
@@ -497,6 +500,33 @@ class GuidedDemoController(
         }
     }
 
+    /**
+     * A spelled answer with expected names or places: the letters read pick the listed one (phone); several
+     * fits go to the AI helper (it may only pick a listed one); no fit shows the letters themselves.
+     */
+    private fun chooseSpelled(current: DemoRun, step: DemoStep, reason: String) {
+        val fits = DemoSpelledChooser.matches(step.known, spelled)
+        val gloss = step.gloss ?: step.text
+        fun show(index: Int?, by: String) {
+            knownPick = index?.let { step.known[it] }
+            display(current, step, reason, step.text, gloss, by)
+        }
+        if (fits.size == 1) return show(fits[0], "phone")
+        if (fits.isEmpty() || !GeminiQuestionPicker.available) return show(fits.firstOrNull(), if (fits.isEmpty()) "letters" else "first")
+        choosing = true
+        notice = context.getString(R.string.guided_demo_completing)
+        renderAll()
+        val options = fits.map { DemoAnswer(step.known[it], "FS:" + step.known[it]) }
+        val read = "fingerspelled letters read: " + spelled.uppercase().filter { it.isLetterOrDigit() }.toCharArray().joinToString("-")
+        scope.launch {
+            val picked = GeminiQuestionPicker.pickAnswer(step.question, listOf(read), options)
+            choosing = false
+            notice = null
+            if (run !== current) return@launch
+            show(fits[picked ?: 0], if (picked != null) "ai" else "first")
+        }
+    }
+
     private fun display(current: DemoRun, step: DemoStep, reason: String, text: String, gloss: String, by: String) {
         shownGloss = gloss
         binding.glossText.text = answerSignsText(gloss)
@@ -507,7 +537,7 @@ class GuidedDemoController(
             "turn_ms" to (System.currentTimeMillis() - turnStartMs))
         run = current.showing()
         // A spelled answer's name or place is exactly what the fingerspelling model read.
-        val reading = DemoQuestionMatcher.spelledWords(spelled).ifEmpty { "\u2026" }
+        val reading = knownPick ?: DemoQuestionMatcher.spelledWords(spelled).ifEmpty { "\u2026" }
         val sentence = text.replace(DemoGloss.SPELLED, reading)
         // The "words" key ties the sentence to the message; it is never shown in demo mode.
         flow.showMessage(gloss, sentence)
@@ -542,6 +572,7 @@ class GuidedDemoController(
         activeFrames = 0
         caught.clear()
         shownGloss = null
+        knownPick = null
         frameCounts.fill(0)
         revealed = 0
         baselineWords = -1

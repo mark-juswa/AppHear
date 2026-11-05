@@ -15,6 +15,8 @@ data class DemoQuestion(
     val spell: Boolean = false,
     /** Other possible answers to the same question; the one the recognized signs fit is shown. */
     val alternatives: List<DemoAnswer> = emptyList(),
+    /** Spelled answer: the expected names or places; the letters read pick one. */
+    val known: List<String> = emptyList(),
 ) {
     /** Every possible answer, the default ([answer]) first. */
     val answers: List<DemoAnswer> get() = listOf(DemoAnswer(answer, gloss)) + alternatives
@@ -47,6 +49,30 @@ object DemoAnswerChooser {
         val best = scores.max()
         if (best == 0 || scores.count { it == best } > 1 || scores.all { it == best }) return null
         return scores.indexOf(best)
+    }
+}
+
+/**
+ * Spelled answers: fingerspelling at the phone's frame rate reads only some letters. The letters read pick
+ * the listed name or place that contains them in order (first letter first); null-free result lists every
+ * listed entry that fits, so one fit is used, several go to the AI helper, none shows the letters themselves.
+ */
+object DemoSpelledChooser {
+    private fun letters(text: String) = text.uppercase().filter { it.isLetterOrDigit() }
+
+    fun matches(known: List<String>, reading: String): List<Int> {
+        val read = letters(reading)
+        if (read.isEmpty()) return emptyList()
+        return known.indices.filter { i ->
+            val name = letters(known[i])
+            name.isNotEmpty() && name[0] == read[0] && isSubsequence(read, name)
+        }
+    }
+
+    private fun isSubsequence(part: String, whole: String): Boolean {
+        var at = 0
+        for (c in whole) if (at < part.length && c == part[at]) at++
+        return at == part.length
     }
 }
 

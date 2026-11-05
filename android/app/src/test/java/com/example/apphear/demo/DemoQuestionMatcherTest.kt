@@ -85,6 +85,18 @@ class DemoQuestionMatcherTest {
     }
 
     @Test
+    fun readLettersPickTheListedName() {
+        val known = listOf("Nicole", "Naga City", "Mark")
+        assertEquals(listOf(0, 1), DemoSpelledChooser.matches(known, "N"))   // several fit: AI helper decides
+        assertEquals(listOf(0), DemoSpelledChooser.matches(known, "NCL"))   // letters in order
+        assertEquals(listOf(1), DemoSpelledChooser.matches(known, "nga"))
+        assertEquals(listOf(2), DemoSpelledChooser.matches(known, "MK"))
+        assertEquals(emptyList<Int>(), DemoSpelledChooser.matches(known, "Z"))   // no fit: show the letters
+        assertEquals(emptyList<Int>(), DemoSpelledChooser.matches(known, "AN"))  // first letter must match
+        assertEquals(emptyList<Int>(), DemoSpelledChooser.matches(known, ""))
+    }
+
+    @Test
     fun fingerspelledReadingsAreShownAsWords() {
         assertEquals("Nicole", DemoQuestionMatcher.spelledWords("NICOLE"))
         assertEquals("Naga City", DemoQuestionMatcher.spelledWords(" naga  city "))

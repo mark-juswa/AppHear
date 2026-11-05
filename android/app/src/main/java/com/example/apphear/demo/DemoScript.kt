@@ -23,6 +23,8 @@ data class DemoStep(
     val answers: List<DemoAnswer> = emptyList(),
     /** Hearing step: the question as it was asked (for the AI helper). Signer step: the question answered. */
     val question: String = "",
+    /** Spelled answer: the expected names or places (the letters read pick one). */
+    val known: List<String> = emptyList(),
 )
 
 /** One possible answer: the English sentence and the signs that cue it. */
