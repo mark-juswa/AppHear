@@ -65,6 +65,8 @@ class GuidedDemoController(
     private var recognizerSigning = false
     /** Signer turn: camera frames in a row with the signer's hands down (at rest or out of view). */
     private var restFrames = 0
+    /** Signer turn diagnostics: analysed frames, and how many had a raised hand / any hand / a raised forearm. */
+    private val frameCounts = IntArray(4)
     /** Signer turn: how many scripted signs are on screen, and the recognizer's word count they follow. */
     private var revealed = 0
     /** When the current step began; the first moments are ignored (hands still on the phone). */
@@ -289,7 +291,12 @@ class GuidedDemoController(
         // Still signing while any hand is detected or a forearm is raised (body pose: wrist above elbow).
         // Hand detection drops out during fast signs; the body pose does not, so a dropout is not a rest.
         val resting = !up && !seen && !armRaised
-        restFrames = if (resting) restFrames + 1 else 0
+        // The first moments of the turn (putting the phone down) never count as rest.
+        restFrames = if (resting && !inGrace()) restFrames + 1 else 0
+        frameCounts[0]++
+        if (up) frameCounts[1]++
+        if (seen) frameCounts[2]++
+        if (armRaised) frameCounts[3]++
         checkFinished()
     }
 
@@ -313,10 +320,15 @@ class GuidedDemoController(
         val step = current.step ?: return
         if (settings.presenterOnly || current.shown || step.speaker != DemoSpeaker.SIGNER) return
         if (flow.state.phase !in setOf(FlowPhase.READY, FlowPhase.REPLY)) return
-        // Real signing must have been noticed: fingerspelled letters, or a recognized sign (also for a spelled
-        // answer when fingerspelling could not be switched on).
-        val signed = spelled.isNotEmpty() || revealed > 0
-        if (signed && !recognizerSigning && restFrames >= REST_FRAMES) showSignerMessage("signed")
+        if (recognizerSigning) return
+        // A spelled answer: letters were read, then the hand left the view.
+        if (spelled.isNotEmpty() && restFrames >= REST_FRAMES) return showSignerMessage("spelled")
+        if (revealed == 0) return
+        // A signed answer waits for as many recognized signs as it has ("ME LEARN I-T" = 3), then rest.
+        // If the recognizer missed a sign, a longer rest still ends it.
+        val expected = scriptedSigns(step).size
+        if (revealed >= expected && restFrames >= REST_FRAMES) showSignerMessage("signed")
+        else if (restFrames >= LONG_REST_FRAMES) showSignerMessage("rested")
     }
 
     /** The first real sign of the answer: show the signer's turn (CURRENT SIGN) instead of the question. */
@@ -428,7 +440,9 @@ class GuidedDemoController(
         val current = run ?: return
         val step = current.step?.takeIf { it.speaker == DemoSpeaker.SIGNER && !current.shown } ?: return
         ConversationTimeline.mark("demo_message", "reason" to reason, "signs_seen" to revealed,
-            "spelled" to spelled.length, "turn_ms" to (System.currentTimeMillis() - turnStartMs))
+            "signs_expected" to scriptedSigns(step).size, "spelled" to spelled.length, "rest" to restFrames,
+            "frames" to frameCounts[0], "up" to frameCounts[1], "seen" to frameCounts[2], "arm" to frameCounts[3],
+            "turn_ms" to (System.currentTimeMillis() - turnStartMs))
         run = current.showing()
         // A spelled answer's name or place is exactly what the fingerspelling model read.
         val reading = DemoQuestionMatcher.spelledWords(spelled).ifEmpty { "\u2026" }
@@ -463,6 +477,7 @@ class GuidedDemoController(
         turnStartMs = System.currentTimeMillis()
         recognizerSigning = false
         restFrames = 0
+        frameCounts.fill(0)
         revealed = 0
         baselineWords = -1
         spelled = ""
@@ -542,6 +557,8 @@ class GuidedDemoController(
     private companion object {
         /** Analysed camera frames in a row with arms down and no hand in view that end the signer's answer. */
         const val REST_FRAMES = 5
+        /** Arms down this many analysed frames ends a signed answer even if the recognizer missed a sign. */
+        const val LONG_REST_FRAMES = 15
         /** After a turn starts, hands and words are ignored this long (closing the keyboard, putting the phone down). */
         const val TURN_GRACE_MS = 1_500L
         /** How long "not in this conversation" shows before listening again. */
