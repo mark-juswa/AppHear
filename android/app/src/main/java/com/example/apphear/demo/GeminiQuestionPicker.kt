@@ -43,6 +43,38 @@ object GeminiQuestionPicker {
             "English or Filipino) to one question from a fixed list about ${topic.title}. Answer with the id of " +
             "the listed question that asks the same thing, or \"none\" if none does. Never answer the question."
         val input = "Listed questions:\n$list\n\nSaid aloud: \"${spoken.take(300)}\""
+        return ask(instruction, input, ids)
+    }
+
+    /**
+     * Which listed answer the signer gave, from the question and the signs the recognizer caught (fast
+     * signing at the phone's frame rate catches only some). Returns its index, or null when the helper is
+     * unavailable or none fits. It can only pick a listed answer.
+     */
+    suspend fun pickAnswer(question: String, recognized: List<String>, answers: List<DemoAnswer>): Int? {
+        if (!available || answers.size < 2) return null
+        return try {
+            withContext(Dispatchers.IO) {
+                val ids = answers.indices.map { "a$it" } + "none"
+                val list = answers.withIndex().joinToString("\n") { (i, a) -> "a$i: ${a.text} (signs: ${a.gloss})" }
+                val instruction = "A Deaf student answered a school question in sign language. A recognizer caught only " +
+                    "some of their signs, in order. Choose the listed answer those signs belong to, or \"none\" if the " +
+                    "caught signs do not point to one. Never write a new answer."
+                val input = "Question: \"${question.take(200)}\"\nSigns caught: ${recognized.joinToString(" ").take(200)}" +
+                    "\n\nListed answers:\n$list"
+                ask(instruction, input, ids)?.takeIf { it != "none" }?.removePrefix("a")?.toIntOrNull()
+                    ?.takeIf { it in answers.indices }
+            }
+        } catch (cancelled: CancellationException) {
+            throw cancelled
+        } catch (error: Exception) {
+            Log.w(TAG, "[demo/gemini] answer choice unavailable: ${error.javaClass.simpleName}")
+            null
+        }
+    }
+
+    /** One structured request; the reply must be one of [ids]. */
+    private fun ask(instruction: String, input: String, ids: List<String>): String? {
         val schema = JSONObject().put("type", "object")
             .put("properties", JSONObject().put("id", JSONObject().put("type", "string").put("enum", JSONArray(ids))))
             .put("required", JSONArray().put("id"))

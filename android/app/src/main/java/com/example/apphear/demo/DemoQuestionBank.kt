@@ -13,7 +13,12 @@ data class DemoQuestion(
     val gloss: String,
     /** The answer's `{spelled}` part (a name or place) is the fingerspelling model's reading. */
     val spell: Boolean = false,
-)
+    /** Other possible answers to the same question; the one the recognized signs fit is shown. */
+    val alternatives: List<DemoAnswer> = emptyList(),
+) {
+    /** Every possible answer, the default ([answer]) first. */
+    val answers: List<DemoAnswer> get() = listOf(DemoAnswer(answer, gloss)) + alternatives
+}
 
 data class DemoTopic(val id: String, val title: String, val questions: List<DemoQuestion>)
 
@@ -22,6 +27,27 @@ sealed interface QuestionMatch {
     data class Confident(val question: DemoQuestion) : QuestionMatch
     /** Probably [best], but the wording is unclear: ask the AI helper when it is available. */
     data class Unsure(val best: DemoQuestion?) : QuestionMatch
+}
+
+/**
+ * Picks which listed answer the signer gave from the signs the recognizer did catch (fast signing at
+ * the phone's frame rate catches only some). Only listed answers can be chosen; null when the caught
+ * signs do not single one out (the AI helper may decide, else the default answer is used).
+ */
+object DemoAnswerChooser {
+    /** Recognizer labels carry variant digits (WANT2, EAT1); compare the bare sign. */
+    fun bare(sign: String): String = sign.uppercase().trimEnd { it.isDigit() }
+
+    fun choose(answers: List<DemoAnswer>, recognized: List<String>): Int? {
+        if (answers.size < 2) return 0
+        val caught = recognized.map(::bare).toSet()
+        if (caught.isEmpty()) return null
+        val scores = answers.map { answer -> DemoGloss.signs(answer.gloss).count { bare(it) in caught } }
+        // Signs every answer shares (ME, LEARN) do not tell them apart.
+        val best = scores.max()
+        if (best == 0 || scores.count { it == best } > 1 || scores.all { it == best }) return null
+        return scores.indexOf(best)
+    }
 }
 
 object DemoQuestionMatcher {

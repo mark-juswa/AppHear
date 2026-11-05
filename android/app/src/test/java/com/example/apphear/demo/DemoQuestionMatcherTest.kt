@@ -14,7 +14,8 @@ class DemoQuestionMatcherTest {
         val topic = root["topics"].asJsonArray.map { it.asJsonObject }.first { it["id"].asString == "school" }
         DemoTopic(topic["id"].asString, topic["title"].asString, topic["questions"].asJsonArray.map { it.asJsonObject }.map { q ->
             DemoQuestion(q["id"].asString, q["phrasings"].asJsonArray.map { it.asString }, q["answer"].asString,
-                q["gloss"].asString, q["spell"]?.asBoolean == true)
+                q["gloss"].asString, q["spell"]?.asBoolean == true,
+                q["alternatives"]?.asJsonArray?.map { a -> a.asJsonObject.let { DemoAnswer(it["answer"].asString, it["gloss"].asString) } }.orEmpty())
         })
     }
 
@@ -65,6 +66,22 @@ class DemoQuestionMatcherTest {
         }
         assertEquals("what course are you taking", asked)
         assertEquals("course", confidentId(asked!!))
+    }
+
+    @Test
+    fun caughtSignsChooseAmongListedAnswersOnly() {
+        val course = school.questions.first { it.id == "course" }.answers
+        assertEquals(3, course.size)
+        // Shared signs (ME LEARN) do not decide; a distinguishing sign does.
+        assertEquals(null, DemoAnswerChooser.choose(course, listOf("ME", "LEARN")))
+        assertEquals(1, DemoAnswerChooser.choose(course, listOf("LEARN", "COMPUTER")))
+        assertEquals(2, DemoAnswerChooser.choose(course, listOf("TEACH2")))
+        assertEquals(null, DemoAnswerChooser.choose(course, emptyList()))
+        // A single-answer question always uses its answer.
+        assertEquals(0, DemoAnswerChooser.choose(listOf(DemoAnswer("Hi.", "HELLO")), listOf("BYE")))
+        // Variant digits on recognizer labels are ignored.
+        val dream = school.questions.first { it.id == "dream_job" }.answers
+        assertEquals(1, DemoAnswerChooser.choose(dream, listOf("WANT2", "TEACHER")))
     }
 
     @Test

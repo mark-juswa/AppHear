@@ -10,6 +10,7 @@
     <string name="guided_demo_topic_body">Ask any of these, in any order and in your own words:\n%1$s</string>
     <string name="guided_demo_not_in_conversation">That question is not in this conversation. Ask another one.</string>
     <string name="guided_demo_matching">Finding the question…</string>
+    <string name="guided_demo_completing">Completing the answer…</string>
     <string name="guided_demo_pick_body">The conversation follows the chosen script. Names and places are fingerspelled.</string>
     <string name="guided_demo_running_overline">STEP %1$d OF %2$d</string>
     <string name="guided_demo_running_body">Volume down: next. Volume up: repeat this step.</string>

@@ -65,6 +65,14 @@ class GuidedDemoController(
     private var recognizerSigning = false
     /** Signer turn: camera frames in a row with the signer's hands down (at rest or out of view). */
     private var restFrames = 0
+    /** Signer turn: frames with a hand or forearm raised (after the start-of-turn grace). */
+    private var activeFrames = 0
+    /** Signer turn: the signs the recognizer caught, in order (its own labels). */
+    private val caught = mutableListOf<String>()
+    /** An answer is being chosen by the AI helper. */
+    private var choosing = false
+    /** The question last asked (for the AI helper's answer choice). */
+    private var lastQuestion = ""
     /** Signer turn diagnostics: analysed frames, and how many had a raised hand / any hand / a raised forearm. */
     private val frameCounts = IntArray(4)
     /** Signer turn: how many scripted signs are on screen, and the recognizer's word count they follow. */
@@ -139,6 +147,7 @@ class GuidedDemoController(
     /** Question-based: finds the asked question (on the phone first, the AI helper only when unsure). */
     private fun answer(heard: String) {
         val bank = topic ?: return
+        lastQuestion = heard
         matching?.cancel()
         when (val match = DemoQuestionMatcher.match(heard, bank)) {
             is QuestionMatch.Confident -> useAnswer(match.question, "phone")
@@ -166,7 +175,8 @@ class GuidedDemoController(
         notice = null
         answered++
         ConversationTimeline.mark("demo_question", "id" to question.id, "by" to by)
-        val step = DemoStep(DemoSpeaker.SIGNER, question.answer, question.gloss, spell = question.spell)
+        val step = DemoStep(DemoSpeaker.SIGNER, question.answer, question.gloss, spell = question.spell,
+            answers = if (question.spell) emptyList() else question.answers, question = lastQuestion)
         run = current.copy(scenario = current.scenario.copy(steps = current.scenario.steps + step)).advance()
         resetPacing()
         enterSignerStep()
@@ -236,11 +246,12 @@ class GuidedDemoController(
             binding.altText.visibility = View.GONE
             return true
         }
-        val signs = scriptedSigns(step!!)
+        val tokens = if (words.isBlank()) emptyList() else words.trim().split(Regex("\\s+"))
         // Words finished during the first moments of the turn belong to whatever came before it.
         if (baselineWords < 0 || count < baselineWords || inGrace()) baselineWords = count
         if (count > baselineWords) {
-            revealed = (revealed + count - baselineWords).coerceAtMost(signs.size)
+            caught += tokens.drop(baselineWords)
+            revealed = caught.size
             baselineWords = count
             ConversationTimeline.mark("demo_sign_seen", "revealed" to revealed)
         }
@@ -249,9 +260,11 @@ class GuidedDemoController(
         if (recognizerSigning || revealed > 0) startSignerTurn()
         checkFinished()
         binding.altText.visibility = View.GONE
+        // The signs the recognizer caught so far, in order (its own reading; the answer is chosen at the end).
         binding.glossText.text = when {
+            caught.isNotEmpty() -> caught.takeLast(CAUGHT_SHOWN).joinToString(" ") +
+                if (signing) " \u2026" else ""
             signing -> context.getString(R.string.signing)
-            revealed > 0 -> signs[revealed - 1]
             else -> context.getString(R.string.gloss_placeholder)
         }
         return true
@@ -297,6 +310,7 @@ class GuidedDemoController(
         if (up) frameCounts[1]++
         if (seen) frameCounts[2]++
         if (armRaised) frameCounts[3]++
+        if ((up || armRaised) && !inGrace()) activeFrames++
         checkFinished()
     }
 
@@ -323,12 +337,10 @@ class GuidedDemoController(
         if (recognizerSigning) return
         // A spelled answer: letters were read, then the hand left the view.
         if (spelled.isNotEmpty() && restFrames >= REST_FRAMES) return showSignerMessage("spelled")
-        if (revealed == 0) return
-        // A signed answer waits for as many recognized signs as it has ("ME LEARN I-T" = 3), then rest.
-        // If the recognizer missed a sign, a longer rest still ends it.
-        val expected = scriptedSigns(step).size
-        if (revealed >= expected && restFrames >= REST_FRAMES) showSignerMessage("signed")
-        else if (restFrames >= LONG_REST_FRAMES) showSignerMessage("rested")
+        // A signed answer ends when the signer stops (no hand in view, arms down), however many signs the
+        // recognizer caught: fast signing at the phone's frame rate catches only some. Real signing must
+        // have happened: a caught sign, or arms raised for a while.
+        if ((revealed > 0 || activeFrames >= MIN_ACTIVE_FRAMES) && restFrames >= REST_FRAMES) showSignerMessage("signed")
     }
 
     /** The first real sign of the answer: show the signer's turn (CURRENT SIGN) instead of the question. */
@@ -439,6 +451,37 @@ class GuidedDemoController(
     private fun showSignerMessage(reason: String) {
         val current = run ?: return
         val step = current.step?.takeIf { it.speaker == DemoSpeaker.SIGNER && !current.shown } ?: return
+        if (choosing) return
+        if (step.answers.size > 1) return chooseAnswer(current, step, reason)
+        display(current, step, reason, step.text, step.gloss ?: step.text, "only")
+    }
+
+    /**
+     * Which listed answer the signer gave: the one the caught signs single out (phone), else the AI helper
+     * (online) from the question and the caught signs, else the default answer. Never a new answer.
+     */
+    private fun chooseAnswer(current: DemoRun, step: DemoStep, reason: String) {
+        val local = DemoAnswerChooser.choose(step.answers, caught)
+        if (local != null || caught.isEmpty() || !GeminiQuestionPicker.available) {
+            val answer = step.answers[local ?: 0]
+            return display(current, step, reason, answer.text, answer.gloss, if (local != null) "phone" else "default")
+        }
+        choosing = true
+        notice = context.getString(R.string.guided_demo_completing)
+        renderAll()
+        val signs = caught.toList()
+        scope.launch {
+            val picked = GeminiQuestionPicker.pickAnswer(step.question, signs, step.answers)
+            choosing = false
+            notice = null
+            if (run !== current) return@launch
+            val answer = step.answers[picked ?: 0]
+            display(current, step, reason, answer.text, answer.gloss, if (picked != null) "ai" else "default")
+        }
+    }
+
+    private fun display(current: DemoRun, step: DemoStep, reason: String, text: String, gloss: String, by: String) {
+        ConversationTimeline.mark("demo_answer", "by" to by, "caught" to caught.size, "options" to step.answers.size)
         ConversationTimeline.mark("demo_message", "reason" to reason, "signs_seen" to revealed,
             "signs_expected" to scriptedSigns(step).size, "spelled" to spelled.length, "rest" to restFrames,
             "frames" to frameCounts[0], "up" to frameCounts[1], "seen" to frameCounts[2], "arm" to frameCounts[3],
@@ -446,9 +489,9 @@ class GuidedDemoController(
         run = current.showing()
         // A spelled answer's name or place is exactly what the fingerspelling model read.
         val reading = DemoQuestionMatcher.spelledWords(spelled).ifEmpty { "\u2026" }
-        val sentence = step.text.replace(DemoGloss.SPELLED, reading)
+        val sentence = text.replace(DemoGloss.SPELLED, reading)
         // The "words" key ties the sentence to the message; it is never shown in demo mode.
-        flow.showMessage(step.gloss ?: step.text, sentence)
+        flow.showMessage(gloss, sentence)
         renderAll()
     }
 
@@ -477,6 +520,8 @@ class GuidedDemoController(
         turnStartMs = System.currentTimeMillis()
         recognizerSigning = false
         restFrames = 0
+        activeFrames = 0
+        caught.clear()
         frameCounts.fill(0)
         revealed = 0
         baselineWords = -1
@@ -557,8 +602,10 @@ class GuidedDemoController(
     private companion object {
         /** Analysed camera frames in a row with arms down and no hand in view that end the signer's answer. */
         const val REST_FRAMES = 5
-        /** Arms down this many analysed frames ends a signed answer even if the recognizer missed a sign. */
-        const val LONG_REST_FRAMES = 15
+        /** Frames with arms raised that count as real signing when the recognizer caught no sign. */
+        const val MIN_ACTIVE_FRAMES = 6
+        /** CURRENT SIGN shows at most this many of the caught signs. */
+        const val CAUGHT_SHOWN = 4
         /** After a turn starts, hands and words are ignored this long (closing the keyboard, putting the phone down). */
         const val TURN_GRACE_MS = 1_500L
         /** How long "not in this conversation" shows before listening again. */

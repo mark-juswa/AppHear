@@ -46,8 +46,12 @@ class GuidedDemoSettings(context: Context) {
                 DemoTopic(topic.getString("id"), topic.getString("title"), (0 until questions.length()).map { j ->
                     val q = questions.getJSONObject(j)
                     val phrasings = q.getJSONArray("phrasings")
+                    val alternatives = q.optJSONArray("alternatives")
                     DemoQuestion(q.getString("id"), (0 until phrasings.length()).map { phrasings.getString(it) },
-                        q.getString("answer"), q.getString("gloss"), q.optBoolean("spell"))
+                        q.getString("answer"), q.getString("gloss"), q.optBoolean("spell"),
+                        (0 until (alternatives?.length() ?: 0)).map { k ->
+                            alternatives!!.getJSONObject(k).let { DemoAnswer(it.getString("answer"), it.getString("gloss")) }
+                        })
                 })
             }
         }

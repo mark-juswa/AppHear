@@ -386,3 +386,23 @@ releasing the hold now re-selects FINGERSPELL. The demo sets FINGERSPELL for nam
    I-T) and runs in WORD mode; the demo's automatic mode switch showed the "Word mode" popup meant for the
    mode buttons. Demo switches are now silent. The speaker button during a demo says the demo message
    instead of opening "Confirm spelling and return to WORD".
+
+## 16. Fast signing and answer completion (2026-11-05)
+
+Cause (phone log + `context/recognition-accuracy.md`): the word models were trained on ~30 fps video; the
+phone runs the full pipeline at ~4 fps, so a fast sign is 3-4 frames and the event segmenter (which needs a
+pause between signs) merges or drops consecutive signs. Slow test: 3 of 3 signs, 6-12 s each; fast test:
+1 sign. Fixing the recognizer itself needs fps-robust retraining (recognition V4 track); models unchanged here.
+
+Demo changes:
+- **Pacing by activity.** A signed answer ends when the signer stops (no hand in view, both forearms down
+  for 5 frames), however many signs were caught. Real signing must have happened: a caught sign or 6 frames
+  with arms raised. The expected-sign-count rule is removed.
+- **Caught signs in order.** CURRENT SIGN shows the recognizer's own caught signs in order (last 4).
+- **Orchestrator completes from listed answers.** Questions may list `alternatives` in `topics_v1.json`.
+  When the signer finishes, `DemoAnswerChooser` picks the answer whose signs the caught signs single out
+  (shared signs like ME/LEARN do not decide; variant digits ignored). If none is singled out and Gemini is
+  available, `GeminiQuestionPicker.pickAnswer` chooses from the listed answers given the question and caught
+  signs (enum of answer ids or "none"; it cannot write an answer). Otherwise the default (first) answer.
+  Logged as `demo_answer` with `by` = phone / ai / default / only.
+- Example alternatives added for year level, course, favorite subject, commute, like course, dream job, busy.

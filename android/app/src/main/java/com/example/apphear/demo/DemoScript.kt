@@ -19,7 +19,14 @@ data class DemoStep(
     val open: Boolean = false,
     /** Signer step whose `{spelled}` part is the fingerspelling model's reading (a name or place). */
     val spell: Boolean = false,
+    /** Signer step of a question-based demo: every possible answer ([text]/[gloss] is the first). */
+    val answers: List<DemoAnswer> = emptyList(),
+    /** Hearing step: the question as it was asked (for the AI helper). Signer step: the question answered. */
+    val question: String = "",
 )
+
+/** One possible answer: the English sentence and the signs that cue it. */
+data class DemoAnswer(val text: String, val gloss: String)
 
 data class DemoScenario(val id: String, val title: String, val category: String, val steps: List<DemoStep>)
 
