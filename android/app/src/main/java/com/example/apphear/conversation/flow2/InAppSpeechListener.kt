@@ -6,6 +6,8 @@ import android.speech.SpeechRecognizer
 interface SpeechBackend {
     fun isAvailable(): Boolean
     fun start(preferOffline: Boolean, events: SpeechEvents)
+    /** The phone has working internet, so the (more accurate) online recognizer can be used. */
+    fun hasInternet(): Boolean = false
     /** Abandon the current session; no result follows. */
     fun cancel()
     fun destroy()
@@ -22,8 +24,9 @@ interface SpeechEvents {
  * In-app reply listening for conversationFlowV2: no system dialog, live partial text. Reports
  * every outcome against the caller's ticket so [ConversationFlow] can drop stale ones.
  *
- * Offline recognition is tried first; if the phone lacks the offline language it retries once
- * online. A missing permission or recognizer is reported as such so the caller can fall back to
+ * With internet the online recognizer is used (the on-device one mishears more, e.g. "course" as
+ * "horse"); if it fails for network reasons it retries once offline. Without internet offline is tried
+ * first; if the phone lacks the offline language it retries once online. A missing permission or recognizer is reported as such so the caller can fall back to
  * the existing system speech dialog.
  *
  * The recognizer gives up within about two seconds if nobody has started talking, which is too soon
@@ -57,7 +60,7 @@ class InAppSpeechListener(
             else -> {
                 startedAtMs = clockMs()
                 heardSomething = false
-                begin(ticket, preferOffline = true, callback)
+                begin(ticket, preferOffline = !backend.hasInternet(), callback)
             }
         }
     }
@@ -104,6 +107,7 @@ class InAppSpeechListener(
                 session = null
                 when {
                     preferOffline && code in OFFLINE_LANGUAGE_MISSING -> begin(ticket, preferOffline = false, callback)
+                    !preferOffline && code in NETWORK_FAILED -> begin(ticket, preferOffline = true, callback)
                     failureFor(code) == ListenFailure.NOT_HEARD && keepWaiting() -> begin(ticket, preferOffline, callback)
                     else -> callback.failed(ticket, failureFor(code))
                 }
@@ -117,6 +121,9 @@ class InAppSpeechListener(
     companion object {
         /** How long to keep listening for someone to start talking (the system dialog waits about as long). */
         const val WAIT_FOR_SPEECH_MS = 8_000L
+
+        private val NETWORK_FAILED = setOf(SpeechRecognizer.ERROR_NETWORK, SpeechRecognizer.ERROR_NETWORK_TIMEOUT,
+            SpeechRecognizer.ERROR_SERVER, 11 /* ERROR_SERVER_DISCONNECTED, API 31 */)
 
         private val OFFLINE_LANGUAGE_MISSING = setOf(
             SpeechRecognizer.ERROR_LANGUAGE_NOT_SUPPORTED, SpeechRecognizer.ERROR_LANGUAGE_UNAVAILABLE)

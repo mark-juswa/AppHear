@@ -281,14 +281,31 @@ class GuidedDemoController(
      * rest for a few frames in a row. Signs: hands below the raised-hand line. Fingerspelling happens low
      * (chest height), so a spelled answer rests only when no hand is in view.
      */
-    fun handsObserved(up: Boolean, seen: Boolean) {
+    fun handsObserved(up: Boolean, seen: Boolean, armRaised: Boolean = false) {
         val current = run ?: return
         if (current.shown || current.step?.speaker != DemoSpeaker.SIGNER) return
         // Hands up: it is the signer's turn now, so CURRENT SIGN ("...signing...", letters) is on screen.
-        if (up && !inGrace()) startSignerTurn()
-        val resting = if (current.step?.spell == true) !seen else !up
+        if ((up || armRaised) && !inGrace()) startSignerTurn()
+        // Still signing while any hand is detected or a forearm is raised (body pose: wrist above elbow).
+        // Hand detection drops out during fast signs; the body pose does not, so a dropout is not a rest.
+        val resting = !up && !seen && !armRaised
         restFrames = if (resting) restFrames + 1 else 0
         checkFinished()
+    }
+
+    /**
+     * Of the speech recognizer's alternatives (most likely first), the one that best matches a question
+     * in the running topic; the first when none matches better or no topic runs.
+     */
+    fun bestHeard(alternatives: List<String>): String {
+        val bank = topic ?: return alternatives.first()
+        fun score(text: String): Double {
+            val asked = DemoQuestionMatcher.words(text)
+            return bank.questions.maxOf { q -> q.phrasings.maxOf { DemoQuestionMatcher.score(asked, it) } }
+        }
+        val first = alternatives.first()
+        val best = alternatives.maxByOrNull(::score) ?: first
+        return if (score(best) > score(first)) best else first
     }
 
     private fun checkFinished() {
@@ -523,8 +540,8 @@ class GuidedDemoController(
 
 
     private companion object {
-        /** Camera frames in a row with the hands down (after real signing) that end the signer's answer. */
-        const val REST_FRAMES = 4
+        /** Analysed camera frames in a row with arms down and no hand in view that end the signer's answer. */
+        const val REST_FRAMES = 5
         /** After a turn starts, hands and words are ignored this long (closing the keyboard, putting the phone down). */
         const val TURN_GRACE_MS = 1_500L
         /** How long "not in this conversation" shows before listening again. */

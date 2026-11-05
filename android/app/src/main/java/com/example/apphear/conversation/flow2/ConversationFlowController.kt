@@ -61,7 +61,8 @@ class ConversationFlowController(
         onReplyTapped = { reply -> apply(ConversationFlow.signIt(state, demo?.avatarText(reply) ?: reply)) },
         onSignedWordTapped = ::offerRemoval,
     )
-    private val listener = InAppSpeechListener(AndroidSpeechBackend(activity), hasPermission = { micPermitted() })
+    private val speechBackend = AndroidSpeechBackend(activity)
+    private val listener = InAppSpeechListener(speechBackend, hasPermission = { micPermitted() })
     private var state = FlowState()
     private var editorOpen = false
     private var lastWords: String? = null
@@ -123,7 +124,10 @@ class ConversationFlowController(
         override fun signerStarted() = apply(ConversationFlow.signerStarted(state))
     }
     private val demo: com.example.apphear.demo.GuidedDemoController? = if (!com.example.apphear.demo.GuidedDemoSettings.available) null else
-        com.example.apphear.demo.GuidedDemoController(activity, binding, demoFlow)
+        com.example.apphear.demo.GuidedDemoController(activity, binding, demoFlow).also { demo ->
+            // Of the recognizer's own alternatives, take the one that matches a question in the demo's list.
+            speechBackend.pickResult = { alternatives -> demo.bestHeard(alternatives) }
+        }
 
     private val avatar = ReplyAvatarStage(activity, binding.conversationAvatarStage, object : ReplyAvatarStage.Listener {
         override fun note(ticket: Long, text: String) {
@@ -260,9 +264,16 @@ class ConversationFlowController(
     }
 
     /** Camera thread posts every analysed frame while a demo runs (and raised-hand frames otherwise). */
-    fun handsObserved(up: Boolean, seen: Boolean) {
+    fun handsObserved(up: Boolean, seen: Boolean, armRaised: Boolean = false) {
         if (up) signingActivity()
-        demo?.handsObserved(up, seen)
+        demo?.handsObserved(up, seen, armRaised)
+    }
+
+    /** The speaker button during a demo: say the message on screen (never the spelling review dialog). */
+    fun demoHear() {
+        if (demo?.active != true) return
+        if (demo.primaryShowsSayIt) demo.sayScripted()
+        else if (state.phase == FlowPhase.READY) ConversationFlow.displayedMessage(state)?.let(::sayText)
     }
 
     /** A guided demo is running: the script, not the recognizer, decides what is shown. */

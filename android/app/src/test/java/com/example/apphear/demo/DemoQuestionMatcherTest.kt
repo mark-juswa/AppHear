@@ -57,6 +57,17 @@ class DemoQuestionMatcherTest {
     }
 
     @Test
+    fun theAlternativeThatAsksAListedQuestionWins() {
+        // The demo picks among the speech recognizer's own alternatives (most likely first).
+        val alternatives = listOf("what horse are you taking", "what course are you taking")
+        val asked = alternatives.maxByOrNull { alt ->
+            school.questions.maxOf { q -> q.phrasings.maxOf { DemoQuestionMatcher.score(DemoQuestionMatcher.words(alt), it) } }
+        }
+        assertEquals("what course are you taking", asked)
+        assertEquals("course", confidentId(asked!!))
+    }
+
+    @Test
     fun fingerspelledReadingsAreShownAsWords() {
         assertEquals("Nicole", DemoQuestionMatcher.spelledWords("NICOLE"))
         assertEquals("Naga City", DemoQuestionMatcher.spelledWords(" naga  city "))

@@ -12,7 +12,9 @@ class InAppSpeechListenerTest {
         var events: SpeechEvents? = null
         var cancels = 0
         var destroyed = false
+        var internet = false
         override fun isAvailable() = available
+        override fun hasInternet() = internet
         override fun start(preferOffline: Boolean, events: SpeechEvents) {
             starts += preferOffline
             this.events = events
@@ -45,6 +47,16 @@ class InAppSpeechListenerTest {
         backend.events!!.onFinal("hello there")
         assertEquals(listOf("partial 4 hello", "level 4", "heard 4 hello there"), recorder.log)
         assertFalse(listener.isListening)
+    }
+
+    @Test fun `with internet the online recognizer is used and a network failure retries offline`() {
+        backend.internet = true
+        listener.start(2, recorder)
+        assertEquals(listOf(false), backend.starts)
+        backend.events!!.onError(SpeechRecognizer.ERROR_NETWORK)
+        assertEquals(listOf(false, true), backend.starts)
+        backend.events!!.onFinal("what course are you taking")
+        assertEquals(listOf("heard 2 what course are you taking"), recorder.log)
     }
 
     @Test fun `empty final result is not heard once the wait for speech is over`() {

@@ -369,3 +369,20 @@ happens at chest height, below the raised-hand line, so the spelling hand counte
 now rest only when no hand is in view (4 frames); word answers keep the raised-hand rule. Also fixed: the
 conversation hold paused continuous fingerspelling and never re-armed it (no letters after the first reply);
 releasing the hold now re-selects FINGERSPELL. The demo sets FINGERSPELL for name/place answers and WORD otherwise.
+
+## 15. Fixes (2026-11-05): speech accuracy, early finish, Word-mode popup
+
+1. **Speech-to-text.** In-app listening asked for the phone's offline recognizer first, which mishears
+   more ("course" as "horse"). With working internet the online recognizer is now used, with one offline
+   retry on a network failure; offline-first only without internet. The recognizer returns up to 5
+   alternatives; during a question-based demo the alternative that matches a listed question is shown
+   (still the recognizer's own hypothesis, never invented text). Phone: Android 12, so per-word biasing
+   (Android 13+) is not available.
+2. **Early finish.** The signer counted as resting whenever no raised hand was detected, but hand
+   detection drops out during fast signs, so an answer could end mid-sign. Rest now also needs no hand in
+   view and both forearms down (body pose: wrist not clearly above its elbow), for 5 analysed frames in a
+   row. The body pose keeps tracking through fast signs.
+3. **Word-mode popup while fingerspelling.** The course answer mixes signs and fingerspelling (ME LEARN
+   I-T) and runs in WORD mode; the demo's automatic mode switch showed the "Word mode" popup meant for the
+   mode buttons. Demo switches are now silent. The speaker button during a demo says the demo message
+   instead of opening "Confirm spelling and return to WORD".

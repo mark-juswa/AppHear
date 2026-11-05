@@ -261,7 +261,8 @@ class RecognitionActivity : AppCompatActivity() {
 
         binding.hearButton.setOnClickListener {
             ConversationTimeline.tap("recognition", "hear")
-            speakRecognizedSentence()
+            // Guided demo: the speaker says the demo message, never the spelling-review dialog.
+            if (conversationFlow?.demoActive == true) conversationFlow?.demoHear() else speakRecognizedSentence()
         }
 
         binding.degradedBannerClose.setOnClickListener {
@@ -329,8 +330,9 @@ class RecognitionActivity : AppCompatActivity() {
                 override fun setSpelling(on: Boolean) {
                     ConversationTimeline.mark("demo_spelling_mode", "on" to on, "current" to currentRecognitionMode().name,
                         "runtime" to (fingerspellRuntime != null))
-                    if (on) requestRecognitionMode(RecognitionMode.FINGERSPELL)
-                    else if (currentRecognitionMode() == RecognitionMode.FINGERSPELL) switchRecognitionMode(RecognitionMode.WORD)
+                    // Switched by the demo, not a tap: no "Word mode" / "Fingerspell mode" popup, no dialogs.
+                    val mode = if (on) RecognitionMode.FINGERSPELL else RecognitionMode.WORD
+                    if (currentRecognitionMode() != mode && (!on || fingerspellRuntime != null)) switchRecognitionMode(mode, announce = false)
                 }
             })
         conversationFlow = flow
@@ -731,8 +733,9 @@ class RecognitionActivity : AppCompatActivity() {
                                 // Raised hands keep auto-say waiting; a guided demo also needs the frames with hands down.
                                 val handsUp = signerHandsUp(observation)
                                 val handSeen = (0..1).any { observation.handObserved[it] }
+                                val armRaised = forearmRaised(observation)
                                 if (handsUp || conversationFlow?.demoActive == true) runOnUiThread {
-                                    if (!isFinishing && !isDestroyed) conversationFlow?.handsObserved(handsUp, handSeen)
+                                    if (!isFinishing && !isDestroyed) conversationFlow?.handsObserved(handsUp, handSeen, armRaised)
                                 }
                                 val spelling = fingerspellRuntime
                                 if (conversationHolds() || placementOwns(observation)) {
@@ -1212,6 +1215,20 @@ class RecognitionActivity : AppCompatActivity() {
         }
     }
 
+    /**
+     * Guided demo, camera thread: a forearm is raised (body pose wrist clearly above its elbow), as while
+     * signing or fingerspelling. Resting arms hang or lie flat. Body points: 2, 3 elbows, 4, 5 wrists.
+     */
+    private fun forearmRaised(observation: PhoneRawObservation): Boolean {
+        val margin = 0.04f * observation.sourceHeight
+        return (0..1).any { side ->
+            val elbow = 2 + side
+            val wrist = 4 + side
+            observation.bodyValid[elbow] && observation.bodyValid[wrist] &&
+                observation.bodyXy[wrist * 2 + 1] < observation.bodyXy[elbow * 2 + 1] - margin
+        }
+    }
+
     /** Shoulders, hips and hand joints in the guide's view coordinates (mirrored like the preview). */
     private fun positionBody(observation: PhoneRawObservation, mapping: com.example.apphear.placement.PlacementGuideView.Mapping): PositionGuide.Body {
         val w = observation.sourceWidth.toFloat()
@@ -1291,7 +1308,7 @@ class RecognitionActivity : AppCompatActivity() {
         switchRecognitionMode(mode)
     }
 
-    private fun switchRecognitionMode(mode: RecognitionMode) {
+    private fun switchRecognitionMode(mode: RecognitionMode, announce: Boolean = true) {
         ConversationTimeline.tap("recognition", if (mode == RecognitionMode.WORD) "mode_word" else "mode_fingerspell")
         recognitionSettings.select(mode)
         val bridge = coordination
@@ -1302,7 +1319,7 @@ class RecognitionActivity : AppCompatActivity() {
             if (!cameraExecutor.isShutdown) cameraExecutor.execute { fingerspellRuntime?.select(mode) }
         }
         renderModeToolbar(mode)
-        Toast.makeText(this, if (mode == RecognitionMode.WORD) R.string.mode_toolbar_switched_word
+        if (announce) Toast.makeText(this, if (mode == RecognitionMode.WORD) R.string.mode_toolbar_switched_word
             else R.string.mode_toolbar_switched_spell, Toast.LENGTH_SHORT).show()
     }
 

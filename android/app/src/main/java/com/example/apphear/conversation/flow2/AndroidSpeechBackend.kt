@@ -13,13 +13,26 @@ import java.util.Locale
 class AndroidSpeechBackend(private val context: Context) : SpeechBackend {
     private var recognizer: SpeechRecognizer? = null
 
+    /**
+     * Picks the final text from the recognizer's alternatives (most likely first). Null keeps the first;
+     * the guided demo sets it to prefer an alternative that matches its questions.
+     */
+    var pickResult: ((List<String>) -> String)? = null
+
+    override fun hasInternet(): Boolean {
+        val connectivity = context.getSystemService(android.net.ConnectivityManager::class.java) ?: return false
+        val capabilities = connectivity.getNetworkCapabilities(connectivity.activeNetwork) ?: return false
+        return capabilities.hasCapability(android.net.NetworkCapabilities.NET_CAPABILITY_INTERNET) &&
+            capabilities.hasCapability(android.net.NetworkCapabilities.NET_CAPABILITY_VALIDATED)
+    }
+
     override fun isAvailable(): Boolean = SpeechRecognizer.isRecognitionAvailable(context)
 
     override fun start(preferOffline: Boolean, events: SpeechEvents) {
         val target = recognizer ?: SpeechRecognizer.createSpeechRecognizer(context).also { recognizer = it }
         target.setRecognitionListener(object : RecognitionListener {
             override fun onPartialResults(partialResults: Bundle?) = events.onPartial(first(partialResults))
-            override fun onResults(results: Bundle?) = events.onFinal(first(results))
+            override fun onResults(results: Bundle?) = events.onFinal(chosen(results))
             override fun onError(error: Int) = events.onError(error)
             override fun onRmsChanged(rmsdB: Float) = events.onLevel(rmsdB)
             override fun onReadyForSpeech(params: Bundle?) = Unit
@@ -32,6 +45,7 @@ class AndroidSpeechBackend(private val context: Context) : SpeechBackend {
             putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM)
             putExtra(RecognizerIntent.EXTRA_LANGUAGE, Locale.US.toString())
             putExtra(RecognizerIntent.EXTRA_PARTIAL_RESULTS, true)
+            putExtra(RecognizerIntent.EXTRA_MAX_RESULTS, 5)
             putExtra(RecognizerIntent.EXTRA_PREFER_OFFLINE, preferOffline)
             putExtra(RecognizerIntent.EXTRA_CALLING_PACKAGE, context.packageName)
             // Requests only; the recognizer may use its own end-of-speech timing.
@@ -49,6 +63,12 @@ class AndroidSpeechBackend(private val context: Context) : SpeechBackend {
     override fun destroy() {
         recognizer?.destroy()
         recognizer = null
+    }
+
+    private fun chosen(bundle: Bundle?): String {
+        val all = bundle?.getStringArrayList(SpeechRecognizer.RESULTS_RECOGNITION).orEmpty().filter { it.isNotBlank() }
+        if (all.isEmpty()) return ""
+        return pickResult?.invoke(all)?.takeIf { it in all } ?: all.first()
     }
 
     private fun first(bundle: Bundle?): String =
