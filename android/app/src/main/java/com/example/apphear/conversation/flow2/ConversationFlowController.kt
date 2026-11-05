@@ -276,6 +276,9 @@ class ConversationFlowController(
         else if (state.phase == FlowPhase.READY) ConversationFlow.displayedMessage(state)?.let(::sayText)
     }
 
+    /** Guided demo, after the signer finished: the MESSAGE sentence as CURRENT SIGN words, else null. */
+    fun demoShownWords(): String? = demo?.shownWords()
+
     /** A guided demo is running: the script, not the recognizer, decides what is shown. */
     val demoActive: Boolean get() = demo?.active == true
 

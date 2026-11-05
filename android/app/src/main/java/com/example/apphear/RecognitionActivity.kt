@@ -1416,7 +1416,8 @@ class RecognitionActivity : AppCompatActivity() {
                 conversationFlow?.signedWordsChanged(spelling.trim(), spelling = true)
                 if (conversationFlow?.demoActive == true) {
                     // Demo: the letters spelled so far stay in CURRENT SIGN; MESSAGE waits until the signer finishes.
-                    binding.glossText.text = spelling.trim().ifBlank { s.currentLetter }.ifBlank { getString(R.string.gloss_placeholder) }
+                    binding.glossText.text = conversationFlow?.demoShownWords()
+                        ?: spelling.trim().ifBlank { s.currentLetter }.ifBlank { getString(R.string.gloss_placeholder) }
                     return
                 }
                 binding.sentenceText.text = spelling.ifBlank { getString(R.string.sentence_placeholder) }

@@ -419,3 +419,12 @@ letters contain the read letters in order with the same first letter: one fit is
 several fits go to Gemini (`pickAnswer`, listed entries only); none, or an empty list, shows the letters
 read. Logged as `demo_answer` with `by` = phone / ai / first / letters. CURRENT SIGN shows the chosen
 entry's letters.
+
+## 18. CURRENT SIGN matches MESSAGE word for word (2026-11-05, user clarification)
+
+CURRENT SIGN shows the MESSAGE sentence's own words (e.g. I AM TAKING INFORMATION TECHNOLOGY), not the
+draft gloss (ME LEARN I-T) and not the recognizer's labels. Words appear at the pace of the signer's hands:
+visible words = max(raised-arm frames, noticed signs) scaled to the sentence length (one sign is about 4
+analysed frames), so fast signing reveals them fast. When the signer finishes, the whole sentence shows in
+CURRENT SIGN and MESSAGE. Words the model's vocabulary lacks are supplied with the answer (orchestrator).
+A spelled part shows the name read (or picked from the listed names). Supersedes the sign display in 16-17.
