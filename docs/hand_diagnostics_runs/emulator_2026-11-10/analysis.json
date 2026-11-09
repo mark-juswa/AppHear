@@ -1,0 +1,931 @@
+[
+ {
+  "scenario": "s1_one_hand_right",
+  "summaries_30s": [
+   {
+    "stages": {
+     "frame_age": {
+      "p50": 48.4,
+      "p95": 94.1
+     },
+     "preprocess": {
+      "p50": 0.4,
+      "p95": 2.0
+     },
+     "pose": {
+      "p50": 36.9,
+      "p95": 78.7
+     },
+     "pose_decode": {
+      "p50": 0.2,
+      "p95": 0.5
+     },
+     "hand_crop": {
+      "p50": 1.1,
+      "p95": 8.1
+     },
+     "left_hand": {
+      "p50": 18.9,
+      "p95": 44.8
+     },
+     "right_hand": {
+      "p50": 22.3,
+      "p95": 45.9
+     },
+     "hands_wall": {
+      "p50": 46.2,
+      "p95": 83.0
+     },
+     "segmenter": {
+      "p50": 58.1,
+      "p95": 113.3
+     },
+     "frame_total": {
+      "p50": 144.3,
+      "p95": 220.1
+     },
+     "ui_hop": {
+      "p50": 13.5,
+      "p95": 36.6
+     },
+     "end_to_end": {
+      "p50": 209.5,
+      "p95": 316.6
+     }
+    },
+    "hands": {
+     "n": "179",
+     "none": "1",
+     "L": "0",
+     "R": "0",
+     "both": "178",
+     "same": "178",
+     "part": "0",
+     "sep": "0",
+     "na": "0",
+     "same.roi": "178/0",
+     "same.pres": "0.98/0.98",
+     "same.hand": "0.26/0.17",
+     "same.sup": "0.13/0.50"
+    },
+    "render": {
+     "n": 179,
+     "skipped": 0,
+     "stale": 0,
+     "redraw": 0
+    },
+    "in": 180.0,
+    "ok": 179.0,
+    "camDropEst": 263.0,
+    "faults": 0.0,
+    "fpsIn": 6.5,
+    "fpsOk": 6.5,
+    "busy_pct": 98.8
+   },
+   {
+    "stages": {
+     "frame_age": {
+      "p50": 43.1,
+      "p95": 95.1
+     },
+     "preprocess": {
+      "p50": 0.3,
+      "p95": 1.6
+     },
+     "pose": {
+      "p50": 36.3,
+      "p95": 67.3
+     },
+     "pose_decode": {
+      "p50": 0.2,
+      "p95": 0.5
+     },
+     "hand_crop": {
+      "p50": 1.2,
+      "p95": 11.9
+     },
+     "left_hand": {
+      "p50": 18.3,
+      "p95": 39.7
+     },
+     "right_hand": {
+      "p50": 24.9,
+      "p95": 44.5
+     },
+     "hands_wall": {
+      "p50": 47.6,
+      "p95": 78.9
+     },
+     "segmenter": {
+      "p50": 57.8,
+      "p95": 103.3
+     },
+     "frame_total": {
+      "p50": 141.9,
+      "p95": 220.1
+     },
+     "ui_hop": {
+      "p50": 13.1,
+      "p95": 32.7
+     },
+     "end_to_end": {
+      "p50": 200.3,
+      "p95": 295.3
+     }
+    },
+    "hands": {
+     "n": "381",
+     "none": "1",
+     "L": "0",
+     "R": "0",
+     "both": "380",
+     "same": "380",
+     "part": "0",
+     "sep": "0",
+     "na": "0",
+     "same.roi": "380/0",
+     "same.pres": "0.98/0.98",
+     "same.hand": "0.34/0.20",
+     "same.sup": "0.13/0.50"
+    },
+    "render": {
+     "n": 380,
+     "skipped": 0,
+     "stale": 0,
+     "redraw": 0
+    },
+    "in": 381.0,
+    "ok": 380.0,
+    "camDropEst": 506.0,
+    "faults": 0.0,
+    "fpsIn": 6.4,
+    "fpsOk": 6.3,
+    "busy_pct": 99.1
+   }
+  ],
+  "per_frame": {
+   "frames_total": 240,
+   "frames_used_after_warmup": 237,
+   "warmup_frames_skipped": 3,
+   "hands_observed_frames": {
+    "0": 0,
+    "1": 0,
+    "2": 237
+   },
+   "two_hand_frames": {
+    "n": 237,
+    "skeleton_iou_bins": {
+     "lt0.1": 0,
+     "0.1to0.5": 0,
+     "ge0.5": 237
+    },
+    "roi_iou_bins": {
+     "lt0.1": 0,
+     "0.1to0.5": 0,
+     "ge0.5": 237
+    },
+    "roi_vs_skeleton_crosstab": {
+     "roi>=0.5&skel>=0.5": 237,
+     "roi<0.5&skel>=0.5": 0,
+     "roi>=0.5&skel<0.5": 0,
+     "roi<0.5&skel<0.5": 0
+    },
+    "spearman_roi_iou_vs_skeleton_iou": 0.739,
+    "mean_presence_L_R": [
+     0.976,
+     0.98
+    ],
+    "mean_handedness_L_R": [
+     0.281,
+     0.199
+    ]
+   },
+   "one_hand_frames": {
+    "n": 0,
+    "observed_slot": {
+     "L": 0,
+     "R": 0,
+     "ambiguous": 0
+    },
+    "mean_handedness_when_slot_L": null,
+    "mean_handedness_when_slot_R": null
+   },
+   "latency_ms": {
+    "frame_age_ms": {
+     "n": 237,
+     "mean": 47.208,
+     "p50": 45.615,
+     "p95": 92.231,
+     "min": 4.952,
+     "max": 179.756
+    },
+    "preprocess_ms": {
+     "n": 237,
+     "mean": 0.578,
+     "p50": 0.352,
+     "p95": 1.252,
+     "min": 0.304,
+     "max": 8.991
+    },
+    "pose_inference_and_output_ms": {
+     "n": 237,
+     "mean": 36.093,
+     "p50": 36.608,
+     "p95": 72.478,
+     "min": 11.791,
+     "max": 112.639
+    },
+    "pose_decode_ms": {
+     "n": 237,
+     "mean": 0.313,
+     "p50": 0.186,
+     "p95": 0.437,
+     "min": 0.176,
+     "max": 18.356
+    },
+    "hand_crop_ms": {
+     "n": 237,
+     "mean": 2.456,
+     "p50": 1.144,
+     "p95": 8.22,
+     "min": 1.029,
+     "max": 29.466
+    },
+    "hand_inference_ms": {
+     "n": 237,
+     "mean": 47.028,
+     "p50": 44.616,
+     "p95": 75.673,
+     "min": 25.581,
+     "max": 107.909
+    },
+    "hands_wall_ms": {
+     "n": 237,
+     "mean": 49.756,
+     "p50": 47.44,
+     "p95": 79.428,
+     "min": 26.842,
+     "max": 114.154
+    },
+    "perception_ms": {
+     "n": 237,
+     "mean": 86.942,
+     "p50": 82.561,
+     "p95": 143.681,
+     "min": 41.312,
+     "max": 206.482
+    },
+    "analyzer_ms": {
+     "n": 237,
+     "mean": 147.597,
+     "p50": 142.677,
+     "p95": 213.404,
+     "min": 55.728,
+     "max": 330.578
+    },
+    "session_ms(analyzer-perception)": {
+     "n": 237,
+     "mean": 60.655,
+     "p50": 57.714,
+     "p95": 111.45,
+     "min": 1.379,
+     "max": 142.86
+    }
+   },
+   "median_share_of_analyzer_pct": {
+    "preprocess_ms": 0.2,
+    "pose_inference_and_output_ms": 25.7,
+    "pose_decode_ms": 0.1,
+    "hand_crop_ms": 0.8,
+    "hand_inference_ms": 31.3,
+    "hands_wall_ms": 33.2,
+    "perception_ms": 57.9,
+    "session_ms(analyzer-perception)": 40.5
+   }
+  },
+  "phone_commit_lines": 0,
+  "crash_lines": 0
+ },
+ {
+  "scenario": "s2_two_hands_apart",
+  "summaries_30s": [
+   {
+    "stages": {
+     "frame_age": {
+      "p50": 40.2,
+      "p95": 86.7
+     },
+     "preprocess": {
+      "p50": 0.4,
+      "p95": 1.7
+     },
+     "pose": {
+      "p50": 31.9,
+      "p95": 64.3
+     },
+     "pose_decode": {
+      "p50": 0.2,
+      "p95": 0.5
+     },
+     "hand_crop": {
+      "p50": 1.2,
+      "p95": 10.0
+     },
+     "left_hand": {
+      "p50": 17.8,
+      "p95": 40.3
+     },
+     "right_hand": {
+      "p50": 24.4,
+      "p95": 43.7
+     },
+     "hands_wall": {
+      "p50": 45.3,
+      "p95": 79.7
+     },
+     "segmenter": {
+      "p50": 59.3,
+      "p95": 111.8
+     },
+     "frame_total": {
+      "p50": 138.6,
+      "p95": 211.9
+     },
+     "ui_hop": {
+      "p50": 13.5,
+      "p95": 35.1
+     },
+     "end_to_end": {
+      "p50": 203.6,
+      "p95": 290.7
+     }
+    },
+    "hands": {
+     "n": "182",
+     "none": "0",
+     "L": "0",
+     "R": "2",
+     "both": "180",
+     "same": "0",
+     "part": "55",
+     "sep": "125",
+     "na": "0",
+     "same.roi": "0/0",
+     "same.pres": "na/na",
+     "same.hand": "na/na",
+     "same.sup": "na/na"
+    },
+    "render": {
+     "n": 181,
+     "skipped": 0,
+     "stale": 0,
+     "redraw": 1
+    },
+    "in": 183.0,
+    "ok": 182.0,
+    "camDropEst": 236.0,
+    "faults": 0.0,
+    "fpsIn": 6.6,
+    "fpsOk": 6.6,
+    "busy_pct": 98.6
+   },
+   {
+    "stages": {
+     "frame_age": {
+      "p50": 37.8,
+      "p95": 89.3
+     },
+     "preprocess": {
+      "p50": 0.3,
+      "p95": 1.5
+     },
+     "pose": {
+      "p50": 30.2,
+      "p95": 48.6
+     },
+     "pose_decode": {
+      "p50": 0.2,
+      "p95": 0.5
+     },
+     "hand_crop": {
+      "p50": 1.2,
+      "p95": 5.4
+     },
+     "left_hand": {
+      "p50": 18.0,
+      "p95": 37.1
+     },
+     "right_hand": {
+      "p50": 22.3,
+      "p95": 39.9
+     },
+     "hands_wall": {
+      "p50": 44.1,
+      "p95": 74.6
+     },
+     "segmenter": {
+      "p50": 61.4,
+      "p95": 90.8
+     },
+     "frame_total": {
+      "p50": 138.2,
+      "p95": 187.5
+     },
+     "ui_hop": {
+      "p50": 11.6,
+      "p95": 25.9
+     },
+     "end_to_end": {
+      "p50": 201.1,
+      "p95": 258.4
+     }
+    },
+    "hands": {
+     "n": "393",
+     "none": "0",
+     "L": "0",
+     "R": "2",
+     "both": "391",
+     "same": "0",
+     "part": "55",
+     "sep": "336",
+     "na": "0",
+     "same.roi": "0/0",
+     "same.pres": "na/na",
+     "same.hand": "na/na",
+     "same.sup": "na/na"
+    },
+    "render": {
+     "n": 391,
+     "skipped": 0,
+     "stale": 0,
+     "redraw": 1
+    },
+    "in": 393.0,
+    "ok": 392.0,
+    "camDropEst": 474.0,
+    "faults": 0.0,
+    "fpsIn": 6.9,
+    "fpsOk": 6.9,
+    "busy_pct": 98.8
+   }
+  ],
+  "per_frame": {
+   "frames_total": 240,
+   "frames_used_after_warmup": 237,
+   "warmup_frames_skipped": 3,
+   "hands_observed_frames": {
+    "0": 0,
+    "1": 2,
+    "2": 235
+   },
+   "two_hand_frames": {
+    "n": 235,
+    "skeleton_iou_bins": {
+     "lt0.1": 183,
+     "0.1to0.5": 52,
+     "ge0.5": 0
+    },
+    "roi_iou_bins": {
+     "lt0.1": 165,
+     "0.1to0.5": 70,
+     "ge0.5": 0
+    },
+    "roi_vs_skeleton_crosstab": {
+     "roi>=0.5&skel>=0.5": 0,
+     "roi<0.5&skel>=0.5": 0,
+     "roi>=0.5&skel<0.5": 0,
+     "roi<0.5&skel<0.5": 235
+    },
+    "spearman_roi_iou_vs_skeleton_iou": 0.787,
+    "mean_presence_L_R": [
+     0.989,
+     0.978
+    ],
+    "mean_handedness_L_R": [
+     0.02,
+     0.921
+    ]
+   },
+   "one_hand_frames": {
+    "n": 2,
+    "observed_slot": {
+     "L": 0,
+     "R": 2,
+     "ambiguous": 0
+    },
+    "mean_handedness_when_slot_L": null,
+    "mean_handedness_when_slot_R": 0.155
+   },
+   "latency_ms": {
+    "frame_age_ms": {
+     "n": 237,
+     "mean": 41.402,
+     "p50": 39.694,
+     "p95": 83.279,
+     "min": 4.765,
+     "max": 102.601
+    },
+    "preprocess_ms": {
+     "n": 237,
+     "mean": 0.64,
+     "p50": 0.353,
+     "p95": 1.443,
+     "min": 0.309,
+     "max": 20.037
+    },
+    "pose_inference_and_output_ms": {
+     "n": 237,
+     "mean": 31.968,
+     "p50": 31.227,
+     "p95": 59.349,
+     "min": 11.464,
+     "max": 125.454
+    },
+    "pose_decode_ms": {
+     "n": 237,
+     "mean": 0.234,
+     "p50": 0.183,
+     "p95": 0.537,
+     "min": 0.17,
+     "max": 1.392
+    },
+    "hand_crop_ms": {
+     "n": 237,
+     "mean": 2.436,
+     "p50": 1.248,
+     "p95": 9.995,
+     "min": 1.012,
+     "max": 24.778
+    },
+    "hand_inference_ms": {
+     "n": 237,
+     "mean": 46.609,
+     "p50": 43.115,
+     "p95": 74.455,
+     "min": 25.536,
+     "max": 123.784
+    },
+    "hands_wall_ms": {
+     "n": 237,
+     "mean": 49.313,
+     "p50": 45.918,
+     "p95": 77.843,
+     "min": 27.016,
+     "max": 124.993
+    },
+    "perception_ms": {
+     "n": 237,
+     "mean": 82.364,
+     "p50": 79.879,
+     "p95": 139.221,
+     "min": 44.473,
+     "max": 185.473
+    },
+    "analyzer_ms": {
+     "n": 237,
+     "mean": 145.681,
+     "p50": 138.778,
+     "p95": 207.399,
+     "min": 66.225,
+     "max": 301.314
+    },
+    "session_ms(analyzer-perception)": {
+     "n": 237,
+     "mean": 63.317,
+     "p50": 63.912,
+     "p95": 98.333,
+     "min": 1.038,
+     "max": 212.873
+    }
+   },
+   "median_share_of_analyzer_pct": {
+    "preprocess_ms": 0.3,
+    "pose_inference_and_output_ms": 22.5,
+    "pose_decode_ms": 0.1,
+    "hand_crop_ms": 0.9,
+    "hand_inference_ms": 31.1,
+    "hands_wall_ms": 33.1,
+    "perception_ms": 57.6,
+    "session_ms(analyzer-perception)": 46.1
+   }
+  },
+  "phone_commit_lines": 0,
+  "crash_lines": 0
+ },
+ {
+  "scenario": "s3_two_hands_touching",
+  "summaries_30s": [
+   {
+    "stages": {
+     "frame_age": {
+      "p50": 47.4,
+      "p95": 86.4
+     },
+     "preprocess": {
+      "p50": 0.3,
+      "p95": 1.2
+     },
+     "pose": {
+      "p50": 35.0,
+      "p95": 81.9
+     },
+     "pose_decode": {
+      "p50": 0.2,
+      "p95": 0.5
+     },
+     "hand_crop": {
+      "p50": 1.2,
+      "p95": 7.6
+     },
+     "left_hand": {
+      "p50": 19.2,
+      "p95": 40.0
+     },
+     "right_hand": {
+      "p50": 21.1,
+      "p95": 42.2
+     },
+     "hands_wall": {
+      "p50": 46.5,
+      "p95": 80.0
+     },
+     "segmenter": {
+      "p50": 58.5,
+      "p95": 97.2
+     },
+     "recognizer": {
+      "p50": 2.4,
+      "p95": 2.4
+     },
+     "frame_total": {
+      "p50": 139.3,
+      "p95": 202.2
+     },
+     "ui_hop": {
+      "p50": 13.5,
+      "p95": 36.1
+     },
+     "end_to_end": {
+      "p50": 203.8,
+      "p95": 274.6
+     }
+    },
+    "hands": {
+     "n": "187",
+     "none": "7",
+     "L": "11",
+     "R": "6",
+     "both": "163",
+     "same": "8",
+     "part": "11",
+     "sep": "144",
+     "na": "0",
+     "same.roi": "8/0",
+     "same.pres": "0.66/0.70",
+     "same.hand": "0.50/0.57",
+     "same.sup": "0.45/0.54"
+    },
+    "render": {
+     "n": 186,
+     "skipped": 1,
+     "stale": 0,
+     "redraw": 1
+    },
+    "in": 188.0,
+    "ok": 187.0,
+    "camDropEst": 255.0,
+    "faults": 0.0,
+    "fpsIn": 6.8,
+    "fpsOk": 6.9,
+    "busy_pct": 98.7
+   },
+   {
+    "stages": {
+     "frame_age": {
+      "p50": 37.7,
+      "p95": 87.4
+     },
+     "preprocess": {
+      "p50": 0.3,
+      "p95": 1.2
+     },
+     "pose": {
+      "p50": 33.7,
+      "p95": 53.2
+     },
+     "pose_decode": {
+      "p50": 0.2,
+      "p95": 0.4
+     },
+     "hand_crop": {
+      "p50": 1.2,
+      "p95": 6.6
+     },
+     "left_hand": {
+      "p50": 17.8,
+      "p95": 41.2
+     },
+     "right_hand": {
+      "p50": 23.7,
+      "p95": 42.5
+     },
+     "hands_wall": {
+      "p50": 45.8,
+      "p95": 74.8
+     },
+     "segmenter": {
+      "p50": 59.0,
+      "p95": 85.8
+     },
+     "recognizer": {
+      "p50": 2.4,
+      "p95": 2.4
+     },
+     "frame_total": {
+      "p50": 137.6,
+      "p95": 181.1
+     },
+     "ui_hop": {
+      "p50": 12.1,
+      "p95": 30.8
+     },
+     "end_to_end": {
+      "p50": 190.5,
+      "p95": 265.5
+     }
+    },
+    "hands": {
+     "n": "397",
+     "none": "7",
+     "L": "11",
+     "R": "11",
+     "both": "368",
+     "same": "8",
+     "part": "11",
+     "sep": "349",
+     "na": "0",
+     "same.roi": "8/0",
+     "same.pres": "0.66/0.70",
+     "same.hand": "0.50/0.57",
+     "same.sup": "0.45/0.54"
+    },
+    "render": {
+     "n": 395,
+     "skipped": 1,
+     "stale": 0,
+     "redraw": 1
+    },
+    "in": 397.0,
+    "ok": 396.0,
+    "camDropEst": 494.0,
+    "faults": 0.0,
+    "fpsIn": 7.0,
+    "fpsOk": 7.0,
+    "busy_pct": 98.8
+   }
+  ],
+  "per_frame": {
+   "frames_total": 240,
+   "frames_used_after_warmup": 237,
+   "warmup_frames_skipped": 3,
+   "hands_observed_frames": {
+    "0": 6,
+    "1": 19,
+    "2": 212
+   },
+   "two_hand_frames": {
+    "n": 212,
+    "skeleton_iou_bins": {
+     "lt0.1": 194,
+     "0.1to0.5": 10,
+     "ge0.5": 8
+    },
+    "roi_iou_bins": {
+     "lt0.1": 0,
+     "0.1to0.5": 13,
+     "ge0.5": 199
+    },
+    "roi_vs_skeleton_crosstab": {
+     "roi>=0.5&skel>=0.5": 8,
+     "roi<0.5&skel>=0.5": 0,
+     "roi>=0.5&skel<0.5": 191,
+     "roi<0.5&skel<0.5": 13
+    },
+    "spearman_roi_iou_vs_skeleton_iou": 0.122,
+    "mean_presence_L_R": [
+     0.833,
+     0.85
+    ],
+    "mean_handedness_L_R": [
+     0.118,
+     0.805
+    ]
+   },
+   "one_hand_frames": {
+    "n": 19,
+    "observed_slot": {
+     "L": 11,
+     "R": 8,
+     "ambiguous": 0
+    },
+    "mean_handedness_when_slot_L": 0.455,
+    "mean_handedness_when_slot_R": 0.658
+   },
+   "latency_ms": {
+    "frame_age_ms": {
+     "n": 237,
+     "mean": 44.879,
+     "p50": 45.588,
+     "p95": 86.381,
+     "min": 5.792,
+     "max": 151.569
+    },
+    "preprocess_ms": {
+     "n": 237,
+     "mean": 0.525,
+     "p50": 0.342,
+     "p95": 1.125,
+     "min": 0.302,
+     "max": 8.493
+    },
+    "pose_inference_and_output_ms": {
+     "n": 237,
+     "mean": 33.586,
+     "p50": 32.351,
+     "p95": 58.067,
+     "min": 11.373,
+     "max": 120.928
+    },
+    "pose_decode_ms": {
+     "n": 237,
+     "mean": 0.4,
+     "p50": 0.184,
+     "p95": 0.573,
+     "min": 0.174,
+     "max": 14.904
+    },
+    "hand_crop_ms": {
+     "n": 237,
+     "mean": 2.557,
+     "p50": 1.24,
+     "p95": 7.555,
+     "min": 1.044,
+     "max": 21.047
+    },
+    "hand_inference_ms": {
+     "n": 237,
+     "mean": 46.279,
+     "p50": 43.629,
+     "p95": 75.284,
+     "min": 24.547,
+     "max": 91.683
+    },
+    "hands_wall_ms": {
+     "n": 237,
+     "mean": 49.217,
+     "p50": 46.7,
+     "p95": 80.039,
+     "min": 26.109,
+     "max": 105.9
+    },
+    "perception_ms": {
+     "n": 237,
+     "mean": 83.885,
+     "p50": 81.868,
+     "p95": 122.446,
+     "min": 48.701,
+     "max": 181.682
+    },
+    "analyzer_ms": {
+     "n": 237,
+     "mean": 143.949,
+     "p50": 138.6,
+     "p95": 187.954,
+     "min": 57.03,
+     "max": 301.979
+    },
+    "session_ms(analyzer-perception)": {
+     "n": 237,
+     "mean": 60.064,
+     "p50": 59.384,
+     "p95": 97.474,
+     "min": 1.448,
+     "max": 137.9
+    }
+   },
+   "median_share_of_analyzer_pct": {
+    "preprocess_ms": 0.2,
+    "pose_inference_and_output_ms": 23.3,
+    "pose_decode_ms": 0.1,
+    "hand_crop_ms": 0.9,
+    "hand_inference_ms": 31.5,
+    "hands_wall_ms": 33.7,
+    "perception_ms": 59.1,
+    "session_ms(analyzer-perception)": 42.8
+   }
+  },
+  "phone_commit_lines": 1,
+  "crash_lines": 0
+ }
+]

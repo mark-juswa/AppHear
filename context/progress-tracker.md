@@ -5776,3 +5776,14 @@ release + androidTest compile OK. Debug APK at artifacts/phase-3.2/ (not install
 Not committed.
 
 
+## 2026-11-10 — Controlled hand-diagnostic testing on the emulator (no source change)
+
+Three 60 s runs (one hand / two apart / two touching) captured and analysed; scenarios verified from screenshots. One hand produced two
+coincident skeletons in 237/237 frames; DWPose ROIs already overlapped before the refiner (M1 supported, M2 signature in 0 frames across all
+runs); the refiner returned presence 0.98 for both crops. Touching hands overlap ROIs in 94% of frames, so ROI-overlap suppression is ruled out;
+skeletons stayed separate in 96%. Refiner handedness separates two real hands (95%/91%) but gave the same-side value on one right hand (unexplained).
+Latency (emulator): analyzer ~140 ms (session 40-46%, hands 33%, pose 25%), ui_hop ~12 ms, end-to-end ~200 ms, no stale/out-of-order results;
+analyzer saturated at ~6.3-7 fps. Emulator only, one subject. Per-frame DWPose support not logged (needs a source change). No fix implemented.
+See docs/HAND_DIAGNOSTICS_CONTROLLED_TESTING_REPORT.md. Not committed.
+
+
