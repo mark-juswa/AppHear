@@ -5730,3 +5730,17 @@ signer, no events). No real-signer data exists: the gate's real-world effect rem
 Protocol, procedure and limitations: `docs/PHASE_1_1_SHADOW_VALIDATION.md`. Not committed.
 
 
+## 2026-11-09 — Phase 2 continuous detection reliability (analyzer fault recovery + diagnostics)
+
+`Candidate01FrameAnalyzer` no longer latches on the first exception. New `AnalyzerFaultSupervisor` classifies each failure
+(Errors / model-contract-asset / closed-resource codes are fatal; frame-guard and other exceptions are recoverable), skips the
+frame for PERCEPTION-phase faults and resets the temporal session for SESSION-phase faults (analyzer and session counters can
+otherwise diverge and fail every later frame), bounds recovery (> 5 faults in 10 s => one fatal report, as before), and keeps
+single-monitor safety. New `DetectionMetrics` (counters, per-stage p50/p95, frame age, estimated camera drops, fps; debug log tag
+`AppHearDetect`). `RecognitionActivity.onStop` reset moved off the main thread; DWPose session no longer leaks if the hand model
+fails to load. No model, threshold, vocabulary, camera, commit-gate or shadow-log change; no throughput optimisation (parallel hands
+stays off: repo-measured WORD live -6.2%). 404/404 JVM tests (376 + 28), 9/9 new real-runtime instrumented tests on an emulator,
+release + androidTest compile. No physical-device measurement; emulator numbers are not phone speed. Details, measurements and
+limits: `docs/PHASE_2_CONTINUOUS_DETECTION.md`. Phase 1.2 APK predates this work. Not committed.
+
+
