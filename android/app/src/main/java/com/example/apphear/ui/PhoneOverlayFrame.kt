@@ -12,4 +12,8 @@ data class PhoneOverlayFrame(
     val bodyXy: FloatArray,
     val bodySupport: FloatArray,
     val bodyValid: BooleanArray,
+    /** Latency diagnostics only: analyzer frame number (< 0 = none), camera sensor timestamp and the analyzer's delivery time (elapsedRealtimeNanos). */
+    val sequence: Int = -1,
+    val sourceTimestampNs: Long = 0L,
+    val deliveredNs: Long = 0L,
 )

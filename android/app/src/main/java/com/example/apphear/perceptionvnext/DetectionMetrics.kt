@@ -28,7 +28,7 @@ import java.util.Locale
  */
 internal enum class DetectionStage {
     FRAME_AGE, PREPROCESS, POSE, POSE_DECODE, HAND_CROP, LEFT_HAND, RIGHT_HAND, HANDS_WALL, SEGMENTER, RECOGNIZER,
-    FRAME_TOTAL,
+    FRAME_TOTAL, UI_HOP, END_TO_END,
 }
 
 internal data class StageStats(val n: Int, val p50: Double?, val p95: Double?, val max: Double?)

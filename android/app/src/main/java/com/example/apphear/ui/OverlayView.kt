@@ -59,6 +59,9 @@ class OverlayView(context: Context, attrs: AttributeSet?) : View(context, attrs)
         fun mapY(ny: Float): Float = ny * r.imageHeight * scale + dy
 
         r.phoneOverlay?.let { phone ->
+            com.example.apphear.perceptionvnext.RenderLatencyProbe.rendered(
+                phone.sequence, phone.sourceTimestampNs, phone.deliveredNs, android.os.SystemClock.elapsedRealtimeNanos(),
+            )
             fun hand(side: Int): PerceptionVNextOverlayView.Hand {
                 val centerSide = phone.handRoiCenterSide[side]
                 val roi = centerSide.takeIf { it[2] > 0f }?.let {

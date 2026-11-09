@@ -5765,3 +5765,14 @@ reproduce. Added debug-only HandPairDiagnostics counters appended to the 30 s Ap
 rejects it before any fix. 423 JVM tests pass. See docs/BUG_DUPLICATE_HAND_DETECTION.md. Not committed.
 
 
+## 2026-11-10 — Hand duplicate + overlay-lag investigation, round 2 (instrumentation only; NOT verified; no fix)
+
+Device logs referred to in the brief were not received (no device/log on this machine), so no root cause is claimed. Code trace:
+two independent DWPose hand proposals + independent refiner acceptance, no cross-check (two candidate mechanisms: M1 DWPose
+duplicates, M2 refiner snapping); overlay path has no smoothing, single-thread synchronous analysis so no out-of-order/backlog.
+Added debug-only diagnostics: pre/post-refinement overlap split, per-slot presence/handedness/support, per-frame sequence +
+capture-to-render latency (ui_hop, end_to_end), skipped/stale counters, extra fields in the opt-in AppHearV3 line. 434 JVM tests pass;
+release + androidTest compile OK. Debug APK at artifacts/phase-3.2/ (not installed). See docs/BUG_HAND_DETECTION_AND_LATENCY_INVESTIGATION.md.
+Not committed.
+
+

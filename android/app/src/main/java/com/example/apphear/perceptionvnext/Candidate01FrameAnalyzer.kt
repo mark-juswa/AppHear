@@ -66,6 +66,9 @@ internal class Candidate01FrameAnalyzer(
     val metrics = DetectionMetrics(nominalFps = NOMINAL_CAMERA_FPS)
     /** Duplicate-hand investigation: how often both slots are observed, and whether the two skeletons coincide. */
     val handPairCounters = HandPairCounters()
+    /** Capture-to-render accounting; installed for the UI thread only in debug builds (see [RenderLatencyProbe]). */
+    private val renderMeter = RenderLatencyMeter(metrics)
+    private var overlaySequence = 0
     private val supervisor = AnalyzerSupervisor(
         resetTemporalState = { resetAfterFault() },
         metrics = metrics,
@@ -75,6 +78,10 @@ internal class Candidate01FrameAnalyzer(
         Executors.newSingleThreadScheduledExecutor { task -> Thread(task, "AppHearDetectReport").apply { isDaemon = true } }
             .also { it.scheduleAtFixedRate({ reportMetrics() }, REPORT_PERIOD_S, REPORT_PERIOD_S, TimeUnit.SECONDS) }
     } else null
+
+    init {
+        if (BuildConfig.DEBUG) RenderLatencyProbe.meter = renderMeter
+    }
 
     /**
      * Phase 2: one bad frame no longer ends the session. Everything that used to run directly in this method now
@@ -203,6 +210,8 @@ internal class Candidate01FrameAnalyzer(
             observation.handXy, observation.handJointValid, observation.handObserved,
             observation.handPresence, observation.handRoiCenterSide,
             observation.bodyXy, observation.bodySupport, observation.bodyValid,
+            sequence = overlaySequence++, sourceTimestampNs = timestampNs,
+            deliveredNs = SystemClock.elapsedRealtimeNanos(),
         )
         onResult(FrameResult(
             hands = null,
@@ -287,7 +296,8 @@ internal class Candidate01FrameAnalyzer(
 
     private fun reportMetrics() {
         try {
-            Log.i(TAG_DETECT, metrics.snapshot().toLogLine() + " " + handPairCounters.snapshot().toLogFragment())
+            Log.i(TAG_DETECT, metrics.snapshot().toLogLine() + " " + handPairCounters.snapshot().toLogFragment() +
+                " " + renderMeter.snapshot().toLogFragment())
         } catch (_: Throwable) {
             // diagnostics only
         }
@@ -336,6 +346,7 @@ internal class Candidate01FrameAnalyzer(
     override fun close() {
         if (closed) return
         closed = true
+        if (RenderLatencyProbe.meter === renderMeter) RenderLatencyProbe.meter = null
         reporter?.shutdownNow()
         handPair?.close()
         preprocessor?.close()
