@@ -5756,3 +5756,12 @@ a calibrated floor and device latency. 415 JVM tests, 54 Python tests; emulator 
 docs/recognition_experiments/. Not committed.
 
 
+## 2026-11-10 — Duplicate hand skeleton bug: investigation + diagnostic (no behaviour change)
+
+Traced detection -> refinement -> overlay. Left/right slots come from two independent DWPose keypoint groups, each refined and
+accepted independently with no cross-check; the refiner's handedness output is unused. Overlay and mirroring were ruled out by
+code reading. Root cause is an unmeasured hypothesis (both groups landing on one physical hand); no device/ML runtime here to
+reproduce. Added debug-only HandPairDiagnostics counters appended to the 30 s AppHearDetect log line so a phone run confirms or
+rejects it before any fix. 423 JVM tests pass. See docs/BUG_DUPLICATE_HAND_DETECTION.md. Not committed.
+
+

@@ -31,6 +31,8 @@ internal class Candidate01FrameAnalyzer(
         val roi: PerceptionVNextMath.HandRoi?,
         val cropMs: Double = 0.0,
         val inferenceMs: Double = 0.0,
+        /** Refiner handedness output (diagnostic only; NaN when no refinement ran). */
+        val handedness: Float = Float.NaN,
     )
 
     private val poseRunner = DWPoseTRunner(context)
@@ -62,6 +64,8 @@ internal class Candidate01FrameAnalyzer(
 
     /** Phase 2: counters + per-stage latency; also the source of the debug-only periodic log line. */
     val metrics = DetectionMetrics(nominalFps = NOMINAL_CAMERA_FPS)
+    /** Duplicate-hand investigation: how often both slots are observed, and whether the two skeletons coincide. */
+    val handPairCounters = HandPairCounters()
     private val supervisor = AnalyzerSupervisor(
         resetTemporalState = { resetAfterFault() },
         metrics = metrics,
@@ -133,6 +137,17 @@ internal class Candidate01FrameAnalyzer(
             runHand(prepared, pose.decoded, PerceptionVNextMath.RIGHT_HAND_START),
         )
         val handsEnded = SystemClock.elapsedRealtimeNanos()
+        // Diagnostics only (duplicate-hand investigation): the overlap is computed only when both slots were observed.
+        if (left.observed && right.observed) {
+            handPairCounters.record(
+                true, true, HandPairDiagnostics.overlap(left.xy, left.valid, right.xy, right.valid),
+                HandPairSample(
+                    HandPairDiagnostics.roiIou(left.roi, right.roi),
+                    left.presence, right.presence, left.handedness, right.handedness,
+                    left.proposalSupport.average().toFloat(), right.proposalSupport.average().toFloat(),
+                ),
+            )
+        } else handPairCounters.record(left.observed, right.observed, null, null)
         val bodyXy = FloatArray(16)
         val bodySupport = FloatArray(8)
         val bodyValid = BooleanArray(8)
@@ -228,6 +243,12 @@ internal class Candidate01FrameAnalyzer(
                 .put("analyzer_ms", (completedNs - started) / 1_000_000.0)
                 .put("body_valid_points", supported)
                 .put("hands_observed", listOf(left, right).count { it.observed })
+                .put("frame_age_ms", (started - timestampNs) / 1_000_000.0)
+                .put("hand_presence", org.json.JSONArray(listOf(left.presence, right.presence).map { if (it.isFinite()) it.toDouble() else -1.0 }))
+                .put("hand_handedness", org.json.JSONArray(listOf(left.handedness, right.handedness).map { if (it.isFinite()) it.toDouble() else -1.0 }))
+                .put("hand_roi_iou", HandPairDiagnostics.roiIou(left.roi, right.roi) ?: -1.0)
+                .put("hand_skeleton_iou", (if (left.observed && right.observed)
+                    HandPairDiagnostics.overlap(left.xy, left.valid, right.xy, right.valid)?.iou else null) ?: -1.0)
                 .put("hand_valid_points", left.valid.count { it } + right.valid.count { it })
                 .put("java_heap_bytes", Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory())
                 .put("native_heap_bytes", android.os.Debug.getNativeHeapAllocatedSize())
@@ -266,7 +287,7 @@ internal class Candidate01FrameAnalyzer(
 
     private fun reportMetrics() {
         try {
-            Log.i(TAG_DETECT, metrics.snapshot().toLogLine())
+            Log.i(TAG_DETECT, metrics.snapshot().toLogLine() + " " + handPairCounters.snapshot().toLogFragment())
         } catch (_: Throwable) {
             // diagnostics only
         }
@@ -296,7 +317,7 @@ internal class Candidate01FrameAnalyzer(
         val cropMs = (SystemClock.elapsedRealtimeNanos() - cropStarted) / 1_000_000.0
         val result = runner.run(crop, roi)
         return HandFrame(result.xySource, result.valid, result.observed, result.presence,
-            true, support, roi, cropMs, result.inferenceMs)
+            true, support, roi, cropMs, result.inferenceMs, result.handednessDiagnostic)
     }
 
     private fun roiValues(roi: PerceptionVNextMath.HandRoi?): FloatArray =
