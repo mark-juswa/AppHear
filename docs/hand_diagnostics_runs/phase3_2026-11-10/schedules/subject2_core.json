@@ -1,0 +1,155 @@
+{
+ "none": {
+  "truth": {
+   "L": false,
+   "R": false
+  },
+  "instruction": "No hands. Put both hands down, out of the picture.",
+  "frames": 43,
+  "fps": 6.0,
+  "config": "empty",
+  "subject": "subject2",
+  "epoch_start": 1794250608.1257658,
+  "epoch_end": 1794250617.631947
+ },
+ "R_near_open": {
+  "truth": {
+   "L": false,
+   "R": true
+  },
+  "instruction": "Right hand only. Palm to the camera, fingers open, close to the camera.",
+  "frames": 43,
+  "fps": 6.0,
+  "config": "distance",
+  "subject": "subject2",
+  "epoch_start": 1794250629.950358,
+  "epoch_end": 1794250638.924621
+ },
+ "R_far_open": {
+  "truth": {
+   "L": false,
+   "R": true
+  },
+  "instruction": "Right hand only. Palm to the camera, fingers open, far from the camera. Lean back.",
+  "frames": 43,
+  "fps": 6.0,
+  "config": "distance",
+  "subject": "subject2",
+  "epoch_start": 1794250652.271837,
+  "epoch_end": 1794250661.772744
+ },
+ "R_point": {
+  "truth": {
+   "L": false,
+   "R": true
+  },
+  "instruction": "Right hand only. Index finger pointing up, other fingers closed.",
+  "frames": 43,
+  "fps": 6.0,
+  "config": "pose",
+  "subject": "subject2",
+  "epoch_start": 1794250674.052094,
+  "epoch_end": 1794250683.536638
+ },
+ "L_near_open": {
+  "truth": {
+   "L": true,
+   "R": false
+  },
+  "instruction": "Left hand only. Palm to the camera, fingers open, close to the camera.",
+  "frames": 43,
+  "fps": 6.0,
+  "config": "distance",
+  "subject": "subject2",
+  "epoch_start": 1794250695.823297,
+  "epoch_end": 1794250705.308491
+ },
+ "L_far_open": {
+  "truth": {
+   "L": true,
+   "R": false
+  },
+  "instruction": "Left hand only. Palm to the camera, fingers open, far from the camera. Lean back.",
+  "frames": 43,
+  "fps": 6.0,
+  "config": "distance",
+  "subject": "subject2",
+  "epoch_start": 1794250718.711492,
+  "epoch_end": 1794250727.6771488
+ },
+ "L_point": {
+  "truth": {
+   "L": true,
+   "R": false
+  },
+  "instruction": "Left hand only. Index finger pointing up, other fingers closed.",
+  "frames": 43,
+  "fps": 6.0,
+  "config": "pose",
+  "subject": "subject2",
+  "epoch_start": 1794250740.243356,
+  "epoch_end": 1794250749.7277682
+ },
+ "both_apart": {
+  "truth": {
+   "L": true,
+   "R": true
+  },
+  "instruction": "Both hands. Palms to the camera, clearly apart from each other.",
+  "frames": 43,
+  "fps": 6.0,
+  "config": "two_hand",
+  "subject": "subject2",
+  "epoch_start": 1794250761.042665,
+  "epoch_end": 1794250770.587135
+ },
+ "both_touching": {
+  "truth": {
+   "L": true,
+   "R": true
+  },
+  "instruction": "Both hands. Palms pressed together.",
+  "frames": 43,
+  "fps": 6.0,
+  "config": "two_hand",
+  "subject": "subject2",
+  "epoch_start": 1794250780.667808,
+  "epoch_end": 1794250790.114392
+ },
+ "both_crossing": {
+  "truth": {
+   "L": true,
+   "R": true
+  },
+  "instruction": "Both hands. Cross your forearms in an X, both hands visible.",
+  "frames": 43,
+  "fps": 6.0,
+  "config": "crossing",
+  "subject": "subject2",
+  "epoch_start": 1794250801.794374,
+  "epoch_end": 1794250810.832417
+ },
+ "R_fast_wave": {
+  "truth": {
+   "L": false,
+   "R": true
+  },
+  "instruction": "Right hand only. Wave fast from side to side.",
+  "frames": 43,
+  "fps": 6.0,
+  "config": "motion",
+  "subject": "subject2",
+  "epoch_start": 1794250821.879658,
+  "epoch_end": 1794250831.3461719
+ },
+ "R_enter_leave": {
+  "truth": null,
+  "instruction": "Right hand only. Raise it into view, lower it out of view, about once a second.",
+  "frames": 43,
+  "fps": 6.0,
+  "config": "dynamic",
+  "subject": "subject2",
+  "epoch_start": 1794250844.29682,
+  "epoch_end": 1794250853.796145
+ }
+}

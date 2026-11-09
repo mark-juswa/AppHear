@@ -1,0 +1,119 @@
+{
+ "h_R_near_L_far": {
+  "truth": {
+   "L": true,
+   "R": true
+  },
+  "instruction": "Both hands, palms to the camera. Right hand very close to the camera, left hand far away at arm's length.",
+  "frames": 43,
+  "fps": 6.0,
+  "config": "unequal_pair",
+  "subject": "subject1",
+  "epoch_start": 1794249878.68275,
+  "epoch_end": 1794249888.13669
+ },
+ "h_L_near_R_far": {
+  "truth": {
+   "L": true,
+   "R": true
+  },
+  "instruction": "Both hands, palms to the camera. Left hand very close to the camera, right hand far away at arm's length.",
+  "frames": 43,
+  "fps": 6.0,
+  "config": "unequal_pair",
+  "subject": "subject1",
+  "epoch_start": 1794249902.452706,
+  "epoch_end": 1794249911.912698
+ },
+ "h_R_edge": {
+  "truth": {
+   "L": false,
+   "R": true
+  },
+  "instruction": "Right hand only, at the right edge of the picture, partly cut off by the edge.",
+  "frames": 43,
+  "fps": 6.0,
+  "config": "boundary",
+  "subject": "subject1",
+  "epoch_start": 1794249924.2697191,
+  "epoch_end": 1794249933.791085
+ },
+ "h_both_L_edge": {
+  "truth": {
+   "L": true,
+   "R": true
+  },
+  "instruction": "Both hands. Left hand at the left edge of the picture, partly cut off. Right hand in the middle.",
+  "frames": 43,
+  "fps": 6.0,
+  "config": "boundary",
+  "subject": "subject1",
+  "epoch_start": 1794249947.18495,
+  "epoch_end": 1794249956.637742
+ },
+ "h_R_no_arm": {
+  "truth": {
+   "L": false,
+   "R": true
+  },
+  "instruction": "Right hand only. Raise just the hand up from the bottom of the picture, so that no forearm is visible.",
+  "frames": 43,
+  "fps": 6.0,
+  "config": "no_arm",
+  "subject": "subject1",
+  "epoch_start": 1794249970.390944,
+  "epoch_end": 1794249979.877225
+ },
+ "h_both_R_no_arm": {
+  "truth": {
+   "L": true,
+   "R": true
+  },
+  "instruction": "Both hands. Left arm raised normally. Right hand rising from the bottom of the picture, no arm visible.",
+  "frames": 43,
+  "fps": 6.0,
+  "config": "no_arm",
+  "subject": "subject1",
+  "epoch_start": 1794249993.558445,
+  "epoch_end": 1794250003.126969
+ },
+ "h_R_back": {
+  "truth": {
+   "L": false,
+   "R": true
+  },
+  "instruction": "Right hand only, back of the hand toward the camera, fingers open.",
+  "frames": 43,
+  "fps": 6.0,
+  "config": "back_of_hand",
+  "subject": "subject1",
+  "epoch_start": 1794250014.8954968,
+  "epoch_end": 1794250024.352545
+ },
+ "h_both_back": {
+  "truth": {
+   "L": true,
+   "R": true
+  },
+  "instruction": "Both hands, backs of the hands toward the camera, apart from each other.",
+  "frames": 43,
+  "fps": 6.0,
+  "config": "back_of_hand",
+  "subject": "subject1",
+  "epoch_start": 1794250035.9333959,
+  "epoch_end": 1794250044.9333582
+ },
+ "h_both_overlap": {
+  "truth": {
+   "L": true,
+   "R": true
+  },
+  "instruction": "Both hands. One hand in front of the other, fingers overlapping, palms toward the camera.",
+  "frames": 43,
+  "fps": 6.0,
+  "config": "overlap",
+  "subject": "subject1",
+  "epoch_start": 1794250058.065033,
+  "epoch_end": 1794250067.5730948
+ }
+}

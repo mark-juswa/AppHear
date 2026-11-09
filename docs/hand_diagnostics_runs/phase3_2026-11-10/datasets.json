@@ -1,0 +1,37 @@
+[
+ {
+  "subject": "subject1",
+  "what": "core 12 poses (offline probe only; no device shadow log: shadow did not exist yet)",
+  "schedule": "../offline_2026-11-10/schedule.json"
+ },
+ {
+  "subject": "subject1",
+  "what": "hard set; excluded as superseded/not achieved: h_R_no_arm, h_both_L_edge, h_both_R_no_arm",
+  "schedule": "schedules/subject1_hard.json",
+  "shadow": "shadow_logs/subject1_hard.shadow.log.gz"
+ },
+ {
+  "subject": "subject1",
+  "what": "redo of h_R_no_arm, h_both_edge, h_both_one_no_arm with explicit instructions",
+  "schedule": "schedules/subject1_hard_redo.json",
+  "shadow": "shadow_logs/subject1_hard_redo.shadow.log.gz"
+ },
+ {
+  "subject": "subject2",
+  "what": "core 12 poses; device shadow log truncated by its 1500-line cap after ~both_crossing",
+  "schedule": "schedules/subject2_core.json",
+  "shadow": "shadow_logs/subject2_core.shadow.log.gz"
+ },
+ {
+  "subject": "subject2",
+  "what": "re-take of both_crossing, R_fast_wave, R_enter_leave so the device log covers them",
+  "schedule": "schedules/subject2_core_redo.json",
+  "shadow": "shadow_logs/subject2_core_redo.shadow.log.gz"
+ },
+ {
+  "subject": "subject2",
+  "what": "hard set (9 cases)",
+  "schedule": "schedules/subject2_hard.json",
+  "shadow": "shadow_logs/subject2_hard.shadow.log.gz"
+ }
+]

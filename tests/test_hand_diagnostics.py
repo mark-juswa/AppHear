@@ -6,7 +6,12 @@ try:  # numpy is only present in the investigation venv, not in the repo's basel
     from eval.hand_diagnostics import analyze_probe as P
 except ModuleNotFoundError:
     P = None
+try:
+    from eval.hand_diagnostics import analyze_generalization as GEN
+except ModuleNotFoundError:
+    GEN = None
 from eval.hand_diagnostics import analyze_scenarios as A
+from eval.hand_diagnostics import shadow_join as S
 
 DETECT = ("11-10 02:00:00.000  1  2 I AppHearDetect: in=112 ok=111 camDropEst=259 faults=0 recov=0/0 fatal=0 fpsIn=5.2 fpsOk=5.1 busy=98.1% "
           "frame_age=48.2/104.8 pose=49.6/175.9 hands_wall=56.6/113.9 ui_hop=18.0/41.2 end_to_end=265.4/393.9 "
@@ -137,6 +142,84 @@ class CaptureIntervalTests(unittest.TestCase):
         self.assertEqual(r["latency_ms"]["capture_interval_ms(delivered frames)"]["n"], 2)
         self.assertAlmostEqual(r["latency_ms"]["capture_interval_ms(delivered frames)"]["p50"], 100.0, delta=34)
         self.assertEqual(r["latency_ms"]["capture_to_completed_ms"]["n"], 3)
+
+
+@unittest.skipUnless(GEN is not None, "needs numpy (investigation venv)")
+class GeneralizationTests(unittest.TestCase):
+    @staticmethod
+    def _frame(subject, config, ratio, roi_iou, truth, two, support=None, slot=None, bws=None):
+        support = support or {"L": ratio, "R": 1.0}
+        return {"subject": subject, "segment": config, "n": 0, "config": config, "truth": truth, "two_hands": two, "roi_iou": roi_iou, "support": support,
+                "ratio": ratio, "weaker": "L" if support["L"] <= support["R"] else "R", "bws": bws or {"L": 0.5, "R": 0.5},
+                "slot_consistency": slot or {"L": 0.5, "R": 0.5}}
+
+    def test_ratio_rule_drops_only_the_weaker_group_and_only_with_overlap(self):
+        f = self._frame("a", "x", 0.2, 0.8, {"L": False, "R": True}, False)
+        self.assertEqual(GEN.flagged(f, "ratio", 0.5), {"L"})
+        self.assertEqual(GEN.flagged(self._frame("a", "x", 0.2, 0.05, {"L": False, "R": True}, False), "ratio", 0.5), set())   # no overlap
+        self.assertEqual(GEN.flagged(self._frame("a", "x", 0.9, 0.8, {"L": True, "R": True}, True), "ratio", 0.5), set())          # equal pair
+
+    def test_corroborator_can_only_remove_decisions_never_add_them(self):
+        f = self._frame("a", "x", 0.2, 0.8, {"L": False, "R": True}, False, slot={"L": 0.9, "R": 0.9}, bws={"L": 0.9, "R": 0.5})
+        self.assertEqual(GEN.flagged(f, "ratio", 0.5), {"L"})
+        self.assertEqual(GEN.flagged(f, "ratio+corrob", 0.5), set())          # handedness and wrist both say the weaker group is a real left hand
+
+    def test_rates_count_echo_real_and_two_hand_units(self):
+        frames = [self._frame("a", "x", 0.2, 0.8, {"L": False, "R": True}, False),
+                  self._frame("a", "y", 0.4, 0.8, {"L": True, "R": True}, True)]
+        r = GEN.rates(frames, "ratio", 0.5)
+        self.assertEqual((r["n_echo_units"], r["echo_rejection_rate"]), (1, 1.0))
+        self.assertEqual(r["false_suppression_rate"], round(1 / 3, 4))           # 3 real units, the weaker real hand of the pair is dropped
+        self.assertEqual(r["two_hand_frame_preservation_rate"], 0.0)
+
+    def test_threshold_is_learned_on_the_training_subject_only(self):
+        train = [self._frame("A", "x", 0.2, 0.8, {"L": False, "R": True}, False) for _ in range(5)]
+        train += [self._frame("A", "y", 0.9, 0.8, {"L": True, "R": True}, True) for _ in range(5)]
+        test = [self._frame("B", "x", 0.45, 0.8, {"L": False, "R": True}, False) for _ in range(5)]   # test echoes sit where train has a gap
+        T = GEN.learn_threshold(train, "ratio")
+        self.assertTrue(0.2 < T < 0.9)
+        res = GEN.transfer(train + test, ["A", "B"])["train=A -> test=B"]["ratio"]
+        self.assertAlmostEqual(res["threshold_learned_on_train"], round(T, 4), places=3)      # unchanged by any test-subject data
+
+    def test_handedness_rule_uses_the_natural_boundary_and_is_never_tuned(self):
+        f = self._frame("a", "x", 0.9, 0.8, {"L": True, "R": True}, True, slot={"L": 0.3, "R": 0.8})
+        self.assertEqual(GEN.flagged(f, "handedness", None), {"L"})
+        self.assertIsNone(GEN.learn_threshold([f], "handedness"))
+
+
+class ShadowJoinTests(unittest.TestCase):
+    @staticmethod
+    def _line(wall_ms, ratio, weaker, mask, roi_iou=0.8):
+        d = {"schema": "apphear.hand_echo_shadow.v1", "seq": 0, "wall_ms": wall_ms, "ratio": ratio, "weaker": weaker, "roi_iou": roi_iou, "skeleton_iou": None,
+             "mask": mask, "grid": S.GRID, "L": {}, "R": {}}
+        return "11-10 02:00:00.0  1  2 I AppHearEcho: " + json.dumps(d)
+
+    def test_parse_ignores_noise_and_other_schemas(self):
+        text = "\n".join(["junk", self._line(1000, 0.2, "LEFT", 31), "AppHearEcho: {bad json", 'x {"schema":"other"}'])
+        self.assertEqual(len(S.parse_shadow(text)), 1)
+
+    def test_join_scores_echo_wrong_group_and_genuine_pair_drops(self):
+        sched = {"one_R": {"truth": {"L": False, "R": True}, "epoch_start": 100.0, "frames": 60, "fps": 6.0, "config": "distance"},
+                 "two": {"truth": {"L": True, "R": True}, "epoch_start": 200.0, "frames": 60, "fps": 6.0, "config": "two_hand"},
+                 "none": {"truth": {"L": False, "R": False}, "epoch_start": 300.0, "frames": 6, "fps": 6.0}}
+        recs = S.parse_shadow("\n".join([
+            self._line(101_000, 0.2, "LEFT", 0b11111),       # right hand shown, LEFT weaker dropped -> correct echo drop
+            self._line(102_000, 0.2, "RIGHT", 0b11111),      # the REAL hand would be dropped -> wrong group
+            self._line(103_000, 0.9, "LEFT", 0),             # echo with high ratio: missed
+            self._line(104_000, None, "NONE", 0),            # one group only: not a duplicate frame
+            self._line(201_000, 0.95, "LEFT", 0),            # genuine pair kept
+            self._line(202_000, 0.45, "RIGHT", 0b11100),     # genuine pair, dropped for tau 0.5/0.6/0.7
+            self._line(301_000, 0.1, "LEFT", 0b11111),       # 'none' window: excluded
+            self._line(900_000, 0.1, "LEFT", 0b11111)]))     # outside every window
+        j = S.join(recs, sched)
+        self.assertEqual(len(j), 6)
+        r = S.score(j)
+        self.assertEqual(r["frames_both_groups_observed"], 5)
+        g = r["by_grid"]["0.5"]
+        self.assertEqual((g["one_hand_frames"], g["echo_suppressed"], g["wrong_group_dropped"]), (3, 1, 1))
+        self.assertEqual((g["two_hand_frames"], g["genuine_pair_dropped"]), (2, 1))
+        self.assertEqual(r["by_grid"]["0.3"]["genuine_pair_dropped"], 0)      # bit 0 (tau 0.3) not set for the 0.45 pair
+        self.assertEqual(g["per_config"]["two_hand"]["genuine_pair_dropped"], 1)
 
 
 if __name__ == "__main__":

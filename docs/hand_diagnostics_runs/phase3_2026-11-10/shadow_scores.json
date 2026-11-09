@@ -1,0 +1,614 @@
+{
+ "subject1": {
+  "frames_joined": 438,
+  "frames_both_groups_observed": 369,
+  "by_grid": {
+   "0.3": {
+    "one_hand_frames": 143,
+    "echo_suppressed": 53,
+    "echo_suppressed_rate": 0.3706,
+    "wrong_group_dropped": 0,
+    "two_hand_frames": 226,
+    "genuine_pair_dropped": 0,
+    "genuine_pair_dropped_rate": 0.0,
+    "per_config": {
+     "back_of_hand": {
+      "one_hand_frames": 49,
+      "echo_suppressed": 46,
+      "wrong_group_dropped": 0,
+      "two_hand_frames": 50,
+      "genuine_pair_dropped": 0
+     },
+     "boundary": {
+      "one_hand_frames": 47,
+      "echo_suppressed": 7,
+      "wrong_group_dropped": 0,
+      "two_hand_frames": 49,
+      "genuine_pair_dropped": 0
+     },
+     "no_arm": {
+      "one_hand_frames": 47,
+      "echo_suppressed": 0,
+      "wrong_group_dropped": 0,
+      "two_hand_frames": 47,
+      "genuine_pair_dropped": 0
+     },
+     "overlap": {
+      "one_hand_frames": 0,
+      "echo_suppressed": 0,
+      "wrong_group_dropped": 0,
+      "two_hand_frames": 38,
+      "genuine_pair_dropped": 0
+     },
+     "unequal_pair": {
+      "one_hand_frames": 0,
+      "echo_suppressed": 0,
+      "wrong_group_dropped": 0,
+      "two_hand_frames": 42,
+      "genuine_pair_dropped": 0
+     }
+    }
+   },
+   "0.4": {
+    "one_hand_frames": 143,
+    "echo_suppressed": 98,
+    "echo_suppressed_rate": 0.6853,
+    "wrong_group_dropped": 0,
+    "two_hand_frames": 226,
+    "genuine_pair_dropped": 2,
+    "genuine_pair_dropped_rate": 0.0088,
+    "per_config": {
+     "back_of_hand": {
+      "one_hand_frames": 49,
+      "echo_suppressed": 49,
+      "wrong_group_dropped": 0,
+      "two_hand_frames": 50,
+      "genuine_pair_dropped": 0
+     },
+     "boundary": {
+      "one_hand_frames": 47,
+      "echo_suppressed": 42,
+      "wrong_group_dropped": 0,
+      "two_hand_frames": 49,
+      "genuine_pair_dropped": 0
+     },
+     "no_arm": {
+      "one_hand_frames": 47,
+      "echo_suppressed": 7,
+      "wrong_group_dropped": 0,
+      "two_hand_frames": 47,
+      "genuine_pair_dropped": 0
+     },
+     "overlap": {
+      "one_hand_frames": 0,
+      "echo_suppressed": 0,
+      "wrong_group_dropped": 0,
+      "two_hand_frames": 38,
+      "genuine_pair_dropped": 2
+     },
+     "unequal_pair": {
+      "one_hand_frames": 0,
+      "echo_suppressed": 0,
+      "wrong_group_dropped": 0,
+      "two_hand_frames": 42,
+      "genuine_pair_dropped": 0
+     }
+    }
+   },
+   "0.5": {
+    "one_hand_frames": 143,
+    "echo_suppressed": 138,
+    "echo_suppressed_rate": 0.965,
+    "wrong_group_dropped": 0,
+    "two_hand_frames": 226,
+    "genuine_pair_dropped": 10,
+    "genuine_pair_dropped_rate": 0.0442,
+    "per_config": {
+     "back_of_hand": {
+      "one_hand_frames": 49,
+      "echo_suppressed": 49,
+      "wrong_group_dropped": 0,
+      "two_hand_frames": 50,
+      "genuine_pair_dropped": 0
+     },
+     "boundary": {
+      "one_hand_frames": 47,
+      "echo_suppressed": 47,
+      "wrong_group_dropped": 0,
+      "two_hand_frames": 49,
+      "genuine_pair_dropped": 0
+     },
+     "no_arm": {
+      "one_hand_frames": 47,
+      "echo_suppressed": 42,
+      "wrong_group_dropped": 0,
+      "two_hand_frames": 47,
+      "genuine_pair_dropped": 0
+     },
+     "overlap": {
+      "one_hand_frames": 0,
+      "echo_suppressed": 0,
+      "wrong_group_dropped": 0,
+      "two_hand_frames": 38,
+      "genuine_pair_dropped": 10
+     },
+     "unequal_pair": {
+      "one_hand_frames": 0,
+      "echo_suppressed": 0,
+      "wrong_group_dropped": 0,
+      "two_hand_frames": 42,
+      "genuine_pair_dropped": 0
+     }
+    }
+   },
+   "0.6": {
+    "one_hand_frames": 143,
+    "echo_suppressed": 143,
+    "echo_suppressed_rate": 1.0,
+    "wrong_group_dropped": 0,
+    "two_hand_frames": 226,
+    "genuine_pair_dropped": 14,
+    "genuine_pair_dropped_rate": 0.0619,
+    "per_config": {
+     "back_of_hand": {
+      "one_hand_frames": 49,
+      "echo_suppressed": 49,
+      "wrong_group_dropped": 0,
+      "two_hand_frames": 50,
+      "genuine_pair_dropped": 0
+     },
+     "boundary": {
+      "one_hand_frames": 47,
+      "echo_suppressed": 47,
+      "wrong_group_dropped": 0,
+      "two_hand_frames": 49,
+      "genuine_pair_dropped": 0
+     },
+     "no_arm": {
+      "one_hand_frames": 47,
+      "echo_suppressed": 47,
+      "wrong_group_dropped": 0,
+      "two_hand_frames": 47,
+      "genuine_pair_dropped": 0
+     },
+     "overlap": {
+      "one_hand_frames": 0,
+      "echo_suppressed": 0,
+      "wrong_group_dropped": 0,
+      "two_hand_frames": 38,
+      "genuine_pair_dropped": 14
+     },
+     "unequal_pair": {
+      "one_hand_frames": 0,
+      "echo_suppressed": 0,
+      "wrong_group_dropped": 0,
+      "two_hand_frames": 42,
+      "genuine_pair_dropped": 0
+     }
+    }
+   },
+   "0.7": {
+    "one_hand_frames": 143,
+    "echo_suppressed": 143,
+    "echo_suppressed_rate": 1.0,
+    "wrong_group_dropped": 0,
+    "two_hand_frames": 226,
+    "genuine_pair_dropped": 18,
+    "genuine_pair_dropped_rate": 0.0796,
+    "per_config": {
+     "back_of_hand": {
+      "one_hand_frames": 49,
+      "echo_suppressed": 49,
+      "wrong_group_dropped": 0,
+      "two_hand_frames": 50,
+      "genuine_pair_dropped": 0
+     },
+     "boundary": {
+      "one_hand_frames": 47,
+      "echo_suppressed": 47,
+      "wrong_group_dropped": 0,
+      "two_hand_frames": 49,
+      "genuine_pair_dropped": 0
+     },
+     "no_arm": {
+      "one_hand_frames": 47,
+      "echo_suppressed": 47,
+      "wrong_group_dropped": 0,
+      "two_hand_frames": 47,
+      "genuine_pair_dropped": 0
+     },
+     "overlap": {
+      "one_hand_frames": 0,
+      "echo_suppressed": 0,
+      "wrong_group_dropped": 0,
+      "two_hand_frames": 38,
+      "genuine_pair_dropped": 18
+     },
+     "unequal_pair": {
+      "one_hand_frames": 0,
+      "echo_suppressed": 0,
+      "wrong_group_dropped": 0,
+      "two_hand_frames": 42,
+      "genuine_pair_dropped": 0
+     }
+    }
+   }
+  }
+ },
+ "subject2": {
+  "frames_joined": 918,
+  "frames_both_groups_observed": 557,
+  "by_grid": {
+   "0.3": {
+    "one_hand_frames": 189,
+    "echo_suppressed": 83,
+    "echo_suppressed_rate": 0.4392,
+    "wrong_group_dropped": 0,
+    "two_hand_frames": 368,
+    "genuine_pair_dropped": 0,
+    "genuine_pair_dropped_rate": 0.0,
+    "per_config": {
+     "back_of_hand": {
+      "one_hand_frames": 49,
+      "echo_suppressed": 0,
+      "wrong_group_dropped": 0,
+      "two_hand_frames": 26,
+      "genuine_pair_dropped": 0
+     },
+     "boundary": {
+      "one_hand_frames": 0,
+      "echo_suppressed": 0,
+      "wrong_group_dropped": 0,
+      "two_hand_frames": 48,
+      "genuine_pair_dropped": 0
+     },
+     "crossing": {
+      "one_hand_frames": 0,
+      "echo_suppressed": 0,
+      "wrong_group_dropped": 0,
+      "two_hand_frames": 48,
+      "genuine_pair_dropped": 0
+     },
+     "distance": {
+      "one_hand_frames": 55,
+      "echo_suppressed": 48,
+      "wrong_group_dropped": 0,
+      "two_hand_frames": 0,
+      "genuine_pair_dropped": 0
+     },
+     "no_arm": {
+      "one_hand_frames": 50,
+      "echo_suppressed": 0,
+      "wrong_group_dropped": 0,
+      "two_hand_frames": 46,
+      "genuine_pair_dropped": 0
+     },
+     "overlap": {
+      "one_hand_frames": 0,
+      "echo_suppressed": 0,
+      "wrong_group_dropped": 0,
+      "two_hand_frames": 47,
+      "genuine_pair_dropped": 0
+     },
+     "pose": {
+      "one_hand_frames": 35,
+      "echo_suppressed": 35,
+      "wrong_group_dropped": 0,
+      "two_hand_frames": 0,
+      "genuine_pair_dropped": 0
+     },
+     "two_hand": {
+      "one_hand_frames": 0,
+      "echo_suppressed": 0,
+      "wrong_group_dropped": 0,
+      "two_hand_frames": 62,
+      "genuine_pair_dropped": 0
+     },
+     "unequal_pair": {
+      "one_hand_frames": 0,
+      "echo_suppressed": 0,
+      "wrong_group_dropped": 0,
+      "two_hand_frames": 91,
+      "genuine_pair_dropped": 0
+     }
+    }
+   },
+   "0.4": {
+    "one_hand_frames": 189,
+    "echo_suppressed": 107,
+    "echo_suppressed_rate": 0.5661,
+    "wrong_group_dropped": 0,
+    "two_hand_frames": 368,
+    "genuine_pair_dropped": 0,
+    "genuine_pair_dropped_rate": 0.0,
+    "per_config": {
+     "back_of_hand": {
+      "one_hand_frames": 49,
+      "echo_suppressed": 1,
+      "wrong_group_dropped": 0,
+      "two_hand_frames": 26,
+      "genuine_pair_dropped": 0
+     },
+     "boundary": {
+      "one_hand_frames": 0,
+      "echo_suppressed": 0,
+      "wrong_group_dropped": 0,
+      "two_hand_frames": 48,
+      "genuine_pair_dropped": 0
+     },
+     "crossing": {
+      "one_hand_frames": 0,
+      "echo_suppressed": 0,
+      "wrong_group_dropped": 0,
+      "two_hand_frames": 48,
+      "genuine_pair_dropped": 0
+     },
+     "distance": {
+      "one_hand_frames": 55,
+      "echo_suppressed": 48,
+      "wrong_group_dropped": 0,
+      "two_hand_frames": 0,
+      "genuine_pair_dropped": 0
+     },
+     "no_arm": {
+      "one_hand_frames": 50,
+      "echo_suppressed": 23,
+      "wrong_group_dropped": 0,
+      "two_hand_frames": 46,
+      "genuine_pair_dropped": 0
+     },
+     "overlap": {
+      "one_hand_frames": 0,
+      "echo_suppressed": 0,
+      "wrong_group_dropped": 0,
+      "two_hand_frames": 47,
+      "genuine_pair_dropped": 0
+     },
+     "pose": {
+      "one_hand_frames": 35,
+      "echo_suppressed": 35,
+      "wrong_group_dropped": 0,
+      "two_hand_frames": 0,
+      "genuine_pair_dropped": 0
+     },
+     "two_hand": {
+      "one_hand_frames": 0,
+      "echo_suppressed": 0,
+      "wrong_group_dropped": 0,
+      "two_hand_frames": 62,
+      "genuine_pair_dropped": 0
+     },
+     "unequal_pair": {
+      "one_hand_frames": 0,
+      "echo_suppressed": 0,
+      "wrong_group_dropped": 0,
+      "two_hand_frames": 91,
+      "genuine_pair_dropped": 0
+     }
+    }
+   },
+   "0.5": {
+    "one_hand_frames": 189,
+    "echo_suppressed": 182,
+    "echo_suppressed_rate": 0.963,
+    "wrong_group_dropped": 0,
+    "two_hand_frames": 368,
+    "genuine_pair_dropped": 0,
+    "genuine_pair_dropped_rate": 0.0,
+    "per_config": {
+     "back_of_hand": {
+      "one_hand_frames": 49,
+      "echo_suppressed": 45,
+      "wrong_group_dropped": 0,
+      "two_hand_frames": 26,
+      "genuine_pair_dropped": 0
+     },
+     "boundary": {
+      "one_hand_frames": 0,
+      "echo_suppressed": 0,
+      "wrong_group_dropped": 0,
+      "two_hand_frames": 48,
+      "genuine_pair_dropped": 0
+     },
+     "crossing": {
+      "one_hand_frames": 0,
+      "echo_suppressed": 0,
+      "wrong_group_dropped": 0,
+      "two_hand_frames": 48,
+      "genuine_pair_dropped": 0
+     },
+     "distance": {
+      "one_hand_frames": 55,
+      "echo_suppressed": 52,
+      "wrong_group_dropped": 0,
+      "two_hand_frames": 0,
+      "genuine_pair_dropped": 0
+     },
+     "no_arm": {
+      "one_hand_frames": 50,
+      "echo_suppressed": 50,
+      "wrong_group_dropped": 0,
+      "two_hand_frames": 46,
+      "genuine_pair_dropped": 0
+     },
+     "overlap": {
+      "one_hand_frames": 0,
+      "echo_suppressed": 0,
+      "wrong_group_dropped": 0,
+      "two_hand_frames": 47,
+      "genuine_pair_dropped": 0
+     },
+     "pose": {
+      "one_hand_frames": 35,
+      "echo_suppressed": 35,
+      "wrong_group_dropped": 0,
+      "two_hand_frames": 0,
+      "genuine_pair_dropped": 0
+     },
+     "two_hand": {
+      "one_hand_frames": 0,
+      "echo_suppressed": 0,
+      "wrong_group_dropped": 0,
+      "two_hand_frames": 62,
+      "genuine_pair_dropped": 0
+     },
+     "unequal_pair": {
+      "one_hand_frames": 0,
+      "echo_suppressed": 0,
+      "wrong_group_dropped": 0,
+      "two_hand_frames": 91,
+      "genuine_pair_dropped": 0
+     }
+    }
+   },
+   "0.6": {
+    "one_hand_frames": 189,
+    "echo_suppressed": 187,
+    "echo_suppressed_rate": 0.9894,
+    "wrong_group_dropped": 0,
+    "two_hand_frames": 368,
+    "genuine_pair_dropped": 1,
+    "genuine_pair_dropped_rate": 0.0027,
+    "per_config": {
+     "back_of_hand": {
+      "one_hand_frames": 49,
+      "echo_suppressed": 49,
+      "wrong_group_dropped": 0,
+      "two_hand_frames": 26,
+      "genuine_pair_dropped": 0
+     },
+     "boundary": {
+      "one_hand_frames": 0,
+      "echo_suppressed": 0,
+      "wrong_group_dropped": 0,
+      "two_hand_frames": 48,
+      "genuine_pair_dropped": 0
+     },
+     "crossing": {
+      "one_hand_frames": 0,
+      "echo_suppressed": 0,
+      "wrong_group_dropped": 0,
+      "two_hand_frames": 48,
+      "genuine_pair_dropped": 0
+     },
+     "distance": {
+      "one_hand_frames": 55,
+      "echo_suppressed": 53,
+      "wrong_group_dropped": 0,
+      "two_hand_frames": 0,
+      "genuine_pair_dropped": 0
+     },
+     "no_arm": {
+      "one_hand_frames": 50,
+      "echo_suppressed": 50,
+      "wrong_group_dropped": 0,
+      "two_hand_frames": 46,
+      "genuine_pair_dropped": 0
+     },
+     "overlap": {
+      "one_hand_frames": 0,
+      "echo_suppressed": 0,
+      "wrong_group_dropped": 0,
+      "two_hand_frames": 47,
+      "genuine_pair_dropped": 1
+     },
+     "pose": {
+      "one_hand_frames": 35,
+      "echo_suppressed": 35,
+      "wrong_group_dropped": 0,
+      "two_hand_frames": 0,
+      "genuine_pair_dropped": 0
+     },
+     "two_hand": {
+      "one_hand_frames": 0,
+      "echo_suppressed": 0,
+      "wrong_group_dropped": 0,
+      "two_hand_frames": 62,
+      "genuine_pair_dropped": 0
+     },
+     "unequal_pair": {
+      "one_hand_frames": 0,
+      "echo_suppressed": 0,
+      "wrong_group_dropped": 0,
+      "two_hand_frames": 91,
+      "genuine_pair_dropped": 0
+     }
+    }
+   },
+   "0.7": {
+    "one_hand_frames": 189,
+    "echo_suppressed": 187,
+    "echo_suppressed_rate": 0.9894,
+    "wrong_group_dropped": 0,
+    "two_hand_frames": 368,
+    "genuine_pair_dropped": 39,
+    "genuine_pair_dropped_rate": 0.106,
+    "per_config": {
+     "back_of_hand": {
+      "one_hand_frames": 49,
+      "echo_suppressed": 49,
+      "wrong_group_dropped": 0,
+      "two_hand_frames": 26,
+      "genuine_pair_dropped": 0
+     },
+     "boundary": {
+      "one_hand_frames": 0,
+      "echo_suppressed": 0,
+      "wrong_group_dropped": 0,
+      "two_hand_frames": 48,
+      "genuine_pair_dropped": 0
+     },
+     "crossing": {
+      "one_hand_frames": 0,
+      "echo_suppressed": 0,
+      "wrong_group_dropped": 0,
+      "two_hand_frames": 48,
+      "genuine_pair_dropped": 12
+     },
+     "distance": {
+      "one_hand_frames": 55,
+      "echo_suppressed": 53,
+      "wrong_group_dropped": 0,
+      "two_hand_frames": 0,
+      "genuine_pair_dropped": 0
+     },
+     "no_arm": {
+      "one_hand_frames": 50,
+      "echo_suppressed": 50,
+      "wrong_group_dropped": 0,
+      "two_hand_frames": 46,
+      "genuine_pair_dropped": 0
+     },
+     "overlap": {
+      "one_hand_frames": 0,
+      "echo_suppressed": 0,
+      "wrong_group_dropped": 0,
+      "two_hand_frames": 47,
+      "genuine_pair_dropped": 24
+     },
+     "pose": {
+      "one_hand_frames": 35,
+      "echo_suppressed": 35,
+      "wrong_group_dropped": 0,
+      "two_hand_frames": 0,
+      "genuine_pair_dropped": 0
+     },
+     "two_hand": {
+      "one_hand_frames": 0,
+      "echo_suppressed": 0,
+      "wrong_group_dropped": 0,
+      "two_hand_frames": 62,
+      "genuine_pair_dropped": 3
+     },
+     "unequal_pair": {
+      "one_hand_frames": 0,
+      "echo_suppressed": 0,
+      "wrong_group_dropped": 0,
+      "two_hand_frames": 91,
+      "genuine_pair_dropped": 0
+     }
+    }
+   }
+  }
+ }
+}

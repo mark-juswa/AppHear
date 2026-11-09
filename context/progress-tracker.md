@@ -5799,3 +5799,12 @@ fail-safe device metadata in capture_scenario.sh, phone profiling protocol. Fix 
 See docs/DWPOSE_DUPLICATE_PROPOSAL_VALIDATION.md. Not committed.
 
 
+## 2026-11-10 — DWPose echo-suppression validation, phase 3 (second subject, hard cases, shadow-only; no production change)
+
+Second subject + 9 hard configurations (unequal near/far pairs, boundary, no-arm, back-of-hand, overlap, crossing) captured with simultaneous device shadow logging (emulator).
+Added default-off shadow-only HandEchoShadow (flag -PhandEchoShadow, release false; read-only, numbers-only AppHearEcho log with a fixed ratio grid, never a chosen threshold).
+Cross-subject (threshold learned on the other subject): relative support ratio generalizes (echo rejection 95.5-99.7%, genuine-pair preservation 98.3-100%, false suppression 0-1.1%; T 0.527/0.558),
+absolute support/body-wrist do not transfer, handedness is unusable (16-30% false suppression), overlap-only too weak. Device shadow: 0 of 332 one-hand frames dropped the real hand; echo dropped 96.5/96.3% at 0.5;
+parity device vs offline median |dRatio| 0.012. Blocker: overlapping/crossing hands (up to 14.5% units offline, 26% frames on-device in one take; truth doubtful), 1-4 takes per config, no phone, no recognition A/B.
+Single-subject "wide gap" claim withdrawn. DECISION: NO-GO production suppression; GO shadow-only collection; pre-registered gates in the report. 447 JVM tests + 71 Python tests pass. Not committed.
+See docs/DWPOSE_ECHO_SUPPRESSION_VALIDATION.md.

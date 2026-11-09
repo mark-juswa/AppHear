@@ -1,0 +1,38 @@
+{
+ "both_crossing": {
+  "truth": {
+   "L": true,
+   "R": true
+  },
+  "instruction": "Both hands. Cross your forearms in an X, both hands visible.",
+  "frames": 43,
+  "fps": 6.0,
+  "config": "crossing",
+  "subject": "subject2",
+  "epoch_start": 1794251316.3478432,
+  "epoch_end": 1794251325.8147368
+ },
+ "R_fast_wave": {
+  "truth": {
+   "L": false,
+   "R": true
+  },
+  "instruction": "Right hand only. Wave fast from side to side.",
+  "frames": 43,
+  "fps": 6.0,
+  "config": "motion",
+  "subject": "subject2",
+  "epoch_start": 1794251336.846126,
+  "epoch_end": 1794251346.421228
+ },
+ "R_enter_leave": {
+  "truth": null,
+  "instruction": "Right hand only. Raise it into view, lower it out of view, about once a second.",
+  "frames": 43,
+  "fps": 6.0,
+  "config": "dynamic",
+  "subject": "subject2",
+  "epoch_start": 1794251359.3021178,
+  "epoch_end": 1794251368.8239338
+ }
+}

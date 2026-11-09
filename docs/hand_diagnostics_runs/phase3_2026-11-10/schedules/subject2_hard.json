@@ -1,0 +1,119 @@
+{
+ "h_R_near_L_far": {
+  "truth": {
+   "L": true,
+   "R": true
+  },
+  "instruction": "Both hands, palms to the camera. Right hand very close to the camera, left hand far away at arm's length.",
+  "frames": 43,
+  "fps": 6.0,
+  "config": "unequal_pair",
+  "subject": "subject2",
+  "epoch_start": 1794251079.417769,
+  "epoch_end": 1794251088.926316
+ },
+ "h_L_near_R_far": {
+  "truth": {
+   "L": true,
+   "R": true
+  },
+  "instruction": "Both hands, palms to the camera. Left hand very close to the camera, right hand far away at arm's length.",
+  "frames": 43,
+  "fps": 6.0,
+  "config": "unequal_pair",
+  "subject": "subject2",
+  "epoch_start": 1794251103.179817,
+  "epoch_end": 1794251112.740868
+ },
+ "h_R_edge": {
+  "truth": {
+   "L": false,
+   "R": true
+  },
+  "instruction": "Right hand only, at the right edge of the picture, partly cut off by the edge.",
+  "frames": 43,
+  "fps": 6.0,
+  "config": "boundary",
+  "subject": "subject2",
+  "epoch_start": 1794251125.218783,
+  "epoch_end": 1794251134.722772
+ },
+ "h_both_edge": {
+  "truth": {
+   "L": true,
+   "R": true
+  },
+  "instruction": "Both hands. Push one hand to the very edge of the picture so half of it is cut off by the edge. The other hand stays in the middle.",
+  "frames": 43,
+  "fps": 6.0,
+  "config": "boundary",
+  "subject": "subject2",
+  "epoch_start": 1794251149.926956,
+  "epoch_end": 1794251159.446965
+ },
+ "h_R_no_arm": {
+  "truth": {
+   "L": false,
+   "R": true
+  },
+  "instruction": "Right hand only. Hold your hand very low, so that only the fingers and palm show at the bottom of the picture and your whole forearm is below the picture.",
+  "frames": 43,
+  "fps": 6.0,
+  "config": "no_arm",
+  "subject": "subject2",
+  "epoch_start": 1794251176.1890109,
+  "epoch_end": 1794251185.7443311
+ },
+ "h_both_one_no_arm": {
+  "truth": {
+   "L": true,
+   "R": true
+  },
+  "instruction": "Both hands. One hand raised normally with its arm visible. The other hand held very low, only fingers and palm showing at the bottom of the picture, forearm below the picture.",
+  "frames": 43,
+  "fps": 6.0,
+  "config": "no_arm",
+  "subject": "subject2",
+  "epoch_start": 1794251203.068908,
+  "epoch_end": 1794251212.5363169
+ },
+ "h_R_back": {
+  "truth": {
+   "L": false,
+   "R": true
+  },
+  "instruction": "Right hand only, back of the hand toward the camera, fingers open.",
+  "frames": 43,
+  "fps": 6.0,
+  "config": "back_of_hand",
+  "subject": "subject2",
+  "epoch_start": 1794251224.2276962,
+  "epoch_end": 1794251233.7161658
+ },
+ "h_both_back": {
+  "truth": {
+   "L": true,
+   "R": true
+  },
+  "instruction": "Both hands, backs of the hands toward the camera, apart from each other.",
+  "frames": 43,
+  "fps": 6.0,
+  "config": "back_of_hand",
+  "subject": "subject2",
+  "epoch_start": 1794251245.41263,
+  "epoch_end": 1794251254.910809
+ },
+ "h_both_overlap": {
+  "truth": {
+   "L": true,
+   "R": true
+  },
+  "instruction": "Both hands. One hand in front of the other, fingers overlapping, palms toward the camera.",
+  "frames": 43,
+  "fps": 6.0,
+  "config": "overlap",
+  "subject": "subject2",
+  "epoch_start": 1794251267.968616,
+  "epoch_end": 1794251277.449894
+ }
+}
