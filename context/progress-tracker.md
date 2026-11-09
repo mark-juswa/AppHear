@@ -5744,3 +5744,15 @@ release + androidTest compile. No physical-device measurement; emulator numbers 
 limits: `docs/PHASE_2_CONTINUOUS_DETECTION.md`. Phase 1.2 APK predates this work. Not committed.
 
 
+## 2026-11-09 — Phase 3 recognition accuracy investigation (analysis only; no model trained or promoted)
+
+Verified the existing attribution study and reproduced its numbers (hard classes 98/78/64; funnel: with production S2-R2 only 132 of
+332 classifier-recoverable correct words are delivered; 18 of the 20 weakest classes are LOW_FIT). Gate study: top-1 probability is
+uncalibrated (ECE 0.15-0.27); no data supports per-class or per-signer floors or a temporal rule; shipped floors 0.55/0.75 sit on a
+flat part of the trade-off curve. 42/42 model-contract checks; signer splits disjoint; phone evidence may overlap a TRAIN signer.
+No production model, vocabulary, threshold or analyzer change. One hardening: PhoneEventCommitter rejects output whose top-1 is not an
+argmax of the full vector. Recommendation: keep production unchanged; WORD_BLEND_02 is the best candidate but lacks phone validation,
+a calibrated floor and device latency. 415 JVM tests, 54 Python tests; emulator parity runs. Records: docs/PHASE_3_RECOGNITION_ACCURACY.md,
+docs/recognition_experiments/. Not committed.
+
+

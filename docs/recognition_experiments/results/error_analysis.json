@@ -1,0 +1,1141 @@
+{
+ "population": "pooled independent clips: DEV (5 ASL Citizen signers) + Sem-Lex EVAL-role signers; DEV is selection-exposed to every compared model, EVAL signers were never trained on",
+ "models": {
+  "frozen": {
+   "classes": 236,
+   "clips": 2333,
+   "clip_weighted_accuracy": 0.2984,
+   "macro_recall": 0.4062,
+   "median_class_recall": 0.363,
+   "classes_zero_recall": 3,
+   "hard_classes_recall_le_0.30": 98,
+   "hard_label_counts": {
+    "LOW_FIT": 77,
+    "WEAK_HANDS": 20,
+    "CADENCE": 16,
+    "THIN_COVERAGE": 15,
+    "PAIR": 13,
+    "UNEXPLAINED": 13
+   },
+   "train_signers_per_class": {
+    "min": 8,
+    "median": 13.0,
+    "max": 18
+   },
+   "classes_with_fewer_than_12_train_signers": 23,
+   "spearman_train_signers_vs_recall": 0.237,
+   "spearman_train_fit_vs_recall": 0.529,
+   "spearman_hand_fraction_vs_recall": 0.204,
+   "evaluation_clips_per_class": {
+    "min": 2,
+    "median": 4.0,
+    "max": 67
+   },
+   "classes_with_at_least_8_eval_clips_and_5_signers": 82
+  },
+  "BLEND_01": {
+   "classes": 236,
+   "clips": 2333,
+   "clip_weighted_accuracy": 0.3809,
+   "macro_recall": 0.4709,
+   "median_class_recall": 0.4625,
+   "classes_zero_recall": 4,
+   "hard_classes_recall_le_0.30": 78,
+   "hard_label_counts": {
+    "LOW_FIT": 56,
+    "WEAK_HANDS": 18,
+    "CADENCE": 15,
+    "UNEXPLAINED": 15,
+    "PAIR": 12,
+    "THIN_COVERAGE": 9
+   },
+   "train_signers_per_class": {
+    "min": 8,
+    "median": 13.0,
+    "max": 18
+   },
+   "classes_with_fewer_than_12_train_signers": 23,
+   "spearman_train_signers_vs_recall": 0.111,
+   "spearman_train_fit_vs_recall": 0.511,
+   "spearman_hand_fraction_vs_recall": 0.255,
+   "evaluation_clips_per_class": {
+    "min": 2,
+    "median": 4.0,
+    "max": 67
+   },
+   "classes_with_at_least_8_eval_clips_and_5_signers": 82
+  },
+  "BLEND_02": {
+   "classes": 236,
+   "clips": 2333,
+   "clip_weighted_accuracy": 0.4162,
+   "macro_recall": 0.4799,
+   "median_class_recall": 0.44,
+   "classes_zero_recall": 3,
+   "hard_classes_recall_le_0.30": 64,
+   "hard_label_counts": {
+    "LOW_FIT": 46,
+    "CADENCE": 18,
+    "WEAK_HANDS": 17,
+    "THIN_COVERAGE": 9,
+    "UNEXPLAINED": 8,
+    "PAIR": 7
+   },
+   "train_signers_per_class": {
+    "min": 8,
+    "median": 13.0,
+    "max": 18
+   },
+   "classes_with_fewer_than_12_train_signers": 23,
+   "spearman_train_signers_vs_recall": 0.192,
+   "spearman_train_fit_vs_recall": 0.49,
+   "spearman_hand_fraction_vs_recall": 0.258,
+   "evaluation_clips_per_class": {
+    "min": 2,
+    "median": 4.0,
+    "max": 67
+   },
+   "classes_with_at_least_8_eval_clips_and_5_signers": 82
+  }
+ },
+ "weakest20_frozen": [
+  {
+   "cls": "MONEY1",
+   "clips": 62,
+   "signers": 15,
+   "recall_real": 0.016,
+   "recall_dense": 0.016,
+   "hand": 0.576,
+   "train_fit": 0.0,
+   "train_signers": 13,
+   "partner": "BUY",
+   "partner_share": 0.15,
+   "labels": [
+    "LOW_FIT"
+   ]
+  },
+  {
+   "cls": "HEAR1",
+   "clips": 12,
+   "signers": 7,
+   "recall_real": 0.021,
+   "recall_dense": 0.083,
+   "hand": 0.576,
+   "train_fit": 0.231,
+   "train_signers": 12,
+   "partner": "BYE",
+   "partner_share": 0.3,
+   "labels": [
+    "LOW_FIT"
+   ]
+  },
+  {
+   "cls": "SOMETIMES",
+   "clips": 8,
+   "signers": 6,
+   "recall_real": 0.031,
+   "recall_dense": 0.0,
+   "hand": 0.681,
+   "train_fit": 0.462,
+   "train_signers": 12,
+   "partner": "SHOW",
+   "partner_share": 0.13,
+   "labels": [
+    "LOW_FIT"
+   ]
+  },
+  {
+   "cls": "PLEASE",
+   "clips": 7,
+   "signers": 7,
+   "recall_real": 0.036,
+   "recall_dense": 0.143,
+   "hand": 0.372,
+   "train_fit": 0.636,
+   "train_signers": 11,
+   "partner": "HAPPY",
+   "partner_share": 0.41,
+   "labels": [
+    "WEAK_HANDS",
+    "PAIR",
+    "THIN_COVERAGE"
+   ]
+  },
+  {
+   "cls": "NEW",
+   "clips": 31,
+   "signers": 11,
+   "recall_real": 0.04,
+   "recall_dense": 0.226,
+   "hand": 0.642,
+   "train_fit": 0.143,
+   "train_signers": 14,
+   "partner": "EASY",
+   "partner_share": 0.14,
+   "labels": [
+    "LOW_FIT"
+   ]
+  },
+  {
+   "cls": "IN",
+   "clips": 6,
+   "signers": 6,
+   "recall_real": 0.042,
+   "recall_dense": 0.0,
+   "hand": 0.472,
+   "train_fit": 0.538,
+   "train_signers": 12,
+   "partner": "NIGHT1",
+   "partner_share": 0.13,
+   "labels": [
+    "LOW_FIT"
+   ]
+  },
+  {
+   "cls": "NICE",
+   "clips": 40,
+   "signers": 12,
+   "recall_real": 0.044,
+   "recall_dense": 0.05,
+   "hand": 0.593,
+   "train_fit": 0.2,
+   "train_signers": 15,
+   "partner": "MOVIE1",
+   "partner_share": 0.11,
+   "labels": [
+    "LOW_FIT"
+   ]
+  },
+  {
+   "cls": "CLEAN",
+   "clips": 67,
+   "signers": 17,
+   "recall_real": 0.045,
+   "recall_dense": 0.164,
+   "hand": 0.622,
+   "train_fit": 0.133,
+   "train_signers": 14,
+   "partner": "MOVIE1",
+   "partner_share": 0.11,
+   "labels": [
+    "LOW_FIT"
+   ]
+  },
+  {
+   "cls": "WHY",
+   "clips": 9,
+   "signers": 7,
+   "recall_real": 0.056,
+   "recall_dense": 0.0,
+   "hand": 0.427,
+   "train_fit": 0.25,
+   "train_signers": 12,
+   "partner": "BECAUSE",
+   "partner_share": 0.24,
+   "labels": [
+    "WEAK_HANDS",
+    "LOW_FIT"
+   ]
+  },
+  {
+   "cls": "COOK",
+   "clips": 30,
+   "signers": 13,
+   "recall_real": 0.067,
+   "recall_dense": 0.2,
+   "hand": 0.616,
+   "train_fit": 0.308,
+   "train_signers": 11,
+   "partner": "GOOD",
+   "partner_share": 0.2,
+   "labels": [
+    "LOW_FIT",
+    "THIN_COVERAGE"
+   ]
+  },
+  {
+   "cls": "MONTH",
+   "clips": 11,
+   "signers": 9,
+   "recall_real": 0.068,
+   "recall_dense": 0.182,
+   "hand": 0.666,
+   "train_fit": 0.286,
+   "train_signers": 13,
+   "partner": "FROM",
+   "partner_share": 0.12,
+   "labels": [
+    "LOW_FIT"
+   ]
+  },
+  {
+   "cls": "SCHOOL",
+   "clips": 54,
+   "signers": 14,
+   "recall_real": 0.074,
+   "recall_dense": 0.167,
+   "hand": 0.614,
+   "train_fit": 0.4,
+   "train_signers": 15,
+   "partner": "MOVIE1",
+   "partner_share": 0.2,
+   "labels": [
+    "LOW_FIT"
+   ]
+  },
+  {
+   "cls": "HOSPITAL1",
+   "clips": 17,
+   "signers": 7,
+   "recall_real": 0.074,
+   "recall_dense": 0.353,
+   "hand": 0.406,
+   "train_fit": 0.0,
+   "train_signers": 16,
+   "partner": "US",
+   "partner_share": 0.14,
+   "labels": [
+    "WEAK_HANDS",
+    "CADENCE",
+    "LOW_FIT"
+   ]
+  },
+  {
+   "cls": "WALK2",
+   "clips": 17,
+   "signers": 9,
+   "recall_real": 0.088,
+   "recall_dense": 0.118,
+   "hand": 0.66,
+   "train_fit": 0.615,
+   "train_signers": 12,
+   "partner": "OFTEN",
+   "partner_share": 0.1,
+   "labels": [
+    "UNEXPLAINED"
+   ]
+  },
+  {
+   "cls": "CUT",
+   "clips": 8,
+   "signers": 7,
+   "recall_real": 0.094,
+   "recall_dense": 0.25,
+   "hand": 0.585,
+   "train_fit": 0.562,
+   "train_signers": 14,
+   "partner": "US",
+   "partner_share": 0.1,
+   "labels": [
+    "LOW_FIT"
+   ]
+  },
+  {
+   "cls": "ENTER",
+   "clips": 8,
+   "signers": 8,
+   "recall_real": 0.094,
+   "recall_dense": 0.125,
+   "hand": 0.508,
+   "train_fit": 0.062,
+   "train_signers": 14,
+   "partner": "ON",
+   "partner_share": 0.17,
+   "labels": [
+    "LOW_FIT"
+   ]
+  },
+  {
+   "cls": "BAD",
+   "clips": 28,
+   "signers": 13,
+   "recall_real": 0.098,
+   "recall_dense": 0.286,
+   "hand": 0.493,
+   "train_fit": 0.3,
+   "train_signers": 10,
+   "partner": "HOT",
+   "partner_share": 0.1,
+   "labels": [
+    "LOW_FIT",
+    "THIN_COVERAGE"
+   ]
+  },
+  {
+   "cls": "SOME",
+   "clips": 10,
+   "signers": 7,
+   "recall_real": 0.1,
+   "recall_dense": 0.2,
+   "hand": 0.665,
+   "train_fit": 0.5,
+   "train_signers": 12,
+   "partner": "GOOD",
+   "partner_share": 0.19,
+   "labels": [
+    "LOW_FIT"
+   ]
+  },
+  {
+   "cls": "MEAN2",
+   "clips": 5,
+   "signers": 5,
+   "recall_real": 0.1,
+   "recall_dense": 0.2,
+   "hand": 0.682,
+   "train_fit": 0.4,
+   "train_signers": 15,
+   "partner": "EACH",
+   "partner_share": 0.28,
+   "labels": [
+    "LOW_FIT"
+   ]
+  },
+  {
+   "cls": "WHAT1",
+   "clips": 5,
+   "signers": 5,
+   "recall_real": 0.1,
+   "recall_dense": 0.2,
+   "hand": 0.728,
+   "train_fit": 0.333,
+   "train_signers": 13,
+   "partner": "READ",
+   "partner_share": 0.22,
+   "labels": [
+    "LOW_FIT"
+   ]
+  }
+ ],
+ "weakest20_blend02": [
+  {
+   "cls": "IN",
+   "clips": 6,
+   "signers": 6,
+   "recall_real": 0.0,
+   "recall_dense": 0.0,
+   "hand": 0.472,
+   "train_fit": 0.538,
+   "train_signers": 12,
+   "partner": "NIGHT1",
+   "partner_share": 0.21,
+   "labels": [
+    "LOW_FIT"
+   ]
+  },
+  {
+   "cls": "PLEASE",
+   "clips": 7,
+   "signers": 7,
+   "recall_real": 0.036,
+   "recall_dense": 0.143,
+   "hand": 0.372,
+   "train_fit": 0.545,
+   "train_signers": 11,
+   "partner": "HAPPY",
+   "partner_share": 0.41,
+   "labels": [
+    "WEAK_HANDS",
+    "LOW_FIT",
+    "PAIR",
+    "THIN_COVERAGE"
+   ]
+  },
+  {
+   "cls": "NICE",
+   "clips": 40,
+   "signers": 12,
+   "recall_real": 0.05,
+   "recall_dense": 0.075,
+   "hand": 0.593,
+   "train_fit": 0.2,
+   "train_signers": 15,
+   "partner": "SCHOOL",
+   "partner_share": 0.1,
+   "labels": [
+    "LOW_FIT"
+   ]
+  },
+  {
+   "cls": "SOMETIMES",
+   "clips": 8,
+   "signers": 6,
+   "recall_real": 0.062,
+   "recall_dense": 0.0,
+   "hand": 0.681,
+   "train_fit": 0.385,
+   "train_signers": 12,
+   "partner": "SHOW",
+   "partner_share": 0.13,
+   "labels": [
+    "LOW_FIT"
+   ]
+  },
+  {
+   "cls": "CUT",
+   "clips": 8,
+   "signers": 7,
+   "recall_real": 0.094,
+   "recall_dense": 0.375,
+   "hand": 0.585,
+   "train_fit": 0.688,
+   "train_signers": 14,
+   "partner": "OR",
+   "partner_share": 0.14,
+   "labels": [
+    "CADENCE"
+   ]
+  },
+  {
+   "cls": "CLEAN",
+   "clips": 67,
+   "signers": 17,
+   "recall_real": 0.097,
+   "recall_dense": 0.209,
+   "hand": 0.622,
+   "train_fit": 0.2,
+   "train_signers": 14,
+   "partner": "COOK",
+   "partner_share": 0.14,
+   "labels": [
+    "LOW_FIT"
+   ]
+  },
+  {
+   "cls": "SOME",
+   "clips": 10,
+   "signers": 7,
+   "recall_real": 0.125,
+   "recall_dense": 0.3,
+   "hand": 0.665,
+   "train_fit": 0.417,
+   "train_signers": 12,
+   "partner": "GOOD",
+   "partner_share": 0.17,
+   "labels": [
+    "LOW_FIT"
+   ]
+  },
+  {
+   "cls": "FEW",
+   "clips": 8,
+   "signers": 7,
+   "recall_real": 0.125,
+   "recall_dense": 0.125,
+   "hand": 0.49,
+   "train_fit": 0.6,
+   "train_signers": 12,
+   "partner": "LIKE",
+   "partner_share": 0.14,
+   "labels": [
+    "UNEXPLAINED"
+   ]
+  },
+  {
+   "cls": "MONEY1",
+   "clips": 62,
+   "signers": 15,
+   "recall_real": 0.133,
+   "recall_dense": 0.355,
+   "hand": 0.576,
+   "train_fit": 0.143,
+   "train_signers": 13,
+   "partner": "BUY",
+   "partner_share": 0.15,
+   "labels": [
+    "LOW_FIT"
+   ]
+  },
+  {
+   "cls": "WHY",
+   "clips": 9,
+   "signers": 7,
+   "recall_real": 0.139,
+   "recall_dense": 0.333,
+   "hand": 0.427,
+   "train_fit": 0.25,
+   "train_signers": 12,
+   "partner": "BECAUSE",
+   "partner_share": 0.23,
+   "labels": [
+    "WEAK_HANDS",
+    "LOW_FIT"
+   ]
+  },
+  {
+   "cls": "AT",
+   "clips": 5,
+   "signers": 4,
+   "recall_real": 0.15,
+   "recall_dense": 0.4,
+   "hand": 0.571,
+   "train_fit": 0.692,
+   "train_signers": 12,
+   "partner": "NIGHT1",
+   "partner_share": 0.24,
+   "labels": [
+    "CADENCE"
+   ]
+  },
+  {
+   "cls": "MEAN2",
+   "clips": 5,
+   "signers": 5,
+   "recall_real": 0.15,
+   "recall_dense": 0.2,
+   "hand": 0.682,
+   "train_fit": 0.4,
+   "train_signers": 15,
+   "partner": "EACH",
+   "partner_share": 0.24,
+   "labels": [
+    "LOW_FIT"
+   ]
+  },
+  {
+   "cls": "RIGHT3",
+   "clips": 5,
+   "signers": 5,
+   "recall_real": 0.15,
+   "recall_dense": 0.2,
+   "hand": 0.392,
+   "train_fit": 0.647,
+   "train_signers": 15,
+   "partner": "TABLE",
+   "partner_share": 0.12,
+   "labels": [
+    "WEAK_HANDS"
+   ]
+  },
+  {
+   "cls": "SPECIAL1",
+   "clips": 5,
+   "signers": 5,
+   "recall_real": 0.15,
+   "recall_dense": 0.0,
+   "hand": 0.576,
+   "train_fit": 0.824,
+   "train_signers": 15,
+   "partner": "FAMILY",
+   "partner_share": 0.18,
+   "labels": [
+    "UNEXPLAINED"
+   ]
+  },
+  {
+   "cls": "ENTER",
+   "clips": 8,
+   "signers": 8,
+   "recall_real": 0.156,
+   "recall_dense": 0.375,
+   "hand": 0.508,
+   "train_fit": 0.5,
+   "train_signers": 14,
+   "partner": "ON",
+   "partner_share": 0.15,
+   "labels": [
+    "LOW_FIT"
+   ]
+  },
+  {
+   "cls": "HEAR1",
+   "clips": 12,
+   "signers": 7,
+   "recall_real": 0.167,
+   "recall_dense": 0.167,
+   "hand": 0.576,
+   "train_fit": 0.308,
+   "train_signers": 12,
+   "partner": "BYE",
+   "partner_share": 0.25,
+   "labels": [
+    "LOW_FIT"
+   ]
+  },
+  {
+   "cls": "COOK",
+   "clips": 30,
+   "signers": 13,
+   "recall_real": 0.175,
+   "recall_dense": 0.233,
+   "hand": 0.616,
+   "train_fit": 0.385,
+   "train_signers": 11,
+   "partner": "GOOD",
+   "partner_share": 0.13,
+   "labels": [
+    "LOW_FIT",
+    "THIN_COVERAGE"
+   ]
+  },
+  {
+   "cls": "SCHOOL",
+   "clips": 54,
+   "signers": 14,
+   "recall_real": 0.185,
+   "recall_dense": 0.333,
+   "hand": 0.614,
+   "train_fit": 0.667,
+   "train_signers": 15,
+   "partner": "MOVIE1",
+   "partner_share": 0.16,
+   "labels": [
+    "UNEXPLAINED"
+   ]
+  },
+  {
+   "cls": "NEW",
+   "clips": 31,
+   "signers": 11,
+   "recall_real": 0.185,
+   "recall_dense": 0.548,
+   "hand": 0.642,
+   "train_fit": 0.286,
+   "train_signers": 14,
+   "partner": "EASY",
+   "partner_share": 0.13,
+   "labels": [
+    "CADENCE",
+    "LOW_FIT"
+   ]
+  },
+  {
+   "cls": "LUNCH1",
+   "clips": 8,
+   "signers": 6,
+   "recall_real": 0.188,
+   "recall_dense": 0.25,
+   "hand": 0.605,
+   "train_fit": 0.316,
+   "train_signers": 13,
+   "partner": "HOT",
+   "partner_share": 0.12,
+   "labels": [
+    "LOW_FIT"
+   ]
+  }
+ ],
+ "top_confusion_pairs_frozen": [
+  {
+   "pair": "MOVIE1/SCHOOL",
+   "a_to_b": 0.0,
+   "b_to_a": 10.0,
+   "estimated_errors": 10.0
+  },
+  {
+   "pair": "CHAIR/SIT",
+   "a_to_b": 0.74,
+   "b_to_a": 9.21,
+   "estimated_errors": 9.95
+  },
+  {
+   "pair": "BUY/MONEY1",
+   "a_to_b": 0.0,
+   "b_to_a": 9.15,
+   "estimated_errors": 9.15
+  },
+  {
+   "pair": "THEN/TIME",
+   "a_to_b": 0.0,
+   "b_to_a": 7.92,
+   "estimated_errors": 7.92
+  },
+  {
+   "pair": "HOT/PICK",
+   "a_to_b": 7.42,
+   "b_to_a": 0.0,
+   "estimated_errors": 7.42
+  },
+  {
+   "pair": "CLEAN/MOVIE1",
+   "a_to_b": 7.04,
+   "b_to_a": 0.0,
+   "estimated_errors": 7.04
+  },
+  {
+   "pair": "PLAY/TODAY",
+   "a_to_b": 6.99,
+   "b_to_a": 0.0,
+   "estimated_errors": 6.99
+  },
+  {
+   "pair": "COOK/GOOD",
+   "a_to_b": 5.6,
+   "b_to_a": 0.0,
+   "estimated_errors": 5.6
+  },
+  {
+   "pair": "COLD/WITH",
+   "a_to_b": 2.82,
+   "b_to_a": 2.72,
+   "estimated_errors": 5.54
+  },
+  {
+   "pair": "FIRST/WHERE",
+   "a_to_b": 0.0,
+   "b_to_a": 4.64,
+   "estimated_errors": 4.64
+  },
+  {
+   "pair": "BECAUSE/KNOW",
+   "a_to_b": 0.0,
+   "b_to_a": 4.57,
+   "estimated_errors": 4.57
+  },
+  {
+   "pair": "HELP/WATCH",
+   "a_to_b": 4.46,
+   "b_to_a": 0.0,
+   "estimated_errors": 4.46
+  },
+  {
+   "pair": "NOW/TODAY",
+   "a_to_b": 4.25,
+   "b_to_a": 0.0,
+   "estimated_errors": 4.25
+  },
+  {
+   "pair": "HURRY/READY",
+   "a_to_b": 0.0,
+   "b_to_a": 4.24,
+   "estimated_errors": 4.24
+  },
+  {
+   "pair": "MOVIE1/NICE",
+   "a_to_b": 0.0,
+   "b_to_a": 4.21,
+   "estimated_errors": 4.21
+  },
+  {
+   "pair": "LOVE/SORRY",
+   "a_to_b": 4.2,
+   "b_to_a": 0.0,
+   "estimated_errors": 4.2
+  },
+  {
+   "pair": "EASY/NEW",
+   "a_to_b": 0.0,
+   "b_to_a": 4.17,
+   "estimated_errors": 4.17
+  },
+  {
+   "pair": "OLD/TALK1",
+   "a_to_b": 4.08,
+   "b_to_a": 0.0,
+   "estimated_errors": 4.08
+  },
+  {
+   "pair": "DIFFERENT/GO",
+   "a_to_b": 3.97,
+   "b_to_a": 0.0,
+   "estimated_errors": 3.97
+  },
+  {
+   "pair": "HOW1/TIRED",
+   "a_to_b": 0.0,
+   "b_to_a": 3.81,
+   "estimated_errors": 3.81
+  }
+ ],
+ "top_confusion_pairs_blend02": [
+  {
+   "pair": "BUY/MONEY1",
+   "a_to_b": 1.0,
+   "b_to_a": 8.06,
+   "estimated_errors": 9.06
+  },
+  {
+   "pair": "CLEAN/COOK",
+   "a_to_b": 8.47,
+   "b_to_a": 0.0,
+   "estimated_errors": 8.47
+  },
+  {
+   "pair": "CHAIR/SIT",
+   "a_to_b": 0.0,
+   "b_to_a": 8.24,
+   "estimated_errors": 8.24
+  },
+  {
+   "pair": "MOVIE1/SCHOOL",
+   "a_to_b": 0.0,
+   "b_to_a": 7.04,
+   "estimated_errors": 7.04
+  },
+  {
+   "pair": "ASK/WHERE",
+   "a_to_b": 0.0,
+   "b_to_a": 5.46,
+   "estimated_errors": 5.46
+  },
+  {
+   "pair": "PLAY/TODAY",
+   "a_to_b": 5.25,
+   "b_to_a": 0.0,
+   "estimated_errors": 5.25
+  },
+  {
+   "pair": "HOUSE/OPEN",
+   "a_to_b": 3.51,
+   "b_to_a": 1.47,
+   "estimated_errors": 4.98
+  },
+  {
+   "pair": "CLOTHES/TIRED",
+   "a_to_b": 4.64,
+   "b_to_a": 0.0,
+   "estimated_errors": 4.64
+  },
+  {
+   "pair": "WAIT/WANT2",
+   "a_to_b": 1.5,
+   "b_to_a": 2.75,
+   "estimated_errors": 4.25
+  },
+  {
+   "pair": "HOSPITAL1/LOVE",
+   "a_to_b": 1.72,
+   "b_to_a": 2.48,
+   "estimated_errors": 4.2
+  },
+  {
+   "pair": "BUT/DIFFERENT",
+   "a_to_b": 1.24,
+   "b_to_a": 2.77,
+   "estimated_errors": 4.01
+  },
+  {
+   "pair": "NICE/SCHOOL",
+   "a_to_b": 3.8,
+   "b_to_a": 0.0,
+   "estimated_errors": 3.8
+  },
+  {
+   "pair": "HOME/KNOW",
+   "a_to_b": 0.0,
+   "b_to_a": 3.77,
+   "estimated_errors": 3.77
+  },
+  {
+   "pair": "COLD/FAST",
+   "a_to_b": 0.0,
+   "b_to_a": 3.51,
+   "estimated_errors": 3.51
+  },
+  {
+   "pair": "HOT/PICK",
+   "a_to_b": 3.51,
+   "b_to_a": 0.0,
+   "estimated_errors": 3.51
+  },
+  {
+   "pair": "EASY/NEW",
+   "a_to_b": 0.0,
+   "b_to_a": 3.28,
+   "estimated_errors": 3.28
+  },
+  {
+   "pair": "COOK/GOOD",
+   "a_to_b": 3.22,
+   "b_to_a": 0.0,
+   "estimated_errors": 3.22
+  },
+  {
+   "pair": "WEEK/WRITE",
+   "a_to_b": 2.71,
+   "b_to_a": 0.5,
+   "estimated_errors": 3.21
+  },
+  {
+   "pair": "AGAIN/OFTEN",
+   "a_to_b": 2.78,
+   "b_to_a": 0.25,
+   "estimated_errors": 3.03
+  },
+  {
+   "pair": "PAY/TIME",
+   "a_to_b": 0.0,
+   "b_to_a": 2.9,
+   "estimated_errors": 2.9
+  }
+ ],
+ "delta_frozen_to_blend02": {
+  "up": 133,
+  "down": 19,
+  "within": 84,
+  "largest_drops": [
+   [
+    "MOUTH",
+    -0.25
+   ],
+   [
+    "TODAY",
+    -0.188
+   ],
+   [
+    "TOOMUCH",
+    -0.187
+   ],
+   [
+    "CITY2",
+    -0.166
+   ],
+   [
+    "GET",
+    -0.125
+   ],
+   [
+    "SELL",
+    -0.125
+   ],
+   [
+    "AT",
+    -0.1
+   ],
+   [
+    "DONTKNOW",
+    -0.084
+   ]
+  ]
+ },
+ "delta_blend01_to_blend02": {
+  "up": 57,
+  "down": 51,
+  "within": 128,
+  "largest_drops": [
+   [
+    "WHEN",
+    -0.195
+   ],
+   [
+    "TODAY",
+    -0.188
+   ],
+   [
+    "BUY",
+    -0.187
+   ],
+   [
+    "CITY2",
+    -0.166
+   ],
+   [
+    "MORE",
+    -0.126
+   ],
+   [
+    "GET",
+    -0.125
+   ],
+   [
+    "GRAB",
+    -0.125
+   ],
+   [
+    "STRONG",
+    -0.125
+   ]
+  ]
+ },
+ "funnel_s2r2_production": {
+  "NATURAL": {
+   "signs": 812,
+   "acquired_by_s2": 499,
+   "own_distinct_event": 313,
+   "correct_words": 132,
+   "oracle_correct_perfect_window_same_recognizer": 332,
+   "classifier_limited_signs": 480,
+   "lost_upstream_of_classifier": 200,
+   "share_of_oracle_correct_words_delivered": 0.3976,
+   "merged_events": 11,
+   "acquired_but_no_distinct_event": 186,
+   "extra_events": 70,
+   "word_precision_of_events": 0.3446,
+   "per_signer_correct_word_rate": {
+    "P12": 0.059,
+    "P21": 0.158,
+    "P26": 0.134,
+    "P39": 0.221,
+    "P5": 0.179
+   }
+  },
+  "CONTINUOUS": {
+   "signs": 812,
+   "acquired_by_s2": 600,
+   "own_distinct_event": 256,
+   "correct_words": 78,
+   "oracle_correct_perfect_window_same_recognizer": 296,
+   "classifier_limited_signs": 516,
+   "lost_upstream_of_classifier": 218,
+   "share_of_oracle_correct_words_delivered": 0.2635,
+   "merged_events": 61,
+   "acquired_but_no_distinct_event": 344,
+   "extra_events": 5,
+   "word_precision_of_events": 0.2989,
+   "per_signer_correct_word_rate": {
+    "P12": 0.029,
+    "P21": 0.104,
+    "P26": 0.086,
+    "P39": 0.123,
+    "P5": 0.036
+   }
+  }
+ },
+ "funnel_armA": {
+  "NATURAL": {
+   "signs": 812,
+   "acquired_by_s2": 664,
+   "own_distinct_event": 515,
+   "correct_words": 236,
+   "oracle_correct_perfect_window_same_recognizer": 332,
+   "classifier_limited_signs": 480,
+   "lost_upstream_of_classifier": 96,
+   "share_of_oracle_correct_words_delivered": 0.7108,
+   "merged_events": 7,
+   "acquired_but_no_distinct_event": 150,
+   "extra_events": 70,
+   "word_precision_of_events": 0.4034,
+   "per_signer_correct_word_rate": {
+    "P12": 0.176,
+    "P21": 0.196,
+    "P26": 0.25,
+    "P39": 0.451,
+    "P5": 0.321
+   }
+  },
+  "CONTINUOUS": {
+   "signs": 812,
+   "acquired_by_s2": 695,
+   "own_distinct_event": 355,
+   "correct_words": 125,
+   "oracle_correct_perfect_window_same_recognizer": 296,
+   "classifier_limited_signs": 516,
+   "lost_upstream_of_classifier": 171,
+   "share_of_oracle_correct_words_delivered": 0.4223,
+   "merged_events": 100,
+   "acquired_but_no_distinct_event": 340,
+   "extra_events": 4,
+   "word_precision_of_events": 0.3482,
+   "per_signer_correct_word_rate": {
+    "P12": 0.074,
+    "P21": 0.142,
+    "P26": 0.151,
+    "P39": 0.201,
+    "P5": 0.071
+   }
+  }
+ },
+ "evidence_gaps": [
+  "per-class precision and F1 (no per-class false-positive counts are stored)",
+  "full 236x236 confusion matrix (only the dominant wrong prediction per class is stored)",
+  "per-signer per-class results (per-signer aggregates only)"
+ ],
+ "weakest20_frozen_label_counts": {
+  "LOW_FIT": 18,
+  "WEAK_HANDS": 3,
+  "THIN_COVERAGE": 3,
+  "PAIR": 1,
+  "CADENCE": 1,
+  "UNEXPLAINED": 1
+ }
+}

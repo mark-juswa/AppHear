@@ -145,6 +145,12 @@ internal class PhoneEventCommitter(
         val top1 = top5.first()
         val p1 = probabilities[top1]
         val p2 = if (top5.size > 1) probabilities[top5[1]] else 0f
+        // Phase 3 hardening: `top5` must be best-first, i.e. `top1` must be an argmax of the full output. The policy's
+        // `p2 > p1` test misses a mis-ordered list whose entries tie, so check the vector itself (236 comparisons,
+        // once per event). Only when the gate is enabled; a disabled policy reproduces the pre-gate behaviour exactly.
+        if (policy.enabled && probabilities.any { it > p1 }) {
+            return Result(PhoneCommitDecision(CommitOutcome.REJECT, "INVALID_RECOGNIZER_OUTPUT"), null, top1, p1, p1 - p2)
+        }
         val decision = policy.evaluate(PhoneCommitEvidence(p1, p2, handSpanFraction))
         if (!decision.committed) return Result(decision, null, top1, p1, p1 - p2)
         sentence.add(glosses[top1])

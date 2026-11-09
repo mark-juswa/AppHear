@@ -1,0 +1,365 @@
+{
+ "packages": [
+  {
+   "package": "GATE2_FROZEN",
+   "manifest": "android/app/src/main/assets/phase4a_gate2_recognizer_parity/manifest.json",
+   "model_asset": "phase4a_gate2_recognizer_parity/ordinary_v2_tcn_fp32.tflite",
+   "model_exists": true,
+   "model_bytes": 814068,
+   "model_sha256_actual": "1ccf0afa9af9aa602aa0de33c9635f5cffd7feec7d9b4e32382bc5e3fa02880c",
+   "model_sha256_declared": "1ccf0afa9af9aa602aa0de33c9635f5cffd7feec7d9b4e32382bc5e3fa02880c",
+   "input_shape": [
+    1,
+    96,
+    350
+   ],
+   "mask_shape": [
+    1,
+    96
+   ],
+   "output_shape": [
+    1,
+    236
+   ],
+   "output_semantics": "probabilities_softmax",
+   "feature_schema": "apphear.perception_vnext.recognition.v2",
+   "vocabulary_sha256_declared": "a7d7b08d1c9ff52455aaa93cefee40e744b86a11fa5047dce08d2dd23fc0539b"
+  },
+  {
+   "package": "WORD_BLEND_01",
+   "manifest": "android/app/src/debug/assets/word_blend_candidate_01/manifest.json",
+   "model_asset": "word_blend_candidate_01/word_blend_01_fp32.tflite",
+   "model_exists": true,
+   "model_bytes": 3232620,
+   "model_sha256_actual": "bc8a6c91659eb0c12d3e4a486d6583e4ed7053abff9c7f72611138700e4ea4f1",
+   "model_sha256_declared": "bc8a6c91659eb0c12d3e4a486d6583e4ed7053abff9c7f72611138700e4ea4f1",
+   "input_shape": [
+    1,
+    96,
+    350
+   ],
+   "mask_shape": [
+    1,
+    96
+   ],
+   "output_shape": [
+    1,
+    236
+   ],
+   "output_semantics": "probabilities_softmax",
+   "feature_schema": "apphear.perception_vnext.recognition.v2",
+   "vocabulary_sha256_declared": "a7d7b08d1c9ff52455aaa93cefee40e744b86a11fa5047dce08d2dd23fc0539b"
+  },
+  {
+   "package": "WORD_BLEND_02",
+   "manifest": "android/app/src/debug/assets/word_blend_candidate_02/manifest.json",
+   "model_asset": "word_blend_candidate_02/word_blend_02_fp32.tflite",
+   "model_exists": true,
+   "model_bytes": 3232620,
+   "model_sha256_actual": "40533bc38c2c416ae2f48e4955029dbdd11d16325765df7aea66db278aaafb30",
+   "model_sha256_declared": "40533bc38c2c416ae2f48e4955029dbdd11d16325765df7aea66db278aaafb30",
+   "input_shape": [
+    1,
+    96,
+    350
+   ],
+   "mask_shape": [
+    1,
+    96
+   ],
+   "output_shape": [
+    1,
+    236
+   ],
+   "output_semantics": "probabilities_softmax",
+   "feature_schema": "apphear.perception_vnext.recognition.v2",
+   "vocabulary_sha256_declared": "a7d7b08d1c9ff52455aaa93cefee40e744b86a11fa5047dce08d2dd23fc0539b"
+  },
+  {
+   "package": "WORD_V2_CANDIDATE",
+   "manifest": "android/app/src/debug/assets/word_v2_candidate/manifest.json",
+   "model_asset": "word_v2_candidate/word_v2_fp32.tflite",
+   "model_exists": true,
+   "model_bytes": 814068,
+   "model_sha256_actual": "1de85b3cb063be8ed25fb95fe1e71ea8e784f63679fc0a987e4895797956d9df",
+   "model_sha256_declared": "1de85b3cb063be8ed25fb95fe1e71ea8e784f63679fc0a987e4895797956d9df",
+   "input_shape": [
+    1,
+    96,
+    350
+   ],
+   "mask_shape": [
+    1,
+    96
+   ],
+   "output_shape": [
+    1,
+    236
+   ],
+   "output_semantics": "probabilities_softmax",
+   "feature_schema": "apphear.perception_vnext.recognition.v2",
+   "vocabulary_sha256_declared": "a7d7b08d1c9ff52455aaa93cefee40e744b86a11fa5047dce08d2dd23fc0539b"
+  }
+ ],
+ "kotlin_pins": {
+  "MODEL_SHA": "1ccf0afa9af9aa602aa0de33c9635f5cffd7feec7d9b4e32382bc5e3fa02880c",
+  "VOCAB_SHA": "a7d7b08d1c9ff52455aaa93cefee40e744b86a11fa5047dce08d2dd23fc0539b",
+  "GATE2_MANIFEST_SHA": "bfe8bec13a646eb6fa733c3bee6a421a44b5e58ed6dbb0dd59d88804e397d019"
+ },
+ "confidence_floors_code": {
+  "STABLE": 0.55,
+  "EXPERIMENTAL": 0.75
+ },
+ "confidence_floors_evidence": {
+  "STABLE": 0.55,
+  "EXPERIMENTAL": 0.75
+ },
+ "engines_in_code": [
+  "STABLE",
+  "EXPERIMENTAL",
+  "EXPERIMENTAL_WORD_BLEND",
+  "EXPERIMENTAL_WORD_BLEND_02"
+ ],
+ "doc_claims": [
+  {
+   "claim": "frozen TFLite sha256 prefix",
+   "documented": "1ccf0afa",
+   "actual": "1ccf0afa",
+   "holds": true
+  },
+  {
+   "claim": "WORD_BLEND_01 TFLite sha256 prefix",
+   "documented": "bc8a6c91",
+   "actual": "bc8a6c91",
+   "holds": true
+  },
+  {
+   "claim": "WORD_BLEND_02 TFLite sha256 prefix",
+   "documented": "40533bc3",
+   "actual": "40533bc3",
+   "holds": true
+  },
+  {
+   "claim": "vocabulary sha256 prefix",
+   "documented": "a7d7b08d",
+   "actual": "a7d7b08d",
+   "holds": true
+  }
+ ],
+ "checks": [
+  {
+   "check": "GATE2_FROZEN: model file present",
+   "ok": true,
+   "detail": "phase4a_gate2_recognizer_parity/ordinary_v2_tcn_fp32.tflite"
+  },
+  {
+   "check": "GATE2_FROZEN: TFLite SHA-256 equals manifest",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "GATE2_FROZEN: 236 classes",
+   "ok": true,
+   "detail": "236"
+  },
+  {
+   "check": "GATE2_FROZEN: class names unique",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "GATE2_FROZEN: class order identical to the frozen reference",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "GATE2_FROZEN: feature schema is recognition.v2",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "GATE2_FROZEN: input [1,96,350], mask [1,96], output [1,236]",
+   "ok": true,
+   "detail": "[1, 96, 350] [1, 96] [1, 236]"
+  },
+  {
+   "check": "GATE2_FROZEN: output is softmax probabilities",
+   "ok": true,
+   "detail": "probabilities_softmax"
+  },
+  {
+   "check": "GATE2_FROZEN: vocabulary pin equals the Kotlin VOCAB_SHA",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "WORD_BLEND_01: model file present",
+   "ok": true,
+   "detail": "word_blend_candidate_01/word_blend_01_fp32.tflite"
+  },
+  {
+   "check": "WORD_BLEND_01: TFLite SHA-256 equals manifest",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "WORD_BLEND_01: 236 classes",
+   "ok": true,
+   "detail": "236"
+  },
+  {
+   "check": "WORD_BLEND_01: class names unique",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "WORD_BLEND_01: class order identical to the frozen reference",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "WORD_BLEND_01: feature schema is recognition.v2",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "WORD_BLEND_01: input [1,96,350], mask [1,96], output [1,236]",
+   "ok": true,
+   "detail": "[1, 96, 350] [1, 96] [1, 236]"
+  },
+  {
+   "check": "WORD_BLEND_01: output is softmax probabilities",
+   "ok": true,
+   "detail": "probabilities_softmax"
+  },
+  {
+   "check": "WORD_BLEND_01: vocabulary pin equals the Kotlin VOCAB_SHA",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "WORD_BLEND_02: model file present",
+   "ok": true,
+   "detail": "word_blend_candidate_02/word_blend_02_fp32.tflite"
+  },
+  {
+   "check": "WORD_BLEND_02: TFLite SHA-256 equals manifest",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "WORD_BLEND_02: 236 classes",
+   "ok": true,
+   "detail": "236"
+  },
+  {
+   "check": "WORD_BLEND_02: class names unique",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "WORD_BLEND_02: class order identical to the frozen reference",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "WORD_BLEND_02: feature schema is recognition.v2",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "WORD_BLEND_02: input [1,96,350], mask [1,96], output [1,236]",
+   "ok": true,
+   "detail": "[1, 96, 350] [1, 96] [1, 236]"
+  },
+  {
+   "check": "WORD_BLEND_02: output is softmax probabilities",
+   "ok": true,
+   "detail": "probabilities_softmax"
+  },
+  {
+   "check": "WORD_BLEND_02: vocabulary pin equals the Kotlin VOCAB_SHA",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "WORD_V2_CANDIDATE: model file present",
+   "ok": true,
+   "detail": "word_v2_candidate/word_v2_fp32.tflite"
+  },
+  {
+   "check": "WORD_V2_CANDIDATE: TFLite SHA-256 equals manifest",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "WORD_V2_CANDIDATE: 236 classes",
+   "ok": true,
+   "detail": "236"
+  },
+  {
+   "check": "WORD_V2_CANDIDATE: class names unique",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "WORD_V2_CANDIDATE: class order identical to the frozen reference",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "WORD_V2_CANDIDATE: feature schema is recognition.v2",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "WORD_V2_CANDIDATE: input [1,96,350], mask [1,96], output [1,236]",
+   "ok": true,
+   "detail": "[1, 96, 350] [1, 96] [1, 236]"
+  },
+  {
+   "check": "WORD_V2_CANDIDATE: output is softmax probabilities",
+   "ok": true,
+   "detail": "probabilities_softmax"
+  },
+  {
+   "check": "WORD_V2_CANDIDATE: vocabulary pin equals the Kotlin VOCAB_SHA",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "frozen TFLite SHA-256 equals the Kotlin MODEL_SHA pin",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "frozen manifest SHA-256 equals the Kotlin GATE2_MANIFEST_SHA pin",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "blend packages name the frozen model as their reference",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "legacy vocab.json (gloss->index) vs Recognition-v2 class order",
+   "ok": true,
+   "detail": "same glosses=True; identical order=True; legacy entries=236"
+  },
+  {
+   "check": "STABLE confidence floor in code equals the calibration evidence",
+   "ok": true,
+   "detail": "code=0.55 evidence=0.55"
+  },
+  {
+   "check": "EXPERIMENTAL confidence floor in code equals the calibration evidence",
+   "ok": true,
+   "detail": "code=0.75 evidence=0.75"
+  }
+ ],
+ "limitations": [
+  "vocabulary pin is the hash of an external VOCAB_MANIFEST file; not recomputable here"
+ ],
+ "all_ok": true
+}
