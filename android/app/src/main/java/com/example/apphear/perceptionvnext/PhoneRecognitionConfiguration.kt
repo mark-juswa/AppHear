@@ -33,6 +33,23 @@ internal enum class PhoneRecognitionConfiguration(
         confirmBoundaryPostPeak = confirmBoundaryPostPeak,
     )
 
+    /**
+     * Phase 1 word-commit gate (docs/PHASE_1_RECOGNITION_RELIABILITY.md). The top-1 floors are the
+     * operating points the repo selected on held-out signers with its pre-registered Youden-J rule
+     * (docs/audit/probes/event_reliability/gate_policy.json); each is only valid for the exact S2 +
+     * recognizer pairing it was calibrated on:
+     *  - STABLE (S2-R2 + frozen Gate-2 recognizer): 0.55
+     *  - EXPERIMENTAL (Arm A e10 + confirm-boundary, frozen Gate-2 recognizer): 0.75
+     *  - WORD_BLEND_*: no calibration exists, so NO floor is applied (never a guessed one); only the
+     *    structural no-hand-evidence invariant applies.
+     */
+    fun commitPolicy(): PhoneCommitPolicy = when (this) {
+        STABLE -> PhoneCommitPolicy(minTop1Probability = 0.55, requireHandEvidenceInSpan = true)
+        EXPERIMENTAL -> PhoneCommitPolicy(minTop1Probability = 0.75, requireHandEvidenceInSpan = true)
+        EXPERIMENTAL_WORD_BLEND, EXPERIMENTAL_WORD_BLEND_02 ->
+            PhoneCommitPolicy(minTop1Probability = null, requireHandEvidenceInSpan = true)
+    }
+
     /** The recognizer whose top-1 is displayed and committed. */
     fun wordPackage(): RecognizerPackageSpec = when (this) {
         STABLE, EXPERIMENTAL -> RecognitionV2LiveRecognizer.FROZEN_GATE2

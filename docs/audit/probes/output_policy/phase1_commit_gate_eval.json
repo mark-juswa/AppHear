@@ -1,0 +1,4363 @@
+{
+ "STABLE (S2-R2 + frozen Gate-2)": {
+  "inputs": {
+   "ledger_S2_R2__BASELINE.json": "1523c5132be1a21c4d9a19d098f45458a4ba5782099dad1bc7d41f427a0358ba",
+   "stream_ledger_S2_R2__BASELINE.json": "5bdde81e630e2de9dd5df57072a023cf4e81197c7e02bf6c8b637d4fa07fabfa"
+  },
+  "shipped_floor": 0.55,
+  "score_comparison_preregistered_split": {
+   "calibration_signers": [
+    "asl_citizen:P12",
+    "asl_citizen:P21",
+    "asl_citizen:P5"
+   ],
+   "validation_signers": [
+    "asl_citizen:P26",
+    "asl_citizen:P39"
+   ],
+   "cal_events": 267,
+   "val_events": 377,
+   "scores": {
+    "top1_probability": {
+     "cal_youden_J": 0.4748,
+     "threshold": 0.5751,
+     "val_correct_kept": {
+      "k": 98,
+      "n": 135,
+      "value": 0.7259,
+      "wilson95": [
+       0.6452,
+       0.7941
+      ]
+     },
+     "val_wrong_kept": {
+      "k": 98,
+      "n": 242,
+      "value": 0.405,
+      "wilson95": [
+       0.3451,
+       0.4678
+      ]
+     },
+     "val_precision_kept": 0.5,
+     "val_auc_correct_vs_rest": 0.7507
+    },
+    "top1_top2_margin": {
+     "cal_youden_J": 0.4473,
+     "threshold": 0.5817,
+     "val_correct_kept": {
+      "k": 86,
+      "n": 135,
+      "value": 0.637,
+      "wilson95": [
+       0.5532,
+       0.7133
+      ]
+     },
+     "val_wrong_kept": {
+      "k": 60,
+      "n": 242,
+      "value": 0.2479,
+      "wilson95": [
+       0.1978,
+       0.306
+      ]
+     },
+     "val_precision_kept": 0.589,
+     "val_auc_correct_vs_rest": 0.7331
+    },
+    "negative_entropy": {
+     "cal_youden_J": 0.4967,
+     "threshold": -1.1492,
+     "val_correct_kept": {
+      "k": 97,
+      "n": 135,
+      "value": 0.7185,
+      "wilson95": [
+       0.6374,
+       0.7875
+      ]
+     },
+     "val_wrong_kept": {
+      "k": 85,
+      "n": 242,
+      "value": 0.3512,
+      "wilson95": [
+       0.2938,
+       0.4133
+      ]
+     },
+     "val_precision_kept": 0.533,
+     "val_auc_correct_vs_rest": 0.7622
+    },
+    "top1_stability_under_trim": {
+     "cal_youden_J": 0.286,
+     "threshold": 0.6667,
+     "val_correct_kept": {
+      "k": 110,
+      "n": 135,
+      "value": 0.8148,
+      "wilson95": [
+       0.7409,
+       0.8713
+      ]
+     },
+     "val_wrong_kept": {
+      "k": 130,
+      "n": 242,
+      "value": 0.5372,
+      "wilson95": [
+       0.4743,
+       0.5989
+      ]
+     },
+     "val_precision_kept": 0.4583,
+     "val_auc_correct_vs_rest": 0.6553
+    },
+    "accepted_hand_fraction_in_span": {
+     "cal_youden_J": 0.1806,
+     "threshold": 0.8,
+     "val_correct_kept": {
+      "k": 109,
+      "n": 135,
+      "value": 0.8074,
+      "wilson95": [
+       0.7328,
+       0.865
+      ]
+     },
+     "val_wrong_kept": {
+      "k": 126,
+      "n": 242,
+      "value": 0.5207,
+      "wilson95": [
+       0.4579,
+       0.5828
+      ]
+     },
+     "val_precision_kept": 0.4638,
+     "val_auc_correct_vs_rest": 0.6296
+    }
+   }
+  },
+  "structural_rule_zero_hand_events": {
+   "dev_all_signers": {
+    "wrong_genuine": 6,
+    "nonsign_fragment": 3
+   },
+   "phone_all_sessions": {
+    "nonsign": 2,
+    "unscored": 8,
+    "wrong_genuine": 1
+   },
+   "correct_words_lost_by_rule": 0
+  },
+  "dev_validation_signers": {
+   "ungated": {
+    "events": 377,
+    "correct_words": 135,
+    "correct_kept": 135,
+    "wrong_on_genuine": 195,
+    "wrong_on_genuine_kept": 195,
+    "nonsign_events": 47,
+    "nonsign_kept": 47,
+    "unscored_events": 0,
+    "unscored_kept": 0,
+    "recall_correct_retention": {
+     "k": 135,
+     "n": 135,
+     "value": 1.0,
+     "wilson95": [
+      0.9723,
+      1.0
+     ]
+    },
+    "false_rejection_rate": {
+     "k": 0,
+     "n": 135,
+     "value": 0.0,
+     "wilson95": [
+      0.0,
+      0.0277
+     ]
+    },
+    "false_positive_rate_nonsign": {
+     "k": 47,
+     "n": 47,
+     "value": 1.0,
+     "wilson95": [
+      0.9244,
+      1.0
+     ]
+    },
+    "wrong_word_commit_rate": {
+     "k": 195,
+     "n": 195,
+     "value": 1.0,
+     "wilson95": [
+      0.9807,
+      1.0
+     ]
+    },
+    "precision_of_committed_scored": 0.3581,
+    "f1_correct_commit": 0.5273
+   },
+   "floor_only": {
+    "events": 377,
+    "correct_words": 135,
+    "correct_kept": 101,
+    "wrong_on_genuine": 195,
+    "wrong_on_genuine_kept": 75,
+    "nonsign_events": 47,
+    "nonsign_kept": 27,
+    "unscored_events": 0,
+    "unscored_kept": 0,
+    "recall_correct_retention": {
+     "k": 101,
+     "n": 135,
+     "value": 0.7481,
+     "wilson95": [
+      0.6688,
+      0.8138
+     ]
+    },
+    "false_rejection_rate": {
+     "k": 34,
+     "n": 135,
+     "value": 0.2519,
+     "wilson95": [
+      0.1862,
+      0.3312
+     ]
+    },
+    "false_positive_rate_nonsign": {
+     "k": 27,
+     "n": 47,
+     "value": 0.5745,
+     "wilson95": [
+      0.4328,
+      0.7049
+     ]
+    },
+    "wrong_word_commit_rate": {
+     "k": 75,
+     "n": 195,
+     "value": 0.3846,
+     "wilson95": [
+      0.3192,
+      0.4545
+     ]
+    },
+    "precision_of_committed_scored": 0.4975,
+    "f1_correct_commit": 0.5976
+   },
+   "shipped": {
+    "events": 377,
+    "correct_words": 135,
+    "correct_kept": 101,
+    "wrong_on_genuine": 195,
+    "wrong_on_genuine_kept": 75,
+    "nonsign_events": 47,
+    "nonsign_kept": 27,
+    "unscored_events": 0,
+    "unscored_kept": 0,
+    "recall_correct_retention": {
+     "k": 101,
+     "n": 135,
+     "value": 0.7481,
+     "wilson95": [
+      0.6688,
+      0.8138
+     ]
+    },
+    "false_rejection_rate": {
+     "k": 34,
+     "n": 135,
+     "value": 0.2519,
+     "wilson95": [
+      0.1862,
+      0.3312
+     ]
+    },
+    "false_positive_rate_nonsign": {
+     "k": 27,
+     "n": 47,
+     "value": 0.5745,
+     "wilson95": [
+      0.4328,
+      0.7049
+     ]
+    },
+    "wrong_word_commit_rate": {
+     "k": 75,
+     "n": 195,
+     "value": 0.3846,
+     "wilson95": [
+      0.3192,
+      0.4545
+     ]
+    },
+    "precision_of_committed_scored": 0.4975,
+    "f1_correct_commit": 0.5976
+   }
+  },
+  "dev_all_signers_shipped": {
+   "events": 644,
+   "correct_words": 210,
+   "correct_kept": 162,
+   "wrong_on_genuine": 359,
+   "wrong_on_genuine_kept": 128,
+   "nonsign_events": 75,
+   "nonsign_kept": 41,
+   "unscored_events": 0,
+   "unscored_kept": 0,
+   "recall_correct_retention": {
+    "k": 162,
+    "n": 210,
+    "value": 0.7714,
+    "wilson95": [
+     0.7101,
+     0.823
+    ]
+   },
+   "false_rejection_rate": {
+    "k": 48,
+    "n": 210,
+    "value": 0.2286,
+    "wilson95": [
+     0.177,
+     0.2899
+    ]
+   },
+   "false_positive_rate_nonsign": {
+    "k": 41,
+    "n": 75,
+    "value": 0.5467,
+    "wilson95": [
+     0.4345,
+     0.6543
+    ]
+   },
+   "wrong_word_commit_rate": {
+    "k": 128,
+    "n": 359,
+    "value": 0.3565,
+    "wilson95": [
+     0.3088,
+     0.4074
+    ]
+   },
+   "precision_of_committed_scored": 0.4894,
+   "f1_correct_commit": 0.5989
+  },
+  "phone_reviewed_sessions": {
+   "ungated": {
+    "events": 40,
+    "correct_words": 12,
+    "correct_kept": 12,
+    "wrong_on_genuine": 3,
+    "wrong_on_genuine_kept": 3,
+    "nonsign_events": 7,
+    "nonsign_kept": 7,
+    "unscored_events": 18,
+    "unscored_kept": 18,
+    "recall_correct_retention": {
+     "k": 12,
+     "n": 12,
+     "value": 1.0,
+     "wilson95": [
+      0.7575,
+      1.0
+     ]
+    },
+    "false_rejection_rate": {
+     "k": 0,
+     "n": 12,
+     "value": 0.0,
+     "wilson95": [
+      0.0,
+      0.2425
+     ]
+    },
+    "false_positive_rate_nonsign": {
+     "k": 7,
+     "n": 7,
+     "value": 1.0,
+     "wilson95": [
+      0.6457,
+      1.0
+     ]
+    },
+    "wrong_word_commit_rate": {
+     "k": 3,
+     "n": 3,
+     "value": 1.0,
+     "wilson95": [
+      0.4385,
+      1.0
+     ]
+    },
+    "precision_of_committed_scored": 0.5455,
+    "f1_correct_commit": 0.7059
+   },
+   "floor_only": {
+    "events": 40,
+    "correct_words": 12,
+    "correct_kept": 10,
+    "wrong_on_genuine": 3,
+    "wrong_on_genuine_kept": 1,
+    "nonsign_events": 7,
+    "nonsign_kept": 2,
+    "unscored_events": 18,
+    "unscored_kept": 7,
+    "recall_correct_retention": {
+     "k": 10,
+     "n": 12,
+     "value": 0.8333,
+     "wilson95": [
+      0.552,
+      0.953
+     ]
+    },
+    "false_rejection_rate": {
+     "k": 2,
+     "n": 12,
+     "value": 0.1667,
+     "wilson95": [
+      0.047,
+      0.448
+     ]
+    },
+    "false_positive_rate_nonsign": {
+     "k": 2,
+     "n": 7,
+     "value": 0.2857,
+     "wilson95": [
+      0.0822,
+      0.6411
+     ]
+    },
+    "wrong_word_commit_rate": {
+     "k": 1,
+     "n": 3,
+     "value": 0.3333,
+     "wilson95": [
+      0.0615,
+      0.7923
+     ]
+    },
+    "precision_of_committed_scored": 0.7692,
+    "f1_correct_commit": 0.8
+   },
+   "shipped": {
+    "events": 40,
+    "correct_words": 12,
+    "correct_kept": 10,
+    "wrong_on_genuine": 3,
+    "wrong_on_genuine_kept": 1,
+    "nonsign_events": 7,
+    "nonsign_kept": 1,
+    "unscored_events": 18,
+    "unscored_kept": 6,
+    "recall_correct_retention": {
+     "k": 10,
+     "n": 12,
+     "value": 0.8333,
+     "wilson95": [
+      0.552,
+      0.953
+     ]
+    },
+    "false_rejection_rate": {
+     "k": 2,
+     "n": 12,
+     "value": 0.1667,
+     "wilson95": [
+      0.047,
+      0.448
+     ]
+    },
+    "false_positive_rate_nonsign": {
+     "k": 1,
+     "n": 7,
+     "value": 0.1429,
+     "wilson95": [
+      0.0257,
+      0.5131
+     ]
+    },
+    "wrong_word_commit_rate": {
+     "k": 1,
+     "n": 3,
+     "value": 0.3333,
+     "wilson95": [
+      0.0615,
+      0.7923
+     ]
+    },
+    "precision_of_committed_scored": 0.8333,
+    "f1_correct_commit": 0.8333
+   }
+  },
+  "per_class_dev_all_signers_shipped": {
+   "note": "Per PREDICTED class of emitted events on the held-out DEV benchmark; support is the number of correct events per class, which is small (hundreds of events over ~130 classes).",
+   "by_support": {
+    "support_ge_1": {
+     "classes": 131,
+     "zero_retention_classes": [
+      "ABOUT2",
+      "AT",
+      "BETWEEN",
+      "CHILD",
+      "COLD",
+      "CONFUSED1",
+      "EACH",
+      "FRIEND",
+      "GO",
+      "HAPPY",
+      "HATE",
+      "HERE",
+      "HOT",
+      "HOUSE",
+      "HUSBAND",
+      "LIVE2",
+      "LUNCH1",
+      "MEAT1",
+      "READ",
+      "RUN2",
+      "TIRED",
+      "WHEN",
+      "WHICH"
+     ],
+     "median_retention": 1.0
+    },
+    "support_ge_3": {
+     "classes": 17,
+     "zero_retention_classes": [],
+     "median_retention": 1.0
+    },
+    "support_ge_5": {
+     "classes": 0,
+     "zero_retention_classes": [],
+     "median_retention": null
+    }
+   },
+   "table": [
+    {
+     "predicted_gloss": "ANY",
+     "correct_events": 4,
+     "correct_kept": 3,
+     "retention": 0.75,
+     "wrong_or_fragment_kept": 1,
+     "precision_of_committed": 0.75
+    },
+    {
+     "predicted_gloss": "MANY",
+     "correct_events": 4,
+     "correct_kept": 4,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": 1.0
+    },
+    {
+     "predicted_gloss": "PICK",
+     "correct_events": 4,
+     "correct_kept": 2,
+     "retention": 0.5,
+     "wrong_or_fragment_kept": 1,
+     "precision_of_committed": 0.667
+    },
+    {
+     "predicted_gloss": "VERY",
+     "correct_events": 4,
+     "correct_kept": 4,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": 1.0
+    },
+    {
+     "predicted_gloss": "WASH2",
+     "correct_events": 4,
+     "correct_kept": 4,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 1,
+     "precision_of_committed": 0.8
+    },
+    {
+     "predicted_gloss": "DINNER1",
+     "correct_events": 3,
+     "correct_kept": 3,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 2,
+     "precision_of_committed": 0.6
+    },
+    {
+     "predicted_gloss": "DONTKNOW",
+     "correct_events": 3,
+     "correct_kept": 3,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 1,
+     "precision_of_committed": 0.75
+    },
+    {
+     "predicted_gloss": "DOWNLOAD",
+     "correct_events": 3,
+     "correct_kept": 2,
+     "retention": 0.667,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": 1.0
+    },
+    {
+     "predicted_gloss": "EASY",
+     "correct_events": 3,
+     "correct_kept": 3,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 1,
+     "precision_of_committed": 0.75
+    },
+    {
+     "predicted_gloss": "FOR",
+     "correct_events": 3,
+     "correct_kept": 2,
+     "retention": 0.667,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": 1.0
+    },
+    {
+     "predicted_gloss": "HELP",
+     "correct_events": 3,
+     "correct_kept": 1,
+     "retention": 0.333,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": 1.0
+    },
+    {
+     "predicted_gloss": "HURRY",
+     "correct_events": 3,
+     "correct_kept": 3,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 2,
+     "precision_of_committed": 0.6
+    },
+    {
+     "predicted_gloss": "LEAVE",
+     "correct_events": 3,
+     "correct_kept": 3,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": 1.0
+    },
+    {
+     "predicted_gloss": "MOVE",
+     "correct_events": 3,
+     "correct_kept": 1,
+     "retention": 0.333,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": 1.0
+    },
+    {
+     "predicted_gloss": "PUT",
+     "correct_events": 3,
+     "correct_kept": 3,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 1,
+     "precision_of_committed": 0.75
+    },
+    {
+     "predicted_gloss": "USE",
+     "correct_events": 3,
+     "correct_kept": 3,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": 1.0
+    },
+    {
+     "predicted_gloss": "YOUR",
+     "correct_events": 3,
+     "correct_kept": 2,
+     "retention": 0.667,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": 1.0
+    },
+    {
+     "predicted_gloss": "BAG2",
+     "correct_events": 2,
+     "correct_kept": 2,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": 1.0
+    },
+    {
+     "predicted_gloss": "BOTH",
+     "correct_events": 2,
+     "correct_kept": 1,
+     "retention": 0.5,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": 1.0
+    },
+    {
+     "predicted_gloss": "BUY",
+     "correct_events": 2,
+     "correct_kept": 1,
+     "retention": 0.5,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": 1.0
+    },
+    {
+     "predicted_gloss": "CALL1",
+     "correct_events": 2,
+     "correct_kept": 2,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 2,
+     "precision_of_committed": 0.5
+    },
+    {
+     "predicted_gloss": "CITY2",
+     "correct_events": 2,
+     "correct_kept": 1,
+     "retention": 0.5,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": 1.0
+    },
+    {
+     "predicted_gloss": "COLD",
+     "correct_events": 2,
+     "correct_kept": 0,
+     "retention": 0.0,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": null
+    },
+    {
+     "predicted_gloss": "CONGRATULATIONS",
+     "correct_events": 2,
+     "correct_kept": 1,
+     "retention": 0.5,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": 1.0
+    },
+    {
+     "predicted_gloss": "COUNT",
+     "correct_events": 2,
+     "correct_kept": 2,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": 1.0
+    },
+    {
+     "predicted_gloss": "EAT1",
+     "correct_events": 2,
+     "correct_kept": 2,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 1,
+     "precision_of_committed": 0.667
+    },
+    {
+     "predicted_gloss": "ENOUGH",
+     "correct_events": 2,
+     "correct_kept": 2,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": 1.0
+    },
+    {
+     "predicted_gloss": "FREE",
+     "correct_events": 2,
+     "correct_kept": 2,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": 1.0
+    },
+    {
+     "predicted_gloss": "GOOD",
+     "correct_events": 2,
+     "correct_kept": 2,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 4,
+     "precision_of_committed": 0.333
+    },
+    {
+     "predicted_gloss": "HELLO",
+     "correct_events": 2,
+     "correct_kept": 2,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 4,
+     "precision_of_committed": 0.333
+    },
+    {
+     "predicted_gloss": "HOUR",
+     "correct_events": 2,
+     "correct_kept": 2,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 2,
+     "precision_of_committed": 0.5
+    },
+    {
+     "predicted_gloss": "HOW1",
+     "correct_events": 2,
+     "correct_kept": 2,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 1,
+     "precision_of_committed": 0.667
+    },
+    {
+     "predicted_gloss": "INTRODUCE",
+     "correct_events": 2,
+     "correct_kept": 1,
+     "retention": 0.5,
+     "wrong_or_fragment_kept": 2,
+     "precision_of_committed": 0.333
+    },
+    {
+     "predicted_gloss": "JUMP",
+     "correct_events": 2,
+     "correct_kept": 1,
+     "retention": 0.5,
+     "wrong_or_fragment_kept": 3,
+     "precision_of_committed": 0.25
+    },
+    {
+     "predicted_gloss": "KEEP",
+     "correct_events": 2,
+     "correct_kept": 2,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 5,
+     "precision_of_committed": 0.286
+    },
+    {
+     "predicted_gloss": "MAN",
+     "correct_events": 2,
+     "correct_kept": 2,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": 1.0
+    },
+    {
+     "predicted_gloss": "MEET",
+     "correct_events": 2,
+     "correct_kept": 1,
+     "retention": 0.5,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": 1.0
+    },
+    {
+     "predicted_gloss": "MOST",
+     "correct_events": 2,
+     "correct_kept": 2,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 2,
+     "precision_of_committed": 0.5
+    },
+    {
+     "predicted_gloss": "OFTEN",
+     "correct_events": 2,
+     "correct_kept": 2,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": 1.0
+    },
+    {
+     "predicted_gloss": "PAY",
+     "correct_events": 2,
+     "correct_kept": 2,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 1,
+     "precision_of_committed": 0.667
+    },
+    {
+     "predicted_gloss": "PEOPLE",
+     "correct_events": 2,
+     "correct_kept": 2,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 1,
+     "precision_of_committed": 0.667
+    },
+    {
+     "predicted_gloss": "ROAD",
+     "correct_events": 2,
+     "correct_kept": 2,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": 1.0
+    },
+    {
+     "predicted_gloss": "SELL",
+     "correct_events": 2,
+     "correct_kept": 2,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 2,
+     "precision_of_committed": 0.5
+    },
+    {
+     "predicted_gloss": "SMALL",
+     "correct_events": 2,
+     "correct_kept": 1,
+     "retention": 0.5,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": 1.0
+    },
+    {
+     "predicted_gloss": "SOMETIMES",
+     "correct_events": 2,
+     "correct_kept": 2,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 1,
+     "precision_of_committed": 0.667
+    },
+    {
+     "predicted_gloss": "SORRY",
+     "correct_events": 2,
+     "correct_kept": 1,
+     "retention": 0.5,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": 1.0
+    },
+    {
+     "predicted_gloss": "TELL",
+     "correct_events": 2,
+     "correct_kept": 1,
+     "retention": 0.5,
+     "wrong_or_fragment_kept": 10,
+     "precision_of_committed": 0.091
+    },
+    {
+     "predicted_gloss": "THEN",
+     "correct_events": 2,
+     "correct_kept": 1,
+     "retention": 0.5,
+     "wrong_or_fragment_kept": 3,
+     "precision_of_committed": 0.25
+    },
+    {
+     "predicted_gloss": "TODAY",
+     "correct_events": 2,
+     "correct_kept": 2,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 7,
+     "precision_of_committed": 0.222
+    },
+    {
+     "predicted_gloss": "VISIT",
+     "correct_events": 2,
+     "correct_kept": 2,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": 1.0
+    },
+    {
+     "predicted_gloss": "WATER",
+     "correct_events": 2,
+     "correct_kept": 2,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": 1.0
+    },
+    {
+     "predicted_gloss": "WEEK",
+     "correct_events": 2,
+     "correct_kept": 2,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 1,
+     "precision_of_committed": 0.667
+    },
+    {
+     "predicted_gloss": "WHEN",
+     "correct_events": 2,
+     "correct_kept": 0,
+     "retention": 0.0,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": null
+    },
+    {
+     "predicted_gloss": "WHOLE",
+     "correct_events": 2,
+     "correct_kept": 2,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 3,
+     "precision_of_committed": 0.4
+    },
+    {
+     "predicted_gloss": "WORK",
+     "correct_events": 2,
+     "correct_kept": 2,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 1,
+     "precision_of_committed": 0.667
+    },
+    {
+     "predicted_gloss": "YESTERDAY",
+     "correct_events": 2,
+     "correct_kept": 1,
+     "retention": 0.5,
+     "wrong_or_fragment_kept": 2,
+     "precision_of_committed": 0.333
+    },
+    {
+     "predicted_gloss": "YOUNG",
+     "correct_events": 2,
+     "correct_kept": 1,
+     "retention": 0.5,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": 1.0
+    },
+    {
+     "predicted_gloss": "ABOUT2",
+     "correct_events": 1,
+     "correct_kept": 0,
+     "retention": 0.0,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": null
+    },
+    {
+     "predicted_gloss": "AND",
+     "correct_events": 1,
+     "correct_kept": 1,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 2,
+     "precision_of_committed": 0.333
+    },
+    {
+     "predicted_gloss": "AT",
+     "correct_events": 1,
+     "correct_kept": 0,
+     "retention": 0.0,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": null
+    },
+    {
+     "predicted_gloss": "BECAUSE",
+     "correct_events": 1,
+     "correct_kept": 1,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 2,
+     "precision_of_committed": 0.333
+    },
+    {
+     "predicted_gloss": "BETWEEN",
+     "correct_events": 1,
+     "correct_kept": 0,
+     "retention": 0.0,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": null
+    },
+    {
+     "predicted_gloss": "BIG",
+     "correct_events": 1,
+     "correct_kept": 1,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 1,
+     "precision_of_committed": 0.5
+    },
+    {
+     "predicted_gloss": "BROTHER",
+     "correct_events": 1,
+     "correct_kept": 1,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": 1.0
+    },
+    {
+     "predicted_gloss": "BUSY",
+     "correct_events": 1,
+     "correct_kept": 1,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 1,
+     "precision_of_committed": 0.5
+    },
+    {
+     "predicted_gloss": "CAR",
+     "correct_events": 1,
+     "correct_kept": 1,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 1,
+     "precision_of_committed": 0.5
+    },
+    {
+     "predicted_gloss": "CHILD",
+     "correct_events": 1,
+     "correct_kept": 0,
+     "retention": 0.0,
+     "wrong_or_fragment_kept": 1,
+     "precision_of_committed": 0.0
+    },
+    {
+     "predicted_gloss": "CONFUSED1",
+     "correct_events": 1,
+     "correct_kept": 0,
+     "retention": 0.0,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": null
+    },
+    {
+     "predicted_gloss": "COUNTRY",
+     "correct_events": 1,
+     "correct_kept": 1,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": 1.0
+    },
+    {
+     "predicted_gloss": "DAY",
+     "correct_events": 1,
+     "correct_kept": 1,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": 1.0
+    },
+    {
+     "predicted_gloss": "DOOR",
+     "correct_events": 1,
+     "correct_kept": 1,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 2,
+     "precision_of_committed": 0.333
+    },
+    {
+     "predicted_gloss": "EACH",
+     "correct_events": 1,
+     "correct_kept": 0,
+     "retention": 0.0,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": null
+    },
+    {
+     "predicted_gloss": "FAMILY",
+     "correct_events": 1,
+     "correct_kept": 1,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 1,
+     "precision_of_committed": 0.5
+    },
+    {
+     "predicted_gloss": "FAST",
+     "correct_events": 1,
+     "correct_kept": 1,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": 1.0
+    },
+    {
+     "predicted_gloss": "FRIEND",
+     "correct_events": 1,
+     "correct_kept": 0,
+     "retention": 0.0,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": null
+    },
+    {
+     "predicted_gloss": "FROM",
+     "correct_events": 1,
+     "correct_kept": 1,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": 1.0
+    },
+    {
+     "predicted_gloss": "GO",
+     "correct_events": 1,
+     "correct_kept": 0,
+     "retention": 0.0,
+     "wrong_or_fragment_kept": 3,
+     "precision_of_committed": 0.0
+    },
+    {
+     "predicted_gloss": "HAPPY",
+     "correct_events": 1,
+     "correct_kept": 0,
+     "retention": 0.0,
+     "wrong_or_fragment_kept": 1,
+     "precision_of_committed": 0.0
+    },
+    {
+     "predicted_gloss": "HATE",
+     "correct_events": 1,
+     "correct_kept": 0,
+     "retention": 0.0,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": null
+    },
+    {
+     "predicted_gloss": "HERE",
+     "correct_events": 1,
+     "correct_kept": 0,
+     "retention": 0.0,
+     "wrong_or_fragment_kept": 4,
+     "precision_of_committed": 0.0
+    },
+    {
+     "predicted_gloss": "HOME",
+     "correct_events": 1,
+     "correct_kept": 1,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": 1.0
+    },
+    {
+     "predicted_gloss": "HOT",
+     "correct_events": 1,
+     "correct_kept": 0,
+     "retention": 0.0,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": null
+    },
+    {
+     "predicted_gloss": "HOUSE",
+     "correct_events": 1,
+     "correct_kept": 0,
+     "retention": 0.0,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": null
+    },
+    {
+     "predicted_gloss": "HUSBAND",
+     "correct_events": 1,
+     "correct_kept": 0,
+     "retention": 0.0,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": null
+    },
+    {
+     "predicted_gloss": "IMPORTANT",
+     "correct_events": 1,
+     "correct_kept": 1,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 2,
+     "precision_of_committed": 0.333
+    },
+    {
+     "predicted_gloss": "KEY",
+     "correct_events": 1,
+     "correct_kept": 1,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 1,
+     "precision_of_committed": 0.5
+    },
+    {
+     "predicted_gloss": "LIVE2",
+     "correct_events": 1,
+     "correct_kept": 0,
+     "retention": 0.0,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": null
+    },
+    {
+     "predicted_gloss": "LUNCH1",
+     "correct_events": 1,
+     "correct_kept": 0,
+     "retention": 0.0,
+     "wrong_or_fragment_kept": 3,
+     "precision_of_committed": 0.0
+    },
+    {
+     "predicted_gloss": "MEAN2",
+     "correct_events": 1,
+     "correct_kept": 1,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 1,
+     "precision_of_committed": 0.5
+    },
+    {
+     "predicted_gloss": "MEAT1",
+     "correct_events": 1,
+     "correct_kept": 0,
+     "retention": 0.0,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": null
+    },
+    {
+     "predicted_gloss": "MORE",
+     "correct_events": 1,
+     "correct_kept": 1,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": 1.0
+    },
+    {
+     "predicted_gloss": "MOTHER",
+     "correct_events": 1,
+     "correct_kept": 1,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": 1.0
+    },
+    {
+     "predicted_gloss": "MOVIE1",
+     "correct_events": 1,
+     "correct_kept": 1,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": 1.0
+    },
+    {
+     "predicted_gloss": "MUCH",
+     "correct_events": 1,
+     "correct_kept": 1,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 3,
+     "precision_of_committed": 0.25
+    },
+    {
+     "predicted_gloss": "NEED",
+     "correct_events": 1,
+     "correct_kept": 1,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 1,
+     "precision_of_committed": 0.5
+    },
+    {
+     "predicted_gloss": "NEXT",
+     "correct_events": 1,
+     "correct_kept": 1,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 2,
+     "precision_of_committed": 0.333
+    },
+    {
+     "predicted_gloss": "NIGHT1",
+     "correct_events": 1,
+     "correct_kept": 1,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 2,
+     "precision_of_committed": 0.333
+    },
+    {
+     "predicted_gloss": "NO",
+     "correct_events": 1,
+     "correct_kept": 1,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 5,
+     "precision_of_committed": 0.167
+    },
+    {
+     "predicted_gloss": "OFFICE",
+     "correct_events": 1,
+     "correct_kept": 1,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": 1.0
+    },
+    {
+     "predicted_gloss": "OUR",
+     "correct_events": 1,
+     "correct_kept": 1,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": 1.0
+    },
+    {
+     "predicted_gloss": "PARTY1",
+     "correct_events": 1,
+     "correct_kept": 1,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": 1.0
+    },
+    {
+     "predicted_gloss": "PLAY",
+     "correct_events": 1,
+     "correct_kept": 1,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 1,
+     "precision_of_committed": 0.5
+    },
+    {
+     "predicted_gloss": "READ",
+     "correct_events": 1,
+     "correct_kept": 0,
+     "retention": 0.0,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": null
+    },
+    {
+     "predicted_gloss": "READY",
+     "correct_events": 1,
+     "correct_kept": 1,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": 1.0
+    },
+    {
+     "predicted_gloss": "RUN2",
+     "correct_events": 1,
+     "correct_kept": 0,
+     "retention": 0.0,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": null
+    },
+    {
+     "predicted_gloss": "SAME2",
+     "correct_events": 1,
+     "correct_kept": 1,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 1,
+     "precision_of_committed": 0.5
+    },
+    {
+     "predicted_gloss": "SCHOOL",
+     "correct_events": 1,
+     "correct_kept": 1,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": 1.0
+    },
+    {
+     "predicted_gloss": "SEE",
+     "correct_events": 1,
+     "correct_kept": 1,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": 1.0
+    },
+    {
+     "predicted_gloss": "SHOP1",
+     "correct_events": 1,
+     "correct_kept": 1,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": 1.0
+    },
+    {
+     "predicted_gloss": "SICK",
+     "correct_events": 1,
+     "correct_kept": 1,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": 1.0
+    },
+    {
+     "predicted_gloss": "SLEEP",
+     "correct_events": 1,
+     "correct_kept": 1,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 3,
+     "precision_of_committed": 0.25
+    },
+    {
+     "predicted_gloss": "SLOW",
+     "correct_events": 1,
+     "correct_kept": 1,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": 1.0
+    },
+    {
+     "predicted_gloss": "STAND2",
+     "correct_events": 1,
+     "correct_kept": 1,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": 1.0
+    },
+    {
+     "predicted_gloss": "STAY",
+     "correct_events": 1,
+     "correct_kept": 1,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": 1.0
+    },
+    {
+     "predicted_gloss": "STILL",
+     "correct_events": 1,
+     "correct_kept": 1,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": 1.0
+    },
+    {
+     "predicted_gloss": "STRONG",
+     "correct_events": 1,
+     "correct_kept": 1,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": 1.0
+    },
+    {
+     "predicted_gloss": "TEACH2",
+     "correct_events": 1,
+     "correct_kept": 1,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 1,
+     "precision_of_committed": 0.5
+    },
+    {
+     "predicted_gloss": "TEACHER",
+     "correct_events": 1,
+     "correct_kept": 1,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 1,
+     "precision_of_committed": 0.5
+    },
+    {
+     "predicted_gloss": "THEY1",
+     "correct_events": 1,
+     "correct_kept": 1,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 2,
+     "precision_of_committed": 0.333
+    },
+    {
+     "predicted_gloss": "THINK",
+     "correct_events": 1,
+     "correct_kept": 1,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 3,
+     "precision_of_committed": 0.25
+    },
+    {
+     "predicted_gloss": "TIRED",
+     "correct_events": 1,
+     "correct_kept": 0,
+     "retention": 0.0,
+     "wrong_or_fragment_kept": 1,
+     "precision_of_committed": 0.0
+    },
+    {
+     "predicted_gloss": "TO",
+     "correct_events": 1,
+     "correct_kept": 1,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 1,
+     "precision_of_committed": 0.5
+    },
+    {
+     "predicted_gloss": "TURN",
+     "correct_events": 1,
+     "correct_kept": 1,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": 1.0
+    },
+    {
+     "predicted_gloss": "WAIT",
+     "correct_events": 1,
+     "correct_kept": 1,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 1,
+     "precision_of_committed": 0.5
+    },
+    {
+     "predicted_gloss": "WATCH",
+     "correct_events": 1,
+     "correct_kept": 1,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 3,
+     "precision_of_committed": 0.25
+    },
+    {
+     "predicted_gloss": "WHICH",
+     "correct_events": 1,
+     "correct_kept": 0,
+     "retention": 0.0,
+     "wrong_or_fragment_kept": 1,
+     "precision_of_committed": 0.0
+    },
+    {
+     "predicted_gloss": "WHILE",
+     "correct_events": 1,
+     "correct_kept": 1,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": 1.0
+    },
+    {
+     "predicted_gloss": "WINDOW",
+     "correct_events": 1,
+     "correct_kept": 1,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": 1.0
+    },
+    {
+     "predicted_gloss": "WORLD",
+     "correct_events": 1,
+     "correct_kept": 1,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 1,
+     "precision_of_committed": 0.5
+    },
+    {
+     "predicted_gloss": "WRITE",
+     "correct_events": 1,
+     "correct_kept": 1,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 2,
+     "precision_of_committed": 0.333
+    },
+    {
+     "predicted_gloss": "YEAR",
+     "correct_events": 1,
+     "correct_kept": 1,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": 1.0
+    },
+    {
+     "predicted_gloss": "AFTERNOON",
+     "correct_events": 0,
+     "correct_kept": 0,
+     "retention": null,
+     "wrong_or_fragment_kept": 1,
+     "precision_of_committed": 0.0
+    },
+    {
+     "predicted_gloss": "AGAIN",
+     "correct_events": 0,
+     "correct_kept": 0,
+     "retention": null,
+     "wrong_or_fragment_kept": 1,
+     "precision_of_committed": 0.0
+    },
+    {
+     "predicted_gloss": "ALL",
+     "correct_events": 0,
+     "correct_kept": 0,
+     "retention": null,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": null
+    },
+    {
+     "predicted_gloss": "ALWAYS",
+     "correct_events": 0,
+     "correct_kept": 0,
+     "retention": null,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": null
+    },
+    {
+     "predicted_gloss": "ASK",
+     "correct_events": 0,
+     "correct_kept": 0,
+     "retention": null,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": null
+    },
+    {
+     "predicted_gloss": "BABY1",
+     "correct_events": 0,
+     "correct_kept": 0,
+     "retention": null,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": null
+    },
+    {
+     "predicted_gloss": "BECOME",
+     "correct_events": 0,
+     "correct_kept": 0,
+     "retention": null,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": null
+    },
+    {
+     "predicted_gloss": "BED2",
+     "correct_events": 0,
+     "correct_kept": 0,
+     "retention": null,
+     "wrong_or_fragment_kept": 1,
+     "precision_of_committed": 0.0
+    },
+    {
+     "predicted_gloss": "BOOK",
+     "correct_events": 0,
+     "correct_kept": 0,
+     "retention": null,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": null
+    },
+    {
+     "predicted_gloss": "BUT",
+     "correct_events": 0,
+     "correct_kept": 0,
+     "retention": null,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": null
+    },
+    {
+     "predicted_gloss": "CAKE",
+     "correct_events": 0,
+     "correct_kept": 0,
+     "retention": null,
+     "wrong_or_fragment_kept": 1,
+     "precision_of_committed": 0.0
+    },
+    {
+     "predicted_gloss": "CHAIR",
+     "correct_events": 0,
+     "correct_kept": 0,
+     "retention": null,
+     "wrong_or_fragment_kept": 3,
+     "precision_of_committed": 0.0
+    },
+    {
+     "predicted_gloss": "CLOSE",
+     "correct_events": 0,
+     "correct_kept": 0,
+     "retention": null,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": null
+    },
+    {
+     "predicted_gloss": "CLOTHES",
+     "correct_events": 0,
+     "correct_kept": 0,
+     "retention": null,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": null
+    },
+    {
+     "predicted_gloss": "COOK",
+     "correct_events": 0,
+     "correct_kept": 0,
+     "retention": null,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": null
+    },
+    {
+     "predicted_gloss": "CUT",
+     "correct_events": 0,
+     "correct_kept": 0,
+     "retention": null,
+     "wrong_or_fragment_kept": 1,
+     "precision_of_committed": 0.0
+    },
+    {
+     "predicted_gloss": "DECIDE1",
+     "correct_events": 0,
+     "correct_kept": 0,
+     "retention": null,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": null
+    },
+    {
+     "predicted_gloss": "DIFFERENT",
+     "correct_events": 0,
+     "correct_kept": 0,
+     "retention": null,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": null
+    },
+    {
+     "predicted_gloss": "DRINK2",
+     "correct_events": 0,
+     "correct_kept": 0,
+     "retention": null,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": null
+    },
+    {
+     "predicted_gloss": "DRIVE",
+     "correct_events": 0,
+     "correct_kept": 0,
+     "retention": null,
+     "wrong_or_fragment_kept": 3,
+     "precision_of_committed": 0.0
+    },
+    {
+     "predicted_gloss": "ENTER",
+     "correct_events": 0,
+     "correct_kept": 0,
+     "retention": null,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": null
+    },
+    {
+     "predicted_gloss": "FEEL",
+     "correct_events": 0,
+     "correct_kept": 0,
+     "retention": null,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": null
+    },
+    {
+     "predicted_gloss": "FEW",
+     "correct_events": 0,
+     "correct_kept": 0,
+     "retention": null,
+     "wrong_or_fragment_kept": 1,
+     "precision_of_committed": 0.0
+    },
+    {
+     "predicted_gloss": "FIND",
+     "correct_events": 0,
+     "correct_kept": 0,
+     "retention": null,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": null
+    },
+    {
+     "predicted_gloss": "FIRST",
+     "correct_events": 0,
+     "correct_kept": 0,
+     "retention": null,
+     "wrong_or_fragment_kept": 2,
+     "precision_of_committed": 0.0
+    },
+    {
+     "predicted_gloss": "GET",
+     "correct_events": 0,
+     "correct_kept": 0,
+     "retention": null,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": null
+    },
+    {
+     "predicted_gloss": "GIFT",
+     "correct_events": 0,
+     "correct_kept": 0,
+     "retention": null,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": null
+    },
+    {
+     "predicted_gloss": "GIVE",
+     "correct_events": 0,
+     "correct_kept": 0,
+     "retention": null,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": null
+    },
+    {
+     "predicted_gloss": "GRAB",
+     "correct_events": 0,
+     "correct_kept": 0,
+     "retention": null,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": null
+    },
+    {
+     "predicted_gloss": "HAVE",
+     "correct_events": 0,
+     "correct_kept": 0,
+     "retention": null,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": null
+    },
+    {
+     "predicted_gloss": "HOSPITAL1",
+     "correct_events": 0,
+     "correct_kept": 0,
+     "retention": null,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": null
+    },
+    {
+     "predicted_gloss": "IF",
+     "correct_events": 0,
+     "correct_kept": 0,
+     "retention": null,
+     "wrong_or_fragment_kept": 1,
+     "precision_of_committed": 0.0
+    },
+    {
+     "predicted_gloss": "KNOW",
+     "correct_events": 0,
+     "correct_kept": 0,
+     "retention": null,
+     "wrong_or_fragment_kept": 2,
+     "precision_of_committed": 0.0
+    },
+    {
+     "predicted_gloss": "LAST",
+     "correct_events": 0,
+     "correct_kept": 0,
+     "retention": null,
+     "wrong_or_fragment_kept": 1,
+     "precision_of_committed": 0.0
+    },
+    {
+     "predicted_gloss": "LOVE",
+     "correct_events": 0,
+     "correct_kept": 0,
+     "retention": null,
+     "wrong_or_fragment_kept": 1,
+     "precision_of_committed": 0.0
+    },
+    {
+     "predicted_gloss": "MAKE",
+     "correct_events": 0,
+     "correct_kept": 0,
+     "retention": null,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": null
+    },
+    {
+     "predicted_gloss": "MONTH",
+     "correct_events": 0,
+     "correct_kept": 0,
+     "retention": null,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": null
+    },
+    {
+     "predicted_gloss": "MOUTH",
+     "correct_events": 0,
+     "correct_kept": 0,
+     "retention": null,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": null
+    },
+    {
+     "predicted_gloss": "NEW",
+     "correct_events": 0,
+     "correct_kept": 0,
+     "retention": null,
+     "wrong_or_fragment_kept": 1,
+     "precision_of_committed": 0.0
+    },
+    {
+     "predicted_gloss": "NICE",
+     "correct_events": 0,
+     "correct_kept": 0,
+     "retention": null,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": null
+    },
+    {
+     "predicted_gloss": "OLD",
+     "correct_events": 0,
+     "correct_kept": 0,
+     "retention": null,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": null
+    },
+    {
+     "predicted_gloss": "ON",
+     "correct_events": 0,
+     "correct_kept": 0,
+     "retention": null,
+     "wrong_or_fragment_kept": 1,
+     "precision_of_committed": 0.0
+    },
+    {
+     "predicted_gloss": "OPEN",
+     "correct_events": 0,
+     "correct_kept": 0,
+     "retention": null,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": null
+    },
+    {
+     "predicted_gloss": "OR",
+     "correct_events": 0,
+     "correct_kept": 0,
+     "retention": null,
+     "wrong_or_fragment_kept": 2,
+     "precision_of_committed": 0.0
+    },
+    {
+     "predicted_gloss": "OVER",
+     "correct_events": 0,
+     "correct_kept": 0,
+     "retention": null,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": null
+    },
+    {
+     "predicted_gloss": "PERSON",
+     "correct_events": 0,
+     "correct_kept": 0,
+     "retention": null,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": null
+    },
+    {
+     "predicted_gloss": "PLEASE",
+     "correct_events": 0,
+     "correct_kept": 0,
+     "retention": null,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": null
+    },
+    {
+     "predicted_gloss": "SAD",
+     "correct_events": 0,
+     "correct_kept": 0,
+     "retention": null,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": null
+    },
+    {
+     "predicted_gloss": "SEND",
+     "correct_events": 0,
+     "correct_kept": 0,
+     "retention": null,
+     "wrong_or_fragment_kept": 2,
+     "precision_of_committed": 0.0
+    },
+    {
+     "predicted_gloss": "SHOW",
+     "correct_events": 0,
+     "correct_kept": 0,
+     "retention": null,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": null
+    },
+    {
+     "predicted_gloss": "SISTER",
+     "correct_events": 0,
+     "correct_kept": 0,
+     "retention": null,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": null
+    },
+    {
+     "predicted_gloss": "SPECIAL1",
+     "correct_events": 0,
+     "correct_kept": 0,
+     "retention": null,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": null
+    },
+    {
+     "predicted_gloss": "SURE",
+     "correct_events": 0,
+     "correct_kept": 0,
+     "retention": null,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": null
+    },
+    {
+     "predicted_gloss": "TABLE",
+     "correct_events": 0,
+     "correct_kept": 0,
+     "retention": null,
+     "wrong_or_fragment_kept": 1,
+     "precision_of_committed": 0.0
+    },
+    {
+     "predicted_gloss": "TALK1",
+     "correct_events": 0,
+     "correct_kept": 0,
+     "retention": null,
+     "wrong_or_fragment_kept": 1,
+     "precision_of_committed": 0.0
+    },
+    {
+     "predicted_gloss": "TICKET",
+     "correct_events": 0,
+     "correct_kept": 0,
+     "retention": null,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": null
+    },
+    {
+     "predicted_gloss": "TOOMUCH",
+     "correct_events": 0,
+     "correct_kept": 0,
+     "retention": null,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": null
+    },
+    {
+     "predicted_gloss": "UNDER",
+     "correct_events": 0,
+     "correct_kept": 0,
+     "retention": null,
+     "wrong_or_fragment_kept": 3,
+     "precision_of_committed": 0.0
+    },
+    {
+     "predicted_gloss": "US",
+     "correct_events": 0,
+     "correct_kept": 0,
+     "retention": null,
+     "wrong_or_fragment_kept": 2,
+     "precision_of_committed": 0.0
+    },
+    {
+     "predicted_gloss": "WALK2",
+     "correct_events": 0,
+     "correct_kept": 0,
+     "retention": null,
+     "wrong_or_fragment_kept": 1,
+     "precision_of_committed": 0.0
+    },
+    {
+     "predicted_gloss": "WANT2",
+     "correct_events": 0,
+     "correct_kept": 0,
+     "retention": null,
+     "wrong_or_fragment_kept": 1,
+     "precision_of_committed": 0.0
+    },
+    {
+     "predicted_gloss": "WE",
+     "correct_events": 0,
+     "correct_kept": 0,
+     "retention": null,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": null
+    },
+    {
+     "predicted_gloss": "WELCOME2",
+     "correct_events": 0,
+     "correct_kept": 0,
+     "retention": null,
+     "wrong_or_fragment_kept": 1,
+     "precision_of_committed": 0.0
+    },
+    {
+     "predicted_gloss": "WHERE",
+     "correct_events": 0,
+     "correct_kept": 0,
+     "retention": null,
+     "wrong_or_fragment_kept": 1,
+     "precision_of_committed": 0.0
+    },
+    {
+     "predicted_gloss": "WIFE",
+     "correct_events": 0,
+     "correct_kept": 0,
+     "retention": null,
+     "wrong_or_fragment_kept": 1,
+     "precision_of_committed": 0.0
+    },
+    {
+     "predicted_gloss": "WITH",
+     "correct_events": 0,
+     "correct_kept": 0,
+     "retention": null,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": null
+    },
+    {
+     "predicted_gloss": "YES",
+     "correct_events": 0,
+     "correct_kept": 0,
+     "retention": null,
+     "wrong_or_fragment_kept": 3,
+     "precision_of_committed": 0.0
+    },
+    {
+     "predicted_gloss": "YOU",
+     "correct_events": 0,
+     "correct_kept": 0,
+     "retention": null,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": null
+    }
+   ]
+  },
+  "reproduces_published_gate_policy_json": {
+   "published_dev_gated": {
+    "correct": 101,
+    "wrong": 102
+   },
+   "recomputed_dev_gated": {
+    "correct": 101,
+    "wrong": 102
+   },
+   "match": true
+  }
+ },
+ "EXPERIMENTAL (Arm A e10 + CB70 + frozen Gate-2)": {
+  "inputs": {
+   "ledger_ARM_A_E10__CONFIRM_BOUNDARY_70.json": "16bc3b6ee263155df252758f2c58f33010002ed60d99cba898f7e3947d417125",
+   "stream_ledger_ARM_A_E10__CONFIRM_BOUNDARY_70.json": "5faf15d3ab5982dbe427c0a4365eed3023422ec50aaf440ac212eae0fef6e8e9"
+  },
+  "shipped_floor": 0.75,
+  "score_comparison_preregistered_split": "see STABLE",
+  "structural_rule_zero_hand_events": {
+   "dev_all_signers": {
+    "wrong_genuine": 3,
+    "nonsign_fragment": 1
+   },
+   "phone_all_sessions": {
+    "unscored": 4
+   },
+   "correct_words_lost_by_rule": 0
+  },
+  "dev_validation_signers": {
+   "ungated": {
+    "events": 635,
+    "correct_words": 265,
+    "correct_kept": 265,
+    "wrong_on_genuine": 313,
+    "wrong_on_genuine_kept": 313,
+    "nonsign_events": 57,
+    "nonsign_kept": 57,
+    "unscored_events": 0,
+    "unscored_kept": 0,
+    "recall_correct_retention": {
+     "k": 265,
+     "n": 265,
+     "value": 1.0,
+     "wilson95": [
+      0.9857,
+      1.0
+     ]
+    },
+    "false_rejection_rate": {
+     "k": 0,
+     "n": 265,
+     "value": 0.0,
+     "wilson95": [
+      0.0,
+      0.0143
+     ]
+    },
+    "false_positive_rate_nonsign": {
+     "k": 57,
+     "n": 57,
+     "value": 1.0,
+     "wilson95": [
+      0.9369,
+      1.0
+     ]
+    },
+    "wrong_word_commit_rate": {
+     "k": 313,
+     "n": 313,
+     "value": 1.0,
+     "wilson95": [
+      0.9879,
+      1.0
+     ]
+    },
+    "precision_of_committed_scored": 0.4173,
+    "f1_correct_commit": 0.5889
+   },
+   "floor_only": {
+    "events": 635,
+    "correct_words": 265,
+    "correct_kept": 173,
+    "wrong_on_genuine": 313,
+    "wrong_on_genuine_kept": 73,
+    "nonsign_events": 57,
+    "nonsign_kept": 25,
+    "unscored_events": 0,
+    "unscored_kept": 0,
+    "recall_correct_retention": {
+     "k": 173,
+     "n": 265,
+     "value": 0.6528,
+     "wilson95": [
+      0.5937,
+      0.7076
+     ]
+    },
+    "false_rejection_rate": {
+     "k": 92,
+     "n": 265,
+     "value": 0.3472,
+     "wilson95": [
+      0.2924,
+      0.4063
+     ]
+    },
+    "false_positive_rate_nonsign": {
+     "k": 25,
+     "n": 57,
+     "value": 0.4386,
+     "wilson95": [
+      0.3177,
+      0.5672
+     ]
+    },
+    "wrong_word_commit_rate": {
+     "k": 73,
+     "n": 313,
+     "value": 0.2332,
+     "wilson95": [
+      0.1898,
+      0.2831
+     ]
+    },
+    "precision_of_committed_scored": 0.6384,
+    "f1_correct_commit": 0.6455
+   },
+   "shipped": {
+    "events": 635,
+    "correct_words": 265,
+    "correct_kept": 173,
+    "wrong_on_genuine": 313,
+    "wrong_on_genuine_kept": 72,
+    "nonsign_events": 57,
+    "nonsign_kept": 25,
+    "unscored_events": 0,
+    "unscored_kept": 0,
+    "recall_correct_retention": {
+     "k": 173,
+     "n": 265,
+     "value": 0.6528,
+     "wilson95": [
+      0.5937,
+      0.7076
+     ]
+    },
+    "false_rejection_rate": {
+     "k": 92,
+     "n": 265,
+     "value": 0.3472,
+     "wilson95": [
+      0.2924,
+      0.4063
+     ]
+    },
+    "false_positive_rate_nonsign": {
+     "k": 25,
+     "n": 57,
+     "value": 0.4386,
+     "wilson95": [
+      0.3177,
+      0.5672
+     ]
+    },
+    "wrong_word_commit_rate": {
+     "k": 72,
+     "n": 313,
+     "value": 0.23,
+     "wilson95": [
+      0.1868,
+      0.2798
+     ]
+    },
+    "precision_of_committed_scored": 0.6407,
+    "f1_correct_commit": 0.6467
+   }
+  },
+  "dev_all_signers_shipped": {
+   "events": 999,
+   "correct_words": 390,
+   "correct_kept": 244,
+   "wrong_on_genuine": 526,
+   "wrong_on_genuine_kept": 100,
+   "nonsign_events": 83,
+   "nonsign_kept": 32,
+   "unscored_events": 0,
+   "unscored_kept": 0,
+   "recall_correct_retention": {
+    "k": 244,
+    "n": 390,
+    "value": 0.6256,
+    "wilson95": [
+     0.5766,
+     0.6722
+    ]
+   },
+   "false_rejection_rate": {
+    "k": 146,
+    "n": 390,
+    "value": 0.3744,
+    "wilson95": [
+     0.3278,
+     0.4234
+    ]
+   },
+   "false_positive_rate_nonsign": {
+    "k": 32,
+    "n": 83,
+    "value": 0.3855,
+    "wilson95": [
+     0.2881,
+     0.4931
+    ]
+   },
+   "wrong_word_commit_rate": {
+    "k": 100,
+    "n": 526,
+    "value": 0.1901,
+    "wilson95": [
+     0.1589,
+     0.2258
+    ]
+   },
+   "precision_of_committed_scored": 0.6489,
+   "f1_correct_commit": 0.6371
+  },
+  "phone_reviewed_sessions": {
+   "ungated": {
+    "events": 52,
+    "correct_words": 19,
+    "correct_kept": 19,
+    "wrong_on_genuine": 3,
+    "wrong_on_genuine_kept": 3,
+    "nonsign_events": 12,
+    "nonsign_kept": 12,
+    "unscored_events": 18,
+    "unscored_kept": 18,
+    "recall_correct_retention": {
+     "k": 19,
+     "n": 19,
+     "value": 1.0,
+     "wilson95": [
+      0.8318,
+      1.0
+     ]
+    },
+    "false_rejection_rate": {
+     "k": 0,
+     "n": 19,
+     "value": 0.0,
+     "wilson95": [
+      0.0,
+      0.1682
+     ]
+    },
+    "false_positive_rate_nonsign": {
+     "k": 12,
+     "n": 12,
+     "value": 1.0,
+     "wilson95": [
+      0.7575,
+      1.0
+     ]
+    },
+    "wrong_word_commit_rate": {
+     "k": 3,
+     "n": 3,
+     "value": 1.0,
+     "wilson95": [
+      0.4385,
+      1.0
+     ]
+    },
+    "precision_of_committed_scored": 0.5588,
+    "f1_correct_commit": 0.717
+   },
+   "floor_only": {
+    "events": 52,
+    "correct_words": 19,
+    "correct_kept": 16,
+    "wrong_on_genuine": 3,
+    "wrong_on_genuine_kept": 3,
+    "nonsign_events": 12,
+    "nonsign_kept": 3,
+    "unscored_events": 18,
+    "unscored_kept": 10,
+    "recall_correct_retention": {
+     "k": 16,
+     "n": 19,
+     "value": 0.8421,
+     "wilson95": [
+      0.6243,
+      0.9448
+     ]
+    },
+    "false_rejection_rate": {
+     "k": 3,
+     "n": 19,
+     "value": 0.1579,
+     "wilson95": [
+      0.0552,
+      0.3757
+     ]
+    },
+    "false_positive_rate_nonsign": {
+     "k": 3,
+     "n": 12,
+     "value": 0.25,
+     "wilson95": [
+      0.0889,
+      0.5323
+     ]
+    },
+    "wrong_word_commit_rate": {
+     "k": 3,
+     "n": 3,
+     "value": 1.0,
+     "wilson95": [
+      0.4385,
+      1.0
+     ]
+    },
+    "precision_of_committed_scored": 0.7273,
+    "f1_correct_commit": 0.7805
+   },
+   "shipped": {
+    "events": 52,
+    "correct_words": 19,
+    "correct_kept": 16,
+    "wrong_on_genuine": 3,
+    "wrong_on_genuine_kept": 3,
+    "nonsign_events": 12,
+    "nonsign_kept": 3,
+    "unscored_events": 18,
+    "unscored_kept": 9,
+    "recall_correct_retention": {
+     "k": 16,
+     "n": 19,
+     "value": 0.8421,
+     "wilson95": [
+      0.6243,
+      0.9448
+     ]
+    },
+    "false_rejection_rate": {
+     "k": 3,
+     "n": 19,
+     "value": 0.1579,
+     "wilson95": [
+      0.0552,
+      0.3757
+     ]
+    },
+    "false_positive_rate_nonsign": {
+     "k": 3,
+     "n": 12,
+     "value": 0.25,
+     "wilson95": [
+      0.0889,
+      0.5323
+     ]
+    },
+    "wrong_word_commit_rate": {
+     "k": 3,
+     "n": 3,
+     "value": 1.0,
+     "wilson95": [
+      0.4385,
+      1.0
+     ]
+    },
+    "precision_of_committed_scored": 0.7273,
+    "f1_correct_commit": 0.7805
+   }
+  },
+  "per_class_dev_all_signers_shipped": {
+   "note": "Per PREDICTED class of emitted events on the held-out DEV benchmark; support is the number of correct events per class, which is small (hundreds of events over ~130 classes).",
+   "by_support": {
+    "support_ge_1": {
+     "classes": 172,
+     "zero_retention_classes": [
+      "ABOUT2",
+      "ALL",
+      "AND",
+      "BUT",
+      "CLEAN",
+      "COLD",
+      "CONFUSED1",
+      "DAY",
+      "EACH",
+      "FAST",
+      "FIRST",
+      "FRIEND",
+      "FROM",
+      "GO",
+      "GRAB",
+      "HATE",
+      "HOT",
+      "HUSBAND",
+      "IF",
+      "INTRODUCE",
+      "LOVE",
+      "MORNING",
+      "MOUTH",
+      "MOVE",
+      "MUCH",
+      "NEVER",
+      "NEW",
+      "NOW",
+      "OFFICE",
+      "PARTY1",
+      "PAY",
+      "RIGHT3",
+      "ROOM",
+      "SEEM",
+      "SHOW",
+      "SICK",
+      "SISTER",
+      "STAND2",
+      "STREET",
+      "THEN",
+      "TIRED",
+      "WALK2",
+      "WHEN",
+      "WITH"
+     ],
+     "median_retention": 0.667
+    },
+    "support_ge_3": {
+     "classes": 63,
+     "zero_retention_classes": [
+      "COLD",
+      "HATE",
+      "INTRODUCE",
+      "MOVE",
+      "OFFICE",
+      "STAND2",
+      "WHEN"
+     ],
+     "median_retention": 0.667
+    },
+    "support_ge_5": {
+     "classes": 10,
+     "zero_retention_classes": [],
+     "median_retention": 1.0
+    }
+   },
+   "table": [
+    {
+     "predicted_gloss": "USE",
+     "correct_events": 7,
+     "correct_kept": 5,
+     "retention": 0.714,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": 1.0
+    },
+    {
+     "predicted_gloss": "COMPUTER",
+     "correct_events": 6,
+     "correct_kept": 6,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": 1.0
+    },
+    {
+     "predicted_gloss": "COUNTRY",
+     "correct_events": 5,
+     "correct_kept": 4,
+     "retention": 0.8,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": 1.0
+    },
+    {
+     "predicted_gloss": "DINNER1",
+     "correct_events": 5,
+     "correct_kept": 5,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 2,
+     "precision_of_committed": 0.714
+    },
+    {
+     "predicted_gloss": "FAMILY",
+     "correct_events": 5,
+     "correct_kept": 5,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": 1.0
+    },
+    {
+     "predicted_gloss": "HELP",
+     "correct_events": 5,
+     "correct_kept": 2,
+     "retention": 0.4,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": 1.0
+    },
+    {
+     "predicted_gloss": "MANY",
+     "correct_events": 5,
+     "correct_kept": 5,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": 1.0
+    },
+    {
+     "predicted_gloss": "VISIT",
+     "correct_events": 5,
+     "correct_kept": 5,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 1,
+     "precision_of_committed": 0.833
+    },
+    {
+     "predicted_gloss": "YES",
+     "correct_events": 5,
+     "correct_kept": 3,
+     "retention": 0.6,
+     "wrong_or_fragment_kept": 2,
+     "precision_of_committed": 0.6
+    },
+    {
+     "predicted_gloss": "YOUR",
+     "correct_events": 5,
+     "correct_kept": 4,
+     "retention": 0.8,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": 1.0
+    },
+    {
+     "predicted_gloss": "ANY",
+     "correct_events": 4,
+     "correct_kept": 4,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 1,
+     "precision_of_committed": 0.8
+    },
+    {
+     "predicted_gloss": "CALL1",
+     "correct_events": 4,
+     "correct_kept": 3,
+     "retention": 0.75,
+     "wrong_or_fragment_kept": 2,
+     "precision_of_committed": 0.6
+    },
+    {
+     "predicted_gloss": "COLD",
+     "correct_events": 4,
+     "correct_kept": 0,
+     "retention": 0.0,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": null
+    },
+    {
+     "predicted_gloss": "COUNT",
+     "correct_events": 4,
+     "correct_kept": 2,
+     "retention": 0.5,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": 1.0
+    },
+    {
+     "predicted_gloss": "DOWNLOAD",
+     "correct_events": 4,
+     "correct_kept": 3,
+     "retention": 0.75,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": 1.0
+    },
+    {
+     "predicted_gloss": "EASY",
+     "correct_events": 4,
+     "correct_kept": 4,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 1,
+     "precision_of_committed": 0.8
+    },
+    {
+     "predicted_gloss": "HOW1",
+     "correct_events": 4,
+     "correct_kept": 3,
+     "retention": 0.75,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": 1.0
+    },
+    {
+     "predicted_gloss": "IMPORTANT",
+     "correct_events": 4,
+     "correct_kept": 4,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 2,
+     "precision_of_committed": 0.667
+    },
+    {
+     "predicted_gloss": "MORE",
+     "correct_events": 4,
+     "correct_kept": 4,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": 1.0
+    },
+    {
+     "predicted_gloss": "PUT",
+     "correct_events": 4,
+     "correct_kept": 3,
+     "retention": 0.75,
+     "wrong_or_fragment_kept": 1,
+     "precision_of_committed": 0.75
+    },
+    {
+     "predicted_gloss": "RUN2",
+     "correct_events": 4,
+     "correct_kept": 1,
+     "retention": 0.25,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": 1.0
+    },
+    {
+     "predicted_gloss": "STAY",
+     "correct_events": 4,
+     "correct_kept": 2,
+     "retention": 0.5,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": 1.0
+    },
+    {
+     "predicted_gloss": "TODAY",
+     "correct_events": 4,
+     "correct_kept": 4,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 4,
+     "precision_of_committed": 0.5
+    },
+    {
+     "predicted_gloss": "WASH2",
+     "correct_events": 4,
+     "correct_kept": 4,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": 1.0
+    },
+    {
+     "predicted_gloss": "WEEK",
+     "correct_events": 4,
+     "correct_kept": 3,
+     "retention": 0.75,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": 1.0
+    },
+    {
+     "predicted_gloss": "WHEN",
+     "correct_events": 4,
+     "correct_kept": 0,
+     "retention": 0.0,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": null
+    },
+    {
+     "predicted_gloss": "WHICH",
+     "correct_events": 4,
+     "correct_kept": 2,
+     "retention": 0.5,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": 1.0
+    },
+    {
+     "predicted_gloss": "WHOLE",
+     "correct_events": 4,
+     "correct_kept": 1,
+     "retention": 0.25,
+     "wrong_or_fragment_kept": 1,
+     "precision_of_committed": 0.5
+    },
+    {
+     "predicted_gloss": "WORK",
+     "correct_events": 4,
+     "correct_kept": 4,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": 1.0
+    },
+    {
+     "predicted_gloss": "AGAIN",
+     "correct_events": 3,
+     "correct_kept": 2,
+     "retention": 0.667,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": 1.0
+    },
+    {
+     "predicted_gloss": "BAG2",
+     "correct_events": 3,
+     "correct_kept": 3,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": 1.0
+    },
+    {
+     "predicted_gloss": "BIG",
+     "correct_events": 3,
+     "correct_kept": 2,
+     "retention": 0.667,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": 1.0
+    },
+    {
+     "predicted_gloss": "BUSY",
+     "correct_events": 3,
+     "correct_kept": 1,
+     "retention": 0.333,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": 1.0
+    },
+    {
+     "predicted_gloss": "BUY",
+     "correct_events": 3,
+     "correct_kept": 1,
+     "retention": 0.333,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": 1.0
+    },
+    {
+     "predicted_gloss": "CHILD",
+     "correct_events": 3,
+     "correct_kept": 1,
+     "retention": 0.333,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": 1.0
+    },
+    {
+     "predicted_gloss": "CITY2",
+     "correct_events": 3,
+     "correct_kept": 1,
+     "retention": 0.333,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": 1.0
+    },
+    {
+     "predicted_gloss": "CONGRATULATIONS",
+     "correct_events": 3,
+     "correct_kept": 2,
+     "retention": 0.667,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": 1.0
+    },
+    {
+     "predicted_gloss": "DOOR",
+     "correct_events": 3,
+     "correct_kept": 2,
+     "retention": 0.667,
+     "wrong_or_fragment_kept": 1,
+     "precision_of_committed": 0.667
+    },
+    {
+     "predicted_gloss": "DRINK2",
+     "correct_events": 3,
+     "correct_kept": 2,
+     "retention": 0.667,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": 1.0
+    },
+    {
+     "predicted_gloss": "HATE",
+     "correct_events": 3,
+     "correct_kept": 0,
+     "retention": 0.0,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": null
+    },
+    {
+     "predicted_gloss": "HELLO",
+     "correct_events": 3,
+     "correct_kept": 3,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 6,
+     "precision_of_committed": 0.333
+    },
+    {
+     "predicted_gloss": "HOME",
+     "correct_events": 3,
+     "correct_kept": 1,
+     "retention": 0.333,
+     "wrong_or_fragment_kept": 1,
+     "precision_of_committed": 0.5
+    },
+    {
+     "predicted_gloss": "INTRODUCE",
+     "correct_events": 3,
+     "correct_kept": 0,
+     "retention": 0.0,
+     "wrong_or_fragment_kept": 1,
+     "precision_of_committed": 0.0
+    },
+    {
+     "predicted_gloss": "KEEP",
+     "correct_events": 3,
+     "correct_kept": 3,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 4,
+     "precision_of_committed": 0.429
+    },
+    {
+     "predicted_gloss": "MEET",
+     "correct_events": 3,
+     "correct_kept": 1,
+     "retention": 0.333,
+     "wrong_or_fragment_kept": 2,
+     "precision_of_committed": 0.333
+    },
+    {
+     "predicted_gloss": "MOVE",
+     "correct_events": 3,
+     "correct_kept": 0,
+     "retention": 0.0,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": null
+    },
+    {
+     "predicted_gloss": "NEED",
+     "correct_events": 3,
+     "correct_kept": 3,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 2,
+     "precision_of_committed": 0.6
+    },
+    {
+     "predicted_gloss": "OFFICE",
+     "correct_events": 3,
+     "correct_kept": 0,
+     "retention": 0.0,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": null
+    },
+    {
+     "predicted_gloss": "OFTEN",
+     "correct_events": 3,
+     "correct_kept": 2,
+     "retention": 0.667,
+     "wrong_or_fragment_kept": 3,
+     "precision_of_committed": 0.4
+    },
+    {
+     "predicted_gloss": "PICK",
+     "correct_events": 3,
+     "correct_kept": 1,
+     "retention": 0.333,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": 1.0
+    },
+    {
+     "predicted_gloss": "READ",
+     "correct_events": 3,
+     "correct_kept": 2,
+     "retention": 0.667,
+     "wrong_or_fragment_kept": 1,
+     "precision_of_committed": 0.667
+    },
+    {
+     "predicted_gloss": "READY",
+     "correct_events": 3,
+     "correct_kept": 2,
+     "retention": 0.667,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": 1.0
+    },
+    {
+     "predicted_gloss": "SELL",
+     "correct_events": 3,
+     "correct_kept": 2,
+     "retention": 0.667,
+     "wrong_or_fragment_kept": 1,
+     "precision_of_committed": 0.667
+    },
+    {
+     "predicted_gloss": "STAND2",
+     "correct_events": 3,
+     "correct_kept": 0,
+     "retention": 0.0,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": null
+    },
+    {
+     "predicted_gloss": "STRONG",
+     "correct_events": 3,
+     "correct_kept": 2,
+     "retention": 0.667,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": 1.0
+    },
+    {
+     "predicted_gloss": "TELL",
+     "correct_events": 3,
+     "correct_kept": 1,
+     "retention": 0.333,
+     "wrong_or_fragment_kept": 3,
+     "precision_of_committed": 0.25
+    },
+    {
+     "predicted_gloss": "TIME",
+     "correct_events": 3,
+     "correct_kept": 2,
+     "retention": 0.667,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": 1.0
+    },
+    {
+     "predicted_gloss": "VERY",
+     "correct_events": 3,
+     "correct_kept": 2,
+     "retention": 0.667,
+     "wrong_or_fragment_kept": 1,
+     "precision_of_committed": 0.667
+    },
+    {
+     "predicted_gloss": "WAIT",
+     "correct_events": 3,
+     "correct_kept": 2,
+     "retention": 0.667,
+     "wrong_or_fragment_kept": 1,
+     "precision_of_committed": 0.667
+    },
+    {
+     "predicted_gloss": "WORLD",
+     "correct_events": 3,
+     "correct_kept": 2,
+     "retention": 0.667,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": 1.0
+    },
+    {
+     "predicted_gloss": "WRITE",
+     "correct_events": 3,
+     "correct_kept": 3,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": 1.0
+    },
+    {
+     "predicted_gloss": "YEAR",
+     "correct_events": 3,
+     "correct_kept": 3,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 2,
+     "precision_of_committed": 0.6
+    },
+    {
+     "predicted_gloss": "YESTERDAY",
+     "correct_events": 3,
+     "correct_kept": 2,
+     "retention": 0.667,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": 1.0
+    },
+    {
+     "predicted_gloss": "ALL",
+     "correct_events": 2,
+     "correct_kept": 0,
+     "retention": 0.0,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": null
+    },
+    {
+     "predicted_gloss": "BECAUSE",
+     "correct_events": 2,
+     "correct_kept": 2,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 1,
+     "precision_of_committed": 0.667
+    },
+    {
+     "predicted_gloss": "BOTH",
+     "correct_events": 2,
+     "correct_kept": 2,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": 1.0
+    },
+    {
+     "predicted_gloss": "BROTHER",
+     "correct_events": 2,
+     "correct_kept": 1,
+     "retention": 0.5,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": 1.0
+    },
+    {
+     "predicted_gloss": "DAY",
+     "correct_events": 2,
+     "correct_kept": 0,
+     "retention": 0.0,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": null
+    },
+    {
+     "predicted_gloss": "DECIDE1",
+     "correct_events": 2,
+     "correct_kept": 1,
+     "retention": 0.5,
+     "wrong_or_fragment_kept": 1,
+     "precision_of_committed": 0.5
+    },
+    {
+     "predicted_gloss": "DONTKNOW",
+     "correct_events": 2,
+     "correct_kept": 1,
+     "retention": 0.5,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": 1.0
+    },
+    {
+     "predicted_gloss": "DRIVE",
+     "correct_events": 2,
+     "correct_kept": 1,
+     "retention": 0.5,
+     "wrong_or_fragment_kept": 3,
+     "precision_of_committed": 0.25
+    },
+    {
+     "predicted_gloss": "ENOUGH",
+     "correct_events": 2,
+     "correct_kept": 2,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": 1.0
+    },
+    {
+     "predicted_gloss": "FOR",
+     "correct_events": 2,
+     "correct_kept": 2,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": 1.0
+    },
+    {
+     "predicted_gloss": "FROM",
+     "correct_events": 2,
+     "correct_kept": 0,
+     "retention": 0.0,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": null
+    },
+    {
+     "predicted_gloss": "GO",
+     "correct_events": 2,
+     "correct_kept": 0,
+     "retention": 0.0,
+     "wrong_or_fragment_kept": 1,
+     "precision_of_committed": 0.0
+    },
+    {
+     "predicted_gloss": "GOOD",
+     "correct_events": 2,
+     "correct_kept": 2,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 2,
+     "precision_of_committed": 0.5
+    },
+    {
+     "predicted_gloss": "HOUR",
+     "correct_events": 2,
+     "correct_kept": 2,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": 1.0
+    },
+    {
+     "predicted_gloss": "HURRY",
+     "correct_events": 2,
+     "correct_kept": 2,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 2,
+     "precision_of_committed": 0.5
+    },
+    {
+     "predicted_gloss": "LEAVE",
+     "correct_events": 2,
+     "correct_kept": 1,
+     "retention": 0.5,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": 1.0
+    },
+    {
+     "predicted_gloss": "LUNCH1",
+     "correct_events": 2,
+     "correct_kept": 1,
+     "retention": 0.5,
+     "wrong_or_fragment_kept": 1,
+     "precision_of_committed": 0.5
+    },
+    {
+     "predicted_gloss": "MAN",
+     "correct_events": 2,
+     "correct_kept": 2,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": 1.0
+    },
+    {
+     "predicted_gloss": "MEAN2",
+     "correct_events": 2,
+     "correct_kept": 1,
+     "retention": 0.5,
+     "wrong_or_fragment_kept": 1,
+     "precision_of_committed": 0.5
+    },
+    {
+     "predicted_gloss": "MORNING",
+     "correct_events": 2,
+     "correct_kept": 0,
+     "retention": 0.0,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": null
+    },
+    {
+     "predicted_gloss": "MOVIE1",
+     "correct_events": 2,
+     "correct_kept": 1,
+     "retention": 0.5,
+     "wrong_or_fragment_kept": 1,
+     "precision_of_committed": 0.5
+    },
+    {
+     "predicted_gloss": "NEVER",
+     "correct_events": 2,
+     "correct_kept": 0,
+     "retention": 0.0,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": null
+    },
+    {
+     "predicted_gloss": "NEXT",
+     "correct_events": 2,
+     "correct_kept": 2,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 1,
+     "precision_of_committed": 0.667
+    },
+    {
+     "predicted_gloss": "NIGHT1",
+     "correct_events": 2,
+     "correct_kept": 1,
+     "retention": 0.5,
+     "wrong_or_fragment_kept": 2,
+     "precision_of_committed": 0.333
+    },
+    {
+     "predicted_gloss": "PAY",
+     "correct_events": 2,
+     "correct_kept": 0,
+     "retention": 0.0,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": null
+    },
+    {
+     "predicted_gloss": "PEOPLE",
+     "correct_events": 2,
+     "correct_kept": 2,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 1,
+     "precision_of_committed": 0.667
+    },
+    {
+     "predicted_gloss": "RESTAURANT",
+     "correct_events": 2,
+     "correct_kept": 2,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": 1.0
+    },
+    {
+     "predicted_gloss": "ROAD",
+     "correct_events": 2,
+     "correct_kept": 2,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": 1.0
+    },
+    {
+     "predicted_gloss": "ROOM",
+     "correct_events": 2,
+     "correct_kept": 0,
+     "retention": 0.0,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": null
+    },
+    {
+     "predicted_gloss": "SAD",
+     "correct_events": 2,
+     "correct_kept": 1,
+     "retention": 0.5,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": 1.0
+    },
+    {
+     "predicted_gloss": "SAME2",
+     "correct_events": 2,
+     "correct_kept": 1,
+     "retention": 0.5,
+     "wrong_or_fragment_kept": 1,
+     "precision_of_committed": 0.5
+    },
+    {
+     "predicted_gloss": "SHOP1",
+     "correct_events": 2,
+     "correct_kept": 2,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": 1.0
+    },
+    {
+     "predicted_gloss": "SHOW",
+     "correct_events": 2,
+     "correct_kept": 0,
+     "retention": 0.0,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": null
+    },
+    {
+     "predicted_gloss": "SMALL",
+     "correct_events": 2,
+     "correct_kept": 1,
+     "retention": 0.5,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": 1.0
+    },
+    {
+     "predicted_gloss": "SOMETIMES",
+     "correct_events": 2,
+     "correct_kept": 2,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": 1.0
+    },
+    {
+     "predicted_gloss": "TEACH2",
+     "correct_events": 2,
+     "correct_kept": 2,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": 1.0
+    },
+    {
+     "predicted_gloss": "TEACHER",
+     "correct_events": 2,
+     "correct_kept": 2,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": 1.0
+    },
+    {
+     "predicted_gloss": "THEN",
+     "correct_events": 2,
+     "correct_kept": 0,
+     "retention": 0.0,
+     "wrong_or_fragment_kept": 2,
+     "precision_of_committed": 0.0
+    },
+    {
+     "predicted_gloss": "THEY1",
+     "correct_events": 2,
+     "correct_kept": 1,
+     "retention": 0.5,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": 1.0
+    },
+    {
+     "predicted_gloss": "THINK",
+     "correct_events": 2,
+     "correct_kept": 2,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 3,
+     "precision_of_committed": 0.4
+    },
+    {
+     "predicted_gloss": "TIRED",
+     "correct_events": 2,
+     "correct_kept": 0,
+     "retention": 0.0,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": null
+    },
+    {
+     "predicted_gloss": "TO",
+     "correct_events": 2,
+     "correct_kept": 1,
+     "retention": 0.5,
+     "wrong_or_fragment_kept": 1,
+     "precision_of_committed": 0.5
+    },
+    {
+     "predicted_gloss": "TRY",
+     "correct_events": 2,
+     "correct_kept": 1,
+     "retention": 0.5,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": 1.0
+    },
+    {
+     "predicted_gloss": "TURN",
+     "correct_events": 2,
+     "correct_kept": 2,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": 1.0
+    },
+    {
+     "predicted_gloss": "UNDER",
+     "correct_events": 2,
+     "correct_kept": 2,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 1,
+     "precision_of_committed": 0.667
+    },
+    {
+     "predicted_gloss": "US",
+     "correct_events": 2,
+     "correct_kept": 2,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 3,
+     "precision_of_committed": 0.4
+    },
+    {
+     "predicted_gloss": "WANT2",
+     "correct_events": 2,
+     "correct_kept": 1,
+     "retention": 0.5,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": 1.0
+    },
+    {
+     "predicted_gloss": "WATER",
+     "correct_events": 2,
+     "correct_kept": 1,
+     "retention": 0.5,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": 1.0
+    },
+    {
+     "predicted_gloss": "WELCOME2",
+     "correct_events": 2,
+     "correct_kept": 2,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": 1.0
+    },
+    {
+     "predicted_gloss": "YOUNG",
+     "correct_events": 2,
+     "correct_kept": 1,
+     "retention": 0.5,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": 1.0
+    },
+    {
+     "predicted_gloss": "ABOUT2",
+     "correct_events": 1,
+     "correct_kept": 0,
+     "retention": 0.0,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": null
+    },
+    {
+     "predicted_gloss": "AFTERNOON",
+     "correct_events": 1,
+     "correct_kept": 1,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 1,
+     "precision_of_committed": 0.5
+    },
+    {
+     "predicted_gloss": "AND",
+     "correct_events": 1,
+     "correct_kept": 0,
+     "retention": 0.0,
+     "wrong_or_fragment_kept": 2,
+     "precision_of_committed": 0.0
+    },
+    {
+     "predicted_gloss": "ASK",
+     "correct_events": 1,
+     "correct_kept": 1,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": 1.0
+    },
+    {
+     "predicted_gloss": "BED2",
+     "correct_events": 1,
+     "correct_kept": 1,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 1,
+     "precision_of_committed": 0.5
+    },
+    {
+     "predicted_gloss": "BETWEEN",
+     "correct_events": 1,
+     "correct_kept": 1,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": 1.0
+    },
+    {
+     "predicted_gloss": "BOOK",
+     "correct_events": 1,
+     "correct_kept": 1,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": 1.0
+    },
+    {
+     "predicted_gloss": "BUT",
+     "correct_events": 1,
+     "correct_kept": 0,
+     "retention": 0.0,
+     "wrong_or_fragment_kept": 1,
+     "precision_of_committed": 0.0
+    },
+    {
+     "predicted_gloss": "CAKE",
+     "correct_events": 1,
+     "correct_kept": 1,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": 1.0
+    },
+    {
+     "predicted_gloss": "CAR",
+     "correct_events": 1,
+     "correct_kept": 1,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 1,
+     "precision_of_committed": 0.5
+    },
+    {
+     "predicted_gloss": "CLEAN",
+     "correct_events": 1,
+     "correct_kept": 0,
+     "retention": 0.0,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": null
+    },
+    {
+     "predicted_gloss": "CONFUSED1",
+     "correct_events": 1,
+     "correct_kept": 0,
+     "retention": 0.0,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": null
+    },
+    {
+     "predicted_gloss": "EACH",
+     "correct_events": 1,
+     "correct_kept": 0,
+     "retention": 0.0,
+     "wrong_or_fragment_kept": 1,
+     "precision_of_committed": 0.0
+    },
+    {
+     "predicted_gloss": "EAT1",
+     "correct_events": 1,
+     "correct_kept": 1,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 3,
+     "precision_of_committed": 0.25
+    },
+    {
+     "predicted_gloss": "FAST",
+     "correct_events": 1,
+     "correct_kept": 0,
+     "retention": 0.0,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": null
+    },
+    {
+     "predicted_gloss": "FATHER",
+     "correct_events": 1,
+     "correct_kept": 1,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": 1.0
+    },
+    {
+     "predicted_gloss": "FIRST",
+     "correct_events": 1,
+     "correct_kept": 0,
+     "retention": 0.0,
+     "wrong_or_fragment_kept": 1,
+     "precision_of_committed": 0.0
+    },
+    {
+     "predicted_gloss": "FREE",
+     "correct_events": 1,
+     "correct_kept": 1,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": 1.0
+    },
+    {
+     "predicted_gloss": "FRIEND",
+     "correct_events": 1,
+     "correct_kept": 0,
+     "retention": 0.0,
+     "wrong_or_fragment_kept": 1,
+     "precision_of_committed": 0.0
+    },
+    {
+     "predicted_gloss": "GET",
+     "correct_events": 1,
+     "correct_kept": 1,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": 1.0
+    },
+    {
+     "predicted_gloss": "GRAB",
+     "correct_events": 1,
+     "correct_kept": 0,
+     "retention": 0.0,
+     "wrong_or_fragment_kept": 1,
+     "precision_of_committed": 0.0
+    },
+    {
+     "predicted_gloss": "HAVE",
+     "correct_events": 1,
+     "correct_kept": 1,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": 1.0
+    },
+    {
+     "predicted_gloss": "HERE",
+     "correct_events": 1,
+     "correct_kept": 1,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 3,
+     "precision_of_committed": 0.25
+    },
+    {
+     "predicted_gloss": "HOT",
+     "correct_events": 1,
+     "correct_kept": 0,
+     "retention": 0.0,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": null
+    },
+    {
+     "predicted_gloss": "HUSBAND",
+     "correct_events": 1,
+     "correct_kept": 0,
+     "retention": 0.0,
+     "wrong_or_fragment_kept": 1,
+     "precision_of_committed": 0.0
+    },
+    {
+     "predicted_gloss": "IF",
+     "correct_events": 1,
+     "correct_kept": 0,
+     "retention": 0.0,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": null
+    },
+    {
+     "predicted_gloss": "JUMP",
+     "correct_events": 1,
+     "correct_kept": 1,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 1,
+     "precision_of_committed": 0.5
+    },
+    {
+     "predicted_gloss": "KEY",
+     "correct_events": 1,
+     "correct_kept": 1,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": 1.0
+    },
+    {
+     "predicted_gloss": "LETTER2",
+     "correct_events": 1,
+     "correct_kept": 1,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": 1.0
+    },
+    {
+     "predicted_gloss": "LOVE",
+     "correct_events": 1,
+     "correct_kept": 0,
+     "retention": 0.0,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": null
+    },
+    {
+     "predicted_gloss": "MONEY1",
+     "correct_events": 1,
+     "correct_kept": 1,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": 1.0
+    },
+    {
+     "predicted_gloss": "MOST",
+     "correct_events": 1,
+     "correct_kept": 1,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 1,
+     "precision_of_committed": 0.5
+    },
+    {
+     "predicted_gloss": "MOUTH",
+     "correct_events": 1,
+     "correct_kept": 0,
+     "retention": 0.0,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": null
+    },
+    {
+     "predicted_gloss": "MUCH",
+     "correct_events": 1,
+     "correct_kept": 0,
+     "retention": 0.0,
+     "wrong_or_fragment_kept": 6,
+     "precision_of_committed": 0.0
+    },
+    {
+     "predicted_gloss": "NEW",
+     "correct_events": 1,
+     "correct_kept": 0,
+     "retention": 0.0,
+     "wrong_or_fragment_kept": 1,
+     "precision_of_committed": 0.0
+    },
+    {
+     "predicted_gloss": "NO",
+     "correct_events": 1,
+     "correct_kept": 1,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 3,
+     "precision_of_committed": 0.25
+    },
+    {
+     "predicted_gloss": "NOW",
+     "correct_events": 1,
+     "correct_kept": 0,
+     "retention": 0.0,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": null
+    },
+    {
+     "predicted_gloss": "OR",
+     "correct_events": 1,
+     "correct_kept": 1,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 1,
+     "precision_of_committed": 0.5
+    },
+    {
+     "predicted_gloss": "PARTY1",
+     "correct_events": 1,
+     "correct_kept": 0,
+     "retention": 0.0,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": null
+    },
+    {
+     "predicted_gloss": "RIGHT3",
+     "correct_events": 1,
+     "correct_kept": 0,
+     "retention": 0.0,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": null
+    },
+    {
+     "predicted_gloss": "SCHOOL",
+     "correct_events": 1,
+     "correct_kept": 1,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": 1.0
+    },
+    {
+     "predicted_gloss": "SEE",
+     "correct_events": 1,
+     "correct_kept": 1,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": 1.0
+    },
+    {
+     "predicted_gloss": "SEEM",
+     "correct_events": 1,
+     "correct_kept": 0,
+     "retention": 0.0,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": null
+    },
+    {
+     "predicted_gloss": "SEND",
+     "correct_events": 1,
+     "correct_kept": 1,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 3,
+     "precision_of_committed": 0.25
+    },
+    {
+     "predicted_gloss": "SICK",
+     "correct_events": 1,
+     "correct_kept": 0,
+     "retention": 0.0,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": null
+    },
+    {
+     "predicted_gloss": "SISTER",
+     "correct_events": 1,
+     "correct_kept": 0,
+     "retention": 0.0,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": null
+    },
+    {
+     "predicted_gloss": "SLEEP",
+     "correct_events": 1,
+     "correct_kept": 1,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 3,
+     "precision_of_committed": 0.25
+    },
+    {
+     "predicted_gloss": "SLOW",
+     "correct_events": 1,
+     "correct_kept": 1,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 2,
+     "precision_of_committed": 0.333
+    },
+    {
+     "predicted_gloss": "SORRY",
+     "correct_events": 1,
+     "correct_kept": 1,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 1,
+     "precision_of_committed": 0.5
+    },
+    {
+     "predicted_gloss": "SPECIAL1",
+     "correct_events": 1,
+     "correct_kept": 1,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": 1.0
+    },
+    {
+     "predicted_gloss": "STILL",
+     "correct_events": 1,
+     "correct_kept": 1,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": 1.0
+    },
+    {
+     "predicted_gloss": "STREET",
+     "correct_events": 1,
+     "correct_kept": 0,
+     "retention": 0.0,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": null
+    },
+    {
+     "predicted_gloss": "TABLE",
+     "correct_events": 1,
+     "correct_kept": 1,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": 1.0
+    },
+    {
+     "predicted_gloss": "WALK2",
+     "correct_events": 1,
+     "correct_kept": 0,
+     "retention": 0.0,
+     "wrong_or_fragment_kept": 1,
+     "precision_of_committed": 0.0
+    },
+    {
+     "predicted_gloss": "WATCH",
+     "correct_events": 1,
+     "correct_kept": 1,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 2,
+     "precision_of_committed": 0.333
+    },
+    {
+     "predicted_gloss": "WHERE",
+     "correct_events": 1,
+     "correct_kept": 1,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 1,
+     "precision_of_committed": 0.5
+    },
+    {
+     "predicted_gloss": "WHILE",
+     "correct_events": 1,
+     "correct_kept": 1,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": 1.0
+    },
+    {
+     "predicted_gloss": "WITH",
+     "correct_events": 1,
+     "correct_kept": 0,
+     "retention": 0.0,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": null
+    },
+    {
+     "predicted_gloss": "YOU",
+     "correct_events": 1,
+     "correct_kept": 1,
+     "retention": 1.0,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": 1.0
+    },
+    {
+     "predicted_gloss": "ALWAYS",
+     "correct_events": 0,
+     "correct_kept": 0,
+     "retention": null,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": null
+    },
+    {
+     "predicted_gloss": "BABY1",
+     "correct_events": 0,
+     "correct_kept": 0,
+     "retention": null,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": null
+    },
+    {
+     "predicted_gloss": "BECOME",
+     "correct_events": 0,
+     "correct_kept": 0,
+     "retention": null,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": null
+    },
+    {
+     "predicted_gloss": "CANNOT",
+     "correct_events": 0,
+     "correct_kept": 0,
+     "retention": null,
+     "wrong_or_fragment_kept": 1,
+     "precision_of_committed": 0.0
+    },
+    {
+     "predicted_gloss": "CHAIR",
+     "correct_events": 0,
+     "correct_kept": 0,
+     "retention": null,
+     "wrong_or_fragment_kept": 2,
+     "precision_of_committed": 0.0
+    },
+    {
+     "predicted_gloss": "CLOTHES",
+     "correct_events": 0,
+     "correct_kept": 0,
+     "retention": null,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": null
+    },
+    {
+     "predicted_gloss": "COME",
+     "correct_events": 0,
+     "correct_kept": 0,
+     "retention": null,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": null
+    },
+    {
+     "predicted_gloss": "COOK",
+     "correct_events": 0,
+     "correct_kept": 0,
+     "retention": null,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": null
+    },
+    {
+     "predicted_gloss": "CUT",
+     "correct_events": 0,
+     "correct_kept": 0,
+     "retention": null,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": null
+    },
+    {
+     "predicted_gloss": "DIFFERENT",
+     "correct_events": 0,
+     "correct_kept": 0,
+     "retention": null,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": null
+    },
+    {
+     "predicted_gloss": "ENTER",
+     "correct_events": 0,
+     "correct_kept": 0,
+     "retention": null,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": null
+    },
+    {
+     "predicted_gloss": "FEEL",
+     "correct_events": 0,
+     "correct_kept": 0,
+     "retention": null,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": null
+    },
+    {
+     "predicted_gloss": "FEW",
+     "correct_events": 0,
+     "correct_kept": 0,
+     "retention": null,
+     "wrong_or_fragment_kept": 2,
+     "precision_of_committed": 0.0
+    },
+    {
+     "predicted_gloss": "GIFT",
+     "correct_events": 0,
+     "correct_kept": 0,
+     "retention": null,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": null
+    },
+    {
+     "predicted_gloss": "GIVE",
+     "correct_events": 0,
+     "correct_kept": 0,
+     "retention": null,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": null
+    },
+    {
+     "predicted_gloss": "HAPPY",
+     "correct_events": 0,
+     "correct_kept": 0,
+     "retention": null,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": null
+    },
+    {
+     "predicted_gloss": "HOSPITAL1",
+     "correct_events": 0,
+     "correct_kept": 0,
+     "retention": null,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": null
+    },
+    {
+     "predicted_gloss": "KID",
+     "correct_events": 0,
+     "correct_kept": 0,
+     "retention": null,
+     "wrong_or_fragment_kept": 1,
+     "precision_of_committed": 0.0
+    },
+    {
+     "predicted_gloss": "KNOW",
+     "correct_events": 0,
+     "correct_kept": 0,
+     "retention": null,
+     "wrong_or_fragment_kept": 1,
+     "precision_of_committed": 0.0
+    },
+    {
+     "predicted_gloss": "LAST",
+     "correct_events": 0,
+     "correct_kept": 0,
+     "retention": null,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": null
+    },
+    {
+     "predicted_gloss": "LIKE",
+     "correct_events": 0,
+     "correct_kept": 0,
+     "retention": null,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": null
+    },
+    {
+     "predicted_gloss": "LIVE2",
+     "correct_events": 0,
+     "correct_kept": 0,
+     "retention": null,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": null
+    },
+    {
+     "predicted_gloss": "MAKE",
+     "correct_events": 0,
+     "correct_kept": 0,
+     "retention": null,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": null
+    },
+    {
+     "predicted_gloss": "MEAT1",
+     "correct_events": 0,
+     "correct_kept": 0,
+     "retention": null,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": null
+    },
+    {
+     "predicted_gloss": "MONTH",
+     "correct_events": 0,
+     "correct_kept": 0,
+     "retention": null,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": null
+    },
+    {
+     "predicted_gloss": "MOTHER",
+     "correct_events": 0,
+     "correct_kept": 0,
+     "retention": null,
+     "wrong_or_fragment_kept": 1,
+     "precision_of_committed": 0.0
+    },
+    {
+     "predicted_gloss": "NICE",
+     "correct_events": 0,
+     "correct_kept": 0,
+     "retention": null,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": null
+    },
+    {
+     "predicted_gloss": "OLD",
+     "correct_events": 0,
+     "correct_kept": 0,
+     "retention": null,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": null
+    },
+    {
+     "predicted_gloss": "ON",
+     "correct_events": 0,
+     "correct_kept": 0,
+     "retention": null,
+     "wrong_or_fragment_kept": 1,
+     "precision_of_committed": 0.0
+    },
+    {
+     "predicted_gloss": "OPEN",
+     "correct_events": 0,
+     "correct_kept": 0,
+     "retention": null,
+     "wrong_or_fragment_kept": 1,
+     "precision_of_committed": 0.0
+    },
+    {
+     "predicted_gloss": "OUR",
+     "correct_events": 0,
+     "correct_kept": 0,
+     "retention": null,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": null
+    },
+    {
+     "predicted_gloss": "OVER",
+     "correct_events": 0,
+     "correct_kept": 0,
+     "retention": null,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": null
+    },
+    {
+     "predicted_gloss": "PAPER",
+     "correct_events": 0,
+     "correct_kept": 0,
+     "retention": null,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": null
+    },
+    {
+     "predicted_gloss": "PERSON",
+     "correct_events": 0,
+     "correct_kept": 0,
+     "retention": null,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": null
+    },
+    {
+     "predicted_gloss": "PLAY",
+     "correct_events": 0,
+     "correct_kept": 0,
+     "retention": null,
+     "wrong_or_fragment_kept": 1,
+     "precision_of_committed": 0.0
+    },
+    {
+     "predicted_gloss": "PLEASE",
+     "correct_events": 0,
+     "correct_kept": 0,
+     "retention": null,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": null
+    },
+    {
+     "predicted_gloss": "SOME",
+     "correct_events": 0,
+     "correct_kept": 0,
+     "retention": null,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": null
+    },
+    {
+     "predicted_gloss": "STUDENT",
+     "correct_events": 0,
+     "correct_kept": 0,
+     "retention": null,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": null
+    },
+    {
+     "predicted_gloss": "SURE",
+     "correct_events": 0,
+     "correct_kept": 0,
+     "retention": null,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": null
+    },
+    {
+     "predicted_gloss": "TAKE",
+     "correct_events": 0,
+     "correct_kept": 0,
+     "retention": null,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": null
+    },
+    {
+     "predicted_gloss": "TALK1",
+     "correct_events": 0,
+     "correct_kept": 0,
+     "retention": null,
+     "wrong_or_fragment_kept": 1,
+     "precision_of_committed": 0.0
+    },
+    {
+     "predicted_gloss": "TICKET",
+     "correct_events": 0,
+     "correct_kept": 0,
+     "retention": null,
+     "wrong_or_fragment_kept": 1,
+     "precision_of_committed": 0.0
+    },
+    {
+     "predicted_gloss": "TOMORROW",
+     "correct_events": 0,
+     "correct_kept": 0,
+     "retention": null,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": null
+    },
+    {
+     "predicted_gloss": "TOOMUCH",
+     "correct_events": 0,
+     "correct_kept": 0,
+     "retention": null,
+     "wrong_or_fragment_kept": 1,
+     "precision_of_committed": 0.0
+    },
+    {
+     "predicted_gloss": "WE",
+     "correct_events": 0,
+     "correct_kept": 0,
+     "retention": null,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": null
+    },
+    {
+     "predicted_gloss": "WHO",
+     "correct_events": 0,
+     "correct_kept": 0,
+     "retention": null,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": null
+    },
+    {
+     "predicted_gloss": "WIFE",
+     "correct_events": 0,
+     "correct_kept": 0,
+     "retention": null,
+     "wrong_or_fragment_kept": 1,
+     "precision_of_committed": 0.0
+    },
+    {
+     "predicted_gloss": "WINDOW",
+     "correct_events": 0,
+     "correct_kept": 0,
+     "retention": null,
+     "wrong_or_fragment_kept": 0,
+     "precision_of_committed": null
+    }
+   ]
+  },
+  "reproduces_published_gate_policy_json": {
+   "published_dev_gated": {
+    "correct": 173,
+    "wrong": 98
+   },
+   "recomputed_dev_gated": {
+    "correct": 173,
+    "wrong": 98
+   },
+   "match": true
+  }
+ }
+}

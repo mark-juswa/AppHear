@@ -124,6 +124,9 @@ android {
     val fingerspellContinuous = providers.gradleProperty("fingerspellContinuous").map { it.equals("true",ignoreCase=true) }.getOrElse(false)
     // FINGERSPELL-only practical decision/correction/commit UX (debug opt-in; default off == locked baseline).
     val fingerspellPractical = providers.gradleProperty("fingerspellPractical").map { it.equals("true",ignoreCase=true) }.getOrElse(false)
+    // Phase 1 (F-001) word-commit gate: rejects non-sign episodes and withholds low-confidence words.
+    // ON by default; `-PwordCommitGate=false` restores the previous commit-every-event behaviour.
+    val wordCommitGate = providers.gradleProperty("wordCommitGate").map { it.equals("true", ignoreCase = true) }.getOrElse(true)
     // Locks RecognitionActivity (WORD and FINGERSPELL) to portrait: rotation rebuilt the screen and wiped drafts. Debug opt-in.
     val recognitionPortrait = providers.gradleProperty("recognitionPortrait").map { it.equals("true",ignoreCase=true) }.getOrElse(false)
     val fingerspellDebug = providers.gradleProperty("fingerspell")
@@ -191,6 +194,7 @@ android {
             buildConfigField("boolean", "RECOGNITION_COORDINATION_ENABLED", (recognitionCoordination && fingerspellDebug && fingerspellContinuous && contextPhraseAssistDebug).toString())
             buildConfigField("boolean", "FINGERSPELL_CONTINUOUS_ENABLED", (fingerspellDebug && fingerspellContinuous).toString())
             buildConfigField("boolean", "FINGERSPELL_PRACTICAL_ENABLED", (fingerspellDebug && fingerspellContinuous && fingerspellPractical).toString())
+            buildConfigField("boolean", "WORD_COMMIT_GATE_ENABLED", wordCommitGate.toString())
             manifestPlaceholders["recognitionOrientation"] = if (recognitionPortrait) "portrait" else "unspecified"
             buildConfigField("boolean", "FINGERSPELL_EXPERIMENT_ENABLED", fingerspellDebug.toString())
             buildConfigField("boolean", "PROFILE_ACCOUNTS_ENABLED", profileAccounts.toString())
@@ -242,6 +246,7 @@ android {
             buildConfigField("boolean", "RECOGNITION_COORDINATION_ENABLED", "false")
             buildConfigField("boolean", "FINGERSPELL_CONTINUOUS_ENABLED", "false")
             buildConfigField("boolean", "FINGERSPELL_PRACTICAL_ENABLED", "false")
+            buildConfigField("boolean", "WORD_COMMIT_GATE_ENABLED", "true")
             buildConfigField("boolean", "FINGERSPELL_EXPERIMENT_ENABLED", "false")
             buildConfigField("boolean", "PROFILE_ACCOUNTS_ENABLED", "false")
             buildConfigField("boolean", "ASL_ASSET_PILOT_ENABLED", "false")

@@ -1356,7 +1356,9 @@ class RecognitionActivity : AppCompatActivity() {
         signingTurn.clear()
         val spelling = fingerspellRuntime
         if (spelling != null && !cameraExecutor.isShutdown) cameraExecutor.execute { spelling.pause() }
-        else phoneAnalyzer?.resetTemporalSession()
+        // Phase 2: reset on the camera executor, not here. resetTemporalSession shares the analyzer monitor, so a
+        // main-thread call can block the UI for as long as the in-flight frame (hundreds of ms on the target).
+        else if (!cameraExecutor.isShutdown) cameraExecutor.execute { phoneAnalyzer?.resetTemporalSession() }
         if (a1Active) {
             closeA1AnalyzerAsync(rebindWhenStarted = false)
         }

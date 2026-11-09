@@ -3,6 +3,7 @@ package com.example.apphear.perceptionvnext
 import android.content.Context
 import android.os.Build
 import android.util.Log
+import com.example.apphear.BuildConfig
 import com.example.apphear.contextassist.RecognitionEvidence
 import com.example.apphear.data.settings.RecognitionEngineSettings
 import com.example.apphear.pipeline.recognition.RecognitionState
@@ -29,18 +30,26 @@ internal class PhoneProductionSession private constructor(
         val s2InvocationMs: Double,
         val recognitionInvocationMs: Double?,
         val evidence: RecognitionEvidence? = null,
+        /** Set for every emitted sign event; null on frames with no event. Diagnostic only. */
+        val commitDecision: PhoneCommitDecision? = null,
     )
 
     private val features = PhoneSegmentationFeatureBuilder()
     private val episode = PhoneCausalEventProducer(configuration.decoderConfig())
     private val observations = PhoneObservationRingBuffer()
     private val sentence = SentenceBuilder()
+    /** Phase 1 (F-001): disabled by `-PwordCommitGate=false`, which restores the previous pass-through. */
+    private val committer = PhoneEventCommitter(
+        if (BuildConfig.WORD_COMMIT_GATE_ENABLED) configuration.commitPolicy() else PhoneCommitPolicy.DISABLED,
+        sentence,
+    )
     private var nextSourceIndex = 0
-    private var lastCommittedEventId = 0
     private var heldCommit: RecognitionState.Committed? = null
 
     val sentenceText: String @Synchronized get() = sentence.text()
     val isReady: Boolean get() = episode.state == PhoneDecoderState.IDLE
+    /** Display-only (see [phoneDisplayReady]); keeps "Initializing…" off the screen after a withheld event. */
+    val isReadyForDisplay: Boolean get() = phoneDisplayReady(episode.state, heldCommit != null)
     val displayLabel: String
         get() = if (fallbackReason == null) configuration.label else "${configuration.label} (experimental unavailable)"
 
@@ -57,30 +66,50 @@ internal class PhoneProductionSession private constructor(
         nextSourceIndex++
         val event = decision.event
         if (event != null) {
-            require(event.eventId > lastCommittedEventId) { "APP_PHONE_DUPLICATE_EVENT_ID" }
             val window = observations.materialize(event)
             val raw = phoneRecognitionRawSequence(window.observations)
             val view = RecognitionV2.temporalView(raw, RecognitionV2.TemporalCondition.DENSE)
             val prediction = recognizer.invoke(view, RecognitionV2.FEATURE_SCHEMA)
-            val top1 = prediction.top5.first()
-            val gloss = recognizer.glosses[top1]
-            val candidates = prediction.top5.map { recognizer.glosses[it] }
             val paired = pairedRecognizer?.invoke(view, RecognitionV2.FEATURE_SCHEMA)
+            // Phase 1 (F-001): the single place a top-1 becomes a committed word. A non-ACCEPT event
+            // never reaches the sentence, Context Assist evidence or the UI commit state.
+            val handFraction = phoneHandSpanFraction(
+                window.observations, event.logicalActiveStartIndex, event.logicalActiveEndIndex,
+            )
+            val result = committer.decide(
+                event.eventId, prediction.probabilities, prediction.top5, recognizer.glosses, handFraction,
+            )
+            val candidates = prediction.top5.map { recognizer.glosses[it] }
+            val committed = result.committed
+            if (committed == null) {
+                heldCommit = null
+                Log.i(TAG, "commit_gate outcome=${result.decision.outcome} reason=${result.decision.reason} " +
+                    "configuration=${configuration.name} event=${event.eventId} " +
+                    "window=${window.selectedStartIndex}..${window.selectedEndIndex} " +
+                    "handSpanFraction=${"%.2f".format(handFraction)} " +
+                    "top1Probability=${"%.3f".format(result.top1Probability)} " +
+                    "margin=${"%.3f".format(result.margin)} top5=${candidates.joinToString("|")}")
+                return Update(
+                    RecognitionState.Idle, episode.state, event.eventId, window.observations.size,
+                    result.top1Probability, state.invocationMs, prediction.invocationMs,
+                    evidence = null, commitDecision = result.decision,
+                )
+            }
             val evidence = RecognitionEvidence.fromExistingTop5(event.eventId, event.commitMs.toLong(),
                 prediction.top5, prediction.probabilities, recognizer.glosses)
-            sentence.add(gloss)
-            lastCommittedEventId = event.eventId
-            heldCommit = RecognitionState.Committed(gloss, top1, candidates)
+            heldCommit = committed
             Log.i(TAG, "commit configuration=${configuration.name} package=${packageId.name} " +
                 "event=${event.eventId} action=${decision.action} " +
                 "window=${window.selectedStartIndex}..${window.selectedEndIndex} " +
-                "observations=${window.observations.size} gloss=$gloss " +
-                "probability=${prediction.probabilities[top1]} word=${configuration.wordPackage().packageId} " +
+                "observations=${window.observations.size} gloss=${committed.gloss} " +
+                "probability=${result.top1Probability} word=${configuration.wordPackage().packageId} " +
+                "margin=${"%.3f".format(result.margin)} handSpanFraction=${"%.2f".format(handFraction)} " +
                 "wordMs=${"%.2f".format(prediction.invocationMs)} top5=${candidates.joinToString("|")}" +
                 pairedLog(paired))
             return Update(
-                checkNotNull(heldCommit), episode.state, event.eventId, window.observations.size,
-                prediction.probabilities[top1], state.invocationMs, prediction.invocationMs, evidence,
+                committed, episode.state, event.eventId, window.observations.size,
+                result.top1Probability, state.invocationMs, prediction.invocationMs, evidence,
+                commitDecision = result.decision,
             )
         }
         val uiState = when (episode.state) {
@@ -111,7 +140,7 @@ internal class PhoneProductionSession private constructor(
         episode.reset()
         observations.reset()
         nextSourceIndex = 0
-        lastCommittedEventId = 0
+        committer.reset()
         heldCommit = null
     }
 

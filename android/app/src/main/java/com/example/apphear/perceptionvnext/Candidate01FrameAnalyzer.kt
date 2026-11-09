@@ -146,7 +146,7 @@ internal class Candidate01FrameAnalyzer(
                 poseEveryN = 1,
                 recognition = update?.state ?: com.example.apphear.pipeline.recognition.RecognitionState.Idle,
                 phoneOverlay = overlay,
-                phoneReady = sourceIndex >= 4 && session.isReady,
+                phoneReady = sourceIndex >= 4 && session.isReadyForDisplay,
                 phoneSentence = session.sentenceText,
                 recognitionEvidence = update?.evidence,
             ))

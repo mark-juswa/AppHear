@@ -5701,3 +5701,19 @@ Recognition remains experimental; this baseline does not certify A–Z accuracy.
 ## Original word batch delivery — 2026-10-09
 
 273-entry Original catalog installed as flagged private debug extension: 32 ZIP replacements, 171 additions, STAND excluded/idle retained. 186 host tests and 2 device playback/catalog tests passed; ownership regression passed separately after combined window-focus timeout. Recognition and New Character remain untouched. Authoritative app checkout: C:/Users/Gigabyte/.codex/worktrees/fingerspell-continuous-oct05/5. Apphear3; branch codex/original-character-word-batch-2026-10-09. Frozen baseline remains 34f24ab6d7aea8179decb1688a82fc5734f6d370. See context/text-to-asl-original-words-v1.md. Mixed avatars and all-clips ASL correctness remain review limitations; no baseline commit/push performed. Next: supervisor reviews actual Original playback and appearance; do not change recognition.
+
+
+## 2026-11-09 — Phase 1 word-commit gate (F-001)
+
+Added a flagged commit gate at the single point where a Recognition-v2 top-1 becomes a committed word
+(`perceptionvnext/PhoneCommitGate.kt`, wired in `PhoneProductionSession.consume`). Outcomes ACCEPT / REJECT /
+UNCERTAIN; REJECT = no accepted hand in the logical sign span or unusable recognizer output; UNCERTAIN = top-1
+probability below the repo's held-out-signer-calibrated floor (STABLE 0.55, EXPERIMENTAL 0.75, WORD_BLEND none).
+Build flag `WORD_COMMIT_GATE_ENABLED` (`-PwordCommitGate=false` restores previous behaviour; default ON, release ON).
+Camera, Candidate01, S2, decoder, materializer, Recognition-v2, vocabulary, models and SentenceBuilder unchanged.
+Offline replay of existing ledgers (held-out DEV signers, STABLE): correct words 135 -> 101 (25.2% withheld), wrong
+events 242 -> 102; precision 0.36 -> 0.50. Phone (dev-exposed, n small): non-sign events 7 -> 1. Not a live accuracy
+claim. 356/356 JVM tests (336 existing + 20 new) pass; release and androidTest compile; no device run.
+Details and limitations: `docs/PHASE_1_RECOGNITION_RELIABILITY.md`. Not committed.
+
+
