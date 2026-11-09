@@ -5787,3 +5787,15 @@ analyzer saturated at ~6.3-7 fps. Emulator only, one subject. Per-frame DWPose s
 See docs/HAND_DIAGNOSTICS_CONTROLLED_TESTING_REPORT.md. Not committed.
 
 
+## 2026-11-10 — DWPose duplicate-proposal validation, phase 2 (offline experiments; no app change, no fix)
+
+Ran the shipped DWPose-t + hand refiner offline (repo reference preprocessing) on a 516-frame labelled webcam session (12 scripted poses, one subject).
+The opposite hand group echoes a single hand in 100% of frames in all 7 one-hand poses (left and right, near/far/pointing/wave), also on mirrored frames;
+echo support 0.12-0.24 (15-21/21 points >= 0.10) vs empty-scene 0.07-0.09 and real hands >= 0.27; the 0.10 gate is a noise filter, not an echo filter.
+Refiner handedness = chirality score ("P(right hand)") on the pixels shown, same convention as DWPose; flips with a flipped crop; bimodal, not calibrated,
+unreliable for near/truncated hands and crossing. M2 rare (3/387). Group support separates echo from real (AUC 0.998, one subject); overlap signals weakest;
+weak/strong support ratio is a candidate scale-free signal (echo 0.17-0.40, genuine pairs 0.87-1.0). Tools: eval/hand_diagnostics/{offline_probe,capture_pose_session,analyze_probe}.py,
+fail-safe device metadata in capture_scenario.sh, phone profiling protocol. Fix NOT implemented (needs more subjects, unequal pairs, edge hands, phone, 236-class suite).
+See docs/DWPOSE_DUPLICATE_PROPOSAL_VALIDATION.md. Not committed.
+
+

@@ -1,0 +1,107 @@
+{
+ "none": {
+  "truth": {
+   "L": false,
+   "R": false
+  },
+  "instruction": "No hands. Put both hands down, out of the picture.",
+  "frames": 43,
+  "fps": 6.0
+ },
+ "R_near_open": {
+  "truth": {
+   "L": false,
+   "R": true
+  },
+  "instruction": "Right hand only. Palm to the camera, fingers open, close to the camera.",
+  "frames": 43,
+  "fps": 6.0
+ },
+ "R_far_open": {
+  "truth": {
+   "L": false,
+   "R": true
+  },
+  "instruction": "Right hand only. Palm to the camera, fingers open, far from the camera. Lean back.",
+  "frames": 43,
+  "fps": 6.0
+ },
+ "R_point": {
+  "truth": {
+   "L": false,
+   "R": true
+  },
+  "instruction": "Right hand only. Index finger pointing up, other fingers closed.",
+  "frames": 43,
+  "fps": 6.0
+ },
+ "L_near_open": {
+  "truth": {
+   "L": true,
+   "R": false
+  },
+  "instruction": "Left hand only. Palm to the camera, fingers open, close to the camera.",
+  "frames": 43,
+  "fps": 6.0
+ },
+ "L_far_open": {
+  "truth": {
+   "L": true,
+   "R": false
+  },
+  "instruction": "Left hand only. Palm to the camera, fingers open, far from the camera. Lean back.",
+  "frames": 43,
+  "fps": 6.0
+ },
+ "L_point": {
+  "truth": {
+   "L": true,
+   "R": false
+  },
+  "instruction": "Left hand only. Index finger pointing up, other fingers closed.",
+  "frames": 43,
+  "fps": 6.0
+ },
+ "both_apart": {
+  "truth": {
+   "L": true,
+   "R": true
+  },
+  "instruction": "Both hands. Palms to the camera, clearly apart from each other.",
+  "frames": 43,
+  "fps": 6.0
+ },
+ "both_touching": {
+  "truth": {
+   "L": true,
+   "R": true
+  },
+  "instruction": "Both hands. Palms pressed together.",
+  "frames": 43,
+  "fps": 6.0
+ },
+ "both_crossing": {
+  "truth": {
+   "L": true,
+   "R": true
+  },
+  "instruction": "Both hands. Cross your forearms in an X, both hands visible.",
+  "frames": 43,
+  "fps": 6.0
+ },
+ "R_fast_wave": {
+  "truth": {
+   "L": false,
+   "R": true
+  },
+  "instruction": "Right hand only. Wave fast from side to side.",
+  "frames": 43,
+  "fps": 6.0
+ },
+ "R_enter_leave": {
+  "truth": null,
+  "instruction": "Right hand only. Raise it into view, lower it out of view, about once a second.",
+  "frames": 43,
+  "fps": 6.0
+ }
+}

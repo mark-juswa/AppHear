@@ -2,6 +2,10 @@
 import json
 import unittest
 
+try:  # numpy is only present in the investigation venv, not in the repo's baseline environment
+    from eval.hand_diagnostics import analyze_probe as P
+except ModuleNotFoundError:
+    P = None
 from eval.hand_diagnostics import analyze_scenarios as A
 
 DETECT = ("11-10 02:00:00.000  1  2 I AppHearDetect: in=112 ok=111 camDropEst=259 faults=0 recov=0/0 fatal=0 fpsIn=5.2 fpsOk=5.1 busy=98.1% "
@@ -58,6 +62,70 @@ class FrameTests(unittest.TestCase):
         self.assertEqual(r["latency_ms"]["analyzer_ms"]["p50"], 200.0)
         self.assertEqual(r["latency_ms"]["session_ms(analyzer-perception)"]["p50"], 10.0)
         self.assertEqual(r["median_share_of_analyzer_pct"]["pose_inference_and_output_ms"], 45.0)
+
+
+@unittest.skipUnless(P is not None, "needs numpy (investigation venv)")
+class ProbeAnalysisTests(unittest.TestCase):
+    def test_auc_basic_and_ties(self):
+        self.assertEqual(P.auc([3, 4], [1, 2]), 1.0)
+        self.assertEqual(P.auc([1, 2], [3, 4]), 0.0)
+        self.assertEqual(P.auc([1, 1], [1, 1]), 0.5)
+        self.assertIsNone(P.auc([], [1]))
+
+    def test_box_ious(self):
+        sq = [[0, 0], [10, 0], [0, 10], [10, 10]]
+        self.assertEqual(P.skeleton_iou(sq, sq), 1.0)
+        self.assertEqual(P.skeleton_iou(sq, [[20, 20], [30, 20], [20, 30]]), 0.0)
+        self.assertEqual(P.roi_iou([5, 5, 10], [5, 5, 10]), 1.0)
+        self.assertEqual(P.roi_iou(None, [5, 5, 10]), 0.0)
+
+    @staticmethod
+    def _group(support, roi, presence=0.99, handedness=0.5, observed_=True):
+        g = {"support_mean": support, "support_max": support, "support_p50": support, "n_ge_010": 21, "n_ge_030": 21 if support >= 0.3 else 0,
+             "wrist_xy": [roi[0], roi[1]], "wrist_support": support, "roi": roi}
+        g["refined"] = {"presence": presence if observed_ else 0.1, "handedness": handedness, "n_valid": 21,
+                        "xy": [[roi[0] + i, roi[1] + i] for i in range(21)]}
+        g["refined_flipped_crop"] = {"presence": 0.9, "handedness": 1 - handedness, "n_valid": 21, "xy": []}
+        return g
+
+    def _frame(self, seg, n, gl, gr):
+        wrist = {"L": {"xy": [100.0, 100.0], "support": 0.5}, "R": {"xy": [100.0, 100.0], "support": 0.5}}
+        mk = lambda: {"size": [480, 640], "body_wrist": wrist, "groups": {"L": gl, "R": gr}}
+        return {"segment": seg, "n": n, "normal": mk(), "mirrored_image": mk()}
+
+    def test_slot_consistency_follows_the_measured_convention(self):
+        # value = P(right hand) on the unmirrored crop: a right-slot group with 0.98 is consistent, a left-slot group with 0.98 is not
+        r = self._frame("s", 0, self._group(0.2, [100, 100, 60], handedness=0.98), self._group(0.7, [100, 100, 60], handedness=0.98))
+        self.assertAlmostEqual(P.group_features(r, "R")["slot_consistency"], 0.98)
+        self.assertAlmostEqual(P.group_features(r, "L")["slot_consistency"], 0.02)
+
+    def test_phantom_vs_real_table_labels_and_sweep(self):
+        sched = {"one": {"truth": {"L": False, "R": True}}, "none": {"truth": {"L": False, "R": False}},
+                 "both_apart": {"truth": {"L": True, "R": True}}, "dyn": {"truth": None}}
+        rows = [self._frame("one", i, self._group(0.15, [100, 100, 60]), self._group(0.6, [105, 100, 60])) for i in range(5)]
+        rows += [self._frame("both_apart", i, self._group(0.8, [100, 100, 60]), self._group(0.78, [110, 100, 60])) for i in range(5)]
+        rows += [self._frame("none", 0, self._group(0.07, [100, 100, 60], observed_=False), self._group(0.07, [100, 100, 60], observed_=False))]
+        rows += [self._frame("dyn", 0, self._group(0.5, [100, 100, 60]), self._group(0.5, [100, 100, 60]))]
+        table = P.build_table(rows, sched)
+        self.assertEqual(len(table), 20)                      # 'none' (unobserved) and 'dyn' (dynamic) excluded
+        self.assertEqual(sum(1 for t in table if not t["real"]), 5)
+        self.assertTrue(all(t["real"] for t in table if t["segment"] == "both_apart"))
+        self.assertEqual(P.single_signal_aucs(table)["support_mean"]["auc_all_real_vs_phantom"], 1.0)
+        sweep = P.support_ratio_sweep(rows, sched)["categories"]
+        self.assertEqual(sweep["phantom_one_hand"]["fraction_weaker_group_dropped"]["0.4"], 1.0)
+        self.assertEqual(sweep["two_hand_apart"]["fraction_weaker_group_dropped"]["0.7"], 0.0)
+
+    def test_loso_on_separable_table(self):
+        table = []
+        for seg in ("a", "b", "c"):
+            for i in range(10):
+                table.append({"segment": seg, "real": True, "two_hands": False, "support_mean": 0.6 + 0.01 * i, "n_ge_030": 21, "presence": 0.9,
+                              "slot_consistency": 0.9, "wrist_agreement": -0.5, "body_wrist_support": 0.5})
+                table.append({"segment": seg, "real": False, "two_hands": False, "support_mean": 0.15 + 0.01 * i, "n_ge_030": 0, "presence": 0.9,
+                              "slot_consistency": 0.1, "wrist_agreement": -3.0, "body_wrist_support": 0.0})
+        r = P.loso_logistic(table, ["support_mean"])
+        self.assertGreater(r["auc_out_of_segment"], 0.99)
+        self.assertEqual(r["phantom_rejected_at_p0.5"], 1.0)
 
 
 class CaptureIntervalTests(unittest.TestCase):
