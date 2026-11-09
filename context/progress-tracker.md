@@ -5717,3 +5717,16 @@ claim. 356/356 JVM tests (336 existing + 20 new) pass; release and androidTest c
 Details and limitations: `docs/PHASE_1_RECOGNITION_RELIABILITY.md`. Not committed.
 
 
+## 2026-11-09 — Phase 1.1 shadow validation instrument (no evidence yet)
+
+Added an observe-only, bounded, non-blocking shadow log (`perceptionvnext/ShadowEvalLog.kt`, debug build property
+`-PshadowEval=true`, default OFF, release hard-coded OFF) that records per sign event the original behaviour (commit every
+top-1) next to the Phase 1 gate decision, with confidence, reason, configuration and span metadata; no images, no
+identifiers, files in noBackupFilesDir, <= 2 MiB. Analysis tool `eval/shadow_validation/shadow_report.py` joins logs to
+blind human labels (annotation hash freeze, key allow-list, signer-leakage refusal) and reports per configuration, signer,
+class, non-sign activity and condition with Wilson intervals. No threshold, model, camera or decoder change.
+376/376 JVM tests (356 + 20 new), 29 Python tests, release + androidTest compile pass; emulator wiring smoke only (no
+signer, no events). No real-signer data exists: the gate's real-world effect remains unmeasured.
+Protocol, procedure and limitations: `docs/PHASE_1_1_SHADOW_VALIDATION.md`. Not committed.
+
+

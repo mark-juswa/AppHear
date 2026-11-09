@@ -1,0 +1,16 @@
+{
+  "schema": "apphear.shadow_annotations.v1",
+  "sessions": {
+    "E01_dim_far_slow_r1": {
+      "signs": [
+        {"start_ms": 10000, "end_ms": 11000, "gloss": "HELLO", "annotator": "A1"}
+      ],
+      "nonsign": [
+        {"start_ms": 40000, "end_ms": 46000, "activity": "seat_adjustment", "annotator": "A1"}
+      ],
+      "excluded": [
+        {"start_ms": 60000, "end_ms": 62000, "reason": "annotator_uncertain", "annotator": "A1"}
+      ]
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "schema": "apphear.shadow_manifest.v1",
+  "study_id": "REPLACE_ME",
+  "evidence_tier": "live_device",
+  "annotation_file": "annotations.json",
+  "annotation_sha256": "REPLACE_WITH_sha256sum_OF_THE_LOCKED_ANNOTATION_FILE",
+  "annotation_locked_utc": "REPLACE_ME (ISO-8601, BEFORE the app logs were pulled)",
+  "annotators": {
+    "count": 2,
+    "blind_to_model_output": true,
+    "attestation": "REPLACE_ME: who annotated, from video only, without seeing app output"
+  },
+  "signer_registry": "signer_registry.json",
+  "clock_tolerance_ms": 300,
+  "sessions": [
+    {
+      "run_label": "E01_dim_far_slow_r1",
+      "signer_id": "E01",
+      "role": "evaluation",
+      "video_t0_wall_utc_ms": 0,
+      "conditions": {"lighting": "dim", "distance": "far", "speed": "slow"}
+    }
+  ]
+}

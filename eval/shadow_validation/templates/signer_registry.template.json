@@ -1,0 +1,5 @@
+{
+  "note": "List EVERY signer id that appears in any training, tuning or threshold-calibration data, including the phone design signer and the two declared signers of the existing phone sessions. Evaluation signers must not appear here.",
+  "training_signers": ["REPLACE_ME"],
+  "calibration_signers": ["asl_citizen:P5", "asl_citizen:P12", "asl_citizen:P21", "REPLACE_ME"]
+}

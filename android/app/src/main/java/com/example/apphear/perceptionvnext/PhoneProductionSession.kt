@@ -2,6 +2,7 @@ package com.example.apphear.perceptionvnext
 
 import android.content.Context
 import android.os.Build
+import android.os.SystemClock
 import android.util.Log
 import com.example.apphear.BuildConfig
 import com.example.apphear.contextassist.RecognitionEvidence
@@ -20,6 +21,8 @@ internal class PhoneProductionSession private constructor(
     val configuration: PhoneRecognitionConfiguration,
     /** Set when EXPERIMENTAL was selected but could not load, so STABLE is running instead. */
     val fallbackReason: String? = null,
+    /** Phase 1.1 observe-only evaluation log; null unless a `-PshadowEval=true` debug build. */
+    private val shadow: ShadowEvalLog? = null,
 ) : AutoCloseable {
     data class Update(
         val state: RecognitionState,
@@ -80,6 +83,7 @@ internal class PhoneProductionSession private constructor(
                 event.eventId, prediction.probabilities, prediction.top5, recognizer.glosses, handFraction,
             )
             val candidates = prediction.top5.map { recognizer.glosses[it] }
+            shadowObserve(observation, event, window, prediction, result, handFraction, state.invocationMs)
             val committed = result.committed
             if (committed == null) {
                 heldCommit = null
@@ -123,6 +127,61 @@ internal class PhoneProductionSession private constructor(
         return Update(uiState, episode.state, null, null, null, state.invocationMs, null)
     }
 
+    /**
+     * Phase 1.1: hand the already-computed numbers to the shadow log. Observe-only by construction: it is
+     * called after the committer has decided, receives copies, adds no inference, never throws and never
+     * blocks (the log offers into a bounded queue).
+     */
+    private fun shadowObserve(
+        observation: PhoneRawObservation,
+        event: PhoneLogicalSignEvent,
+        window: PhoneMaterializedWindow,
+        prediction: RecognitionV2LiveRecognizer.Prediction,
+        result: PhoneEventCommitter.Result,
+        handFraction: Double,
+        s2Ms: Double,
+    ) {
+        val log = shadow ?: return
+        try {
+            val policy = configuration.commitPolicy()
+            val p1 = result.top1Probability
+            val p2 = p1 - result.margin
+            // With the gate off the committer reports GATE_DISABLED; the policy is still evaluated here, purely
+            // arithmetically, so the log always shows what the gate WOULD have decided.
+            val gated = if (BuildConfig.WORD_COMMIT_GATE_ENABLED) result.decision
+            else policy.evaluate(PhoneCommitEvidence(p1, p2, handFraction))
+            val start = window.observations.firstOrNull { it.sourceIndex == event.logicalActiveStartIndex }
+            val end = window.observations.firstOrNull { it.sourceIndex == event.logicalActiveEndIndex }
+            val lagMs = (SystemClock.elapsedRealtimeNanos() - observation.timestampMs * 1_000_000.0) / 1_000_000.0
+            log.record(ShadowEventRecord(
+                wallClockUtcMs = System.currentTimeMillis(),
+                configuration = configuration.name,
+                s2Package = packageId.name,
+                fallback = fallbackReason != null,
+                gateEnabled = BuildConfig.WORD_COMMIT_GATE_ENABLED,
+                floor = policy.minTop1Probability,
+                handRule = policy.requireHandEvidenceInSpan,
+                eventId = event.eventId,
+                top5Glosses = prediction.top5.map { recognizer.glosses[it] },
+                top1Probability = p1,
+                top2Probability = p2,
+                handSpanFraction = handFraction,
+                spanObservations = event.logicalActiveEndIndex - event.logicalActiveStartIndex + 1,
+                windowObservations = window.observations.size,
+                spanStartAgoMs = start?.let { observation.timestampMs - it.timestampMs } ?: Double.NaN,
+                spanEndAgoMs = end?.let { observation.timestampMs - it.timestampMs } ?: Double.NaN,
+                s2InvocationMs = s2Ms,
+                recognitionInvocationMs = prediction.invocationMs,
+                captureToDecisionMs = ShadowEvalLog.plausibleLagMs(lagMs),
+                gatedOutcome = gated.outcome,
+                gatedReason = gated.reason,
+                actuallyCommitted = result.committed != null,
+            ))
+        } catch (_: Throwable) {
+            // Shadow evaluation must never affect recognition.
+        }
+    }
+
     private fun pairedLog(paired: RecognitionV2LiveRecognizer.Prediction?): String {
         val other = pairedRecognizer ?: return ""
         val p = paired ?: return ""
@@ -142,9 +201,11 @@ internal class PhoneProductionSession private constructor(
         nextSourceIndex = 0
         committer.reset()
         heldCommit = null
+        shadow?.generationReset()
     }
 
     override fun close() {
+        shadow?.close()
         pairedRecognizer?.close()
         recognizer.close()
         s2.close()
@@ -187,10 +248,12 @@ internal class PhoneProductionSession private constructor(
             val packageId = configuration.s2Package()
             val s2 = PhoneS2Runner(context, packageId)
             var recognizer: RecognitionV2LiveRecognizer? = null
+            var shadow: ShadowEvalLog? = null
             return try {
                 recognizer = RecognitionV2LiveRecognizer(context, configuration.wordPackage())
                 val paired = configuration.pairedWordPackage()?.let { RecognitionV2LiveRecognizer(context, it) }
-                PhoneProductionSession(s2, recognizer, paired, packageId, configuration, fallbackReason).also {
+                shadow = if (BuildConfig.SHADOW_EVAL_ENABLED) createShadowEvalLog(context, configuration, packageId) else null
+                PhoneProductionSession(s2, recognizer, paired, packageId, configuration, fallbackReason, shadow).also {
                     Log.i(TAG, "configuration=${configuration.name} package=${packageId.name} " +
                         "word=${configuration.wordPackage().packageId} " +
                         "wordModel=${configuration.wordPackage().modelSha256.take(12)} " +
@@ -198,6 +261,7 @@ internal class PhoneProductionSession private constructor(
                         "fallback=${fallbackReason != null}")
                 }
             } catch (error: Throwable) {
+                shadow?.close()
                 recognizer?.close()
                 s2.close()
                 throw error
