@@ -129,6 +129,8 @@ android {
     val wordCommitGate = providers.gradleProperty("wordCommitGate").map { it.equals("true", ignoreCase = true) }.getOrElse(true)
     // Phase 1.1 observe-only shadow evaluation log (debug opt-in, default OFF; release is hard-coded false).
     val shadowEval = providers.gradleProperty("shadowEval").map { it.equals("true", ignoreCase = true) }.getOrElse(false)
+    // Shadow-only DWPose echo counterfactual (logs signals, never changes behaviour). OFF by default; always false in release.
+    val handEchoShadow = providers.gradleProperty("handEchoShadow").map { it.equals("true", ignoreCase = true) }.getOrElse(false)
     // Locks RecognitionActivity (WORD and FINGERSPELL) to portrait: rotation rebuilt the screen and wiped drafts. Debug opt-in.
     val recognitionPortrait = providers.gradleProperty("recognitionPortrait").map { it.equals("true",ignoreCase=true) }.getOrElse(false)
     val fingerspellDebug = providers.gradleProperty("fingerspell")
@@ -198,6 +200,7 @@ android {
             buildConfigField("boolean", "FINGERSPELL_PRACTICAL_ENABLED", (fingerspellDebug && fingerspellContinuous && fingerspellPractical).toString())
             buildConfigField("boolean", "WORD_COMMIT_GATE_ENABLED", wordCommitGate.toString())
             buildConfigField("boolean", "SHADOW_EVAL_ENABLED", shadowEval.toString())
+            buildConfigField("boolean", "HAND_ECHO_SHADOW_ENABLED", handEchoShadow.toString())
             manifestPlaceholders["recognitionOrientation"] = if (recognitionPortrait) "portrait" else "unspecified"
             buildConfigField("boolean", "FINGERSPELL_EXPERIMENT_ENABLED", fingerspellDebug.toString())
             buildConfigField("boolean", "PROFILE_ACCOUNTS_ENABLED", profileAccounts.toString())
@@ -251,6 +254,7 @@ android {
             buildConfigField("boolean", "FINGERSPELL_PRACTICAL_ENABLED", "false")
             buildConfigField("boolean", "WORD_COMMIT_GATE_ENABLED", "true")
             buildConfigField("boolean", "SHADOW_EVAL_ENABLED", "false")
+            buildConfigField("boolean", "HAND_ECHO_SHADOW_ENABLED", "false")
             buildConfigField("boolean", "FINGERSPELL_EXPERIMENT_ENABLED", "false")
             buildConfigField("boolean", "PROFILE_ACCOUNTS_ENABLED", "false")
             buildConfigField("boolean", "ASL_ASSET_PILOT_ENABLED", "false")

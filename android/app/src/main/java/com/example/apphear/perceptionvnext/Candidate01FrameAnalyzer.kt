@@ -68,6 +68,8 @@ internal class Candidate01FrameAnalyzer(
     val handPairCounters = HandPairCounters()
     /** Capture-to-render accounting; installed for the UI thread only in debug builds (see [RenderLatencyProbe]). */
     private val renderMeter = RenderLatencyMeter(metrics)
+    /** Shadow-only DWPose echo counterfactual: logs signals and would-be suppressions, changes nothing. Off unless -PhandEchoShadow=true. */
+    private val echoShadow = HandEchoShadow(BuildConfig.HAND_ECHO_SHADOW_ENABLED)
     private var overlaySequence = 0
     private val supervisor = AnalyzerSupervisor(
         resetTemporalState = { resetAfterFault() },
@@ -155,6 +157,14 @@ internal class Candidate01FrameAnalyzer(
                 ),
             )
         } else handPairCounters.record(left.observed, right.observed, null, null)
+        if (echoShadow.enabled) {
+            // Read-only: copies nothing that feeds the observation, recognizer or overlay; failures are swallowed inside.
+            echoShadow.observe(
+                sourceIndex, System.currentTimeMillis(),
+                echoInput(left, PerceptionVNextMath.LEFT_HAND_START, 9, pose.decoded),
+                echoInput(right, PerceptionVNextMath.RIGHT_HAND_START, 10, pose.decoded),
+            )
+        }
         val bodyXy = FloatArray(16)
         val bodySupport = FloatArray(8)
         val bodyValid = BooleanArray(8)
@@ -329,6 +339,19 @@ internal class Candidate01FrameAnalyzer(
         return HandFrame(result.xySource, result.valid, result.observed, result.presence,
             true, support, roi, cropMs, result.inferenceMs, result.handednessDiagnostic)
     }
+
+    /** Echo-shadow view of one hand group. [bodyWristIndex]: COCO-WholeBody 9 = left wrist, 10 = right wrist. */
+    private fun echoInput(hand: HandFrame, start: Int, bodyWristIndex: Int, decoded: PerceptionVNextMath.Decoded): EchoGroupInput =
+        EchoGroupInput(
+            proposalPresent = hand.proposalPresent, observed = hand.observed,
+            supportMean = hand.proposalSupport.average().toFloat(),
+            pointsGe030 = hand.proposalSupport.count { it >= 0.30f }, pointsGe010 = hand.proposalSupport.count { it >= 0.10f },
+            presence = hand.presence, handedness = hand.handedness, roi = hand.roi,
+            wristXy = floatArrayOf(decoded.xy[start * 2], decoded.xy[start * 2 + 1]),
+            bodyWristXy = floatArrayOf(decoded.xy[bodyWristIndex * 2], decoded.xy[bodyWristIndex * 2 + 1]),
+            bodyWristSupport = decoded.support[bodyWristIndex],
+            refinedXy = hand.xy, refinedValid = hand.valid,
+        )
 
     private fun roiValues(roi: PerceptionVNextMath.HandRoi?): FloatArray =
         roi?.let { floatArrayOf(it.centerX, it.centerY, it.side) } ?: FloatArray(3)
